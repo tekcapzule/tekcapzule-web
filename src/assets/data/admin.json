@@ -1,0 +1,57 @@
+[
+  {
+    "title": "AWS Services",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "author": "Linjith K",
+    "publishedDate": "2021-06-24",
+    "ratings": "4",
+    "tags": ["Java", "AI", "Cloud"],
+    "duration": "10 mins",
+    "category": "Article",
+    "keyHighlights": "5"
+  },
+  {
+    "title": "AWS Services",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "author": "Linjith K",
+    "publishedDate": "2021-06-24",
+    "ratings": "4",
+    "tags": ["Java", "AI", "Cloud"],
+    "duration": "10 mins",
+    "category": "Article",
+    "keyHighlights": "5"
+  },
+  {
+    "title": "AWS Services",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "author": "Linjith K",
+    "publishedDate": "2021-06-24",
+    "ratings": "4",
+    "tags": ["Java", "AI", "Cloud"],
+    "duration": "10 mins",
+    "category": "Article",
+    "keyHighlights": "5"
+  },
+  {
+    "title": "AWS Services",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "author": "Linjith K",
+    "publishedDate": "2021-06-24",
+    "ratings": "4",
+    "tags": ["Java", "AI", "Cloud"],
+    "duration": "10 mins",
+    "category": "Article",
+    "keyHighlights": "5"
+  },
+  {
+    "title": "AWS Services",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "author": "Linjith K",
+    "publishedDate": "2021-06-24",
+    "ratings": "4",
+    "tags": ["Java", "AI", "Cloud"],
+    "duration": "10 mins",
+    "category": "Article",
+    "keyHighlights": "5"
+  }
+]
