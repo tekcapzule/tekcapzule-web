@@ -24,11 +24,11 @@ export class EventChannelService {
     this.observable = this.channel.asObservable();
   }
 
-  get eventChannel(): Observable<EventChannelOutput> {
+  getChannel(): Observable<EventChannelOutput> {
     return this.observable;
   }
 
-  publish(data?: any): void {
-    this.channel.emit(data);
+  publish(eventData: EventChannelOutput): void {
+    this.channel.emit(eventData);
   }
 }
