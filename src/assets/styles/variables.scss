@@ -1,0 +1,37 @@
+$primary-color: #E30045;
+$secondary-color: #434343;
+$black: #000;
+$white: #fff;
+$heading-color: #090909;
+$section-bg: #F8F8F8;
+
+
+
+/************* Fonts URL *************/
+
+$heading-fonts: PROXIMANOVABOLD;
+$heading-fonts-url: "../fonts/PROXIMA NOVA BOLD.OTF";
+
+$primary-font-regular: GTWalsheimPro-Regular;
+$primary-font-regular-url: "../fonts/GTWalsheimPro-Regular.ttf";
+
+$primary-font-light: GTWalsheimPro-Light;
+$primary-font-light-url: "../fonts/GTWalsheimPro-Light.ttf";
+
+$primary-font-bold: GTWalsheimPro-Bold;
+$primary-font-bold-url: "../fonts/GTWalsheimPro-Bold.ttf";
+
+$primary-font-medium: GTWalsheimPro-Medium;
+$primary-font-medium-url: "../fonts/GTWalsheimPro-Medium.ttf";
+
+$cardtitle-font: HelveticaNeueLTProBoldCondensed;
+$cardtitle-font-url: "../fonts/HelveticaNeueLTPro-BdCn.otf";
+
+@font-face {
+    font-family: HelveticaNeueLTPro;
+    src: url("../fonts/HelveticaNeueLTPro-HvCn.otf");
+}
+@mixin helveticaNeueFont {
+    font-family: HelveticaNeueLTPro;
+  }
+

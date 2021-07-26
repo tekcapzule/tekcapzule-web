@@ -1,0 +1,198 @@
+@import "./../../assets/styles/variables.scss";
+/*--------------------------------------------------------------
+# Hero Banner
+--------------------------------------------------------------*/
+
+#hero {
+    width: 100%;
+    height: 666px;
+    background-size: cover;
+    margin-bottom: 80px;
+    .container, .container-fluid {
+      padding-top: 84px;
+    }
+  
+    h1 {
+      margin: 0;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 64px;
+      color: #000;
+      span {
+          color: $primary-color;
+          text-transform: uppercase;
+      }
+    }
+  
+    h2 {
+      color: #636363;
+      margin: 10px 0 56px 0;
+      font-size: 27px;
+      font-family: $primary-font-regular;
+    }
+    .animated {
+      animation: up-down 2s ease-in-out infinite alternate-reverse both;
+    }
+  }
+  
+
+  @media (max-width: 991px) {
+    #hero {
+      text-align: center;
+ 
+      .container, .container-fluid {
+        padding-top: 68px;
+      }
+  
+      .animated {
+        -webkit-animation: none;
+        animation: none;
+      }
+  
+      .hero-img {
+        text-align: center;
+  
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #hero {
+      h1 {
+        font-size: 26px;
+        line-height: 36px;
+      }
+  
+      h2 {
+        font-size: 18px;
+        line-height: 24px;
+      }
+  
+      .hero-img img {
+        width: 60%;
+      }
+    }
+  }
+  
+  @media (max-width: 575px) {
+    #hero .hero-img img {
+      width: 80%;
+    }
+  }
+  
+  @-webkit-keyframes up-down {
+    0% {
+      transform: translateY(10px);
+    }
+  
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes up-down {
+    0% {
+      transform: translateY(10px);
+    }
+  
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+/*--------------------------------------------------------------
+# Intro Section
+--------------------------------------------------------------*/
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+    h2 {
+        font-size: 38px;
+    }
+  }
+
+/*--------------------------------------------------------------
+# Carousel Section
+--------------------------------------------------------------*/
+.carousel-card {
+    width: 405px;
+    height: 542px;  
+    box-shadow: 0px 3px 39px #0000000F;
+    border-radius: 20px;
+    margin: 0 20px;
+    .header-image{
+    img {
+        height: 209px;
+        width: 100%;
+    }
+}
+  .content{
+      padding: 0 30px;
+    .title{
+        font-size: 20px;
+        font-family: $cardtitle-font;
+        line-height: 23px;
+        min-height: 70px;
+        p {
+            font-family: $primary-font-medium;
+            font-size: 14px;
+            span {
+                font-family: $primary-font-regular;
+                color: #9B9B9B;
+            }
+        }
+    }
+    .description{
+        font-family: $primary-font-light;
+        font-size: 14px;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Install Now Section
+--------------------------------------------------------------*/
+
+.install-now{
+    background-image: url(../../assets/images/pattern-1.svg), url(../../assets/images/pattern-2.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    .content {
+        margin-top: 144px;
+    }
+    .gplay-img {
+        width: 353px;
+        height: 108px;
+        margin-bottom: 50px;
+    }
+}
+
+/*--------------------------------------------------------------
+# subscribe Section
+--------------------------------------------------------------*/
+
+.subscribe {
+    &.section-bg{
+        background: $section-bg;
+        padding: 95px;
+        .container {
+            background: $white;
+            padding: 75px;
+            .input-mail {
+                background: #F6F6F6;
+                border: 0 none;
+                padding: 14px;
+                border-radius: 10px;
+                width: 370px;
+                color: #A1A1A1;
+                font-family: $primary-font-medium;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+
+  

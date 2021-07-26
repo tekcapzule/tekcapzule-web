@@ -1,0 +1,108 @@
+@import "./variables.scss";
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #414141;
+  }
+  
+  a {
+    color: #414141;
+  }
+  
+  a:hover {
+    color: $primary-color;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-fonts;
+    color: $heading-color;
+  }
+
+
+/*--------------------------------------------------------------
+# Font Family
+---------------------------------------------------------------*/
+
+
+@font-face {
+    font-family: $heading-fonts;
+    src: url($heading-fonts-url);
+}
+
+@font-face {
+    font-family: $primary-font-regular;
+    src: url($primary-font-regular-url);
+}
+
+@font-face {
+    font-family: $primary-font-light;
+    src: url($primary-font-light-url);
+}
+
+@font-face {
+    font-family: $primary-font-bold;
+    src: url($primary-font-bold-url);
+}
+@font-face {
+    font-family: $primary-font-medium;
+    src: url($primary-font-medium-url);
+}
+@font-face {
+    font-family: $cardtitle-font;
+    src: url($cardtitle-font-url);
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Button Styles
+--------------------------------------------------------------*/
+.button {
+    border-radius: 42px;
+    height: 60px;
+    width: 222px;
+    font-family: $primary-font-bold;
+    font-size: 19px;
+    border: 2px solid $primary-color;
+
+    &.primary{
+        background-color: $primary-color;
+        color: $white;
+        margin-right: 15px;
+    }
+    &.secondary {
+        background-color: $white;
+        color: $primary-color;
+    }
+    &.tertiary {
+        border-radius: 8px!important;
+        background-color: $primary-color;
+        color: $white;
+        width: 170px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+.content-sub-text {
+    font-size: 23px;
+    font-family: $primary-font-regular;
+    line-height: 37px;
+    color: $secondary-color;
+}
+.follow-us {
+    margin-top: 38px;
+    a {
+        color: $primary-color;
+        font-size: 24px;
+        font-family: $primary-font-medium;
+        padding: 0 20px;
+        text-decoration: underline;
+        img{
+            padding-right: 10px;
+        }
+    }
+}
