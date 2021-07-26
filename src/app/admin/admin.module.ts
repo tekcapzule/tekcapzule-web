@@ -11,9 +11,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPageComponent } from './admin-page.component';
 
 @NgModule({
-  declarations: [
-    AdminPageComponent,
-  ],
+  declarations: [AdminPageComponent],
   imports: [
     CommonModule,
     MatTableModule,

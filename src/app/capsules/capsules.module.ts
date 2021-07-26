@@ -5,15 +5,8 @@ import { SharedModule } from '@app/shared';
 import { CapsulesRoutingModule } from './capsules-routing.module';
 import { CapsulesPageComponent } from './capsules-page.component';
 
-
 @NgModule({
-  declarations: [
-    CapsulesPageComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    CapsulesRoutingModule
-  ]
+  declarations: [CapsulesPageComponent],
+  imports: [CommonModule, SharedModule, CapsulesRoutingModule],
 })
-export class CapsulesModule { }
+export class CapsulesModule {}
