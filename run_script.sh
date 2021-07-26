@@ -26,7 +26,7 @@ docker_run_it() {
 
 docker_run_nonit() {
   docker run --rm \
-    --name mentoring-web-runner \
+    --name tekcapsule-web-runner \
     -v "$PWD":/app \
     akhilpb001/ng-cli:11.2.8 \
     /bin/sh -c "$SHELL_ARG"
@@ -86,7 +86,7 @@ elif [[ "$1" == "stop" ]]; then
 elif [[ "$1" == "shell" ]]; then
   echo "[INFO] Opening shell prompt in the container..."
   docker run -it --rm \
-    --name mentoring-web-shell \
+    --name tekcapsule-web-shell \
     -v "$PWD":/app \
     akhilpb001/ng-cli:11.2.8 /bin/sh
   exit
