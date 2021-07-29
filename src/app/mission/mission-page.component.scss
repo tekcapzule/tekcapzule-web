@@ -1,0 +1,27 @@
+@import "./../../assets/styles/variables.scss";
+
+.mission-page {
+        .tech-learning{
+            background-image: url(../../assets/images/grid.png);
+            padding-top: 105px;
+        }
+        p {
+            font-size: 20px;
+            font-family: $primary-font-regular;
+            line-height: 30px;
+            color: #5A5A5A;
+        }
+        .success-section{
+            background: url("../../assets/images/success-bg.svg") no-repeat;
+            padding-top: 70px;
+        }
+        .contact-form {
+            &.section-bg{
+                .container {
+                    background: $section-bg;
+                    padding: 50px 150px;
+                    border-radius: 27px;
+                }
+            }
+        }
+}
