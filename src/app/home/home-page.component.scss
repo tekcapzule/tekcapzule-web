@@ -11,24 +11,12 @@
     .container, .container-fluid {
       padding-top: 84px;
     }
-  
-    h1 {
-      margin: 0;
-      font-size: 45px;
-      font-weight: 700;
-      line-height: 64px;
-      color: #000;
-      span {
-          color: $primary-color;
-          text-transform: uppercase;
-      }
-    }
-  
-    h2 {
-      color: #636363;
-      margin: 10px 0 56px 0;
-      font-size: 27px;
-      font-family: $primary-font-regular;
+    .hero-text {
+        color: #636363;
+        margin: 10px 0 56px 0;
+        font-size: 27px;
+        font-family: $primary-font-regular;
+
     }
     .animated {
       animation: up-down 2s ease-in-out infinite alternate-reverse both;
@@ -102,54 +90,7 @@
       transform: translateY(-10px);
     }
   }
-/*--------------------------------------------------------------
-# Intro Section
---------------------------------------------------------------*/
-.section-title {
-    text-align: center;
-    padding-bottom: 30px;
-    h2 {
-        font-size: 38px;
-    }
-  }
 
-/*--------------------------------------------------------------
-# Carousel Section
---------------------------------------------------------------*/
-.carousel-card {
-    width: 405px;
-    height: 542px;  
-    box-shadow: 0px 3px 39px #0000000F;
-    border-radius: 20px;
-    margin: 0 20px;
-    .header-image{
-    img {
-        height: 209px;
-        width: 100%;
-    }
-}
-  .content{
-      padding: 0 30px;
-    .title{
-        font-size: 20px;
-        font-family: $cardtitle-font;
-        line-height: 23px;
-        min-height: 70px;
-        p {
-            font-family: $primary-font-medium;
-            font-size: 14px;
-            span {
-                font-family: $primary-font-regular;
-                color: #9B9B9B;
-            }
-        }
-    }
-    .description{
-        font-family: $primary-font-light;
-        font-size: 14px;
-    }
-  }
-}
 
 /*--------------------------------------------------------------
 # Install Now Section
@@ -180,6 +121,7 @@
         .container {
             background: $white;
             padding: 75px;
+            border-radius: 10px;
             .input-mail {
                 background: #F6F6F6;
                 border: 0 none;
