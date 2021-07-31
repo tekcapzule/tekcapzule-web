@@ -10,7 +10,7 @@ import { CapsulesModule } from '@app/capsules';
 import { TopicsModule } from '@app/topics';
 import { CommunityModule } from '@app/community';
 import { AdminModule } from '@app/admin';
-import { MissionModule } from './mission';
+import { MissionModule } from '@app/mission';
 
 @NgModule({
   declarations: [AppComponent],

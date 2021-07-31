@@ -2035,6 +2035,11 @@ bootstrap-scss@^4.6.0:
   resolved "https://registry.yarnpkg.com/bootstrap-scss/-/bootstrap-scss-4.6.0.tgz#1cc8227029fbd5680c2b0bdf42ceccfdc2f99bfa"
   integrity sha512-VfcGsMAjWpDpJi0d8DknZtJUaJJJkvmpku0Wg7FeJPbXQnqYp6+pkj2/zcZ7QWfRns/1Lt4WMP/QP1do58eDRg==
 
+bootstrap@^4.5.3:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.0.tgz#97b9f29ac98f98dfa43bf7468262d84392552fd7"
+  integrity sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw==
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -5945,12 +5950,12 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ngx-owl-carousel-o@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-owl-carousel-o/-/ngx-owl-carousel-o-6.0.0.tgz#3b1a7c58466f76eb84e06dc233b3dee38f61a9b4"
-  integrity sha512-jD6YkQ5PLGA4quR210nfFTQYOLj8Q1FHKOSyw8ZRH2GD85ImnEuFLJ31OyfrZQjPsfV3yMsaWaj6qVFqfjJbzg==
+ngx-bootstrap@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-7.0.0.tgz#bf944fb3c3530bc95af7937b5a86dd6df1e69354"
+  integrity sha512-ei9H3qpSg9OsN24eWFoDMI/sadYI6gH8WY1Tl2ZrYgwgAdBjf3sfF5MDQdzbugRmQ50GzwctH1FpzSpei9HvpQ==
   dependencies:
-    tslib "^2.1.0"
+    tslib "^2.0.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -8599,11 +8604,6 @@ tslib@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
-
-tslib@^2.1.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
-  integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
 
 tslint@~6.1.0:
   version "6.1.3"
