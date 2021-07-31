@@ -1,38 +1,38 @@
-@import "../../.././../assets/styles/variables.scss";
+@import '../../.././../assets/styles/variables.scss';
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    color: #414141;
-    font-size: 16px;
-    background-size: cover;
-    font-family: $primary-font-regular;
-    .footer-top {
-        padding: 50px 0 0;
-        position: relative;
-        .footer-logo {
-            width: 109px;
-            height: 21px;
-        }
-        .footer-links{
-            ul {
-                list-style: none;
-                padding: 20px 0 0;
-                margin: 0;
-              }
-          }
-          .g-play-img {
-            width: 138px;
-            height: 42px;
-          }
+  color: #414141;
+  font-size: 16px;
+  background-size: cover;
+  font-family: $primary-font-regular;
+  .footer-top {
+    padding: 50px 0 0;
+    position: relative;
+    .footer-logo {
+      width: 109px;
+      height: 21px;
+    }
+    .footer-links {
+      ul {
+        list-style: none;
+        padding: 20px 0 0;
+        margin: 0;
       }
-      .copyright{
-          font-size: 14px;
-          padding-bottom: 55px;
-      }
-      .social-links {
-          a{
-              padding-right: 20px;
-          }
-      }
+    }
+    .g-play-img {
+      width: 138px;
+      height: 42px;
+    }
   }
+  .copyright {
+    font-size: 14px;
+    padding-bottom: 55px;
+  }
+  .social-links {
+    a {
+      padding-right: 20px;
+    }
+  }
+}

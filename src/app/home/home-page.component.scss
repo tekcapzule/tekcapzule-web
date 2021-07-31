@@ -1,113 +1,112 @@
-@import "./../../assets/styles/variables.scss";
+@import './../../assets/styles/variables.scss';
 /*--------------------------------------------------------------
 # Hero Banner
 --------------------------------------------------------------*/
 
 #hero {
-    width: 100%;
-    height: 666px;
-    background-size: cover;
-    margin-bottom: 80px;
-    .container, .container-fluid {
-      padding-top: 84px;
-    }
-    .hero-text {
-        color: #636363;
-        margin: 10px 0 56px 0;
-        font-size: 27px;
-        font-family: $primary-font-regular;
+  width: 100%;
+  height: 666px;
+  background-size: cover;
+  margin-bottom: 80px;
+  .container,
+  .container-fluid {
+    padding-top: 84px;
+  }
+  .hero-text {
+    color: #636363;
+    margin: 10px 0 56px 0;
+    font-size: 27px;
+    font-family: $primary-font-regular;
+  }
+  .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+  }
+}
 
+@media (max-width: 991px) {
+  #hero {
+    text-align: center;
+
+    .container,
+    .container-fluid {
+      padding-top: 68px;
     }
+
     .animated {
-      animation: up-down 2s ease-in-out infinite alternate-reverse both;
+      -webkit-animation: none;
+      animation: none;
     }
-  }
-  
 
-  @media (max-width: 991px) {
-    #hero {
+    .hero-img {
       text-align: center;
- 
-      .container, .container-fluid {
-        padding-top: 68px;
-      }
-  
-      .animated {
-        -webkit-animation: none;
-        animation: none;
-      }
-  
-      .hero-img {
-        text-align: center;
-  
-        img {
-          width: 50%;
-        }
+
+      img {
+        width: 50%;
       }
     }
   }
-  
-  @media (max-width: 768px) {
-    #hero {
-      h1 {
-        font-size: 26px;
-        line-height: 36px;
-      }
-  
-      h2 {
-        font-size: 18px;
-        line-height: 24px;
-      }
-  
-      .hero-img img {
-        width: 60%;
-      }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    h1 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+
+    h2 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .hero-img img {
+      width: 60%;
     }
   }
-  
-  @media (max-width: 575px) {
-    #hero .hero-img img {
-      width: 80%;
-    }
+}
+
+@media (max-width: 575px) {
+  #hero .hero-img img {
+    width: 80%;
   }
-  
-  @-webkit-keyframes up-down {
-    0% {
-      transform: translateY(10px);
-    }
-  
-    100% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  @keyframes up-down {
-    0% {
-      transform: translateY(10px);
-    }
-  
-    100% {
-      transform: translateY(-10px);
-    }
+}
+
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
   }
 
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
 
 /*--------------------------------------------------------------
 # Install Now Section
 --------------------------------------------------------------*/
 
-.install-now{
-    background-image: url(../../assets/images/pattern-1.svg), url(../../assets/images/pattern-2.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    .content {
-        margin-top: 144px;
-    }
-    .gplay-img {
-        width: 353px;
-        height: 108px;
-        margin-bottom: 50px;
-    }
+.install-now {
+  background-image: url(../../assets/images/pattern-1.svg), url(../../assets/images/pattern-2.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  .content {
+    margin-top: 144px;
+  }
+  .gplay-img {
+    width: 353px;
+    height: 108px;
+    margin-bottom: 50px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -115,26 +114,23 @@
 --------------------------------------------------------------*/
 
 .subscribe {
-    &.section-bg{
-        background: $section-bg;
-        padding: 95px;
-        .container {
-            background: $white;
-            padding: 75px;
-            border-radius: 10px;
-            .input-mail {
-                background: #F6F6F6;
-                border: 0 none;
-                padding: 14px;
-                border-radius: 10px;
-                width: 370px;
-                color: #A1A1A1;
-                font-family: $primary-font-medium;
-                font-size: 20px;
-            }
-        }
+  &.section-bg {
+    background: $section-bg;
+    padding: 95px;
+    .container {
+      background: $white;
+      padding: 75px;
+      border-radius: 10px;
+      .input-mail {
+        background: #f6f6f6;
+        border: 0 none;
+        padding: 14px;
+        border-radius: 10px;
+        width: 370px;
+        color: #a1a1a1;
+        font-family: $primary-font-medium;
+        font-size: 20px;
+      }
     }
+  }
 }
-
-
-  
