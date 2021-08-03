@@ -5950,13 +5950,6 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ngx-bootstrap@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-7.0.0.tgz#bf944fb3c3530bc95af7937b5a86dd6df1e69354"
-  integrity sha512-ei9H3qpSg9OsN24eWFoDMI/sadYI6gH8WY1Tl2ZrYgwgAdBjf3sfF5MDQdzbugRmQ50GzwctH1FpzSpei9HvpQ==
-  dependencies:
-    tslib "^2.0.0"
-
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
