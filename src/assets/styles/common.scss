@@ -1,201 +1,206 @@
-@import "./variables.scss";
+@import './variables.scss';
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: "Open Sans", sans-serif;
-    color: #414141;
-  }
-  
-  a {
-    color: #414141;
-  }
-  
-  a:hover {
+  font-family: 'Open Sans', sans-serif;
+  color: #414141;
+}
+
+a {
+  color: #414141;
+}
+
+a:hover {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-fonts;
+  color: $heading-color;
+}
+h1 {
+  margin: 0;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #000;
+  span {
     color: $primary-color;
-    text-decoration: none;
+    text-transform: uppercase;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: $heading-fonts;
-    color: $heading-color;
-  }
-  h1 {
-    margin: 0;
-    font-size: 45px;
-    font-weight: 700;
-    line-height: 64px;
-    color: #000;
-    span {
-        color: $primary-color;
-        text-transform: uppercase;
-    }
-  }
+}
 
-  h2 {
-    margin-bottom: 15px;
-    font-size: 38px;
-  }
-  h3 {
-      font-size: 28px;
-      font-family: $primary-font-medium;
-  }
+h2 {
+  margin-bottom: 15px;
+  font-size: 38px;
+}
+h3 {
+  font-size: 28px;
+  font-family: $primary-font-medium;
+}
 
-  /*--------------------------------------------------------------
+/*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
 .section-title {
-    text-align: center;
-    padding-bottom: 30px;
-    h2 {
-        font-size: 38px;
-    }
-  }
-
+  text-align: center;
+  padding-bottom: 30px;
   h2 {
-    margin-bottom: 15px;
     font-size: 38px;
   }
-  h3 {
-      font-size: 28px;
-      font-family: $primary-font-medium;
-  }
+}
 
-  /*--------------------------------------------------------------
+h2 {
+  margin-bottom: 15px;
+  font-size: 38px;
+}
+h3 {
+  font-size: 28px;
+  font-family: $primary-font-medium;
+}
+
+/*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
 .section-title {
-    text-align: center;
-    padding-bottom: 30px;
-    h2 {
-        font-size: 38px;
-    }
+  text-align: center;
+  padding-bottom: 30px;
+  h2 {
+    font-size: 38px;
   }
+}
 
 /*--------------------------------------------------------------
 # Carousel Section
 --------------------------------------------------------------*/
 
 /* Carousel Slider Styles Starts */
-.carousel{
-  padding-top:114px;
+.carousel {
+  padding-top: 114px;
   margin-bottom: 80px;
-  .carousel-indicators li{
+  .carousel-indicators li {
     background-color: #ddd;
-    height:5px;
+    height: 5px;
     &.active {
-      background-color: #E30045;
+      background-color: #e30045;
     }
   }
-  .carousel-inner{
-    .carousel-item{
-      position:relative;
-      top:0;
-      height:580px;
-      width:100%;
-      .carousel-caption{
-        top:auto;
-        bottom:auto;
-        left:auto;
-        right:auto;
+  .carousel-inner {
+    .carousel-item {
+      position: relative;
+      top: 0;
+      height: 580px;
+      width: 100%;
+      .carousel-caption {
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
         text-align: left;
         .hero-text {
           color: #636363;
           margin: 10px 0 56px 0;
           font-size: 27px;
           font-family: $primary-font-regular;
-  
-      }
-      .animated {
-        animation: up-down 2s ease-in-out infinite alternate-reverse both;
-      }
+        }
+        .animated {
+          animation: up-down 2s ease-in-out infinite alternate-reverse both;
+        }
       }
     }
   }
 }
 /* Carousel Slider Styles End */
 .carousel-card {
-    width: 405px;
-    height: 540px;  
-    box-shadow: 0px 3px 39px #0000000F;
-    border-radius: 20px;
-    margin: 0 20px;
-    transition: 0.3s;
-    background: #fff;
-    &:hover{
-      transform: scale(1.08);
+  width: 405px;
+  height: 540px;
+  box-shadow: 0px 3px 39px #0000000f;
+  border-radius: 20px;
+  margin: 0 20px;
+  transition: 0.3s;
+  background: #fff;
+  &:hover {
+    transform: scale(1.08);
     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+  }
+  .icons {
+    text-align: center;
+    &.bookmark {
+      right: 0;
     }
-    .icons{
-      text-align:center;
-      &.bookmark{
-        right:0
-      }
-      &.labelRed, &.timer{
-        bottom: 20px;
-        width: auto;
-        background: $primary-color;
-        border-radius: 0px;
-        color: $white;
-        margin: 10px 10px;
-        font-size: 12px;
-        height: auto;
-        padding: 2px 7px;
-      }
-      &.timer{
-        right:0;
-        background: $black;
-        border: 1px solid $white;
-        border-radius: 2px;
-        span{
-          margin-left:5px;
-          vertical-align: middle;
-        }
-      }
+    &.labelRed,
+    &.timer {
+      bottom: 20px;
+      width: auto;
+      background: $primary-color;
+      border-radius: 0px;
+      color: $white;
+      margin: 10px 10px;
+      font-size: 12px;
+      height: auto;
+      padding: 2px 7px;
     }
-    .header-image {
-        height: 180px;
-        width: 100%;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom: 1px solid #f3f3f3;
-    }
-    .icons {
-      position: absolute;
-      background: #fff;
-      border-radius: 20px;
-      margin: 20px 25px;
-      padding: 7px;
-      height: 35px;
-      width: 35px;
-    }
-    .card-footer{
-      background: none;
-      border: 0 none;
-      img{
-        cursor: pointer;
+    &.timer {
+      right: 0;
+      background: $black;
+      border: 1px solid $white;
+      border-radius: 2px;
+      span {
+        margin-left: 5px;
+        vertical-align: middle;
       }
     }
-  .content{
-      padding: 0 30px;
-    .title{
-        font-size: 20px;
-        font-family: $cardtitle-font;
-        line-height: 23px;
-        min-height: 70px;
-        margin-top: 20px;
-        p {
-            font-family: $primary-font-medium;
-            font-size: 14px;
-            span {
-                font-family: $primary-font-regular;
-                color: #9B9B9B;
-            }
-        }
+  }
+  .header-image {
+    height: 180px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .icons {
+    position: absolute;
+    background: #fff;
+    border-radius: 20px;
+    margin: 20px 25px;
+    padding: 7px;
+    height: 35px;
+    width: 35px;
+  }
+  .card-footer {
+    background: none;
+    border: 0 none;
+    img {
+      cursor: pointer;
     }
-    .description{
-        font-family: $primary-font-light;
+  }
+  .content {
+    padding: 0 30px;
+    .title {
+      font-size: 20px;
+      font-family: $cardtitle-font;
+      line-height: 23px;
+      min-height: 70px;
+      margin-top: 20px;
+      p {
+        font-family: $primary-font-medium;
         font-size: 14px;
+        span {
+          font-family: $primary-font-regular;
+          color: #9b9b9b;
+        }
+      }
+    }
+    .description {
+      font-family: $primary-font-light;
+      font-size: 14px;
     }
   }
 }
@@ -205,112 +210,110 @@ body {
 ---------------------------------------------------------------*/
 
 @font-face {
-    font-family: $heading-fonts;
-    src: url($heading-fonts-url);
+  font-family: $heading-fonts;
+  src: url($heading-fonts-url);
 }
 
 @font-face {
-    font-family: $primary-font-regular;
-    src: url($primary-font-regular-url);
+  font-family: $primary-font-regular;
+  src: url($primary-font-regular-url);
 }
 
 @font-face {
-    font-family: $primary-font-light;
-    src: url($primary-font-light-url);
+  font-family: $primary-font-light;
+  src: url($primary-font-light-url);
 }
 
 @font-face {
-    font-family: $primary-font-bold;
-    src: url($primary-font-bold-url);
+  font-family: $primary-font-bold;
+  src: url($primary-font-bold-url);
 }
 @font-face {
-    font-family: $primary-font-medium;
-    src: url($primary-font-medium-url);
+  font-family: $primary-font-medium;
+  src: url($primary-font-medium-url);
 }
 @font-face {
-    font-family: $cardtitle-font;
-    src: url($cardtitle-font-url);
+  font-family: $cardtitle-font;
+  src: url($cardtitle-font-url);
 }
-
-
-
 
 /*--------------------------------------------------------------
 # Button Styles
 --------------------------------------------------------------*/
 .button {
-    border-radius: 42px;
-    height: 60px;
-    width: 222px;
-    font-family: $primary-font-bold;
-    font-size: 19px;
-    border: 2px solid $primary-color;
+  border-radius: 42px;
+  height: 60px;
+  width: 222px;
+  font-family: $primary-font-bold;
+  font-size: 19px;
+  border: 2px solid $primary-color;
 
-    &.primary{
-        background-color: $primary-color;
-        color: $white;
-        margin-right: 15px;
-    }
-    &.secondary {
-        background-color: $white;
-        color: $primary-color;
-    }
-    &.tertiary {
-        border-radius: 8px!important;
-        background-color: $primary-color;
-        color: $white;
-        width: 170px;
-        height: 50px;
-        font-size: 16px;
-    }
-    &.primary-btn-sm {
-      width: 132px;
-      height: 32px;
-      border-radius: 18px;
-      font-size: 14px;
-      font-family: $cardtitle-font;
-      color: $white;
-      border: 1px solid $primary-color;
-      background: $primary-color;
-      padding: 6px 10px;
-    }
+  &.primary {
+    background-color: $primary-color;
+    color: $white;
+    margin-right: 15px;
+  }
+  &.secondary {
+    background-color: $white;
+    color: $primary-color;
+  }
+  &.tertiary {
+    border-radius: 8px !important;
+    background-color: $primary-color;
+    color: $white;
+    width: 170px;
+    height: 50px;
+    font-size: 16px;
+  }
+  &.primary-btn-sm {
+    width: 132px;
+    height: 32px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-family: $cardtitle-font;
+    color: $white;
+    border: 1px solid $primary-color;
+    background: $primary-color;
+    padding: 6px 10px;
+  }
 }
 .content-sub-text {
-    font-size: 23px;
-    font-family: $primary-font-regular;
-    line-height: 37px;
-    color: $secondary-color;
+  font-size: 23px;
+  font-family: $primary-font-regular;
+  line-height: 37px;
+  color: $secondary-color;
 }
 .follow-us {
-    margin-top: 38px;
-    a {
-        color: $primary-color;
-        font-size: 24px;
-        font-family: $primary-font-medium;
-        padding: 0 20px;
-        text-decoration: underline;
-        img{
-            padding-right: 10px;
-        }
+  margin-top: 38px;
+  a {
+    color: $primary-color;
+    font-size: 24px;
+    font-family: $primary-font-medium;
+    padding: 0 20px;
+    text-decoration: underline;
+    img {
+      padding-right: 10px;
     }
+  }
 }
 
 /*****************************************
 <!--Form Styles -->
 ******************************************/
-input, textarea {
-    background: #fff;
-    border: 0 none;
-    padding: 15px 20px;
-    border-radius: 10px;
-    color: #A1A1A1;
-    font-family: $primary-font-medium;
-    font-size: 20px;
-    margin-bottom: 25px;
-    width: 100%;
+input,
+textarea {
+  background: #fff;
+  border: 0 none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: #a1a1a1;
+  font-family: $primary-font-medium;
+  font-size: 20px;
+  margin-bottom: 25px;
+  width: 100%;
 }
 .p-main {
-    padding-top: 155px;
+  padding-top: 155px;
 }
 .container {
   max-width: 1400px;
