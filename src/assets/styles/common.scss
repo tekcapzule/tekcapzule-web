@@ -276,6 +276,17 @@ h3 {
     background: $primary-color;
     padding: 6px 10px;
   }
+  &.secondary-btn-sm {
+    width: 132px;
+    height: 32px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-family: $cardtitle-font;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    background-color: $white;
+    padding: 6px 10px;
+  }
 }
 .content-sub-text {
   font-size: 23px;

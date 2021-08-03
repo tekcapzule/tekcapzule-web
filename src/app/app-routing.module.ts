@@ -27,9 +27,13 @@ const routes: Routes = [
     loadChildren: () => import('./mission/mission.module').then(m => m.MissionModule),
   },
   {
-    path: '**',
+    path: '',
     pathMatch: 'full',
-    redirectTo: '/home',
+    redirectTo: 'home',
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
   },
 ];
 
