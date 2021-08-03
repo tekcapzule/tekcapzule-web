@@ -1,0 +1,62 @@
+@import './../../../../assets/styles/variables.scss';
+
+/*--------------------------------------------------------------
+# Carousel Section
+--------------------------------------------------------------*/
+.topics-page {
+  background: #f3f3f3;
+  .container {
+    max-width: 1600px;
+  }
+
+  .topics-card {
+    width: 351px;
+    min-height: 480px;
+    box-shadow: 0px 3px 39px #0000000f;
+    margin: 0 20px;
+    transition: 0.3s;
+    background: #fff;
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+    }
+    .header-image {
+      height: 180px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f3f3f3;
+    }
+    .content {
+      padding: 0 30px;
+      .title {
+        font-size: 20px;
+        font-family: $cardtitle-font;
+        line-height: 23px;
+        padding-bottom: 20px;
+      }
+      .description {
+        font-family: $primary-font-light;
+        font-size: 14px;
+      }
+    }
+    .follow-btn {
+      width: 70px;
+      height: 25px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-family: $cardtitle-font;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      background: $white;
+      padding: 3px 10px;
+    }
+  }
+  .twitter-section {
+    background: #fff;
+    padding: 10px;
+    .blogs {
+      background: #f5f5f5;
+      min-height: 100vh;
+    }
+  }
+}
