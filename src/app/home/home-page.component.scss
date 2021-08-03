@@ -4,49 +4,14 @@
 --------------------------------------------------------------*/
 
 #hero {
-  width: 100%;
-  height: 666px;
-  background-size: cover;
-  margin-bottom: 80px;
-  .container,
-  .container-fluid {
-    padding-top: 84px;
-  }
-  .hero-text {
-    color: #636363;
-    margin: 10px 0 56px 0;
-    font-size: 27px;
-    font-family: $primary-font-regular;
-  }
-  .animated {
-    animation: up-down 2s ease-in-out infinite alternate-reverse both;
-  }
-}
-
-@media (max-width: 991px) {
-  #hero {
-    text-align: center;
-
-    .container,
-    .container-fluid {
-      padding-top: 68px;
-    }
-
-    .animated {
-      -webkit-animation: none;
-      animation: none;
-    }
-
-    .hero-img {
-      text-align: center;
-
-      img {
-        width: 50%;
-      }
+    width: 100%;
+    height: 666px;
+    background-size: cover;
+    margin-bottom: 80px;
+    .container, .container-fluid {
+      padding-top: 84px;
     }
   }
-}
-
 @media (max-width: 768px) {
   #hero {
     h1 {
@@ -95,18 +60,19 @@
 # Install Now Section
 --------------------------------------------------------------*/
 
-.install-now {
-  background-image: url(../../assets/images/pattern-1.svg), url(../../assets/images/pattern-2.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  .content {
-    margin-top: 144px;
-  }
-  .gplay-img {
-    width: 353px;
-    height: 108px;
-    margin-bottom: 50px;
-  }
+.install-now{
+    background-image: url(../../assets/images/pattern-1.svg), url(../../assets/images/pattern-2.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    .content {
+        margin-top: 144px;
+    }
+    .gplay-img {
+        width: 353px;
+        height: 108px;
+        margin-bottom: 50px;
+        display: block;
+    }
 }
 
 /*--------------------------------------------------------------

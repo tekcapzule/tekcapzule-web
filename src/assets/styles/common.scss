@@ -72,75 +72,51 @@ body {
     }
   }
 
-  
 /*--------------------------------------------------------------
 # Carousel Section
 --------------------------------------------------------------*/
-.carousel-card {
-    width: 405px;
-    height: 575px;  
-    box-shadow: 0px 3px 39px #0000000F;
-    border-radius: 20px;
-    margin: 0 20px;
-    transition: 0.3s;
-    background: #fff;
-    &:hover{
-      transform: scale(1.08);
-    box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+
+/* Carousel Slider Styles Starts */
+.carousel{
+  padding-top:114px;
+  margin-bottom: 80px;
+  .carousel-indicators li{
+    background-color: #ddd;
+    height:5px;
+    &.active {
+      background-color: #E30045;
     }
-    .header-image {
-        height: 180px;
-        width: 100%;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #f3f3f3;
-    }
-    .icons {
-      position: absolute;
-      background: #fff;
-      border-radius: 20px;
-      margin: 20px 25px;
-      padding: 7px;
-      height: 35px;
-      width: 35px;
-    }
-    .card-footer{
-      background: none;
-      border: 0 none;
-      img{
-        cursor: pointer;
+  }
+  .carousel-inner{
+    .carousel-item{
+      position:relative;
+      top:0;
+      height:580px;
+      width:100%;
+      .carousel-caption{
+        top:auto;
+        bottom:auto;
+        left:auto;
+        right:auto;
+        text-align: left;
+        .hero-text {
+          color: #636363;
+          margin: 10px 0 56px 0;
+          font-size: 27px;
+          font-family: $primary-font-regular;
+  
       }
-    }
-  .content{
-      padding: 0 30px;
-    .title{
-        font-size: 20px;
-        font-family: $cardtitle-font;
-        line-height: 23px;
-        min-height: 70px;
-        p {
-            font-family: $primary-font-medium;
-            font-size: 14px;
-            span {
-                font-family: $primary-font-regular;
-                color: #9B9B9B;
-            }
-        }
-    }
-    .description{
-        font-family: $primary-font-light;
-        font-size: 14px;
+      .animated {
+        animation: up-down 2s ease-in-out infinite alternate-reverse both;
+      }
+      }
     }
   }
 }
-
-/*--------------------------------------------------------------
-# Carousel Section
---------------------------------------------------------------*/
+/* Carousel Slider Styles End */
 .carousel-card {
     width: 405px;
-    height: 575px;
+    height: 540px;  
     box-shadow: 0px 3px 39px #0000000F;
     border-radius: 20px;
     margin: 0 20px;
@@ -150,12 +126,38 @@ body {
       transform: scale(1.08);
     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
     }
+    .icons{
+      text-align:center;
+      &.bookmark{
+        right:0
+      }
+      &.labelRed, &.timer{
+        bottom: 20px;
+        width: auto;
+        background: $primary-color;
+        border-radius: 0px;
+        color: $white;
+        margin: 10px 10px;
+        font-size: 12px;
+        height: auto;
+        padding: 2px 7px;
+      }
+      &.timer{
+        right:0;
+        background: $black;
+        border: 1px solid $white;
+        border-radius: 2px;
+        span{
+          margin-left:5px;
+          vertical-align: middle;
+        }
+      }
+    }
     .header-image {
         height: 180px;
         width: 100%;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        margin-bottom: 20px;
         border-bottom: 1px solid #f3f3f3;
     }
     .icons {
@@ -181,6 +183,7 @@ body {
         font-family: $cardtitle-font;
         line-height: 23px;
         min-height: 70px;
+        margin-top: 20px;
         p {
             font-family: $primary-font-medium;
             font-size: 14px;
@@ -200,7 +203,6 @@ body {
 /*--------------------------------------------------------------
 # Font Family
 ---------------------------------------------------------------*/
-
 
 @font-face {
     font-family: $heading-fonts;
@@ -261,6 +263,17 @@ body {
         height: 50px;
         font-size: 16px;
     }
+    &.primary-btn-sm {
+      width: 132px;
+      height: 32px;
+      border-radius: 18px;
+      font-size: 14px;
+      font-family: $cardtitle-font;
+      color: $white;
+      border: 1px solid $primary-color;
+      background: $primary-color;
+      padding: 6px 10px;
+    }
 }
 .content-sub-text {
     font-size: 23px;
@@ -297,5 +310,8 @@ input, textarea {
     width: 100%;
 }
 .p-main {
-    padding-top: 114px;
+    padding-top: 155px;
+}
+.container {
+  max-width: 1400px;
 }
