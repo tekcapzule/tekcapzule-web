@@ -1,6 +1,9 @@
 @import './../../assets/styles/variables.scss';
 
 .mission-page {
+  &.p-main{
+    padding-top:92px;
+  }
   .tech-learning {
     background-image: url(../../assets/images/grid.png);
     padding-top: 105px;
@@ -10,6 +13,9 @@
     font-family: $primary-font-regular;
     line-height: 30px;
     color: #5a5a5a;
+  }
+  .p-bottom-150 {
+    padding-bottom: 150px;
   }
   .success-section {
     background: url('../../assets/images/success-bg.svg') no-repeat;
