@@ -1,10 +1,28 @@
-<div class="container">
-  <a [routerLink]="['../feeds']">
-    <img src="../../../../assets/images/back-arrow.png" class="mr-3" /><button
-      class="button follow-btn"
-    >
-      Capsules
-    </button>
-  </a>
+<div class="container pt-5">
+  <div class="back-link">
+    <a [routerLink]="['../feeds']">
+      <img src="../../../../assets/images/back-arrow.png" class="mr-2" />
+      Back to Dashboard
+    </a>
+  </div>
   <p>create-capsule works!</p>
+  <div class="row card-section d-flex justify-content-center mb-4 pb-4">
+    <div class="carousel-card">
+      <div class="content">
+        <div class="title">Upload Image</div>
+      </div>
+    </div>
+    <div class="carousel-card">
+      <div class="content">
+        <div class="title">Title you entered in the first card will appear here</div>
+        
+      </div>
+    </div>
+    <div class="carousel-card">
+      <div class="content">
+        <div class="title">Metadata</div>
+       
+      </div>
+    </div>
+  </div>
 </div>

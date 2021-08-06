@@ -43,6 +43,7 @@ $fa-font-path: '~font-awesome/fonts' !default;
 @import '~font-awesome/scss/font-awesome.scss';
 
 @import './assets/styles/common.scss';
+@import './assets/styles/variables.scss';
 
 html,
 body {
@@ -50,5 +51,20 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: $primary-font-regular;
+  color: #414141;
 }
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #E7245F!important;
+  height: 4px;
+}
+
+.mat-tab-link {
+  min-width: 70px!important;
+  padding: 0!important;
+  text-align: start!important;
+  justify-content: initial!important;
+  margin-right: 87px;
+}
+

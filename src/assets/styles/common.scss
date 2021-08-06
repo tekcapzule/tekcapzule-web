@@ -2,11 +2,6 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-body {
-  font-family: 'Open Sans', sans-serif;
-  color: #414141;
-}
-
 a {
   color: #414141;
 }
@@ -247,6 +242,7 @@ h3 {
   font-family: $primary-font-bold;
   font-size: 19px;
   border: 2px solid $primary-color;
+  transition: all 0.35s ease-in-out;
 
   &.primary {
     background-color: $primary-color;
@@ -286,6 +282,10 @@ h3 {
     border: 1px solid $primary-color;
     background-color: $white;
     padding: 6px 10px;
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
   }
 }
 .content-sub-text {
@@ -305,6 +305,15 @@ h3 {
     img {
       padding-right: 10px;
     }
+  }
+}
+
+.back-link {
+  margin-bottom: 30px;
+    a {
+    font-size: 15px;
+    font-family: $cardtitle-font;
+    color: $primary-color;
   }
 }
 

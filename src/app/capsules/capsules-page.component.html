@@ -1,5 +1,6 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar>
+    <div class="container">
     <a
       mat-tab-link
       *ngFor="let navTab of navTabs"
@@ -12,12 +13,12 @@
     <a mat-tab-link>Browse by Topic</a>
     <button
       mat-stroked-button
-      class="button secondary-btn-sm"
-      style="position: absolute; right: 8px; top: 8px"
+      class="button secondary-btn-sm contribute-btn"
       [routerLink]="['create']"
     >
       Contribute
     </button>
+  </div>
   </nav>
   <router-outlet></router-outlet>
 </div>
