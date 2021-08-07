@@ -16,7 +16,7 @@ export class CapsulesPageComponent implements OnInit {
 
   navTabs: NavTab[] = [
     { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds' },
-    { uniqueId: 'tranding', navUrl: 'trending', displayName: 'Tranding' },
+    { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
     { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
   ];
 

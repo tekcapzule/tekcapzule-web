@@ -3,16 +3,14 @@ declare var twttr: any;
 @Component({
   selector: 'app-explore-topics',
   templateUrl: './explore-topics.component.html',
-  styleUrls: ['./explore-topics.component.scss']
+  styleUrls: ['./explore-topics.component.scss'],
 })
 export class ExploreTopicsComponent implements OnInit, AfterViewInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     twttr.widgets.load();
-}
+  }
 }

@@ -35,13 +35,6 @@ $tekcapsule-web-theme: mat-light-theme(
 @include angular-material-theme($tekcapsule-web-theme);
 
 /* You can add global styles to this file, and also import other style files */
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
-/* Importing font-awesome SCSS fils */
-$fa-font-path: '~font-awesome/fonts' !default;
-@import '~font-awesome/scss/font-awesome.scss';
-
 @import './assets/styles/common.scss';
 @import './assets/styles/variables.scss';
 
@@ -55,16 +48,16 @@ body {
   color: #414141;
 }
 
-.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: #E7245F!important;
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #e7245f !important;
   height: 4px;
 }
 
 .mat-tab-link {
-  min-width: 70px!important;
-  padding: 0!important;
-  text-align: start!important;
-  justify-content: initial!important;
+  min-width: 70px !important;
+  padding: 0 !important;
+  text-align: start !important;
+  justify-content: initial !important;
   margin-right: 87px;
 }
-
