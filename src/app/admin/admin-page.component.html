@@ -1,1 +1,41 @@
-<p>admin-page works!</p>
+<div class="admin-page p-main container">
+  <div class="row">
+    <div class="col-2">
+      <strong>300 Active Users</strong>
+    </div>
+    <div class="col-10">
+      <button
+        mat-stroked-button
+        class="button secondary-btn-sm action-btn"
+        [routerLink]="['createtopic']"
+      >
+        Create Topic
+      </button>
+      <button
+        mat-stroked-button
+        class="button secondary-btn-sm action-btn mr-2"
+        [routerLink]="['createcapsule']"
+      >
+        Create Capsule
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <nav mat-tab-nav-bar>
+      <div class="container">
+        <a
+          mat-tab-link
+          *ngFor="let navTab of navTabs"
+          (click)="setActiveTab(navTab)"
+          [active]="isActiveTab(navTab)"
+          [routerLink]="[navTab.navUrl]"
+        >
+          {{ navTab.displayName }}
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

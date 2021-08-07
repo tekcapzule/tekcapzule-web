@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-interface NavTab {
-  uniqueId: string;
-  displayName: string;
-  navUrl: string;
-}
+import { NavTabModel } from '@app/shared';
 
 @Component({
   selector: 'app-capsules-page',
@@ -14,7 +10,7 @@ interface NavTab {
 export class CapsulesPageComponent implements OnInit {
   activeTab = 'myFeeds';
 
-  navTabs: NavTab[] = [
+  navTabs: NavTabModel[] = [
     { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds' },
     { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
     { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
@@ -24,11 +20,11 @@ export class CapsulesPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setActiveTab(navTab: NavTab): void {
+  setActiveTab(navTab: NavTabModel): void {
     this.activeTab = navTab.uniqueId;
   }
 
-  isActiveTab(navTab: NavTab): boolean {
+  isActiveTab(navTab: NavTabModel): boolean {
     return this.activeTab === navTab.uniqueId;
   }
 
