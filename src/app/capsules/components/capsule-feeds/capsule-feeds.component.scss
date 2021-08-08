@@ -23,11 +23,23 @@
             margin-left: 10px;
             margin-top: -22px;
             padding: 10px 15px;
+            &.tags {
+                display: inline-block;
+                position: relative;
+                color: #5A6885;
+                background: #E4EBF9;
+                border-radius: 25px;
+                padding: 5px 20px;
+                margin-bottom: 15px;
+            }
         }
-        input[type=search] {
+        .tags-label {
             border: 1px solid #E4EBF9;
             border-radius: 10px;
             min-height: 160px;
+            padding-top: 30px;
+            margin-bottom: 20px;
+
         }
     }
 }

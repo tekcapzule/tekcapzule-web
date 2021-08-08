@@ -1,7 +1,7 @@
-<div class="p-main container">
+<div class="p-main explore-page">
   <!--------Explore Topics Inner Page----------->
 
-  <section>
+  <section class="container pb-3">
     <div class="back-link">
       <a [routerLink]="['../explore']">
         <img src="../../../../assets/images/back-arrow.png" class="mr-2" />
@@ -11,14 +11,14 @@
     <div class="row">
       <div class="col-lg-8 col-sm-12">
         <h2>#Cyber Security</h2>
-        <div class="col-lg-8 px-0">
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-          doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
-          ainventore veritatis et quasi architecto beatae vitae quia dicta .
-        </p>
-        <p>#NetworkSecurity #CloudSecurity #EthicalHacking #Malware #Privacy #DataSecurity</p>
-        <button class="button secondary mb-5">FOLLOW</button>
+        <div class="col-lg-8 px-0 pb-4">
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
+            doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
+            ainventore veritatis et quasi architecto beatae vitae quia dicta .
+          </p>
+          <p>#NetworkSecurity #CloudSecurity #EthicalHacking #Malware #Privacy #DataSecurity</p>
+          <button class="button secondary-btn-md">FOLLOW</button>
         </div>
       </div>
       <div class="col-lg-4 col-sm-12 cyber-block">
@@ -33,11 +33,17 @@
         </div>
       </div>
     </div>
-    <h2>Three capsules to get you started!</h2>
+    <h2 class="mt-5">Three capsules to get you started!</h2>
   </section>
 
 </div>
-<section>
+<div class="capsules-bg">
+<section class="container">
+  <ul class="progressbar my-5 pb-3">
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
   <div class="card-section d-flex justify-content-center mb-4 pb-4">
     <div class="carousel-card">
       <div class="position-relative">
@@ -159,4 +165,8 @@
       </div>
     </div>
   </div>
+  <div class="row justify-content-center mb-4">
+    <button class="button secondary-btn-md mb-5">EXPLORE MORE</button>
+  </div>
 </section>
+</div>

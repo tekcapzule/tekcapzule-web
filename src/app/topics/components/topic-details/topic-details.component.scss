@@ -1,11 +1,79 @@
 @import './../../../../assets/styles/variables.scss';
 
-.topics-page {
-  background: #f3f3f3;
+.explore-page {
+  background: #F8F8F8;
   .container {
-    max-width: 1600px;
+    max-width: 1400px;
     .cyber-block {
-      background: url("../../../../assets/images/explore-topics-bg.png");
-    }
+      background: #fff url("../../../../assets/images/explore-topics-bg.png") no-repeat;
+      padding: 40px 40px 0;
+      .inline-points {
+        li {
+          font-size: 18px;
+          padding-bottom: 20px;
+          font-weight: bold;
+        }
+      }
+    }    
   }
 }
+
+.capsules-bg{
+  background: #F1F1F1;
+  .progressbar {
+    counter-reset: step;
+    li {
+      list-style: none;
+      display: inline-block;
+      width: 32.33%;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      &:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        background-color: $primary-color;
+        color: $white;
+        position: inherit;
+    z-index: 2;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        top: 37px;
+        left: -50%;
+        z-index: 0;
+      }
+      &:first-child {
+        &:after {
+          content: none;
+        }
+      }
+      span {
+        background: #fff url("../../../../assets/images/tek-icon.svg") no-repeat 9px 10px;
+        width: 56px;
+        height: 56px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 38px;
+        top:10px;
+        z-index: 1;
+      }
+    }
+  }
+  
+
+}
+
+

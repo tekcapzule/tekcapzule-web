@@ -1,27 +1,33 @@
 @import './../../assets/styles/variables.scss';
-
-.action-btn {
-  padding: 3px 0 0 0;
-  float: right;
-  height: 38px;
-}
-
-.mat-tab-nav-bar {
-  width: 100%;
-}
-
-.mat-tab-label {
-  height: 60px;
-  .mat-tab-label-container {
-    max-width: 1400px;
+.admin-page{
+  h1 {
+    font-family: $cardtitle-font;
+    font-size: 32px;
+    color: #484848;
   }
-}
+  .action-btn {
+    padding: 3px 0 0 0;
+    float: right;
+    height: 38px;
+  }
 
-.mat-tab-label,
-.mat-tab-link {
-  font-family: $cardtitle-font !important;
-  color: #575757;
-  font-size: 18px;
-  height: 60px;
-  color: #000;
+  .mat-tab-nav-bar {
+    width: 100%;
+  }
+
+  .mat-tab-label {
+    height: 60px;
+    .mat-tab-label-container {
+      max-width: 1400px;
+    }
+  }
+
+  .mat-tab-label,
+  .mat-tab-link {
+    font-family: $cardtitle-font !important;
+    color: #575757;
+    font-size: 18px;
+    height: 60px;
+    color: #000;
+  }
 }

@@ -1,25 +1,149 @@
-<div class="container pt-5">
+<div class="create-capsule-page container pt-5">
   <div class="back-link">
     <a [routerLink]="['../feeds']">
       <img src="../../../../assets/images/back-arrow.png" class="mr-2" />
       Back to Dashboard
     </a>
+    <h2 class="text-center">Create Capsule</h2>
   </div>
   <div class="row card-section d-flex justify-content-center mb-4 pb-4">
     <div class="carousel-card">
-      <div class="content">
+      <img src="../../../../assets/images/upload-image-before.png" alt="" class="header-image">
+      <div class="px-4">
         <div class="title">Upload Image</div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <select class="form-control">
+                <option>Topic Name</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <select class="form-control">
+                <option>Duration</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="content">
+
+        <div class="form-group">
+          <label for="capsuleTitle">Capsule Title</label>
+          <input type="text" class="form-control" id="capsuleTitle">
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" class="form-control" id="author">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" rows="3" id="description"></textarea>
+        </div>
+      </div>
+
     </div>
     <div class="carousel-card">
       <div class="content">
         <div class="title">Title you entered in the first card will appear here</div>
+        <div>
+          <div class="form-group">
+            <label for="keyPoints">Key Points</label>
+            <input type="text" class="form-control" id="keyPoints"> <span>Add</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control"> <span>Add</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="carousel-card">
       <div class="content">
         <div class="title">Metadata</div>
+        <div class="form-group">
+          <label>Capsule Type</label>
+          <select class="form-control">
+            <option>Capsule Type</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Publisher</label>
+          <select class="form-control">
+            <option>Publisher</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>Topic Level</label>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label>Target Audience</label>
+              <select class="form-control">
+                <option>100</option>
+                <option>200</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>Primary Category</label>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label>Secondary Category</label>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="resourceURL">Resource URL</label>
+          <input type="text" class="form-control" id="resourceURL" placeholder="URL">
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>Expiry Date</label>
+              <select class="form-control">
+                <option>1 Week</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+
+            <label>Editors Pick</label>
+
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1"></label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="row justify-content-center mb-4">
+    <button class="button secondary-btn-md mb-5 mr-3">Cancel</button>
+    <button class="button secondary-btn-md cta mb-5">Submit</button>
   </div>
 </div>

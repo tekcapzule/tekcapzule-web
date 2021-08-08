@@ -1,0 +1,11 @@
+@import './../../../../assets/styles/variables.scss';
+
+.create-capsule-page {
+    label {
+        font-family: $primary-font-medium;
+    }
+    .carousel-card
+    {
+        height: 630px;
+    }
+}

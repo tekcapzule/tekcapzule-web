@@ -275,6 +275,19 @@ h3 {
     background: $primary-color;
     padding: 6px 10px;
   }
+  &.secondary-btn-md {
+    font-size: 18px;
+    height: 45px;
+    color: $primary-color;
+    background-color: $white;
+    font-family: $cardtitle-font;
+    width: auto;
+    padding: 0 33px;
+    &.cta {
+      color: $white;
+      background-color:  $primary-color;
+    }
+  }
   &.secondary-btn-sm {
     width: 132px;
     height: 32px;
@@ -347,6 +360,10 @@ input:focus, textarea:focus {
   box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
 -webkit-box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
 -moz-box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
+}
+.custom-control-input:checked~.custom-control-label::before {
+  border-color: #8fce47;
+  background-color: #8fce47;
 }
 
 /**************************************
