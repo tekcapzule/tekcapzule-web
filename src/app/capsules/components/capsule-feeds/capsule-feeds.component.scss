@@ -1,0 +1,33 @@
+@import './../../../../assets/styles/variables.scss';
+
+.flip-card {
+    label {
+        margin-bottom: 25px;
+        img {
+            padding-right: 10px;
+        }
+        span {
+            font-family: $primary-font-regular;
+            font-size: 15px;
+            color: #7A7A7A;
+            padding-right: 30px;
+        }
+    }
+    .tags-input {
+        label {
+            font-family: $primary-font-regular;
+            font-size: 15px;
+            color: #5A6885;
+            background: #fff;
+            position: absolute;
+            margin-left: 10px;
+            margin-top: -22px;
+            padding: 10px 15px;
+        }
+        input[type=search] {
+            border: 1px solid #E4EBF9;
+            border-radius: 10px;
+            min-height: 160px;
+        }
+    }
+}

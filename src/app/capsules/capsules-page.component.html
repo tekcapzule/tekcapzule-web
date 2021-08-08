@@ -1,24 +1,92 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar>
     <div class="container">
-      <a
-        mat-tab-link
-        *ngFor="let navTab of navTabs"
-        (click)="setActiveTab(navTab)"
-        [active]="isActiveTab(navTab)"
-        [routerLink]="[navTab.navUrl]"
-      >
+      <a mat-tab-link *ngFor="let navTab of navTabs" (click)="setActiveTab(navTab)" [active]="isActiveTab(navTab)"
+        [routerLink]="[navTab.navUrl]">
         {{ navTab.displayName }}
       </a>
-      <a mat-tab-link>Browse by Topic</a>
-      <button
-        mat-stroked-button
-        class="button secondary-btn-sm contribute-btn"
-        [routerLink]="['create']"
-      >
+      <a mat-tab-link data-toggle="modal" data-target="#myModal">Browse by Topic
+      <img src="../../assets/images/down-arrow.svg" class="pl-2">
+
+      </a>
+      <!-- <button class="btn btn-primary btn-lg" >
+        Browse by Topic
+      </button> -->
+      <button mat-stroked-button class="button secondary-btn-sm contribute-btn" [routerLink]="['create']">
         Contribute
       </button>
     </div>
   </nav>
   <router-outlet></router-outlet>
-</div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="col-lg-4">
+            <div class="search-box">
+              <input type="search" name="search" placeholder="What are you looking for?" />
+            </div>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img
+              src="../../assets/images/close-icon.svg"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            
+          </div>
+
+          <div class="row">
+            <div class="col-xl-3">
+              <img src="../../assets/images/browse-topics.png" alt="">
+            </div>
+            <div class="col-xl-3">
+              <h2>Emerging Tech</h2>
+              <ul class="topics-list">
+                <li>Cyber Security <span class="active">FOLLOWING</span></li>
+                <li>Edge Computing <span>FOLLOW</span></li>
+                <li>Human Augmentation <span>FOLLOW</span></li>
+                <li>Intelligent Process Automation <span>FOLLOW</span></li>
+                <li>Internet of Behaviours <span>FOLLOW</span></li>
+                <li>Mixed Reality <span>FOLLOW</span></li>
+                <li>Quantum Computing <span>FOLLOW</span></li>
+                <li>Tactile VR <span>FOLLOW</span></li>
+                <li>5G <span>FOLLOW</span></li>
+              </ul>
+            </div>
+            <div class="col-xl-3">
+              <h2>Tech In-demand</h2>
+              <ul class="topics-list">
+                <li>AI/ML <span class="active">FOLLOWING</span></li>
+                <li>Big data <span>FOLLOW</span></li>
+                <li>Blockchain <span>FOLLOW</span></li>
+                <li>Cloud Computing <span>FOLLOW</span></li>
+                <li>Cloud Native Computing <span>FOLLOW</span></li>
+                <li>Data Science <span>FOLLOW</span></li>
+                <li>IoT <span>FOLLOW</span></li>
+                <li>Linux <span>FOLLOW</span></li>
+                <li>Opensource <span>FOLLOW</span></li>
+                <li>Robotic Process Automation <span>FOLLOW</span></li>
+                <li>Virtual Reality, Augmented Reality <span>FOLLOW</span></li>
+              </ul>
+            </div>
+            <div class="col-xl-3">
+              <h2>Software Development</h2>
+              <ul class="topics-list">
+                <li>Agile <span class="active">FOLLOWING</span></li>
+                <li>Database Technologies <span>FOLLOW</span></li>
+                <li>DevSecOps <span>FOLLOW</span></li>
+                <li>Mobile Development <span>FOLLOW</span></li>
+                <li>Messaging <span>FOLLOW</span></li>
+                <li>Programming Languages <span>FOLLOW</span></li>
+                <li>Software Design <span>FOLLOW</span></li>
+                <li>Testing Methodologies <span>FOLLOW</span></li>
+                <li>UX, DX and TX <span>FOLLOW</span></li>
+                <li>Web Development <span>FOLLOW</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

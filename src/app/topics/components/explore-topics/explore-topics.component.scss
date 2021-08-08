@@ -10,7 +10,7 @@
   }
 
   .topics-card {
-    width: 351px;
+    //width: 351px;
     min-height: 480px;
     box-shadow: 0px 3px 39px #0000000f;
     margin: 0 20px;
@@ -37,6 +37,7 @@
       .description {
         font-family: $primary-font-light;
         font-size: 14px;
+        min-height: 186px;
       }
     }
     .follow-btn {
@@ -52,7 +53,7 @@
     }
   }
   .twitter-section {
-    background: #fff;
+    background: $white;
     padding: 10px;
     .blogs {
       background: #f5f5f5;

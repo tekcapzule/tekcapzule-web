@@ -127,6 +127,14 @@ h3 {
   }
   .icons {
     text-align: center;
+    cursor: pointer;
+    position: absolute;
+    background: #fff;
+    border-radius: 20px;
+    margin: 20px 25px;
+    padding: 7px;
+    height: 35px;
+    width: 35px;
     &.bookmark {
       right: 0;
     }
@@ -159,15 +167,6 @@ h3 {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom: 1px solid #f3f3f3;
-  }
-  .icons {
-    position: absolute;
-    background: #fff;
-    border-radius: 20px;
-    margin: 20px 25px;
-    padding: 7px;
-    height: 35px;
-    width: 35px;
   }
   .card-footer {
     background: none;
@@ -226,6 +225,10 @@ h3 {
 @font-face {
   font-family: $primary-font-medium;
   src: url($primary-font-medium-url);
+}
+@font-face {
+  font-family: $primary-font-black;
+  src: url($primary-font-black-url);
 }
 @font-face {
   font-family: $cardtitle-font;
@@ -337,4 +340,92 @@ textarea {
 }
 .container {
   max-width: 1400px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
+-webkit-box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
+-moz-box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
+}
+
+/**************************************
+Search Box
+***************************************/
+.search-box {
+  margin: 26px 35px 0;
+  input[type=search] {
+    font-family: $heading-fonts;
+    font-size: 16px;
+    border: 1px solid #E9E9E9;
+    //width: 304px;
+    height: 46px;
+    border-radius: 30px;
+  }
+}
+
+
+/**************************************
+Modal Dialogue
+***************************************/
+.modal.show .modal-dialog {
+  margin-top: 150px;
+}
+.modal-open .modal {
+  padding-right: 0!important;
+} 
+
+.modal-dialog {
+  max-width: 100%;
+  height: 700px;
+  padding: 0;
+  box-shadow: 0px 3px 6px #00000003;
+}
+.modal-content {
+  height: 100%;
+  border-radius: 0;
+  border: 0;
+  .close {
+    padding: 50px 60px 0!important
+  }
+  .modal-header {
+    border-bottom: 0;
+  }
+
+  .modal-body {
+    padding: 30px 70px;
+  }
+}
+.modal-backdrop { opacity:0 !important; }
+
+/***********************************
+Carousel Topics & Community Page
+***********************************/
+.topics-page, .community-page{
+  .carousel 
+  {
+    padding-top: 0;
+    margin-bottom: 0;
+    box-shadow:  1px 0px 17px -11px rgb(125 125 125);
+    -webkit-box-shadow:  1px 0px 17px -11px rgb(125 125 125);
+    -moz-box-shadow:  1px 0px 17px -11px rgb(125 125 125);
+   
+    h2 {
+      font-size: 29px;
+      font-family: $primary-font-black;
+      font-style: italic;
+      color: #2E2E2E;
+    }
+  .carousel-inner .carousel-item {
+    height: 338px;
+    background: $white;
+    .carousel-caption {
+      color: #444444;
+      p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    }
+  }
+  }
 }

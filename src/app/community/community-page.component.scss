@@ -1,12 +1,12 @@
 @import './../../assets/styles/variables.scss';
 .community-page {
     .container {
-        max-width: 1600px;
+        //max-width: 1600px;
       }
     .hero-slider {
         height: 390px;
         background-attachment: fixed;
-        background: url("../../assets/images/community-hero-bg.svg") no-repeat;
+        background: url("../../assets/images/community-hero-bg.svg") no-repeat 34px 0;
     }
     .community-desc
     {
@@ -45,7 +45,7 @@
     .part-2 {
         padding-top: 140px;
     }
-    .part-3 {
+    .part-3, .part-4 {
         padding: 80px 0;
     }
     

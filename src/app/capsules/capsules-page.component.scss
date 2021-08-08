@@ -30,9 +30,36 @@
   height: 60px;
 }
 .contribute-btn {
-  margin-top: 13px;
+  margin-top: 16px;
   float: right;
   font-size: 16px;
   height: 38px;
   padding: 4px 0 0 0;
 }
+h2 {
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+ul{
+  padding-inline-start: 0px;
+  &.topics-list {
+
+    li {
+      font-family: HelveticaNeueLTPro;
+      font-size: 18px;
+      line-height: 40px;
+      list-style: none;
+      span {
+        font-size: 13px;
+        background: #F1F1F1;
+        border-radius: 10px;
+        padding: 5px 15px;
+        color: #BBBBBB;
+        &.active {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
