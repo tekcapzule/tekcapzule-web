@@ -5,10 +5,20 @@
         <h1>300 Active Users</h1>
       </div>
       <div class="col-6">
-        <button mat-stroked-button class="button secondary-btn-sm action-btn" (click)="deActivateTabs()" [routerLink]="['createtopic']">
+        <button
+          mat-stroked-button
+          class="button secondary-btn-sm action-btn"
+          (click)="deActivateTabs()"
+          [routerLink]="['createtopic']"
+        >
           Create Topic
         </button>
-        <button mat-stroked-button class="button secondary-btn-sm action-btn mr-2" (click)="deActivateTabs()" [routerLink]="['createcapsule']">
+        <button
+          mat-stroked-button
+          class="button secondary-btn-sm action-btn mr-2"
+          (click)="deActivateTabs()"
+          [routerLink]="['createcapsule']"
+        >
           Create Capsule
         </button>
       </div>
@@ -16,16 +26,26 @@
     <div class="row">
       <nav mat-tab-nav-bar>
         <div class="container px-0">
-          <a mat-tab-link *ngFor="let navTab of navTabs" (click)="setActiveTab(navTab)" [active]="isActiveTab(navTab)"
-            [routerLink]="[navTab.navUrl]">
+          <a
+            mat-tab-link
+            *ngFor="let navTab of navTabs"
+            (click)="setActiveTab(navTab)"
+            [active]="isActiveTab(navTab)"
+            [routerLink]="[navTab.navUrl]"
+          >
             {{ navTab.displayName }}
           </a>
         </div>
       </nav>
       <div class="container px-0">
-        <div class="col-lg-3 float-right">
+        <div class="col-lg-3 float-right" *ngIf="!isNavTabDeActivated()">
           <div class="search-box mr-4">
-            <input type="search" name="search" placeholder="What are you looking for?" class="mb-1"/>
+            <input
+              type="search"
+              name="search"
+              placeholder="What are you looking for?"
+              class="mb-1"
+            />
           </div>
         </div>
         <router-outlet></router-outlet>

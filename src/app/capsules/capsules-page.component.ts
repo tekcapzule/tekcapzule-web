@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
 import { EventChannelService, ChannelEvent } from '@app/core';
-import { NavTab } from '@app/shared';
+import { Constants, NavTab } from '@app/shared';
 
 @Component({
   selector: 'app-capsules-page',
@@ -45,6 +45,6 @@ export class CapsulesPageComponent implements OnInit {
   }
 
   deActivateTabs(): void {
-    this.activeTab = 'none';
+    this.activeTab = Constants.None;
   }
 }

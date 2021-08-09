@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NavTab } from '@app/shared';
+import { Constants, NavTab } from '@app/shared';
 
 @Component({
   selector: 'app-admin-page',
@@ -33,6 +33,10 @@ export class AdminPageComponent implements OnInit {
   }
 
   deActivateTabs(): void {
-    this.activeTab = 'none';
+    this.activeTab = Constants.None;
+  }
+
+  isNavTabDeActivated(): boolean {
+    return this.activeTab === Constants.None;
   }
 }

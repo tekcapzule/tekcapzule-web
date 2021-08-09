@@ -1,45 +1,44 @@
 @import './../../../../assets/styles/variables.scss';
 
 .flip-card {
+  label {
+    margin-bottom: 25px;
+    img {
+      padding-right: 10px;
+    }
+    span {
+      font-family: $primary-font-regular;
+      font-size: 15px;
+      color: #7a7a7a;
+      padding-right: 30px;
+    }
+  }
+  .tags-input {
     label {
-        margin-bottom: 25px;
-        img {
-            padding-right: 10px;
-        }
-        span {
-            font-family: $primary-font-regular;
-            font-size: 15px;
-            color: #7A7A7A;
-            padding-right: 30px;
-        }
+      font-family: $primary-font-regular;
+      font-size: 15px;
+      color: #5a6885;
+      background: #fff;
+      position: absolute;
+      margin-left: 10px;
+      margin-top: -22px;
+      padding: 10px 15px;
+      &.tags {
+        display: inline-block;
+        position: relative;
+        color: #5a6885;
+        background: #e4ebf9;
+        border-radius: 25px;
+        padding: 5px 20px;
+        margin-bottom: 15px;
+      }
     }
-    .tags-input {
-        label {
-            font-family: $primary-font-regular;
-            font-size: 15px;
-            color: #5A6885;
-            background: #fff;
-            position: absolute;
-            margin-left: 10px;
-            margin-top: -22px;
-            padding: 10px 15px;
-            &.tags {
-                display: inline-block;
-                position: relative;
-                color: #5A6885;
-                background: #E4EBF9;
-                border-radius: 25px;
-                padding: 5px 20px;
-                margin-bottom: 15px;
-            }
-        }
-        .tags-label {
-            border: 1px solid #E4EBF9;
-            border-radius: 10px;
-            min-height: 160px;
-            padding-top: 30px;
-            margin-bottom: 20px;
-
-        }
+    .tags-label {
+      border: 1px solid #e4ebf9;
+      border-radius: 10px;
+      min-height: 160px;
+      padding-top: 30px;
+      margin-bottom: 20px;
     }
+  }
 }
