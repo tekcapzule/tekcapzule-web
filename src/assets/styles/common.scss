@@ -350,6 +350,7 @@ textarea {
 }
 .p-main {
   padding-top: 155px;
+  min-height: 710px;
 }
 .container {
   max-width: 1400px;
@@ -375,7 +376,7 @@ Search Box
     font-family: 'Roboto';
     font-size: 14px;
     border: 1px solid #E9E9E9;
-    //width: 304px;
+    min-width: 280px;
     height: 46px;
     border-radius: 30px;
   }
