@@ -34,7 +34,7 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'tags',
       columnName: 'Tags',
-      htmlFormatter: (tags: string[]) => {
+      columnFormatter: (tags: string[]) => {
         return tags
           .map(
             tag => `
@@ -48,7 +48,7 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'keyHighlights',
       columnName: 'Key Highlights',
-      htmlFormatter: (value: number) => {
+      columnFormatter: (value: number) => {
         return `
           <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
             ${value}
@@ -58,7 +58,7 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'status',
       columnName: 'Status',
-      htmlFormatter: (value: AdminTopicStatus) => {
+      columnFormatter: (value: AdminTopicStatus) => {
         if (value === AdminTopicStatus.Failure) {
           return '<img class="status-icon" src="./assets/images/cross.svg" />';
         } else {

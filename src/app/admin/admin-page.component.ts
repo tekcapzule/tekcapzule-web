@@ -21,7 +21,7 @@ export class AdminPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeTab = this.navTabs[0].uniqueId;
-    this.router.navigate(['admin', this.navTabs[0].uniqueId]);
+    this.router.navigate(['admin', this.navTabs[0].navUrl]);
   }
 
   setActiveTab(navTab: NavTab): void {
@@ -30,5 +30,9 @@ export class AdminPageComponent implements OnInit {
 
   isActiveTab(navTab: NavTab): boolean {
     return this.activeTab === navTab.uniqueId;
+  }
+
+  deActivateTabs(): void {
+    this.activeTab = 'none';
   }
 }

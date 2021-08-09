@@ -23,36 +23,6 @@ export interface AdminCapsuleDataItem {
   status: AdminCapsuleStatus;
 }
 
-export interface PeriodicElement {
-  capsuleTitle: string;
-  auther: string;
-  publishDate: string;
-  tags: string;
-  duration: number;
-  category: string;
-  description: string;
-  keyHighlights: number;
-  questions: string;
-  status: string;
-  action: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    capsuleTitle: 'AWS Services',
-    auther: 'Linjith Kunnon',
-    publishDate: '2021-06-24',
-    tags: 'HTML',
-    duration: 20.0,
-    category: 'Article',
-    description: 'Sed ut perspiciatis unde..',
-    keyHighlights: 5,
-    questions: 'yes',
-    status: 'Approved',
-    action: 'Edit',
-  },
-];
-
 @Component({
   selector: 'app-admin-capsules',
   templateUrl: './admin-capsules.component.html',
@@ -76,7 +46,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'tags',
       columnName: 'Tags',
-      htmlFormatter: (tags: string[]) => {
+      columnFormatter: (tags: string[]) => {
         return tags
           .map(
             tag => `
@@ -102,7 +72,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'keyHighlights',
       columnName: 'Key Highlights',
-      htmlFormatter: (value: number) => {
+      columnFormatter: (value: number) => {
         return `
           <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
             ${value}
@@ -116,7 +86,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'status',
       columnName: 'Status',
-      htmlFormatter: (value: AdminCapsuleStatus) => {
+      columnFormatter: (value: AdminCapsuleStatus) => {
         if (value === AdminCapsuleStatus.Approved || value === AdminCapsuleStatus.Active) {
           return `<span class='text-success'>${value}</span>`;
         } else if (
@@ -198,6 +168,18 @@ export class AdminCapsulesComponent implements OnInit {
       keyHighlights: 6,
       questions: 'N/A',
       status: AdminCapsuleStatus.Pending,
+    },
+    {
+      capsuleTitle: 'Software Architecture Patterns',
+      author: 'Linjith',
+      publishedDate: '2021-06-30',
+      tags: ['Microservices', 'K8s'],
+      duration: '25:00',
+      category: 'Article',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      keyHighlights: 6,
+      questions: 'N/A',
+      status: AdminCapsuleStatus.Rejected,
     },
   ];
 
