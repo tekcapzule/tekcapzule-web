@@ -1,5 +1,9 @@
 @import './../../assets/styles/variables.scss';
 .admin-page{
+  background: #f3f3f3;
+  .container {
+    max-width: 1600px;
+}
   h1 {
     font-family: $cardtitle-font;
     font-size: 32px;
@@ -13,6 +17,7 @@
 
   .mat-tab-nav-bar {
     width: 100%;
+    border-bottom: 0;
   }
 
   .mat-tab-label {
@@ -31,3 +36,5 @@
     color: #000;
   }
 }
+
+
