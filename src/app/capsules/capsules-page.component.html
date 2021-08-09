@@ -1,25 +1,42 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar>
     <div class="container">
-      <a mat-tab-link *ngFor="let navTab of navTabs" (click)="setActiveTab(navTab)" [active]="isActiveTab(navTab)"
-        [routerLink]="[navTab.navUrl]">
+      <a
+        mat-tab-link
+        *ngFor="let navTab of navTabs"
+        (click)="setActiveTab(navTab)"
+        [active]="isActiveTab(navTab)"
+        [routerLink]="[navTab.navUrl]"
+      >
         {{ navTab.displayName }}
       </a>
-      <a mat-tab-link data-toggle="modal" data-target="#myModal">Browse by Topic
-      <img src="../../assets/images/down-arrow.svg" class="pl-2">
-
+      <a mat-tab-link data-toggle="modal" data-target="#myModal"
+        >Browse by Topic
+        <img src="../../assets/images/down-arrow.svg" class="pl-2" />
       </a>
       <!-- <button class="btn btn-primary btn-lg" >
         Browse by Topic
       </button> -->
-      <button mat-stroked-button class="button secondary-btn-sm contribute-btn" [routerLink]="['create']">
+      <button
+        mat-stroked-button
+        class="button secondary-btn-sm contribute-btn"
+        (click)="deActivateTabs()"
+        [routerLink]="['create']"
+      >
         Contribute
       </button>
     </div>
   </nav>
   <router-outlet></router-outlet>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="myModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -28,17 +45,16 @@
               <input type="search" name="search" placeholder="What are you looking for?" />
             </div>
           </div>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img
-              src="../../assets/images/close-icon.svg"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <img src="../../assets/images/close-icon.svg" />
+          </button>
         </div>
         <div class="modal-body">
-          <div class="row">
-            
-          </div>
+          <div class="row"></div>
 
           <div class="row">
             <div class="col-xl-3">
-              <img src="../../assets/images/browse-topics.png" alt="">
+              <img src="../../assets/images/browse-topics.png" alt="" />
             </div>
             <div class="col-xl-3">
               <h2>Emerging Tech</h2>
@@ -90,3 +106,4 @@
       </div>
     </div>
   </div>
+</div>

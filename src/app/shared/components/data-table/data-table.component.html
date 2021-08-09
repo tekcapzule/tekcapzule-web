@@ -12,23 +12,13 @@
         </th>
       </ng-template>
 
-      <ng-container *ngIf="column.textFormatter || column.htmlFormatter; else normalCellTemplate">
-        <ng-container *ngIf="column.htmlFormatter; else textFormattedCellTemplate">
-          <td
-            mat-cell
-            *matCellDef="let element"
-            [class]="column.clazz"
-            [innerHTML]="column.htmlFormatter(element[column.columnId])"
-          ></td>
-        </ng-container>
-        <ng-template #textFormattedCellTemplate>
-          <td
-            mat-cell
-            *matCellDef="let element"
-            [class]="column.clazz"
-            [innerText]="column.textFormatter(element[column.columnId])"
-          ></td>
-        </ng-template>
+      <ng-container *ngIf="column.columnFormatter; else normalCellTemplate">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [class]="column.clazz"
+          [innerHTML]="column.columnFormatter(element[column.columnId])"
+        ></td>
       </ng-container>
 
       <ng-template #normalCellTemplate>

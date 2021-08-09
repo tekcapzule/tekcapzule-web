@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 
+import { EventChannelService, ChannelEvent } from '@app/core';
 import { NavTab } from '@app/shared';
 
 @Component({
@@ -17,11 +19,21 @@ export class CapsulesPageComponent implements OnInit {
     { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private eventChannel: EventChannelService) {}
 
   ngOnInit(): void {
     this.activeTab = this.navTabs[0].uniqueId;
-    this.router.navigate(['capsules', this.navTabs[0].uniqueId]);
+    this.router.navigate(['capsules', this.navTabs[0].navUrl]);
+
+    this.eventChannel
+      .getChannel()
+      .pipe(
+        filter(out => out.event === ChannelEvent.SetActiveTab),
+        map(out => out.data)
+      )
+      .subscribe(data => {
+        this.activeTab = data;
+      });
   }
 
   setActiveTab(navTab: NavTab): void {
@@ -32,7 +44,7 @@ export class CapsulesPageComponent implements OnInit {
     return this.activeTab === navTab.uniqueId;
   }
 
-  deactivateTabs(): void {
+  deActivateTabs(): void {
     this.activeTab = 'none';
   }
 }

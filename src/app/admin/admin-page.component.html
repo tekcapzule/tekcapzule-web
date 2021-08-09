@@ -1,17 +1,25 @@
-<div class="admin-page p-main">
-  <div class="container px-0">
-    <div class="row">
-      <div class="col-6">
-        <h1>300 Active Users</h1>
-      </div>
-      <div class="col-6">
-        <button mat-stroked-button class="button secondary-btn-sm action-btn" [routerLink]="['createtopic']">
-          Create Topic
-        </button>
-        <button mat-stroked-button class="button secondary-btn-sm action-btn mr-2" [routerLink]="['createcapsule']">
-          Create Capsule
-        </button>
-      </div>
+<div class="admin-page p-main container">
+  <div class="row">
+    <div class="col-6">
+      <h1>300 Active Users</h1>
+    </div>
+    <div class="col-6">
+      <button
+        mat-stroked-button
+        class="button secondary-btn-sm action-btn"
+        (click)="deActivateTabs()"
+        [routerLink]="['createtopic']"
+      >
+        Create Topic
+      </button>
+      <button
+        mat-stroked-button
+        class="button secondary-btn-sm action-btn mr-2"
+        (click)="deActivateTabs()"
+        [routerLink]="['createcapsule']"
+      >
+        Create Capsule
+      </button>
     </div>
     <div class="row">
       <nav mat-tab-nav-bar>

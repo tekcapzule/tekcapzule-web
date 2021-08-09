@@ -3,8 +3,7 @@ export interface ColumnDef {
   columnName: string;
   clazz?: string[];
   actionItems?: ActionItem[];
-  textFormatter?: (value: any) => string;
-  htmlFormatter?: (value: any) => string;
+  columnFormatter?: (value: any) => string;
 }
 
 export interface ActionItem {
