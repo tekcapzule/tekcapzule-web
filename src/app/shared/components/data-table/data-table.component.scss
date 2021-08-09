@@ -1,0 +1,42 @@
+.data-table {
+  table.mat-table {
+    width: 100%;
+    margin-bottom: 0;
+    border: 1px solid #e0e0e0;
+    tr.mat-header-row {
+      background-color: #fff;
+      th.mat-header-cell {
+        font-size: 13px;
+      }
+    }
+    tr.mat-row {
+      td.mat-cell {
+        font-size: 12px;
+        &.title-column {
+          color: #8b69ab;
+          font-weight: 700;
+        }
+        &.tag-column {
+          span {
+            color: #454964;
+            background-color: #eef0fb;
+            border: 1px solid #d3d6e8;
+            border-radius: 11px;
+            font-size: 11px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            padding: 1px 10px;
+            margin: 0 2px 4px 2px;
+          }
+        }
+      }
+    }
+    .data-table__no-record {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

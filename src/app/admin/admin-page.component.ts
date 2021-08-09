@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { NavTabModel } from '@app/shared';
+import { NavTab } from '@app/shared';
 
 @Component({
   selector: 'app-admin-page',
@@ -10,21 +11,24 @@ import { NavTabModel } from '@app/shared';
 export class AdminPageComponent implements OnInit {
   activeTab = 'adminCapsules';
 
-  navTabs: NavTabModel[] = [
+  navTabs: NavTab[] = [
     { uniqueId: 'adminCapsules', navUrl: 'capsules', displayName: 'Capsules' },
     { uniqueId: 'adminTopics', navUrl: 'topics', displayName: 'Topics' },
     { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activeTab = this.navTabs[0].uniqueId;
+    this.router.navigate(['admin', this.navTabs[0].uniqueId]);
+  }
 
-  setActiveTab(navTab: NavTabModel): void {
+  setActiveTab(navTab: NavTab): void {
     this.activeTab = navTab.uniqueId;
   }
 
-  isActiveTab(navTab: NavTabModel): boolean {
+  isActiveTab(navTab: NavTab): boolean {
     return this.activeTab === navTab.uniqueId;
   }
 }

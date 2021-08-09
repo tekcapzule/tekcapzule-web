@@ -1,4 +1,4 @@
-export interface NavTabModel {
+export interface NavTab {
   uniqueId: string;
   displayName: string;
   navUrl: string;
