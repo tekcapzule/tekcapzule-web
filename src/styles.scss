@@ -69,8 +69,9 @@ body {
 .data-table {
   margin-bottom: 40px;
   table.mat-table {
-    border: 1px solid #F1F1F1;
+    border: 0 !important;
     tr.mat-header-row {
+      border-top: 0;
       th.mat-header-cell {
         font-size: 14px !important;
         font-weight: bold;
