@@ -1,6 +1,9 @@
 @import './../../../../assets/styles/variables.scss';
 
 .create-capsule-page {
+    .container {
+        max-width: 1600px;
+    }
     label {
         font-family: $primary-font-medium;
     }

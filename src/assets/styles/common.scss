@@ -115,13 +115,14 @@ h3 {
 /* Carousel Slider Styles End */
 .carousel-card {
   //width: 405px;
-  width: 426px;
+  width: 408px;
   height: 540px;
   box-shadow: 0px 3px 39px #0000000f;
   border-radius: 20px;
   margin: 0 20px;
   transition: 0.3s;
   background: #fff;
+  cursor: pointer;
   &:hover {
     transform: scale(1.08);
     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
@@ -133,7 +134,7 @@ h3 {
     background: #fff;
     border-radius: 20px;
     margin: 20px 25px;
-    padding: 7px;
+    padding: 5px 7px 7px;
     height: 35px;
     width: 35px;
     &.bookmark {
@@ -351,10 +352,10 @@ textarea {
 }
 .p-main {
   padding-top: 155px;
-  min-height: 710px;
+  //min-height: 710px;
 }
 .container {
-  max-width: 1400px;
+  max-width: 1336px;
 }
 
 input:focus, textarea:focus {
@@ -466,3 +467,20 @@ status colors
   color: #9C9C9C!important;
 }
 
+
+/***************************
+Padding & Margin Props
+*****************************/
+.p-150 
+{
+  padding-left: 150px;
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

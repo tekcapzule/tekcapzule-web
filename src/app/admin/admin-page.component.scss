@@ -2,6 +2,9 @@
 
 .admin-page{
   background: #f3f3f3;
+  &.p-main {
+    padding-top: 125px;;
+  }
   .container {
     max-width: 1600px;
 }
@@ -9,6 +12,7 @@
     font-family: $cardtitle-font;
     font-size: 32px;
     color: #484848;
+    line-height: 34px;
   }
   .action-btn {
     padding: 3px 0 0 0;
