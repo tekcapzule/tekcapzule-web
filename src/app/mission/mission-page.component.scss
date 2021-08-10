@@ -21,13 +21,4 @@
     background: url('../../assets/images/success-bg.svg') no-repeat;
     padding-top: 70px;
   }
-  .contact-form {
-    &.section-bg {
-      .container {
-        background: $section-bg;
-        padding: 50px 150px;
-        border-radius: 27px;
-      }
-    }
-  }
 }
