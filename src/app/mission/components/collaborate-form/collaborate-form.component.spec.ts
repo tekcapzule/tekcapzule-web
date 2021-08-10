@@ -8,9 +8,8 @@ describe('CollaborateFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollaborateFormComponent ]
-    })
-    .compileComponents();
+      declarations: [CollaborateFormComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

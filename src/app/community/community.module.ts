@@ -7,14 +7,7 @@ import { CommunityPageComponent } from './community-page.component';
 import { HeroCarouselComponent } from './components/hero-carousel/hero-carousel.component';
 
 @NgModule({
-  declarations: [
-    CommunityPageComponent,
-    HeroCarouselComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    CommunityRoutingModule
-  ],
+  declarations: [CommunityPageComponent, HeroCarouselComponent],
+  imports: [CommonModule, SharedModule, CommunityRoutingModule],
 })
-export class CommunityModule { }
+export class CommunityModule {}

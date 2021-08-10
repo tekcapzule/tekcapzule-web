@@ -7,14 +7,7 @@ import { MissionPageComponent } from './mission-page.component';
 import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
 
 @NgModule({
-  declarations: [
-    MissionPageComponent,
-    CollaborateFormComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    MissionRoutingModule
-  ],
+  declarations: [MissionPageComponent, CollaborateFormComponent],
+  imports: [CommonModule, SharedModule, MissionRoutingModule],
 })
-export class MissionModule { }
+export class MissionModule {}

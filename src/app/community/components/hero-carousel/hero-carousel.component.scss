@@ -1,16 +1,16 @@
-@import "../../../../assets/styles/variables.scss";
+@import '../../../../assets/styles/variables.scss';
 
 .carousel-inner {
-    .hero-slider {
-        height: 390px;
-        background-attachment: fixed;
-        background: url("../../../../assets/images/community-hero-bg.svg") no-repeat 34px 0;
-    }
+  .hero-slider {
+    height: 390px;
+    background-attachment: fixed;
+    background: url('../../../../assets/images/community-hero-bg.svg') no-repeat 34px 0;
+  }
 }
 
 p {
-    font-size: 20px;
-    font-family: $primary-font-regular;
-    line-height: 30px;
-    color: #5a5a5a;
+  font-size: 20px;
+  font-family: $primary-font-regular;
+  line-height: 30px;
+  color: #5a5a5a;
 }

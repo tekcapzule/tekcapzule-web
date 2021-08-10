@@ -1,11 +1,11 @@
 @import '../../../../assets/styles/variables.scss';
 
 .contact-form {
-    &.section-bg {
-      .container {
-        background: $section-bg;
-        padding: 50px 150px;
-        border-radius: 27px;
-      }
+  &.section-bg {
+    .container {
+      background: $section-bg;
+      padding: 50px 150px;
+      border-radius: 27px;
     }
   }
+}
