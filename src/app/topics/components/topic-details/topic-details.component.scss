@@ -1,11 +1,11 @@
 @import './../../../../assets/styles/variables.scss';
 
 .explore-page {
-  background: #F8F8F8;
+  background: #f8f8f8;
   .container {
     max-width: 1400px;
     .cyber-block {
-      background: #fff url("../../../../assets/images/explore-topics-bg.png") no-repeat;
+      background: #fff url('../../../../assets/images/explore-topics-bg.png') no-repeat;
       padding: 40px 40px 0;
       .inline-points {
         li {
@@ -14,12 +14,12 @@
           font-weight: bold;
         }
       }
-    }    
+    }
   }
 }
 
-.capsules-bg{
-  background: #F1F1F1;
+.capsules-bg {
+  background: #f1f1f1;
   .progressbar {
     counter-reset: step;
     li {
@@ -43,10 +43,10 @@
         background-color: $primary-color;
         color: $white;
         position: inherit;
-    z-index: 2;
+        z-index: 2;
       }
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         width: 100%;
         height: 2px;
@@ -61,19 +61,15 @@
         }
       }
       span {
-        background: #fff url("../../../../assets/images/tek-icon.svg") no-repeat 9px 10px;
+        background: #fff url('../../../../assets/images/tek-icon.svg') no-repeat 9px 10px;
         width: 56px;
         height: 56px;
         position: absolute;
         background-color: #fff;
         border-radius: 38px;
-        top:10px;
+        top: 10px;
         z-index: 1;
       }
     }
   }
-  
-
 }
-
-

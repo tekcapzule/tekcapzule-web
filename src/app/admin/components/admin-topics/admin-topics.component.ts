@@ -60,9 +60,9 @@ export class AdminTopicsComponent implements OnInit {
       columnName: 'Status',
       columnFormatter: (value: AdminTopicStatus) => {
         if (value === AdminTopicStatus.Failure) {
-          return '<img class="status-icon" src="./assets/images/cross.svg" />';
+          return '<img class="status-icon" src="/assets/images/cross.svg" />';
         } else {
-          return '<img class="status-icon" src="./assets/images/check.svg" />';
+          return '<img class="status-icon" src="/assets/images/check.svg" />';
         }
       },
     },
@@ -73,12 +73,12 @@ export class AdminTopicsComponent implements OnInit {
       actionItems: [
         {
           actionId: 'edit',
-          iconUrl: './assets/images/action.svg',
+          iconUrl: '/assets/images/action.svg',
           actionCallback: this.editActionCallback,
         },
         {
           actionId: 'delete',
-          iconUrl: './assets/images/delete.svg',
+          iconUrl: '/assets/images/delete.svg',
           actionCallback: this.deleteActionCallback,
         },
       ],

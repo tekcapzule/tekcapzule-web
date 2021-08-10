@@ -40,7 +40,7 @@ export class AdminFeedbackComponent implements OnInit {
       actionItems: [
         {
           actionId: 'email',
-          iconUrl: './assets/images/mail.svg',
+          iconUrl: '/assets/images/mail.svg',
           actionCallback: this.actionCallback,
         },
       ],
