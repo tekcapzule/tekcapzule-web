@@ -131,7 +131,7 @@ h3 {
     text-align: center;
     cursor: pointer;
     position: absolute;
-    background: #fff;
+    background: #fcfafa;
     border-radius: 20px;
     margin: 20px 25px;
     padding: 5px 7px 7px;
@@ -154,7 +154,7 @@ h3 {
     }
     &.timer {
       right: 0;
-      background: $black;
+      background: #00000090;
       border: 1px solid $white;
       border-radius: 2px;
       span {

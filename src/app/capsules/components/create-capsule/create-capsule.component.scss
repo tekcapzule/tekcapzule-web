@@ -10,5 +10,13 @@
     .carousel-card
     {
         height: 630px;
+        transition: none;
+        &:hover {
+            transform: none;
+        }
+        .img-upload {
+            position: absolute;
+            top: 38%;
+        }
     }
 }
