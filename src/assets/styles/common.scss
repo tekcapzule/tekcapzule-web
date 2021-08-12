@@ -328,16 +328,22 @@ h3 {
 
 .back-link {
   margin-bottom: 30px;
+  margin-top: -25px;
     a {
     font-size: 15px;
     font-family: $cardtitle-font;
     color: $primary-color;
+    top: 33px;
+    position: relative;
   }
 }
 
 /*****************************************
 <!--Form Styles -->
 ******************************************/
+.form-control {
+  min-height: 45px;
+}
 input,
 textarea {
   background: #fff;
@@ -495,3 +501,30 @@ input:-webkit-autofill:active
 {
  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: #858585 #f6f6f6;
+  scrollbar-width: thin;
+  height: 453px;
+  overflow-x: hidden;
+  padding-right: 15px;
+}
+
+/*******Scroll bar styles For Chrome ****************/
+
+.scroller::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+}
+
+.scroller::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f6f6f6;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background-color: #858585;
+  border-radius: 7px;
+  min-height: 50px;
+}
+
