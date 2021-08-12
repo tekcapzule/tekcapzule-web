@@ -4,9 +4,7 @@
     <div class="row justify-content-center">
       <div class="d-flex align-items-center">
         <div class="logo">
-          <a [routerLink]="['/home']" routerLinkActive="active"
-            ><img src="/assets/images/logo.svg"
-          /></a>
+          <a [routerLink]="['/home']" routerLinkActive="active"><img src="/assets/images/logo.svg" /></a>
         </div>
         <nav class="nav-menu d-none d-lg-block">
           <ul>
@@ -22,8 +20,17 @@
         <div class="search-box">
           <input type="search" name="search" placeholder="What are you looking for?" />
         </div>
-        <button mat-raised-button class="button primary">Sign up</button>
-        <button mat-stroked-button class="button secondary">Login</button>
+        <div>
+          <div *ngIf="!isLoggedIn">
+            <a routerLink="/signin" routerLinkActive="active">
+              <button mat-raised-button class="button primary">Sign up</button></a>
+            <button mat-stroked-button class="button secondary">Login</button>
+          </div>
+          <div *ngIf="isLoggedIn">
+            <a routerLink="/signin" routerLinkActive="active">
+              {{userDetails.username}}</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

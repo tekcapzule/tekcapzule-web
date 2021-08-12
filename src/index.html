@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>TekCapsule</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <title>TekCapsule</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
 
-    <link rel="stylesheet" href="/assets/vendor/animate-4.1.1.min.css" />
-    <link rel="stylesheet" href="/assets/vendor/bootstrap-4.6.0.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    <script defer src="/assets/vendor/jquery-3.5.1.slim.min.js" charset="utf-8"></script>
-    <script defer src="/assets/vendor/bootstrap-bundle-4.6.0.min.js" charset="utf-8"></script>
-    <script defer src="/assets/vendor/twitter-widgets.min.js" charset="utf-8"></script>
-  </head>
+  <link rel="stylesheet" href="/assets/vendor/animate-4.1.1.min.css" />
+  <link rel="stylesheet" href="/assets/vendor/bootstrap-4.6.0.min.css" />
 
-  <body>
-    <app-root></app-root>
-  </body>
+  <script defer src="/assets/vendor/jquery-3.5.1.slim.min.js" charset="utf-8"></script>
+  <script defer src="/assets/vendor/bootstrap-bundle-4.6.0.min.js" charset="utf-8"></script>
+  <script defer src="/assets/vendor/twitter-widgets.min.js" charset="utf-8"></script>
+
+  <script>
+    if (global == undefined) {
+      var global = window;
+    }
+  </script>
+
+</head>
+
+<body>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '4077912698970738',
+        cookie: true,
+        xfbml: true,
+        version: 'v11.0'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <app-root></app-root>
+</body>
+
 </html>

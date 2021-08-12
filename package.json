@@ -29,6 +29,9 @@
     "@angular/platform-browser": "~11.2.9",
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
+    "@aws-amplify/ui-angular": "^1.0.17",
+    "aws-amplify": "^4.2.2",
+    "aws-amplify-angular": "^6.0.8",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
