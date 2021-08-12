@@ -1,0 +1,42 @@
+@import '../../../../assets/styles/common.scss';
+@import '../../../../assets/styles/variables.scss';
+
+.md-width{
+    width:100%;
+    max-width:1270px;
+    height:auto;
+}
+.font-medium{
+    font-size: 24px;
+}
+.adminPagesCard{
+    background-color: #F9F9F9;
+    &:hover{
+        transform: none;
+    }
+    .form-group{
+        label{
+            font-family: "Roboto";
+            font-weight:500;
+        }
+        textarea{
+            resize: none;
+        }
+    }
+    .form-control{
+        font-family: $primary-font-medium;
+        font-size:16px;
+        border:1px solid #DFDFDF;
+        border-radius: 4px;
+        margin-bottom: 0;
+        min-height: 45px;
+    }
+}
+
+.innerCardSection{
+    padding:15px;
+    border:1px solid #DFDFDF;
+    border-radius: 6px;
+    background:$white;
+    margin: 10px 0;
+}

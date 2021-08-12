@@ -382,6 +382,17 @@ Search Box
     height: 46px;
     border-radius: 30px;
   }
+  button{
+    &.search-btn {
+      background: url("../images/search-icon.svg") center right no-repeat;
+      width: 20px;
+      height: 44px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 394px;
+    }
+  }
 }
 
 

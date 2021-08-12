@@ -11,12 +11,17 @@
     {
         height: 630px;
         transition: none;
+        width: 493px;
         &:hover {
             transform: none;
         }
-        .img-upload {
-            position: absolute;
-            top: 38%;
+     
+        .upload-image{
+            background: #f2f2f2 url("../../../../assets/images/upload-image-before.png");
+            background-size: cover;
+            height: 230px;
+            border-radius: 20px;
+            padding-top: 60px;
         }
     }
 }
