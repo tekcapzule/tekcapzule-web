@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="row">
-      <nav mat-tab-nav-bar>
+      <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
         <div class="container px-0">
           <a
             mat-tab-link

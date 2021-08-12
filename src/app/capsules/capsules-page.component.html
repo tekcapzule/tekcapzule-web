@@ -1,5 +1,5 @@
 <div id="capsules" class="capsules-page p-main">
-  <nav mat-tab-nav-bar>
+  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
     <div class="container">
       <a
         mat-tab-link

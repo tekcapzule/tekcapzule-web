@@ -1,1 +1,93 @@
-<p>admin-create-topic works!</p>
+<div class="create-topic-page-Admin">
+  <div class="container pt-5">
+    <div class="back-link">
+      <a (click)="activateFirstNavTab()" [routerLink]="['../capsules']">
+        <img src="/assets/images/back-arrow.png" class="mr-2" />
+        Back to Dashboard
+      </a>
+      <h2 class="text-center">Create Topic</h2>
+    </div>
+    <div class="row card-section d-flex justify-content-center mb-4 pb-4">
+      <div class="carousel-card md-width adminPagesCard">
+        <h3 class="font-medium px-4 py-4 border-bottom mb-0">
+          Please fill in the following details
+        </h3>
+        <div class="d-flex border-bottom">
+          <div class="w-50 border-right">
+            <div class="px-4 py-4">
+              <div class="form-group">
+                <label for="Topic Name">Topic Name</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control"> </textarea>
+              </div>
+              <div class="form-group">
+                <label for="Alias">Alias</label>
+                <select class="form-control">
+                  <option>---</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="Topic Image">Topic Image</label>
+                <input type="file" class="form-control" placeholder="Upload Capsule Image" />
+              </div>
+            </div>
+          </div>
+          <div class="w-50">
+            <div class="px-4 py-4">
+              <div class="form-group">
+                <label for="Alias">Key Highlights</label>
+                <div class="innerCardSection">
+                  <div class="my-2 d-flex align-items-center">
+                    <input type="text" class="form-control" />
+                    <a class="ml-3" href="javascript:void(0);"
+                      ><img width="18" src="../../../../assets/images/add.svg" alt="add" />
+                    </a>
+                  </div>
+                  <div class="my-2 d-flex align-items-center">
+                    <input type="text" class="form-control" />
+                    <a class="ml-3" href="javascript:void(0);"
+                      ><img width="15" src="../../../../assets/images/trash.svg" alt="add" />
+                    </a>
+                  </div>
+                  <div class="my-2 d-flex align-items-center">
+                    <input type="text" class="form-control" />
+                    <a class="ml-3" href="javascript:void(0);"
+                      ><img width="15" src="../../../../assets/images/trash.svg" alt="add" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Select Capsule">Select Capsule</label>
+                <div class="innerCardSection">
+                  <select class="form-control my-2">
+                    <option>Capsule 01</option>
+                  </select>
+                  <select class="form-control my-2">
+                    <option>Capsule 02</option>
+                  </select>
+                  <select class="form-control my-2">
+                    <option>Capsule 03</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center my-4">
+          <button
+            class="button secondary-btn-md mr-3"
+            (click)="activateFirstNavTab()"
+            [routerLink]="['../capsules']"
+          >
+            Cancel
+          </button>
+          <button class="button secondary-btn-md cta">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
