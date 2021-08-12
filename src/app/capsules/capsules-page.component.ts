@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 import { EventChannelService, ChannelEvent } from '@app/core';
 import { Constants, NavTab } from '@app/shared';
@@ -27,12 +27,9 @@ export class CapsulesPageComponent implements OnInit {
 
     this.eventChannel
       .getChannel()
-      .pipe(
-        filter(out => out.event === ChannelEvent.SetActiveTab),
-        map(out => out.data)
-      )
-      .subscribe(data => {
-        this.activeTab = data;
+      .pipe(filter(out => out.event === ChannelEvent.SetActiveTab))
+      .subscribe(() => {
+        this.activeTab = this.navTabs[0].uniqueId;
       });
   }
 
@@ -46,5 +43,9 @@ export class CapsulesPageComponent implements OnInit {
 
   deActivateTabs(): void {
     this.activeTab = Constants.None;
+  }
+
+  canHideNavTabs(): boolean {
+    return this.activeTab === Constants.None;
   }
 }

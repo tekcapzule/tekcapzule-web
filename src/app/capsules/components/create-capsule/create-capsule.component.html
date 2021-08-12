@@ -16,27 +16,27 @@
     </div>
     <div class="row card-section d-flex justify-content-center mb-4 pb-4">
       <div class="carousel-card">
-          <div class="px-4 upload-image text-center">
-            <button class="button secondary-btn-sm contribute-btn mb-4">Upload Image</button>
-            <div class="row">
-              <div class="col-6">
-                <div class="form-group">
-                  <select class="form-control">
-                    <option>Topic Name</option>
-                  </select>
-                </div>
+        <div class="px-4 upload-image text-center">
+          <button class="button secondary-btn-sm contribute-btn mb-4">Upload Image</button>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <select class="form-control">
+                  <option>Topic Name</option>
+                </select>
               </div>
-              <div class="col-6">
-                <div class="form-group">
-                  <select class="form-control">
-                    <option>Duration</option>
-                  </select>
-                </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="form-control">
+                  <option>Duration</option>
+                </select>
               </div>
             </div>
           </div>
+        </div>
         <!-- <img src="/assets/images/upload-image-before.png" alt="" class="header-image" /> -->
-        
+
         <div class="content mt-5">
           <div class="form-group">
             <label for="capsuleTitle">Capsule Title</label>
@@ -60,7 +60,9 @@
               <label for="keyPoints">Key Points</label>
               <input type="text" class="form-control" id="keyPoints" /> <span>Add</span>
             </div>
-            <div class="form-group"><input type="text" class="form-control" /> <span>Add</span></div>
+            <div class="form-group">
+              <input type="text" class="form-control" /> <span>Add</span>
+            </div>
           </div>
         </div>
       </div>
@@ -149,7 +151,13 @@
       </div>
     </div>
     <div class="row justify-content-center mb-4">
-      <button class="button secondary-btn-md mb-5 mr-3">Cancel</button>
+      <button
+        class="button secondary-btn-md mb-5 mr-3"
+        (click)="activateFirstNavTab()"
+        [routerLink]="['../myfeeds']"
+      >
+        Cancel
+      </button>
       <button class="button secondary-btn-md cta mb-5">Submit</button>
     </div>
   </div>

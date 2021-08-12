@@ -13,6 +13,6 @@ export class CreateCapsuleComponent implements OnInit {
   ngOnInit(): void {}
 
   activateFirstNavTab(): void {
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveTab, data: 'myFeeds' });
+    this.eventChannel.publish({ event: ChannelEvent.SetActiveTab });
   }
 }
