@@ -5,6 +5,7 @@ import { CapsulesPageComponent } from './capsules-page.component';
 import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-trending.component';
 import { CreateCapsuleComponent } from './components/create-capsule/create-capsule.component';
+import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { EditorsPickComponent } from './components/editors-pick/editors-pick.component';
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateCapsuleComponent,
+      },
+      {
+        path: 'congratz',
+        component: CreateSuccessComponent,
       },
       {
         path: '',

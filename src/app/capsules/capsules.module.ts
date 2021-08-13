@@ -9,6 +9,7 @@ import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.
 import { CreateCapsuleComponent } from './components/create-capsule/create-capsule.component';
 import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-trending.component';
 import { EditorsPickComponent } from './components/editors-pick/editors-pick.component';
+import { CreateSuccessComponent } from './components/create-success/create-success.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { EditorsPickComponent } from './components/editors-pick/editors-pick.com
     CreateCapsuleComponent,
     CapsuleTrendingComponent,
     EditorsPickComponent,
+    CreateSuccessComponent,
   ],
   imports: [CommonModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
 })

@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-capsule-feeds',
   templateUrl: './capsule-feeds.component.html',
-  styleUrls: ['./capsule-feeds.component.scss']
+  styleUrls: ['./capsule-feeds.component.scss'],
 })
 export class CapsuleFeedsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,27 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ColumnDef } from '@app/shared';
-
-export enum AdminCapsuleStatus {
-  Approved = 'Approved',
-  Rejected = 'Rejected',
-  Pending = 'Pending',
-  Processing = 'Processing',
-  Active = 'Active',
-  Disabled = 'Disabled',
-}
-
-export interface AdminCapsuleDataItem {
-  capsuleTitle: string;
-  author: string;
-  publishedDate: string;
-  tags: string[];
-  duration: string;
-  category: string;
-  description: string;
-  keyHighlights: number;
-  questions: string;
-  status: AdminCapsuleStatus;
-}
+import { AdminCapsuleStatus, AdminCapsuleDataItem } from '@app/admin/models';
 
 @Component({
   selector: 'app-admin-capsules',

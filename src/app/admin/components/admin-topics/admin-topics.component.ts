@@ -1,19 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ColumnDef } from '@app/shared';
-
-export interface AdminTopicDataItem {
-  topicName: string;
-  description: string;
-  tags: string[];
-  keyHighlights: number;
-  status: AdminTopicStatus;
-}
-
-export enum AdminTopicStatus {
-  Success = 'SUCCESS',
-  Failure = 'FAILURE',
-}
+import { AdminTopicDataItem, AdminTopicStatus } from '@app/admin/models';
 
 @Component({
   selector: 'app-admin-topics',

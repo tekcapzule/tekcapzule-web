@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColumnDef } from '@app/shared';
-
-export interface AdminFeedbackDataItem {
-  firstName: string;
-  lastName: string;
-  email: string;
-  subject: string;
-}
+import { AdminFeedbackDataItem } from '@app/admin/models';
 
 @Component({
   selector: 'app-admin-feedback',
