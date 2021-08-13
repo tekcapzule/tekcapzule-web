@@ -1,6 +1,6 @@
 <div class="admin-page p-main">
   <div class="container px-0">
-    <div class="row">
+    <div class="row" *ngIf="!canHideNavTabs()">
       <div class="col-6">
         <h1>300 Active Users</h1>
       </div>
