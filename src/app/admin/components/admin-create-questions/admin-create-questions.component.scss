@@ -1,0 +1,65 @@
+@import '../../../../assets/styles/common.scss';
+@import '../../../../assets/styles/variables.scss';
+
+.md-width {
+  width: 100%;
+  max-width: 1123px;
+}
+.font-medium {
+  font-size: 18px;
+}
+.adminPagesCard {
+  background-color: #f9f9f9;
+  padding: 15px 30px;
+  min-height: 540px;
+  height: auto;
+  &:hover {
+    transform: none;
+  }
+  .form-check {
+    margin-bottom: 10px;
+    padding-left: 0;
+    .form-check-label {
+      margin-left: 35px;
+      .form-check-input {
+        width: auto;
+      }
+    }
+  }
+  .form-control {
+    font-family: $primary-font-medium;
+    font-size: 16px;
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
+    margin-bottom: 0;
+    min-height: 45px;
+  }
+  .form-input-row {
+    width: calc(100% - 100px);
+  }
+}
+.hyperlinkBtn {
+  color: $primary-color;
+  font-size: 16px;
+  font-family: $primary-font-bold;
+}
+.innerCardSection {
+  padding: 15px;
+  border: 1px solid #dfdfdf;
+  border-radius: 6px;
+  background: $white;
+  margin: 10px 0;
+}
+.q-section {
+  h4 {
+    font-size: 18px;
+    font-family: $cardtitle-font;
+  }
+}
+.p-dots:before {
+  content: '';
+  background: url('../../../../assets/images/parallel-dots.svg') no-repeat;
+  width: 9px;
+  height: 15px;
+  display: flex;
+}

@@ -15,6 +15,7 @@ import { AdminTopicsComponent } from './components/admin-topics/admin-topics.com
 import { AdminFeedbackComponent } from './components/admin-feedback/admin-feedback.component';
 import { AdminCreateCapsuleComponent } from './components/admin-create-capsule/admin-create-capsule.component';
 import { AdminCreateTopicComponent } from './components/admin-create-topic/admin-create-topic.component';
+import { AdminCreateQuestionsComponent } from './components/admin-create-questions/admin-create-questions.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AdminCreateTopicComponent } from './components/admin-create-topic/admin
     AdminFeedbackComponent,
     AdminCreateCapsuleComponent,
     AdminCreateTopicComponent,
+    AdminCreateQuestionsComponent,
   ],
   imports: [
     CommonModule,

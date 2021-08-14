@@ -1,131 +1,64 @@
 @import '../../../../assets/styles/common.scss';
 @import '../../../../assets/styles/variables.scss';
 
-.md-width{
-    width:100%;
-    max-width:1123px;
-}
-.font-medium{
-    font-size: 18px;
-}
-.adminPagesCard{
-    background-color: #F9F9F9;
-    padding:15px 30px;
-    min-height: 540px;
-    height: auto;
-    &:hover{
-        transform: none;
-    }
-    .form-check{
-        margin-bottom: 10px;
-        padding-left: 0;
-        .form-check-label{
-            margin-left:35px;
-            .form-check-input{
-                width:auto;
-            }
-        }
-    }
-    .form-control{
-        font-family: $primary-font-medium;
-        font-size:16px;
-        border:1px solid #DFDFDF;
-        border-radius: 4px;
-        margin-bottom: 0;
-        min-height: 45px;
-    }
-    .form-input-row{
-        width:calc(100% - 100px);
-    }
-}
-.hyperlinkBtn{
-    color:$primary-color;
-    font-size: 16px;
-    font-family: $primary-font-bold;
-}
-.innerCardSection{
-    padding:15px;
-    border:1px solid #DFDFDF;
-    border-radius: 6px;
-    background:$white;
-    margin: 10px 0;
-}
-.q-section{
-    h4{
-        font-size:18px;
-        font-family: $cardtitle-font;
-    }
-}
-.p-dots:before{
-    content: "";
-    background:url("../../../../assets/images/parallel-dots.svg") no-repeat;
-    width:9px;
-    height: 15px;
-    display: flex;
-}
-
-
-
-
 /***********First Page CSS*************/
 .create-capsule-page {
-    .container {
-        max-width: 1600px;
+  .container {
+    max-width: 1600px;
+  }
+  label {
+    font-family: $primary-font-medium;
+  }
+  .carousel-card {
+    height: 630px;
+    transition: none;
+    width: 493px;
+    &:hover {
+      transform: none;
     }
-    label {
-        font-family: $primary-font-medium;
+
+    .upload-image {
+      background: #f2f2f2 url('../../../../assets/images/upload-image-before.png');
+      background-size: cover;
+      height: 193px;
+      padding-top: 50px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      .secondary-btn-sm {
+        width: 180px;
+        height: 44px;
+        font-size: 18px;
+        font-family: $primary-font-bold;
+        border: 0;
+        border-radius: 22px;
+      }
     }
-    .carousel-card
-    {
-        height: 630px;
-        transition: none;
-        width: 493px;
-        &:hover {
-            transform: none;
+  }
+  .capsule-steps {
+    li {
+      list-style: none;
+      display: inline-block;
+      width: 32.33%;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-family: $heading-fonts;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: url('../../../../assets/images/dotted-line.svg') no-repeat;
+        top: 12px;
+        left: -43%;
+        z-index: 0;
+      }
+      &:first-child {
+        &:after {
+          content: none;
         }
-     
-        .upload-image{
-            background: #f2f2f2 url("../../../../assets/images/upload-image-before.png");
-            background-size: cover;
-            height: 193px;
-            padding-top: 50px;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            .secondary-btn-sm {
-                width: 180px;
-                height: 44px;
-                font-size: 18px;
-                font-family: $primary-font-bold;
-                border: 0;
-                border-radius: 22px;
-            }
-        }
+      }
     }
-    .capsule-steps {
-            li {
-                list-style: none;
-                display: inline-block;
-                width: 32.33%;
-                position: relative;
-                text-align: center;
-                cursor: pointer;
-                font-size: 18px;
-                font-family: $heading-fonts;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 2px;
-                    background: url("../../../../assets/images/dotted-line.svg") no-repeat;
-                    top: 12px;
-                    left: -43%;
-                    z-index: 0;
-                }
-                &:first-child {
-                    &:after {
-                      content: none;
-                    }
-                  }
-            }
-    }
+  }
 }

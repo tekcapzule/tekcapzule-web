@@ -85,7 +85,13 @@
           >
             Cancel
           </button>
-          <button class="button secondary-btn-md cta">Submit</button>
+          <button
+            class="button secondary-btn-md cta"
+            (click)="activateFirstNavTab()"
+            [routerLink]="['../capsules']"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
