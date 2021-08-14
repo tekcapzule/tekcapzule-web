@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/variables.scss';
+
+.success-page {
+  background: #f8f8f8;
+  min-height: 605px;
+  .content-section {
+    margin: 0 auto;
+    width: 361px;
+    text-align: center;
+    .font-medium {
+      font-size: 20px;
+      font-family: $primary-font-regular;
+    }
+  }
+}

@@ -1,8 +1,24 @@
-<div class="container pt-5">
-  <a (click)="activateFirstNavTab()" [routerLink]="['../myfeeds']">
-    <img src="/assets/images/back-arrow.png" class="mr-2" />
-    Capsules
-  </a>
-
-  <p>create-success works!</p>
+<div class="success-page">
+  <div class="container pt-5">
+    <div class="back-link">
+      <a (click)="activateFirstNavTab()" [routerLink]="['../myFeeds']">
+        <img src="/assets/images/back-arrow.png" class="mr-2" />
+        Capsules
+      </a>
+    </div>
+    <div class="row content-section d-flex justify-content-center mb-4 pb-4">
+      <h2 class="text-center mt-4">Congratulations!</h2>
+      <p class="font-medium">
+        Your Capsule is on its way to launch. We appreciate your contribution!
+      </p>
+      <img src="/assets/images/success.png" alt="" />
+      <button
+        class="button secondary-btn-md cta mt-5"
+        (click)="activateFirstNavTab()"
+        [routerLink]="['../myFeeds']"
+      >
+        Keep Reading
+      </button>
+    </div>
+  </div>
 </div>
