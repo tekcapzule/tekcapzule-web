@@ -29,8 +29,11 @@
               <button mat-raised-button class="button primary">Sign In</button></a
             >
           </div>
-          <div *ngIf="isLoggedIn && userDetails">
-            <a routerLink="/auth/signin" routerLinkActive="active">{{ userDetails.username }}</a>
+          <div *ngIf="isLoggedIn">
+            <span>{{ userDetails.username }}</span>
+            <button mat-raised-button class="button primary ml-3" (click)="signOutUser()">
+              Sign Out
+            </button>
           </div>
         </div>
       </div>

@@ -24,11 +24,11 @@ export class AuthService {
     if (authEvent === 'signIn') {
       this.authenticateUser();
     } else if (authEvent === 'signOut') {
-      this.signOutUser();
+      this.invalidateUser();
     }
   }
 
-  private signOutUser(): void {
+  private invalidateUser(): void {
     this.userInfo = null;
     this.isLoggedIn = false;
     this.loggedInStatusChange.next(this.isLoggedIn);
@@ -45,7 +45,7 @@ export class AuthService {
       })
       .catch(e => {
         console.log(e);
-        this.signOutUser();
+        this.invalidateUser();
       });
   }
 
@@ -59,5 +59,9 @@ export class AuthService {
 
   public getIsLoggedIn(): boolean {
     return this.isLoggedIn;
+  }
+
+  public signOutUser(): void {
+    this.amplify.auth().signOut();
   }
 }

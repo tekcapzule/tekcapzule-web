@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 import { AuthService } from '@app/auth';
 
@@ -19,5 +19,9 @@ export class HeaderComponent implements OnInit {
       this.userDetails = this.authService.getUserInfo();
       this.zone.run(() => (this.isLoggedIn = isLoggedIn));
     });
+  }
+
+  signOutUser(): void {
+    this.authService.signOutUser();
   }
 }
