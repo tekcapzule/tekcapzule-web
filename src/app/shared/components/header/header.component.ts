@@ -1,4 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '@app/auth';
 
@@ -11,17 +12,20 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   userDetails = null;
 
-  constructor(private authService: AuthService, private zone: NgZone) {}
+  constructor(private auth: AuthService, private zone: NgZone, private router: Router) {}
 
   ngOnInit(): void {
-    this.authService.onLoggedInStatusChange().subscribe(isLoggedIn => {
+    this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
-      this.userDetails = this.authService.getUserInfo();
-      this.zone.run(() => (this.isLoggedIn = isLoggedIn));
+      this.userDetails = this.auth.getUserInfo();
+      this.zone.run(() => {
+        this.isLoggedIn = isLoggedIn;
+        this.router.navigateByUrl('/home');
+      });
     });
   }
 
   signOutUser(): void {
-    this.authService.signOutUser();
+    this.auth.signOutUser();
   }
 }
