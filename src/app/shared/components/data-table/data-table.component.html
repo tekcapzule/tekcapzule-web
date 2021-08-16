@@ -2,9 +2,16 @@
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnId">
       <ng-container *ngIf="column.columnId !== 'action'; else actionHeaderTemplate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          {{ column.columnName }}
-        </th>
+        <ng-container *ngIf="column.disableSort; else sortEnabledHeaderTemplate">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ column.columnName }}
+          </th>
+        </ng-container>
+        <ng-template #sortEnabledHeaderTemplate>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ column.columnName }}
+          </th>
+        </ng-template>
       </ng-container>
       <ng-template #actionHeaderTemplate>
         <th mat-header-cell *matHeaderCellDef>

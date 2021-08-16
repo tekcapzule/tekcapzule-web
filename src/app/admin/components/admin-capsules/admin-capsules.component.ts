@@ -26,6 +26,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'tags',
       columnName: 'Tags',
+      disableSort: true,
       columnFormatter: (tags: string[]) => {
         return tags
           .map(
@@ -52,6 +53,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'keyHighlights',
       columnName: 'Key Highlights',
+      disableSort: true,
       columnFormatter: (value: number) => {
         return `
           <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
@@ -66,6 +68,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'status',
       columnName: 'Status',
+      disableSort: true,
       columnFormatter: (value: AdminCapsuleStatus) => {
         if (value === AdminCapsuleStatus.Approved || value === AdminCapsuleStatus.Active) {
           return `<span class='text-success'>${value}</span>`;

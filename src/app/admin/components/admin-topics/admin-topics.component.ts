@@ -22,6 +22,7 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'tags',
       columnName: 'Tags',
+      disableSort: true,
       columnFormatter: (tags: string[]) => {
         return tags
           .map(
@@ -36,6 +37,7 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'keyHighlights',
       columnName: 'Key Highlights',
+      disableSort: true,
       columnFormatter: (value: number) => {
         return `
           <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
@@ -46,6 +48,7 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'status',
       columnName: 'Status',
+      disableSort: true,
       columnFormatter: (value: AdminTopicStatus) => {
         if (value === AdminTopicStatus.Failure) {
           return '<img class="status-icon" src="/assets/images/cross.svg" />';
