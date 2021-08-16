@@ -1,26 +1,23 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { LoginService } from '@app/shared/services/login.service';
+
+import { AuthService } from '@app/auth';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   isLoggedIn = false;
   userDetails = null;
-  constructor(public loginService: LoginService, public zone: NgZone) {
-    loginService.loggedInStatusChange.subscribe(isLoggedIn => {
+
+  constructor(private authService: AuthService, private zone: NgZone) {}
+
+  ngOnInit(): void {
+    this.authService.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
-      if (isLoggedIn) {
-        this.userDetails = loginService.userDetails;
-      }else{
-        this.userDetails = null;
-      }
-      this.zone.run(() => this.isLoggedIn = isLoggedIn)
-
-    })
+      this.userDetails = this.authService.getUserInfo();
+      this.zone.run(() => (this.isLoggedIn = isLoggedIn));
+    });
   }
-
-  ngOnInit(): void { }
 }
