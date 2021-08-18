@@ -376,7 +376,11 @@ input:focus, textarea:focus {
   border-color: #8fce47;
   background-color: #8fce47;
 }
-
+.hyperlinkBtn {
+  color: $primary-color;
+  font-size: 16px;
+  font-family: $primary-font-bold;
+}
 /**************************************
 Search Box
 ***************************************/
