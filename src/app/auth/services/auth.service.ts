@@ -3,6 +3,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
+const ADMIN_USER_GROUP = "admin_users_group";
+const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
+
 @Injectable({
   providedIn: 'root',
 })
@@ -42,6 +45,7 @@ export class AuthService {
         this.userInfo = user;
         this.isLoggedIn = true;
         this.loggedInStatusChange.next(this.isLoggedIn);
+        this.isAdmin();
       })
       .catch(e => {
         console.log(e);
@@ -64,4 +68,13 @@ export class AuthService {
   public signOutUser(): void {
     this.amplify.auth().signOut();
   }
+
+  public getUserGroups(): string[]{
+    return idx(['signInUserSession','idToken','payload','cognito:groups'],this.userInfo) || [];
+  }
+
+  public isAdmin(): boolean{
+    return this.getUserGroups().includes(ADMIN_USER_GROUP);
+  }
+
 }
