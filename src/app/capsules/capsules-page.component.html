@@ -27,12 +27,13 @@
   <router-outlet></router-outlet>
   <!-- Modal -->
   <div
-    class="modal fade"
+    class="modal fade in mobileOverlayMenu"
     id="myModal"
     tabindex="-1"
     role="dialog"
     aria-labelledby="myModalLabel"
     aria-hidden="true"
+    data-backdrop="static"
   >
     <div class="modal-dialog">
       <div class="modal-content">
@@ -47,9 +48,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <div class="row"></div>
-
-          <div class="row">
+          <div class="row pb-4">
             <div class="col-xl-3">
               <img src="/assets/images/browse-topics.png" alt="" />
             </div>

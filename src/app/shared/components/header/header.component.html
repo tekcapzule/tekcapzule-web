@@ -1,30 +1,37 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
   <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="d-flex align-items-center">
-        <div class="logo">
-          <a [routerLink]="['/home']" routerLinkActive="active"
-            ><img src="/assets/images/logo.svg"
-          /></a>
-        </div>
-        <nav class="nav-menu d-none d-lg-block">
-          <ul>
-            <li routerLinkActive="active">
-              <a [routerLink]="['/capsules']">Capsules</a>
-            </li>
-            <li routerLinkActive="active"><a [routerLink]="['/topics']">Explore Topics</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/community']">Community</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/mission']">Our Mission</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/admin']">Admin</a></li>
-          </ul>
-        </nav>
-        <div class="search-box">
-          <input type="search" name="search" placeholder="What are you looking for?" />
-          <button title="search bar" class="search-btn"></button>
-        </div>
-        <div>
-          <div *ngIf="!isLoggedIn">
+    <div class="d-flex justify-content-center md-justify-left align-items-center">
+           <!-- Responsive Menu -->
+           <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+              <div class="navbar-brand logo">
+              <a [routerLink]="['/home']" routerLinkActive="active"
+                ><img src="/assets/images/logo.svg"
+              /></a>
+            </div>
+           
+            <div class="collapse navbar-collapse nav-menu" id="navbarNav">
+              <ul class="navbar-nav">
+                <li routerLinkActive="active">
+                  <a [routerLink]="['/capsules']">Capsules</a>
+                </li>
+                <li routerLinkActive="active"><a [routerLink]="['/topics']">Explore Topics</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/community']">Community</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/mission']">Our Mission</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/admin']">Admin</a></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- Responsive Menu End -->
+          <div class="search-box">
+            <input type="search" name="search" placeholder="What are you looking for?" />
+            <button title="search bar" class="search-btn"></button>
+          </div>
+          <div class="login-section">
+             <div *ngIf="!isLoggedIn">
             <a routerLink="/auth/signin" routerLinkActive="active">
               <button mat-raised-button class="button primary">Sign In</button></a
             >
@@ -35,8 +42,7 @@
               Sign Out
             </button>
           </div>
-        </div>
-      </div>
+          </div>
     </div>
   </div>
 </header>

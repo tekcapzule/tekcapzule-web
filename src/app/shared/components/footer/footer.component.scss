@@ -7,6 +7,12 @@
     font-size: 16px;
     background-size: cover;
     font-family: $primary-font-regular;
+    @media only screen and (max-width:990px){
+      padding: 30px;
+    }
+    @media only screen and (max-width:767){
+      padding: 15px;
+    }
     .footer-top {
         padding: 35px 0 0;
         position: relative;
@@ -15,6 +21,9 @@
             height: 21px;
         }
         .footer-links{
+          @media only screen and (max-width:767){
+            margin-bottom:10px;
+          }
             ul {
                 list-style: none;
                 padding: 20px 0 0;
@@ -50,5 +59,7 @@
       padding-right: 20px;
     }
   }
+  
+
 
 

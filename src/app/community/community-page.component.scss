@@ -22,12 +22,20 @@
         height:500px;
         width: 450px;
         position:relative;
+        @media only screen and (max-width:1199px){
+            width:100%;
+            max-width:450px;
+            background-size: cover;
+        }
         .inline-points{
             position: absolute;
             left: 8%;
             top: 32%;
             max-width: 65%;
             line-height: 22px;
+            @media only screen and (max-width:1199px){
+                max-width: 100%;
+            }
             li {
                 font-size: 28px;
                 padding-bottom: 35px;

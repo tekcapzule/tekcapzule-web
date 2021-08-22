@@ -2,6 +2,9 @@
 
 .explore-page {
   background: #f8f8f8;
+  &.p-main {
+    padding-top: 130px;
+  }
   .container {
     max-width: 1400px;
     .cyber-block {
@@ -20,6 +23,10 @@
 
 .capsules-bg {
   background: #f1f1f1;
+  padding: 0;
+  .container {
+    max-width: 1400px;
+  
   .progressbar {
     counter-reset: step;
     li {
@@ -72,4 +79,5 @@
       }
     }
   }
+}
 }

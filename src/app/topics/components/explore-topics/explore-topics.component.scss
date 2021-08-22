@@ -10,14 +10,15 @@
   }
 
   .topics-card {
-    //width: 351px;
-    min-height: 480px;
+    max-width: 350px;
+    min-height: 450px;
     box-shadow: 0px 3px 39px #0000000f;
-    margin: 0 20px;
+    margin: 0px 40px 40px 0px;
     transition: 0.3s;
     background: #fff;
+    width: 100%;
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.03);
       box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
     }
     .header-image {
@@ -37,7 +38,7 @@
       .description {
         font-family: $primary-font-light;
         font-size: 14px;
-        min-height: 186px;
+        min-height: 160px;
       }
     }
     .follow-btn {

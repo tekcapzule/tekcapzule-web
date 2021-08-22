@@ -55,6 +55,46 @@
     transform: translateY(-10px);
   }
 }
+.card-section{
+  flex-wrap: wrap;
+}
+.home-page{
+  .carousel{
+    @media only screen and (max-width:990px){
+    padding-top:58px;
+    }
+  }
+}
+@media only screen and (max-width:990px){
+  .sliderContent {
+      position: absolute;
+      z-index: 1;
+      text-align: center;
+      top: 50%;
+      background: rgba(255,255,255,.8);
+      @media only screen and (max-width:640px){
+        top: 68%;
+      }
+      h1{
+        font-size: 25px;
+        line-height: normal;
+      }
+      .hero-text{
+        font-size: 18px!important;
+        margin-bottom: 10px!important;
+        line-height: normal;
+      }
+      .button{
+        padding: 5px 20px;
+        font-size: 15px;
+        height: auto;
+        width: auto;
+      }
+      .follow-us {
+        margin-top: 12px;
+      }
+  }
+}
 
 /*--------------------------------------------------------------
 # Install Now Section
@@ -66,12 +106,20 @@
     background-repeat: no-repeat;
     .content {
         margin-top: 144px;
+        @media only screen and (max-width:990px){
+          margin:30px auto;
+          text-align: center;
+        }
     }
     .gplay-img {
-        width: 353px;
+        max-width: 353px;
         height: 108px;
         margin-bottom: 50px;
         display: block;
+        width:100%;
+        @media only screen and (max-width:990px){
+          margin:20px auto;
+        }
     }
 }
 
@@ -83,24 +131,46 @@
   &.section-bg {
     background: $section-bg;
     padding: 95px;
+    @media only screen and (max-width:990px){
+      padding:20px;
+    }
     .container {
       background: $white;
       padding: 75px;
       border-radius: 10px;
+      @media only screen and (max-width:990px){
+        padding:15px;
+      }
+      .subscibeSection-row{
+        width:100%;
+        max-width:535px;
+        margin: auto;
+        @media only screen and (max-width:480px){
+         flex-wrap: wrap;
+        } 
+      }
       .input-mail {
         background: #f6f6f6;
         border: 0 none;
         padding: 14px;
         border-radius: 10px;
-        width: 535px;
+        width: 100%;
         color: #a1a1a1;
         font-family: $primary-font-medium;
         font-size: 20px;
-        height: 65px;
+        height: 65px;    
+        padding-right:190px;  
+        @media only screen and (max-width:480px){
+          padding-right:10px;  
+        }  
       }
       button {
-        right: 176px;
-        top: -2px;
+        position: absolute;
+        right: 10px;
+        @media only screen and (max-width:480px){
+          position: relative;
+          right: auto;
+        }
       }
     }
   }
