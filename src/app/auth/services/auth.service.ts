@@ -4,7 +4,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
 const ADMIN_USER_GROUP = "admin_users_group";
-const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
+const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o);
 
 @Injectable({
   providedIn: 'root',
@@ -45,7 +45,6 @@ export class AuthService {
         this.userInfo = user;
         this.isLoggedIn = true;
         this.loggedInStatusChange.next(this.isLoggedIn);
-        this.isAdmin();
       })
       .catch(e => {
         console.log(e);
