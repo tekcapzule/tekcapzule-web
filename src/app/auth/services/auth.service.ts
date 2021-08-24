@@ -3,8 +3,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
-const ADMIN_USER_GROUP = "admin_users_group";
-const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o);
+import { Constants } from '@app/shared';
+const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
 @Injectable({
   providedIn: 'root',
@@ -52,6 +52,10 @@ export class AuthService {
       });
   }
 
+  private getUserGroups(): string[] {
+    return idx(['signInUserSession', 'idToken', 'payload', 'cognito:groups'], this.userInfo) || [];
+  }
+
   public onLoggedInStatusChange(): Observable<boolean> {
     return this.loggedInStatusChange.asObservable();
   }
@@ -68,12 +72,7 @@ export class AuthService {
     this.amplify.auth().signOut();
   }
 
-  public getUserGroups(): string[]{
-    return idx(['signInUserSession','idToken','payload','cognito:groups'],this.userInfo) || [];
+  public isAdminUser(): boolean {
+    return this.getUserGroups().includes(Constants.AdminUserGroup);
   }
-
-  public isAdmin(): boolean{
-    return this.getUserGroups().includes(ADMIN_USER_GROUP);
-  }
-
 }
