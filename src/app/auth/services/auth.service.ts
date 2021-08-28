@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
-import { Constants } from '@app/shared';
+import { Constants } from '@app/shared/utils/constants';
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
 @Injectable({
