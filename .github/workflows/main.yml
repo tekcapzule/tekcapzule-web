@@ -33,7 +33,9 @@ jobs:
         uses: actions/setup-node@v1.4.3
         with:
           node-version: ${{ matrix.node-version }}
-
+      - name: ACTIONS_ALLOW_UNSECURE_COMMANDS
+        id: ACTIONS_ALLOW_UNSECURE_COMMANDS
+        run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
       # Install the node modules
       - name: NPM Install
         run: npm install
