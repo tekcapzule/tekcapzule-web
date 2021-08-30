@@ -55,6 +55,6 @@ jobs:
         env:
           AWS_S3_BUCKET: ${{ secrets.deploymentorapplication }} # S3 bucket name
           # note: use IAM role with limited role for below access-key-id and secret-access-key
-          AWS_ACCESS_KEY_ID: ${{ secrets.AKIAWIRN6NC4GDEI5EVA }} # Access Key ID
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.j8WJukYuoziD1zBa8Bm2h4/J5JcxvLcce7/W9cBX }} # Access Secret Key
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} # Access Key ID
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Access Secret Key
           SOURCE_DIR: "dist/tekcapsule-web" # build folder
