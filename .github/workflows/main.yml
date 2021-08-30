@@ -55,7 +55,7 @@ jobs:
           args: --acl public-read --delete
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-          AWS_S3_BUCKET: ${{ secrets.deploymentorapplication }} # S3 bucket name
+          AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }} # S3 bucket name
           # note: use IAM role with limited role for below access-key-id and secret-access-key
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} # Access Key ID
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Access Secret Key
