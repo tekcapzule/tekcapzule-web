@@ -57,4 +57,4 @@ jobs:
           # note: use IAM role with limited role for below access-key-id and secret-access-key
           AWS_ACCESS_KEY_ID: ${{ AKIAWIRN6NC4GDEI5EVA }} # Access Key ID
           AWS_SECRET_ACCESS_KEY: ${{ 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 }} # Access Secret Key
-          SOURCE_DIR: "dist/simple-angular-app" # build folder
+          SOURCE_DIR: "dist/tekcapsule-web" # build folder
