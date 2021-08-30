@@ -1,0 +1,60 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy to AWS S3
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build_and_deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Here we are configuring build matrix that allows you to perform certain operations on your code
+    # with different software/Operating system configurations.
+    # In our case, we are only running it for Node v12.*. but you can multiple entries in that array.
+    strategy:
+      matrix:
+        node-version: [12.x]
+      
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # As you can see below we are using matrix.node-version => it means it will execute for all possible combinations
+      # provided matrix keys array(in our case only one kye => node-version)
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Install the node modules
+      - name: NPM Install
+        run: npm install
+
+      # Create production build
+      - name: Production Build
+        run: npm run build -- --prod # This is equivalent to 'ng build --prod'
+        
+      # Deploy to S3
+      # This is a third party action used to sync our production build app with the AWS S3 bucket
+      # For security purpose I am using secrets configured in project repo setting.
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
+        with:
+          # --acl public read => makes files publicly readable(i.e. makes sure that your bucket settings are also set to public)
+          # --delete => permanently deletes files in S3 bucket that are not present in latest build
+          args: --acl public-read --delete
+        env:
+          AWS_S3_BUCKET: ${{ deploymentorapplication }} # S3 bucket name
+          # note: use IAM role with limited role for below access-key-id and secret-access-key
+          AWS_ACCESS_KEY_ID: ${{ AKIAWIRN6NC4GDEI5EVA }} # Access Key ID
+          AWS_SECRET_ACCESS_KEY: ${{ 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 }} # Access Secret Key
+          SOURCE_DIR: "dist/simple-angular-app" # build folder
