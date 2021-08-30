@@ -25,6 +25,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: ACTIONS_ALLOW_UNSECURE_COMMANDS
+        id: ACTIONS_ALLOW_UNSECURE_COMMANDS
+        run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # As you can see below we are using matrix.node-version => it means it will execute for all possible combinations
       # provided matrix keys array(in our case only one kye => node-version)
@@ -33,9 +36,6 @@ jobs:
         uses: actions/setup-node@v1.4.3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: ACTIONS_ALLOW_UNSECURE_COMMANDS
-        id: ACTIONS_ALLOW_UNSECURE_COMMANDS
-        run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
       # Install the node modules
       - name: NPM Install
         run: npm install
