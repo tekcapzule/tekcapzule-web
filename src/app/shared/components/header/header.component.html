@@ -16,7 +16,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-brand logo">
-          <a [routerLink]="['/home']" routerLinkActive="active"
+          <a [routerLink]="['/home']" data-toggle="collapse" data-target=".navbar-collapse.show" routerLinkActive="active"
             ><img src="/assets/images/logo.svg"
           /></a>
         </div>
@@ -24,16 +24,20 @@
         <div class="collapse navbar-collapse nav-menu" id="navbarNav">
           <ul class="navbar-nav">
             <li routerLinkActive="active">
-              <a [routerLink]="['/capsules']">Capsules</a>
+              <a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/capsules']">Capsules</a>
             </li>
-            <li routerLinkActive="active"><a [routerLink]="['/topics']">Explore Topics</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/community']">Community</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/mission']">Our Mission</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/admin']">Admin</a></li>
+            <li routerLinkActive="active"><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/topics']">Explore Topics</a></li>
+            <li routerLinkActive="active"><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/community']">Community</a></li>
+            <li routerLinkActive="active"><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/mission']">Our Mission</a></li>
+            <li routerLinkActive="active"><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/admin']">Admin</a></li>
           </ul>
         </div>
       </nav>
       <!-- Responsive Menu End -->
+      <div class="d-flex align-items-center mr-2">
+      <div class="respSearchIcon">
+        <img src="../../../../assets/images/search-icon.svg" alt="Search" />
+      </div>
       <div class="search-box">
         <input type="search" name="search" placeholder="What are you looking for?" />
         <button title="search bar" class="search-btn"></button>
@@ -41,7 +45,7 @@
       <div class="login-section">
         <div *ngIf="!isLoggedIn">
           <a routerLink="/auth/signin" routerLinkActive="active">
-            <button mat-raised-button class="button primary">Sign In</button></a
+            <button mat-raised-button title="Sign In" class="button primary respIconBtn">Sign In</button></a
           >
         </div>
         <div *ngIf="isLoggedIn">
@@ -51,6 +55,7 @@
           </button>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </header>

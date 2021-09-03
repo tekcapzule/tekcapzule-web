@@ -17,6 +17,10 @@
     img {
       margin-right: 35px;
       margin-top: -10px;
+      @media only screen and (max-width:480px){
+        margin-right:15px;
+        width:130px;
+      }
     }
   }
   .button {
@@ -27,6 +31,24 @@
       height: 46px;
       @include helveticaNeueFont();
     }
+    &.primary.respIconBtn{
+      @media only screen and (max-width:1360px){
+        width: 40px;
+        height: 40px;
+        font-size: 0px;
+        text-align: center;
+        padding: 3px;
+        margin-right:0;
+        background-color:transparent;
+      &:before{
+        content: "";
+        background: url(../../../../assets/images/user.svg);
+        width: 30px;
+        height:30px;
+        display: inline-block;
+      }
+      }
+    }
   }
 }
 // @media (max-width: 992px) {
@@ -34,7 +56,34 @@
 //     padding: 12px 0;
 //   }
 // }
-
+.respSearchIcon{display: none;}
+@media only screen and (max-width:1360px){
+.respSearchIcon{
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: #f4f4f4;
+    border-radius: 50%;
+    border: 2px solid #eee;  
+    margin-right:7px; 
+  }
+  .search-box{
+    display: none;
+    right: 0px;
+    top: 57px;
+    width: 100%;
+    left: 0px;
+    padding: 5px;
+    margin: 0px;
+    position: absolute;
+    background: rgb(244, 244, 244);    
+    input[type=search]{
+      margin-bottom:0px;
+    }
+  }
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -54,6 +103,9 @@
       position: relative;
       white-space: nowrap;
       padding: 10px 40px;
+      @media only screen and (max-width:1500px){
+        padding: 10px;
+      }
       ::after {
         content: '';
         display: block;
@@ -70,7 +122,7 @@
     position: relative;
     color: #000;
     transition: 0.3s;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     padding: 0 3px;
     @include helveticaNeueFont();
@@ -225,7 +277,7 @@
 @media (max-width: 992px) {
   #header {
     .md-justify-left{
-      justify-content: flex-start!important;
+      justify-content: space-between!important;
     }
     @media only screen and (max-width:480px){
       .navbar{
@@ -233,13 +285,12 @@
       }
     } 
   }
-  .search-box, .login-section{
-    display:none;
-  }
+ 
   .navbar-toggler{
-    background-color:#333;
+    background-color:#e30045;
     margin-right: 20px;
-    padding: 5px 10px;
+    padding: .25rem .5rem;
+    font-size: 1rem;
     .navbar-toggler-icon{
     position: relative;
     display: inline-block;

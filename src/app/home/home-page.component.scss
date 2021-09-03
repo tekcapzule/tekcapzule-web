@@ -73,7 +73,7 @@
       top: 50%;
       background: rgba(255,255,255,.8);
       @media only screen and (max-width:640px){
-        top: 68%;
+        top: 90%;
       }
       h1{
         font-size: 25px;
@@ -81,7 +81,7 @@
       }
       .hero-text{
         font-size: 18px!important;
-        margin-bottom: 10px!important;
+        margin-bottom: 25px!important;
         line-height: normal;
       }
       .button{
@@ -92,6 +92,8 @@
       }
       .follow-us {
         margin-top: 12px;
+        display: flex;
+        justify-content: center;
       }
   }
 }
@@ -119,6 +121,8 @@
         width:100%;
         @media only screen and (max-width:990px){
           margin:20px auto;
+          max-width: 230px;
+          height: auto;
         }
     }
 }
@@ -162,6 +166,7 @@
         padding-right:190px;  
         @media only screen and (max-width:480px){
           padding-right:10px;  
+          font-size: 16px;
         }  
       }
       button {

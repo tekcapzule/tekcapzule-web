@@ -1,10 +1,10 @@
 <div class="admin-page p-main">
   <div class="container px-0">
     <div class="row" *ngIf="!canHideNavTabs()">
-      <div class="col-6">
+      <div class="col-lg-6 col-md-6 col-sm-12">
         <h1>300 Active Users</h1>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 resp-btn">
         <button
           mat-stroked-button
           class="button secondary-btn-sm action-btn"
@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
-        <div class="container px-0">
+        <div class="container px-0 resp-tab">
           <a
             mat-tab-link
             *ngFor="let navTab of navTabs"

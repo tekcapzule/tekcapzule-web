@@ -1,8 +1,8 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
-    <div class="container">
+    
       <a
-        mat-tab-link
+        mat-tab-link 
         *ngFor="let navTab of navTabs"
         (click)="setActiveTab(navTab)"
         [active]="isActiveTab(navTab)"
@@ -14,6 +14,7 @@
         >Browse by Topic
         <img src="/assets/images/down-arrow.svg" class="pl-2" />
       </a>
+      <div class="w-50 pr-0">
       <button
         mat-stroked-button
         class="button secondary-btn-sm contribute-btn"
@@ -49,10 +50,10 @@
         </div>
         <div class="modal-body">
           <div class="row pb-4">
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-md-6">
               <img src="/assets/images/browse-topics.png" alt="" />
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-md-6">
               <h2>Emerging Tech</h2>
               <ul class="topics-list">
                 <li>Cyber Security <span class="active">FOLLOWING</span></li>
@@ -66,7 +67,7 @@
                 <li>5G <span>FOLLOW</span></li>
               </ul>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-md-6">
               <h2>Tech In-demand</h2>
               <ul class="topics-list">
                 <li>AI/ML <span class="active">FOLLOWING</span></li>
@@ -82,7 +83,7 @@
                 <li>Virtual Reality, Augmented Reality <span>FOLLOW</span></li>
               </ul>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-md-6">
               <h2>Software Development</h2>
               <ul class="topics-list">
                 <li>Agile <span class="active">FOLLOWING</span></li>

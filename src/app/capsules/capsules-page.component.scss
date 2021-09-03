@@ -5,6 +5,7 @@
   &.p-main {
     padding-top: 90px;
   }
+  
 }
 
 /*********************************
@@ -28,6 +29,10 @@
   color: #575757;
   font-size: 18px;
   height: 60px;
+  @media only screen and (max-width:768px){
+    min-width:auto!important;
+    margin-right: 30px;
+  }
 }
 .contribute-btn {
   margin-top: 16px;
