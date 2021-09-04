@@ -52,6 +52,8 @@ body {
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: #e7245f !important;
   height: 4px;
+  // width: auto!important;
+  // min-width: 80px;
 }
 
 .mat-tab-link {
@@ -59,7 +61,7 @@ body {
   padding: 0 !important;
   text-align: start !important;
   justify-content: initial !important;
-  margin-right: 87px;
+  margin-right: 70px;
 }
 
 /*******************************
@@ -71,6 +73,11 @@ body {
   table.mat-table {
     width: 100%;
     border: 0 !important;
+    @media only screen and (max-width: 990px) { 
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    }
     tr.mat-header-row {
       border-top: 0;
       th.mat-header-cell {
@@ -118,3 +125,7 @@ body {
     //--amplify-primary-shade: #2dba89;
     //--amplify-background-color: #e0faf4;
   }
+
+  body.modal-open {
+    overflow: hidden;
+}
