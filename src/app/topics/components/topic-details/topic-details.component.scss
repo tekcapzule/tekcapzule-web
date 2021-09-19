@@ -4,6 +4,9 @@
   background: #f8f8f8;
   &.p-main {
     padding-top: 130px;
+    @media only screen and (max-width:768px){
+      padding-top: 90px;
+    }
   }
   .container {
     max-width: 1400px;

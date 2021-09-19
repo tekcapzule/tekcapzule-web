@@ -43,3 +43,9 @@
     margin-top: -35px;
     margin-right: 25px;
 }
+.create-topic-form {
+    display: flex;
+    .column {
+        width: 50%
+    }
+}

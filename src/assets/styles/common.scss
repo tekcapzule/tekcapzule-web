@@ -331,6 +331,8 @@ h3 {
     color: $primary-color;
     top: 33px;
     position: relative;
+    @media only screen and (max-width:990px){ }
+    top: -25px;
   }
 }
 
@@ -543,6 +545,10 @@ input:-webkit-autofill:active
   height: 453px;
   overflow-x: hidden;
   padding-right: 15px;
+  @media only screen and (max-width: 990px) { 
+    overflow-y: auto;
+    height: auto;
+  }
 }
 
 /*******Scroll bar styles For Chrome ****************/
@@ -571,7 +577,6 @@ input:-webkit-autofill:active
   max-width: 1300px;
     margin: auto;
     @media only screen and (max-width: 990px) { 
-      
       max-width: 1600px;
     }
 }

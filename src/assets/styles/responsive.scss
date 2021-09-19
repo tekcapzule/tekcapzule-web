@@ -10,7 +10,7 @@
         height: 560px !important;
         margin-top: 90px;
     }
-    .capsules-page {
+    .capsules-page, .topics-page, .create-capsule-page {
         .card-section {
             margin: 0 10px;
             .carousel-card{
@@ -71,7 +71,12 @@
             }
           }
       }
-
+      .create-topic-form {
+        display: contents !important;
+        .column {
+            width: 100%!important;
+        }
+    }
 }
 
 @media only screen and (width: 768px) { 
