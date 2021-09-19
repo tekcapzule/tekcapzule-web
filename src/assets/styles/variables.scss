@@ -35,3 +35,39 @@ $cardtitle-font-url: '../fonts/HelveticaNeueLTPro-BdCn.otf';
 @mixin helveticaNeueFont {
   font-family: HelveticaNeueLTPro;
 }
+
+/*--------------------------------------------------------------
+# Font Family
+---------------------------------------------------------------*/
+
+@font-face {
+  font-family: $heading-fonts;
+  src: url($heading-fonts-url);
+}
+
+@font-face {
+  font-family: $primary-font-regular;
+  src: url($primary-font-regular-url);
+}
+
+@font-face {
+  font-family: $primary-font-light;
+  src: url($primary-font-light-url);
+}
+
+@font-face {
+  font-family: $primary-font-bold;
+  src: url($primary-font-bold-url);
+}
+@font-face {
+  font-family: $primary-font-medium;
+  src: url($primary-font-medium-url);
+}
+@font-face {
+  font-family: $primary-font-black;
+  src: url($primary-font-black-url);
+}
+@font-face {
+  font-family: $cardtitle-font;
+  src: url($cardtitle-font-url);
+}
