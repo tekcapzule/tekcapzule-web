@@ -580,3 +580,8 @@ input:-webkit-autofill:active
       max-width: 1600px;
     }
 }
+select {
+  background: url("../images/select-arrow.svg") no-repeat right #ddd;
+  -webkit-appearance: none;
+  background-position-x: 96%;
+}

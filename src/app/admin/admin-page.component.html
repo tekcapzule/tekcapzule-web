@@ -39,13 +39,9 @@
       </nav>
       <div class="container px-0">
         <div class="col-lg-3 float-right" *ngIf="!isNavTabDeActivated()">
-          <div class="search-box mr-4">
-            <input
-              type="search"
-              name="search"
-              placeholder="What are you looking for?"
-              class="mb-1"
-            />
+          <div class="search-box">
+            <input type="search" name="search" placeholder="What are you looking for?" />
+            <button title="search bar" class="search-btn"></button>
           </div>
         </div>
         <router-outlet></router-outlet>
