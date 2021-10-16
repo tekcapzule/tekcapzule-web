@@ -20,6 +20,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: NPM Install
         run: npm install
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: ${{ secrets.ACTIONS_ALLOW_UNSECURE_COMMANDS }}
       - name: Production Build
         run: npm run build -- --prod
       - name: Deploy to S3
