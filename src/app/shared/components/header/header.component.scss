@@ -64,9 +64,6 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    background: #f4f4f4;
-    border-radius: 50%;
-    border: 2px solid #eee;  
     margin-right:7px; 
   }
   .search-box{
@@ -126,6 +123,11 @@
     font-weight: 600;
     padding: 0 3px;
     @include helveticaNeueFont();
+    @media (max-width: 992px) {
+      font-size: 16px;
+      font-family: $primary-font-regular;
+    }
+
 
     &:hover:before {
       visibility: visible;
@@ -287,26 +289,30 @@
   }
  
   .navbar-toggler{
-    background-color:#e30045;
     margin-right: 20px;
     padding: .25rem .5rem;
     font-size: 1rem;
-    .navbar-toggler-icon{
-    position: relative;
-    display: inline-block;
-    width: 1.5em;
-    height: 1.25em;
-    border-top: 0.2em solid #fff;
-    border-bottom: 0.2em solid #fff;
-    &:before{
-    content: "";
-    position: absolute;
-    top: 0.3em;
-    left: 0px;
-    width: 100%;
-    border-top: 0.2em solid #fff;
-    }
-    }
+    background: url("../../../../assets/images/burgerMenuIcon.svg") 10px 10px no-repeat;
+    // .navbar-toggler-icon{
+    // position: relative;
+    // display: inline-block;
+    // width: 1.5em;
+    // height: 1.25em;
+    // border-top: 0.15em solid #e30045;
+    // border-bottom: 0.15em solid #e30045;
+    // &:before{
+    // content: "";
+    // position: absolute;
+    // top: 0.4em;
+    // left: 0px;
+    // width: 100%;
+    // border-top: 0.15em solid #e30045;
+    // }
+    // }
+   
+  }
+  .navbar-toggler[aria-expanded="true"] {
+    background: url("../../../../assets/images/crossMobileMenu.svg") 10px 10px no-repeat;
   }
     .nav-menu > ul > li {
       padding:10px;

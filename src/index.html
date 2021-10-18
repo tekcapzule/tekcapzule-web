@@ -83,9 +83,12 @@
   })
     $(".respSearchIcon").click(function(){
       $(".search-box").toggle(500);
-    });        
+    }); 
+    $(this).scrollTop(0,0);       
   });
 </script>
-    <app-root></app-root>
+    <app-root>
+      <div class="spinner">Loading...</div>
+    </app-root>
   </body>
 </html>

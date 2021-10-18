@@ -51,6 +51,9 @@
       border: 1px solid $primary-color;
       background: $white;
       padding: 3px 10px;
+      @media only screen and (max-width: 990px) {
+        padding: 5px 10px;
+      }
     }
   }
   .twitter-section {

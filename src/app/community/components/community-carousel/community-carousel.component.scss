@@ -8,6 +8,9 @@
     @media only screen and (max-width:767px){
       background-size: 100%;
     }
+    @media only screen and (max-device-width:375px){
+      height: 460px;
+    }
   }
   .carouselContentSec{
     padding: 50px 100px;
