@@ -16,7 +16,7 @@ export class AdminPageComponent implements OnInit {
   navTabs: NavTab[] = [
     { uniqueId: 'adminCapsules', navUrl: 'capsules', displayName: 'Capsules' },
     { uniqueId: 'adminTopics', navUrl: 'topics', displayName: 'Topics' },
-    { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
+    // { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
   ];
 
   constructor(private router: Router, private eventChannel: EventChannelService) {}
