@@ -12,7 +12,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPageComponent } from './admin-page.component';
 import { AdminCapsulesComponent } from './components/admin-capsules/admin-capsules.component';
 import { AdminTopicsComponent } from './components/admin-topics/admin-topics.component';
-import { AdminFeedbackComponent } from './components/admin-feedback/admin-feedback.component';
+// import { AdminFeedbackComponent } from './components/admin-feedback/admin-feedback.component';
 import { AdminCreateCapsuleComponent } from './components/admin-create-capsule/admin-create-capsule.component';
 import { AdminCreateTopicComponent } from './components/admin-create-topic/admin-create-topic.component';
 import { AdminCreateQuestionsComponent } from './components/admin-create-questions/admin-create-questions.component';
@@ -22,7 +22,7 @@ import { AdminCreateQuestionsComponent } from './components/admin-create-questio
     AdminPageComponent,
     AdminCapsulesComponent,
     AdminTopicsComponent,
-    AdminFeedbackComponent,
+    // AdminFeedbackComponent,
     AdminCreateCapsuleComponent,
     AdminCreateTopicComponent,
     AdminCreateQuestionsComponent,
