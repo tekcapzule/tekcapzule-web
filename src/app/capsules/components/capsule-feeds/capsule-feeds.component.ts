@@ -6,21 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./capsule-feeds.component.scss'],
 })
 export class CapsuleFeedsComponent implements OnInit {
-  className = "card";
-
   constructor() {}
 
   ngOnInit(): void {}
-
-  getCardCSSClassName(){
-    return this.className;
-  }
-
-  flipcard() {
-    if(this.className != "card"){
-      this.className = "card"
-    }else {
-      this.className = "card is-flipped"
-    }
-  }
 }

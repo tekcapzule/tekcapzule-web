@@ -1,0 +1,91 @@
+<div class="capsule-card-container card">
+  <div
+    class="card-flipper back-flipped"
+    [class.front-flipped]="isCardFlipped"
+    [class.back-flipped]="!isCardFlipped"
+  >
+    <div class="capsule-card card-front">
+      <div class="card-head">
+        <div class="icons bookmark">
+          <img src="/assets/images/bookmark-icon.svg" class="rounded-img" />
+        </div>
+        <div class="icons okHand">
+          <img src="/assets/images/okhand-icon.svg" class="rounded-img" />
+        </div>
+        <div class="icons timer">
+          <img src="/assets/images/timer.svg" class="rounded-img" /><span>20 mins</span>
+        </div>
+        <div class="icons labelRed">
+          <span>#AI/ML</span>
+        </div>
+        <img src="/assets/images/card-3.png" class="header-image" alt="" />
+      </div>
+      <div class="card-content">
+        <div class="title">
+          Machine Learning Essentials
+          <p>by AWS <span>(August 16, 2010)</span></p>
+        </div>
+        <div class="description">
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
+            doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
+            ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo
+            enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur
+            magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui
+            ratione voluptatem sequi.
+          </p>
+        </div>
+        <div class="card-footer">
+          <img src="/assets/images/article-icon.svg" class="float-left" />
+          <div class="float-right">
+            <img src="/assets/images/flip-icon.svg" class="mr-4" (click)="doFlipCard()" />
+            <img src="/assets/images/upload-icon.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="capsule-card card-back">
+      <div class="card-content flip-card mt-4">
+        <div class="title">Why new-age Indian businesses are finally going public</div>
+        <div class="description">
+          <label>
+            <img src="/assets/images/eye-icon.svg" />
+            <span>224</span>
+          </label>
+          <label>
+            <img src="/assets/images/bookmark-grey.svg" />
+            <span>21</span>
+          </label>
+          <label>
+            <img src="/assets/images/okhand-icon.svg" />
+            <span>30</span>
+          </label>
+          <div class="tags-input">
+            <label>Tags</label>
+            <div class="tags-label">
+              <label class="tags">#NetworkSecurity</label>
+              <label class="tags">#Privacy</label>
+              <label class="tags">#CloudSecurity</label>
+              <label class="tags">#Malware</label>
+              <label class="tags">#EthicalHacking</label>
+              <label class="tags">#DataSecurity</label>
+            </div>
+          </div>
+          <div class="shield mb-5">
+            <img src="/assets/images/shield-icon-active.svg" />
+            <img src="/assets/images/shield-icon.svg" />
+            <img src="/assets/images/shield-icon.svg" />
+          </div>
+          <button class="button primary-btn-sm mb-3 d-block">Start Reading</button>
+        </div>
+        <div class="card-footer">
+          <img src="/assets/images/book-icon.svg" class="float-left" />
+          <div class="float-right">
+            <img src="/assets/images/flip-rev-con.svg" class="mr-4" (click)="doFlipCard()" />
+            <img src="/assets/images/upload-icon.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

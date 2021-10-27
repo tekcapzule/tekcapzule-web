@@ -1,0 +1,186 @@
+@import './../../../../assets/styles/variables.scss';
+
+/* Capsule Card Styles - Start */
+.capsule-card-container {
+  width: 408px;
+  height: 540px;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.capsule-card {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 3px 20px #0000000f;
+  border-radius: 20px;
+  margin: 0 20px;
+  transition: 0.3s;
+  background: #fff;
+  margin-bottom: 40px;
+  cursor: pointer;
+  backface-visibility: hidden;
+  .card-head {
+    position: relative;
+    .icons {
+      text-align: center;
+      cursor: pointer;
+      position: absolute;
+      background: #fcfafa;
+      border-radius: 20px;
+      margin: 20px 25px;
+      padding: 5px 7px 7px;
+      height: 35px;
+      width: 35px;
+      &.bookmark {
+        right: 0;
+      }
+      &.labelRed,
+      &.timer {
+        bottom: 20px;
+        width: auto;
+        background: $primary-color;
+        border-radius: 0px;
+        color: $white;
+        margin: 10px 10px;
+        font-size: 12px;
+        height: auto;
+        padding: 2px 7px;
+      }
+      &.timer {
+        right: 0;
+        background: #00000090;
+        border: 1px solid $white;
+        border-radius: 2px;
+        span {
+          margin-left: 5px;
+          vertical-align: middle;
+        }
+      }
+    }
+    .header-image {
+      height: 180px;
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom: 1px solid #f3f3f3;
+    }
+  }
+  .card-content {
+    padding: 0 30px;
+    .title {
+      font-size: 20px;
+      font-family: $cardtitle-font;
+      line-height: 23px;
+      min-height: 70px;
+      margin-top: 20px;
+      p {
+        font-family: $primary-font-medium;
+        font-size: 14px;
+        span {
+          font-family: $primary-font-regular;
+          color: #9b9b9b;
+        }
+      }
+    }
+    .description {
+      font-family: $primary-font-light;
+      font-size: 14px;
+    }
+    .card-footer {
+      background: none;
+      border: 0 none;
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    margin: 0 0px;
+  }
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+    @media only screen and (max-width: 768px) {
+      transform: none;
+    }
+  }
+}
+
+.flip-card {
+  cursor: default;
+  .title {
+    min-height: unset;
+    padding-bottom: 10px;
+  }
+  label {
+    margin-bottom: 35px;
+    img {
+      padding-right: 10px;
+    }
+    span {
+      font-family: $primary-font-regular;
+      font-size: 15px;
+      color: #7a7a7a;
+      padding-right: 30px;
+    }
+  }
+  .tags-input {
+    label {
+      font-family: $primary-font-regular;
+      font-size: 15px;
+      color: #5a6885;
+      background: #fff;
+      position: absolute;
+      margin-left: 10px;
+      margin-top: -22px;
+      padding: 10px 15px;
+      &.tags {
+        display: inline-block;
+        position: relative;
+        color: #5a6885;
+        background: #e4ebf9;
+        border-radius: 25px;
+        padding: 5px 20px;
+        margin-bottom: 15px;
+      }
+    }
+    .tags-label {
+      border: 1px solid #e4ebf9;
+      border-radius: 10px;
+      min-height: 160px;
+      padding: 30px 10px;
+      margin-bottom: 20px;
+    }
+  }
+  .shield {
+    img {
+      padding-left: 5px;
+    }
+  }
+}
+
+.card-flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+.card-flipper.front-flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.card-flipper.back-flipped .card-back {
+  transform: rotateY(180deg);
+}
+/* Capsule Card Styles - End */

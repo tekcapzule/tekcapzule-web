@@ -27,7 +27,7 @@ h1 {
   font-weight: 700;
   line-height: 64px;
   color: #000;
-  @media only screen and (max-width:767px){
+  @media only screen and (max-width: 767px) {
     line-height: normal;
     font-size: 30px;
   }
@@ -85,7 +85,7 @@ h3 {
 .carousel {
   padding-top: 114px;
   margin-bottom: 80px;
-  @media only screen and (max-width:768px){
+  @media only screen and (max-width: 768px) {
     margin-bottom: 30px;
   }
   .carousel-indicators li {
@@ -101,7 +101,7 @@ h3 {
       top: 0;
       height: 580px;
       width: 100%;
-      @media only screen and (max-width:990px){ 
+      @media only screen and (max-width: 990px) {
         height: 620px;
       }
       .carousel-caption {
@@ -124,100 +124,6 @@ h3 {
   }
 }
 /* Carousel Slider Styles End */
-.carousel-card {
-  //width: 405px;
-  width: 408px;
-  height: 540px;
-  box-shadow: 0px 3px 20px #0000000f;
-  border-radius: 20px;
-  margin: 0 20px;
-  transition: 0.3s;
-  background: #fff;
-  margin-bottom: 40px;
-  cursor: pointer;
-  @media only screen and (max-width:768px){
-    margin: 0 0px;
-  }
-  &:hover {
-    transform: scale(1.08);
-    box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
-    @media only screen and (max-width:768px){
-      transform: none;
-    }
-  }
-  .icons {
-    text-align: center;
-    cursor: pointer;
-    position: absolute;
-    background: #fcfafa;
-    border-radius: 20px;
-    margin: 20px 25px;
-    padding: 5px 7px 7px;
-    height: 35px;
-    width: 35px;
-    &.bookmark {
-      right: 0;
-    }
-    &.labelRed,
-    &.timer {
-      bottom: 20px;
-      width: auto;
-      background: $primary-color;
-      border-radius: 0px;
-      color: $white;
-      margin: 10px 10px;
-      font-size: 12px;
-      height: auto;
-      padding: 2px 7px;
-    }
-    &.timer {
-      right: 0;
-      background: #00000090;
-      border: 1px solid $white;
-      border-radius: 2px;
-      span {
-        margin-left: 5px;
-        vertical-align: middle;
-      }
-    }
-  }
-  .header-image {
-    height: 180px;
-    width: 100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom: 1px solid #f3f3f3;
-  }
-  .card-footer {
-    background: none;
-    border: 0 none;
-    img {
-      cursor: pointer;
-    }
-  }
-  .content {
-    padding: 0 30px;
-    .title {
-      font-size: 20px;
-      font-family: $cardtitle-font;
-      line-height: 23px;
-      min-height: 70px;
-      margin-top: 20px;
-      p {
-        font-family: $primary-font-medium;
-        font-size: 14px;
-        span {
-          font-family: $primary-font-regular;
-          color: #9b9b9b;
-        }
-      }
-    }
-    .description {
-      font-family: $primary-font-light;
-      font-size: 14px;
-    }
-  }
-}
 
 /*--------------------------------------------------------------
 # Button Styles
@@ -269,7 +175,7 @@ h3 {
     padding: 0 33px;
     &.cta {
       color: $white;
-      background-color:  $primary-color;
+      background-color: $primary-color;
     }
   }
   &.secondary-btn-sm {
@@ -293,7 +199,7 @@ h3 {
   font-family: $primary-font-regular;
   line-height: 37px;
   color: $secondary-color;
-  @media only screen and (max-width:990px){
+  @media only screen and (max-width: 990px) {
     font-size: 18px;
     line-height: 26px;
   }
@@ -306,7 +212,7 @@ h3 {
     font-family: $primary-font-medium;
     padding: 0 20px;
     text-decoration: underline;
-    @media only screen and (max-width:570px){
+    @media only screen and (max-width: 570px) {
       font-size: 16px;
       //padding: 0 3px;
       display: flex;
@@ -317,9 +223,9 @@ h3 {
       padding-right: 10px;
     }
   }
-  .divider{
-    color:#000;
-    @media only screen and (max-width:570px){
+  .divider {
+    color: #000;
+    @media only screen and (max-width: 570px) {
       display: none;
     }
   }
@@ -328,13 +234,14 @@ h3 {
 .back-link {
   margin-bottom: 30px;
   margin-top: -25px;
-    a {
+  a {
     font-size: 15px;
     font-family: $cardtitle-font;
     color: $primary-color;
     top: 33px;
     position: relative;
-    @media only screen and (max-width:990px){ }
+    @media only screen and (max-width: 990px) {
+    }
     top: -25px;
   }
 }
@@ -357,25 +264,26 @@ textarea {
   margin-bottom: 25px;
   width: 100%;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 .p-main {
   padding-top: 155px;
-  @media only screen and (max-width: 990px) { 
-  padding-top: 90px;
+  @media only screen and (max-width: 990px) {
+    padding-top: 90px;
   }
 }
 .container {
   max-width: 1336px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
-  box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
--webkit-box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
--moz-box-shadow: -3px 1px 23px -9px rgba(0,0,0,0.25);
+  box-shadow: -3px 1px 23px -9px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -3px 1px 23px -9px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -3px 1px 23px -9px rgba(0, 0, 0, 0.25);
 }
-.custom-control-input:checked~.custom-control-label::before {
+.custom-control-input:checked ~ .custom-control-label::before {
   border-color: #8fce47;
   background-color: #8fce47;
 }
@@ -390,17 +298,17 @@ Search Box
 .search-box {
   margin: 26px 35px 0;
   position: relative;
-  input[type=search] {
+  input[type='search'] {
     font-family: 'Roboto';
     font-size: 14px;
-    border: 1px solid #E9E9E9;
+    border: 1px solid #e9e9e9;
     min-width: 280px;
     height: 46px;
     border-radius: 30px;
   }
-  button{
+  button {
     &.search-btn {
-      background: url("../images/search-icon.svg") center right no-repeat;
+      background: url('../images/search-icon.svg') center right no-repeat;
       width: 20px;
       height: 44px;
       border: none;
@@ -411,7 +319,6 @@ Search Box
   }
 }
 
-
 /**************************************
 Modal Dialogue
 ***************************************/
@@ -419,8 +326,8 @@ Modal Dialogue
   margin-top: 150px;
 }
 .modal-open .modal {
-  padding-right: 0!important;
-} 
+  padding-right: 0 !important;
+}
 
 .modal-dialog {
   max-width: 100%;
@@ -433,7 +340,7 @@ Modal Dialogue
   border-radius: 0;
   border: 0;
   .close {
-    padding: 50px 60px 0!important
+    padding: 50px 60px 0 !important;
   }
   .modal-header {
     border-bottom: 0;
@@ -443,33 +350,35 @@ Modal Dialogue
     padding: 30px 70px;
   }
 }
-.modal-backdrop { opacity:0 !important; }
-@media only screen and (max-width:1199px){
-  .mobileOverlayMenu{
-    .modal-dialog{
+.modal-backdrop {
+  opacity: 0 !important;
+}
+@media only screen and (max-width: 1199px) {
+  .mobileOverlayMenu {
+    .modal-dialog {
       height: auto;
     }
-    .modal-content{
-      .modal-header{
+    .modal-content {
+      .modal-header {
         .search-box {
           margin: 26px 0px 0;
         }
       }
-      .modal-body{
-        padding:15px;
+      .modal-body {
+        padding: 15px;
         background-color: $white;
-        img{
-          width:100%;
-          max-width:370px;
+        img {
+          width: 100%;
+          max-width: 370px;
           margin: 0 auto 10px;
         }
       }
       .close {
-        padding: 0px!important;
+        padding: 0px !important;
       }
-    } 
-    .modal.show .modal-dialog{
-      height:auto;
+    }
+    .modal.show .modal-dialog {
+      height: auto;
     }
   }
 }
@@ -477,32 +386,32 @@ Modal Dialogue
 /***********************************
 Carousel Topics & Community Page
 ***********************************/
-.topics-page, .community-page{
-  .carousel 
-  {
+.topics-page,
+.community-page {
+  .carousel {
     padding-top: 0;
     margin-bottom: 0;
-    box-shadow:  1px 0px 17px -11px rgb(125 125 125);
-    -webkit-box-shadow:  1px 0px 17px -11px rgb(125 125 125);
-    -moz-box-shadow:  1px 0px 17px -11px rgb(125 125 125);
-   
+    box-shadow: 1px 0px 17px -11px rgb(125 125 125);
+    -webkit-box-shadow: 1px 0px 17px -11px rgb(125 125 125);
+    -moz-box-shadow: 1px 0px 17px -11px rgb(125 125 125);
+
     h2 {
       font-size: 29px;
       font-family: $primary-font-black;
       font-style: italic;
-      color: #2E2E2E;
+      color: #2e2e2e;
     }
-  .carousel-inner .carousel-item {
-    height: 338px;
-    background: $white;
-    .carousel-caption {
-      color: #444444;
-      p {
-      font-size: 14px;
-      line-height: 22px;
+    .carousel-inner .carousel-item {
+      height: 338px;
+      background: $white;
+      .carousel-caption {
+        color: #444444;
+        p {
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
     }
-    }
-  }
   }
 }
 
@@ -510,35 +419,31 @@ Carousel Topics & Community Page
 status colors
 *****************************/
 .text-success {
-  color: #75BF21!important;
+  color: #75bf21 !important;
 }
 .text-danger {
-  color: #EC3434!important;
+  color: #ec3434 !important;
 }
 .text-warning {
-  color: #E19004!important;
+  color: #e19004 !important;
 }
-.text-muted
-{
-  color: #9C9C9C!important;
+.text-muted {
+  color: #9c9c9c !important;
 }
-
 
 /***************************
 Padding & Margin Props
 *****************************/
-.p-150 
-{
+.p-150 {
   padding-left: 150px;
 }
 
 /* Change the white to any color */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active
-{
- -webkit-box-shadow: 0 0 0 30px white inset !important;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 .scroller {
@@ -548,7 +453,7 @@ input:-webkit-autofill:active
   height: 453px;
   overflow-x: hidden;
   padding-right: 15px;
-  @media only screen and (max-width: 990px) { 
+  @media only screen and (max-width: 990px) {
     overflow-y: auto;
     height: auto;
   }
@@ -570,21 +475,21 @@ input:-webkit-autofill:active
   border-radius: 7px;
   min-height: 50px;
 }
-@media only screen and (max-width:1199px){
-  .col-card .carousel-card{
-    height:auto;
+@media only screen and (max-width: 1199px) {
+  .col-card .carousel-card {
+    height: auto;
     padding-bottom: 20px;
   }
 }
-.mat-tab-links{
+.mat-tab-links {
   max-width: 1300px;
-    margin: auto;
-    @media only screen and (max-width: 990px) { 
-      max-width: 1600px;
-    }
+  margin: auto;
+  @media only screen and (max-width: 990px) {
+    max-width: 1600px;
+  }
 }
 select {
-  background: url("../images/select-arrow.svg") no-repeat right #ddd;
+  background: url('../images/select-arrow.svg') no-repeat right #ddd;
   -webkit-appearance: none;
   background-position-x: 96%;
 }
@@ -595,8 +500,6 @@ select {
   width: 100%;
   height: 100vh;
   text-align: center;
-  top:50%;
-  background:url("../images/tek-icon.svg") 50% 50% no-repeat;
+  top: 50%;
+  background: url('../images/tek-icon.svg') 50% 50% no-repeat;
 }
-
-
