@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-topic-card',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topic-card.component.scss']
 })
 export class TopicCardComponent implements OnInit {
-
+  @Input() topic!: any;
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  topicGatewayLLD : 'bu3dkcc0t5'
 };

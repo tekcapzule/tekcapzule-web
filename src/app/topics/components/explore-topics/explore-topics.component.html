@@ -7,12 +7,9 @@
         </div>
         <section>
           <div class="card-section d-flex flex-wrap justify-content-center mb-4 pt-4">
-            <app-topic-card></app-topic-card>
-            <app-topic-card></app-topic-card>
-            <app-topic-card></app-topic-card>
-            <app-topic-card></app-topic-card>
-            <app-topic-card></app-topic-card>
-            <app-topic-card></app-topic-card>
+            <ng-template ngFor let-topic [ngForOf]="topics" let-i="index">
+              <app-topic-card [topic]="topic"></app-topic-card>
+            </ng-template>
           </div>
         </section>
       </div>
