@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  topicGatewayLLD : 'bu3dkcc0t5'
+  apiStageEnv: 'prod',
+  topicApiGateway: 'bu3dkcc0t5',
 };

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  topicGatewayLLD : 'odl3njp8ya'
+  apiStageEnv: 'dev',
+  topicApiGateway: 'odl3njp8ya',
 };
 
 /*

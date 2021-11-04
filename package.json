@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "start:dev": "ng serve --host 0.0.0.0",
     "build:prod": "ng build --prod",
-    "prettify": "prettier --config ./.prettierrc --write 'src/app/**/*.{js,ts,json,css,scss,html}'"
+    "prettify": "prettier --config ./.prettierrc --write 'src/app/**/*.{js,ts,json,css,scss,html}'",
+    "test:headless": "ng test --browsers=ChromeHeadless --reporters=spec"
   },
   "private": true,
   "husky": {
@@ -51,6 +52,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "karma-spec-reporter": "^0.0.32",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "protractor": "~7.0.0",
