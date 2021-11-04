@@ -16,6 +16,7 @@ import { AdminTopicsComponent } from './components/admin-topics/admin-topics.com
 import { AdminCreateCapsuleComponent } from './components/admin-create-capsule/admin-create-capsule.component';
 import { AdminCreateTopicComponent } from './components/admin-create-topic/admin-create-topic.component';
 import { AdminCreateQuestionsComponent } from './components/admin-create-questions/admin-create-questions.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AdminCreateQuestionsComponent } from './components/admin-create-questio
     MatTabsModule,
     SharedModule,
     AdminRoutingModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

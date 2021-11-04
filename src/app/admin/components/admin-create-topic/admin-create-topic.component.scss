@@ -1,5 +1,10 @@
 @import '../../../../assets/styles/variables.scss';
-
+button:disabled,
+button[disabled]{
+  border: 0px solid #999999;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+}
 .md-width{
     width:100%;
     max-width:1270px;
