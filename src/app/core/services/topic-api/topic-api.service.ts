@@ -1,18 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
 
-const TOPIC_API_GATEWAY_FQDN = 'https://{{topic-gateway}}.execute-api.us-east-2.amazonaws.com'.replace(
-  '{{topic-gateway}}',
-  environment.topicApiGateway
-);
+import { environment } from '@env/environment';
 
-const TOPIC_API_PATH = `${TOPIC_API_GATEWAY_FQDN}/{{stage}}/topic`.replace(
-  '{{stage}}',
-  environment.apiStageEnv
-);
-
+const TOPIC_API_PATH = 'https://{{topic-gateway}}.execute-api.us-east-2.amazonaws.com/{{stage}}/topic'
+  .replace('{{topic-gateway}}', environment.topicApiGateway)
+  .replace('{{stage}}', environment.apiStageEnv);
 @Injectable({
   providedIn: 'root',
 })

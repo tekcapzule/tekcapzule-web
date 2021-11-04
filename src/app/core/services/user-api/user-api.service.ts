@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-// Gateway FQDN needs to be taken from env file (will do this at the end).
-// TODO: Fill in correct {{user-gateway}}.
-const USER_API_GATEWAY_FQDN = 'https://{{user-gateway}}.execute-api.us-east-2.amazonaws.com';
-const USER_API_PATH = `${USER_API_GATEWAY_FQDN}/dev/user`;
+import { environment } from '@env/environment';
+
+const USER_API_PATH = 'https://{{user-gateway}}.execute-api.us-east-2.amazonaws.com/{{stage}}/user'
+  .replace('{{user-gateway}}', environment.userApiGateway)
+  .replace('{{stage}}', environment.apiStageEnv);
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,11 @@ const USER_API_PATH = `${USER_API_GATEWAY_FQDN}/dev/user`;
 export class UserApiService {
   constructor(private httpClient: HttpClient) {}
 
+  getUserApiPath(): string {
+    return USER_API_PATH;
+  }
+
   getUser(): Observable<any> {
-    return this.httpClient.post(`${USER_API_PATH}/get`, null);
+    return this.httpClient.post(`${USER_API_PATH}/get`, {});
   }
 }

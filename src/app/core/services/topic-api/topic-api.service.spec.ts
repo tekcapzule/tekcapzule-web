@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { TopicApiService } from './topic-api.service';
 
-fdescribe('TopicApiService', () => {
+describe('TopicApiService', () => {
   let service: TopicApiService;
 
   beforeEach(() => {
