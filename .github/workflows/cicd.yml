@@ -39,6 +39,7 @@ jobs:
 
   prodDeploy:
     name: Prod Deploy
+    needs: devDeploy
     environment:
       name: PROD
     runs-on: ubuntu-latest
