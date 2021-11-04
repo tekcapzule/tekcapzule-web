@@ -6,8 +6,10 @@ on:
     branches: [ main ]
 
 jobs:
-  buildAndDeploy:
-    name: Build and Deploy
+  devDeploy:
+    name: Dev Deploy
+    environment:
+      name: DEV
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -30,7 +32,38 @@ jobs:
           args: --acl public-read --delete
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: ${{ secrets.ACTIONS_ALLOW_UNSECURE_COMMANDS }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: "dist/tekcapsule-web" 
+          SOURCE_DIR: "dist/tekcapsule-web"
+
+  prodDeploy:
+    name: Prod Deploy
+    environment:
+      name: PROD
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: ${{ matrix.node-version }}
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: ${{ secrets.ACTIONS_ALLOW_UNSECURE_COMMANDS }}
+      - name: NPM Install
+        run: npm install
+      - name: Production Build
+        run: npm run build -- --prod
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
+        with:
+          args: --acl public-read --delete
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: ${{ secrets.ACTIONS_ALLOW_UNSECURE_COMMANDS }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: "dist/tekcapsule-web"
