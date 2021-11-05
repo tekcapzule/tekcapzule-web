@@ -1,12 +1,12 @@
 <div class="topic-card">
   <div>
-    <img src={{this.topic.imageUrl}} class="header-image" alt="" />
+    <img [src]="this.topic.imageUrl" class="header-image" alt="" />
   </div>
   <div class="content">
-    <div class="title">{{this.topic.name}}</div>
+    <div class="title">{{ this.topic.name }}</div>
     <div class="description pb-3">
       <p>
-        {{this.topic.description}}
+        {{ this.topic.description }}
       </p>
     </div>
     <button class="button follow-btn" [routerLink]="['../topicdetails']">FOLLOW</button>
