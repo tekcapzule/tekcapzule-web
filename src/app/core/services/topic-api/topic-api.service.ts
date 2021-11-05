@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 
-const TOPIC_API_PATH = 'https://{{topic-gateway}}.execute-api.us-east-2.amazonaws.com/{{stage}}/topic'
-  .replace('{{topic-gateway}}', environment.topicApiGateway)
+const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`
+  .replace('{{gateway}}', environment.topicApiGateway)
   .replace('{{stage}}', environment.apiStageEnv);
+
 @Injectable({
   providedIn: 'root',
 })

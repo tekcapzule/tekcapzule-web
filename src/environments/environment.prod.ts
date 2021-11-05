@@ -7,4 +7,5 @@ export const environment = {
   subscriptionApiGateway: 'ppxetjwise',
   topicApiGateway: 'bu3dkcc0t5',
   userApiGateway: '1p5xohsuk9',
+  apiEndpointTemplate: 'https://{{gateway}}.execute-api.us-east-2.amazonaws.com/{{stage}}',
 };
