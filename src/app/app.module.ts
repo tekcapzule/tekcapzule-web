@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,7 @@ import { CapsulesModule } from '@app/capsules';
 import { TopicsModule } from '@app/topics';
 import { CommunityModule } from '@app/community';
 import { MissionModule } from '@app/mission';
+import { ApiInterceptor } from '@app/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +31,7 @@ import { MissionModule } from '@app/mission';
     AuthModule,
   ],
   exports: [],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
