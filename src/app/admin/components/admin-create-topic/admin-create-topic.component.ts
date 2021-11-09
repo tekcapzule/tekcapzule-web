@@ -11,6 +11,7 @@ import { take } from 'rxjs/operators';
 export class AdminCreateTopicComponent implements OnInit {
   topicDetails = {
     "code": "",
+    "category":"",
     "name": "",
     "description": "",
     "imageUrl": "",
@@ -58,6 +59,6 @@ export class AdminCreateTopicComponent implements OnInit {
   }
 
   isFormValid() {
-    return this.topicDetails.code && this.topicDetails.description && this.topicDetails.name;
+    return this.topicDetails.category && this.topicDetails.code && this.topicDetails.description && this.topicDetails.name;
   }
 }
