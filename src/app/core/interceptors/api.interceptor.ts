@@ -8,9 +8,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // req = req.clone({
-    //   headers: req.headers
-    //     .set('x-userid', 'linjith.kunnon@gmail.com')
-    //     .set('x-channel', 'WEB_CLIENT'),
+    //   headers: req.headers.set('x-userid', 'contact@tekcapsule.com').set('x-channel', 'WEB_CLIENT'),
     // });
 
     return next.handle(req);

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { CapsuleItem } from '@app/shared';
 
 @Component({
   selector: 'app-capsule-card',
@@ -8,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
 
+  @Input() capsule: CapsuleItem;
+
   constructor() {}
 
   ngOnInit(): void {}
 
   doFlipCard(): void {
     this.isCardFlipped = !this.isCardFlipped;
+  }
+
+  doStartReading(): void {
+    window.open(this.capsule.resourceUrl, '_blank');
   }
 }

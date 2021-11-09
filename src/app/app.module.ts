@@ -13,7 +13,7 @@ import { CapsulesModule } from '@app/capsules';
 import { TopicsModule } from '@app/topics';
 import { CommunityModule } from '@app/community';
 import { MissionModule } from '@app/mission';
-import { ApiInterceptor } from '@app/core';
+import { ApiInterceptor, CacheInterceptor } from '@app/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +31,10 @@ import { ApiInterceptor } from '@app/core';
     AuthModule,
   ],
   exports: [],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

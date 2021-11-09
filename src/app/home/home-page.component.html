@@ -15,14 +15,11 @@
       </div>
     </div>
 
-  <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
+    <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
       <div class="owl-carousel owl-theme">
-        <app-capsule-card class="item"></app-capsule-card>
-        <app-capsule-card class="item"></app-capsule-card>
-        <app-capsule-card class="item"></app-capsule-card>
-        <app-capsule-card class="item"></app-capsule-card>
-        <app-capsule-card class="item"></app-capsule-card>
-        <app-capsule-card class="item"></app-capsule-card>
+        <ng-container *ngFor="let capsule of tredingCapsules">
+          <app-capsule-card [capsule]="capsule" class="mb-5"></app-capsule-card>
+        </ng-container>
       </div>
     </div>
   </section>

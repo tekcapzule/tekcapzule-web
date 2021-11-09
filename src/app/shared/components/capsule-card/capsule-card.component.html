@@ -1,4 +1,4 @@
-<div class="capsule-card-container card">
+<div class="capsule-card-container card" *ngIf="capsule">
   <div
     class="card-flipper back-flipped"
     [class.front-flipped]="isCardFlipped"
@@ -13,26 +13,25 @@
           <img src="/assets/images/okhand-icon.svg" class="rounded-img" />
         </div>
         <div class="icons timer">
-          <img src="/assets/images/timer.svg" class="rounded-img" /><span>20 mins</span>
+          <img src="/assets/images/timer.svg" class="rounded-img" /><span
+            >{{ capsule.duration }} mins</span
+          >
         </div>
         <div class="icons labelRed">
-          <span>#AI/ML</span>
+          <span>#{{ capsule.topicCode }}</span>
         </div>
-        <img src="/assets/images/card-3.png" class="header-image" alt="" />
+        <img [src]="capsule.imageUrl" class="header-image" alt="" />
       </div>
       <div class="card-content">
         <div class="title">
-          Machine Learning Essentials
-          <p>by AWS <span>(August 16, 2010)</span></p>
+          {{ capsule.title }}
+          <p>
+            by {{ capsule.author }} <span>({{ capsule.publishedDate }})</span>
+          </p>
         </div>
         <div class="description">
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-            doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
-            ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo
-            enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur
-            magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui
-            ratione voluptatem sequi.
+            {{ capsule.description }}
           </p>
         </div>
         <div class="card-footer">
@@ -46,29 +45,26 @@
     </div>
     <div class="capsule-card card-back">
       <div class="card-content flip-card mt-4">
-        <div class="title">Why new-age Indian businesses are finally going public</div>
+        <div class="title">{{ capsule.title }}</div>
         <div class="description">
           <label>
             <img src="/assets/images/eye-icon.svg" />
-            <span>224</span>
+            <span>{{ capsule.views }}</span>
           </label>
           <label>
             <img src="/assets/images/bookmark-grey.svg" />
-            <span>21</span>
+            <span>{{ capsule.bookmarks }}</span>
           </label>
           <label>
             <img src="/assets/images/okhand-icon.svg" />
-            <span>30</span>
+            <span>{{ capsule.recommendations }}</span>
           </label>
           <div class="tags-input">
             <label>Tags</label>
             <div class="tags-label">
-              <label class="tags">#NetworkSecurity</label>
-              <label class="tags">#Privacy</label>
-              <label class="tags">#CloudSecurity</label>
-              <label class="tags">#Malware</label>
-              <label class="tags">#EthicalHacking</label>
-              <label class="tags">#DataSecurity</label>
+              <ng-container *ngFor="let tag of capsule.tags">
+                <label class="tags">#{{ tag }}</label>
+              </ng-container>
             </div>
           </div>
           <div class="shield mb-5">
@@ -76,7 +72,9 @@
             <img src="/assets/images/shield-icon.svg" />
             <img src="/assets/images/shield-icon.svg" />
           </div>
-          <button class="button primary-btn-sm mb-3 d-block">Start Reading</button>
+          <button class="button primary-btn-sm mb-3 d-block" (click)="doStartReading()">
+            Start Reading
+          </button>
         </div>
         <div class="card-footer">
           <img src="/assets/images/book-icon.svg" class="float-left" />

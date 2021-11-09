@@ -7,3 +7,4 @@ export * from './services/subscription-api/subscription-api.service';
 export * from './services/topic-api/topic-api.service';
 export * from './services/user-api/user-api.service';
 export * from './interceptors/api.interceptor';
+export * from './interceptors/cache.interceptor';

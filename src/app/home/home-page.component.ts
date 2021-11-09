@@ -1,5 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
+import { CapsuleApiService, TopicApiService } from '@app/core';
+import { CapsuleItem } from '@app/shared';
+import { take } from 'rxjs/operators';
+
 declare const jQuery: any;
 
 @Component({
@@ -8,9 +12,23 @@ declare const jQuery: any;
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit, AfterViewInit {
-  constructor() {}
+  tredingCapsules: CapsuleItem[] = [];
 
-  ngOnInit(): void {}
+  constructor(
+    private topicApiService: TopicApiService,
+    private capsuleApiService: CapsuleApiService
+  ) {}
+
+  ngOnInit(): void {
+    this.capsuleApiService
+      .getTrendingCapsules()
+      .pipe(take(1))
+      .subscribe(capsules => {
+        this.tredingCapsules = capsules;
+      });
+
+    this.topicApiService.getAllTopics().pipe(take(1)).subscribe();
+  }
 
   ngAfterViewInit(): void {
     jQuery('.owl-carousel').owlCarousel({
