@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '@env/environment';
 
-const SUBSCRIPTION_API_PATH = `${environment.apiEndpointTemplate}/subscription`
-  .replace('{{gateway}}', environment.subscriptionApiGateway)
-  .replace('{{stage}}', environment.apiStageEnv);
+const SUBSCRIPTION_API_PATH = `${environment.apiEndpointTemplate}/subscription`.replace(
+  '{{gateway}}',
+  environment.subscriptionApiGateway
+);
 
 @Injectable({
   providedIn: 'root',

@@ -11,7 +11,7 @@ export const environment = {
   subscriptionApiGateway: '0x28a8vs38',
   topicApiGateway: 'odl3njp8ya',
   userApiGateway: 'rki9lzz4gl',
-  apiEndpointTemplate: 'https://{{gateway}}.execute-api.us-east-2.amazonaws.com/{{stage}}',
+  apiEndpointTemplate: 'https://{{gateway}}.execute-api.us-east-2.amazonaws.com/dev',
 };
 
 /*

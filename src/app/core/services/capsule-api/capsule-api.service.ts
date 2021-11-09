@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '@env/environment';
 
-const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`
-  .replace('{{gateway}}', environment.capsuleApiGateway)
-  .replace('{{stage}}', environment.apiStageEnv);
+const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`.replace(
+  '{{gateway}}',
+  environment.capsuleApiGateway
+);
 
 @Injectable({
   providedIn: 'root',

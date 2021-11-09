@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '@env/environment';
 
-const EVENT_API_PATH = `${environment.apiEndpointTemplate}/event`
-  .replace('{{gateway}}', environment.eventApiGateway)
-  .replace('{{stage}}', environment.apiStageEnv);
+const EVENT_API_PATH = `${environment.apiEndpointTemplate}/event`.replace(
+  '{{gateway}}',
+  environment.eventApiGateway
+);
 
 @Injectable({
   providedIn: 'root',

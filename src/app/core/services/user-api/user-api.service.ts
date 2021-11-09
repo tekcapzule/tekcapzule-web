@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 
-const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
-  .replace('{{gateway}}', environment.userApiGateway)
-  .replace('{{stage}}', environment.apiStageEnv);
+const USER_API_PATH = `${environment.apiEndpointTemplate}/user`.replace(
+  '{{gateway}}',
+  environment.userApiGateway
+);
 
 @Injectable({
   providedIn: 'root',

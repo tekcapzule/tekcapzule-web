@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '@env/environment';
 
-const FEEDBACK_API_PATH = `${environment.apiEndpointTemplate}/feedback`
-  .replace('{{gateway}}', environment.feedbackApiGateway)
-  .replace('{{stage}}', environment.apiStageEnv);
+const FEEDBACK_API_PATH = `${environment.apiEndpointTemplate}/feedback`.replace(
+  '{{gateway}}',
+  environment.feedbackApiGateway
+);
 
 @Injectable({
   providedIn: 'root',
