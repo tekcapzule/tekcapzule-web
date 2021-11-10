@@ -16,7 +16,7 @@
     </div>
 
     <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
-      <div class="owl-carousel owl-theme d-flex">
+      <div id="homepage_owl_carousel" class="owl-carousel owl-theme d-flex">
         <ng-container *ngFor="let capsule of tredingCapsules">
           <app-capsule-card [capsule]="capsule" class="mr-4"></app-capsule-card>
         </ng-container>
