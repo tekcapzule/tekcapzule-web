@@ -25,6 +25,9 @@ export class HomePageComponent implements OnInit, AfterViewInit {
       .pipe(take(1))
       .subscribe(capsules => {
         this.tredingCapsules = capsules;
+        setTimeout(() => {
+          this.initOwlCarousel();
+        }, 0);
       });
 
     this.capsuleApiService.getTrendingCapsules().pipe(take(1)).subscribe();
@@ -32,6 +35,10 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.initOwlCarousel();
+  }
+
+  initOwlCarousel(): void {
     jQuery('#homepage_owl_carousel').owlCarousel({
       loop: true,
       margin: 10,
