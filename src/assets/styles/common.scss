@@ -596,5 +596,6 @@ select {
   height: 100vh;
   text-align: center;
   top: 50%;
-  background: url('../images/tek-icon.svg') 50% 50% no-repeat;
+  background: url('../images/loader.gif') 50% 50% no-repeat;
+  content: 'Loading...';
 }
