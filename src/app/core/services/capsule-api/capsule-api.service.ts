@@ -17,7 +17,7 @@ export interface MyFeedRequest {
   providedIn: 'root',
 })
 export class CapsuleApiService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   getCapsuleApiPath(): string {
     return CAPSULE_API_PATH;
@@ -34,4 +34,9 @@ export class CapsuleApiService {
   getEditorsPickCapsules(): Observable<any> {
     return this.httpClient.post(`${CAPSULE_API_PATH}/getEditorsPick`, { cache: true });
   }
+
+  registerCapsuleClick(capsuleId: string): void {
+    this.httpClient.post(`${CAPSULE_API_PATH}/view`, { capsuleId }).subscribe();
+  }
+
 }

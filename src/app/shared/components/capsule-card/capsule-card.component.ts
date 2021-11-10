@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CapsuleApiService } from '@app/core/services/capsule-api/capsule-api.service';
 
 import { CapsuleItem } from '@app/shared';
 
@@ -12,7 +13,7 @@ export class CapsuleCardComponent implements OnInit {
 
   @Input() capsule: CapsuleItem;
 
-  constructor() {}
+  constructor(private capsuleApiService: CapsuleApiService) {}
 
   ngOnInit(): void {}
 
@@ -22,5 +23,11 @@ export class CapsuleCardComponent implements OnInit {
 
   doStartReading(): void {
     window.open(this.capsule.resourceUrl, '_blank');
+  }
+
+  onCardClick():void {
+    console.log("capsule clicked .. redirecting to  : ",this.capsule.resourceUrl);
+    this.capsuleApiService.registerCapsuleClick(this.capsule.capsuleId);
+    window.open(this.capsule.resourceUrl, "_blank");
   }
 }

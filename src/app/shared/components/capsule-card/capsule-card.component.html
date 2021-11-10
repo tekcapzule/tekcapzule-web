@@ -1,4 +1,4 @@
-<div class="capsule-card-container card" *ngIf="capsule">
+<div class="capsule-card-container card" *ngIf="capsule" (click)="onCardClick()">
   <div
     class="card-flipper back-flipped"
     [class.front-flipped]="isCardFlipped"
