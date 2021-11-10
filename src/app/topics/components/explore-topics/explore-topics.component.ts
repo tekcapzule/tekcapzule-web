@@ -20,7 +20,6 @@ export class ExploreTopicsComponent implements OnInit, AfterViewInit {
       .getAllTopics()
       .pipe(take(1))
       .subscribe(topics => {
-        console.log(topics);
         this.topics = topics;
       });
   }
