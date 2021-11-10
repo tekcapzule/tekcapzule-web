@@ -27,6 +27,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
         this.tredingCapsules = capsules;
       });
 
+    this.capsuleApiService.getTrendingCapsules().pipe(take(1)).subscribe();
     this.topicApiService.getAllTopics().pipe(take(1)).subscribe();
   }
 

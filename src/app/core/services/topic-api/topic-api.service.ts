@@ -20,7 +20,13 @@ export class TopicApiService {
   }
 
   getAllTopics(): Observable<any> {
-    return this.httpClient.post(`${TOPIC_API_PATH}/getAll`, { cache: false });
+    return this.httpClient.post(
+      `${TOPIC_API_PATH}/getAll`,
+      {},
+      {
+        params: { cache: 'true', expiry: '24' },
+      }
+    );
   }
 
   createTopic(topic: any): Observable<any> {

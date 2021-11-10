@@ -15,25 +15,42 @@ export class CacheInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const url = request.url;
-    const doCache = request.body?.cache;
+    const doCache = !!request.params.get('cache');
+    const expiry = parseInt(request.params.get('expiry'), 10);
 
-    // if (doCache) {
-    //   const cachedResponseStr = window.sessionStorage.getItem(url);
-    //   const cachedResponse = JSON.parse(cachedResponseStr);
+    if (doCache) {
+      const cachedResponseBodyStr = window.sessionStorage.getItem(url);
+      const cachedResponseBody = cachedResponseBodyStr
+        ? JSON.parse(cachedResponseBodyStr.split('$#$')[0])
+        : null;
 
-    //   if (cachedResponse) {
-    //     return of(cachedResponse);
-    //   } else {
-    //     return next.handle(request).pipe(
-    //       tap(httpEvent => {
-    //         if (httpEvent instanceof HttpResponse) {
-    //           window.sessionStorage.setItem(url, JSON.stringify(httpEvent));
-    //         }
-    //       }),
-    //       share()
-    //     );
-    //   }
-    // }
+      if (cachedResponseBodyStr && Date.now() > +cachedResponseBodyStr.split('$#$')[1]) {
+        return next.handle(request);
+      }
+
+      if (cachedResponseBody) {
+        return of(
+          new HttpResponse({
+            body: cachedResponseBody,
+            status: 200,
+          })
+        );
+      } else {
+        return next.handle(request).pipe(
+          tap(httpEvent => {
+            if (httpEvent instanceof HttpResponse) {
+              const current = new Date();
+              current.setHours(current.getHours() + expiry);
+              window.sessionStorage.setItem(
+                url,
+                JSON.stringify(httpEvent.body) + '$#$' + current.getTime()
+              );
+            }
+          }),
+          share()
+        );
+      }
+    }
 
     return next.handle(request);
   }

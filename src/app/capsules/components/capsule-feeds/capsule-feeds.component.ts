@@ -12,14 +12,16 @@ import { AuthService } from '@app/auth';
 export class CapsuleFeedsComponent implements OnInit {
   capsules = [];
 
-  constructor(private capsuleApiService: CapsuleApiService) {}
+  constructor(private capsuleApiService: CapsuleApiService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.capsuleApiService
-      .getMyFeedCapsules(['cld', 'blk'])
-      .pipe(take(1))
-      .subscribe(capsules => {
-        this.capsules = capsules;
-      });
+    if (this.authService.isUserLoggedIn()) {
+      this.capsuleApiService
+        .getMyFeedCapsules(['cld', 'blk'])
+        .pipe(take(1))
+        .subscribe(capsules => {
+          this.capsules = capsules;
+        });
+    }
   }
 }

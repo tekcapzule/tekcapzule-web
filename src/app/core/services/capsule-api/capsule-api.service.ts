@@ -20,15 +20,27 @@ export class CapsuleApiService {
   }
 
   getMyFeedCapsules(subscribedTopics: string[]): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/getMyFeed`, { subscribedTopics, cache: true });
+    return this.httpClient.post(`${CAPSULE_API_PATH}/getMyFeed`, { subscribedTopics });
   }
 
   getTrendingCapsules(): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/getTrending`, { cache: true });
+    return this.httpClient.post(
+      `${CAPSULE_API_PATH}/getTrending`,
+      {},
+      {
+        params: { cache: 'true', expiry: '12' },
+      }
+    );
   }
 
   getEditorsPickCapsules(): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/getEditorsPick`, { cache: true });
+    return this.httpClient.post(
+      `${CAPSULE_API_PATH}/getEditorsPick`,
+      {},
+      {
+        params: { cache: 'true', expiry: '24' },
+      }
+    );
   }
 
   updateCapsuleViewCount(capsuleId: string): Observable<any> {
