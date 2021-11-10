@@ -15,7 +15,7 @@ export class CapsuleFeedsComponent implements OnInit {
 
   ngOnInit(): void {
     this.capsuleApiService
-      .getMyFeedCapsules({ subscribedTopics: ['cld', 'blk'] })
+      .getMyFeedCapsules(['cld', 'blk'])
       .pipe(take(1))
       .subscribe(capsules => {
         this.capsules = capsules;

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CapsuleApiService } from '@app/core/services/capsule-api/capsule-api.service';
+import { take } from 'rxjs/operators';
 
+import { CapsuleApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared';
 
 @Component({
@@ -25,9 +26,8 @@ export class CapsuleCardComponent implements OnInit {
     window.open(this.capsule.resourceUrl, '_blank');
   }
 
-  onCardClick():void {
-    console.log("capsule clicked .. redirecting to  : ",this.capsule.resourceUrl);
-    this.capsuleApiService.registerCapsuleClick(this.capsule.capsuleId);
-    window.open(this.capsule.resourceUrl, "_blank");
+  onCardClick(): void {
+    this.capsuleApiService.updateCapsuleViewCount(this.capsule.capsuleId).pipe(take(1)).subscribe();
+    window.open(this.capsule.resourceUrl, '_blank');
   }
 }
