@@ -46,4 +46,8 @@ export class CapsuleApiService {
   updateCapsuleViewCount(capsuleId: string): Observable<any> {
     return this.httpClient.post(`${CAPSULE_API_PATH}/view`, { capsuleId });
   }
+
+  updateCapsuleRecommendCount(capsuleId: string): Observable<any> {
+    return this.httpClient.post(`${CAPSULE_API_PATH}/recommend`, { capsuleId });
+  }
 }

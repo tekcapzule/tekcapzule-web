@@ -10,7 +10,7 @@
           <img src="/assets/images/bookmark-icon.svg" class="rounded-img" />
         </div>
         <div class="icons okHand">
-          <img src="/assets/images/okhand-icon.svg" class="rounded-img" />
+          <img src="/assets/images/okhand-icon.svg" class="rounded-img" (click)="onCapsuleRecommend()"/>
         </div>
         <div class="icons timer">
           <img src="/assets/images/timer.svg" class="rounded-img" /><span
@@ -56,7 +56,7 @@
             <span>{{ capsule.bookmarks }}</span>
           </label>
           <label>
-            <img src="/assets/images/okhand-icon.svg" />
+            <img src="/assets/images/okhand-icon.svg" (click)="onCapsuleRecommend()"/>
             <span>{{ capsule.recommendations }}</span>
           </label>
           <div class="tags-input">

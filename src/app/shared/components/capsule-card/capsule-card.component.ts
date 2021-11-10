@@ -30,4 +30,8 @@ export class CapsuleCardComponent implements OnInit {
     this.capsuleApiService.updateCapsuleViewCount(this.capsule.capsuleId).pipe(take(1)).subscribe();
     window.open(this.capsule.resourceUrl, '_blank');
   }
+
+  onCapsuleRecommend():void {
+    this.capsuleApiService.updateCapsuleRecommendCount(this.capsule.capsuleId).pipe(take(1)).subscribe();
+  }
 }
