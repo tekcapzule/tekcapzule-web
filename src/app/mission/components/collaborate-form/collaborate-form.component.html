@@ -9,18 +9,18 @@
 
     <div class="row mt-5">
       <div class="col-6">
-        <input type="text" name="firstname" placeholder="First Name" />
+        <input type="text" name="firstname" placeholder="First Name *"  [(ngModel)]="collaborateForm.firstName"/>
       </div>
       <div class="col-6">
-        <input type="text" name="lastname" placeholder="Last Name" />
+        <input type="text" name="lastname" placeholder="Last Name *"  [(ngModel)]="collaborateForm.lastName"/>
       </div>
     </div>
-    <input type="email" name="email" placeholder="Email Address" />
-    <input type="text" name="subject" placeholder="Subject" />
-    <textarea name="description" rows="4">Description
+    <input type="email" name="email" placeholder="Email Address *"  [(ngModel)]="collaborateForm.emailId"/>
+    <input type="text" name="subject" placeholder="Subject *"  [(ngModel)]="collaborateForm.subject"/>
+    <textarea name="description" rows="4" [(ngModel)]="collaborateForm.description" placeholder="Description *"> 
     </textarea>
     <div class="d-flex justify-content-center">
-      <button mat-raised-button class="button tertiary">Submit</button>
+      <button mat-raised-button class="button tertiary" [disabled]="!isFormValid()" (click)="onCollabFormSubmit()">Submit</button>
     </div>
     <div></div>
   </div>
