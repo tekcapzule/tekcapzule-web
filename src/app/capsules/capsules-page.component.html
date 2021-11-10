@@ -1,20 +1,21 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
-    
+    <ng-container *ngFor="let navTab of navTabs">
       <a
-        mat-tab-link 
-        *ngFor="let navTab of navTabs"
+        mat-tab-link
+        *ngIf="!navTab.isHidden"
         (click)="setActiveTab(navTab)"
         [active]="isActiveTab(navTab)"
         [routerLink]="[navTab.navUrl]"
       >
         {{ navTab.displayName }}
       </a>
-      <a mat-tab-link data-toggle="modal" data-target="#myModal"
-        >Browse by Topic
-        <img src="/assets/images/down-arrow.svg" class="pl-2" />
-      </a>
-      <div class="w-50 pr-0">
+    </ng-container>
+    <a mat-tab-link data-toggle="modal" data-target="#myModal"
+      >Browse by Topic
+      <img src="/assets/images/down-arrow.svg" class="pl-2" />
+    </a>
+    <div class="w-50 pr-0">
       <button
         mat-stroked-button
         class="button secondary-btn-sm contribute-btn"

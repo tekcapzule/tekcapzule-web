@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 
 import { CapsuleApiService } from '@app/core';
+import { AuthService } from '@app/auth';
 
 @Component({
   selector: 'app-capsule-feeds',
