@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
 export class ApiInterceptor implements HttpInterceptor {
   constructor() {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = req.clone({
-      headers: req.headers.set('X-User-Login', 'contact@tekcapsule.com').set('X-Channel-Code', 'WEB_CLIENT'),
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    request = request.clone({
+      headers: request.headers
+        .set('X-User-Login', 'contact@tekcapsule.com')
+        .set('X-Channel-Code', 'WEB_CLIENT'),
     });
 
-    return next.handle(req);
+    return next.handle(request);
   }
 }
