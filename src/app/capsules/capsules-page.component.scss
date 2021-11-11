@@ -5,7 +5,6 @@
   &.p-main {
     padding-top: 90px;
   }
-  
 }
 
 /*********************************
@@ -29,8 +28,8 @@
   color: #575757;
   font-size: 18px;
   height: 60px;
-  @media only screen and (max-width:768px){
-    min-width:auto!important;
+  @media only screen and (max-width: 768px) {
+    min-width: auto !important;
     margin-right: 30px;
   }
 }
@@ -45,10 +44,9 @@ h2 {
   font-size: 30px;
   margin-bottom: 32px;
 }
-ul{
+ul {
   padding-inline-start: 0px;
   &.topics-list {
-
     li {
       font-family: HelveticaNeueLTPro;
       font-size: 18px;
@@ -56,10 +54,10 @@ ul{
       list-style: none;
       span {
         font-size: 13px;
-        background: #F1F1F1;
+        background: #f1f1f1;
         border-radius: 35px;
-        padding: 5px 15px;
-        color: #BBBBBB;
+        padding: 6px 15px 3px 15px;
+        color: $secondary-color;
         &.active {
           color: $primary-color;
         }
@@ -67,4 +65,3 @@ ul{
     }
   }
 }
-

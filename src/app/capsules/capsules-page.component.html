@@ -55,51 +55,17 @@
             <div class="col-xl-3 col-md-6">
               <img src="/assets/images/browse-topics.png" alt="" />
             </div>
-            <div class="col-xl-3 col-md-6">
-              <h2>Emerging Tech</h2>
-              <ul class="topics-list">
-                <li>Cyber Security <span class="active">FOLLOWING</span></li>
-                <li>Edge Computing <span>FOLLOW</span></li>
-                <li>Human Augmentation <span>FOLLOW</span></li>
-                <li>Intelligent Process Automation <span>FOLLOW</span></li>
-                <li>Internet of Behaviours <span>FOLLOW</span></li>
-                <li>Mixed Reality <span>FOLLOW</span></li>
-                <li>Quantum Computing <span>FOLLOW</span></li>
-                <li>Tactile VR <span>FOLLOW</span></li>
-                <li>5G <span>FOLLOW</span></li>
-              </ul>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <h2>Tech In-demand</h2>
-              <ul class="topics-list">
-                <li>AI/ML <span class="active">FOLLOWING</span></li>
-                <li>Big data <span>FOLLOW</span></li>
-                <li>Blockchain <span>FOLLOW</span></li>
-                <li>Cloud Computing <span>FOLLOW</span></li>
-                <li>Cloud Native Computing <span>FOLLOW</span></li>
-                <li>Data Science <span>FOLLOW</span></li>
-                <li>IoT <span>FOLLOW</span></li>
-                <li>Linux <span>FOLLOW</span></li>
-                <li>Opensource <span>FOLLOW</span></li>
-                <li>Robotic Process Automation <span>FOLLOW</span></li>
-                <li>Virtual Reality, Augmented Reality <span>FOLLOW</span></li>
-              </ul>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <h2>Software Development</h2>
-              <ul class="topics-list">
-                <li>Agile <span class="active">FOLLOWING</span></li>
-                <li>Database Technologies <span>FOLLOW</span></li>
-                <li>DevSecOps <span>FOLLOW</span></li>
-                <li>Mobile Development <span>FOLLOW</span></li>
-                <li>Messaging <span>FOLLOW</span></li>
-                <li>Programming Languages <span>FOLLOW</span></li>
-                <li>Software Design <span>FOLLOW</span></li>
-                <li>Testing Methodologies <span>FOLLOW</span></li>
-                <li>UX, DX and TX <span>FOLLOW</span></li>
-                <li>Web Development <span>FOLLOW</span></li>
-              </ul>
-            </div>
+            <ng-container *ngFor="let item of topicsByCategory">
+              <div class="col-xl-3 col-md-6">
+                <h2>{{ item.category }}</h2>
+                <ul class="topics-list">
+                  <li *ngFor="let topic of item.topics">
+                    {{ topic.name }}
+                    <span style="cursor: pointer">FOLLOW</span>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
