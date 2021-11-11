@@ -22,4 +22,8 @@ export class UserApiService {
   getUser(): Observable<any> {
     return this.httpClient.post(`${USER_API_PATH}/get`, {});
   }
+
+  createUser(): void {
+    throw new Error('Not yet implemented.');
+  }
 }
