@@ -9,23 +9,30 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { share, tap } from 'rxjs/operators';
 
+const EXPIRY_SEPARATOR = '###';
+
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const url = request.url;
-    const doCache = !!request.params.get('cache');
+    const cache = request.params.get('cache') === 'true' ? true : false;
     const expiry = parseInt(request.params.get('expiry'), 10);
 
-    if (doCache) {
-      const cachedResponseBodyStr = window.sessionStorage.getItem(url);
-      const cachedResponseBody = cachedResponseBodyStr
-        ? JSON.parse(cachedResponseBodyStr.split('$#$')[0])
+    if (cache) {
+      const cachedItemStr = window.sessionStorage.getItem(url);
+
+      const cachedResponseBodyWithExpiry: string[] = cachedItemStr
+        ? cachedItemStr.split(EXPIRY_SEPARATOR)
         : null;
 
-      if (cachedResponseBodyStr && Date.now() > +cachedResponseBodyStr.split('$#$')[1]) {
-        return next.handle(request);
+      const cachedResponseBody = cachedResponseBodyWithExpiry
+        ? JSON.parse(cachedResponseBodyWithExpiry[0])
+        : null;
+
+      if (cachedResponseBodyWithExpiry && Date.now() > +cachedResponseBodyWithExpiry[1]) {
+        return this.cacheApiResponse(request, next, expiry);
       }
 
       if (cachedResponseBody) {
@@ -36,22 +43,30 @@ export class CacheInterceptor implements HttpInterceptor {
           })
         );
       } else {
-        return next.handle(request).pipe(
-          tap(httpEvent => {
-            if (httpEvent instanceof HttpResponse) {
-              const current = new Date();
-              current.setHours(current.getHours() + expiry);
-              window.sessionStorage.setItem(
-                url,
-                JSON.stringify(httpEvent.body) + '$#$' + current.getTime()
-              );
-            }
-          }),
-          share()
-        );
+        return this.cacheApiResponse(request, next, expiry);
       }
     }
 
     return next.handle(request);
+  }
+
+  private cacheApiResponse(
+    request: HttpRequest<any>,
+    next: HttpHandler,
+    expiry: number
+  ): Observable<HttpEvent<any>> {
+    return next.handle(request).pipe(
+      tap(httpEvent => {
+        if (httpEvent instanceof HttpResponse) {
+          const current = new Date();
+          current.setHours(current.getHours() + expiry);
+          window.sessionStorage.setItem(
+            request.url,
+            JSON.stringify(httpEvent.body) + EXPIRY_SEPARATOR + current.getTime()
+          );
+        }
+      }),
+      share()
+    );
   }
 }
