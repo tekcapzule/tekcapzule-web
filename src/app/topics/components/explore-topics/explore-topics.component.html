@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12">
         <div class="col-lg-5 col-sm-12 px-0">
-          <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
+          <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" (keyup)="onSearchKeyUp($event)"/>
         </div>
         <section>
           <div class="card-section d-flex flex-wrap justify-content-start mb-4 pt-4">
