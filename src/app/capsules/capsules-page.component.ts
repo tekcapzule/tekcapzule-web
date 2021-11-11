@@ -45,9 +45,9 @@ export class CapsulesPageComponent implements OnInit {
       .getChannel()
       .pipe(filter(out => out.event === ChannelEvent.SetActiveTab))
       .subscribe(() => {
-        this.activeTab = this.authService.isUserLoggedIn()
-          ? this.navTabs[0].uniqueId
-          : this.navTabs[1].uniqueId;
+        const currActiveTab = this.authService.isUserLoggedIn() ? this.navTabs[0] : this.navTabs[1];
+        this.activeTab = currActiveTab.uniqueId;
+        this.router.navigate(['capsules', currActiveTab.navUrl]);
       });
   }
 

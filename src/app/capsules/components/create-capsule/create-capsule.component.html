@@ -1,7 +1,7 @@
 <div class="create-capsule-page">
   <div class="container pt-5">
     <div class="back-link mt-5">
-      <a (click)="activateFirstNavTab()" [routerLink]="['../myfeeds']">
+      <a (click)="activateFirstNavTab()" style="cursor: pointer">
         <img src="/assets/images/back-arrow.png" class="mr-2" />
         Capsules
       </a>
@@ -163,11 +163,7 @@
       </div>
     </div>
     <div class="row justify-content-center mb-4">
-      <button
-        class="button secondary-btn-md mb-5 mr-3"
-        (click)="activateFirstNavTab()"
-        [routerLink]="['../myfeeds']"
-      >
+      <button class="button secondary-btn-md mb-5 mr-3" (click)="activateFirstNavTab()">
         Cancel
       </button>
       <button class="button secondary-btn-md cta mb-5" [routerLink]="['../congratz']">
