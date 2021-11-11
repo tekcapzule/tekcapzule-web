@@ -10,25 +10,23 @@
     </div>
     <div class="row">
       <div class="col-lg-8 col-sm-12">
-        <h2>#Cyber Security</h2>
+        <h2>#{{ topic.name }}</h2>
         <div class="col-lg-8 px-0 pb-4">
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-            doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
-            ainventore veritatis et quasi architecto beatae vitae quia dicta .
+            {{ topic.description }}
           </p>
-          <p>#NetworkSecurity #CloudSecurity #EthicalHacking #Malware #Privacy #DataSecurity</p>
+          <p>
+            <span class="mr-2" *ngFor="let item of topic.aliases">#{{ item }}</span>
+          </p>
           <button class="button secondary-btn-md">FOLLOW</button>
         </div>
       </div>
       <div class="col-lg-4 col-sm-12 cyber-block">
         <div class="inline-points">
           <ul>
-            <li><span>Help us identify tech resources from variety of sources</span></li>
-            <li>
-              <span>Help us create a capsule with quality summary on resource collected</span>
+            <li *ngFor="let item of topic.keyHighlights">
+              <span>{{ item }}</span>
             </li>
-            <li><span>We help deliver the capsule to those who in need</span></li>
           </ul>
         </div>
       </div>

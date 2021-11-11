@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 
 import { TopicApiService } from '@app/core';
+import { TopicItem } from '@app/shared';
 
 declare var twttr: any;
 
@@ -11,7 +12,7 @@ declare var twttr: any;
   styleUrls: ['./explore-topics.component.scss'],
 })
 export class ExploreTopicsComponent implements OnInit, AfterViewInit {
-  topics: any[] = [];
+  topics: TopicItem[] = [];
 
   constructor(private topicApiService: TopicApiService) {}
 
