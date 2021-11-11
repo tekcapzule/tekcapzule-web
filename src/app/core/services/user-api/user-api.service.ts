@@ -32,4 +32,8 @@ export class UserApiService {
     const userId =  "contact@tekcapsule.com";  // TODO :: Get user id 
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, {capsuleId, userId});
   }
+  
+  createUser(): void {
+    throw new Error('Not yet implemented.');
+  }
 }

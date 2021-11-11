@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { TopicItem } from '@app/shared';
 
 @Component({
   selector: 'app-topic-card',
@@ -6,9 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./topic-card.component.scss'],
 })
 export class TopicCardComponent implements OnInit {
-  @Input() topic!: any;
+  @Input() topic!: TopicItem;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  gotoTopicDetails(): void {
+    this.router.navigate(['topics', 'topicdetails'], {
+      state: {
+        topic: this.topic,
+      },
+    });
+  }
 }

@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
-import { EventChannelService, ChannelEvent } from '@app/core';
-import { Constants, NavTab } from '@app/shared';
+import { EventChannelService, ChannelEvent, TopicApiService } from '@app/core';
+import { Constants, NavTab, TopicItem } from '@app/shared';
 import { AuthService } from '@app/auth';
+
+interface TopicsByCategory {
+  category: string;
+  topics: TopicItem[];
+}
 
 @Component({
   selector: 'app-capsules-page',
@@ -13,6 +18,7 @@ import { AuthService } from '@app/auth';
 })
 export class CapsulesPageComponent implements OnInit {
   activeTab = 'myFeeds';
+  topicsByCategory: TopicsByCategory[] = [];
 
   navTabs: NavTab[] = [
     { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds', isHidden: true },
@@ -23,7 +29,8 @@ export class CapsulesPageComponent implements OnInit {
   constructor(
     private router: Router,
     private eventChannel: EventChannelService,
-    private authService: AuthService
+    private authService: AuthService,
+    private topicApiService: TopicApiService
   ) {}
 
   ngOnInit(): void {
@@ -45,9 +52,42 @@ export class CapsulesPageComponent implements OnInit {
       .getChannel()
       .pipe(filter(out => out.event === ChannelEvent.SetActiveTab))
       .subscribe(() => {
-        this.activeTab = this.authService.isUserLoggedIn()
-          ? this.navTabs[0].uniqueId
-          : this.navTabs[1].uniqueId;
+        const currActiveTab = this.authService.isUserLoggedIn() ? this.navTabs[0] : this.navTabs[1];
+        this.activeTab = currActiveTab.uniqueId;
+        this.router.navigate(['capsules', currActiveTab.navUrl]);
+      });
+
+    this.topicApiService
+      .getAllTopics()
+      .pipe(take(1))
+      .subscribe(topics => {
+        const categoryMap = {};
+        const miscTopics = [];
+
+        if (topics && topics.length > 0) {
+          topics.forEach(topic => {
+            if (topic.category) {
+              categoryMap[topic.category] = categoryMap[topic.category] || [];
+              categoryMap[topic.category].push(topic);
+            } else {
+              miscTopics.push(topic);
+            }
+          });
+        }
+
+        for (const category of Object.keys(categoryMap)) {
+          this.topicsByCategory.push({
+            category,
+            topics: categoryMap[category],
+          });
+        }
+
+        if (miscTopics.length > 0) {
+          this.topicsByCategory.push({
+            category: 'Miscellaneous',
+            topics: miscTopics,
+          });
+        }
       });
   }
 

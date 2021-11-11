@@ -9,6 +9,6 @@
         {{ this.topic.description }}
       </p>
     </div>
-    <button class="button follow-btn" [routerLink]="['../topicdetails']">FOLLOW</button>
+    <button class="button follow-btn" (click)="gotoTopicDetails()">FOLLOW</button>
   </div>
 </div>
