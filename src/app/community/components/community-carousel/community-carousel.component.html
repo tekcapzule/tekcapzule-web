@@ -2,72 +2,19 @@
   <div class="pb-4 mb-4">
     <div id="heroBanner" class="carousel slide" data-ride="carousel" data-interval="5000">
       <ul class="carousel-indicators">
-        <li data-target="#heroBanner" data-slide-to="0" class="active"></li>
-        <li data-target="#heroBanner" data-slide-to="1"></li>
-        <li data-target="#heroBanner" data-slide-to="2"></li>
-        <li data-target="#heroBanner" data-slide-to="3"></li>
+        <li *ngFor="let event of events;let i=index; first as isFirst"  data-target="#heroBanner" data-slide-to="(i)=> i" class="{{isFirst?'active':''}}"></li>
       </ul>
       <div class="carousel-inner">
-        <div class="carousel-item active hero-slider">
+        <div *ngFor="let event of events;let i=index; first as isFirst"  class="{{isFirst? 'carousel-item active hero-slider' : 'carousel-item hero-slider'}}" >
           <div class="carousel-caption">
             <section class="d-flex align-items-center">
               <div class="d-flex flex-column justify-content-center carouselContentSec">
-                <h2>New Block Chain Event</h2>
+                <h2>{{event.name}}</h2>
+                <p>{{event.eventDate}}</p>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                  doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae Sed
-                  ut perspiciatis unde omnis iste natus error. sdda sdftotam rem aperiam, eaque ipsa
-                  quae ab illo quae Sed ut perspiciatis unde omnis iste natus error.
+                  {{event.description}}
                 </p>
-                <button class="button primary-btn-sm">REGISTER NOW</button>
-              </div>
-            </section>
-          </div>
-        </div>
-        <div class="carousel-item hero-slider">
-          <div class="carousel-caption">
-            <section class="d-flex align-items-center">
-              <div class="d-flex flex-column justify-content-center carouselContentSec">
-                <h2>New Block Chain Event</h2>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                  doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae Sed
-                  ut perspiciatis unde omnis iste natus error. sdda sdftotam rem aperiam, eaque ipsa
-                  quae ab illo quae Sed ut perspiciatis unde omnis iste natus error.
-                </p>
-                <button class="button primary-btn-sm">REGISTER NOW</button>
-              </div>
-            </section>
-          </div>
-        </div>
-        <div class="carousel-item hero-slider">
-          <div class="carousel-caption">
-            <section class="d-flex align-items-center">
-              <div class="d-flex flex-column justify-content-center carouselContentSec">
-                <h2>New Block Chain Event</h2>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                  doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae Sed
-                  ut perspiciatis unde omnis iste natus error. sdda sdftotam rem aperiam, eaque ipsa
-                  quae ab illo quae Sed ut perspiciatis unde omnis iste natus error.
-                </p>
-                <button class="button primary-btn-sm">REGISTER NOW</button>
-              </div>
-            </section>
-          </div>
-        </div>
-        <div class="carousel-item hero-slider">
-          <div class="carousel-caption">
-            <section class="d-flex align-items-center">
-              <div class="d-flex flex-column justify-content-center carouselContentSec">
-                <h2>New Block Chain Event</h2>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                  doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae Sed
-                  ut perspiciatis unde omnis iste natus error. sdda sdftotam rem aperiam, eaque ipsa
-                  quae ab illo quae Sed ut perspiciatis unde omnis iste natus error.
-                </p>
-                <button class="button primary-btn-sm">REGISTER NOW</button>
+                <button class="button primary-btn-sm" (click)="openLinkinNewTab(event.registrationUrl)">REGISTER NOW</button>
               </div>
             </section>
           </div>
