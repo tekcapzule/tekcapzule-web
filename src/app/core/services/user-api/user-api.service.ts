@@ -20,19 +20,22 @@ export class UserApiService {
   }
 
   getUser(): Observable<any> {
-    return this.httpClient.post(`${USER_API_PATH}/get`, {});
+    const userId =  "linjith.kunnon@gmail.com";  // TODO :: Get user id 
+    return this.httpClient.post(`${USER_API_PATH}/get`, {userId},{
+      params: { cache: 'true', expiry: '12' },
+    });
   }
 
   setUserBookmarks(capsuleId: string): Observable<any> {
-    const userId =  "contact@tekcapsule.com";  // TODO :: Get user id 
+    const userId =  "linjith.kunnon@gmail.com";  // TODO :: Get user id 
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, {capsuleId, userId});
   }
 
   removeUserBookmarks(capsuleId: string): Observable<any> {
-    const userId =  "contact@tekcapsule.com";  // TODO :: Get user id 
-    return this.httpClient.post(`${USER_API_PATH}/bookmark`, {capsuleId, userId});
+    const userId =  "linjith.kunnon@gmail.com";  // TODO :: Get user id 
+    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, {capsuleId, userId});
   }
-  
+
   createUser(): void {
     throw new Error('Not yet implemented.');
   }
