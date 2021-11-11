@@ -9,8 +9,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { share, tap } from 'rxjs/operators';
 
-const EXPIRY_SEPARATOR = '###';
-
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
   constructor() {}
@@ -22,16 +20,13 @@ export class CacheInterceptor implements HttpInterceptor {
 
     if (cache) {
       const cachedItemStr = window.sessionStorage.getItem(url);
-
-      const cachedResponseBodyWithExpiry: string[] = cachedItemStr
-        ? cachedItemStr.split(EXPIRY_SEPARATOR)
-        : null;
+      const cachedResponseBodyWithExpiry = cachedItemStr ? JSON.parse(cachedItemStr) : null;
 
       const cachedResponseBody = cachedResponseBodyWithExpiry
-        ? JSON.parse(cachedResponseBodyWithExpiry[0])
+        ? cachedResponseBodyWithExpiry.body
         : null;
 
-      if (cachedResponseBodyWithExpiry && Date.now() > +cachedResponseBodyWithExpiry[1]) {
+      if (cachedResponseBodyWithExpiry && Date.now() > +cachedResponseBodyWithExpiry.expiry) {
         return this.cacheApiResponse(request, next, expiry);
       }
 
@@ -62,7 +57,7 @@ export class CacheInterceptor implements HttpInterceptor {
           current.setHours(current.getHours() + expiry);
           window.sessionStorage.setItem(
             request.url,
-            JSON.stringify(httpEvent.body) + EXPIRY_SEPARATOR + current.getTime()
+            JSON.stringify({ body: httpEvent.body, expiry: current.getTime() })
           );
         }
       }),
