@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 import { CapsuleApiService, UserApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/auth';
 
 @Component({
   selector: 'app-capsule-card',
@@ -12,16 +13,13 @@ import { Router } from '@angular/router';
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
-  userInfo: any ;
-
+  @Input() isBookmarked: boolean;
   @Input() capsule: CapsuleItem;
 
   constructor(private capsuleApiService: CapsuleApiService, private userApiService : UserApiService,
-    private router: Router ){}
+    private router: Router, private authService: AuthService ){}
 
-  ngOnInit(): void {
-    this.userApiService.getUser().pipe(take(1)).subscribe(userInfo => this.userInfo = userInfo)
-  }
+  ngOnInit(): void { }
 
   doFlipCard(): void {
     this.isCardFlipped = !this.isCardFlipped;
@@ -41,24 +39,19 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleBookmark():void {
-    if(!this.userInfo){
+    if(!this.authService.isUserLoggedIn()){
       this.router.navigateByUrl("/auth/signin")
     }
     this.capsuleApiService.updateCapsuleBookmarkCount(this.capsule.capsuleId).pipe(take(1)).subscribe();
     this.userApiService.setUserBookmarks(this.capsule.capsuleId).pipe(take(1)).subscribe();
-    this.userInfo.bookmarks = [...this.userInfo.bookmarks, this.capsule.capsuleId];
+    this.isBookmarked=!this.isBookmarked;
+    // this.userInfo.bookmarks = [...this.userInfo.bookmarks, this.capsule.capsuleId];
   }
 
   onCapsuleBookmarkRemove():void {
     this.userApiService.removeUserBookmarks(this.capsule.capsuleId).pipe(take(1)).subscribe();
-    this.userInfo.bookmarks = this.userInfo.bookmarks.filter(capsuleId => this.capsule.capsuleId != capsuleId);
+    this.isBookmarked=!this.isBookmarked;
   }
 
-  isBookmarked() : boolean {
-    if(!this.userInfo){
-      return false;
-    }
-    return !!this.userInfo.bookmarks.find(capsuleId => capsuleId == this.capsule.capsuleId);
-  }
 
 }

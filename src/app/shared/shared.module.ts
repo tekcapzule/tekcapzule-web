@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { CapsuleCardComponent } from './components/capsule-card/capsule-card.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
+import { CapsulesComponent } from './components/capsules/capsules.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     DataTableComponent,
     CapsuleCardComponent,
     TopicCardComponent,
+    CapsulesComponent,
   ],
   imports: [CommonModule, RouterModule, MatTableModule, MatPaginatorModule, MatSortModule],
   exports: [
@@ -25,7 +27,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     FooterComponent,
     DataTableComponent,
     CapsuleCardComponent,
-    TopicCardComponent,
+    TopicCardComponent,CapsulesComponent
   ],
 })
 export class SharedModule {}
