@@ -6,8 +6,9 @@
   >
     <div class="capsule-card card-front">
       <div class="card-head">
-        <div class="icons bookmark">
-          <img src="/assets/images/bookmark-icon.svg" class="rounded-img" />
+        <div class="icons bookmark" >
+          <img src="/assets/images/bookmark-filled.svg" class="rounded-img" *ngIf="isBookmarked()"  (click)="onCapsuleBookmarkRemove()"/>
+          <img src="/assets/images/bookmark-icon.svg" class="rounded-img" *ngIf="!isBookmarked()"  (click)="onCapsuleBookmark()"/>
         </div>
         <div class="icons okHand">
           <img src="/assets/images/okhand-icon.svg" class="rounded-img" (click)="onCapsuleRecommend()"/>
@@ -51,8 +52,9 @@
             <img src="/assets/images/eye-icon.svg" />
             <span>{{ capsule.views }}</span>
           </label>
-          <label>
-            <img src="/assets/images/bookmark-grey.svg" />
+          <label >
+            <img src="/assets/images/bookmark-filled.svg" *ngIf="isBookmarked()"  (click)="onCapsuleBookmarkRemove()"/>
+            <img src="/assets/images/bookmark-icon.svg"  *ngIf="!isBookmarked()"  (click)="onCapsuleBookmark()"/>
             <span>{{ capsule.bookmarks }}</span>
           </label>
           <label>

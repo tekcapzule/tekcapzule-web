@@ -22,4 +22,14 @@ export class UserApiService {
   getUser(): Observable<any> {
     return this.httpClient.post(`${USER_API_PATH}/get`, {});
   }
+
+  setUserBookmarks(capsuleId: string): Observable<any> {
+    const userId =  "contact@tekcapsule.com";  // TODO :: Get user id 
+    return this.httpClient.post(`${USER_API_PATH}/bookmark`, {capsuleId, userId});
+  }
+
+  removeUserBookmarks(capsuleId: string): Observable<any> {
+    const userId =  "contact@tekcapsule.com";  // TODO :: Get user id 
+    return this.httpClient.post(`${USER_API_PATH}/bookmark`, {capsuleId, userId});
+  }
 }

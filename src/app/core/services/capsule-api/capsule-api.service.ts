@@ -50,4 +50,8 @@ export class CapsuleApiService {
   updateCapsuleRecommendCount(capsuleId: string): Observable<any> {
     return this.httpClient.post(`${CAPSULE_API_PATH}/recommend`, { capsuleId });
   }
+
+  updateCapsuleBookmarkCount(capsuleId: string): Observable<any> {
+    return this.httpClient.post(`${CAPSULE_API_PATH}/bookmark`, { capsuleId });
+  }
 }
