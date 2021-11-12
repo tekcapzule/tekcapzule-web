@@ -11,14 +11,21 @@ import { share, tap } from 'rxjs/operators';
 
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
+  private cacheKeys = new Set<string>();
+
   constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const url = request.url;
-    const cache = request.params.get('cache') === 'true' ? true : false;
+    const cache = request.params.get('cache') === 'yes' ? true : false;
     const expiry = parseInt(request.params.get('expiry'), 10);
+    const refresh = request.params.get('refresh') === 'yes' ? true : false;
 
     if (cache) {
+      if (refresh) {
+        return this.cacheApiResponse(request, next, expiry);
+      }
+
       const cachedItemStr = window.sessionStorage.getItem(url);
       const cachedResponseBodyWithExpiry = cachedItemStr ? JSON.parse(cachedItemStr) : null;
 
@@ -45,6 +52,12 @@ export class CacheInterceptor implements HttpInterceptor {
     return next.handle(request);
   }
 
+  public clearCache(): void {
+    this.cacheKeys.forEach(key => {
+      window.sessionStorage.removeItem(key);
+    });
+  }
+
   private cacheApiResponse(
     request: HttpRequest<any>,
     next: HttpHandler,
@@ -59,6 +72,7 @@ export class CacheInterceptor implements HttpInterceptor {
             request.url,
             JSON.stringify({ body: httpEvent.body, expiry: current.getTime() })
           );
+          this.cacheKeys.add(request.url);
         }
       }),
       share()

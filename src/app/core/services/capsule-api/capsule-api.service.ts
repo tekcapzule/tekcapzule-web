@@ -19,8 +19,18 @@ export class CapsuleApiService {
     return CAPSULE_API_PATH;
   }
 
-  getMyFeedCapsules(subscribedTopics: string[]): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/getMyFeed`, { subscribedTopics });
+  getMyFeedCapsules(subscribedTopics: string[], refreshCache?: boolean): Observable<any> {
+    return this.httpClient.post(
+      `${CAPSULE_API_PATH}/getMyFeed`,
+      { subscribedTopics },
+      {
+        params: {
+          cache: 'yes',
+          expiry: '12',
+          refresh: refreshCache ? 'yes' : 'no',
+        },
+      }
+    );
   }
 
   getTrendingCapsules(): Observable<any> {
@@ -28,7 +38,10 @@ export class CapsuleApiService {
       `${CAPSULE_API_PATH}/getTrending`,
       {},
       {
-        params: { cache: 'true', expiry: '12' },
+        params: {
+          cache: 'yes',
+          expiry: '12',
+        },
       }
     );
   }
@@ -38,7 +51,10 @@ export class CapsuleApiService {
       `${CAPSULE_API_PATH}/getEditorsPick`,
       {},
       {
-        params: { cache: 'true', expiry: '24' },
+        params: {
+          cache: 'yes',
+          expiry: '24',
+        },
       }
     );
   }

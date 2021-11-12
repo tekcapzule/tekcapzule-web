@@ -24,7 +24,10 @@ export class TopicApiService {
       `${TOPIC_API_PATH}/getAll`,
       {},
       {
-        params: { cache: 'true', expiry: '24' },
+        params: {
+          cache: 'yes',
+          expiry: '24',
+        },
       }
     );
   }
