@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared';
-import { take } from 'rxjs/operators';
+import { finalize, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-capsule-trending',
@@ -11,12 +11,19 @@ import { take } from 'rxjs/operators';
 export class CapsuleTrendingComponent implements OnInit {
   capsules: CapsuleItem[] = [];
 
-  constructor(private capsuleApiService: CapsuleApiService) {}
+  constructor(private capsuleApiService: CapsuleApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.capsuleApiService
       .getTrendingCapsules()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
       .subscribe(capsules => {
         this.capsules = capsules;
       });

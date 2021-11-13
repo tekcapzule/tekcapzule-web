@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { finalize, take } from 'rxjs/operators';
 
-import { TopicApiService } from '@app/core';
+import { AppSpinnerService, TopicApiService } from '@app/core';
 import { TopicItem } from '@app/shared';
 
 declare var twttr: any;
@@ -15,12 +15,19 @@ export class ExploreTopicsComponent implements OnInit, AfterViewInit {
   topics: TopicItem[] = [];
   allTopics: TopicItem[] = [];
 
-  constructor(private topicApiService: TopicApiService) {}
+  constructor(private topicApiService: TopicApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.topicApiService
       .getAllTopics()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
       .subscribe(topics => {
         this.topics = topics;
         this.allTopics = topics;

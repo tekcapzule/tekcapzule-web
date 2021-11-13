@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { finalize, take } from 'rxjs/operators';
 
-import { CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService } from '@app/core';
 
 @Component({
   selector: 'app-editors-pick',
@@ -11,12 +11,19 @@ import { CapsuleApiService } from '@app/core';
 export class EditorsPickComponent implements OnInit {
   capsules = [];
 
-  constructor(private capsuleApiService: CapsuleApiService) {}
+  constructor(private capsuleApiService: CapsuleApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.capsuleApiService
       .getEditorsPickCapsules()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
       .subscribe(capsules => {
         this.capsules = capsules;
       });
