@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { CapsuleApiService, TopicApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared';
@@ -13,7 +13,7 @@ declare const jQuery: any;
 })
 export class HomePageComponent implements OnInit, AfterViewInit {
   tredingCapsules: CapsuleItem[] = [];
-
+  @ViewChild('subscribe') subscribeSection: ElementRef;
   constructor(
     private topicApiService: TopicApiService,
     private capsuleApiService: CapsuleApiService

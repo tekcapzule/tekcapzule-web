@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home-carousel',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-carousel.component.scss'],
 })
 export class HomeCarouselComponent implements OnInit {
+
+  @Output() onSubscribeClick = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}

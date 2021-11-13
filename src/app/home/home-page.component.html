@@ -1,6 +1,6 @@
 <!-- ======= Hero Banner Section ======= -->
 <div class="home-page">
-  <app-home-carousel></app-home-carousel>
+  <app-home-carousel (onSubscribeClick)="subscribeSection.nativeElement.focus()"></app-home-carousel>
 
   <!-- ======= Intro Section ======= -->
   <section id="intro" class="services">
@@ -45,7 +45,7 @@
   <!-- End App Install Section -->
 
   <!-- ======= subscribe Section ======= -->
-  <section id="subscribe" class="subscribe section-bg">
+  <section tabindex="1" #subscribe id="subscribe" class="subscribe section-bg">
     <div class="container">
       <div class="section-title pb-0">
         <h2>Get inspired by our vibrant tech community!</h2>
