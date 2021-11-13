@@ -1,6 +1,8 @@
 <!-- ======= Hero Banner Section ======= -->
 <div class="home-page">
-  <app-home-carousel (onSubscribeClick)="subscribeSection.nativeElement.focus()"></app-home-carousel>
+  <app-home-carousel
+    (onSubscribeClick)="subscribeSection.nativeElement.focus()"
+  ></app-home-carousel>
 
   <!-- ======= Intro Section ======= -->
   <section id="intro" class="services">
@@ -17,7 +19,9 @@
 
     <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
       <div id="homepage_owl_carousel" class="owl-carousel owl-theme d-flex">
-        <app-capsules [capsules]="tredingCapsules"></app-capsules>
+        <ng-container *ngFor="let capsule of capsules">
+          <app-capsule-card [capsule]="capsule" class="mr-4"></app-capsule-card>
+        </ng-container>
       </div>
     </div>
   </section>

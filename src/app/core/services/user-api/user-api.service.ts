@@ -19,7 +19,7 @@ export class UserApiService {
     return USER_API_PATH;
   }
 
-  getUser(): Observable<any> {
+  getUser(refreshCache?: boolean): Observable<any> {
     const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
     return this.httpClient.post(
       `${USER_API_PATH}/get`,
@@ -28,6 +28,7 @@ export class UserApiService {
         params: {
           cache: 'yes',
           expiry: '12',
+          refresh: refreshCache ? 'yes' : 'no',
         },
       }
     );

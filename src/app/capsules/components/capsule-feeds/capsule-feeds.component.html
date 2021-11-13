@@ -1,7 +1,9 @@
 <section class="d-flex align-items-center">
   <div class="container px-0">
     <div class="row card-section col-card d-flex justify-content-start mb-4 pb-4 pt-5">
-      <app-capsules capsules="capsules"></app-capsules>
+      <ng-container *ngFor="let capsule of capsules">
+        <app-capsule-card [capsule]="capsule" class="mb-4 mr-4"></app-capsule-card>
+      </ng-container>
     </div>
   </div>
 </section>

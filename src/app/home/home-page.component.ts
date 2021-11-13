@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-import { CapsuleApiService, TopicApiService } from '@app/core';
+import { CapsuleApiService, TopicApiService, UserApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared';
 import { take } from 'rxjs/operators';
 
@@ -12,11 +12,13 @@ declare const jQuery: any;
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit, AfterViewInit {
-  tredingCapsules: CapsuleItem[] = [];
+  capsules: CapsuleItem[] = [];
+
   @ViewChild('subscribe') subscribeSection: ElementRef;
   constructor(
     private topicApiService: TopicApiService,
-    private capsuleApiService: CapsuleApiService
+    private capsuleApiService: CapsuleApiService,
+    private userApiService: UserApiService
   ) {}
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
       .getEditorsPickCapsules()
       .pipe(take(1))
       .subscribe(capsules => {
-        this.tredingCapsules = capsules;
+        this.capsules = capsules;
         setTimeout(() => {
           this.initOwlCarousel();
         }, 0);
@@ -32,6 +34,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
     this.capsuleApiService.getTrendingCapsules().pipe(take(1)).subscribe();
     this.topicApiService.getAllTopics().pipe(take(1)).subscribe();
+    this.userApiService.getUser().pipe(take(1)).subscribe();
   }
 
   ngAfterViewInit(): void {

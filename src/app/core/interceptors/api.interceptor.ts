@@ -9,7 +9,7 @@ export class ApiInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
       headers: request.headers
-        .set('X-User-Login', 'contact@tekcapsule.com')
+        .set('X-User-Login', 'linjith.kunnon@gmail.com')
         .set('X-Channel-Code', 'WEB_CLIENT'),
     });
 
