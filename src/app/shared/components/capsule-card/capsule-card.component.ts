@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
 import { CapsuleApiService, UserApiService } from '@app/core';
 import { CapsuleItem, UserInfo } from '@app/shared';
-import { Router } from '@angular/router';
-import { AuthService } from '@app/auth';
+import { AuthService, AwsUserInfo } from '@app/auth';
 
 @Component({
   selector: 'app-capsule-card',
@@ -14,6 +14,7 @@ import { AuthService } from '@app/auth';
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
   userInfo: UserInfo;
+  awsUserInfo: AwsUserInfo;
 
   @Input() capsule: CapsuleItem;
 
@@ -29,10 +30,14 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
-    this.userApiService
-      .getUser(refreshCache)
-      .pipe(take(1))
-      .subscribe(userInfo => (this.userInfo = userInfo));
+    if (this.authService.isUserLoggedIn()) {
+      this.awsUserInfo = this.authService.getUserInfo();
+
+      this.userApiService
+        .getUser(this.awsUserInfo.attributes.email, refreshCache)
+        .pipe(take(1))
+        .subscribe(userInfo => (this.userInfo = userInfo));
+    }
   }
 
   doFlipCard(): void {
@@ -66,7 +71,7 @@ export class CapsuleCardComponent implements OnInit {
       .subscribe();
 
     this.userApiService
-      .setUserBookmarks(this.capsule.capsuleId)
+      .setUserBookmarks(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
       .pipe(take(1))
       .subscribe(() => {
         this.fetchUserInfo(true);
@@ -82,8 +87,12 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleBookmarkRemove(): void {
+    if (!this.authService.isUserLoggedIn()) {
+      this.router.navigateByUrl('/auth/signin');
+    }
+
     this.userApiService
-      .removeUserBookmarks(this.capsule.capsuleId)
+      .removeUserBookmarks(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
       .pipe(take(1))
       .subscribe(() => {
         this.fetchUserInfo(true);

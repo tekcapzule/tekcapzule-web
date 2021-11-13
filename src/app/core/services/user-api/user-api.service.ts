@@ -19,8 +19,9 @@ export class UserApiService {
     return USER_API_PATH;
   }
 
-  getUser(refreshCache?: boolean): Observable<any> {
-    const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
+  getUser(userId: string, refreshCache?: boolean): Observable<any> {
+    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
+    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(
       `${USER_API_PATH}/get`,
       { userId },
@@ -34,13 +35,15 @@ export class UserApiService {
     );
   }
 
-  setUserBookmarks(capsuleId: string): Observable<any> {
-    const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
+  setUserBookmarks(userId: string, capsuleId: string): Observable<any> {
+    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
+    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, { capsuleId, userId });
   }
 
-  removeUserBookmarks(capsuleId: string): Observable<any> {
-    const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
+  removeUserBookmarks(userId: string, capsuleId: string): Observable<any> {
+    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
+    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { capsuleId, userId });
   }
 

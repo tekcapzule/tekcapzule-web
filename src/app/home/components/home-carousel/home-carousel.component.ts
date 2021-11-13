@@ -14,6 +14,6 @@ export class HomeCarouselComponent implements OnInit {
   ngOnInit(): void {}
 
   gotoCapsulesPage(): void {
-    this.router.navigateByUrl('capsules');
+    this.router.navigateByUrl('/capsules');
   }
 }

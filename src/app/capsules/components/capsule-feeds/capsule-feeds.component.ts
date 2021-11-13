@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize, take } from 'rxjs/operators';
 
-import { AppSpinnerService, CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, UserApiService } from '@app/core';
 import { AuthService } from '@app/auth';
+import { UserInfo } from '@app/shared';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -13,23 +14,29 @@ export class CapsuleFeedsComponent implements OnInit {
   capsules = [];
 
   constructor(
-    private capsuleApiService: CapsuleApiService,
     private authService: AuthService,
+    private capsuleApiService: CapsuleApiService,
+    private userApiService: UserApiService,
     private spinner: AppSpinnerService
   ) {}
 
   ngOnInit(): void {
     if (this.authService.isUserLoggedIn()) {
-      this.capsuleApiService
-        .getMyFeedCapsules(['cld', 'blk'])
-        .pipe(
-          take(1),
-          finalize(() => {
-            this.spinner.hide();
-          })
-        )
-        .subscribe(capsules => {
-          this.capsules = capsules;
+      this.userApiService
+        .getUser(this.authService.getUserInfo().attributes.email)
+        .pipe(take(1))
+        .subscribe((userInfo: UserInfo) => {
+          this.capsuleApiService
+            .getMyFeedCapsules(userInfo.subscribedTopics)
+            .pipe(
+              take(1),
+              finalize(() => {
+                this.spinner.hide();
+              })
+            )
+            .subscribe(capsules => {
+              this.capsules = capsules;
+            });
         });
     }
   }

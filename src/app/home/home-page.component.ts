@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { take } from 'rxjs/operators';
 
 import { CapsuleApiService, TopicApiService, UserApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared';
-import { take } from 'rxjs/operators';
+import { AuthService } from '@app/auth';
 
 declare const jQuery: any;
 
@@ -19,7 +20,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   constructor(
     private topicApiService: TopicApiService,
     private capsuleApiService: CapsuleApiService,
-    private userApiService: UserApiService
+    private userApiService: UserApiService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +37,13 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
     this.capsuleApiService.getTrendingCapsules().pipe(take(1)).subscribe();
     this.topicApiService.getAllTopics().pipe(take(1)).subscribe();
-    this.userApiService.getUser().pipe(take(1)).subscribe();
+
+    if (this.authService.isUserLoggedIn()) {
+      this.userApiService
+        .getUser(this.authService.getUserInfo().attributes.email)
+        .pipe(take(1))
+        .subscribe();
+    }
   }
 
   ngAfterViewInit(): void {
