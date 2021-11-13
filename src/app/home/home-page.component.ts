@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   capsules: CapsuleItem[] = [];
 
   @ViewChild('subscribe') subscribeSection: ElementRef;
+
   constructor(
     private topicApiService: TopicApiService,
     private capsuleApiService: CapsuleApiService,

@@ -21,8 +21,16 @@
                   now!
                 </p>
                 <div>
-                  <button mat-raised-button class="button primary">Explore</button>
-                  <button mat-stroked-button class="button secondary" (click)="onSubscribeClick.emit()">Subscribe</button>
+                  <button mat-raised-button class="button primary" (click)="gotoCapsulesPage()">
+                    Explore
+                  </button>
+                  <button
+                    mat-stroked-button
+                    class="button secondary"
+                    (click)="subscribeClicked.emit()"
+                  >
+                    Subscribe
+                  </button>
                 </div>
                 <div class="follow-us">
                   <a href="#"><img src="/assets/images/twitter.svg" />#TekCapsule</a>
