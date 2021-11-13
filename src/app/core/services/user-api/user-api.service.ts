@@ -20,20 +20,27 @@ export class UserApiService {
   }
 
   getUser(): Observable<any> {
-    const userId =  "linjith.kunnon@gmail.com";  // TODO :: Get user id 
-    return this.httpClient.post(`${USER_API_PATH}/get`, {userId},{
-      params: { cache: 'true', expiry: '12' },
-    });
+    const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
+    return this.httpClient.post(
+      `${USER_API_PATH}/get`,
+      { userId },
+      {
+        params: {
+          cache: 'yes',
+          expiry: '12',
+        },
+      }
+    );
   }
 
   setUserBookmarks(capsuleId: string): Observable<any> {
-    const userId =  "linjith.kunnon@gmail.com";  // TODO :: Get user id 
-    return this.httpClient.post(`${USER_API_PATH}/bookmark`, {capsuleId, userId});
+    const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
+    return this.httpClient.post(`${USER_API_PATH}/bookmark`, { capsuleId, userId });
   }
 
   removeUserBookmarks(capsuleId: string): Observable<any> {
-    const userId =  "linjith.kunnon@gmail.com";  // TODO :: Get user id 
-    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, {capsuleId, userId});
+    const userId = 'linjith.kunnon@gmail.com'; // TODO :: Get user id
+    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { capsuleId, userId });
   }
 
   createUser(): void {
