@@ -42,9 +42,9 @@
       <li><span></span></li>
     </ul>
     <div class="row card-section col-card d-flex justify-content-around mb-4 pb-4 pt-4">
-      <app-capsule-card></app-capsule-card>
-      <app-capsule-card></app-capsule-card>
-      <app-capsule-card></app-capsule-card>
+      <ng-container *ngFor="let capsule of firstThreeCapsules">
+        <app-capsule-card [capsule]="capsule"></app-capsule-card>
+      </ng-container>
     </div>
     <div class="row justify-content-center mb-4">
       <button class="button secondary-btn-md mb-5">EXPLORE MORE</button>

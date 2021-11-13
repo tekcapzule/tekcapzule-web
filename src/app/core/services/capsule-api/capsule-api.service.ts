@@ -59,6 +59,10 @@ export class CapsuleApiService {
     );
   }
 
+  getCapsuleById(capsuleId: string): Observable<any> {
+    return this.httpClient.post(`${CAPSULE_API_PATH}/get`, { capsuleId });
+  }
+
   updateCapsuleViewCount(capsuleId: string): Observable<any> {
     return this.httpClient.post(`${CAPSULE_API_PATH}/view`, { capsuleId });
   }

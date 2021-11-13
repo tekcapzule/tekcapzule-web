@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin, Observable } from 'rxjs';
 
-import { TopicItem } from '@app/shared';
+import { CapsuleItem, TopicItem } from '@app/shared';
+import { CapsuleApiService } from '@app/core';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topic-details',
@@ -9,10 +12,26 @@ import { TopicItem } from '@app/shared';
 })
 export class TopicDetailsComponent implements OnInit {
   topic: TopicItem;
+  firstThreeCapsules: CapsuleItem[] = [];
 
-  constructor() {}
+  constructor(private capsuleApiService: CapsuleApiService) {}
 
   ngOnInit(): void {
     this.topic = history.state.topic;
+
+    if (this.topic && this.topic.capsules.length > 0) {
+      const threeCapsuleIds = this.topic.capsules.slice(0, 3);
+      const capsuleItems$: Observable<any>[] = [];
+
+      threeCapsuleIds.forEach(capsuleId => {
+        capsuleItems$.push(this.capsuleApiService.getCapsuleById(capsuleId));
+      });
+
+      forkJoin(capsuleItems$)
+        .pipe(take(1))
+        .subscribe(data => {
+          this.firstThreeCapsules = data;
+        });
+    }
   }
 }

@@ -31,8 +31,11 @@ export class ExploreTopicsComponent implements OnInit, AfterViewInit {
     twttr.widgets.load();
   }
 
-  onSearchKeyUp(e){
-    const searchVal = (e.target.value);
-    this.topics = this.allTopics.filter(topic=> topic.name.toLocaleLowerCase().includes(searchVal.toLocaleLowerCase()))
+  onSearchKeyUp(e: Event): void {
+    const searchVal = (e.target as HTMLInputElement).value;
+
+    this.topics = this.allTopics.filter(topic =>
+      topic.name.toLocaleLowerCase().includes(searchVal.toLocaleLowerCase())
+    );
   }
 }
