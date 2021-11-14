@@ -11,7 +11,7 @@
         {{ navTab.displayName }}
       </a>
     </ng-container>
-    <a mat-tab-link data-toggle="modal" data-target="#myModal"
+    <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal"
       >Browse by Topic
       <img src="/assets/images/down-arrow.svg" class="pl-2" />
     </a>
@@ -30,10 +30,10 @@
   <!-- Modal -->
   <div
     class="modal fade in mobileOverlayMenu"
-    id="myModal"
+    id="browseByTopicModal"
     tabindex="-1"
     role="dialog"
-    aria-labelledby="myModalLabel"
+    aria-labelledby="browseByTopicModalLabel"
     aria-hidden="true"
     data-backdrop="static"
   >
@@ -61,7 +61,14 @@
                 <ul class="topics-list">
                   <li *ngFor="let topic of item.topics">
                     {{ topic.name }}
-                    <span style="cursor: pointer">FOLLOW</span>
+                    <ng-container *ngIf="!isTopicSubscribed(topic.code)">
+                      <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
+                    </ng-container>
+                    <ng-container *ngIf="isTopicSubscribed(topic)">
+                      <span class="active" style="cursor: pointer" (click)="unfollowTopic(topic.code)"
+                        >FOLLOWING</span
+                      >
+                    </ng-container>
                   </li>
                 </ul>
               </div>

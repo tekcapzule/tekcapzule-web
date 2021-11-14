@@ -6,3 +6,4 @@ export { Constants } from './utils/constants';
 export { CapsuleItem } from './models/capsule-item.model';
 export { TopicItem } from './models/topic-item.model';
 export { UserInfo } from './models/user-info.model';
+export { ApiSuccess } from './models/api-success.model';

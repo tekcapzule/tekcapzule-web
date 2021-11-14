@@ -13,8 +13,8 @@ import { AuthService, AwsUserInfo } from '@app/auth';
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
-  userInfo: UserInfo;
-  awsUserInfo: AwsUserInfo;
+  userInfo: UserInfo = null;
+  awsUserInfo: AwsUserInfo = null;
 
   @Input() capsule: CapsuleItem;
 
@@ -63,6 +63,7 @@ export class CapsuleCardComponent implements OnInit {
   onCapsuleBookmark(): void {
     if (!this.authService.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
+      return;
     }
 
     this.capsuleApiService
@@ -79,7 +80,7 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   isBookmarked(): boolean {
-    if (!this.userInfo) {
+    if (!this.authService.isUserLoggedIn()) {
       return false;
     }
 
@@ -89,6 +90,7 @@ export class CapsuleCardComponent implements OnInit {
   onCapsuleBookmarkRemove(): void {
     if (!this.authService.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
+      return;
     }
 
     this.userApiService
