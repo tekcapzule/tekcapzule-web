@@ -4,6 +4,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
 import { Constants } from '@app/shared/utils/constants';
+
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
 // TODO: Need to verify this format and add additional info based on actual format.
@@ -33,6 +34,20 @@ export class AuthService {
     });
   }
 
+  // TODO: Added only for dev purpose. To be removed once suser signin flow is fixed.
+  private autoSigninUserForAppDevelopment(): void {
+    this.isLoggedIn = true;
+    this.userInfo = {
+      username: 'linjith',
+      attributes: {
+        email: 'linjith.kunnon@gmail.com',
+        email_verified: true,
+        sub: 'qwerty1234567890qwerty',
+      },
+    };
+    this.loggedInStatusChange.next(true);
+  }
+
   private authEventChanged(authEvent: string, data: any): void {
     if (authEvent === 'signIn') {
       this.authenticateUser();
@@ -53,6 +68,9 @@ export class AuthService {
     this.userInfo = null;
     this.isLoggedIn = false;
     this.loggedInStatusChange.next(this.isLoggedIn);
+
+    // TODO: Remove next line.
+    this.autoSigninUserForAppDevelopment();
   }
 
   private authenticateUser(): void {
