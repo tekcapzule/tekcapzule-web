@@ -17,4 +17,9 @@ export class SubscriptionApiService {
   getSubscriptionApiPath(): string {
     return SUBSCRIPTION_API_PATH;
   }
+
+  subscribe(emailId:string){
+    return this.httpClient.post(`${SUBSCRIPTION_API_PATH}/subscribe`, { emailId}); 
+  }
+
 }
