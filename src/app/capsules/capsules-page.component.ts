@@ -58,7 +58,7 @@ export class CapsulesPageComponent implements OnInit {
       .getChannel()
       .pipe(filter(out => out.event === ChannelEvent.SetActiveTab))
       .subscribe(() => {
-        this.navigateToCapsulePage();
+        this.navigateToActiveCapsulePage();
       });
 
     this.topicApiService
@@ -68,10 +68,10 @@ export class CapsulesPageComponent implements OnInit {
         this.setTopicsByCategory(topics);
       });
 
-    this.navigateToCapsulePage();
+    this.navigateToActiveCapsulePage();
   }
 
-  navigateToCapsulePage(): void {
+  navigateToActiveCapsulePage(): void {
     let activeNavTab: NavTab = this.navTabs[0];
 
     if (this.authService.isUserLoggedIn()) {
@@ -159,7 +159,7 @@ export class CapsulesPageComponent implements OnInit {
           return this.capsuleApiService.getMyFeedCapsules(this.userInfo.subscribedTopics, true);
         }),
         map(() => {
-          this.navigateToCapsulePage();
+          this.navigateToActiveCapsulePage();
         })
       )
       .subscribe();
@@ -172,6 +172,21 @@ export class CapsulesPageComponent implements OnInit {
       return;
     }
 
-    throw new Error('Not yet implemented.');
+    const awsUserInfo = this.authService.getUserInfo();
+
+    this.userApiService
+      .unfollowTopic(awsUserInfo.attributes.email, topicCode)
+      .pipe(
+        take(1),
+        switchMap(() => this.userApiService.getUser(awsUserInfo.attributes.email, true)),
+        switchMap(user => {
+          this.userInfo = user;
+          return this.capsuleApiService.getMyFeedCapsules(this.userInfo.subscribedTopics, true);
+        }),
+        map(() => {
+          this.navigateToActiveCapsulePage();
+        })
+      )
+      .subscribe();
   }
 }

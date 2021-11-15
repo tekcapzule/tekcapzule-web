@@ -54,6 +54,12 @@ export class UserApiService {
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/follow`, { userId, topicCode });
   }
 
+  unfollowTopic(userId: string, topicCode: string): Observable<ApiSuccess> {
+    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
+    userId = 'linjith.kunnon@gmail.com';
+    return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/unfollow`, { userId, topicCode });
+  }
+
   createUser(): void {
     throw new Error('Not yet implemented.');
   }
