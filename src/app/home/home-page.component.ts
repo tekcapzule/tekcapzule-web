@@ -35,13 +35,11 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     if (this.authService.isUserLoggedIn()) {
       this.userApiService
         .getUser(this.authService.getUserInfo().attributes.email)
-        .pipe(take(1))
         .subscribe();
     }
 
     this.capsuleApiService
       .getEditorsPickCapsules()
-      .pipe(take(1))
       .subscribe(capsules => {
         this.capsules = capsules;
         setTimeout(() => {
@@ -49,8 +47,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
         }, 0);
       });
 
-    this.capsuleApiService.getTrendingCapsules().pipe(take(1)).subscribe();
-    this.topicApiService.getAllTopics().pipe(take(1)).subscribe();
+    this.capsuleApiService.getTrendingCapsules().subscribe();
+    this.topicApiService.getAllTopics().subscribe();
   }
 
   ngAfterViewInit(): void {
@@ -86,7 +84,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   }
 
   onSubscribe(): void {
-    this.subscriptionApiService.subscribe(this.subscriberEmailId).pipe(take(1)).subscribe();
+    this.subscriptionApiService.subscribe(this.subscriberEmailId).subscribe();
     this.subscriberEmailId = '';
   }
 }

@@ -10,26 +10,22 @@ import { take } from 'rxjs/operators';
 })
 export class AdminCreateTopicComponent implements OnInit {
   topicDetails = {
-    "code": "",
-    "category":"",
-    "name": "",
-    "description": "",
-    "imageUrl": "",
-    "aliases": [
-      "", ""
-    ],
-    "keyHighlights": [
-      "", ""
-    ],
-    "capsules": [
-      "", ""
-    ]
-  }
+    code: '',
+    category: '',
+    name: '',
+    description: '',
+    imageUrl: '',
+    aliases: ['', ''],
+    keyHighlights: ['', ''],
+    capsules: ['', ''],
+  };
 
-  constructor(private eventChannel: EventChannelService,
-    private topicApiService: TopicApiService) { }
+  constructor(
+    private eventChannel: EventChannelService,
+    private topicApiService: TopicApiService
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   activateFirstNavTab(): void {
     this.eventChannel.publish({ event: ChannelEvent.SetActiveTab });
@@ -42,8 +38,9 @@ export class AdminCreateTopicComponent implements OnInit {
     this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
     console.log(this.topicDetails);
     this.activateFirstNavTab();
-    this.topicApiService.createTopic(this.topicDetails).pipe(take(1)).subscribe(res => console.log(this.topicDetails, res));
-    
+    this.topicApiService
+      .createTopic(this.topicDetails)
+      .subscribe(res => console.log(this.topicDetails, res));
   }
 
   trackByIdx(index: number, obj: any): any {
@@ -51,7 +48,7 @@ export class AdminCreateTopicComponent implements OnInit {
   }
 
   addRow(rowType): void {
-    this.topicDetails[rowType].unshift("");
+    this.topicDetails[rowType].unshift('');
   }
 
   deleteRow(rowType, index): void {
@@ -59,6 +56,11 @@ export class AdminCreateTopicComponent implements OnInit {
   }
 
   isFormValid() {
-    return this.topicDetails.category && this.topicDetails.code && this.topicDetails.description && this.topicDetails.name;
+    return (
+      this.topicDetails.category &&
+      this.topicDetails.code &&
+      this.topicDetails.description &&
+      this.topicDetails.name
+    );
   }
 }

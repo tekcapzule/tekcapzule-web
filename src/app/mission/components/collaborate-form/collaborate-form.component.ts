@@ -20,7 +20,7 @@ export class CollaborateFormComponent implements OnInit {
   }
 
   onCollabFormSubmit(): void {
-    this.feedbackApiService.createFeedback(this.collaborateForm).pipe(take(1)).subscribe(_ => {
+    this.feedbackApiService.createFeedback(this.collaborateForm).subscribe(_ => {
       this.collaborateForm = new CollaborateForm();
     });
 

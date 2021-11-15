@@ -8,18 +8,18 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./community-carousel.component.scss'],
 })
 export class CommunityCarouselComponent implements OnInit {
-
-  events : any[] = [];
+  events: any[] = [];
 
   constructor(private eventApiService: EventApiService) {}
 
   ngOnInit(): void {
-    this.eventApiService.getAllEvents().pipe(take(1)).subscribe(events => {this.events = events;console.log(events);
+    this.eventApiService.getAllEvents().subscribe(events => {
+      this.events = events;
+      console.log(events);
     });
   }
 
-  openLinkinNewTab(url){
+  openLinkinNewTab(url) {
     window.open(url, '_blank');
   }
-
 }

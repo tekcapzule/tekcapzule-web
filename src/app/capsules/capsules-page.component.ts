@@ -48,7 +48,6 @@ export class CapsulesPageComponent implements OnInit {
     if (this.authService.isUserLoggedIn()) {
       this.userApiService
         .getUser(this.authService.getUserInfo().attributes.email)
-        .pipe(take(1))
         .subscribe(userInfo => (this.userInfo = userInfo));
     } else {
       this.userInfo = null;
@@ -63,7 +62,6 @@ export class CapsulesPageComponent implements OnInit {
 
     this.topicApiService
       .getAllTopics()
-      .pipe(take(1))
       .subscribe(topics => {
         this.setTopicsByCategory(topics);
       });
@@ -152,7 +150,6 @@ export class CapsulesPageComponent implements OnInit {
     this.userApiService
       .followTopic(awsUserInfo.attributes.email, topicCode)
       .pipe(
-        take(1),
         switchMap(() => this.userApiService.getUser(awsUserInfo.attributes.email, true)),
         switchMap(user => {
           this.userInfo = user;
@@ -177,7 +174,6 @@ export class CapsulesPageComponent implements OnInit {
     this.userApiService
       .unfollowTopic(awsUserInfo.attributes.email, topicCode)
       .pipe(
-        take(1),
         switchMap(() => this.userApiService.getUser(awsUserInfo.attributes.email, true)),
         switchMap(user => {
           this.userInfo = user;

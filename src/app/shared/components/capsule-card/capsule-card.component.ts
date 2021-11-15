@@ -35,7 +35,6 @@ export class CapsuleCardComponent implements OnInit {
 
       this.userApiService
         .getUser(this.awsUserInfo.attributes.email, refreshCache)
-        .pipe(take(1))
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -49,15 +48,12 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCardClick(): void {
-    this.capsuleApiService.updateCapsuleViewCount(this.capsule.capsuleId).pipe(take(1)).subscribe();
+    this.capsuleApiService.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
     window.open(this.capsule.resourceUrl, '_blank');
   }
 
   onCapsuleRecommend(): void {
-    this.capsuleApiService
-      .updateCapsuleRecommendCount(this.capsule.capsuleId)
-      .pipe(take(1))
-      .subscribe();
+    this.capsuleApiService.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
   }
 
   isBookmarked(): boolean {
@@ -77,12 +73,8 @@ export class CapsuleCardComponent implements OnInit {
     this.userApiService
       .bookmarCapsule(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
       .pipe(
-        take(1),
         tap(() => {
-          this.capsuleApiService
-            .updateCapsuleBookmarkCount(this.capsule.capsuleId)
-            .pipe(take(1))
-            .subscribe();
+          this.capsuleApiService.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
         }),
         map(() => {
           this.fetchUserInfo(true);
@@ -99,7 +91,6 @@ export class CapsuleCardComponent implements OnInit {
 
     this.userApiService
       .removeCapsuleBookmark(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
-      .pipe(take(1))
       .subscribe(() => {
         this.fetchUserInfo(true);
       });

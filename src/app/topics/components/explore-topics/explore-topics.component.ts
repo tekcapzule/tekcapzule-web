@@ -23,7 +23,6 @@ export class ExploreTopicsComponent implements OnInit, AfterViewInit {
     this.topicApiService
       .getAllTopics()
       .pipe(
-        take(1),
         finalize(() => {
           this.spinner.hide();
         })

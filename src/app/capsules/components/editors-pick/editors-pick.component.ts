@@ -19,7 +19,6 @@ export class EditorsPickComponent implements OnInit {
     this.capsuleApiService
       .getEditorsPickCapsules()
       .pipe(
-        take(1),
         finalize(() => {
           this.spinner.hide();
         })

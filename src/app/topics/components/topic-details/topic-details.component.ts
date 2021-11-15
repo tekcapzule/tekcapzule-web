@@ -27,11 +27,9 @@ export class TopicDetailsComponent implements OnInit {
         capsuleItems$.push(this.capsuleApiService.getCapsuleById(capsuleId));
       });
 
-      forkJoin(capsuleItems$)
-        .pipe(take(1))
-        .subscribe(data => {
-          this.firstThreeCapsules = data;
-        });
+      forkJoin(capsuleItems$).subscribe(data => {
+        this.firstThreeCapsules = data;
+      });
     }
   }
 }

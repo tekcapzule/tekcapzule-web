@@ -19,7 +19,6 @@ export class CapsuleTrendingComponent implements OnInit {
     this.capsuleApiService
       .getTrendingCapsules()
       .pipe(
-        take(1),
         finalize(() => {
           this.spinner.hide();
         })

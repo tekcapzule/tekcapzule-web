@@ -24,12 +24,10 @@ export class CapsuleFeedsComponent implements OnInit {
     if (this.authService.isUserLoggedIn()) {
       this.userApiService
         .getUser(this.authService.getUserInfo().attributes.email)
-        .pipe(take(1))
         .subscribe((userInfo: UserInfo) => {
           this.capsuleApiService
             .getMyFeedCapsules(userInfo.subscribedTopics)
             .pipe(
-              take(1),
               finalize(() => {
                 this.spinner.hide();
               })
