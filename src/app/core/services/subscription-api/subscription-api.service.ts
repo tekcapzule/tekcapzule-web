@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiSuccess } from '@app/shared';
 
 import { environment } from '@env/environment';
+import { Observable } from 'rxjs';
 
 const SUBSCRIPTION_API_PATH = `${environment.apiEndpointTemplate}/subscription`.replace(
   '{{gateway}}',
@@ -18,8 +20,7 @@ export class SubscriptionApiService {
     return SUBSCRIPTION_API_PATH;
   }
 
-  subscribe(emailId:string){
-    return this.httpClient.post(`${SUBSCRIPTION_API_PATH}/subscribe`, { emailId}); 
+  subscribe(emailId: string): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${SUBSCRIPTION_API_PATH}/subscribe`, { emailId });
   }
-
 }

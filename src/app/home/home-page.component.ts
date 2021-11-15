@@ -1,7 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { take } from 'rxjs/operators';
 
-import { CapsuleApiService, SubscriptionApiService, TopicApiService, UserApiService } from '@app/core';
+import {
+  CapsuleApiService,
+  SubscriptionApiService,
+  TopicApiService,
+  UserApiService,
+} from '@app/core';
 import { CapsuleItem } from '@app/shared';
 import { AuthService } from '@app/auth';
 
@@ -14,9 +19,9 @@ declare const jQuery: any;
 })
 export class HomePageComponent implements OnInit, AfterViewInit {
   capsules: CapsuleItem[] = [];
+  subscriberEmailId = '';
 
   @ViewChild('subscribe') subscribeSection: ElementRef;
-  subscriberEmailId: string = "";
 
   constructor(
     private topicApiService: TopicApiService,
@@ -24,7 +29,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     private userApiService: UserApiService,
     private authService: AuthService,
     private subscriptionApiService: SubscriptionApiService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.capsuleApiService
@@ -80,8 +85,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onSubscribe() {
+  onSubscribe(): void {
     this.subscriptionApiService.subscribe(this.subscriberEmailId).pipe(take(1)).subscribe();
-    this.subscriberEmailId = "";
+    this.subscriberEmailId = '';
   }
 }
