@@ -36,13 +36,13 @@ export class UserApiService {
     );
   }
 
-  setUserBookmarks(userId: string, capsuleId: string): Observable<any> {
+  bookmarCapsule(userId: string, capsuleId: string): Observable<any> {
     // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
     userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, capsuleId });
   }
 
-  removeUserBookmarks(userId: string, capsuleId: string): Observable<any> {
+  removeCapsuleBookmark(userId: string, capsuleId: string): Observable<any> {
     // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
     userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });

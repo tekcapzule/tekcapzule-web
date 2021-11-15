@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { map, switchMap, take, tap } from 'rxjs/operators';
 
 import { CapsuleApiService, UserApiService } from '@app/core';
 import { CapsuleItem, UserInfo } from '@app/shared';
@@ -60,31 +60,35 @@ export class CapsuleCardComponent implements OnInit {
       .subscribe();
   }
 
+  isBookmarked(): boolean {
+    if (!this.authService.isUserLoggedIn()) {
+      return false;
+    }
+
+    return this.userInfo.bookmarks.find(id => id === this.capsule.capsuleId) ? true : false;
+  }
+
   onCapsuleBookmark(): void {
     if (!this.authService.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
       return;
     }
 
-    this.capsuleApiService
-      .updateCapsuleBookmarkCount(this.capsule.capsuleId)
-      .pipe(take(1))
-      .subscribe();
-
     this.userApiService
-      .setUserBookmarks(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
-      .pipe(take(1))
-      .subscribe(() => {
-        this.fetchUserInfo(true);
-      });
-  }
-
-  isBookmarked(): boolean {
-    if (!this.authService.isUserLoggedIn()) {
-      return false;
-    }
-
-    return !!this.userInfo.bookmarks.find(id => id === this.capsule.capsuleId);
+      .bookmarCapsule(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
+      .pipe(
+        take(1),
+        tap(() => {
+          this.capsuleApiService
+            .updateCapsuleBookmarkCount(this.capsule.capsuleId)
+            .pipe(take(1))
+            .subscribe();
+        }),
+        map(() => {
+          this.fetchUserInfo(true);
+        })
+      )
+      .subscribe();
   }
 
   onCapsuleBookmarkRemove(): void {
@@ -94,7 +98,7 @@ export class CapsuleCardComponent implements OnInit {
     }
 
     this.userApiService
-      .removeUserBookmarks(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
+      .removeCapsuleBookmark(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
       .pipe(take(1))
       .subscribe(() => {
         this.fetchUserInfo(true);

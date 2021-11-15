@@ -10,13 +10,13 @@
           <img
             src="/assets/images/bookmark-filled.svg"
             class="rounded-img"
-            *ngIf="isBookmarked"
+            *ngIf="isBookmarked()"
             (click)="onCapsuleBookmarkRemove()"
           />
           <img
             src="/assets/images/bookmark-icon.svg"
             class="rounded-img"
-            *ngIf="!isBookmarked"
+            *ngIf="!isBookmarked()"
             (click)="onCapsuleBookmark()"
           />
         </div>

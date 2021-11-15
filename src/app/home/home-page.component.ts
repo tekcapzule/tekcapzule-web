@@ -32,6 +32,13 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
+    if (this.authService.isUserLoggedIn()) {
+      this.userApiService
+        .getUser(this.authService.getUserInfo().attributes.email)
+        .pipe(take(1))
+        .subscribe();
+    }
+
     this.capsuleApiService
       .getEditorsPickCapsules()
       .pipe(take(1))
@@ -44,13 +51,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
     this.capsuleApiService.getTrendingCapsules().pipe(take(1)).subscribe();
     this.topicApiService.getAllTopics().pipe(take(1)).subscribe();
-
-    if (this.authService.isUserLoggedIn()) {
-      this.userApiService
-        .getUser(this.authService.getUserInfo().attributes.email)
-        .pipe(take(1))
-        .subscribe();
-    }
   }
 
   ngAfterViewInit(): void {
