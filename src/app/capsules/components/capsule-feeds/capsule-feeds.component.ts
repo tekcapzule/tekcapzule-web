@@ -22,11 +22,13 @@ export class CapsuleFeedsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isUserLoggedIn()) {
+      this.spinner.show();
+
       this.userApiService
         .getUser(this.authService.getUserInfo().attributes.email)
         .subscribe((userInfo: UserInfo) => {
           this.capsuleApiService
-            .getMyFeedCapsules(userInfo.subscribedTopics)
+            .getMyFeedCapsules(userInfo.subscribedTopics || [])
             .pipe(
               finalize(() => {
                 this.spinner.hide();

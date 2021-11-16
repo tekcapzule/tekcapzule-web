@@ -60,11 +60,9 @@ export class CapsulesPageComponent implements OnInit {
         this.navigateToActiveCapsulePage();
       });
 
-    this.topicApiService
-      .getAllTopics()
-      .subscribe(topics => {
-        this.setTopicsByCategory(topics);
-      });
+    this.topicApiService.getAllTopics().subscribe(topics => {
+      this.setTopicsByCategory(topics);
+    });
 
     this.navigateToActiveCapsulePage();
   }
@@ -132,7 +130,7 @@ export class CapsulesPageComponent implements OnInit {
 
   isTopicSubscribed(topicCode: string): boolean {
     if (this.authService.isUserLoggedIn()) {
-      return this.userInfo.subscribedTopics.includes(topicCode);
+      return this.userInfo?.subscribedTopics?.includes(topicCode);
     }
 
     return false;

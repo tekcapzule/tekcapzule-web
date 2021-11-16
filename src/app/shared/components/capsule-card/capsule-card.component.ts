@@ -81,6 +81,11 @@ export class CapsuleCardComponent implements OnInit {
         })
       )
       .subscribe();
+
+    this.userInfo = {
+      ...this.userInfo,
+      bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
+    };
   }
 
   onCapsuleBookmarkRemove(): void {
@@ -94,5 +99,10 @@ export class CapsuleCardComponent implements OnInit {
       .subscribe(() => {
         this.fetchUserInfo(true);
       });
+
+    this.userInfo = {
+      ...this.userInfo,
+      bookmarks: [...this.userInfo.bookmarks.filter(id => id !== this.capsule.capsuleId)],
+    };
   }
 }

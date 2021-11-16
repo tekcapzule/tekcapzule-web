@@ -21,8 +21,6 @@ export class UserApiService {
   }
 
   getUser(userId: string, refreshCache?: boolean): Observable<UserInfo> {
-    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
-    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post<UserInfo>(
       `${USER_API_PATH}/get`,
       { userId },
@@ -37,26 +35,18 @@ export class UserApiService {
   }
 
   bookmarCapsule(userId: string, capsuleId: string): Observable<any> {
-    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
-    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, capsuleId });
   }
 
   removeCapsuleBookmark(userId: string, capsuleId: string): Observable<any> {
-    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
-    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });
   }
 
   followTopic(userId: string, topicCode: string): Observable<ApiSuccess> {
-    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
-    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/follow`, { userId, topicCode });
   }
 
   unfollowTopic(userId: string, topicCode: string): Observable<ApiSuccess> {
-    // TODO: Overriding now for dev purpose. Remove it later once user flow is completed.
-    userId = 'linjith.kunnon@gmail.com';
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/unfollow`, { userId, topicCode });
   }
 
