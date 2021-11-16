@@ -7,7 +7,7 @@ import {
   TopicApiService,
   UserApiService,
 } from '@app/core';
-import { CapsuleItem } from '@app/shared';
+import { CapsuleItem } from '@app/shared/models';
 import { AuthService } from '@app/auth';
 
 declare const jQuery: any;

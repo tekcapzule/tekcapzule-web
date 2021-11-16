@@ -9,10 +9,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { share, tap } from 'rxjs/operators';
 
+import { sessionCacheManager } from '@app/shared/utils';
+
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
-  private cacheKeys = new Set<string>();
-
   constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -26,8 +26,7 @@ export class CacheInterceptor implements HttpInterceptor {
         return this.cacheApiResponse(request, next, expiry);
       }
 
-      const cachedItemStr = window.sessionStorage.getItem(url);
-      const cachedResponseBodyWithExpiry = cachedItemStr ? JSON.parse(cachedItemStr) : null;
+      const cachedResponseBodyWithExpiry = sessionCacheManager.getItem(url);
 
       const cachedResponseBody = cachedResponseBodyWithExpiry
         ? cachedResponseBodyWithExpiry.body
@@ -52,12 +51,6 @@ export class CacheInterceptor implements HttpInterceptor {
     return next.handle(request);
   }
 
-  public clearCache(): void {
-    this.cacheKeys.forEach(key => {
-      window.sessionStorage.removeItem(key);
-    });
-  }
-
   private cacheApiResponse(
     request: HttpRequest<any>,
     next: HttpHandler,
@@ -68,11 +61,10 @@ export class CacheInterceptor implements HttpInterceptor {
         if (httpEvent instanceof HttpResponse) {
           const current = new Date();
           current.setHours(current.getHours() + expiry);
-          window.sessionStorage.setItem(
-            request.url,
-            JSON.stringify({ body: httpEvent.body, expiry: current.getTime() })
-          );
-          this.cacheKeys.add(request.url);
+          sessionCacheManager.setItem(request.url, {
+            body: httpEvent.body,
+            expiry: current.getTime(),
+          });
         }
       }),
       share()

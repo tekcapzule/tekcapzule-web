@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { finalize, take } from 'rxjs/operators';
 
 import { AppSpinnerService, TopicApiService } from '@app/core';
-import { TopicItem } from '@app/shared';
+import { TopicItem } from '@app/shared/models';
 
 declare var twttr: any;
 

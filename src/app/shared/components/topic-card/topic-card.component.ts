@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { TopicItem } from '@app/shared';
+import { TopicItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-topic-card',

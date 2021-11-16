@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ColumnDef } from '@app/shared';
+import { ColumnDef } from '@app/shared/models';
 import { AdminTopicDataItem, AdminTopicStatus } from '@app/admin/models';
 
 @Component({

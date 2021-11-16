@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, switchMap, take, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 import { CapsuleApiService, UserApiService } from '@app/core';
-import { CapsuleItem, UserInfo } from '@app/shared';
+import { CapsuleItem, UserInfo } from '@app/shared/models';
 import { AuthService, AwsUserInfo } from '@app/auth';
 
 @Component({
@@ -61,7 +61,9 @@ export class CapsuleCardComponent implements OnInit {
       return false;
     }
 
-    return this.userInfo.bookmarks.find(id => id === this.capsule.capsuleId) ? true : false;
+    return this.userInfo && this.userInfo.bookmarks.find(id => id === this.capsule.capsuleId)
+      ? true
+      : false;
   }
 
   onCapsuleBookmark(): void {
@@ -75,17 +77,18 @@ export class CapsuleCardComponent implements OnInit {
       .pipe(
         tap(() => {
           this.capsuleApiService.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
-        }),
-        map(() => {
-          this.fetchUserInfo(true);
         })
       )
-      .subscribe();
+      .subscribe(() => {
+        this.fetchUserInfo(true);
+      });
 
     this.userInfo = {
       ...this.userInfo,
       bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
     };
+
+    this.userApiService.updateUserCache(this.userInfo);
   }
 
   onCapsuleBookmarkRemove(): void {
@@ -102,7 +105,9 @@ export class CapsuleCardComponent implements OnInit {
 
     this.userInfo = {
       ...this.userInfo,
-      bookmarks: [...this.userInfo.bookmarks.filter(id => id !== this.capsule.capsuleId)],
+      bookmarks: this.userInfo.bookmarks.filter(id => id !== this.capsule.capsuleId),
     };
+
+    this.userApiService.updateUserCache(this.userInfo);
   }
 }

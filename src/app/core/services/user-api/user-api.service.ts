@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { ApiSuccess, UserInfo } from '@app/shared';
+import { sessionCacheManager } from '@app/shared/utils';
+import { ApiSuccess, UserInfo } from '@app/shared/models';
 
 const USER_API_PATH = `${environment.apiEndpointTemplate}/user`.replace(
   '{{gateway}}',
@@ -52,5 +53,15 @@ export class UserApiService {
 
   createUser(): void {
     throw new Error('Not yet implemented.');
+  }
+
+  updateUserCache(userInfo: UserInfo): void {
+    const userCacheKey = `${USER_API_PATH}/get`;
+    const current = new Date();
+    current.setHours(current.getHours() + 12);
+    sessionCacheManager.setItem(userCacheKey, {
+      body: userInfo,
+      expiry: current.getTime(),
+    });
   }
 }

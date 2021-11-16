@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ColumnDef } from '@app/shared';
+import { ColumnDef } from '@app/shared/models';
 import { AdminFeedbackDataItem } from '@app/admin/models';
 
 @Component({

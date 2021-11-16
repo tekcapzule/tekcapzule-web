@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 import { ChannelEvent, EventChannelService } from '@app/core';
-import { Constants, NavTab } from '@app/shared';
+import { NavTab } from '@app/shared/models';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-admin-page',

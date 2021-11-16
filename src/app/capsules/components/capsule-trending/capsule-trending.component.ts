@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppSpinnerService, CapsuleApiService } from '@app/core';
-import { CapsuleItem } from '@app/shared';
-import { finalize, take } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
+
+import { CapsuleItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-capsule-trending',

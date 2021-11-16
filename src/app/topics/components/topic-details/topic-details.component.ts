@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 
-import { CapsuleItem, TopicItem } from '@app/shared';
+import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { CapsuleApiService } from '@app/core';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topic-details',

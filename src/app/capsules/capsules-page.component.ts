@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, map, switchMap, take } from 'rxjs/operators';
+import { filter, map, switchMap, take, tap } from 'rxjs/operators';
 
 import {
   EventChannelService,
@@ -9,8 +9,9 @@ import {
   UserApiService,
   CapsuleApiService,
 } from '@app/core';
-import { Constants, NavTab, TopicItem, UserInfo } from '@app/shared';
+import { NavTab, TopicItem, UserInfo } from '@app/shared/models';
 import { AuthService } from '@app/auth';
+import { Constants } from '@app/shared/utils';
 
 declare const jQuery: any;
 
@@ -45,13 +46,7 @@ export class CapsulesPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.authService.isUserLoggedIn()) {
-      this.userApiService
-        .getUser(this.authService.getUserInfo().attributes.email)
-        .subscribe(userInfo => (this.userInfo = userInfo));
-    } else {
-      this.userInfo = null;
-    }
+    this.fetchUserInfo();
 
     this.eventChannel
       .getChannel()
@@ -65,6 +60,14 @@ export class CapsulesPageComponent implements OnInit {
     });
 
     this.navigateToActiveCapsulePage();
+  }
+
+  fetchUserInfo(refreshCache?: boolean): void {
+    if (this.authService.isUserLoggedIn()) {
+      this.userApiService
+        .getUser(this.authService.getUserInfo().attributes.email, refreshCache)
+        .subscribe(userInfo => (this.userInfo = userInfo));
+    }
   }
 
   navigateToActiveCapsulePage(): void {
@@ -143,21 +146,27 @@ export class CapsulesPageComponent implements OnInit {
       return;
     }
 
-    const awsUserInfo = this.authService.getUserInfo();
+    const userSubscribedTopics = [...this.userInfo.subscribedTopics, topicCode];
 
     this.userApiService
-      .followTopic(awsUserInfo.attributes.email, topicCode)
+      .followTopic(this.authService.getUserInfo().attributes.email, topicCode)
       .pipe(
-        switchMap(() => this.userApiService.getUser(awsUserInfo.attributes.email, true)),
-        switchMap(user => {
-          this.userInfo = user;
-          return this.capsuleApiService.getMyFeedCapsules(this.userInfo.subscribedTopics, true);
-        }),
-        map(() => {
-          this.navigateToActiveCapsulePage();
+        tap(() => {
+          this.capsuleApiService.getMyFeedCapsules(userSubscribedTopics, true);
         })
       )
-      .subscribe();
+      .subscribe(() => {
+        this.fetchUserInfo(true);
+      });
+
+    this.userInfo = {
+      ...this.userInfo,
+      subscribedTopics: userSubscribedTopics,
+    };
+
+    this.userApiService.updateUserCache(this.userInfo);
+
+    this.navigateToActiveCapsulePage();
   }
 
   unfollowTopic(topicCode: string): void {
@@ -167,20 +176,28 @@ export class CapsulesPageComponent implements OnInit {
       return;
     }
 
-    const awsUserInfo = this.authService.getUserInfo();
+    const userSubscribedTopics = this.userInfo.subscribedTopics.filter(
+      topic => topic !== topicCode
+    );
 
     this.userApiService
-      .unfollowTopic(awsUserInfo.attributes.email, topicCode)
+      .unfollowTopic(this.authService.getUserInfo().attributes.email, topicCode)
       .pipe(
-        switchMap(() => this.userApiService.getUser(awsUserInfo.attributes.email, true)),
-        switchMap(user => {
-          this.userInfo = user;
-          return this.capsuleApiService.getMyFeedCapsules(this.userInfo.subscribedTopics, true);
-        }),
-        map(() => {
-          this.navigateToActiveCapsulePage();
+        tap(() => {
+          this.capsuleApiService.getMyFeedCapsules(userSubscribedTopics, true);
         })
       )
-      .subscribe();
+      .subscribe(() => {
+        this.fetchUserInfo(true);
+      });
+
+    this.userInfo = {
+      ...this.userInfo,
+      subscribedTopics: userSubscribedTopics,
+    };
+
+    this.userApiService.updateUserCache(this.userInfo);
+
+    this.navigateToActiveCapsulePage();
   }
 }

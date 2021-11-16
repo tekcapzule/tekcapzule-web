@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
+import { CapsuleItem } from '@app/shared/models';
 
 const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`.replace(
   '{{gateway}}',
@@ -19,8 +20,8 @@ export class CapsuleApiService {
     return CAPSULE_API_PATH;
   }
 
-  getMyFeedCapsules(subscribedTopics: string[], refreshCache?: boolean): Observable<any> {
-    return this.httpClient.post(
+  getMyFeedCapsules(subscribedTopics: string[], refreshCache?: boolean): Observable<CapsuleItem[]> {
+    return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getMyFeed`,
       { subscribedTopics },
       {
@@ -33,8 +34,8 @@ export class CapsuleApiService {
     );
   }
 
-  getTrendingCapsules(): Observable<any> {
-    return this.httpClient.post(
+  getTrendingCapsules(): Observable<CapsuleItem[]> {
+    return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getTrending`,
       {},
       {
@@ -46,8 +47,8 @@ export class CapsuleApiService {
     );
   }
 
-  getEditorsPickCapsules(): Observable<any> {
-    return this.httpClient.post(
+  getEditorsPickCapsules(): Observable<CapsuleItem[]> {
+    return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getEditorsPick`,
       {},
       {
@@ -59,8 +60,8 @@ export class CapsuleApiService {
     );
   }
 
-  getCapsuleById(capsuleId: string): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/get`, { capsuleId });
+  getCapsuleById(capsuleId: string): Observable<CapsuleItem> {
+    return this.httpClient.post<CapsuleItem>(`${CAPSULE_API_PATH}/get`, { capsuleId });
   }
 
   updateCapsuleViewCount(capsuleId: string): Observable<any> {
