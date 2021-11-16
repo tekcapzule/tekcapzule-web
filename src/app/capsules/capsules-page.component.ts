@@ -21,10 +21,12 @@ interface TopicsByCategory {
   styleUrls: ['./capsules-page.component.scss'],
 })
 export class CapsulesPageComponent implements OnInit, OnDestroy {
-  destroy$ = new Subject<boolean>();
+  searchInputValue = '';
   activeTab = 'myFeeds';
   topicsByCategory: TopicsByCategory[] = [];
+  filteredTopicsByCategory: TopicsByCategory[] = [];
   userInfo: UserInfo = null;
+  destroy$ = new Subject<boolean>();
 
   navTabs: NavTab[] = [
     { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds', isHidden: true },
@@ -121,6 +123,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         topics: miscTopics,
       });
     }
+
+    this.filteredTopicsByCategory = this.topicsByCategory;
   }
 
   setActiveTab(navTab: NavTab): void {
@@ -199,5 +203,25 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.userApiService.updateUserCache(this.userInfo);
 
     this.navigateToActiveCapsulePage(true);
+  }
+
+  searchInputChanged(value: string): void {
+    if (value.length > 0) {
+      const filteredTopics: TopicsByCategory[] = [];
+
+      this.topicsByCategory.forEach(category => {
+        const matchedTopics = category.topics.filter(
+          topic => topic.name.toLowerCase().includes(value) || topic.aliases.includes(value)
+        );
+
+        if (matchedTopics.length > 0) {
+          filteredTopics.push({ category: category.category, topics: matchedTopics });
+        }
+      });
+
+      this.filteredTopicsByCategory = filteredTopics;
+    } else {
+      this.filteredTopicsByCategory = this.topicsByCategory;
+    }
   }
 }

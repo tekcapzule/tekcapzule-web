@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { SharedModule } from '@app/shared';
@@ -20,6 +21,6 @@ import { CreateSuccessComponent } from './components/create-success/create-succe
     EditorsPickComponent,
     CreateSuccessComponent,
   ],
-  imports: [CommonModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
+  imports: [CommonModule, FormsModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
 })
 export class CapsulesModule {}

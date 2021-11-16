@@ -42,8 +42,14 @@
         <div class="modal-header">
           <div class="col-lg-3">
             <div class="search-box">
-              <input type="search" name="search" placeholder="What are you looking for?" />
-              <button title="search bar" class="search-btn"></button>
+              <input
+                type="search"
+                name="search"
+                placeholder="What are you looking for?"
+                [(ngModel)]="searchInputValue"
+                (input)="searchInputChanged($event.target.value)"
+              />
+              <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
             </div>
           </div>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -55,7 +61,7 @@
             <div class="col-xl-3 col-md-6">
               <img src="/assets/images/browse-topics.png" alt="" />
             </div>
-            <ng-container *ngFor="let item of topicsByCategory">
+            <ng-container *ngFor="let item of filteredTopicsByCategory">
               <div class="col-xl-3 col-md-6">
                 <h2>{{ item.category }}</h2>
                 <ul class="topics-list">
@@ -65,7 +71,10 @@
                       <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
                     </ng-container>
                     <ng-container *ngIf="isTopicSubscribed(topic.code)">
-                      <span class="active" style="cursor: pointer" (click)="unfollowTopic(topic.code)"
+                      <span
+                        class="active"
+                        style="cursor: pointer"
+                        (click)="unfollowTopic(topic.code)"
                         >FOLLOWING</span
                       >
                     </ng-container>
