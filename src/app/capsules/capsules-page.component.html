@@ -64,7 +64,7 @@
                     <ng-container *ngIf="!isTopicSubscribed(topic.code)">
                       <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
                     </ng-container>
-                    <ng-container *ngIf="isTopicSubscribed(topic)">
+                    <ng-container *ngIf="isTopicSubscribed(topic.code)">
                       <span class="active" style="cursor: pointer" (click)="unfollowTopic(topic.code)"
                         >FOLLOWING</span
                       >

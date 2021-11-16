@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { ChannelEvent, EventChannelService } from '@app/core';
 import { NavTab } from '@app/shared/models';
@@ -11,7 +12,8 @@ import { Constants } from '@app/shared/utils';
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss'],
 })
-export class AdminPageComponent implements OnInit {
+export class AdminPageComponent implements OnInit, OnDestroy {
+  destroy$ = new Subject<boolean>();
   activeTab = 'adminCapsules';
 
   navTabs: NavTab[] = [
@@ -28,10 +30,18 @@ export class AdminPageComponent implements OnInit {
 
     this.eventChannel
       .getChannel()
-      .pipe(filter(out => out.event === ChannelEvent.SetActiveTab))
+      .pipe(
+        filter(out => out.event === ChannelEvent.SetActiveAdminTab),
+        takeUntil(this.destroy$)
+      )
       .subscribe(() => {
         this.activeTab = this.navTabs[0].uniqueId;
       });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
   setActiveTab(navTab: NavTab): void {

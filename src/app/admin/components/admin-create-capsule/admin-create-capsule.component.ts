@@ -13,6 +13,6 @@ export class AdminCreateCapsuleComponent implements OnInit {
   ngOnInit(): void {}
 
   activateFirstNavTab(): void {
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveTab });
+    this.eventChannel.publish({ event: ChannelEvent.SetActiveAdminTab });
   }
 }

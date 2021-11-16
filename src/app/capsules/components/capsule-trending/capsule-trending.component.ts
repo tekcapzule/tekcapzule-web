@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AppSpinnerService, CapsuleApiService } from '@app/core';
-import { finalize } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { filter, finalize, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
+import { AppSpinnerService, CapsuleApiService, EventChannelService, ChannelEvent } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
 
 @Component({
@@ -9,16 +10,41 @@ import { CapsuleItem } from '@app/shared/models';
   templateUrl: './capsule-trending.component.html',
   styleUrls: ['./capsule-trending.component.scss'],
 })
-export class CapsuleTrendingComponent implements OnInit {
+export class CapsuleTrendingComponent implements OnInit, OnDestroy {
+  destroy$ = new Subject<boolean>();
   capsules: CapsuleItem[] = [];
 
-  constructor(private capsuleApiService: CapsuleApiService, private spinner: AppSpinnerService) {}
+  constructor(
+    private capsuleApiService: CapsuleApiService,
+    private spinner: AppSpinnerService,
+    private eventChannel: EventChannelService
+  ) {
+    this.eventChannel
+      .getChannel()
+      .pipe(
+        filter(out => out.event === ChannelEvent.LoadDataForActiveCapsuleTab),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(event => {
+        const refresh = event.data && event.data.refreshCache ? true : false;
+        this.fetchTrendingCapsules(refresh);
+      });
+  }
 
   ngOnInit(): void {
+    this.fetchTrendingCapsules(false);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
+
+  fetchTrendingCapsules(refreshCache?: boolean): void {
     this.spinner.show();
 
     this.capsuleApiService
-      .getTrendingCapsules()
+      .getTrendingCapsules(refreshCache)
       .pipe(
         finalize(() => {
           this.spinner.hide();

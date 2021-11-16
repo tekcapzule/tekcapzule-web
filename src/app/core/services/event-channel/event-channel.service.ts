@@ -2,7 +2,9 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export enum ChannelEvent {
-  SetActiveTab = 'SET_ACTIVE_TAB',
+  SetActiveCapsuleTab = 'SET_ACTIVE_CAPSULE_TAB',
+  SetActiveAdminTab = 'SET_ACTIVE_ADMIN_TAB',
+  LoadDataForActiveCapsuleTab = 'LOAD_DATA_FOR_ACTIVE_CAPSULE_TAB',
 }
 
 export interface EventChannelOutput {

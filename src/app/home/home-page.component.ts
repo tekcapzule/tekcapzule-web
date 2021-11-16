@@ -47,7 +47,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
         }, 0);
       });
 
-    this.capsuleApiService.getTrendingCapsules().subscribe();
     this.topicApiService.getAllTopics().subscribe();
   }
 

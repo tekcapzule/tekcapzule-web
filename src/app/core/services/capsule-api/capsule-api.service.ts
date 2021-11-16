@@ -34,7 +34,7 @@ export class CapsuleApiService {
     );
   }
 
-  getTrendingCapsules(): Observable<CapsuleItem[]> {
+  getTrendingCapsules(refreshCache?: boolean): Observable<CapsuleItem[]> {
     return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getTrending`,
       {},
@@ -42,6 +42,7 @@ export class CapsuleApiService {
         params: {
           cache: 'yes',
           expiry: '12',
+          refresh: refreshCache ? 'yes' : 'no',
         },
       }
     );

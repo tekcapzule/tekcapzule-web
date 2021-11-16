@@ -61,9 +61,7 @@ export class CapsuleCardComponent implements OnInit {
       return false;
     }
 
-    return this.userInfo && this.userInfo.bookmarks.find(id => id === this.capsule.capsuleId)
-      ? true
-      : false;
+    return this?.userInfo?.bookmarks.find(id => id === this.capsule.capsuleId) ? true : false;
   }
 
   onCapsuleBookmark(): void {

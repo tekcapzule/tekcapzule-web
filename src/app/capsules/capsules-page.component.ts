@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, map, switchMap, take, tap } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
-import {
-  EventChannelService,
-  ChannelEvent,
-  TopicApiService,
-  UserApiService,
-  CapsuleApiService,
-} from '@app/core';
+import { EventChannelService, ChannelEvent, TopicApiService, UserApiService } from '@app/core';
 import { NavTab, TopicItem, UserInfo } from '@app/shared/models';
 import { AuthService } from '@app/auth';
 import { Constants } from '@app/shared/utils';
@@ -25,7 +20,8 @@ interface TopicsByCategory {
   templateUrl: './capsules-page.component.html',
   styleUrls: ['./capsules-page.component.scss'],
 })
-export class CapsulesPageComponent implements OnInit {
+export class CapsulesPageComponent implements OnInit, OnDestroy {
+  destroy$ = new Subject<boolean>();
   activeTab = 'myFeeds';
   topicsByCategory: TopicsByCategory[] = [];
   userInfo: UserInfo = null;
@@ -41,8 +37,7 @@ export class CapsulesPageComponent implements OnInit {
     private eventChannel: EventChannelService,
     private authService: AuthService,
     private topicApiService: TopicApiService,
-    private userApiService: UserApiService,
-    private capsuleApiService: CapsuleApiService
+    private userApiService: UserApiService
   ) {}
 
   ngOnInit(): void {
@@ -50,16 +45,24 @@ export class CapsulesPageComponent implements OnInit {
 
     this.eventChannel
       .getChannel()
-      .pipe(filter(out => out.event === ChannelEvent.SetActiveTab))
+      .pipe(
+        filter(out => out.event === ChannelEvent.SetActiveCapsuleTab),
+        takeUntil(this.destroy$)
+      )
       .subscribe(() => {
-        this.navigateToActiveCapsulePage();
+        this.navigateToActiveCapsulePage(false);
       });
 
     this.topicApiService.getAllTopics().subscribe(topics => {
       this.setTopicsByCategory(topics);
     });
 
-    this.navigateToActiveCapsulePage();
+    this.navigateToActiveCapsulePage(false);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
@@ -70,7 +73,7 @@ export class CapsulesPageComponent implements OnInit {
     }
   }
 
-  navigateToActiveCapsulePage(): void {
+  navigateToActiveCapsulePage(refreshCache?: boolean): void {
     let activeNavTab: NavTab = this.navTabs[0];
 
     if (this.authService.isUserLoggedIn()) {
@@ -82,7 +85,12 @@ export class CapsulesPageComponent implements OnInit {
     }
 
     this.activeTab = activeNavTab.uniqueId;
-    this.router.navigate(['capsules', activeNavTab.navUrl]);
+    this.router.navigate(['capsules', activeNavTab.navUrl]).then(() => {
+      this.eventChannel.publish({
+        event: ChannelEvent.LoadDataForActiveCapsuleTab,
+        data: { refreshCache },
+      });
+    });
   }
 
   setTopicsByCategory(topics: any[]): void {
@@ -140,21 +148,17 @@ export class CapsulesPageComponent implements OnInit {
   }
 
   followTopic(topicCode: string): void {
+    jQuery('#browseByTopicModal').modal('hide');
+
     if (!this.authService.isUserLoggedIn()) {
-      jQuery('#browseByTopicModal').modal('hide');
       this.router.navigateByUrl('/auth/signin');
       return;
     }
 
-    const userSubscribedTopics = [...this.userInfo.subscribedTopics, topicCode];
+    const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
 
     this.userApiService
       .followTopic(this.authService.getUserInfo().attributes.email, topicCode)
-      .pipe(
-        tap(() => {
-          this.capsuleApiService.getMyFeedCapsules(userSubscribedTopics, true);
-        })
-      )
       .subscribe(() => {
         this.fetchUserInfo(true);
       });
@@ -166,27 +170,23 @@ export class CapsulesPageComponent implements OnInit {
 
     this.userApiService.updateUserCache(this.userInfo);
 
-    this.navigateToActiveCapsulePage();
+    this.navigateToActiveCapsulePage(true);
   }
 
   unfollowTopic(topicCode: string): void {
+    jQuery('#browseByTopicModal').modal('hide');
+
     if (!this.authService.isUserLoggedIn()) {
-      jQuery('#browseByTopicModal').modal('hide');
       this.router.navigateByUrl('/auth/signin');
       return;
     }
 
-    const userSubscribedTopics = this.userInfo.subscribedTopics.filter(
-      topic => topic !== topicCode
-    );
+    const userSubscribedTopics = this.userInfo.subscribedTopics
+      ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
+      : [];
 
     this.userApiService
       .unfollowTopic(this.authService.getUserInfo().attributes.email, topicCode)
-      .pipe(
-        tap(() => {
-          this.capsuleApiService.getMyFeedCapsules(userSubscribedTopics, true);
-        })
-      )
       .subscribe(() => {
         this.fetchUserInfo(true);
       });
@@ -198,6 +198,6 @@ export class CapsulesPageComponent implements OnInit {
 
     this.userApiService.updateUserCache(this.userInfo);
 
-    this.navigateToActiveCapsulePage();
+    this.navigateToActiveCapsulePage(true);
   }
 }
