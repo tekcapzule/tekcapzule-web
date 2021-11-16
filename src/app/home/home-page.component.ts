@@ -33,20 +33,17 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     if (this.authService.isUserLoggedIn()) {
-      this.userApiService
-        .getUser(this.authService.getUserInfo().attributes.email)
-        .subscribe();
+      this.userApiService.getUser(this.authService.getUserInfo().attributes.email).subscribe();
     }
 
-    this.capsuleApiService
-      .getEditorsPickCapsules()
-      .subscribe(capsules => {
-        this.capsules = capsules;
-        setTimeout(() => {
-          this.initOwlCarousel();
-        }, 0);
-      });
+    this.capsuleApiService.getEditorsPickCapsules().subscribe(capsules => {
+      this.capsules = capsules;
+      setTimeout(() => {
+        this.initOwlCarousel();
+      }, 0);
+    });
 
+    this.capsuleApiService.getTrendingCapsules().subscribe();
     this.topicApiService.getAllTopics().subscribe();
   }
 
