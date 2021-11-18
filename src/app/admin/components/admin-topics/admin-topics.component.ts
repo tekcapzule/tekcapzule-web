@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ColumnDef } from '@app/shared/models';
-import { AdminTopicDataItem, AdminTopicStatus } from '@app/admin/models';
+import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
+import { TopicApiService } from '@app/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin-topics',
@@ -93,9 +95,17 @@ export class AdminTopicsComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private topicApiService: TopicApiService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.topicApiService.getAllTopics().pipe(map(topics =>
+      topics.map(topic =>
+        new AdminTopicDataItemImpl(topic.name, topic.description, topic.aliases, topic.keyHighlights, topic.status)
+      ))).subscribe(topic => {
+        this.adminTopicsData = topic;
+      }
+      )
+  }
 
   editActionCallback(row: AdminTopicDataItem): void {
     console.log('editActionCallback: ', row);
