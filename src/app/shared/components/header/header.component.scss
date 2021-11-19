@@ -17,9 +17,9 @@
     img {
       margin-right: 35px;
       margin-top: -10px;
-      @media only screen and (max-width:480px){
-        margin-right:15px;
-        width:130px;
+      @media only screen and (max-width: 480px) {
+        margin-right: 15px;
+        width: 130px;
       }
     }
   }
@@ -31,22 +31,22 @@
       height: 46px;
       @include helveticaNeueFont();
     }
-    &.primary.respIconBtn{
-      @media only screen and (max-width:1360px){
+    &.primary.respIconBtn {
+      @media only screen and (max-width: 1360px) {
         width: 40px;
         height: 40px;
         font-size: 0px;
         text-align: center;
         padding: 3px;
-        margin-right:0;
-        background-color:transparent;
-      &:before{
-        content: "";
-        background: url(../../../../assets/images/user.svg);
-        width: 30px;
-        height:30px;
-        display: inline-block;
-      }
+        margin-right: 0;
+        background-color: transparent;
+        &:before {
+          content: '';
+          background: url(../../../../assets/images/user.svg);
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+        }
       }
     }
   }
@@ -56,17 +56,19 @@
 //     padding: 12px 0;
 //   }
 // }
-.respSearchIcon{display: none;}
-@media only screen and (max-width:1360px){
-.respSearchIcon{
+.respSearchIcon {
+  display: none;
+}
+@media only screen and (max-width: 1360px) {
+  .respSearchIcon {
     width: 40px;
     height: 40px;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-right:7px; 
+    margin-right: 7px;
   }
-  .search-box{
+  .search-box {
     display: none;
     right: 0px;
     top: 57px;
@@ -75,9 +77,9 @@
     padding: 5px;
     margin: 0px;
     position: absolute;
-    background: rgb(244, 244, 244);    
-    input[type=search]{
-      margin-bottom:0px;
+    background: rgb(244, 244, 244);
+    input[type='search'] {
+      margin-bottom: 0px;
     }
   }
 }
@@ -100,7 +102,7 @@
       position: relative;
       white-space: nowrap;
       padding: 10px 40px;
-      @media only screen and (max-width:1500px){
+      @media only screen and (max-width: 1500px) {
         padding: 10px;
       }
       ::after {
@@ -127,7 +129,6 @@
       font-size: 16px;
       font-family: $primary-font-regular;
     }
-
 
     &:hover:before {
       visibility: visible;
@@ -278,21 +279,21 @@
 
 @media (max-width: 992px) {
   #header {
-    .md-justify-left{
-      justify-content: space-between!important;
+    .md-justify-left {
+      justify-content: space-between !important;
     }
-    @media only screen and (max-width:480px){
-      .navbar{
-        padding:8px 0;
+    @media only screen and (max-width: 480px) {
+      .navbar {
+        padding: 8px 0;
       }
-    } 
+    }
   }
- 
-  .navbar-toggler{
+
+  .navbar-toggler {
     margin-right: 20px;
-    padding: .25rem .5rem;
+    padding: 0.25rem 0.5rem;
     font-size: 1rem;
-    background: url("../../../../assets/images/burgerMenuIcon.svg") 10px 10px no-repeat;
+    background: url('../../../../assets/images/burgerMenuIcon.svg') 10px 10px no-repeat;
     // .navbar-toggler-icon{
     // position: relative;
     // display: inline-block;
@@ -309,39 +310,36 @@
     // border-top: 0.15em solid #e30045;
     // }
     // }
-   
   }
-  .navbar-toggler[aria-expanded="true"] {
-    background: url("../../../../assets/images/crossMobileMenu.svg") 10px 10px no-repeat;
+  .navbar-toggler[aria-expanded='true'] {
+    background: url('../../../../assets/images/crossMobileMenu.svg') 10px 10px no-repeat;
   }
-    .nav-menu > ul > li {
-      padding:10px;
-    }
-    .navbar-collapse {
-      position: fixed;
-      top: 57px;
-      left: 0;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-bottom: 15px;
-      width: 75%;
-      height: 100%;
-      background:#f4f4f4;
+  .nav-menu > ul > li {
+    padding: 10px;
+  }
+  .navbar-collapse {
+    position: fixed;
+    top: 57px;
+    left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 75%;
+    height: 100%;
+    background: #f4f4f4;
   }
 
   .navbar-collapse.collapsing {
-      left: -75%;
-      transition: height 0s ease;
+    left: -75%;
+    transition: height 0s ease;
   }
 
   .navbar-collapse.show {
-      left: 0;
-      transition: left 300ms ease-in-out;
+    left: 0;
+    transition: left 300ms ease-in-out;
   }
 
   .navbar-toggler.collapsed ~ .navbar-collapse {
-      transition: left 500ms ease-in-out;
+    transition: left 500ms ease-in-out;
   }
 }
-
-
