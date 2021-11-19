@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
 import { CapsuleApiService, UserApiService } from '@app/core';
-import { CapsuleItem, UserInfo } from '@app/shared/models';
+import { CapsuleBadge, CapsuleItem, UserInfo } from '@app/shared/models';
 import { AuthService, AwsUserInfo } from '@app/auth';
 
 @Component({
@@ -107,5 +107,26 @@ export class CapsuleCardComponent implements OnInit {
     };
 
     this.userApiService.updateUserCache(this.userInfo);
+  }
+
+  getCapsuleBadgeUrls(): string[] {
+    if (this.capsule && this.capsule.badge) {
+      switch (this.capsule.badge) {
+        case CapsuleBadge.BRONZE:
+          return ['/assets/images/badge-bronze.svg'];
+        case CapsuleBadge.SILVER:
+          return ['/assets/images/badge-bronze.svg', '/assets/images/badge-silver.svg'];
+        case CapsuleBadge.GOLD:
+          return [
+            '/assets/images/badge-bronze.svg',
+            '/assets/images/badge-silver.svg',
+            '/assets/images/badge-gold.svg',
+          ];
+        default:
+          return [];
+      }
+    }
+
+    return [];
   }
 }

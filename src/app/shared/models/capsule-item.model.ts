@@ -1,6 +1,7 @@
 export interface CapsuleItem {
+  audience: string;
   author: string;
-  badges: number;
+  badge: CapsuleBadge;
   bookmarks: number;
   capsuleId: string;
   description: string;
@@ -13,10 +14,22 @@ export interface CapsuleItem {
   publisher: string;
   recommendations: number;
   resourceUrl: string;
-  status: string;
+  status: CapsuleStatus;
   tags: string[];
   title: string;
   topicCode: string;
   type: string;
   views: number;
+}
+
+export enum CapsuleBadge {
+  BRONZE = 'BRONZE',
+  SILVER = 'SILVER',
+  GOLD = 'GOLD',
+  NONE = 'NONE',
+}
+
+export enum CapsuleStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
 }
