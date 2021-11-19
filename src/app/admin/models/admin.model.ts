@@ -27,6 +27,11 @@ export interface AdminFeedbackDataItem {
   subject: string;
 }
 
+export enum AdminTopicStatus {
+  Success = 'SUCCESS',
+  Failure = 'FAILURE',
+}
+
 export interface AdminTopicDataItem {
   topicName: string;
   description: string;
@@ -35,26 +40,27 @@ export interface AdminTopicDataItem {
   status: AdminTopicStatus;
 }
 
-export class AdminTopicDataItemImpl implements AdminTopicDataItem{
+export class AdminTopicDataItemImpl implements AdminTopicDataItem {
   topicName: string;
   description: string;
   tags: string[];
   keyHighlights: number;
   status: AdminTopicStatus;
-  constructor(topicName: string,description: string,tags: string[],keyHighlights: string[],status: string){
-    this.description= description;
+  constructor(
+    topicName: string,
+    description: string,
+    tags: string[],
+    keyHighlights: string[],
+    status: string
+  ) {
+    this.description = description;
     this.tags = tags;
     this.topicName = topicName;
     this.keyHighlights = keyHighlights.length;
-    if(status === "INACTIVE"){
+    if (status === 'INACTIVE') {
       this.status = AdminTopicStatus.Failure;
-    } else if (status === "ACTIVE"){
+    } else if (status === 'ACTIVE') {
       this.status = AdminTopicStatus.Success;
-    } 
+    }
   }
-}
-
-export enum AdminTopicStatus {
-  Success = 'SUCCESS',
-  Failure = 'FAILURE',
 }
