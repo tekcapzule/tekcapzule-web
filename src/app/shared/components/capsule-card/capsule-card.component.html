@@ -92,9 +92,9 @@
             </div>
           </div>
           <div class="shield mb-5">
-            <img src="/assets/images/shield-icon-active.svg" />
-            <img src="/assets/images/shield-icon.svg" />
-            <img src="/assets/images/shield-icon.svg" />
+            <ng-container *ngFor="let url of getCapsuleBadgeUrls()">
+              <img [src]="url" alt="" />
+            </ng-container>
           </div>
           <button class="button primary-btn-sm mb-3 d-block" (click)="onCardClick()">
             Start Reading

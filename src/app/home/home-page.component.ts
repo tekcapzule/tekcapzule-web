@@ -1,12 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { take } from 'rxjs/operators';
 
-import {
-  CapsuleApiService,
-  SubscriptionApiService,
-  TopicApiService,
-  UserApiService,
-} from '@app/core';
+import { CapsuleApiService, SubscriptionApiService, UserApiService } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
 import { AuthService } from '@app/auth';
 
@@ -24,7 +19,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   @ViewChild('subscribe') subscribeSection: ElementRef;
 
   constructor(
-    private topicApiService: TopicApiService,
     private capsuleApiService: CapsuleApiService,
     private userApiService: UserApiService,
     private authService: AuthService,
@@ -44,7 +38,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     });
 
     this.capsuleApiService.getTrendingCapsules().subscribe();
-    this.topicApiService.getAllTopics().subscribe();
   }
 
   ngAfterViewInit(): void {
