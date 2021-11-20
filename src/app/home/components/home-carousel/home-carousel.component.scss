@@ -12,6 +12,19 @@
   .container-fluid {
     padding-top: 84px;
   }
+  .container,
+  .container-fluid-with-text-over-image {
+    position: relative;
+    top: -20px;
+  }
+}
+
+.banner-text {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  text-align: end;
+  padding-right: 10%;
 }
 
 @media (max-width: 768px) {
