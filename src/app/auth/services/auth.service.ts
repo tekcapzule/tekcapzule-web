@@ -4,6 +4,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
 import { Constants, sessionCacheManager } from '@app/shared/utils';
+import { error } from 'console';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -84,7 +85,7 @@ export class AuthService {
         this.loggedInStatusChange.next(this.isLoggedIn);
       })
       .catch(e => {
-        console.log(e);
+        console.error('TekCapsuleAuthError: ', e);
         this.invalidateUser();
       });
   }

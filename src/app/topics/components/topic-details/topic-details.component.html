@@ -1,6 +1,4 @@
 <div class="explore-page p-main">
-  <!--------Explore Topics Inner Page----------->
-
   <section class="container pb-3">
     <div class="back-link mt-3 mb-0">
       <a [routerLink]="['../explore']">
@@ -18,7 +16,22 @@
           <p>
             <span class="mr-2" *ngFor="let item of topic.aliases">#{{ item }}</span>
           </p>
-          <button class="button secondary-btn-md">FOLLOW</button>
+          <button
+            class="button secondary-btn-md"
+            (click)="followTopic()"
+            *ngIf="!isFollowingTopic()"
+            style="padding: 6px 33px 0 33px"
+          >
+            FOLLOW
+          </button>
+          <button
+            class="button secondary-btn-md"
+            (click)="unfollowTopic()"
+            *ngIf="isFollowingTopic()"
+            style="padding: 6px 33px 0 33px"
+          >
+            UNFOLLOW
+          </button>
         </div>
       </div>
       <div class="col-lg-4 col-sm-12 cyber-block">
@@ -47,7 +60,9 @@
       </ng-container>
     </div>
     <div class="row justify-content-center mb-4">
-      <button class="button secondary-btn-md mb-5">EXPLORE MORE</button>
+      <button class="button secondary-btn-md mb-5" [routerLink]="['../../capsules']">
+        EXPLORE MORE
+      </button>
     </div>
   </section>
 </div>
