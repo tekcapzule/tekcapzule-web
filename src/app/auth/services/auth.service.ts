@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
-import { Constants } from '@app/shared/utils/constants';
+import { Constants, sessionCacheManager } from '@app/shared/utils';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -106,6 +106,7 @@ export class AuthService {
 
   public signOutUser(): void {
     this.amplify.auth().signOut();
+    sessionCacheManager.removeAll();
   }
 
   public isAdminUser(): boolean {
