@@ -13,7 +13,7 @@ export class TopicDetailsComponent implements OnInit {
   topic: TopicItem;
   firstThreeCapsules: CapsuleItem[] = [];
 
-  constructor(private capsuleApiService: CapsuleApiService) {}
+  constructor(private capsuleApi: CapsuleApiService) {}
 
   ngOnInit(): void {
     this.topic = history.state.topic;
@@ -23,7 +23,7 @@ export class TopicDetailsComponent implements OnInit {
       const capsuleItems$: Observable<any>[] = [];
 
       threeCapsuleIds.forEach(capsuleId => {
-        capsuleItems$.push(this.capsuleApiService.getCapsuleById(capsuleId));
+        capsuleItems$.push(this.capsuleApi.getCapsuleById(capsuleId));
       });
 
       forkJoin(capsuleItems$).subscribe(data => {

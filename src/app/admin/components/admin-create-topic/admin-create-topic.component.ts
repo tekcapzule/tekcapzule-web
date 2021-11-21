@@ -20,10 +20,7 @@ export class AdminCreateTopicComponent implements OnInit {
     capsules: ['', ''],
   };
 
-  constructor(
-    private eventChannel: EventChannelService,
-    private topicApiService: TopicApiService
-  ) {}
+  constructor(private eventChannel: EventChannelService, private topicApi: TopicApiService) {}
 
   ngOnInit(): void {}
 
@@ -38,7 +35,7 @@ export class AdminCreateTopicComponent implements OnInit {
     this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
     console.log(this.topicDetails);
     this.activateFirstNavTab();
-    this.topicApiService
+    this.topicApi
       .createTopic(this.topicDetails)
       .subscribe(res => console.log(this.topicDetails, res));
   }

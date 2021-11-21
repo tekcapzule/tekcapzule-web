@@ -95,10 +95,10 @@ export class AdminTopicsComponent implements OnInit {
     },
   ];
 
-  constructor(private topicApiService: TopicApiService) {}
+  constructor(private topicApi: TopicApiService) {}
 
   ngOnInit(): void {
-    this.topicApiService
+    this.topicApi
       .getAllTopics()
       .pipe(
         map(topics =>

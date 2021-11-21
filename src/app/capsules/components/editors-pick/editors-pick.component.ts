@@ -11,12 +11,12 @@ import { AppSpinnerService, CapsuleApiService } from '@app/core';
 export class EditorsPickComponent implements OnInit {
   capsules = [];
 
-  constructor(private capsuleApiService: CapsuleApiService, private spinner: AppSpinnerService) {}
+  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
     this.spinner.show();
 
-    this.capsuleApiService
+    this.capsuleApi
       .getEditorsPickCapsules()
       .pipe(
         finalize(() => {

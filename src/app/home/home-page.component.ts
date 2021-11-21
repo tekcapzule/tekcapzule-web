@@ -19,25 +19,25 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   @ViewChild('subscribe') subscribeSection: ElementRef;
 
   constructor(
-    private capsuleApiService: CapsuleApiService,
-    private userApiService: UserApiService,
-    private authService: AuthService,
-    private subscriptionApiService: SubscriptionApiService
+    private capsuleApi: CapsuleApiService,
+    private userApi: UserApiService,
+    private auth: AuthService,
+    private subscriptionApi: SubscriptionApiService
   ) {}
 
   ngOnInit(): void {
-    if (this.authService.isUserLoggedIn()) {
-      this.userApiService.getUser(this.authService.getUserInfo().attributes.email).subscribe();
+    if (this.auth.isUserLoggedIn()) {
+      this.userApi.getUser(this.auth.getUserInfo().attributes.email).subscribe();
     }
 
-    this.capsuleApiService.getEditorsPickCapsules().subscribe(capsules => {
+    this.capsuleApi.getEditorsPickCapsules().subscribe(capsules => {
       this.capsules = capsules;
       setTimeout(() => {
         this.initOwlCarousel();
       }, 0);
     });
 
-    this.capsuleApiService.getTrendingCapsules().subscribe();
+    this.capsuleApi.getTrendingCapsules().subscribe();
   }
 
   ngAfterViewInit(): void {
@@ -73,7 +73,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   }
 
   onSubscribe(): void {
-    this.subscriptionApiService.subscribe(this.subscriberEmailId).subscribe();
+    this.subscriptionApi.subscribe(this.subscriberEmailId).subscribe();
     this.subscriberEmailId = '';
   }
 }

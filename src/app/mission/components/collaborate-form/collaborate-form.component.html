@@ -6,21 +6,52 @@
         >We are excited to hear from you, please drop a note!</span
       >
     </div>
-
     <div class="row mt-5">
       <div class="col-6">
-        <input type="text" name="firstname" placeholder="First Name *"  [(ngModel)]="collaborateForm.firstName"/>
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name *"
+          [(ngModel)]="collaborateForm.firstName"
+        />
       </div>
       <div class="col-6">
-        <input type="text" name="lastname" placeholder="Last Name *"  [(ngModel)]="collaborateForm.lastName"/>
+        <input
+          type="text"
+          name="lastname"
+          placeholder="Last Name *"
+          [(ngModel)]="collaborateForm.lastName"
+        />
       </div>
     </div>
-    <input type="email" name="email" placeholder="Email Address *"  [(ngModel)]="collaborateForm.emailId"/>
-    <input type="text" name="subject" placeholder="Subject *"  [(ngModel)]="collaborateForm.subject"/>
-    <textarea name="description" rows="4" [(ngModel)]="collaborateForm.description" placeholder="Description *"> 
+    <input
+      type="email"
+      name="email"
+      placeholder="Email Address *"
+      [(ngModel)]="collaborateForm.emailId"
+    />
+    <input
+      type="text"
+      name="subject"
+      placeholder="Subject *"
+      [(ngModel)]="collaborateForm.subject"
+    />
+    <textarea
+      name="description"
+      rows="4"
+      [(ngModel)]="collaborateForm.description"
+      placeholder="Description *"
+    >
     </textarea>
     <div class="d-flex justify-content-center">
-      <button mat-raised-button class="button tertiary" [disabled]="!isFormValid()" (click)="onCollabFormSubmit()">Submit</button>
+      <button
+        mat-raised-button
+        class="button tertiary"
+        [disabled]="!isFormValid()"
+        (click)="onCollabFormSubmit()"
+      >
+        Submit
+      </button>
     </div>
     <div></div>
   </div>

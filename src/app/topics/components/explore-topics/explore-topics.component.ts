@@ -15,12 +15,12 @@ export class ExploreTopicsComponent implements OnInit, AfterViewInit {
   topics: TopicItem[] = [];
   allTopics: TopicItem[] = [];
 
-  constructor(private topicApiService: TopicApiService, private spinner: AppSpinnerService) {}
+  constructor(private topicApi: TopicApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
     this.spinner.show();
 
-    this.topicApiService
+    this.topicApi
       .getAllTopics()
       .pipe(
         finalize(() => {

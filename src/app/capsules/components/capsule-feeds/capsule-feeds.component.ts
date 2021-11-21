@@ -22,9 +22,9 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   capsules = [];
 
   constructor(
-    private authService: AuthService,
-    private capsuleApiService: CapsuleApiService,
-    private userApiService: UserApiService,
+    private auth: AuthService,
+    private capsuleApi: CapsuleApiService,
+    private userApi: UserApiService,
     private spinner: AppSpinnerService,
     private eventChannel: EventChannelService
   ) {
@@ -50,15 +50,13 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   fetchMyFeedCapsules(refreshCache?: boolean): void {
-    if (this.authService.isUserLoggedIn()) {
+    if (this.auth.isUserLoggedIn()) {
       this.spinner.show();
+      const userInfo = this.userApi.getUserCache();
 
-      this.userApiService
-        .getUser(this.authService.getUserInfo().attributes.email)
+      this.capsuleApi
+        .getMyFeedCapsules(userInfo.subscribedTopics || [], refreshCache)
         .pipe(
-          switchMap(userInfo =>
-            this.capsuleApiService.getMyFeedCapsules(userInfo.subscribedTopics || [], refreshCache)
-          ),
           finalize(() => {
             this.spinner.hide();
           })

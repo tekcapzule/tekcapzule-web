@@ -20,9 +20,9 @@ export class CapsuleCardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private capsuleApiService: CapsuleApiService,
-    private userApiService: UserApiService,
-    private authService: AuthService
+    private capsuleApi: CapsuleApiService,
+    private userApi: UserApiService,
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -30,10 +30,10 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
-    if (this.authService.isUserLoggedIn()) {
-      this.awsUserInfo = this.authService.getUserInfo();
+    if (this.auth.isUserLoggedIn()) {
+      this.awsUserInfo = this.auth.getUserInfo();
 
-      this.userApiService
+      this.userApi
         .getUser(this.awsUserInfo.attributes.email, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
@@ -48,16 +48,16 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCardClick(): void {
-    this.capsuleApiService.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
+    this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
     window.open(this.capsule.resourceUrl, '_blank');
   }
 
   onCapsuleRecommend(): void {
-    this.capsuleApiService.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
+    this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
   }
 
   isBookmarked(): boolean {
-    if (!this.authService.isUserLoggedIn()) {
+    if (!this.auth.isUserLoggedIn()) {
       return false;
     }
 
@@ -65,16 +65,16 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleBookmark(): void {
-    if (!this.authService.isUserLoggedIn()) {
+    if (!this.auth.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
       return;
     }
 
-    this.userApiService
+    this.userApi
       .bookmarCapsule(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
       .pipe(
         tap(() => {
-          this.capsuleApiService.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
+          this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
         })
       )
       .subscribe(() => {
@@ -86,16 +86,16 @@ export class CapsuleCardComponent implements OnInit {
       bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
     };
 
-    this.userApiService.updateUserCache(this.userInfo);
+    this.userApi.updateUserCache(this.userInfo);
   }
 
   onCapsuleBookmarkRemove(): void {
-    if (!this.authService.isUserLoggedIn()) {
+    if (!this.auth.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
       return;
     }
 
-    this.userApiService
+    this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
       .subscribe(() => {
         this.fetchUserInfo(true);
@@ -106,7 +106,7 @@ export class CapsuleCardComponent implements OnInit {
       bookmarks: this.userInfo.bookmarks.filter(id => id !== this.capsule.capsuleId),
     };
 
-    this.userApiService.updateUserCache(this.userInfo);
+    this.userApi.updateUserCache(this.userInfo);
   }
 
   getCapsuleBadgeUrls(): string[] {

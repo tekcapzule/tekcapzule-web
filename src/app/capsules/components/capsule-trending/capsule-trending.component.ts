@@ -15,7 +15,7 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
   capsules: CapsuleItem[] = [];
 
   constructor(
-    private capsuleApiService: CapsuleApiService,
+    private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
     private eventChannel: EventChannelService
   ) {
@@ -43,7 +43,7 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
   fetchTrendingCapsules(refreshCache?: boolean): void {
     this.spinner.show();
 
-    this.capsuleApiService
+    this.capsuleApi
       .getTrendingCapsules(refreshCache)
       .pipe(
         finalize(() => {

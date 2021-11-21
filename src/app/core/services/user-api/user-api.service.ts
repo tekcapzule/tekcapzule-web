@@ -55,6 +55,12 @@ export class UserApiService {
     throw new Error('Not yet implemented.');
   }
 
+  getUserCache(): UserInfo | null {
+    const userCacheKey = `${USER_API_PATH}/get`;
+    const cache = sessionCacheManager.getItem(userCacheKey);
+    return cache ? (cache.body as UserInfo) : null;
+  }
+
   updateUserCache(userInfo: UserInfo): void {
     const userCacheKey = `${USER_API_PATH}/get`;
     const current = new Date();

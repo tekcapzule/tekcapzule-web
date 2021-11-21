@@ -68,6 +68,7 @@ export class AuthService {
     this.userInfo = null;
     this.isLoggedIn = false;
     this.loggedInStatusChange.next(this.isLoggedIn);
+    sessionCacheManager.removeAll();
 
     // TODO: Remove next line.
     this.autoSigninUserForAppDevelopment();
@@ -106,7 +107,6 @@ export class AuthService {
 
   public signOutUser(): void {
     this.amplify.auth().signOut();
-    sessionCacheManager.removeAll();
   }
 
   public isAdminUser(): boolean {

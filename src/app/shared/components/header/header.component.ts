@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService,
     private zone: NgZone,
     private router: Router,
-    private topicApiService: TopicApiService
+    private topicApi: TopicApiService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
       });
     });
 
-    this.topicApiService.getAllTopics().subscribe(data => {
+    this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
     });
   }

@@ -37,9 +37,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private eventChannel: EventChannelService,
-    private authService: AuthService,
-    private topicApiService: TopicApiService,
-    private userApiService: UserApiService
+    private auth: AuthService,
+    private topicApi: TopicApiService,
+    private userApi: UserApiService
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         this.navigateToActiveCapsulePage(false);
       });
 
-    this.topicApiService.getAllTopics().subscribe(topics => {
+    this.topicApi.getAllTopics().subscribe(topics => {
       this.setTopicsByCategory(topics);
     });
 
@@ -68,9 +68,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
-    if (this.authService.isUserLoggedIn()) {
-      this.userApiService
-        .getUser(this.authService.getUserInfo().attributes.email, refreshCache)
+    if (this.auth.isUserLoggedIn()) {
+      this.userApi
+        .getUser(this.auth.getUserInfo().attributes.email, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -78,7 +78,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   navigateToActiveCapsulePage(refreshCache?: boolean): void {
     let activeNavTab: NavTab = this.navTabs[0];
 
-    if (this.authService.isUserLoggedIn()) {
+    if (this.auth.isUserLoggedIn()) {
       this.navTabs[0].isHidden = false;
       activeNavTab = this.navTabs[0];
     } else {
@@ -144,7 +144,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   isTopicSubscribed(topicCode: string): boolean {
-    if (this.authService.isUserLoggedIn()) {
+    if (this.auth.isUserLoggedIn()) {
       return this.userInfo?.subscribedTopics?.includes(topicCode);
     }
 
@@ -154,25 +154,23 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   followTopic(topicCode: string): void {
     jQuery('#browseByTopicModal').modal('hide');
 
-    if (!this.authService.isUserLoggedIn()) {
+    if (!this.auth.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
       return;
     }
 
     const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
 
-    this.userApiService
-      .followTopic(this.authService.getUserInfo().attributes.email, topicCode)
-      .subscribe(() => {
-        this.fetchUserInfo(true);
-      });
+    this.userApi.followTopic(this.auth.getUserInfo().attributes.email, topicCode).subscribe(() => {
+      this.fetchUserInfo(true);
+    });
 
     this.userInfo = {
       ...this.userInfo,
       subscribedTopics: userSubscribedTopics,
     };
 
-    this.userApiService.updateUserCache(this.userInfo);
+    this.userApi.updateUserCache(this.userInfo);
 
     this.navigateToActiveCapsulePage(true);
   }
@@ -180,7 +178,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   unfollowTopic(topicCode: string): void {
     jQuery('#browseByTopicModal').modal('hide');
 
-    if (!this.authService.isUserLoggedIn()) {
+    if (!this.auth.isUserLoggedIn()) {
       this.router.navigateByUrl('/auth/signin');
       return;
     }
@@ -189,8 +187,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
       : [];
 
-    this.userApiService
-      .unfollowTopic(this.authService.getUserInfo().attributes.email, topicCode)
+    this.userApi
+      .unfollowTopic(this.auth.getUserInfo().attributes.email, topicCode)
       .subscribe(() => {
         this.fetchUserInfo(true);
       });
@@ -200,7 +198,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       subscribedTopics: userSubscribedTopics,
     };
 
-    this.userApiService.updateUserCache(this.userInfo);
+    this.userApi.updateUserCache(this.userInfo);
 
     this.navigateToActiveCapsulePage(true);
   }

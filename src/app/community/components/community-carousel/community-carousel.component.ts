@@ -10,16 +10,16 @@ import { take } from 'rxjs/operators';
 export class CommunityCarouselComponent implements OnInit {
   events: any[] = [];
 
-  constructor(private eventApiService: EventApiService) {}
+  constructor(private eventApi: EventApiService) {}
 
   ngOnInit(): void {
-    this.eventApiService.getAllEvents().subscribe(events => {
+    this.eventApi.getAllEvents().subscribe(events => {
       this.events = events;
       console.log(events);
     });
   }
 
-  openLinkinNewTab(url) {
+  openLinkinNewTab(url): void {
     window.open(url, '_blank');
   }
 }
