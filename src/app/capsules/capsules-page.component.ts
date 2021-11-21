@@ -58,8 +58,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.setTopicsByCategory(topics);
     });
-
-    this.navigateToActiveCapsulePage(false);
+    if (this.router.url !== '/capsules/create') {
+      this.navigateToActiveCapsulePage(false);
+    }
   }
 
   ngOnDestroy(): void {
