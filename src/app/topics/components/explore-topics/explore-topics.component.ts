@@ -34,7 +34,11 @@ export class ExploreTopicsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    twttr.widgets.load();
+    try {
+      twttr.widgets.load();
+    } catch (error) {
+      console.error('TwitterWidgetError: ', error);
+    }
   }
 
   onSearchKeyUp(e: Event): void {
