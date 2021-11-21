@@ -69,6 +69,7 @@ export class HeaderComponent implements OnInit {
     this.searchInputValue = '';
     this.router.navigate(['topics', 'topicdetails'], {
       state: { topic },
+      queryParams: { code: topic.code },
     });
   }
 }
