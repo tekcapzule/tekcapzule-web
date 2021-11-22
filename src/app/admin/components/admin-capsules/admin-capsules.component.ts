@@ -92,14 +92,12 @@ export class AdminCapsulesComponent implements OnInit {
         {
           actionId: 'edit',
           iconUrl: '/assets/images/action.svg',
-          actionCallback: this.editActionCallback,
-          callbackExecutionContext: this
+          actionCallback: this.editActionCallback.bind(this),
         },
         {
           actionId: 'delete',
           iconUrl: '/assets/images/delete.svg',
-          actionCallback: this.deleteActionCallback,
-          callbackExecutionContext: this
+          actionCallback: this.deleteActionCallback.bind(this),
         },
       ],
     },

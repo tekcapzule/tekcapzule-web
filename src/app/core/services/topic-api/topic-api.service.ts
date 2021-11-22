@@ -51,10 +51,16 @@ export class TopicApiService {
     return this.httpClient.post(`${TOPIC_API_PATH}/update`, topic);
   }
 
-  updateCacheAfterTopicDisabled(code : string){
-    const allTopic = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`) && sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`).body;
-    allTopic.find(topic => topic.code == code).status == 'INACTIVE';
-    sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`,allTopic)   ; 
+  updateCacheAfterTopicDisabled(code: string): void {
+    const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
 
+    if (allTopicCache) {
+      const allTopics = allTopicCache.body as TopicItem[];
+      allTopics.find(topic => topic.code === code).status = 'INACTIVE';
+      sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
+        body: allTopics,
+        expiry: new Date().setHours(new Date().getHours() + 24),
+      });
+    }
   }
 }

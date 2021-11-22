@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 import { ColumnDef } from '@app/shared/models';
-import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
 import { TopicApiService } from '@app/core';
+import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
 
 @Component({
   selector: 'app-admin-topics',
@@ -11,7 +11,6 @@ import { TopicApiService } from '@app/core';
   styleUrls: ['./admin-topics.component.scss'],
 })
 export class AdminTopicsComponent implements OnInit {
-  [x: string]: any;
   adminTopicColumns: ColumnDef[] = [
     {
       columnId: 'topicName',
@@ -68,14 +67,12 @@ export class AdminTopicsComponent implements OnInit {
         {
           actionId: 'edit',
           iconUrl: '/assets/images/action.svg',
-          actionCallback: this.editActionCallback,
-          callbackExecutionContext: this,
+          actionCallback: this.editActionCallback.bind(this),
         },
         {
           actionId: 'delete',
           iconUrl: '/assets/images/delete.svg',
-          actionCallback: this.deleteActionCallback,
-          callbackExecutionContext: this,
+          actionCallback: this.deleteActionCallback.bind(this),
         },
       ],
     },
@@ -113,8 +110,8 @@ export class AdminTopicsComponent implements OnInit {
   }
 
   deleteActionCallback(row: AdminTopicDataItem): void {
-    if (row.status != AdminTopicStatus.Failure) {
-      this.callbackExecutionContext.topicApi.disableTopic(row.code).subscribe();
+    if (row.status !== AdminTopicStatus.Failure) {
+      this.topicApi.disableTopic(row.code).subscribe();
       row.status = AdminTopicStatus.Failure;
     }
   }

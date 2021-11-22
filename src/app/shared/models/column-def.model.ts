@@ -11,5 +11,4 @@ export interface ActionItem {
   actionId: string;
   iconUrl: string;
   actionCallback: (row: any) => void;
-  callbackExecutionContext: any;
 }
