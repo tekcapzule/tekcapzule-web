@@ -38,6 +38,7 @@ export interface AdminTopicDataItem {
   tags: string[];
   keyHighlights: number;
   status: AdminTopicStatus;
+  code: string;
 }
 
 export class AdminTopicDataItemImpl implements AdminTopicDataItem {
@@ -46,13 +47,16 @@ export class AdminTopicDataItemImpl implements AdminTopicDataItem {
   tags: string[];
   keyHighlights: number;
   status: AdminTopicStatus;
+  code: string;
   constructor(
     topicName: string,
     description: string,
     tags: string[],
     keyHighlights: string[],
-    status: string
+    status: string,
+    code: string
   ) {
+    this.code = code;
     this.description = description;
     this.tags = tags;
     this.topicName = topicName;

@@ -11,6 +11,7 @@ import { TopicApiService } from '@app/core';
   styleUrls: ['./admin-topics.component.scss'],
 })
 export class AdminTopicsComponent implements OnInit {
+  [x: string]: any;
   adminTopicColumns: ColumnDef[] = [
     {
       columnId: 'topicName',
@@ -68,32 +69,19 @@ export class AdminTopicsComponent implements OnInit {
           actionId: 'edit',
           iconUrl: '/assets/images/action.svg',
           actionCallback: this.editActionCallback,
+          callbackExecutionContext: this,
         },
         {
           actionId: 'delete',
           iconUrl: '/assets/images/delete.svg',
           actionCallback: this.deleteActionCallback,
+          callbackExecutionContext: this,
         },
       ],
     },
   ];
 
-  adminTopicsData: AdminTopicDataItem[] = [
-    {
-      topicName: 'AWS Services',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      tags: ['Cloud', 'AI/ML'],
-      keyHighlights: 5,
-      status: AdminTopicStatus.Success,
-    },
-    {
-      topicName: 'AWS Services',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      tags: ['Cloud', 'AI/ML'],
-      keyHighlights: 5,
-      status: AdminTopicStatus.Failure,
-    },
-  ];
+  adminTopicsData: AdminTopicDataItem[] = [];
 
   constructor(private topicApi: TopicApiService) {}
 
@@ -109,7 +97,8 @@ export class AdminTopicsComponent implements OnInit {
                 topic.description,
                 topic.aliases,
                 topic.keyHighlights,
-                topic.status
+                topic.status,
+                topic.code
               )
           )
         )
@@ -124,6 +113,9 @@ export class AdminTopicsComponent implements OnInit {
   }
 
   deleteActionCallback(row: AdminTopicDataItem): void {
-    console.log('deleteActionCallback: ', row);
+    if (row.status != AdminTopicStatus.Failure) {
+      this.callbackExecutionContext.topicApi.disableTopic(row.code).subscribe();
+      row.status = AdminTopicStatus.Failure;
+    }
   }
 }

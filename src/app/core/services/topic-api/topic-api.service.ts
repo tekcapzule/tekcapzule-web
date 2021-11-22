@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { TopicItem } from '@app/shared/models';
+import { sessionCacheManager } from '@app/shared/utils';
 
 const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`.replace(
   '{{gateway}}',
@@ -37,8 +38,9 @@ export class TopicApiService {
     return this.httpClient.post(`${TOPIC_API_PATH}/create`, topic);
   }
 
-  disableTopic(code: any): Observable<any> {
-    return this.httpClient.post(`${TOPIC_API_PATH}/disable`, code);
+  disableTopic(code: string): Observable<any> {
+    this.updateCacheAfterTopicDisabled(code);
+    return this.httpClient.post(`${TOPIC_API_PATH}/disable`, { code });
   }
 
   getTopic(code: any): Observable<TopicItem> {
@@ -47,5 +49,12 @@ export class TopicApiService {
 
   updateTopic(topic: any): Observable<any> {
     return this.httpClient.post(`${TOPIC_API_PATH}/update`, topic);
+  }
+
+  updateCacheAfterTopicDisabled(code : string){
+    const allTopic = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`) && sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`).body;
+    allTopic.find(topic => topic.code == code).status == 'INACTIVE';
+    sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`,allTopic)   ; 
+
   }
 }
