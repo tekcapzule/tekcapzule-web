@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { CapsuleItem } from '@app/shared/models';
+import { sessionCacheManager } from '@app/shared/utils';
 
 const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`.replace(
   '{{gateway}}',
@@ -72,6 +73,24 @@ export class CapsuleApiService {
         },
       }
     );
+  }
+
+  disableCapsule(capsuleId: string): Observable<CapsuleItem> {
+    const pendingCapsuleCache = sessionCacheManager.getItem(
+      `${CAPSULE_API_PATH}/getPendingApproval`
+    );
+
+    if (pendingCapsuleCache) {
+      const pendingCapsules = (pendingCapsuleCache.body as CapsuleItem[]).filter(
+        capsule => capsule.capsuleId !== capsuleId
+      );
+      sessionCacheManager.setItem(`${CAPSULE_API_PATH}/getPendingApproval`, {
+        body: pendingCapsules,
+        expiry: pendingCapsuleCache.expiry,
+      });
+    }
+
+    return this.httpClient.post<CapsuleItem>(`${CAPSULE_API_PATH}/disable`, { capsuleId });
   }
 
   getCapsuleById(capsuleId: string): Observable<CapsuleItem> {

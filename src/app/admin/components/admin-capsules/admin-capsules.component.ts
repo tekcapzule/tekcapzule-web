@@ -51,17 +51,17 @@ export class AdminCapsulesComponent implements OnInit {
       columnId: 'description',
       columnName: 'Description',
     },
-    {
-      columnId: 'keyHighlights',
-      columnName: 'Key Highlights',
-      disableSort: true,
-      columnFormatter: (value: number) => {
-        return `
-          <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
-            ${value}
-          </span>`;
-      },
-    },
+    // {
+    //   columnId: 'keyHighlights',
+    //   columnName: 'Key Highlights',
+    //   disableSort: true,
+    //   columnFormatter: (value: number) => {
+    //     return `
+    //       <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
+    //         ${value}
+    //       </span>`;
+    //   },
+    // },
     {
       columnId: 'questions',
       columnName: 'Questions',
@@ -109,7 +109,6 @@ export class AdminCapsulesComponent implements OnInit {
 
   ngOnInit(): void {
     this.capsuleApiService.getPendingApproval().subscribe(pendingCapsules => {
-      console.log(pendingCapsules);
       this.capsulePendingApproval = pendingCapsules;
       this.adminCapsulesData = this.capsulePendingApproval.map(
         capsule =>
@@ -122,7 +121,8 @@ export class AdminCapsulesComponent implements OnInit {
             capsule.type,
             capsule.description,
             capsule.quizzes ? capsule.quizzes.length : 0,
-            capsule.status
+            capsule.status,
+            capsule.capsuleId
           )
       );
     });
@@ -133,6 +133,8 @@ export class AdminCapsulesComponent implements OnInit {
   }
 
   deleteActionCallback(row: AdminCapsuleDataItem): void {
-    console.log('deleteActionCallback: ', row);
+    this.capsuleApiService
+      .disableCapsule(row.capsuleId)
+      .subscribe(capsule => console.log('capsule disabled : ', capsule));
   }
 }

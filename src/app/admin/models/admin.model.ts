@@ -11,6 +11,7 @@ export interface AdminCapsuleDataItem {
   description: string;
   questions: number;
   status: CapsuleStatus;
+  capsuleId : string;
 }
 
 export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
@@ -23,6 +24,7 @@ export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
   description: string;
   questions: number;
   status: CapsuleStatus;
+  capsuleId : string;
   constructor(
     capsuleTitle: string,
     author: string,
@@ -32,7 +34,8 @@ export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
     category: string,
     description: string,
     questions: number,
-    status: CapsuleStatus
+    status: CapsuleStatus,
+    capsuleId : string
   ) {
     this.author = author;
     this.capsuleTitle = capsuleTitle;
@@ -43,6 +46,7 @@ export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
     this.questions = questions;
     this.status = status;
     this.tags = tags;
+    this.capsuleId = capsuleId;
   }
 }
 
