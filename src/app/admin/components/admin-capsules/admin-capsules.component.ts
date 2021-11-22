@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ColumnDef } from '@app/shared/models';
-import { AdminCapsuleStatus, AdminCapsuleDataItem } from '@app/admin/models';
+import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
+import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
+import { CapsuleApiService } from '@app/core';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -69,15 +70,12 @@ export class AdminCapsulesComponent implements OnInit {
       columnId: 'status',
       columnName: 'Status',
       disableSort: true,
-      columnFormatter: (value: AdminCapsuleStatus) => {
-        if (value === AdminCapsuleStatus.Approved || value === AdminCapsuleStatus.Active) {
+      columnFormatter: (value: CapsuleStatus) => {
+        if (value === CapsuleStatus.ACTIVE) {
           return `<span class='text-success'>${value}</span>`;
-        } else if (
-          value === AdminCapsuleStatus.Pending ||
-          value === AdminCapsuleStatus.Processing
-        ) {
+        } else if (value === CapsuleStatus.SUBMITTED) {
           return `<span class='text-warning'>${value}</span>`;
-        } else if (value === AdminCapsuleStatus.Rejected) {
+        } else if (value === CapsuleStatus.EXPIRED) {
           return `<span class='text-danger'>${value}</span>`;
         } else {
           return `<span class='text-muted'>${value}</span>`;
@@ -103,72 +101,32 @@ export class AdminCapsulesComponent implements OnInit {
     },
   ];
 
-  adminCapsulesData: AdminCapsuleDataItem[] = [
-    {
-      capsuleTitle: 'Frontend Master',
-      author: 'Akhil',
-      publishedDate: '2021-06-30',
-      tags: ['JavaScript', 'Angular'],
-      duration: '35:00',
-      category: 'Article',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      keyHighlights: 10,
-      questions: 'N/A',
-      status: AdminCapsuleStatus.Approved,
-    },
-    {
-      capsuleTitle: 'Software Architecture Patterns',
-      author: 'Linjith',
-      publishedDate: '2021-06-30',
-      tags: ['Microservices', 'K8s'],
-      duration: '25:00',
-      category: 'Article',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      keyHighlights: 6,
-      questions: 'N/A',
-      status: AdminCapsuleStatus.Active,
-    },
-    {
-      capsuleTitle: 'Frontend Master',
-      author: 'Akhil',
-      publishedDate: '2021-06-30',
-      tags: ['JavaScript', 'Angular'],
-      duration: '35:00',
-      category: 'Article',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      keyHighlights: 10,
-      questions: 'N/A',
-      status: AdminCapsuleStatus.Processing,
-    },
-    {
-      capsuleTitle: 'Software Architecture Patterns',
-      author: 'Linjith',
-      publishedDate: '2021-06-30',
-      tags: ['Microservices', 'K8s'],
-      duration: '25:00',
-      category: 'Article',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      keyHighlights: 6,
-      questions: 'N/A',
-      status: AdminCapsuleStatus.Pending,
-    },
-    {
-      capsuleTitle: 'Software Architecture Patterns',
-      author: 'Linjith',
-      publishedDate: '2021-06-30',
-      tags: ['Microservices', 'K8s'],
-      duration: '25:00',
-      category: 'Article',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      keyHighlights: 6,
-      questions: 'N/A',
-      status: AdminCapsuleStatus.Rejected,
-    },
-  ];
+  capsulePendingApproval: CapsuleItem[] = [];
 
-  constructor() {}
+  adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  ngOnInit(): void {}
+  constructor(private capsuleApiService: CapsuleApiService) {}
+
+  ngOnInit(): void {
+    this.capsuleApiService.getPendingApproval().subscribe(pendingCapsules => {
+      console.log(pendingCapsules);
+      this.capsulePendingApproval = pendingCapsules;
+      this.adminCapsulesData = this.capsulePendingApproval.map(
+        capsule =>
+          new AdminCapsuleDataItemImpl(
+            capsule.title,
+            capsule.author,
+            capsule.publishedDate,
+            capsule.tags,
+            capsule.duration,
+            capsule.type,
+            capsule.description,
+            capsule.quizzes ? capsule.quizzes.length : 0,
+            capsule.status
+          )
+      );
+    });
+  }
 
   editActionCallback(row: AdminCapsuleDataItem): void {
     console.log('editActionCallback: ', row);

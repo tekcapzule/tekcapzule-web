@@ -61,6 +61,19 @@ export class CapsuleApiService {
     );
   }
 
+  getPendingApproval(): Observable<CapsuleItem[]> {
+    return this.httpClient.post<CapsuleItem[]>(
+      `${CAPSULE_API_PATH}/getPendingApproval`,
+      {},
+      {
+        params: {
+          cache: 'yes',
+          expiry: '24',
+        },
+      }
+    );
+  }
+
   getCapsuleById(capsuleId: string): Observable<CapsuleItem> {
     return this.httpClient.post<CapsuleItem>(`${CAPSULE_API_PATH}/get`, { capsuleId });
   }

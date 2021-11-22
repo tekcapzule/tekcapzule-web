@@ -1,7 +1,5 @@
 export interface CapsuleItem {
-  audience: string;
   author: string;
-  badge: CapsuleBadge;
   bookmarks: number;
   capsuleId: string;
   description: string;
@@ -14,12 +12,35 @@ export interface CapsuleItem {
   publisher: string;
   recommendations: number;
   resourceUrl: string;
-  status: CapsuleStatus;
   tags: string[];
   title: string;
   topicCode: string;
   type: string;
   views: number;
+  quizzes: Quiz[];
+  badge: CapsuleBadge;
+  status: CapsuleStatus;
+  audience: TargetAudience;
+}
+
+export class Quiz {
+  id: string;
+  question: string;
+  hint: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  optionE: string;
+  answerKeys: string[];
+}
+
+export enum TargetAudience {
+  DEVELOPER = 'DEVELOPER',
+  ENGINEERING_MANAGER = 'ENGINEERING_MANAGER',
+  EXECUTIVE = 'EXECUTIVE',
+  ARCHITECT = 'ARCHITECT',
+  ALL = 'ALL',
 }
 
 export enum CapsuleBadge {
@@ -32,4 +53,6 @@ export enum CapsuleBadge {
 export enum CapsuleStatus {
   ACTIVE = 'ACTIVE',
   INACTIVE = 'INACTIVE',
+  EXPIRED = 'EXPIRED',
+  SUBMITTED = 'SUBMITTED',
 }

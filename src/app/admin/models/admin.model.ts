@@ -1,23 +1,49 @@
-export enum AdminCapsuleStatus {
-  Approved = 'Approved',
-  Rejected = 'Rejected',
-  Pending = 'Pending',
-  Processing = 'Processing',
-  Active = 'Active',
-  Disabled = 'Disabled',
-}
+import { CapsuleStatus, Quiz } from "@app/shared/models/capsule-item.model";
+
 
 export interface AdminCapsuleDataItem {
   capsuleTitle: string;
   author: string;
   publishedDate: string;
   tags: string[];
-  duration: string;
+  duration: number;
   category: string;
   description: string;
-  keyHighlights: number;
-  questions: string;
-  status: AdminCapsuleStatus;
+  questions: number;
+  status: CapsuleStatus;
+}
+
+export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
+  capsuleTitle: string;
+  author: string;
+  publishedDate: string;
+  tags: string[];
+  duration: number;
+  category: string;
+  description: string;
+  questions: number;
+  status: CapsuleStatus;
+  constructor(
+    capsuleTitle: string,
+    author: string,
+    publishedDate: string,
+    tags: string[],
+    duration: number,
+    category: string,
+    description: string,
+    questions: number,
+    status: CapsuleStatus
+  ) {
+    this.author = author;
+    this.capsuleTitle = capsuleTitle;
+    this.category = category;
+    this.description = description;
+    this.duration = duration;
+    this.publishedDate = publishedDate;
+    this.questions = questions;
+    this.status = status;
+    this.tags = tags;
+  }
 }
 
 export interface AdminFeedbackDataItem {
