@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ColumnDef } from '@app/shared/models';
 import { TopicApiService } from '@app/core';
 import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-topics',
@@ -80,7 +81,7 @@ export class AdminTopicsComponent implements OnInit {
 
   adminTopicsData: AdminTopicDataItem[] = [];
 
-  constructor(private topicApi: TopicApiService) {}
+  constructor(private topicApi: TopicApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.topicApi
@@ -106,7 +107,7 @@ export class AdminTopicsComponent implements OnInit {
   }
 
   editActionCallback(row: AdminTopicDataItem): void {
-    console.log('editActionCallback: ', row);
+    this.router.navigate(['/admin/edittopic', row.code]);
   }
 
   deleteActionCallback(row: AdminTopicDataItem): void {

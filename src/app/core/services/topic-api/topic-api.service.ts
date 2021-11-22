@@ -35,23 +35,20 @@ export class TopicApiService {
   }
 
   createTopic(topic: any): Observable<any> {
+    const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
+    if (allTopicCache) {
+      const allTopics = allTopicCache.body as TopicItem[];
+      allTopics.push(topic);
+      sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
+        body: allTopics,
+        expiry: allTopicCache.expiry,
+      });
+    }
+
     return this.httpClient.post(`${TOPIC_API_PATH}/create`, topic);
   }
 
   disableTopic(code: string): Observable<any> {
-    this.updateCacheAfterTopicDisabled(code);
-    return this.httpClient.post(`${TOPIC_API_PATH}/disable`, { code });
-  }
-
-  getTopic(code: any): Observable<TopicItem> {
-    return this.httpClient.post<TopicItem>(`${TOPIC_API_PATH}/get`, code);
-  }
-
-  updateTopic(topic: any): Observable<any> {
-    return this.httpClient.post(`${TOPIC_API_PATH}/update`, topic);
-  }
-
-  updateCacheAfterTopicDisabled(code: string): void {
     const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
 
     if (allTopicCache) {
@@ -62,5 +59,24 @@ export class TopicApiService {
         expiry: allTopicCache.expiry,
       });
     }
+    return this.httpClient.post(`${TOPIC_API_PATH}/disable`, { code });
+  }
+
+  getTopic(code: any): Observable<TopicItem> {
+    return this.httpClient.post<TopicItem>(`${TOPIC_API_PATH}/get`, code);
+  }
+
+  updateTopic(topic: any): Observable<any> {
+    const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
+    if (allTopicCache) {
+      let allTopics = allTopicCache.body as TopicItem[];
+      allTopics = allTopics.filter(t => t.code !== topic.code);
+      allTopics.push(topic);
+      sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
+        body: allTopics,
+        expiry: allTopicCache.expiry,
+      });
+    }
+    return this.httpClient.post(`${TOPIC_API_PATH}/update`, topic);
   }
 }

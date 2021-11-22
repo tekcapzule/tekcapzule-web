@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
 import { take } from 'rxjs/operators';
@@ -19,10 +20,25 @@ export class AdminCreateTopicComponent implements OnInit {
     keyHighlights: ['', ''],
     capsules: ['', ''],
   };
+  isEditMode = false;
 
-  constructor(private eventChannel: EventChannelService, private topicApi: TopicApiService) {}
+  constructor(
+    private eventChannel: EventChannelService,
+    private topicApi: TopicApiService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.router.url.includes('edittopic')) {
+      this.isEditMode = true;
+      this.topicApi.getAllTopics().subscribe(allTopics => {
+        this.topicDetails = allTopics.find(
+          topic => topic.code === this.route.snapshot.paramMap.get('topicCode')
+        );
+      });
+    }
+  }
 
   activateFirstNavTab(): void {
     this.eventChannel.publish({ event: ChannelEvent.SetActiveAdminTab });
@@ -33,11 +49,17 @@ export class AdminCreateTopicComponent implements OnInit {
     this.topicDetails.aliases = clearEmptyElementsInArray(this.topicDetails.aliases);
     this.topicDetails.keyHighlights = clearEmptyElementsInArray(this.topicDetails.keyHighlights);
     this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
-    console.log(this.topicDetails);
+    if (this.isEditMode) {
+      this.router.navigate(['/admin/capsules'] );
+      this.topicApi
+        .updateTopic(this.topicDetails)
+        .subscribe(res => console.log(this.topicDetails, res));
+    } else {
+      this.topicApi
+        .createTopic(this.topicDetails)
+        .subscribe(res => console.log(this.topicDetails, res));
+    }
     this.activateFirstNavTab();
-    this.topicApi
-      .createTopic(this.topicDetails)
-      .subscribe(res => console.log(this.topicDetails, res));
   }
 
   trackByIdx(index: number, obj: any): any {
@@ -59,5 +81,9 @@ export class AdminCreateTopicComponent implements OnInit {
       this.topicDetails.description &&
       this.topicDetails.name
     );
+  }
+
+  getDashboardLink() {
+    return this.isEditMode ? ['../../capsules'] : ['../capsules'];
   }
 }

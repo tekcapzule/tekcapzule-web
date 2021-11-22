@@ -39,6 +39,10 @@ const routes: Routes = [
         component: AdminCreateTopicComponent,
       },
       {
+        path: 'edittopic/:topicCode',
+        component: AdminCreateTopicComponent,
+      },
+      {
         path: '',
         redirectTo: 'capsules',
         pathMatch: 'full',
