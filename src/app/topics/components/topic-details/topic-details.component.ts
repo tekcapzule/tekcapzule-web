@@ -3,8 +3,8 @@ import { forkJoin, Observable, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 
-import { CapsuleApiService, UserApiService } from '@app/core';
-import { CapsuleItem, TopicItem, UserInfo } from '@app/shared/models';
+import { CapsuleApiService } from '@app/core';
+import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { TopicService } from '@app/topics/services/topic.service';
 
 @Component({
