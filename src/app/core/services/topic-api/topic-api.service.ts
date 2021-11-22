@@ -59,7 +59,7 @@ export class TopicApiService {
       allTopics.find(topic => topic.code === code).status = 'INACTIVE';
       sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
         body: allTopics,
-        expiry: new Date().setHours(new Date().getHours() + 24),
+        expiry: allTopicCache.expiry,
       });
     }
   }
