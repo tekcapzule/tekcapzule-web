@@ -8,9 +8,8 @@ describe('CookiePolicyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CookiePolicyComponent ]
-    })
-    .compileComponents();
+      declarations: [CookiePolicyComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

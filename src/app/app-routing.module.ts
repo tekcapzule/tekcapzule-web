@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'legaldocs',
-    loadChildren: () => import('./legal-docs/legal-docs.module').then(m => m.LegalDocsModule),
+    loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
   },
   {
     path: 'auth',
@@ -49,7 +49,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
-      scrollPositionRestoration: 'enabled'
+      scrollPositionRestoration: 'enabled',
     }),
   ],
   exports: [RouterModule],
