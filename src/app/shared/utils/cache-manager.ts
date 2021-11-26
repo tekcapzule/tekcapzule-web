@@ -15,7 +15,13 @@ class SessionCacheManager implements CacheManager {
 
   getItem(key: string): CacheItem | null {
     const item: string = window.sessionStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
+
+    if (item) {
+      this.cacheKeys.add(key);
+      return JSON.parse(item);
+    }
+
+    return null;
   }
 
   setItem(key: string, value: CacheItem): void {
@@ -28,9 +34,12 @@ class SessionCacheManager implements CacheManager {
   }
 
   removeAll(): void {
-    this.cacheKeys.forEach(key => this.removeItem(key));
+    this.cacheKeys.forEach(key => {
+      console.log('removing cache for ' + key);
+      this.removeItem(key);
+    });
   }
 }
 
-const sessionCacheManager = new SessionCacheManager();
-export { sessionCacheManager };
+const cacheManager: CacheManager = new SessionCacheManager();
+export { cacheManager };

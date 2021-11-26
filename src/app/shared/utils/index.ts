@@ -1,2 +1,2 @@
 export { Constants } from './constants';
-export { sessionCacheManager, CacheItem } from './cache-manager';
+export { cacheManager, CacheItem, CacheManager } from './cache-manager';

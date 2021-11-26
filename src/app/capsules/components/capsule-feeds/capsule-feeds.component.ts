@@ -8,8 +8,8 @@ import {
   EventChannelService,
   ChannelEvent,
   UserApiService,
+  AuthService,
 } from '@app/core';
-import { AuthService } from '@app/auth';
 
 @Component({
   selector: 'app-capsule-feeds',

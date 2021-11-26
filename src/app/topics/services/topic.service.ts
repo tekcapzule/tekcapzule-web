@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '@app/auth';
-import { UserApiService } from '@app/core';
+import { UserApiService, AuthService } from '@app/core';
 import { UserInfo } from '@app/shared/models';
 
 @Injectable({
@@ -18,7 +17,7 @@ export class TopicService {
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
-        .getUser(this.auth.getUserInfo().attributes.email, refreshCache)
+        .getUser(this.auth.getUserInfo().username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -48,7 +47,7 @@ export class TopicService {
 
     this.userApi.updateUserCache(this.userInfo);
 
-    this.userApi.followTopic(this.auth.getUserInfo().attributes.email, topicCode).subscribe(() => {
+    this.userApi.followTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
       this.fetchUserInfo(true);
     });
   }
@@ -71,7 +70,7 @@ export class TopicService {
     this.userApi.updateUserCache(this.userInfo);
 
     this.userApi
-      .unfollowTopic(this.auth.getUserInfo().attributes.email, topicCode)
+      .unfollowTopic(this.auth.getUserInfo().username, topicCode)
       .subscribe(() => {
         this.fetchUserInfo(true);
       });

@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { sessionCacheManager } from '@app/shared/utils';
+import { cacheManager } from '@app/shared/utils';
 import { ApiSuccess, UserInfo } from '@app/shared/models';
 
 const USER_API_PATH = `${environment.apiEndpointTemplate}/user`.replace(
   '{{gateway}}',
   environment.userApiGateway
 );
+
+const USER_INFO_CACHE_KEY = 'com.tekcapsule.user.info';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +32,7 @@ export class UserApiService {
           cache: 'yes',
           expiry: '12',
           refresh: refreshCache ? 'yes' : 'no',
+          ckey: USER_INFO_CACHE_KEY,
         },
       }
     );
@@ -57,15 +60,14 @@ export class UserApiService {
 
   getUserCache(): UserInfo | null {
     const userCacheKey = `${USER_API_PATH}/get`;
-    const cache = sessionCacheManager.getItem(userCacheKey);
+    const cache = cacheManager.getItem(userCacheKey);
     return cache ? (cache.body as UserInfo) : null;
   }
 
   updateUserCache(userInfo: UserInfo): void {
-    const userCacheKey = `${USER_API_PATH}/get`;
     const current = new Date();
     current.setHours(current.getHours() + 12);
-    sessionCacheManager.setItem(userCacheKey, {
+    cacheManager.setItem(USER_INFO_CACHE_KEY, {
       body: userInfo,
       expiry: current.getTime(),
     });

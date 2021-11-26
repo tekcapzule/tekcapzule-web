@@ -2,9 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
-import { CapsuleApiService, UserApiService } from '@app/core';
+import { CapsuleApiService, UserApiService, AuthService, AwsUserInfo } from '@app/core';
 import { CapsuleBadge, CapsuleItem, UserInfo } from '@app/shared/models';
-import { AuthService, AwsUserInfo } from '@app/auth';
 
 @Component({
   selector: 'app-capsule-card',
@@ -34,7 +33,7 @@ export class CapsuleCardComponent implements OnInit {
       this.awsUserInfo = this.auth.getUserInfo();
 
       this.userApi
-        .getUser(this.awsUserInfo.attributes.email, refreshCache)
+        .getUser(this.awsUserInfo.username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -71,7 +70,7 @@ export class CapsuleCardComponent implements OnInit {
     }
 
     this.userApi
-      .bookmarCapsule(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
+      .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
       .pipe(
         tap(() => {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
@@ -96,7 +95,7 @@ export class CapsuleCardComponent implements OnInit {
     }
 
     this.userApi
-      .removeCapsuleBookmark(this.awsUserInfo.attributes.email, this.capsule.capsuleId)
+      .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
       .subscribe(() => {
         this.fetchUserInfo(true);
       });

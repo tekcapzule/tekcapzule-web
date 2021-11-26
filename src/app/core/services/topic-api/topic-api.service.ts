@@ -4,12 +4,14 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { TopicItem } from '@app/shared/models';
-import { sessionCacheManager } from '@app/shared/utils';
+import { cacheManager } from '@app/shared/utils';
 
 const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`.replace(
   '{{gateway}}',
   environment.topicApiGateway
 );
+
+const TOPICS_ALLTOPICS_CACHE_KEY = 'com.tekcapsule.topics.alltopics';
 
 @Injectable({
   providedIn: 'root',
@@ -29,17 +31,18 @@ export class TopicApiService {
         params: {
           cache: 'yes',
           expiry: '24',
+          ckey: TOPICS_ALLTOPICS_CACHE_KEY,
         },
       }
     );
   }
 
   createTopic(topic: any): Observable<any> {
-    const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
+    const allTopicCache = cacheManager.getItem(TOPICS_ALLTOPICS_CACHE_KEY);
     if (allTopicCache) {
       const allTopics = allTopicCache.body as TopicItem[];
       allTopics.push(topic);
-      sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
+      cacheManager.setItem(TOPICS_ALLTOPICS_CACHE_KEY, {
         body: allTopics,
         expiry: allTopicCache.expiry,
       });
@@ -49,12 +52,12 @@ export class TopicApiService {
   }
 
   disableTopic(code: string): Observable<any> {
-    const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
+    const allTopicCache = cacheManager.getItem(TOPICS_ALLTOPICS_CACHE_KEY);
 
     if (allTopicCache) {
       const allTopics = allTopicCache.body as TopicItem[];
       allTopics.find(topic => topic.code === code).status = 'INACTIVE';
-      sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
+      cacheManager.setItem(TOPICS_ALLTOPICS_CACHE_KEY, {
         body: allTopics,
         expiry: allTopicCache.expiry,
       });
@@ -67,12 +70,12 @@ export class TopicApiService {
   }
 
   updateTopic(topic: any): Observable<any> {
-    const allTopicCache = sessionCacheManager.getItem(`${TOPIC_API_PATH}/getAll`);
+    const allTopicCache = cacheManager.getItem(TOPICS_ALLTOPICS_CACHE_KEY);
     if (allTopicCache) {
       let allTopics = allTopicCache.body as TopicItem[];
       allTopics = allTopics.filter(t => t.code !== topic.code);
       allTopics.push(topic);
-      sessionCacheManager.setItem(`${TOPIC_API_PATH}/getAll`, {
+      cacheManager.setItem(TOPICS_ALLTOPICS_CACHE_KEY, {
         body: allTopics,
         expiry: allTopicCache.expiry,
       });

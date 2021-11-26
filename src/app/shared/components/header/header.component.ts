@@ -2,8 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 
-import { AuthService } from '@app/auth/services/auth.service';
-import { TopicApiService } from '@app/core';
+import { TopicApiService, AuthService, AwsUserInfo } from '@app/core';
 import { TopicItem } from '@app/shared/models';
 
 @Component({
@@ -15,7 +14,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild(MatMenuTrigger) globalSearchTrigger: MatMenuTrigger;
 
   isLoggedIn = false;
-  userDetails = null;
+  userDetails: AwsUserInfo = null;
   searchInputValue = '';
   topics: TopicItem[] = [];
   searchedTopics: TopicItem[] = [];

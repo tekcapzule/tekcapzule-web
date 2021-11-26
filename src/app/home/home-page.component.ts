@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { take } from 'rxjs/operators';
 
-import { CapsuleApiService, SubscriptionApiService, UserApiService } from '@app/core';
+import { CapsuleApiService, SubscriptionApiService, UserApiService, AuthService } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
-import { AuthService } from '@app/auth';
 
 declare const jQuery: any;
 
@@ -27,7 +26,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     if (this.auth.isUserLoggedIn()) {
-      this.userApi.getUser(this.auth.getUserInfo().attributes.email).subscribe();
+      this.userApi.getUser(this.auth.getUserInfo().username).subscribe();
     }
 
     this.capsuleApi.getEditorsPickCapsules().subscribe(capsules => {

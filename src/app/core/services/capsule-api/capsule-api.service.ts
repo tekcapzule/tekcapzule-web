@@ -4,12 +4,17 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { CapsuleItem } from '@app/shared/models';
-import { sessionCacheManager } from '@app/shared/utils';
+import { cacheManager } from '@app/shared/utils';
 
 const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`.replace(
   '{{gateway}}',
   environment.capsuleApiGateway
 );
+
+const CAPSULE_MYFEEDS_CACHE_KEY = 'com.tekcapsule.capsules.myfeeds';
+const CAPSULE_TRENDING_CACHE_KEY = 'com.tekcapsule.capsules.trending';
+const CAPSULE_EDITORSPICK_CACHE_KEY = 'com.tekcapsule.capsules.editorspick';
+const CAPSULE_PENDING_APPROVAL_CACHE_KEY = 'com.tekcapsule.capsules.pending.approval';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +35,7 @@ export class CapsuleApiService {
           cache: 'yes',
           expiry: '12',
           refresh: refreshCache ? 'yes' : 'no',
+          ckey: CAPSULE_MYFEEDS_CACHE_KEY,
         },
       }
     );
@@ -44,6 +50,7 @@ export class CapsuleApiService {
           cache: 'yes',
           expiry: '12',
           refresh: refreshCache ? 'yes' : 'no',
+          ckey: CAPSULE_TRENDING_CACHE_KEY,
         },
       }
     );
@@ -57,6 +64,7 @@ export class CapsuleApiService {
         params: {
           cache: 'yes',
           expiry: '24',
+          ckey: CAPSULE_EDITORSPICK_CACHE_KEY,
         },
       }
     );
@@ -70,21 +78,20 @@ export class CapsuleApiService {
         params: {
           cache: 'yes',
           expiry: '24',
+          ckey: CAPSULE_PENDING_APPROVAL_CACHE_KEY,
         },
       }
     );
   }
 
   disableCapsule(capsuleId: string): Observable<CapsuleItem> {
-    const pendingCapsuleCache = sessionCacheManager.getItem(
-      `${CAPSULE_API_PATH}/getPendingApproval`
-    );
+    const pendingCapsuleCache = cacheManager.getItem(`${CAPSULE_API_PATH}/getPendingApproval`);
 
     if (pendingCapsuleCache) {
       const pendingCapsules = (pendingCapsuleCache.body as CapsuleItem[]).filter(
         capsule => capsule.capsuleId !== capsuleId
       );
-      sessionCacheManager.setItem(`${CAPSULE_API_PATH}/getPendingApproval`, {
+      cacheManager.setItem(`${CAPSULE_API_PATH}/getPendingApproval`, {
         body: pendingCapsules,
         expiry: pendingCapsuleCache.expiry,
       });

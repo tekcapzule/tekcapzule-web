@@ -16,6 +16,7 @@ import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule,
     CoreModule,
     AuthModule,

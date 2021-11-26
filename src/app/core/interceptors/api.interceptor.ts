@@ -7,10 +7,10 @@ export class ApiInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const userId = request?.body?.userId ?? 'guest';
+
     request = request.clone({
-      headers: request.headers
-        .set('X-User-Login', 'linjith.kunnon@gmail.com')
-        .set('X-Channel-Code', 'WEB_CLIENT'),
+      headers: request.headers.set('X-User-Login', userId).set('X-Channel-Code', 'WEB_CLIENT'),
     });
 
     return next.handle(request);

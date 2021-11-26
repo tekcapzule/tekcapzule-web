@@ -3,9 +3,15 @@ import { Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
-import { EventChannelService, ChannelEvent, TopicApiService, UserApiService } from '@app/core';
+import {
+  EventChannelService,
+  ChannelEvent,
+  TopicApiService,
+  UserApiService,
+  AuthService,
+} from '@app/core';
 import { NavTab, TopicItem, UserInfo } from '@app/shared/models';
-import { AuthService } from '@app/auth';
+
 import { Constants } from '@app/shared/utils';
 
 declare const jQuery: any;
@@ -71,7 +77,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
-        .getUser(this.auth.getUserInfo().attributes.email, refreshCache)
+        .getUser(this.auth.getUserInfo().username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -162,7 +168,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
     const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
 
-    this.userApi.followTopic(this.auth.getUserInfo().attributes.email, topicCode).subscribe(() => {
+    this.userApi.followTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
       this.fetchUserInfo(true);
     });
 
@@ -189,7 +195,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       : [];
 
     this.userApi
-      .unfollowTopic(this.auth.getUserInfo().attributes.email, topicCode)
+      .unfollowTopic(this.auth.getUserInfo().username, topicCode)
       .subscribe(() => {
         this.fetchUserInfo(true);
       });
