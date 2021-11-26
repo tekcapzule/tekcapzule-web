@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+
+import { AuthService } from '@app/core';
 
 @Component({
   selector: 'app-signin',
@@ -6,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  constructor() {}
+  errorMessage = '';
 
-  ngOnInit(): void {}
+  constructor(private zone: NgZone, private auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.auth.onSignInErrorChange().subscribe(message => {
+      this.zone.run(() => {
+        this.errorMessage = message;
+      });
+    });
+  }
 }

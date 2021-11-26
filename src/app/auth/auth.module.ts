@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import { AmplifyService } from 'aws-amplify-angular';
@@ -11,5 +11,6 @@ import { SigninComponent } from './components/signin/signin.component';
   declarations: [AuthPageComponent, SigninComponent],
   imports: [CommonModule, AmplifyUIAngularModule, AuthRoutingModule],
   providers: [AmplifyService],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AuthModule {}

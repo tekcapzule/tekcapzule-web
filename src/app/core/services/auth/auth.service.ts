@@ -7,6 +7,7 @@ import { Constants, cacheManager } from '@app/shared/utils';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
 import { catchError, map } from 'rxjs/operators';
 import { UserInfoImpl } from '@app/shared/models';
+import { warn } from 'console';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -44,23 +45,30 @@ export interface AwsUserInfo {
 export class AuthService {
   private isLoggedIn = false;
   private userInfo: AwsUserInfo = null;
-  private loggedInStatusChange = new BehaviorSubject(this.isLoggedIn);
+  private loggedInStatusChange$ = new BehaviorSubject<boolean>(this.isLoggedIn);
+  private signInErrorChange$ = new BehaviorSubject<string>('');
 
   constructor(private amplify: AmplifyService, private userApi: UserApiService) {
     this.authenticateUser();
 
     Hub.listen('auth', data => {
       const { payload } = data;
-      this.authEventChanged(payload.event);
+      this.authEventChanged(payload.event, payload.data);
     });
   }
 
-  private authEventChanged(authEvent: string): void {
+  private authEventChanged(authEvent: string, authData: any): void {
     if (authEvent === 'signIn') {
       this.authenticateUser();
     } else if (authEvent === 'signOut') {
       this.invalidateUser();
+    } else if (authEvent === 'signIn_failure') {
+      this.handleSignInFailure(authData);
     }
+  }
+
+  private handleSignInFailure(data: any): void {
+    this.signInErrorChange$.next(data.message || 'Signin failed');
   }
 
   private createUserIfDoesNotExist(user: AwsUserInfo): void {
@@ -85,7 +93,8 @@ export class AuthService {
   private invalidateUser(): void {
     this.userInfo = null;
     this.isLoggedIn = false;
-    this.loggedInStatusChange.next(this.isLoggedIn);
+    this.loggedInStatusChange$.next(this.isLoggedIn);
+    this.signInErrorChange$.next('');
     cacheManager.removeAll();
   }
 
@@ -96,11 +105,11 @@ export class AuthService {
       .then((user: AwsUserInfo) => {
         this.userInfo = user;
         this.isLoggedIn = true;
-        this.loggedInStatusChange.next(this.isLoggedIn);
+        this.loggedInStatusChange$.next(this.isLoggedIn);
+        this.signInErrorChange$.next('');
         this.createUserIfDoesNotExist(user);
       })
-      .catch(e => {
-        console.warn('TekCapsuleAuthError: ', e);
+      .catch(() => {
         this.invalidateUser();
       });
   }
@@ -110,7 +119,11 @@ export class AuthService {
   }
 
   public onLoggedInStatusChange(): Observable<boolean> {
-    return this.loggedInStatusChange.asObservable();
+    return this.loggedInStatusChange$.asObservable();
+  }
+
+  public onSignInErrorChange(): Observable<string> {
+    return this.signInErrorChange$.asObservable();
   }
 
   public getUserInfo(): AwsUserInfo {

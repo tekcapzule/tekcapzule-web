@@ -28,10 +28,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
-      this.isLoggedIn = isLoggedIn;
-      this.userDetails = this.auth.getUserInfo();
       this.zone.run(() => {
         this.isLoggedIn = isLoggedIn;
+        this.userDetails = this.auth.getUserInfo();
         this.router.navigateByUrl('/home');
       });
     });

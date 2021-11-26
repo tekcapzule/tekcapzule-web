@@ -35,11 +35,41 @@ class SessionCacheManager implements CacheManager {
 
   removeAll(): void {
     this.cacheKeys.forEach(key => {
-      console.log('removing cache for ' + key);
       this.removeItem(key);
     });
   }
 }
 
-const cacheManager: CacheManager = new SessionCacheManager();
+class LocalCacheManager implements CacheManager {
+  private cacheKeys = new Set<string>();
+
+  getItem(key: string): CacheItem | null {
+    const item: string = window.localStorage.getItem(key);
+
+    if (item) {
+      this.cacheKeys.add(key);
+      return JSON.parse(item);
+    }
+
+    return null;
+  }
+
+  setItem(key: string, value: CacheItem): void {
+    window.localStorage.setItem(key, JSON.stringify(value));
+    this.cacheKeys.add(key);
+  }
+
+  removeItem(key: string): void {
+    window.localStorage.removeItem(key);
+  }
+
+  removeAll(): void {
+    this.cacheKeys.forEach(key => {
+      this.removeItem(key);
+    });
+  }
+}
+
+// const cacheManager: CacheManager = new SessionCacheManager();
+const cacheManager: CacheManager = new LocalCacheManager();
 export { cacheManager };
