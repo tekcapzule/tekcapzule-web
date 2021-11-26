@@ -3,11 +3,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
-import { Constants, cacheManager } from '@app/shared/utils';
+import { Constants } from '@app/shared/utils';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { UserInfoImpl } from '@app/shared/models';
-import { warn } from 'console';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -95,7 +94,7 @@ export class AuthService {
     this.isLoggedIn = false;
     this.loggedInStatusChange$.next(this.isLoggedIn);
     this.signInErrorChange$.next('');
-    cacheManager.removeAll();
+    this.userApi.deleteUserCache();
   }
 
   private authenticateUser(): void {

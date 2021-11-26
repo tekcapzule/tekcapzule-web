@@ -75,4 +75,8 @@ export class UserApiService {
   isUserCacheExists(): boolean {
     return cacheManager.getItem(USER_INFO_CACHE_KEY) ? true : false;
   }
+
+  deleteUserCache(): void {
+    cacheManager.removeItem(USER_INFO_CACHE_KEY);
+  }
 }
