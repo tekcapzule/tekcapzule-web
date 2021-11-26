@@ -38,6 +38,10 @@ export class UserApiService {
     );
   }
 
+  createUser(user: UserInfo): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/create`, user);
+  }
+
   bookmarCapsule(userId: string, capsuleId: string): Observable<any> {
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, capsuleId });
   }
@@ -54,13 +58,8 @@ export class UserApiService {
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/unfollow`, { userId, topicCode });
   }
 
-  createUser(): void {
-    throw new Error('Not yet implemented.');
-  }
-
   getUserCache(): UserInfo | null {
-    const userCacheKey = `${USER_API_PATH}/get`;
-    const cache = cacheManager.getItem(userCacheKey);
+    const cache = cacheManager.getItem(USER_INFO_CACHE_KEY);
     return cache ? (cache.body as UserInfo) : null;
   }
 
@@ -71,5 +70,9 @@ export class UserApiService {
       body: userInfo,
       expiry: current.getTime(),
     });
+  }
+
+  isUserCacheExists(): boolean {
+    return cacheManager.getItem(USER_INFO_CACHE_KEY) ? true : false;
   }
 }

@@ -4,6 +4,9 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
 
 import { Constants, cacheManager } from '@app/shared/utils';
+import { UserApiService } from '@app/core/services/user-api/user-api.service';
+import { catchError, map } from 'rxjs/operators';
+import { UserInfoImpl } from '@app/shared/models';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -15,9 +18,6 @@ export interface AwsUserInfo {
     phone_number: string;
     phone_number_verified: boolean;
     sub: string;
-  };
-  pool: {
-    clientId: string;
   };
   signInUserSession: {
     accessToken: {
@@ -46,43 +46,40 @@ export class AuthService {
   private userInfo: AwsUserInfo = null;
   private loggedInStatusChange = new BehaviorSubject(this.isLoggedIn);
 
-  constructor(private amplify: AmplifyService) {
+  constructor(private amplify: AmplifyService, private userApi: UserApiService) {
     this.authenticateUser();
 
     Hub.listen('auth', data => {
       const { payload } = data;
-      this.authEventChanged(payload.event, payload.data);
+      this.authEventChanged(payload.event);
     });
   }
 
-  // TODO: Added only for dev purpose. To be removed once suser signin flow is fixed.
-  private autoSigninUserForAppDevelopment(): void {
-    this.isLoggedIn = true;
-    // this.userInfo = {
-    //   username: 'linjith',
-    //   attributes: {
-    //     email: 'linjith.kunnon@gmail.com',
-    //     email_verified: true,
-    //     sub: 'qwerty1234567890qwerty',
-    //   },
-    // };
-    this.loggedInStatusChange.next(true);
-  }
-
-  private authEventChanged(authEvent: string, data: any): void {
+  private authEventChanged(authEvent: string): void {
     if (authEvent === 'signIn') {
       this.authenticateUser();
     } else if (authEvent === 'signOut') {
       this.invalidateUser();
-    } else if (authEvent === 'signUp') {
-      this.createUser(data);
     }
   }
 
-  private createUser(data: any): void {
-    // TODO: Create and user using userApiService.createUser() endpoint.
-    // TODO: Implement userApiService.createUser().
-    console.log('after:signUp::', data);
+  private createUserIfDoesNotExist(user: AwsUserInfo): void {
+    if (!this.userApi.isUserCacheExists()) {
+      const newUserInfo = new UserInfoImpl(
+        user.username,
+        user.attributes.email,
+        user.attributes.phone_number
+      );
+
+      this.userApi.updateUserCache(newUserInfo);
+
+      this.userApi
+        .getUser(user.username, true)
+        .pipe(catchError(() => this.userApi.createUser(newUserInfo)))
+        .subscribe();
+    } else {
+      this.userApi.getUser(user.username, true).subscribe();
+    }
   }
 
   private invalidateUser(): void {
@@ -90,9 +87,6 @@ export class AuthService {
     this.isLoggedIn = false;
     this.loggedInStatusChange.next(this.isLoggedIn);
     cacheManager.removeAll();
-
-    // TODO: Remove next line.
-    // this.autoSigninUserForAppDevelopment();
   }
 
   private authenticateUser(): void {
@@ -100,10 +94,10 @@ export class AuthService {
       .auth()
       .currentAuthenticatedUser()
       .then((user: AwsUserInfo) => {
-        console.log('after:authenticateUser::', user);
         this.userInfo = user;
         this.isLoggedIn = true;
         this.loggedInStatusChange.next(this.isLoggedIn);
+        this.createUserIfDoesNotExist(user);
       })
       .catch(e => {
         console.warn('TekCapsuleAuthError: ', e);

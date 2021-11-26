@@ -1,4 +1,4 @@
 export interface ApiSuccess {
-  statuscode: number;
+  code: string;
   message?: string;
 }
