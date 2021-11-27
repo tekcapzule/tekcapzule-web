@@ -3,9 +3,8 @@ import { forkJoin, Observable, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 
-import { CapsuleApiService } from '@app/core';
+import { CapsuleApiService, TopicApiService } from '@app/core';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
-import { TopicService } from '@app/topics/services/topic.service';
 
 @Component({
   selector: 'app-topic-details',
@@ -20,7 +19,7 @@ export class TopicDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private capsuleApi: CapsuleApiService,
-    private topicService: TopicService
+    private topicApi: TopicApiService
   ) {}
 
   ngOnInit(): void {
@@ -50,14 +49,14 @@ export class TopicDetailsComponent implements OnInit, OnDestroy {
   }
 
   isFollowingTopic(): boolean {
-    return this.topicService.isFollowingTopic(this.topic.code);
+    return this.topicApi.isFollowingTopic(this.topic.code);
   }
 
   followTopic(): void {
-    this.topicService.followTopic(this.topic.code);
+    this.topicApi.followTopic(this.topic.code);
   }
 
   unfollowTopic(): void {
-    this.topicService.unfollowTopic(this.topic.code);
+    this.topicApi.unfollowTopic(this.topic.code);
   }
 }

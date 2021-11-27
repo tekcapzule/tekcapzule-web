@@ -85,13 +85,14 @@ export class CapsuleApiService {
   }
 
   disableCapsule(capsuleId: string): Observable<CapsuleItem> {
-    const pendingCapsuleCache = cacheManager.getItem(`${CAPSULE_API_PATH}/getPendingApproval`);
+    const pendingCapsuleCache = cacheManager.getItem(CAPSULE_PENDING_APPROVAL_CACHE_KEY);
 
     if (pendingCapsuleCache) {
       const pendingCapsules = (pendingCapsuleCache.body as CapsuleItem[]).filter(
         capsule => capsule.capsuleId !== capsuleId
       );
-      cacheManager.setItem(`${CAPSULE_API_PATH}/getPendingApproval`, {
+
+      cacheManager.setItem(CAPSULE_PENDING_APPROVAL_CACHE_KEY, {
         body: pendingCapsules,
         expiry: pendingCapsuleCache.expiry,
       });

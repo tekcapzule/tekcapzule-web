@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Hub } from 'aws-amplify';
+import { catchError } from 'rxjs/operators';
 
 import { Constants } from '@app/shared/utils';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
-import { catchError } from 'rxjs/operators';
 import { UserInfoImpl } from '@app/shared/models';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);

@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserApiService } from '@app/core';
+import { TopicApiService, UserApiService } from '@app/core';
 import { TopicItem, UserInfo } from '@app/shared/models';
-import { TopicService } from '@app/topics/services/topic.service';
 
 @Component({
   selector: 'app-topic-card',
@@ -18,7 +17,7 @@ export class TopicCardComponent implements OnInit {
   constructor(
     private router: Router,
     private userApi: UserApiService,
-    private topicService: TopicService
+    private topicApi: TopicApiService
   ) {}
 
   ngOnInit(): void {
@@ -34,14 +33,14 @@ export class TopicCardComponent implements OnInit {
   }
 
   isFollowingTopic(): boolean {
-    return this.topicService.isFollowingTopic(this.topic.code);
+    return this.topicApi.isFollowingTopic(this.topic.code);
   }
 
   followTopic(): void {
-    this.topicService.followTopic(this.topic.code);
+    this.topicApi.followTopic(this.topic.code);
   }
 
   unfollowTopic(): void {
-    this.topicService.unfollowTopic(this.topic.code);
+    this.topicApi.unfollowTopic(this.topic.code);
   }
 }
