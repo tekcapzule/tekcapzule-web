@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { CapsuleItem } from '@app/shared/models';
+import { ApiSuccess, CapsuleItem } from '@app/shared/models';
 import { cacheManager } from '@app/shared/utils';
 
 const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`.replace(
@@ -70,7 +70,7 @@ export class CapsuleApiService {
     );
   }
 
-  getPendingApproval(): Observable<CapsuleItem[]> {
+  getPendingApproval(refreshCache?: boolean): Observable<CapsuleItem[]> {
     return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getPendingApproval`,
       {},
@@ -78,6 +78,7 @@ export class CapsuleApiService {
         params: {
           cache: 'yes',
           expiry: '24',
+          refresh: refreshCache ? 'yes' : 'no',
           ckey: CAPSULE_PENDING_APPROVAL_CACHE_KEY,
         },
       }
@@ -105,15 +106,19 @@ export class CapsuleApiService {
     return this.httpClient.post<CapsuleItem>(`${CAPSULE_API_PATH}/get`, { capsuleId });
   }
 
-  updateCapsuleViewCount(capsuleId: string): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/view`, { capsuleId });
+  updateCapsuleViewCount(capsuleId: string): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/view`, { capsuleId });
   }
 
-  updateCapsuleRecommendCount(capsuleId: string): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/recommend`, { capsuleId });
+  updateCapsuleRecommendCount(capsuleId: string): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/recommend`, { capsuleId });
   }
 
-  updateCapsuleBookmarkCount(capsuleId: string): Observable<any> {
-    return this.httpClient.post(`${CAPSULE_API_PATH}/bookmark`, { capsuleId });
+  updateCapsuleBookmarkCount(capsuleId: string): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/bookmark`, { capsuleId });
+  }
+
+  approveCapsule(capsuleId: string): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/approve`, { capsuleId });
   }
 }

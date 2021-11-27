@@ -45,7 +45,12 @@
                 *ngFor="let item of column.actionItems"
                 (click)="item.actionCallback(element)"
               >
-                <img [src]="item.iconUrl" [alt]="item.actionId" class="pr-2" />
+                <img
+                  [src]="item.iconUrl"
+                  [alt]="item.actionId"
+                  [title]="item.actionId"
+                  class="pr-2"
+                />
               </button>
             </ng-container>
           </td>

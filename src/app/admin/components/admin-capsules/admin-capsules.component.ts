@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
-import { CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService } from '@app/core';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -87,6 +88,11 @@ export class AdminCapsulesComponent implements OnInit {
           iconUrl: '/assets/images/delete.svg',
           actionCallback: this.deleteActionCallback.bind(this),
         },
+        {
+          actionId: 'approve',
+          iconUrl: '/assets/images/check.svg',
+          actionCallback: this.approveActionCallback.bind(this),
+        },
       ],
     },
   ];
@@ -95,27 +101,40 @@ export class AdminCapsulesComponent implements OnInit {
 
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  constructor(private capsuleApiService: CapsuleApiService) {}
+  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
-    this.capsuleApiService.getPendingApproval().subscribe(pendingCapsules => {
-      this.capsulePendingApproval = pendingCapsules;
-      this.adminCapsulesData = this.capsulePendingApproval.map(
-        capsule =>
-          new AdminCapsuleDataItemImpl(
-            capsule.title,
-            capsule.author,
-            capsule.publishedDate,
-            capsule.tags,
-            capsule.duration,
-            capsule.type,
-            capsule.description,
-            capsule.quizzes ? capsule.quizzes.length : 0,
-            capsule.status,
-            capsule.capsuleId
-          )
-      );
-    });
+    this.fetchPendingApprovalCapsules();
+  }
+
+  fetchPendingApprovalCapsules(refreshCache?: boolean): void {
+    this.spinner.show();
+
+    this.capsuleApi
+      .getPendingApproval(refreshCache)
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(pendingCapsules => {
+        this.capsulePendingApproval = pendingCapsules;
+        this.adminCapsulesData = this.capsulePendingApproval.map(
+          capsule =>
+            new AdminCapsuleDataItemImpl(
+              capsule.title,
+              capsule.author,
+              capsule.publishedDate,
+              capsule.tags,
+              capsule.duration,
+              capsule.type,
+              capsule.description,
+              capsule.quizzes ? capsule.quizzes.length : 0,
+              capsule.status,
+              capsule.capsuleId
+            )
+        );
+      });
   }
 
   editActionCallback(row: AdminCapsuleDataItem): void {
@@ -123,8 +142,15 @@ export class AdminCapsulesComponent implements OnInit {
   }
 
   deleteActionCallback(row: AdminCapsuleDataItem): void {
-    this.capsuleApiService
+    this.capsuleApi
       .disableCapsule(row.capsuleId)
       .subscribe(capsule => console.log('capsule disabled : ', capsule));
+  }
+
+  approveActionCallback(row: AdminCapsuleDataItem): void {
+    this.capsuleApi.approveCapsule(row.capsuleId).subscribe(() => {
+      console.log('capsule appproved: ', row.capsuleId);
+      this.fetchPendingApprovalCapsules(true);
+    });
   }
 }
