@@ -62,7 +62,7 @@ body {
   text-align: start !important;
   justify-content: initial !important;
   margin-right: 70px;
-  @media only screen and (max-width: 990px) { 
+  @media only screen and (max-width: 990px) {
     margin-right: 50px;
   }
 }
@@ -76,10 +76,10 @@ body {
   table.mat-table {
     width: 100%;
     border: 0 !important;
-    @media only screen and (max-width: 990px) { 
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    @media only screen and (max-width: 990px) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     tr.mat-header-row {
       border-top: 0;
@@ -96,6 +96,18 @@ body {
         &.title-column {
           color: #4b579a !important;
           font-weight: 700;
+        }
+        &.custom-title-col {
+          max-width: 300px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &.custom-description-col {
+          max-width: 400px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
         .badge.badge-light {
           color: #454964;
@@ -119,16 +131,16 @@ body {
 
 /*******Login Page*********/
 
-.anchor:active{
-   color: #e7245f !important;
-  }
-  :root {
-    --amplify-primary-color: #e30045;
-    --amplify-primary-tint: #3f6060;
-    //--amplify-primary-shade: #2dba89;
-    //--amplify-background-color: #e0faf4;
-  }
+.anchor:active {
+  color: #e7245f !important;
+}
+:root {
+  --amplify-primary-color: #e30045;
+  --amplify-primary-tint: #3f6060;
+  //--amplify-primary-shade: #2dba89;
+  //--amplify-background-color: #e0faf4;
+}
 
-  body.modal-open {
-    overflow: hidden;
+body.modal-open {
+  overflow: hidden;
 }

@@ -16,11 +16,12 @@ export class AdminTopicsComponent implements OnInit {
     {
       columnId: 'topicName',
       columnName: 'Topic Name',
-      clazz: ['title-column'],
+      clazz: ['title-column', 'custom-title-col'],
     },
     {
       columnId: 'description',
       columnName: 'Description',
+      clazz: ['custom-description-col'],
     },
     {
       columnId: 'tags',

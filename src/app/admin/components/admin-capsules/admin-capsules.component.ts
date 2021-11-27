@@ -14,7 +14,7 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'capsuleTitle',
       columnName: 'Capsule Title',
-      clazz: ['title-column'],
+      clazz: ['title-column', 'custom-title-col'],
     },
     {
       columnId: 'author',
@@ -50,18 +50,8 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'description',
       columnName: 'Description',
+      clazz: ['custom-description-col'],
     },
-    // {
-    //   columnId: 'keyHighlights',
-    //   columnName: 'Key Highlights',
-    //   disableSort: true,
-    //   columnFormatter: (value: number) => {
-    //     return `
-    //       <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
-    //         ${value}
-    //       </span>`;
-    //   },
-    // },
     {
       columnId: 'questions',
       columnName: 'Questions',
