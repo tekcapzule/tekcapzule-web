@@ -148,9 +148,18 @@ export class AdminCapsulesComponent implements OnInit {
   }
 
   approveActionCallback(row: AdminCapsuleDataItem): void {
-    this.capsuleApi.approveCapsule(row.capsuleId).subscribe(() => {
-      console.log('capsule appproved: ', row.capsuleId);
-      this.fetchPendingApprovalCapsules(true);
-    });
+    this.spinner.show();
+
+    this.capsuleApi
+      .approveCapsule(row.capsuleId)
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(() => {
+        console.log('capsule appproved: ', row.capsuleId);
+        this.fetchPendingApprovalCapsules(true);
+      });
   }
 }
