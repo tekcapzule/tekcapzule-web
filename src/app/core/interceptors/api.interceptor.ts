@@ -9,11 +9,21 @@ export class ApiInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const userId = this.auth.isUserLoggedIn() ? this.auth.getUserInfo().username : 'guest';
+    const userInfo = this.auth.isUserLoggedIn() ? this.auth.getUserInfo() : null;
+    const loggedInUserName = userInfo ? userInfo.username : 'guest';
+    const authToken = userInfo ? userInfo?.signInUserSession?.accessToken?.jwtToken : null;
 
     request = request.clone({
-      headers: request.headers.set('X-User-Login', userId).set('X-Channel-Code', 'WEB_CLIENT'),
+      headers: request.headers
+        .set('X-User-Login', loggedInUserName)
+        .set('X-Channel-Code', 'WEB_CLIENT'),
     });
+
+    if (this.auth.isUserLoggedIn() && authToken) {
+      request = request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${authToken}`),
+      });
+    }
 
     return next.handle(request);
   }
