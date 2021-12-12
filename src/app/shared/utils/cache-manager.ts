@@ -10,7 +10,7 @@ export interface CacheManager {
   removeAll: () => void;
 }
 
-class SessionCacheManager implements CacheManager {
+class SessionStorageCacheManager implements CacheManager {
   private cacheKeys = new Set<string>();
 
   getItem(key: string): CacheItem | null {
@@ -40,7 +40,7 @@ class SessionCacheManager implements CacheManager {
   }
 }
 
-class LocalCacheManager implements CacheManager {
+class LocalStorageCacheManager implements CacheManager {
   private cacheKeys = new Set<string>();
 
   getItem(key: string): CacheItem | null {
@@ -70,6 +70,5 @@ class LocalCacheManager implements CacheManager {
   }
 }
 
-// const cacheManager: CacheManager = new SessionCacheManager();
-const cacheManager: CacheManager = new LocalCacheManager();
+const cacheManager: CacheManager = new LocalStorageCacheManager();
 export { cacheManager };
