@@ -9,6 +9,8 @@ import { CollaborateForm } from '@app/mission/models/collaborate-form.model';
   styleUrls: ['./collaborate-form.component.scss'],
 })
 export class CollaborateFormComponent implements OnInit {
+  emailValidationRegEx = '.+@.+..+';
+
   constructor(private feedbackApi: FeedbackApiService) {}
 
   collaborateForm = new CollaborateForm();
@@ -16,7 +18,10 @@ export class CollaborateFormComponent implements OnInit {
   ngOnInit(): void {}
 
   isFormValid(): boolean {
-    return !Object.values(this.collaborateForm).some(x => x === '');
+    return (
+      !Object.values(this.collaborateForm).some(x => x === '') &&
+      new RegExp(this.emailValidationRegEx).test(this.collaborateForm.emailId)
+    );
   }
 
   onCollabFormSubmit(): void {
