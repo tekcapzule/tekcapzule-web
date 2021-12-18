@@ -1,6 +1,9 @@
 @import "../../../../assets/styles/variables.scss";
 
 .contact-form {
+  input:invalid {
+    border:1px solid red;
+  }
   button:disabled,
   button[disabled] {
     border: 0px solid #999999;
