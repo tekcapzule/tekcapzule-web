@@ -76,9 +76,7 @@ export class CapsuleCardComponent implements OnInit {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
         })
       )
-      .subscribe(() => {
-        this.fetchUserInfo(true);
-      });
+      .subscribe(() => {});
 
     this.userInfo = {
       ...this.userInfo,
@@ -96,9 +94,7 @@ export class CapsuleCardComponent implements OnInit {
 
     this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
-      .subscribe(() => {
-        this.fetchUserInfo(true);
-      });
+      .subscribe(() => {});
 
     this.userInfo = {
       ...this.userInfo,

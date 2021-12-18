@@ -43,10 +43,20 @@ export class UserApiService {
   }
 
   bookmarCapsule(userId: string, capsuleId: string): Observable<any> {
+    const userInfo = this.getUserCache();
+    if (userInfo && userInfo.bookmarks) {
+      userInfo.bookmarks.push(capsuleId);
+      this.updateUserCache(userInfo);
+    }
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, capsuleId });
   }
 
   removeCapsuleBookmark(userId: string, capsuleId: string): Observable<any> {
+    const userInfo = this.getUserCache();
+    if (userInfo && userInfo.bookmarks) {
+      userInfo.bookmarks = userInfo.bookmarks.filter(bm => bm !== capsuleId);
+      this.updateUserCache(userInfo);
+    }
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });
   }
 
