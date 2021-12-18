@@ -1,8 +1,11 @@
-@import "../../../../assets/styles/variables.scss";
+@import '../../../../assets/styles/variables.scss';
 
 .contact-form {
+  .alert {
+    top: 10px;
+  }
   input:invalid {
-    border:1px solid red;
+    border: 1px solid red;
   }
   button:disabled,
   button[disabled] {
