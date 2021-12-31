@@ -6,6 +6,12 @@
 a {
   color: #414141;
 }
+.link {
+  color: $primary-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 a:hover {
   color: $primary-color;
@@ -23,7 +29,7 @@ h6 {
 }
 h1 {
   margin: 0;
-  font-size: 45px;
+  font-size: 42px;
   font-weight: 700;
   line-height: 64px;
   color: #000;
@@ -219,6 +225,9 @@ h3 {
     }
   }
 }
+.content-bg {
+  background: #f3f3f3;
+}
 
 /*--------------------------------------------------------------
 # Button Styles
@@ -363,6 +372,7 @@ textarea {
 }
 .p-main {
   padding-top: 155px;
+  padding-bottom: 20px;
   @media only screen and (max-width: 990px) {
     padding-top: 90px;
   }
