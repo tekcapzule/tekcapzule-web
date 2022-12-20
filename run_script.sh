@@ -21,6 +21,7 @@ docker_run_it() {
     --name tekcapsule-web \
     -p "$SERVER_PORT":"$SERVER_PORT" \
     -v "$PWD":/app \
+    --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 \
     /bin/sh -c "$SHELL_ARG"
 }
@@ -29,8 +30,17 @@ docker_run_nonit() {
   docker run --rm \
     --name tekcapsule-web-runner \
     -v "$PWD":/app \
+    --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 \
     /bin/sh -c "$SHELL_ARG"
+}
+
+docker_run_shell() {
+  docker run -it --rm \
+    --name tekcapsule-web-shell \
+    -v "$PWD":/app \
+    --platform=linux/amd64 \
+    akhilpb001/ng-cli:11.2.8 /bin/sh
 }
 
 # Print help if there are no arguments
@@ -84,10 +94,7 @@ elif [[ "$1" == "stop" ]]; then
   exit
 elif [[ "$1" == "shell" ]]; then
   echo "[INFO] Opening shell prompt in the container..."
-  docker run -it --rm \
-    --name tekcapsule-web-shell \
-    -v "$PWD":/app \
-    akhilpb001/ng-cli:11.2.8 /bin/sh
+  docker_run_shell
   exit
 elif [[ "$1" == "clean" ]]; then
   echo "[INFO] Deleting dependencies..."
