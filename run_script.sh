@@ -12,7 +12,8 @@ print_help() {
   echo "  build                 Generate the dev build"
   echo "  prod                  Generate the prod build"
   echo "  shell                 Open shell prompt in the container"
-  echo "  help                  Show this help (default option)\n"
+  echo "  clean                 Delete dependencies and generated files"
+  echo "  help                  Show this help\n"
 }
 
 docker_run_it() {
@@ -46,8 +47,7 @@ fi
 # Parsing CLI commands and running actions
 if [[ "$1" == "build" ]]; then
   echo "[INFO] Deleting generated files..."
-  SHELL_ARG="rm -rf dist/"
-  docker_run_nonit
+  sh -c "rm -rf dist/"
   echo "[INFO] Installing dependencies..."
   SHELL_ARG="yarn install"
   docker_run_nonit
@@ -57,8 +57,7 @@ if [[ "$1" == "build" ]]; then
   exit
 elif [[ "$1" == "prod" ]]; then
   echo "[INFO] Deleting generated files..."
-  SHELL_ARG="rm -rf dist/"
-  docker_run_nonit
+  sh -c "rm -rf dist/"
   echo "[INFO] Installing dependencies..."
   SHELL_ARG="yarn install"
   docker_run_nonit
@@ -89,6 +88,12 @@ elif [[ "$1" == "shell" ]]; then
     --name tekcapsule-web-shell \
     -v "$PWD":/app \
     akhilpb001/ng-cli:11.2.8 /bin/sh
+  exit
+elif [[ "$1" == "clean" ]]; then
+  echo "[INFO] Deleting dependencies..."
+  sh -c "rm -rf node_modules/"
+  echo "[INFO] Deleting generated files..."
+  sh -c "rm -rf dist/"
   exit
 elif [[ "$1" == "help" ]]; then
   print_help
