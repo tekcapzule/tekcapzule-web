@@ -4,14 +4,16 @@
 
 export const environment = {
   production: false,
-  apiStageEnv: 'dev',
-  capsuleApiGateway: 'xgxtvag6og',
-  eventApiGateway: '3xeph8nun8',
-  feedbackApiGateway: 'hgd9ehej67',
-  subscriptionApiGateway: '0x28a8vs38',
-  topicApiGateway: 'odl3njp8ya',
-  userApiGateway: 'rki9lzz4gl',
-  apiEndpointTemplate: 'https://{{gateway}}.execute-api.us-east-2.amazonaws.com/dev',
+  apiStage: 'dev',
+  apiCacheExpiryHours: '12',
+  capsuleApiGateway: '0isr8e2ete',
+  eventApiGateway: 'ubm1d5yjrd',
+  feedbackApiGateway: '1eynm6e2p8',
+  subscriptionApiGateway: 'r8stxkvqs4',
+  topicApiGateway: 'ku5hosmks2',
+  userApiGateway: 'x5jyub91a3',
+  awsRegion: 'execute-api.us-west-2',
+  apiEndpointTemplate: 'https://{{api-gateway}}.{{aws-region}}.amazonaws.com/dev',
 };
 
 /*

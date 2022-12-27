@@ -61,6 +61,6 @@ export class AdminFeedbackComponent implements OnInit {
   ngOnInit(): void {}
 
   actionCallback(row: AdminFeedbackDataItem): void {
-    console.log('actionCallback: ', row);
+    // console.log('actionCallback: ', row);
   }
 }

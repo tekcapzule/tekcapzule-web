@@ -138,13 +138,15 @@ export class AdminCapsulesComponent implements OnInit {
   }
 
   editActionCallback(row: AdminCapsuleDataItem): void {
-    console.log('editActionCallback: ', row);
+    // console.log('editActionCallback: ', row);
   }
 
   deleteActionCallback(row: AdminCapsuleDataItem): void {
     this.capsuleApi
       .disableCapsule(row.capsuleId)
-      .subscribe(capsule => console.log('capsule disabled : ', capsule));
+      .subscribe(capsule => {
+        // console.log('capsule disabled : ', capsule)
+      });
   }
 
   approveActionCallback(row: AdminCapsuleDataItem): void {
@@ -158,7 +160,7 @@ export class AdminCapsulesComponent implements OnInit {
         })
       )
       .subscribe(() => {
-        console.log('capsule appproved: ', row.capsuleId);
+        // console.log('capsule appproved: ', row.capsuleId);
         this.fetchPendingApprovalCapsules(true);
       });
   }

@@ -5,10 +5,9 @@ import { Observable } from 'rxjs';
 import { ApiSuccess } from '@app/shared/models';
 import { environment } from '@env/environment';
 
-const SUBSCRIPTION_API_PATH = `${environment.apiEndpointTemplate}/subscription`.replace(
-  '{{gateway}}',
-  environment.subscriptionApiGateway
-);
+const SUBSCRIPTION_API_PATH = `${environment.apiEndpointTemplate}/subscription`
+  .replace('{{api-gateway}}', environment.subscriptionApiGateway)
+  .replace('{{aws-region}}', environment.awsRegion);
 
 @Injectable({
   providedIn: 'root',

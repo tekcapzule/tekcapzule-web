@@ -15,7 +15,7 @@ export class CommunityCarouselComponent implements OnInit {
   ngOnInit(): void {
     this.eventApi.getAllEvents().subscribe(events => {
       this.events = events;
-      console.log(events);
+      // console.log(events);
     });
   }
 

@@ -5,17 +5,18 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { TopicItem, UserInfo } from '@app/shared/models';
-import { cacheManager } from '@app/shared/utils';
+import { cacheManager, Constants } from '@app/shared/utils';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
 
-const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`.replace(
-  '{{gateway}}',
-  environment.topicApiGateway
-);
+const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`
+  .replace('{{api-gateway}}', environment.topicApiGateway)
+  .replace('{{aws-region}}', environment.awsRegion);
 
 const TOPICS_ALLTOPICS_CACHE_KEY = 'com.tekcapsule.topics.alltopics';
 const TOPICS_GETTOPIC_CACHE_KEY = 'com.tekcapsule.topics.gettopic.<code>';
+const API_CACHE_EXPIRY_HOURS =
+  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +44,7 @@ export class TopicApiService {
       {
         params: {
           cache: 'yes',
-          expiry: '24',
+          expiry: API_CACHE_EXPIRY_HOURS,
           ckey: TOPICS_ALLTOPICS_CACHE_KEY,
         },
       }
@@ -83,7 +84,7 @@ export class TopicApiService {
     return this.httpClient.post<TopicItem>(`${TOPIC_API_PATH}/get`, code, {
       params: {
         cache: 'yes',
-        expiry: '24',
+        expiry: API_CACHE_EXPIRY_HOURS,
         ckey: TOPICS_GETTOPIC_CACHE_KEY.replace('<code>', code),
       },
     });

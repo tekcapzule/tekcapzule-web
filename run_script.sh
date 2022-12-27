@@ -12,7 +12,7 @@ print_help() {
   echo "  build                 Generate the dev build"
   echo "  prod                  Generate the prod build"
   echo "  shell                 Open shell prompt in the container"
-  echo "  clean                 Delete dependencies and generated files"
+  echo "  clean                 Delete dependencies and build files"
   echo "  help                  Show this help\n"
 }
 

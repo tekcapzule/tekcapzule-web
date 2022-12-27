@@ -4,17 +4,19 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { ApiSuccess, CapsuleItem } from '@app/shared/models';
-import { cacheManager } from '@app/shared/utils';
+import { cacheManager, Constants } from '@app/shared/utils';
 
-const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`.replace(
-  '{{gateway}}',
-  environment.capsuleApiGateway
-);
+const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`
+  .replace('{{api-gateway}}', environment.capsuleApiGateway)
+  .replace('{{aws-region}}', environment.awsRegion);
 
 const CAPSULE_MYFEEDS_CACHE_KEY = 'com.tekcapsule.capsules.myfeeds';
 const CAPSULE_TRENDING_CACHE_KEY = 'com.tekcapsule.capsules.trending';
 const CAPSULE_EDITORSPICK_CACHE_KEY = 'com.tekcapsule.capsules.editorspick';
 const CAPSULE_PENDING_APPROVAL_CACHE_KEY = 'com.tekcapsule.capsules.pending.approval';
+
+const API_CACHE_EXPIRY_HOURS =
+  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +35,7 @@ export class CapsuleApiService {
       {
         params: {
           cache: 'yes',
-          expiry: '12',
+          expiry: API_CACHE_EXPIRY_HOURS,
           refresh: refreshCache ? 'yes' : 'no',
           ckey: CAPSULE_MYFEEDS_CACHE_KEY,
         },
@@ -48,7 +50,7 @@ export class CapsuleApiService {
       {
         params: {
           cache: 'yes',
-          expiry: '12',
+          expiry: API_CACHE_EXPIRY_HOURS,
           refresh: refreshCache ? 'yes' : 'no',
           ckey: CAPSULE_TRENDING_CACHE_KEY,
         },
@@ -63,7 +65,7 @@ export class CapsuleApiService {
       {
         params: {
           cache: 'yes',
-          expiry: '24',
+          expiry: API_CACHE_EXPIRY_HOURS,
           ckey: CAPSULE_EDITORSPICK_CACHE_KEY,
         },
       }
@@ -77,7 +79,7 @@ export class CapsuleApiService {
       {
         params: {
           cache: 'yes',
-          expiry: '24',
+          expiry: API_CACHE_EXPIRY_HOURS,
           refresh: refreshCache ? 'yes' : 'no',
           ckey: CAPSULE_PENDING_APPROVAL_CACHE_KEY,
         },
