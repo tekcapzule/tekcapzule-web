@@ -107,7 +107,7 @@ jobs:
           args: --acl public-read --follow-symlinks --delete
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: ${{ secrets.ACTIONS_ALLOW_UNSECURE_COMMANDS }}
-          AWS_S3_BUCKET: "dev.tekcapsule.com"
+          AWS_S3_BUCKET: "tekcapsule.com"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "us-east-1"
