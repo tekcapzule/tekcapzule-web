@@ -55,8 +55,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project contains set of functions written in Java 11 to create, update, query and manage TekCapsule users. It is a multi-module maven project with two modules named application & domain. Application module is a springboot application that exposes these functions and domain module contains the domain logic.
-
+TekCapsule Web Applicaiton built using Angular. TekCapsule user's can leverage this application to explore and learn new tech topics, read tech news, articles and veriety of other contents. Follow specific tech topics to get daily updates etc.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,35 +75,26 @@ Please follow the below instructions to setup the project locally.
 ### Prerequisites
 
 This project requires following softwares: 
-* SAM  
-* JAVA 11
-* Maven 
+* Angular CLI  
+* Node.Js 
+
 
 ### Installation
 
 Please follow the step by step instructions to install the required softwares and setup the project.
-1. Get the AWS Access Key details
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/tekcapsule/tekcapsule-web.git
    ```
-3. Install SAM CLI by following instructions https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
-4. Configure the following Environment variables
-* APPLICATION_ENVIRONMENT=<Environment_Name>
-* CLOUD_REGION=<Region_Name>
-* secrets.AWS_ACCESS_KEY_ID=<Access_KEY_ID>
-* secrets.AWS_SECRET_ACCESS_KEY=<Access_KEY_Value>
-* secrets.SERVER_PASSWORD=<SERVER_PASSWORD>
-* secrets.SERVER_USERNAME=<SERVER_USERNAME>
-
-Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by the maintainers on request.
-
-5. Copy the settings.xml to ~/.m2
-6. Run the command
+2. Run the following command for building the project locally
    ```sh
-   sam build
+   npm install
+   ng build
    ```
-   
+3. Run the following command to start the dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+   ```sh
+   ng serve
+   ```  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -140,31 +130,3 @@ Don't forget to give the project a star! Thanks again!
 Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-# TekcapsuleWeb
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
