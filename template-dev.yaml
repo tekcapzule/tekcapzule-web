@@ -125,6 +125,12 @@ Resources:
             DNSName: !GetAtt CloudFrontDistribution.DomainName
             EvaluateTargetHealth: false
             HostedZoneId: Z2FDTNDATAQYW2 # leave hardcoded, don't confuse w/ !Ref HostedZoneId
+       - Name: !Sub 'www.${BucketName}'
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt CloudFrontDistribution.DomainName
+            EvaluateTargetHealth: false
+            HostedZoneId: Z2FDTNDATAQYW2
 Outputs:
   WebsiteURL:
     Value: !GetAtt S3Bucket.WebsiteURL
