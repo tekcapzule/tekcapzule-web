@@ -23,6 +23,7 @@ jobs:
         run: npm run build:staging
   setupDevInfra:
     name: Setup Dev Hosting Infra
+    needs: Build
     environment:
       name: DEV
     runs-on: ubuntu-latest
