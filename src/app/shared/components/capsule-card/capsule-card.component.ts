@@ -64,13 +64,13 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleBookmark(): void {
-    if (!this.auth.isUserLoggedIn()) {
-      this.router.navigateByUrl('/auth/signin');
-      return;
-    }
+    // if (!this.auth.isUserLoggedIn()) {
+    //   this.router.navigateByUrl('/auth/signin');
+    //   return;
+    // }
 
     this.userApi
-      .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
+      .bookmarCapsule('linjith.kunnon101@gmail.com', this.capsule.capsuleId)
       .pipe(
         tap(() => {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();

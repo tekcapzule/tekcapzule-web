@@ -6,6 +6,7 @@
   height: 540px;
   background-color: transparent !important;
   border: none !important;
+  cursor: pointer;
 }
 
 .capsule-card {
@@ -14,7 +15,7 @@
   box-shadow: 0px 3px 20px #0000000f;
   border-radius: 20px;
   margin: 0 20px;
-  transition: 0.3s;
+  transition: 1s;
   background: #fff;
   margin-bottom: 40px;
   // cursor: pointer;

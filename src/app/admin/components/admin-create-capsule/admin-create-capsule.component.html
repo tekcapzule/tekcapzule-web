@@ -15,173 +15,175 @@
         </ul>
       </div>
     </div>
-    <div class="row card-section d-flex justify-content-center mb-4 pb-4">
-      <div class="carousel-card">
-        <div class="px-4 upload-image text-center">
-          <button class="button secondary-btn-sm contribute-btn mb-4">Upload Image</button>
-          <div class="row">
-            <div class="col-6">
+      <div class="row card-section d-flex justify-content-center mb-4 pb-4">
+        <div class="carousel-card">
+          <div class="px-4 upload-image text-center">
+            <input type="text" name="imageUrl" placeholder="Capsule Image URL" [(ngModel)]="createCapsuleForm.imageUrl" class="form-control" id="capsuleImg" />
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <select name="topicCode" [(ngModel)]="createCapsuleForm.topicCode" class="form-control">
+                    <option disabled value=''>Topic Name</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Cloud">Cloud</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <select name="duration" [(ngModel)]="createCapsuleForm.duration" class="form-control">
+                    <option disabled value=0>Duration</option>
+                    <option value=15>15</option>
+                    <option value=30>30</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <img src="/assets/images/upload-image-before.png" alt="" class="header-image" /> -->
+          <div class="content mt-5">
+            <div class="form-group">
+              <label for="capsuleTitle">Capsule Title</label>
+              <input type="text" name="title" [(ngModel)]="createCapsuleForm.title" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input type="text" name="author" [(ngModel)]="createCapsuleForm.author" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" name="description" [(ngModel)]="createCapsuleForm.description" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-card">
+          <div class="content mt-5">
+            <div class="title">Title you entered in the first card will appear here</div>
+            <div>
+              <div class="my-2 d-flex align-items-center pb-3">
+                <input type="text" class="form-control mb-0" />
+                <a class="hyperlinkBtn float-right mr-2 pl-2" href="javascript:void(0)">Add</a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-3">
+                <input type="text" class="form-control mb-0" />
+                <a class="ml-3" href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg"
+                    alt="add" />
+                </a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-3">
+                <input type="text" class="form-control mb-0" />
+                <a class="ml-3" href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg"
+                    alt="add" />
+                </a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-3">
+                <input type="text" class="form-control mb-0" />
+                <a class="ml-3" href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg"
+                    alt="add" />
+                </a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-3">
+                <input type="text" class="form-control mb-0" />
+                <a class="ml-3" href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg"
+                    alt="add" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-card">
+          <div class="content mt-5">
+            <div class="title">Metadata</div>
+            <div class="metadata-form scroller">
               <div class="form-group">
-                <select class="form-control">
-                  <option>Topic Name</option>
+                <label>Capsule Type</label>
+                <select name="type" [(ngModel)]="createCapsuleForm.type" class="form-control">
+                  <option>Capsule Type</option>
                 </select>
               </div>
-            </div>
-            <div class="col-6">
+
               <div class="form-group">
-                <select class="form-control">
-                  <option>Duration</option>
+                <label>Publisher</label>
+                <select name="publisher" [(ngModel)]="createCapsuleForm.publisher" class="form-control">
+                  <option>Publisher</option>
                 </select>
               </div>
-            </div>
-          </div>
-        </div>
-        <!-- <img src="/assets/images/upload-image-before.png" alt="" class="header-image" /> -->
-        <div class="content mt-5">
-          <div class="form-group">
-            <label for="capsuleTitle">Capsule Title</label>
-            <input type="text" class="form-control" id="capsuleTitle" />
-          </div>
-          <div class="form-group">
-            <label for="author">Author</label>
-            <input type="text" class="form-control" id="author" />
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" rows="3" id="description"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-card">
-        <div class="content mt-5">
-          <div class="title">Title you entered in the first card will appear here</div>
-          <div>
-            <div class="my-2 d-flex align-items-center pb-3">
-              <input type="text" class="form-control mb-0" />
-              <a class="hyperlinkBtn float-right mr-2 pl-2" href="javascript:void(0)">Add</a>
-            </div>
-            <div class="my-2 d-flex align-items-center pb-3">
-              <input type="text" class="form-control mb-0" />
-              <a class="ml-3" href="javascript:void(0);"
-                ><img width="15" src="../../../../assets/images/trash.svg" alt="add" />
-              </a>
-            </div>
-            <div class="my-2 d-flex align-items-center pb-3">
-              <input type="text" class="form-control mb-0" />
-              <a class="ml-3" href="javascript:void(0);"
-                ><img width="15" src="../../../../assets/images/trash.svg" alt="add" />
-              </a>
-            </div>
-            <div class="my-2 d-flex align-items-center pb-3">
-              <input type="text" class="form-control mb-0" />
-              <a class="ml-3" href="javascript:void(0);"
-                ><img width="15" src="../../../../assets/images/trash.svg" alt="add" />
-              </a>
-            </div>
-            <div class="my-2 d-flex align-items-center pb-3">
-              <input type="text" class="form-control mb-0" />
-              <a class="ml-3" href="javascript:void(0);"
-                ><img width="15" src="../../../../assets/images/trash.svg" alt="add" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-card">
-        <div class="content mt-5">
-          <div class="title">Metadata</div>
-          <div class="metadata-form scroller">
-            <div class="form-group">
-              <label>Capsule Type</label>
-              <select class="form-control">
-                <option>Capsule Type</option>
-              </select>
-            </div>
 
-            <div class="form-group">
-              <label>Publisher</label>
-              <select class="form-control">
-                <option>Publisher</option>
-              </select>
-            </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Topic Level</label>
+                    <select name="level" [(ngModel)]="createCapsuleForm.level" class="form-control">
+                      <option>Beginner</option>
+                      <option>Intermediate</option>
+                      <option>Advance</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Target Audience</label>
+                    <select name="audience" [(ngModel)]="createCapsuleForm.audience" class="form-control">
+                      <option value="All">All</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Primary Category</label>
+                    <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Secondary Category</label>
+                    <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="resourceURL">Resource URL</label>
+                <input type="text" name="resourceURL" [(ngModel)]="createCapsuleForm.resourceURL" class="form-control" placeholder="URL" />
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Expiry Date</label>
+                    <select name="expiryDate" [(ngModel)]="createCapsuleForm.expiryDate" class="form-control">
+                      <option>1 Week</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <label>Editors Pick</label>
 
-            <div class="row">
-              <div class="col-lg-6 col-sm-12">
-                <div class="form-group">
-                  <label>Topic Level</label>
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6 col-sm-12">
-                <div class="form-group">
-                  <label>Target Audience</label>
-                  <select class="form-control">
-                    <option>100</option>
-                    <option>200</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 col-sm-12">
-                <div class="form-group">
-                  <label>Primary Category</label>
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6 col-sm-12">
-                <div class="form-group">
-                  <label>Secondary Category</label>
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="resourceURL">Resource URL</label>
-              <input type="text" class="form-control" id="resourceURL" placeholder="URL" />
-            </div>
-            <div class="row">
-              <div class="col-lg-6 col-sm-12">
-                <div class="form-group">
-                  <label>Expiry Date</label>
-                  <select class="form-control">
-                    <option>1 Week</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6 col-sm-12">
-                <label>Editors Pick</label>
-
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="customSwitch1" />
-                  <label class="custom-control-label" for="customSwitch1"></label>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" name="editorsPick" value="1" [(ngModel)]="createCapsuleForm.editorsPick" class="custom-control-input" id="customSwitch1" />
+                    <label class="custom-control-label" for="customSwitch1"></label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row justify-content-center mb-4">
-      <button
-        class="button secondary-btn-md mb-5 mr-3"
-        (click)="activateFirstNavTab()"
-        [routerLink]="['../capsules']"
-      >
-        Cancel
-      </button>
-      <button class="button secondary-btn-md cta mb-5" [routerLink]="['../createquestions']">
-        Next
-      </button>
-    </div>
+      <div class="row justify-content-center mb-4">
+        <button class="button secondary-btn-md mb-5 mr-3" (click)="activateFirstNavTab()"
+          [routerLink]="['../capsules']">
+          Cancel
+        </button>
+        <button class="button secondary-btn-md cta mb-5 next-btn"
+        (click)="onCreateCapsule()">
+          Next
+        </button>
+      </div>
   </div>
 </div>

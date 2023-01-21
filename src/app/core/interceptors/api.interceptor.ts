@@ -10,7 +10,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const userInfo = this.auth.isUserLoggedIn() ? this.auth.getUserInfo() : null;
-    const loggedInUserName = userInfo ? userInfo.username : 'guest';
+    const loggedInUserName = userInfo ? userInfo.username : 'linjith.kunnon@gmail.com';
     const authToken = userInfo ? userInfo?.signInUserSession?.accessToken?.jwtToken : null;
 
     request = request.clone({

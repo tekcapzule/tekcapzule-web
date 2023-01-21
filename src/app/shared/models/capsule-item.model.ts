@@ -56,3 +56,21 @@ export enum CapsuleStatus {
   EXPIRED = 'EXPIRED',
   SUBMITTED = 'SUBMITTED',
 }
+
+export interface  capsuleCreation {
+  topicCode: string,
+  publishedDate: string,
+  title: string,
+  imageUrl: string,
+  duration: number,
+  author: string,
+  description: string,
+  publisher: string,
+  resourceUrl: string,
+  type: string,
+  audience: string,
+  level: string,
+  expiryDate: string,
+  editorsPick: number,
+  tags: string[]
+}

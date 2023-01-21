@@ -27,9 +27,9 @@
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       .secondary-btn-sm {
-        width: 180px;
+        width: 140px;
         height: 44px;
-        font-size: 18px;
+        font-size: 16px;
         font-family: $primary-font-bold;
         border: 0;
         border-radius: 22px;
@@ -62,5 +62,11 @@
         }
       }
     }
+  }
+}
+.next-btn{
+  &:disabled{
+    background-color: #9c9c9c;
+    border-color: #9c9c9c;
   }
 }

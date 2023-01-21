@@ -123,4 +123,8 @@ export class CapsuleApiService {
   approveCapsule(capsuleId: string): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/approve`, { capsuleId });
   }
+
+  createCapsule(capsuleInfo: any): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/create`, capsuleInfo);
+  }
 }

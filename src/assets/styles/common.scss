@@ -598,7 +598,7 @@ input:-webkit-autofill:active {
 }
 .mat-tab-links {
   max-width: 1300px;
-  margin: auto;
+  padding-left: 30px;
   @media only screen and (max-width: 990px) {
     max-width: 1600px;
   }
