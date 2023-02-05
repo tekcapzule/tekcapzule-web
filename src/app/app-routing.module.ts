@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./mission/mission.module').then(m => m.MissionModule),
   },
   {
+    path: 'tek-byte',
+    loadChildren: () => import('./tek-byte/tek-byte.module').then(m => m.TekByteModule),
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home',
