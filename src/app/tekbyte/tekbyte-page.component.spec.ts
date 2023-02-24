@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TekBytePageComponent } from './tek-byte-page.component';
+import { TekBytePageComponent } from './tekbyte-page.component';
 
 describe('TekBytePageComponent', () => {
   let component: TekBytePageComponent;

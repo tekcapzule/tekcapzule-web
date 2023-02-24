@@ -51,6 +51,16 @@ h3 {
   font-size: 28px;
   font-family: $primary-font-medium;
 }
+.heading {
+  font-size: 50px;
+  font-family: $heading-fonts;
+}
+h4 {
+  font-size: 24px;
+  font-family: $heading-fonts;
+}
+
+
 
 /*--------------------------------------------------------------
 # Intro Section
@@ -246,6 +256,7 @@ h3 {
     color: $white;
     margin-right: 15px;
   }
+  
   &.secondary {
     background-color: $white;
     color: $primary-color;
@@ -657,4 +668,26 @@ select {
     height: 32px;
     line-height: 32px;
   }
+}
+
+.bg-gray {
+  background: #E2E2E2;
+}
+/* scrollbar styles - start */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 30, 38, 0.22) !important;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e30045 !important;
 }

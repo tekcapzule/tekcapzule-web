@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TekBytePageComponent } from './tek-byte-page.component';
-import { MenuLandingPageComponent } from './menu-landing-page/menu-landing-page.component';
+import { TopicDetailsPageComponent } from './tek-byte-page.component';
+import { TekBytePageComponent } from './tekbyte-page/tekbyte-page.component';
 
 
 
 @NgModule({
   declarations: [
-    TekBytePageComponent,
-    MenuLandingPageComponent
+    TopicDetailsPageComponent,
+    TekBytePageComponent
   ],
   imports: [
     CommonModule

@@ -4,6 +4,7 @@ $black: #000;
 $white: #fff;
 $heading-color: #090909;
 $section-bg: #f8f8f8;
+$blue: #1D4C9E;
 
 /************* Fonts URL *************/
 
@@ -28,12 +29,37 @@ $primary-font-black-url: '../fonts/GTWalsheimPro-CondensedBlack.ttf';
 $cardtitle-font: HelveticaNeueLTProBoldCondensed;
 $cardtitle-font-url: '../fonts/HelveticaNeueLTPro-BdCn.otf';
 
+
+
 @font-face {
   font-family: HelveticaNeueLTPro;
   src: url('../fonts/HelveticaNeueLTPro-HvCn.otf');
 }
 @mixin helveticaNeueFont {
   font-family: HelveticaNeueLTPro;
+}
+@font-face {
+  font-family: TungstenBold;
+  src: url('../fonts/Tungsten-Bold.ttf');
+}
+@mixin TungstenBold {
+  font-family: TungstenBold;
+}
+@font-face {
+  font-family: TungstenSemiBold;
+  src: url('../fonts/Tungsten-SemiBold.ttf');
+}
+@font-face {
+  font-family: NoteworthyBold;
+  src: url('../fonts/Noteworthy-Bold.ttf');
+}
+@mixin TungstenSemiBold {
+  font-family: TungstenSemiBold;
+}
+
+
+@mixin NoteworthyBold {
+  font-family: NoteworthyBold;
 }
 
 /*--------------------------------------------------------------
