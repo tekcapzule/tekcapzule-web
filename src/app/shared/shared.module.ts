@@ -12,6 +12,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { CapsuleCardComponent } from './components/capsule-card/capsule-card.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     DataTableComponent,
     CapsuleCardComponent,
     TopicCardComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
+    IvyCarouselModule,
   ],
   exports: [
     HeaderComponent,
@@ -36,6 +40,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     DataTableComponent,
     CapsuleCardComponent,
     TopicCardComponent,
+    CarouselComponent,
   ],
 })
 export class SharedModule {}

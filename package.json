@@ -33,6 +33,7 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
     "@aws-amplify/ui-angular": "^1.0.17",
+    "angular-responsive-carousel": "^2.1.2",
     "aws-amplify": "^4.2.2",
     "aws-amplify-angular": "^6.0.8",
     "rxjs": "~6.6.0",
