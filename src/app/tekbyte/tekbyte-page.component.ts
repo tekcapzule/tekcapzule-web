@@ -4,20 +4,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-tekbyte-page',
   templateUrl: './tekbyte-page.component.html',
-  styleUrls: ['./tekbyte-page.component.scss']
+  styleUrls: ['./tekbyte-page.component.scss'],
 })
 export class TekBytePageComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(
-    private router: Router,
-  ) {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
   gotoTekbyteTopicDetails(): void {
-    this.router.navigate(['tekbyte', 'tekbytetopicdetails'], {
-      
-    });
+    this.router.navigate([ 'tekbytetopicdetails'], {});
   }
-
 }

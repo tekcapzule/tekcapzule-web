@@ -7,15 +7,8 @@ import { TekBytePageComponent } from './tekbyte-page.component';
 import { TekByteTopicDetailsPageComponent } from './components/tekbyte-topic-details/tekbyte-topic-details.component';
 import { TekByteCarouselComponent } from './components/tekbyte-carousel/tekbyte-carousel.component';
 
-
-
 @NgModule({
-    declarations: [
-        TekBytePageComponent,
-        TekByteCarouselComponent,
-        TekByteTopicDetailsPageComponent,
-    ],
-    imports: [CommonModule, SharedModule, TekbyteRoutingModule, MatTabsModule],
-
+  declarations: [TekBytePageComponent, TekByteCarouselComponent, TekByteTopicDetailsPageComponent],
+  imports: [CommonModule, SharedModule, TekbyteRoutingModule, MatTabsModule],
 })
 export class TekByteModule {}
