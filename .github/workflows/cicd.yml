@@ -5,7 +5,8 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 jobs:
   Build:
     name: Build TekCapsule Web App
