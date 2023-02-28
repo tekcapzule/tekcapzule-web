@@ -1,56 +1,111 @@
 @import '../../../../assets/styles/variables.scss';
+
+.create-topic-page-Admin {
+    h1 {
+        font-family: 'HelveticaNeueLTPro';
+        font-size: 32px;
+        color: $grey;
+    }
+    h2{
+        font-size: 24px;
+        font-family: 'HelveticaNeueLTPro';
+        color: $grey;
+    }
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    .form-section {
+        border: 1px solid #BCBCBC;
+        padding: 20px;
+        border-radius: 5px;
+    }
+}
+
 button:disabled,
-button[disabled]{
-  border: 0px solid #999999;
-  background-color: #cccccc !important;
-  color: #666666 !important;
+button[disabled] {
+    border: 0px solid #999999;
+    background-color: #cccccc !important;
+    color: #666666 !important;
 }
-.md-width{
-    width:100%;
-    max-width:1270px;
-    height:auto;
+
+.md-width {
+    width: 100%;
+    max-width: 1270px;
+    height: auto;
 }
-.font-medium{
+
+.font-medium {
     font-size: 24px;
 }
-.adminPagesCard{
+
+.adminPagesCard {
     background-color: #F9F9F9;
-    &:hover{
+
+    &:hover {
         transform: none;
     }
-    .form-group{
-        label{
+
+    .form-group {
+        label {
             font-family: "Roboto";
-            font-weight:500;
+            font-weight: 500;
         }
-        textarea{
+
+        textarea {
             resize: none;
         }
     }
-    .form-control{
+
+    .form-control {
         font-family: $primary-font-medium;
-        font-size:16px;
-        border:1px solid #DFDFDF;
+        font-size: 16px;
+        border: 1px solid #DFDFDF;
         border-radius: 4px;
         margin-bottom: 0;
         min-height: 45px;
     }
 }
 
-.innerCardSection{
-    padding:15px;
-    border:1px solid #DFDFDF;
+.innerCardSection {
+    padding: 15px;
+    border: 1px solid #DFDFDF;
     border-radius: 6px;
-    background:$white;
+    background: $white;
     margin: 10px 0;
 }
-.browse-btn{
+
+.browse-btn {
     margin-top: -35px;
     margin-right: 25px;
 }
+
 .create-topic-form {
     display: flex;
+
     .column {
         width: 50%
     }
+}
+
+.tabs-left {
+    border: 1px solid #CBCBCB;
+    display: block;
+}
+
+.tabs-left>li {
+    padding: 10px 30px 10px;
+    border-bottom: 1px solid #CBCBCB;
+    font-family: 'GTWalsheimPro-Medium';
+    font-size: 18px;
+}
+
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+    border-bottom-color: #ddd;
+    border-right-color: transparent;
+    color: #EC0036;
+    border: none;
+    border-radius: 0px;
+    margin: 0px;
 }

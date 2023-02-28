@@ -51,6 +51,10 @@
     font-size: 18px;
   }
 }
+.reset-btn {
+  border: 0 none;
+  background: transparent;
+}
 /************Tab Container*************/
 ::ng-deep {
   .mat-tab-group {

@@ -1,105 +1,252 @@
 <div class="create-topic-page-Admin">
-  <div class="container pt-5">
-    <div class="back-link">
-      <a (click)="activateFirstNavTab()" [routerLink]="getDashboardLink()">
-        <img src="/assets/images/back-arrow.png" class="mr-2" />
-        Back to Dashboard
-      </a>
-      <h2 class="text-center"> {{isEditMode? "Edit" : "Create"}} Topic</h2>
-    </div>
-    <div class="row card-section d-flex justify-content-center mb-4 pb-4">
-      <div class="carousel-card md-width adminPagesCard">
-        <h3 class="font-medium px-4 py-4 border-bottom mb-0">
-          Please fill in the following details
-        </h3>
-        <div class="create-topic-form border-bottom">
-          <div class="column border-right">
-            <div class="px-4 py-4">
+  <div class="container">
+    <h1 class="text-center pb-3">Create Topic</h1>
+    <div class="row adminPagesCard p-4">
+      <div class="col-lg-3"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left sideways">
+          <li class="active"><a href="#banner" data-toggle="tab">Top Banner</a></li>
+          <li><a href="#why" data-toggle="tab">Why, How & What</a></li>
+          <li><a href="#feature" data-toggle="tab">Facts & Future</a></li>
+          <li><a href="#keyconcepts" data-toggle="tab">3 Key Concepts</a></li>
+          <li><a href="#applications" data-toggle="tab">Applications</a></li>
+          <li><a href="#trends" data-toggle="tab">Trends</a></li>
+          <li><a href="#challenges" data-toggle="tab">Challenges</a></li>
+          <li><a href="#relatedtopics" data-toggle="tab">Related Topics</a></li>
+          <li><a href="#relatedcapsules" data-toggle="tab">Related Capsules</a></li>
+          <li><a href="#storysofar" data-toggle="tab">Story So Far</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Tab panes -->
+        <div class="tab-content mt-3">
+          <div class="tab-pane active" id="banner">
+            <h2>Top Banner Section</h2>
+            <div class="form-group">
+              <label for="Topic Name">Topic Name</label>
+              <input type="text" class="form-control" [(ngModel)]="topicDetails.name" placeholder="Enter Topic Name" />
+            </div>
+            <div class="form-group">
+              <label for="Description">Description</label>
+              <textarea class="form-control" rows="5" [(ngModel)]="topicDetails.description"> </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">Add Tags</label>
+              <input type="search" class="form-control" />
+            </div>
+          </div>
+          <div class="tab-pane" id="why">
+            <h2>Why, How & What</h2>
+            <div class="form-group">
+              <label for="Description">Why</label>
+              <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">How</label>
+              <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">What</label>
+              <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+            </div>
+          </div>
+          <div class="tab-pane" id="feature">
+            <h2>Facts & Future</h2>
+            <div class="form-group">
+              <label for="Description">Did you know?</label>
+              <textarea class="form-control" rows="5" placeholder="Enter Text"> </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">Way Forward</label>
+              <textarea class="form-control" rows="5" placeholder="Enter Text"> </textarea>
+            </div>
+          </div>
+          <div class="tab-pane" id="keyconcepts">
+            <h2>3 Key Concepts</h2>
+            <div class="form-group">
+              <label for="Topic Name">Concept 01</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+              <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Topic Name">Concept 02</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+              <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Topic Name">Concept 03</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+              <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+            </div>
+          </div>
+          <div class="tab-pane" id="applications">
+            <div class="d-flex justify-content-between">
+              <h2>Applications</h2>
+              <img src="../../../../assets/images/add-icon.svg" />
+            </div>
+            <div class="innerCardSection">
               <div class="form-group">
-                <label for="Topic Name">Topic Code*</label>
-                <input [disabled]="isEditMode"  type="text" class="form-control" [(ngModel)]="topicDetails.code" />
-              </div>
-              <div class="form-group">
-                <label for="Topic Name">Topic Name*</label>
-                <input type="text" class="form-control" [(ngModel)]="topicDetails.name" />
-              </div>
-              <div class="form-group">
-                <label for="Description">Description*</label>
-                <textarea class="form-control" [(ngModel)]="topicDetails.description"> </textarea>
-              </div>
-              <div class="form-group">
-                <label for="Topic Name">Category*</label>
-                <input type="text" class="form-control" [(ngModel)]="topicDetails.category" />
-              </div>
-              <div class="form-group">
-                <label for="Alias">Alias</label>
-                <div class="innerCardSection">
-                  <div class="my-2 d-flex align-items-center"
-                    *ngFor="let alias of topicDetails.aliases; index as i; first as isFirst;trackBy:trackByIdx">
-                    <input type="text" class="form-control" id="topic-alias[i]" [(ngModel)]="topicDetails.aliases[i]" />
-                    <a class="ml-3" href="javascript:void(0);">
-                      <img *ngIf="isFirst" width="18" src="../../../../assets/images/add.svg" alt="add"
-                        (click)="addRow('aliases')" />
-                      <img *ngIf="!isFirst" width="15" src="../../../../assets/images/trash.svg" alt="remove"
-                        (click)="deleteRow('aliases',i)" />
-                    </a>
-                  </div>
+                <div class="d-flex justify-content-between">
+                  <label for="Topic Name">Applications 02</label>
+                  <a class="ml-3" href="javascript:void(0);">
+                    <img src="../../../../assets/images/drag.png" alt="move" class="pr-2" />
+                    <img src="../../../../assets/images/trash.svg" alt="remove" />
+                  </a>
                 </div>
+                <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+                <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
               </div>
+            </div>
+            <div class="innerCardSection">
               <div class="form-group">
-                <label for="Topic Image">Topic Image</label>
-                <input type="text" class="form-control" [(ngModel)]="topicDetails.imageUrl" />
+                <div class="d-flex justify-content-between">
+                  <label for="Topic Name">Applications 01</label>
+                  <a class="ml-3" href="javascript:void(0);">
+                    <img src="../../../../assets/images/drag.png" alt="move" class="pr-2" />
+                    <img src="../../../../assets/images/trash.svg" alt="remove" />
+                  </a>
+                </div>
+                <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+                <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
               </div>
             </div>
           </div>
-          <div class="column">
-            <div class="px-4 py-4">
+          <div class="tab-pane" id="trends">
+            <h2>Trends</h2>
+            <div class="innerCardSection">
               <div class="form-group">
-                <label for="Alias">Key Highlights</label>
-                <div class="innerCardSection">
-                  <div class="my-2 d-flex align-items-center"
-                    *ngFor="let alias of topicDetails.keyHighlights; index as i; first as isFirst;trackBy:trackByIdx">
-                    <input type="text" class="form-control" id="topic-keyHighlights[i]"
-                      [(ngModel)]="topicDetails.keyHighlights[i]" />
-                    <a class="ml-3" href="javascript:void(0);">
-                      <img *ngIf="isFirst" width="18" src="../../../../assets/images/add.svg" alt="add"
-                        (click)="addRow('keyHighlights')" />
-                      <img *ngIf="!isFirst" width="15" src="../../../../assets/images/trash.svg" alt="remove"
-                        (click)="deleteRow('keyHighlights',i)" />
-                    </a>
-                  </div>
+                <div class="d-flex justify-content-between">
+                  <label for="Topic Name">Trends 02</label>
+                  <a class="ml-3" href="javascript:void(0);">
+                    <img src="../../../../assets/images/drag.png" alt="move" class="pr-2" />
+                    <img src="../../../../assets/images/trash.svg" alt="remove" />
+                  </a>
                 </div>
+                <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+                <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
               </div>
+            </div>
+            <div class="innerCardSection">
               <div class="form-group">
-                <label for="Select Capsule">Select Capsule</label>
-                <div class="innerCardSection">
-                  <div class="my-2 d-flex align-items-center"
-                    *ngFor="let alias of topicDetails.capsules; index as i; first as isFirst;trackBy:trackByIdx">
-                    <input type="text" class="form-control" id="topic-capsules[i]"
-                      [(ngModel)]="topicDetails.capsules[i]" />
-                    <a class="ml-3" href="javascript:void(0);">
-                      <img *ngIf="isFirst" width="18" src="../../../../assets/images/add.svg" alt="add"
-                        (click)="addRow('capsules')" />
-                      <img *ngIf="!isFirst" width="15" src="../../../../assets/images/trash.svg" alt="remove"
-                        (click)="deleteRow('capsules',i)" />
-                    </a>
-                  </div>
+                <div class="d-flex justify-content-between">
+                  <label for="Topic Name">Trends 01</label>
+                  <a class="ml-3" href="javascript:void(0);">
+                    <img src="../../../../assets/images/drag.png" alt="move" class="pr-2" />
+                    <img src="../../../../assets/images/trash.svg" alt="remove" />
+                  </a>
                 </div>
+                <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+                <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row justify-content-center my-4">
-          <button class="button secondary-btn-md mr-3" (click)="activateFirstNavTab()" [routerLink]="getDashboardLink()">
-            Cancel
-          </button>
-          <button [disabled]="!isFormValid()" class="button secondary-btn-md cta" (click)="onSubmit()"
-            [routerLink]="['../capsules']">
-            Save
-          </button>
-          
+          <div class="tab-pane" id="challenges">
+            <h2>Challenges</h2>
+            <div class="innerCardSection">
+              <div class="form-group">
+                <div class="d-flex justify-content-between">
+                  <label for="Topic Name">Challenges 02</label>
+                  <a class="ml-3" href="javascript:void(0);">
+                    <img src="../../../../assets/images/drag.png" alt="move" class="pr-2" />
+                    <img src="../../../../assets/images/trash.svg" alt="remove" />
+                  </a>
+                </div>
+                <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+                <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+              </div>
+            </div>
+            <div class="innerCardSection">
+              <div class="form-group">
+                <div class="d-flex justify-content-between">
+                  <label for="Topic Name">Challenges 01</label>
+                  <a class="ml-3" href="javascript:void(0);">
+                    <img src="../../../../assets/images/drag.png" alt="move" class="pr-2" />
+                    <img src="../../../../assets/images/trash.svg" alt="remove" />
+                  </a>
+                </div>
+                <input type="text" class="form-control mb-3" placeholder="Enter Title" />
+                <textarea class="form-control" rows="3" placeholder="Enter Text"> </textarea>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="relatedtopics">
+            <h2>Related Topics</h2>
+            <div class="form-group">
+              <label for="Description">Add Topics</label>
+              <input type="search" class="form-control" />
+            </div>
+          </div>
+          <div class="tab-pane" id="relatedcapsules">
+            <h2>Related Capsules</h2>
+            <div class="form-group">
+              <label for="Description">Add Capsules</label>
+              <input type="search" class="form-control" />
+            </div>
+          </div>
+          <div class="tab-pane" id="storysofar">
+            <h2>Story So Far</h2>
+            <div class="innerCardSection">
+              <div class="row">
+                <div class="col-lg-2 form-group mb-0">
+                  <label>Year</label>
+                </div>
+                <div class="col-lg-9 form-group mb-0 ml-3">
+                  <label>Story</label>
+                </div>
+                <div class="">
+                  <img src="../../../../assets/images/add-icon.svg" />
+                </div>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-2">
+                <input type="date" id="year" name="year" class="date-control" placeholder="DD/MM/YY">
+                <input type="text" class="form-control mb-0" placeholder="Enter Text">
+                <a href="javascript:void(0);" class="mx-3"><img src="../../../../assets/images/drag.png" alt="add"></a>
+                <a href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg" alt="add"></a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-2">
+                <input type="date" id="year" name="year" class="date-control" placeholder="DD/MM/YY">
+                <input type="text" class="form-control mb-0" placeholder="Enter Text">
+                <a href="javascript:void(0);" class="mx-3"><img src="../../../../assets/images/drag.png" alt="add"></a>
+                <a href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg" alt="add"></a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-2">
+                <input type="date" id="year" name="year" class="date-control" placeholder="DD/MM/YY">
+                <input type="text" class="form-control mb-0" placeholder="Enter Text">
+                <a href="javascript:void(0);" class="mx-3"><img src="../../../../assets/images/drag.png" alt="add"></a>
+                <a href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg" alt="add"></a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-2">
+                <input type="date" id="year" name="year" class="date-control" placeholder="DD/MM/YY">
+                <input type="text" class="form-control mb-0" placeholder="Enter Text">
+                <a href="javascript:void(0);" class="mx-3"><img src="../../../../assets/images/drag.png" alt="add"></a>
+                <a href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg" alt="add"></a>
+              </div>
+              <div class="my-2 d-flex align-items-center pb-2">
+                <input type="date" id="year" name="year" class="date-control" placeholder="DD/MM/YY">
+                <input type="text" class="form-control mb-0" placeholder="Enter Text">
+                <a href="javascript:void(0);" class="mx-3"><img src="../../../../assets/images/drag.png" alt="add"></a>
+                <a href="javascript:void(0);"><img width="15" src="../../../../assets/images/trash.svg" alt="add"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="clearfix"></div>
+
+    </div>
+    <div class="row justify-content-center my-4">
+      <button class="button secondary-btn-md mr-3" (click)="activateFirstNavTab()" [routerLink]="getDashboardLink()">
+        Cancel
+      </button>
+      <button class="button secondary-btn-md mr-3" (click)="activateFirstNavTab()" [routerLink]="">
+        Previous
+      </button>
+      <button class="button secondary-btn-md cta" (click)="onSubmit()" [routerLink]="['../capsules']">
+        Continue
+      </button>
+
     </div>
   </div>
 </div>
