@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -22,13 +22,18 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
   ];
 
-  constructor(private router: Router, private eventChannel: EventChannelService) {}
+  constructor(private router: Router, private activated: ActivatedRoute, private eventChannel: EventChannelService) {}
 
   ngOnInit(): void {
-    this.activeTab = this.navTabs[0].uniqueId;
-    this.router.navigate(['admin', this.navTabs[0].navUrl]);
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd && val.url) {
+        if(val.url !== '/admin') {
+          this.router.navigate([val.url]);
+        } else {
+          this.router.navigate(['admin', this.navTabs[0].navUrl]).then(() => {
+            this.setActiveTab(this.navTabs[0]);        
+          });
+        }
         if (
           val.url.includes('edittopic') ||
           val.url.includes('createcapsule') ||
@@ -46,7 +51,7 @@ export class AdminPageComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
-        this.activeTab = this.navTabs[0].uniqueId;
+        this.setActiveTab(this.navTabs[0]);   
       });
   }
 
