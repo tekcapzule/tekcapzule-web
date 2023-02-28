@@ -1,53 +1,53 @@
 @import './../../assets/styles/variables.scss';
 
 .community-page {
-    .hero-slider {
-        height: 390px;
-        background-attachment: fixed;
-        background: url("../../assets/images/community-hero-bg.svg") no-repeat;
+  .hero-slider {
+    height: 390px;
+    background-attachment: fixed;
+    background: url('../../assets/images/community-hero-bg.svg') no-repeat;
+  }
+  .community-desc {
+    background: url('../../assets/images/dot-paths.svg') no-repeat 46% 6%;
+    animation: growimg 1s linear 1s both;
+  }
+  p {
+    font-size: 20px;
+    font-family: $primary-font-regular;
+    line-height: 30px;
+    color: #5a5a5a;
+  }
+  .tech-repo {
+    background: url('../../assets/images/pink-bg.svg') no-repeat 22px 32px,
+      url('../../assets/images/grey-bg.svg') no-repeat;
+    height: 500px;
+    width: 450px;
+    position: relative;
+    @media only screen and (max-width: 1199px) {
+      width: 100%;
+      max-width: 450px;
+      background-size: cover;
     }
-    .community-desc
-    {
-        background: url("../../assets/images/dot-paths.svg") no-repeat 46% 6%;
-        animation: growimg 1s linear 1s both;
-    }
-    p {
-        font-size: 20px;
-        font-family: $primary-font-regular;
-        line-height: 30px;
-        color: #5A5A5A;
-    }
-    .tech-repo {
-        background: url("../../assets/images/pink-bg.svg") no-repeat 22px 32px, url("../../assets/images/grey-bg.svg") no-repeat;
-        height:500px;
-        width: 450px;
-        position:relative;
-        @media only screen and (max-width:1199px){
-            width:100%;
-            max-width:450px;
-            background-size: cover;
-        }
-        .inline-points{
-            position: absolute;
-            left: 8%;
-            top: 32%;
-            max-width: 65%;
-            line-height: 22px;
-            @media only screen and (max-width:1199px){
-                max-width: 100%;
-            }
-            li {
-                font-size: 28px;
-                padding-bottom: 35px;
-                font-weight: bold;
-                margin-left: 30px;
-                span {
-                    font-family: $primary-font-bold;
-                    font-size: 18px;
-                }
-            }
+    .inline-points {
+      position: absolute;
+      left: 8%;
+      top: 32%;
+      max-width: 65%;
+      line-height: 22px;
+      @media only screen and (max-width: 1199px) {
+        max-width: 100%;
+      }
+      li {
+        font-size: 28px;
+        padding-bottom: 35px;
+        font-weight: bold;
+        margin-left: 30px;
+        span {
+          font-family: $primary-font-bold;
+          font-size: 18px;
         }
       }
+    }
+  }
 
   .part-2 {
     padding-top: 140px;

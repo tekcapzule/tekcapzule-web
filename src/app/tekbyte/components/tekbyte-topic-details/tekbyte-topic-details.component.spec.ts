@@ -8,9 +8,8 @@ describe('TekByteTopicDetailsPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TekByteTopicDetailsPageComponent ]
-    })
-    .compileComponents();
+      declarations: [TekByteTopicDetailsPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

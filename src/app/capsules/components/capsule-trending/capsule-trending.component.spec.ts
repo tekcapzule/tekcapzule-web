@@ -8,9 +8,8 @@ describe('CapsuleTrendingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CapsuleTrendingComponent ]
-    })
-    .compileComponents();
+      declarations: [CapsuleTrendingComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

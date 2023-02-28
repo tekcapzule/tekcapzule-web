@@ -12,6 +12,6 @@ export class TekBytePageComponent implements OnInit {
   ngOnInit(): void {}
 
   gotoTekbyteTopicDetails(): void {
-    this.router.navigate([ 'tekbytetopicdetails'], {});
+    this.router.navigate(['tekbytetopicdetails'], {});
   }
 }

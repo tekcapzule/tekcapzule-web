@@ -27,15 +27,17 @@ export class AdminPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activeTab = this.navTabs[0].uniqueId;
     this.router.navigate(['admin', this.navTabs[0].navUrl]);
-    this. router.events.subscribe((val) => {
-      if(val instanceof NavigationEnd && val.url){
-        if(val.url.includes('edittopic') ||
-        val.url.includes('createcapsule') || 
-        val.url.includes('createtopic')){
+    this.router.events.subscribe(val => {
+      if (val instanceof NavigationEnd && val.url) {
+        if (
+          val.url.includes('edittopic') ||
+          val.url.includes('createcapsule') ||
+          val.url.includes('createtopic')
+        ) {
           this.deActivateTabs();
         }
       }
-  });
+    });
 
     this.eventChannel
       .getChannel()

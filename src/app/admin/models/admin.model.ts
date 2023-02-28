@@ -1,5 +1,4 @@
-import { CapsuleStatus, Quiz } from "@app/shared/models/capsule-item.model";
-
+import { CapsuleStatus, Quiz } from '@app/shared/models/capsule-item.model';
 
 export interface AdminCapsuleDataItem {
   capsuleTitle: string;
@@ -11,7 +10,7 @@ export interface AdminCapsuleDataItem {
   description: string;
   questions: number;
   status: CapsuleStatus;
-  capsuleId : string;
+  capsuleId: string;
 }
 
 export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
@@ -24,7 +23,7 @@ export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
   description: string;
   questions: number;
   status: CapsuleStatus;
-  capsuleId : string;
+  capsuleId: string;
   constructor(
     capsuleTitle: string,
     author: string,
@@ -35,7 +34,7 @@ export class AdminCapsuleDataItemImpl implements AdminCapsuleDataItem {
     description: string,
     questions: number,
     status: CapsuleStatus,
-    capsuleId : string
+    capsuleId: string
   ) {
     this.author = author;
     this.capsuleTitle = capsuleTitle;

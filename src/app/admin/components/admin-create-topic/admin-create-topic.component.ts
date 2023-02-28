@@ -50,18 +50,14 @@ export class AdminCreateTopicComponent implements OnInit {
     this.topicDetails.keyHighlights = clearEmptyElementsInArray(this.topicDetails.keyHighlights);
     this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
     if (this.isEditMode) {
-      this.router.navigate(['/admin/capsules'] );
-      this.topicApi
-        .updateTopic(this.topicDetails)
-        .subscribe(res => {
-          // console.log(this.topicDetails, res)
-        });
+      this.router.navigate(['/admin/capsules']);
+      this.topicApi.updateTopic(this.topicDetails).subscribe(res => {
+        // console.log(this.topicDetails, res)
+      });
     } else {
-      this.topicApi
-        .createTopic(this.topicDetails)
-        .subscribe(res => {
-          // console.log(this.topicDetails, res)
-        });
+      this.topicApi.createTopic(this.topicDetails).subscribe(res => {
+        // console.log(this.topicDetails, res)
+      });
     }
     this.activateFirstNavTab();
   }

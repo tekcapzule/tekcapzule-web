@@ -1,13 +1,13 @@
 @import './../../assets/styles/variables.scss';
 
 .admin-page {
-  background: #E6E6E6;
+  background: #e6e6e6;
   &.p-main {
-    padding-top: 125px;;
+    padding-top: 125px;
   }
   .container {
     max-width: 1600px;
-}
+  }
   h1 {
     font-family: $cardtitle-font;
     font-size: 32px;
@@ -41,5 +41,3 @@
     color: #000;
   }
 }
-
-

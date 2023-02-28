@@ -8,9 +8,8 @@ describe('LegalDocsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LegalDocsComponent ]
-    })
-    .compileComponents();
+      declarations: [LegalDocsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -23,7 +23,9 @@
               <div class="form-group">
                 <select class="form-control">
                   <option value="" disabled selected>Topic Name</option>
-                  <option *ngFor="let topic of allTopics" value={{topic.code}}>{{topic.name}}</option>
+                  <option *ngFor="let topic of allTopics" value="{{ topic.code }}">
+                    {{ topic.name }}
+                  </option>
                 </select>
               </div>
             </div>

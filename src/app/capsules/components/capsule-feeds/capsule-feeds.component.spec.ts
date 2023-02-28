@@ -8,9 +8,8 @@ describe('CapsuleFeedsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CapsuleFeedsComponent ]
-    })
-    .compileComponents();
+      declarations: [CapsuleFeedsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

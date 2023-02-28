@@ -194,11 +194,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
       : [];
 
-    this.userApi
-      .unfollowTopic(this.auth.getUserInfo().username, topicCode)
-      .subscribe(() => {
-        this.fetchUserInfo(true);
-      });
+    this.userApi.unfollowTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
+      this.fetchUserInfo(true);
+    });
 
     this.userInfo = {
       ...this.userInfo,

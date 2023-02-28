@@ -5,7 +5,7 @@
         <img src="/assets/images/back-arrow.png" class="mr-2" />
         Back to Dashboard
       </a>
-      <h2 class="text-center"> {{isEditMode? "Edit" : "Create"}} Topic</h2>
+      <h2 class="text-center">{{isEditMode? "Edit" : "Create"}} Topic</h2>
     </div>
     <div class="row card-section d-flex justify-content-center mb-4 pb-4">
       <div class="carousel-card md-width adminPagesCard">
@@ -17,7 +17,12 @@
             <div class="px-4 py-4">
               <div class="form-group">
                 <label for="Topic Name">Topic Code*</label>
-                <input [disabled]="isEditMode"  type="text" class="form-control" [(ngModel)]="topicDetails.code" />
+                <input
+                  [disabled]="isEditMode"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="topicDetails.code"
+                />
               </div>
               <div class="form-group">
                 <label for="Topic Name">Topic Name*</label>
@@ -34,14 +39,31 @@
               <div class="form-group">
                 <label for="Alias">Alias</label>
                 <div class="innerCardSection">
-                  <div class="my-2 d-flex align-items-center"
-                    *ngFor="let alias of topicDetails.aliases; index as i; first as isFirst;trackBy:trackByIdx">
-                    <input type="text" class="form-control" id="topic-alias[i]" [(ngModel)]="topicDetails.aliases[i]" />
+                  <div
+                    class="my-2 d-flex align-items-center"
+                    *ngFor="let alias of topicDetails.aliases; index as i; first as isFirst;trackBy:trackByIdx"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="topic-alias[i]"
+                      [(ngModel)]="topicDetails.aliases[i]"
+                    />
                     <a class="ml-3" href="javascript:void(0);">
-                      <img *ngIf="isFirst" width="18" src="../../../../assets/images/add.svg" alt="add"
-                        (click)="addRow('aliases')" />
-                      <img *ngIf="!isFirst" width="15" src="../../../../assets/images/trash.svg" alt="remove"
-                        (click)="deleteRow('aliases',i)" />
+                      <img
+                        *ngIf="isFirst"
+                        width="18"
+                        src="../../../../assets/images/add.svg"
+                        alt="add"
+                        (click)="addRow('aliases')"
+                      />
+                      <img
+                        *ngIf="!isFirst"
+                        width="15"
+                        src="../../../../assets/images/trash.svg"
+                        alt="remove"
+                        (click)="deleteRow('aliases',i)"
+                      />
                     </a>
                   </div>
                 </div>
@@ -57,15 +79,31 @@
               <div class="form-group">
                 <label for="Alias">Key Highlights</label>
                 <div class="innerCardSection">
-                  <div class="my-2 d-flex align-items-center"
-                    *ngFor="let alias of topicDetails.keyHighlights; index as i; first as isFirst;trackBy:trackByIdx">
-                    <input type="text" class="form-control" id="topic-keyHighlights[i]"
-                      [(ngModel)]="topicDetails.keyHighlights[i]" />
+                  <div
+                    class="my-2 d-flex align-items-center"
+                    *ngFor="let alias of topicDetails.keyHighlights; index as i; first as isFirst;trackBy:trackByIdx"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="topic-keyHighlights[i]"
+                      [(ngModel)]="topicDetails.keyHighlights[i]"
+                    />
                     <a class="ml-3" href="javascript:void(0);">
-                      <img *ngIf="isFirst" width="18" src="../../../../assets/images/add.svg" alt="add"
-                        (click)="addRow('keyHighlights')" />
-                      <img *ngIf="!isFirst" width="15" src="../../../../assets/images/trash.svg" alt="remove"
-                        (click)="deleteRow('keyHighlights',i)" />
+                      <img
+                        *ngIf="isFirst"
+                        width="18"
+                        src="../../../../assets/images/add.svg"
+                        alt="add"
+                        (click)="addRow('keyHighlights')"
+                      />
+                      <img
+                        *ngIf="!isFirst"
+                        width="15"
+                        src="../../../../assets/images/trash.svg"
+                        alt="remove"
+                        (click)="deleteRow('keyHighlights',i)"
+                      />
                     </a>
                   </div>
                 </div>
@@ -73,15 +111,31 @@
               <div class="form-group">
                 <label for="Select Capsule">Select Capsule</label>
                 <div class="innerCardSection">
-                  <div class="my-2 d-flex align-items-center"
-                    *ngFor="let alias of topicDetails.capsules; index as i; first as isFirst;trackBy:trackByIdx">
-                    <input type="text" class="form-control" id="topic-capsules[i]"
-                      [(ngModel)]="topicDetails.capsules[i]" />
+                  <div
+                    class="my-2 d-flex align-items-center"
+                    *ngFor="let alias of topicDetails.capsules; index as i; first as isFirst;trackBy:trackByIdx"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="topic-capsules[i]"
+                      [(ngModel)]="topicDetails.capsules[i]"
+                    />
                     <a class="ml-3" href="javascript:void(0);">
-                      <img *ngIf="isFirst" width="18" src="../../../../assets/images/add.svg" alt="add"
-                        (click)="addRow('capsules')" />
-                      <img *ngIf="!isFirst" width="15" src="../../../../assets/images/trash.svg" alt="remove"
-                        (click)="deleteRow('capsules',i)" />
+                      <img
+                        *ngIf="isFirst"
+                        width="18"
+                        src="../../../../assets/images/add.svg"
+                        alt="add"
+                        (click)="addRow('capsules')"
+                      />
+                      <img
+                        *ngIf="!isFirst"
+                        width="15"
+                        src="../../../../assets/images/trash.svg"
+                        alt="remove"
+                        (click)="deleteRow('capsules',i)"
+                      />
                     </a>
                   </div>
                 </div>
@@ -90,14 +144,21 @@
           </div>
         </div>
         <div class="row justify-content-center my-4">
-          <button class="button secondary-btn-md mr-3" (click)="activateFirstNavTab()" [routerLink]="getDashboardLink()">
+          <button
+            class="button secondary-btn-md mr-3"
+            (click)="activateFirstNavTab()"
+            [routerLink]="getDashboardLink()"
+          >
             Cancel
           </button>
-          <button [disabled]="!isFormValid()" class="button secondary-btn-md cta" (click)="onSubmit()"
-            [routerLink]="['../capsules']">
+          <button
+            [disabled]="!isFormValid()"
+            class="button secondary-btn-md cta"
+            (click)="onSubmit()"
+            [routerLink]="['../capsules']"
+          >
             Save
           </button>
-
         </div>
       </div>
     </div>

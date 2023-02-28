@@ -8,9 +8,8 @@ describe('EditorsPickComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditorsPickComponent ]
-    })
-    .compileComponents();
+      declarations: [EditorsPickComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

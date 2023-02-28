@@ -5,19 +5,19 @@
     height: 390px;
     background-attachment: fixed;
     background: url('../../../../assets/images/community-hero-bg.svg') no-repeat 34px 0;
-    @media only screen and (max-width:767px){
+    @media only screen and (max-width: 767px) {
       background-size: 100%;
     }
-    @media only screen and (max-device-width:375px){
+    @media only screen and (max-device-width: 375px) {
       height: 460px;
     }
   }
-  .carouselContentSec{
+  .carouselContentSec {
     padding: 50px 100px;
     width: 100%;
     max-width: 650px;
-    @media only screen and (max-width:768px){
-      padding:15px;
+    @media only screen and (max-width: 768px) {
+      padding: 15px;
     }
   }
 }

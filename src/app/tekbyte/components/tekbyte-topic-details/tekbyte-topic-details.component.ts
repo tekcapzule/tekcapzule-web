@@ -4,14 +4,12 @@ import { CapsuleItem } from '@app/shared/models';
 @Component({
   selector: 'app-tekbyte-topic-detail',
   templateUrl: './tekbyte-topic-details.component.html',
-  styleUrls: ['./tekbyte-topic-details.component.scss']
+  styleUrls: ['./tekbyte-topic-details.component.scss'],
 })
 export class TekByteTopicDetailsPageComponent implements OnInit {
   firstThreeCapsules: CapsuleItem[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -142,11 +142,9 @@ export class AdminCapsulesComponent implements OnInit {
   }
 
   deleteActionCallback(row: AdminCapsuleDataItem): void {
-    this.capsuleApi
-      .disableCapsule(row.capsuleId)
-      .subscribe(capsule => {
-        // console.log('capsule disabled : ', capsule)
-      });
+    this.capsuleApi.disableCapsule(row.capsuleId).subscribe(capsule => {
+      // console.log('capsule disabled : ', capsule)
+    });
   }
 
   approveActionCallback(row: AdminCapsuleDataItem): void {
