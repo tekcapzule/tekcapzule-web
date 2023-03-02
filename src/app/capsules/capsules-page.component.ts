@@ -35,7 +35,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
 
   navTabs: NavTab[] = [
-    { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds', isHidden: false },
+    { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds', isHidden: true },
     { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
     { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
   ];
@@ -85,13 +85,13 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   navigateToActiveCapsulePage(refreshCache?: boolean): void {
     let activeNavTab: NavTab = this.navTabs[0];
 
-    // if (this.auth.isUserLoggedIn()) {
-    //   this.navTabs[0].isHidden = false;
-    //   activeNavTab = this.navTabs[0];
-    // } else {
-    //   this.navTabs[0].isHidden = true;
-    //   activeNavTab = this.navTabs[1];
-    // }
+    if (this.auth.isUserLoggedIn()) {
+      this.navTabs[0].isHidden = false;
+      activeNavTab = this.navTabs[0];
+    } else {
+      this.navTabs[0].isHidden = true;
+      activeNavTab = this.navTabs[1];
+    }
 
     this.activeTab = activeNavTab.uniqueId;
     this.router.navigate(['capsules', activeNavTab.navUrl]).then(() => {
