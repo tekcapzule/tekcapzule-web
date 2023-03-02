@@ -1,5 +1,6 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
+    <div class="container d-flex">
     <ng-container *ngFor="let navTab of navTabs">
       <a
         mat-tab-link
@@ -15,7 +16,11 @@
       >Browse by Topic
       <img src="/assets/images/down-arrow.svg" class="pl-2" />
     </a>
-    <div class="w-50 pr-0">
+
+    <div class="w-50 pr-0 d-flex justify-content-end">
+      <button class="reset-btn">
+        <img src="../../assets/images/reset.svg" alt="" class="pr-3 pt-2" />
+      </button>
       <button
         mat-stroked-button
         class="button secondary-btn-sm contribute-btn"
@@ -25,6 +30,7 @@
         Contribute
       </button>
     </div>
+  </div>
   </nav>
   <router-outlet></router-outlet>
   <!-- Modal -->
@@ -39,8 +45,9 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
+        <div class="container">
         <div class="modal-header">
-          <div class="col-lg-3">
+          <div class="col-lg-12">
             <div class="search-box">
               <input
                 type="search"
@@ -58,15 +65,15 @@
         </div>
         <div class="modal-body pt-0">
           <div class="row pb-4">
-            <div class="col-xl-3 col-md-6">
+            <!-- <div class="col-xl-3 col-md-6">
               <img src="/assets/images/browse-topics.png" alt="" />
-            </div>
+            </div> -->
             <ng-container *ngFor="let item of filteredTopicsByCategory">
-              <div class="col-xl-3 col-md-6">
+              <div class="col-md-12">
                 <h2>{{ item.category }}</h2>
                 <ul class="topics-list">
                   <li *ngFor="let topic of item.topics">
-                    {{ topic.name }}
+                    #{{ topic.name }}
                     <ng-container *ngIf="!isTopicSubscribed(topic.code)">
                       <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
                     </ng-container>
@@ -84,6 +91,7 @@
             </ng-container>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>

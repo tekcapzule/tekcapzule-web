@@ -37,7 +37,7 @@
   }
   .category-title {
     span {
-      font-size: 24px;
+      font-size: 20px;
       border-left: 1px solid #cbcbcb;
       padding-left: 25px;
       margin-left: 25px;
@@ -51,11 +51,9 @@
     font-size: 18px;
   }
 }
-.reset-btn {
-  border: 0 none;
-  background: transparent;
-}
+
 /************Tab Container*************/
+.tekbyte-page{
 ::ng-deep {
   .mat-tab-group {
     flex-direction: row !important;
@@ -89,22 +87,26 @@
         color: #fff;
       }
       .mat-tab-label-content {
-        &::after {
-          content: '';
-          background: url(../../assets/images/right-arrow.svg) no-repeat;
-          height: 23px;
-          width: 23px;
-        }
+        justify-content: flex-start;
+        width: 90%;
+        white-space: break-spaces;
       }
     }
     .mat-tab-label-active {
       background: #e7245f;
       color: #fff;
+      &::after {
+        content: '';
+        background: url(../../assets/images/right-arrow.svg) no-repeat;
+        height: 23px;
+        width: 23px;
+      }
     }
   }
   .mat-ink-bar {
     height: 100%;
     left: 98% !important;
+    display: none;
   }
   .mat-tab-body-wrapper {
     flex: 1 1 auto;
@@ -113,6 +115,7 @@
   .mat-tab-body.mat-tab-body-active {
     max-height: 990px;
   }
+}
 }
 
 /**********Topics Card***********/
@@ -160,5 +163,9 @@
     border: 1px solid $primary-color;
     background: $white;
     padding: 3px 10px;
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
   }
 }

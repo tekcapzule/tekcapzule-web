@@ -48,6 +48,10 @@
     position: absolute;
     bottom: 15px;
     left: 30px;
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
     @media only screen and (max-width: 990px) {
       padding: 5px 10px;
     }
