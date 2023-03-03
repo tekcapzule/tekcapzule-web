@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
@@ -9,7 +9,7 @@ import { take } from 'rxjs/operators';
   templateUrl: './admin-create-topic.component.html',
   styleUrls: ['./admin-create-topic.component.scss'],
 })
-export class AdminCreateTopicComponent implements OnInit {
+export class AdminCreateTopicComponent implements OnInit, AfterViewInit {
   topicDetails = {
     code: '',
     category: '',
@@ -26,7 +26,7 @@ export class AdminCreateTopicComponent implements OnInit {
     private eventChannel: EventChannelService,
     private topicApi: TopicApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -34,14 +34,20 @@ export class AdminCreateTopicComponent implements OnInit {
       this.isEditMode = true;
       this.topicApi.getAllTopics().subscribe(allTopics => {
         this.topicDetails = allTopics.find(
-          topic => topic.code === this.route.snapshot.paramMap.get('topicCode')
+          topic => topic.code === this.activatedRoute.snapshot.paramMap.get('topicCode')
         );
       });
     }
   }
 
-  activateFirstNavTab(): void {
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveAdminTab });
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.eventChannel.publish({ event: ChannelEvent.HideAdminNavTabs });
+    });
+  }
+
+  showAdminNavTabs(): void {
+    this.eventChannel.publish({ event: ChannelEvent.ShowAdminNavTabs });
   }
 
   onSubmit(): void {
@@ -59,7 +65,8 @@ export class AdminCreateTopicComponent implements OnInit {
         // console.log(this.topicDetails, res)
       });
     }
-    this.activateFirstNavTab();
+
+    this.showAdminNavTabs();
   }
 
   trackByIdx(index: number, obj: any): any {

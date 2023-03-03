@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 import { CreateCapsuleForm } from '../models/admin-form.model';
@@ -10,12 +9,11 @@ import { AppSpinnerService } from '@app/core';
   templateUrl: './admin-create-capsule.component.html',
   styleUrls: ['./admin-create-capsule.component.scss'],
 })
-export class AdminCreateCapsuleComponent implements OnInit {
+export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   constructor(
     private eventChannel: EventChannelService,
     private capsuleApi: CapsuleApiService,
-    private appSpinnerService: AppSpinnerService,
-    private router: Router
+    private appSpinnerService: AppSpinnerService
   ) {}
 
   createCapsuleForm = new CreateCapsuleForm();
@@ -51,6 +49,13 @@ export class AdminCreateCapsuleComponent implements OnInit {
     this.createCapsuleForm.tags = ['cld', 'cloud', 'compute', 'storage'];
     this.createCapsuleForm.publishedDate = this.pipe.transform(this.now, 'dd/MM/yyyy');
   }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.hideAdminNavTabs();
+    });
+  }
+
   isFormValid() {
     return (
       this.createCapsuleForm.topicCode &&
@@ -83,7 +88,11 @@ export class AdminCreateCapsuleComponent implements OnInit {
     }
   }
 
-  activateFirstNavTab(): void {
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveAdminTab });
+  showAdminCapsulesTab(): void {
+    this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
+  }
+
+  hideAdminNavTabs(): void {
+    this.eventChannel.publish({ event: ChannelEvent.HideAdminNavTabs });
   }
 }

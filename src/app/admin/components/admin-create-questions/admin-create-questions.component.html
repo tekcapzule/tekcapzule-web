@@ -2,7 +2,7 @@
 <div class="create-capsule-page-Admin">
   <div class="container pt-5">
     <div class="back-link">
-      <a (click)="activateFirstNavTab()" [routerLink]="['../capsules']">
+      <a (click)="showAdminCapsulesTab()" [routerLink]="['../capsules']">
         <img src="/assets/images/back-arrow.png" class="mr-2" />
         Back to Dashboard
       </a>
@@ -185,14 +185,14 @@
     <div class="row justify-content-center mb-4">
       <button
         class="button secondary-btn-md mb-5 mr-3"
-        (click)="activateFirstNavTab()"
+        (click)="showAdminCapsulesTab()"
         [routerLink]="['../capsules']"
       >
         Cancel
       </button>
       <button
         class="button secondary-btn-md cta mb-5"
-        (click)="activateFirstNavTab()"
+        (click)="showAdminCapsulesTab()"
         [routerLink]="['../capsules']"
       >
         Submit

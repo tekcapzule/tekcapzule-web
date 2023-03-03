@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
-import { AppSpinnerService, CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -101,11 +101,21 @@ export class AdminCapsulesComponent implements OnInit {
 
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
+  constructor(
+    private capsuleApi: CapsuleApiService,
+    private spinner: AppSpinnerService,
+    private eventChannel: EventChannelService
+  ) {}
 
   ngOnInit(): void {
     this.fetchPendingApprovalCapsules();
   }
+
+  // ngAfterViewInit(): void {
+  //   setTimeout(() => {
+  //     this.eventChannel.publish({ event: ChannelEvent.ShowAdminNavTabs });
+  //   });
+  // }
 
   fetchPendingApprovalCapsules(refreshCache?: boolean): void {
     this.spinner.show();

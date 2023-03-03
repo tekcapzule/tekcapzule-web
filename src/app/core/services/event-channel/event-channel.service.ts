@@ -3,8 +3,10 @@ import { Observable } from 'rxjs';
 
 export enum ChannelEvent {
   SetActiveCapsuleTab = 'SET_ACTIVE_CAPSULE_TAB',
-  SetActiveAdminTab = 'SET_ACTIVE_ADMIN_TAB',
+  SetAdminCapsulesNavTab = 'SET_ADMIN_CAPSULES_NAV_TAB',
   LoadDataForActiveCapsuleTab = 'LOAD_DATA_FOR_ACTIVE_CAPSULE_TAB',
+  HideAdminNavTabs = 'HIDE_ADMIN_NAV_TABS',
+  ShowAdminNavTabs = 'SHOW_ADMIN_NAV_TABS',
 }
 
 export interface EventChannelOutput {

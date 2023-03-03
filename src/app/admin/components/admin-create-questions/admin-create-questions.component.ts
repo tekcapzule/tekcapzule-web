@@ -12,7 +12,7 @@ export class AdminCreateQuestionsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  activateFirstNavTab(): void {
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveAdminTab });
+  showAdminCapsulesTab(): void {
+    this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
   }
 }
