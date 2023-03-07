@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 
 import { ChannelEvent, EventChannelService } from '@app/core';
 import { NavTab } from '@app/shared/models';
-import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-admin-page',
@@ -14,6 +13,7 @@ import { Constants } from '@app/shared/utils';
 })
 export class AdminPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
+  isNavTabsHidden = false;
   activeTab = 'adminCapsules';
 
   navTabs: NavTab[] = [
@@ -22,36 +22,38 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
   ];
 
-  constructor(private router: Router, private activated: ActivatedRoute, private eventChannel: EventChannelService) {}
+  constructor(private eventChannel: EventChannelService) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe(val => {
-      if (val instanceof NavigationEnd && val.url) {
-        if(val.url !== '/admin') {
-          this.router.navigate([val.url]);
-        } else {
-          this.router.navigate(['admin', this.navTabs[0].navUrl]).then(() => {
-            this.setActiveTab(this.navTabs[0]);        
-          });
-        }
-        if (
-          val.url.includes('edittopic') ||
-          val.url.includes('createcapsule') ||
-          val.url.includes('createtopic')
-        ) {
-          this.deActivateTabs();
-        }
-      }
-    });
+    this.eventChannel
+      .getChannel()
+      .pipe(
+        filter(out => out.event === ChannelEvent.HideAdminNavTabs),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.isNavTabsHidden = true;
+      });
 
     this.eventChannel
       .getChannel()
       .pipe(
-        filter(out => out.event === ChannelEvent.SetActiveAdminTab),
+        filter(out => out.event === ChannelEvent.ShowAdminNavTabs),
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
-        this.setActiveTab(this.navTabs[0]);   
+        this.isNavTabsHidden = false;
+      });
+
+    this.eventChannel
+      .getChannel()
+      .pipe(
+        filter(out => out.event === ChannelEvent.SetAdminCapsulesNavTab),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.activeTab = this.navTabs[0].uniqueId;
+        this.isNavTabsHidden = false;
       });
   }
 
@@ -60,23 +62,15 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
+  isNavTabsVisible(): boolean {
+    return !this.isNavTabsHidden;
+  }
+
   setActiveTab(navTab: NavTab): void {
     this.activeTab = navTab.uniqueId;
   }
 
   isActiveTab(navTab: NavTab): boolean {
     return this.activeTab === navTab.uniqueId;
-  }
-
-  deActivateTabs(): void {
-    this.activeTab = Constants.None;
-  }
-
-  isNavTabDeActivated(): boolean {
-    return this.activeTab === Constants.None;
-  }
-
-  canHideNavTabs(): boolean {
-    return this.activeTab === Constants.None;
   }
 }

@@ -1,6 +1,6 @@
 <div class="admin-page p-main">
   <div class="container px-0">
-    <div class="row" *ngIf="!canHideNavTabs()">
+    <div class="row" *ngIf="isNavTabsVisible()">
       <div class="col-lg-6 col-md-6 col-sm-12">
         <h1>300 Active Users</h1>
       </div>
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row">
-      <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
+      <nav mat-tab-nav-bar *ngIf="isNavTabsVisible()">
         <div class="container px-0 resp-tab">
           <a
             mat-tab-link
@@ -36,7 +36,7 @@
         </div>
       </nav>
       <div class="container px-0">
-        <div class="col-lg-3 float-right" *ngIf="!isNavTabDeActivated()">
+        <div class="col-lg-3 float-right" *ngIf="isNavTabsVisible()">
           <div class="search-box">
             <input type="search" name="search" placeholder="What are you looking for?" />
             <button title="search bar" class="search-btn"></button>

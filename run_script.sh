@@ -9,6 +9,7 @@ print_help() {
   echo "  start [--port=4321]   Install dependencies and start local dev server"
   echo "  serve [--port=4321]   Start local dev server"
   echo "  stop                  Stop local dev server"
+  echo "  install               Install local dependencies"
   echo "  build                 Generate the dev build"
   echo "  prod                  Generate the prod build"
   echo "  shell                 Open shell prompt in the container"
@@ -20,7 +21,7 @@ docker_run_it() {
   docker run -it --rm \
     --name tekcapsule-web \
     -p "$SERVER_PORT":"$SERVER_PORT" \
-    -v "$PWD":/app \
+    --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 \
     /bin/sh -c "$SHELL_ARG"
@@ -29,7 +30,7 @@ docker_run_it() {
 docker_run_nonit() {
   docker run --rm \
     --name tekcapsule-web-runner \
-    -v "$PWD":/app \
+    --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 \
     /bin/sh -c "$SHELL_ARG"
@@ -38,7 +39,7 @@ docker_run_nonit() {
 docker_run_shell() {
   docker run -it --rm \
     --name tekcapsule-web-shell \
-    -v "$PWD":/app \
+    --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 /bin/sh
 }
@@ -69,7 +70,7 @@ elif [[ "$1" == "prod" ]]; then
   echo "[INFO] Deleting generated files..."
   sh -c "rm -rf dist/"
   echo "[INFO] Installing dependencies..."
-  SHELL_ARG="yarn install"
+  SHELL_ARG="yarn install --frozen-lockfile"
   docker_run_nonit
   echo "[INFO] Generating prod build..."
   SHELL_ARG="yarn build:prod"
@@ -77,7 +78,7 @@ elif [[ "$1" == "prod" ]]; then
   exit
 elif [[ "$1" == "start" ]]; then
   echo "[INFO] Installing dependencies..."
-  SHELL_ARG="yarn install"
+  SHELL_ARG="yarn install --frozen-lockfile"
   docker_run_nonit
   echo "[INFO] Starting local dev server..."
   SHELL_ARG="yarn start:dev --port $SERVER_PORT"
@@ -87,6 +88,11 @@ elif [[ "$1" == "serve" ]]; then
   echo "[INFO] Starting local dev server..."
   SHELL_ARG="yarn start:dev --port $SERVER_PORT"
   docker_run_it
+  exit
+elif [[ "$1" == "install" ]]; then
+  echo "[INFO] Installing dependencies..."
+  SHELL_ARG="yarn install --frozen-lockfile --verbose"
+  docker_run_nonit
   exit
 elif [[ "$1" == "stop" ]]; then
   echo "[INFO] Stopping local dev server..."
@@ -99,7 +105,7 @@ elif [[ "$1" == "shell" ]]; then
 elif [[ "$1" == "clean" ]]; then
   echo "[INFO] Deleting dependencies..."
   sh -c "rm -rf node_modules/"
-  echo "[INFO] Deleting generated files..."
+  echo "[INFO] Deleting build files..."
   sh -c "rm -rf dist/"
   exit
 elif [[ "$1" == "help" ]]; then
