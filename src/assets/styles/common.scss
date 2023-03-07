@@ -144,14 +144,14 @@ h3 {
 .carousel-card {
   //width: 405px;
   width: 408px;
-  height: 540px;
+  height: 560px;
   box-shadow: 0px 3px 20px #0000000f;
   border-radius: 20px;
   margin: 0 20px;
   transition: 0.3s;
   background: #fff;
   margin-bottom: 40px;
-  cursor: pointer;
+  // cursor: pointer;
   @media only screen and (max-width: 768px) {
     margin: 0 0px;
   }
@@ -208,6 +208,7 @@ h3 {
   .card-footer {
     background: none;
     border: 0 none;
+    padding: 10px 0 30px;
     img {
       cursor: pointer;
     }
@@ -360,6 +361,16 @@ h3 {
     top: -25px;
   }
 }
+.reset-btn {
+  border: 0 none;
+  background: transparent;
+  img{
+    &:hover{
+    -webkit-animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
+    animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
+  }
+  }
+}
 
 /*****************************************
 <!--Form Styles -->
@@ -465,7 +476,7 @@ Modal Dialogue
 
 .modal-dialog {
   max-width: 100%;
-  height: 750px;
+  height: 375px;
   padding: 0;
   box-shadow: 0px 3px 6px #00000003;
 }
@@ -618,6 +629,7 @@ input:-webkit-autofill:active {
 .mat-tab-links {
   max-width: 1300px;
   padding-left: 30px;
+  margin: 0 auto;
   @media only screen and (max-width: 990px) {
     max-width: 1600px;
   }
