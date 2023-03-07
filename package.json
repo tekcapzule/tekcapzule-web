@@ -8,13 +8,14 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:dev": "ng serve --host 0.0.0.0",
+    "install:deps": "npm install --force",
+    "start:dev": "ng serve --host 0.0.0.0 --poll",
     "start:win": "SET NODE_OPTIONS=--openssl-legacy-provider && ng serve",
     "build:prod": "ng build --prod",
     "build:staging": "ng build --configuration=staging",
     "prettify": "prettier --config ./.prettierrc --write 'src/app/**/*.{js,ts,json,css,scss,html}'",
     "test:headless": "ng test --browsers=ChromeHeadless --reporters=spec",
-    "test:headless:sr": "yarn test:headless --watch=false"
+    "test:headless:sr": "ng test --browsers=ChromeHeadless --reporters=spec --watch=false"
   },
   "private": true,
   "husky": {
