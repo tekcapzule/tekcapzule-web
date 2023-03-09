@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EventApiService } from '@app/core';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-community-carousel',
@@ -15,7 +14,6 @@ export class CommunityCarouselComponent implements OnInit {
   ngOnInit(): void {
     this.eventApi.getAllEvents().subscribe(events => {
       this.events = events;
-      // console.log(events);
     });
   }
 

@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
-import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, EventChannelService } from '@app/core';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -101,21 +101,11 @@ export class AdminCapsulesComponent implements OnInit {
 
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  constructor(
-    private capsuleApi: CapsuleApiService,
-    private spinner: AppSpinnerService,
-    private eventChannel: EventChannelService
-  ) {}
+  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
     this.fetchPendingApprovalCapsules();
   }
-
-  // ngAfterViewInit(): void {
-  //   setTimeout(() => {
-  //     this.eventChannel.publish({ event: ChannelEvent.ShowAdminNavTabs });
-  //   });
-  // }
 
   fetchPendingApprovalCapsules(refreshCache?: boolean): void {
     this.spinner.show();
@@ -168,7 +158,6 @@ export class AdminCapsulesComponent implements OnInit {
         })
       )
       .subscribe(() => {
-        // console.log('capsule appproved: ', row.capsuleId);
         this.fetchPendingApprovalCapsules(true);
       });
   }

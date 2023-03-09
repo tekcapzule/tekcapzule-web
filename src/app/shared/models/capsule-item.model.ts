@@ -57,7 +57,7 @@ export enum CapsuleStatus {
   SUBMITTED = 'SUBMITTED',
 }
 
-export interface capsuleCreation {
+export interface CapsuleCreation {
   topicCode: string;
   publishedDate: string;
   title: string;

@@ -60,28 +60,6 @@ h4 {
   font-family: $heading-fonts;
 }
 
-
-
-/*--------------------------------------------------------------
-# Intro Section
---------------------------------------------------------------*/
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-  h2 {
-    font-size: 38px;
-  }
-}
-
-h2 {
-  margin-bottom: 15px;
-  font-size: 38px;
-}
-h3 {
-  font-size: 28px;
-  font-family: $primary-font-medium;
-}
-
 /*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
@@ -257,7 +235,7 @@ h3 {
     color: $white;
     margin-right: 15px;
   }
-  
+
   &.secondary {
     background-color: $white;
     color: $primary-color;
@@ -354,21 +332,18 @@ h3 {
     font-size: 15px;
     font-family: $cardtitle-font;
     color: $primary-color;
-    top: 33px;
     position: relative;
-    @media only screen and (max-width: 990px) {
-    }
     top: -25px;
   }
 }
 .reset-btn {
   border: 0 none;
   background: transparent;
-  img{
-    &:hover{
-    -webkit-animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
-    animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
-  }
+  img {
+    &:hover {
+      -webkit-animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
+      animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
+    }
   }
 }
 
@@ -404,7 +379,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus, .form-control:focus {
+textarea:focus,
+.form-control:focus {
   outline: none;
   box-shadow: -3px 1px 23px -9px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: -3px 1px 23px -9px rgba(0, 0, 0, 0.25);
@@ -412,11 +388,11 @@ textarea:focus, .form-control:focus {
 }
 .date-control {
   font-size: 16px;
-    width: 170px;
-    padding: 8px;
-    margin-bottom: 0;
-    margin-right: 10px;
-    text-transform: uppercase;
+  width: 170px;
+  padding: 8px;
+  margin-bottom: 0;
+  margin-right: 10px;
+  text-transform: uppercase;
 }
 .custom-control-input:checked ~ .custom-control-label::before {
   border-color: #8fce47;
@@ -691,7 +667,7 @@ select {
 }
 
 .bg-gray {
-  background: #E2E2E2;
+  background: #e2e2e2;
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {

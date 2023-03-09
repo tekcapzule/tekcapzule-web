@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { take } from 'rxjs/operators';
 
 import { CapsuleApiService, SubscriptionApiService, UserApiService, AuthService } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
