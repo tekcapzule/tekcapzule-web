@@ -3,7 +3,7 @@ import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
-import { AppSpinnerService, CapsuleApiService, EventChannelService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService } from '@app/core';
 
 @Component({
   selector: 'app-admin-capsules',

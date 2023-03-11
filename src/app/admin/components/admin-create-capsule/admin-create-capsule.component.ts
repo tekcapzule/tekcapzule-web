@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService } from '@app/core';
-import { CreateCapsuleForm } from '../models/admin-form.model';
+import { CreateCapsuleForm } from '@app/admin/models';
 
 @Component({
   selector: 'app-admin-create-capsule',
