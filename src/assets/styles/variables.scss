@@ -30,6 +30,8 @@ $primary-font-black-url: '../fonts/GTWalsheimPro-CondensedBlack.ttf';
 $cardtitle-font: HelveticaNeueLTProBoldCondensed;
 $cardtitle-font-url: '../fonts/HelveticaNeueLTPro-BdCn.otf';
 
+$subheading-font: PROXIMANOVASEMIBOLD;
+$subheading-font-url: '../fonts/Proxima-Nova-Semibold.ttf';
 
 
 @font-face {
@@ -97,4 +99,8 @@ $cardtitle-font-url: '../fonts/HelveticaNeueLTPro-BdCn.otf';
 @font-face {
   font-family: $cardtitle-font;
   src: url($cardtitle-font-url);
+}
+@font-face {
+  font-family: $subheading-font;
+  src: url($subheading-font-url);
 }

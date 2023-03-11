@@ -3,22 +3,64 @@
 <div id="tekbyte" class="tekbyte-page p-main">
   <div class="pb-3 col-lg-12 px-0">
     <section class="container-fluid topics-bg px-0">
-      <app-tekbyte-carousel></app-tekbyte-carousel>
+      <div class="container">
+        <h3 class="text-center pb-2 banner-heading">Here are the topics we have for you!</h3>
+
+        <div class="col-sm-12 px-0 d-flex pb-5">
+          <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
+          <button class="reset-btn">
+            <img src="../../assets/images/reset.svg" alt="" class="pl-4" />
+          </button>
+        </div>
+        <div>
+          <ul class="topics-btn">
+            <li>All</li>
+            <li class="active">Software Development (10)</li>
+            <li>Internet of Things (IoT) (15)</li>
+            <li>Cloud Computing (11)</li>
+            <li>Artificial Intelligence (08)</li>
+            <li>Big Data (06)</li>
+            <li>Data Science (08)</li>
+            <li>Blockchain (03)</li>
+            <li>Cyber Security (03)</li>
+            <li>Quantum Computing (05)</li>
+            <li>Metaverse (15)</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </div>
+  <div class="container-fluid topics-desc">
+    <div class="container">
+      <div class="d-flex">
+        <img src="/assets/images/topic-image.png" alt="" class="pr-5 pb-3" />
 
-  <div class="container">
-    <div class="col-sm-12 px-0 d-flex">
-      <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
-      <button class="reset-btn">
-        <img src="../../assets/images/reset.svg" alt="" class="pl-4" />
-      </button>
+        <div class="pb-4">
+          <h2>Software Development</h2>
+          <p>
+            Software development is the process of conceiving, specifying, designing, programming, documenting, testing,
+            and bug fixing involved in creating and maintaining applications, frameworks, or other software components.
+            Software development involves writing and maintaining the source code, but in a broader sense, it includes
+            all processes from the conception of the desired software through to the final manifestation of the
+            software, typically in a planned and structured process.
+          </p>
+          <p>
+            Software development is the process of conceiving, specifying, designing, programming, documenting, testing,
+            and bug fixing involved in creating and maintaining applications, frameworks, or other software components.
+            Software development involves writing and maintaining the source code, but in a broader sense, it includes
+            all processes from the conception of the desired software through to the final manifestation of the
+            software, typically in a planned and structured process. 
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="container">
+
     <div class="d-flex category-section mt-4">
-      <div class="category-heading">Select Category</div>
+      <div class="category-heading">Category</div>
       <div class="category-title">
-        User Centered Design
-        <span>Topics 40</span>
+        Topics
       </div>
       <div class="ml-auto">
         <button mat-raised-button class="button primary sort">
@@ -28,7 +70,7 @@
     </div>
     <div class="tab-container">
       <mat-tab-group>
-        <mat-tab label="User Centered Design">
+        <mat-tab label="All">
           <section>
             <div class="card-section d-flex flex-wrap justify-content-center mb-4 pt-4">
               <div class="topics-card">
@@ -43,11 +85,7 @@
                       sunt.
                     </p>
                   </div>
-                  <button
-                    class="button follow-btn"
-                    tabindex="0"
-                    [routerLink]="['tekbytetopicdetails']"
-                  >
+                  <button class="button follow-btn" tabindex="0" [routerLink]="['tekbytetopicdetails']">
                     FOLLOW
                   </button>
                 </div>
@@ -130,11 +168,14 @@
             </div>
           </section>
         </mat-tab>
-        <mat-tab label="High-Performance Computing (HPC)"> Tab Two Content </mat-tab>
-        <mat-tab label="Artificial Intellegency Machine Learning"> Tab One Content </mat-tab>
-        <mat-tab label="User Centered Design"> Tab One Content </mat-tab>
-        <mat-tab label="High-Performance Computing (HPC)"> Tab Two Content </mat-tab>
-        <mat-tab label="Artificial Intellegency Machine Learning"> Tab One Content </mat-tab>
+        <mat-tab label="Programming Languages"> Tab Two Content </mat-tab>
+        <mat-tab label="Data Structure & Algorithms"> Tab One Content </mat-tab>
+        <mat-tab label="Design Patterns"> Tab One Content </mat-tab>
+        <mat-tab label="Software Architecture"> Tab Two Content </mat-tab>
+        <mat-tab label="System Design"> Tab One Content </mat-tab>
+        <mat-tab label="App Development"> Tab One Content </mat-tab>
+        <mat-tab label="Web Development"> Tab One Content </mat-tab>
+        <mat-tab label="DevOps"> Tab One Content </mat-tab>
       </mat-tab-group>
     </div>
   </div>
