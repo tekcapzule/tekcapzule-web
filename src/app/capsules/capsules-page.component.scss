@@ -1,7 +1,7 @@
 @import './../../assets/styles/variables.scss';
 
 .capsules-page {
-  background: #E4E4E4;
+  background: #e4e4e4;
   &.p-main {
     padding-top: 90px;
   }
@@ -28,6 +28,7 @@
   color: #575757;
   font-size: 18px;
   height: 60px;
+
   @media only screen and (max-width: 768px) {
     min-width: auto !important;
     margin-right: 30px;
@@ -56,7 +57,7 @@ ul {
       border-radius: 25px;
       margin-right: 13px;
       margin-bottom: 13px;
-      border: 1px solid #F9BBCE;
+      border: 1px solid #f9bbce;
       padding: 0 30px;
       float: left;
       span {

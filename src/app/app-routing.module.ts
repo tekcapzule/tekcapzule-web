@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'legaldocs',
-    loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
-  },
-  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
@@ -35,8 +31,8 @@ const routes: Routes = [
     loadChildren: () => import('./mission/mission.module').then(m => m.MissionModule),
   },
   {
-    path: 'tekbyte',
-    loadChildren: () => import('./tekbyte/tekbyte.module').then(m => m.TekByteModule),
+    path: 'legaldocs',
+    loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
   },
   {
     path: '',

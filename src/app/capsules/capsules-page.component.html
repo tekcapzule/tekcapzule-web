@@ -1,36 +1,36 @@
 <div id="capsules" class="capsules-page p-main">
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
     <div class="container d-flex">
-    <ng-container *ngFor="let navTab of navTabs">
-      <a
-        mat-tab-link
-        *ngIf="!navTab.isHidden"
-        (click)="setActiveTab(navTab)"
-        [active]="isActiveTab(navTab)"
-        [routerLink]="[navTab.navUrl]"
-      >
-        {{ navTab.displayName }}
-      </a>
-    </ng-container>
-    <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal"
-      >Browse by Topic
-      <img src="/assets/images/down-arrow.svg" class="pl-2" />
-    </a>
+      <ng-container *ngFor="let navTab of navTabs">
+        <a
+          mat-tab-link
+          *ngIf="!navTab.isHidden"
+          (click)="setActiveTab(navTab)"
+          [active]="isActiveTab(navTab)"
+          [routerLink]="[navTab.navUrl]"
+        >
+          <span style="width: 130px">{{ navTab.displayName }}</span>
+        </a>
+      </ng-container>
 
-    <div class="w-75 pr-0 d-flex justify-content-end">
-      <button class="reset-btn">
-        <img src="../../assets/images/reset.svg" alt="" class="pr-3 pt-2" />
-      </button>
-      <button
-        mat-stroked-button
-        class="button secondary-btn-sm contribute-btn"
-        (click)="deActivateTabs()"
-        [routerLink]="['create']"
-      >
-        Contribute
-      </button>
+      <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal">
+        <span style="width: 160px">Browse by Topic</span>
+        <img src="/assets/images/down-arrow.svg" class="pl-2" />
+      </a>
+      <div class="w-75 pr-0 d-flex justify-content-end">
+        <button class="reset-btn">
+          <img src="/assets/images/reset.svg" alt="" class="pr-3 pt-2" />
+        </button>
+        <button
+          mat-stroked-button
+          class="button secondary-btn-sm contribute-btn"
+          (click)="deActivateTabs()"
+          [routerLink]="['create']"
+        >
+          Contribute
+        </button>
+      </div>
     </div>
-  </div>
   </nav>
   <router-outlet></router-outlet>
   <!-- Modal -->
@@ -46,52 +46,54 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="container">
-        <div class="modal-header">
-          <div class="col-lg-12">
-            <div class="search-box">
-              <input
-                type="search"
-                name="search"
-                placeholder="What are you looking for?"
-                [(ngModel)]="searchInputValue"
-                (input)="searchInputChanged($event.target.value)"
-              />
-              <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
+          <div class="modal-header">
+            <div class="col-lg-12">
+              <div class="search-box">
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="What are you looking for?"
+                  [(ngModel)]="searchInputValue"
+                  (input)="searchInputChanged($event.target.value)"
+                />
+                <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
+              </div>
             </div>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <img src="/assets/images/close-icon.svg" />
+            </button>
           </div>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <img src="/assets/images/close-icon.svg" />
-          </button>
-        </div>
-        <div class="modal-body pt-0">
-          <div class="row pb-4">
-            <!-- <div class="col-xl-3 col-md-6">
+          <div class="modal-body pt-0">
+            <div class="row pb-4">
+              <!-- <div class="col-xl-3 col-md-6">
               <img src="/assets/images/browse-topics.png" alt="" />
             </div> -->
-            <ng-container *ngFor="let item of filteredTopicsByCategory">
-              <div class="col-md-12">
-                <h2>{{ item.category }}</h2>
-                <ul class="topics-list">
-                  <li *ngFor="let topic of item.topics">
-                    #{{ topic.name }}
-                    <ng-container *ngIf="!isTopicSubscribed(topic.code)">
-                      <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
-                    </ng-container>
-                    <ng-container *ngIf="isTopicSubscribed(topic.code)">
-                      <span
-                        class="active"
-                        style="cursor: pointer"
-                        (click)="unfollowTopic(topic.code)"
-                        >FOLLOWING</span
-                      >
-                    </ng-container>
-                  </li>
-                </ul>
-              </div>
-            </ng-container>
+              <ng-container *ngFor="let item of filteredTopicsByCategory">
+                <div class="col-md-12">
+                  <!-- <h2>{{ item.category }}</h2> -->
+                  <ul class="topics-list">
+                    <li *ngFor="let topic of item.topics">
+                      #{{ topic.name }}
+                      <ng-container *ngIf="!isTopicSubscribed(topic.code)">
+                        <span style="cursor: pointer" (click)="followTopic(topic.code)"
+                          >FOLLOW</span
+                        >
+                      </ng-container>
+                      <ng-container *ngIf="isTopicSubscribed(topic.code)">
+                        <span
+                          class="active"
+                          style="cursor: pointer"
+                          (click)="unfollowTopic(topic.code)"
+                          >FOLLOWING</span
+                        >
+                      </ng-container>
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </div>

@@ -11,7 +11,6 @@ import {
   AuthService,
 } from '@app/core';
 import { NavTab, TopicItem, UserInfo } from '@app/shared/models';
-
 import { Constants } from '@app/shared/utils';
 
 declare const jQuery: any;
@@ -35,7 +34,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
 
   navTabs: NavTab[] = [
-    { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'My Feeds', isHidden: true },
+    { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'For You' },
     { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
     { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
   ];
@@ -64,6 +63,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.setTopicsByCategory(topics);
     });
+
     if (this.router.url !== '/capsules/create') {
       this.navigateToActiveCapsulePage(false);
     }
@@ -83,17 +83,17 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   navigateToActiveCapsulePage(refreshCache?: boolean): void {
-    let activeNavTab: NavTab;
+    // if (this.auth.isUserLoggedIn()) {
+    //   this.navTabs[0].isHidden = false;
+    //   activeNavTab = this.navTabs[0];
+    // } else {
+    //   this.navTabs[0].isHidden = true;
+    //   activeNavTab = this.navTabs[1];
+    // }
 
-    if (this.auth.isUserLoggedIn()) {
-      this.navTabs[0].isHidden = false;
-      activeNavTab = this.navTabs[0];
-    } else {
-      this.navTabs[0].isHidden = true;
-      activeNavTab = this.navTabs[1];
-    }
-
+    const activeNavTab = this.navTabs[0];
     this.activeTab = activeNavTab.uniqueId;
+
     this.router.navigate(['capsules', activeNavTab.navUrl]).then(() => {
       this.eventChannel.publish({
         event: ChannelEvent.LoadDataForActiveCapsuleTab,

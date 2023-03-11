@@ -1,87 +1,394 @@
 @import './../../../../assets/styles/variables.scss';
 
-.explore-page {
-  background: #f8f8f8;
+.tekbyte-details-page {
+  font-size: 18px;
   &.p-main {
-    padding-top: 170px;
+    padding-top: 100px;
     @media only screen and (max-width: 768px) {
       padding-top: 90px;
     }
   }
+  .topics-bg {
+    background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px -280px;
+    // url("/assets/images/topics-bg-img.png") no-repeat;
+    // background-image:linear-gradient(to bottom, rgba(255, 255, 252, 1), rgba(239, 214, 221, 1)),  url('/assets/images/topics-bg-img.png');
+    padding-top: 50px;
+  }
   .container {
     max-width: 1400px;
-    .cyber-block {
-      background: #fff url('../../../../assets/images/explore-topics-bg.png') no-repeat;
-      padding: 40px 40px 0;
-      .inline-points {
-        li {
-          font-size: 18px;
-          padding-bottom: 20px;
-          font-weight: bold;
+    .topics-img {
+      height: 355px;
+      margin-right: 90px;
+      transition: 0.5s;
+      &:hover {
+        transform: rotate(1deg) scale(1.1);
+      }
+    }
+    .list-unstyled {
+      li {
+        border: 1px solid #c9224d;
+        border-radius: 14px;
+        padding: 2px 15px;
+        background: $white;
+        display: inline-flex;
+        font-size: 15px;
+        color: #c9224d;
+        margin: 4px;
+        cursor: pointer;
+        &:hover {
+          background: #c9224d;
+          color: #fff;
         }
       }
     }
   }
-}
+  .business-modal {
+    background: #c9224d url('/assets/images/business-bg.svg') no-repeat;
+    color: $white;
+    padding: 50px;
+    margin-top: 80px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position-y: 25px;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 20px;
+      border-top: 20px solid blue;
+      border-top-color: inherit;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+    }
+    h2 {
+      font-size: 34px;
+      color: $white;
+    }
+  }
+  .offer-notify {
+    background-color: $blue;
+    padding: 0 8px;
+    color: $white;
+    font-size: 13px;
+    position: fixed;
+    z-index: 1000;
+    height: 168px;
+  }
+  // Key Concepts
+  .key-concepts {
+    padding: 60px 0;
+    h2 {
+      font-size: 55px;
+      line-height: 45px;
+      text-align: right;
+      span {
+        font-size: 45px;
+      }
+    }
+    .key-points-img {
+      padding-left: 30px;
+    }
+    .key-points {
+      padding-bottom: 50px;
+      display: flex;
 
-.capsules-bg {
-  background: #f1f1f1;
-  padding: 0;
-  .container {
-    max-width: 1400px;
-
-    .progressbar {
-      counter-reset: step;
-      li {
-        list-style: none;
-        display: inline-block;
-        width: 32.33%;
-        position: relative;
-        text-align: center;
-        cursor: pointer;
-        margin-left: -13px;
-        &:before {
-          content: counter(step);
-          counter-increment: step;
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
-          border: 2px solid #fff;
-          border-radius: 100%;
-          display: block;
-          text-align: center;
-          margin: 0 auto 10px auto;
-          background-color: $primary-color;
-          color: $white;
-          position: inherit;
-          z-index: 2;
-        }
-        &:after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 2px;
-          background-color: #fff;
-          top: 37px;
-          left: -46%;
-          z-index: 0;
-        }
-        &:first-child {
-          &:after {
-            content: none;
-          }
-        }
-        span {
-          background: #fff url('../../../../assets/images/tek-icon.svg') no-repeat 9px 10px;
-          width: 56px;
-          height: 56px;
-          position: absolute;
-          background-color: #fff;
-          border-radius: 38px;
-          top: 10px;
-          z-index: 1;
+      h3 {
+        font-family: $heading-fonts;
+        color: #3c3b3b;
+      }
+      .numbers {
+        font-size: 150px;
+        color: #d3d3d3;
+        line-height: 115px;
+        margin-right: 45px;
+        font-family: TungstenBold;
+        min-width: 105px;
+        &:hover {
+          color: #e30045;
+          cursor: pointer;
         }
       }
     }
+  }
+
+  // Application Section
+  .app-bg {
+    background: url(/assets/images/application-bg.svg) -167px -125px;
+    background-size: inherit;
+  }
+  .Application-container {
+    padding-bottom: 50px;
+    border: 3px dashed #edb0c1;
+    background-color: $white;
+    .heading span {
+      &::before {
+        border: 2px solid #e30d45;
+        padding: 5px;
+      }
+      position: relative;
+      top: -40px;
+      background: $white;
+      padding: 0 50px;
+    }
+    p {
+      font-size: 1em;
+      line-height: 1.75em;
+      margin: 0;
+      padding: 30px 80px;
+      position: relative;
+      &.topic-name {
+        font-size: 24px;
+        font-family: $heading-fonts;
+      }
+      span {
+        font-size: 20px;
+        font-family: $primary-font-regular;
+        line-height: 30px;
+        padding-top: 20px;
+        display: block;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        background: $white 50% 50% url('/assets/images/app-icon.png') no-repeat;
+        padding: 50px;
+        border: 3px solid #edb0c1;
+        border-radius: 50px;
+      }
+    }
+    p:nth-child(even) {
+      padding-left: 20rem;
+      text-align: right;
+
+      &:before {
+        left: 100%;
+        margin-left: -30px;
+      }
+    }
+    p:nth-child(odd) {
+      padding-right: 20rem;
+
+      &:before {
+        right: 98%;
+      }
+    }
+  }
+
+  // Challenges Section CSS
+  .challenges-container {
+    height: auto;
+    margin: 5em auto 2em;
+    border-radius: 5px 25px 25px 25px;
+    background: white;
+    position: relative;
+    margin-top: -43px;
+    padding: 0 60px 60px;
+    .heading {
+      top: -2rem !important;
+      position: relative;
+      left: -1rem;
+    }
+    .challenges-block {
+      width: 380px;
+      min-height: 235px;
+      &.margin-lr {
+        margin: 0 70px;
+      }
+      h4 {
+        width: 300px;
+        min-height: 60px;
+      }
+      .description {
+        border-top: 2px solid #e2e2e2;
+        padding-top: 20px;
+      }
+    }
+  }
+
+  .challenges-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    width: 400px;
+    height: 180px;
+    background: white;
+    border-radius: 25px 0 0 0;
+    clip-path: polygon(0 0, 91% 0%, 100% 30%, 100% 30%, 30% 29%, 0 28%, 0 31%, 0% 30%);
+    left: 0px;
+  }
+}
+
+// Current Trend Section
+.current-trend-sec {
+  top: -43px;
+  position: inherit;
+  z-index: -1;
+}
+.current-trend-bg {
+  background: #c21753 url('/assets/images/strip.png');
+  color: $white;
+  padding-bottom: 100px;
+  padding-top: 7rem;
+  p {
+    font-size: 1em;
+    line-height: 1.75em;
+    border-top: 3px solid;
+    border-image: linear-gradient(to right, $white 0%, $white 100%);
+    border-image-slice: 1;
+    border-width: 1px;
+    margin: 0;
+    padding: 30px 80px;
+    counter-increment: section;
+    position: relative;
+    &.topic-name {
+      font-size: 24px;
+      font-family: $heading-fonts;
+    }
+    span {
+      font-size: 20px;
+      font-family: $primary-font-regular;
+      line-height: 30px;
+      padding-top: 20px;
+      display: block;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      text-align: center;
+      background: $white 50% 50% url('/assets/images/fire-icon.png') no-repeat;
+      padding: 26px 30px;
+    }
+  }
+  p:nth-child(even) {
+    border-right: 1px solid;
+    text-align: right;
+    padding-left: 20rem;
+
+    &:before {
+      left: 100%;
+      margin-left: -30px;
+    }
+  }
+  p:nth-child(odd) {
+    border-left: 1px solid;
+    padding-right: 20rem;
+
+    &:before {
+      right: 100%;
+      margin-right: -30px;
+    }
+  }
+  //handle first and last
+  p:first-child {
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  p:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.story-bg {
+  background: $white;
+  padding: 0;
+  // width: 366px;
+  text-align: right;
+  box-shadow: 0px 10px 16px #0000000a;
+  border: 1px solid #a4b4d0;
+  h2 {
+    color: #111111;
+    font-family: 'TungstenSemiBold';
+    font-size: 40px;
+    height: 90px;
+    box-shadow: 0px 3px 6px #00000029;
+    line-height: 2;
+    .arrow {
+      background: url('/assets/images/story-arrow.svg');
+    }
+  }
+}
+
+/********** Story Timeline CSS**********/
+
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+  padding-left: 20px;
+  background: url('/assets/images/timeline.png') right -27px no-repeat;
+  top: 40px;
+  &:before {
+    content: ' ';
+    background: $blue;
+    position: absolute;
+    right: -1px;
+    width: 1px;
+    height: 100%;
+  }
+  > li {
+    margin: 20px 0 175px;
+    padding-right: 45px;
+    &:before {
+      content: ' ';
+      position: absolute;
+      right: 0;
+      width: 35px;
+      border: 1px solid $blue;
+    }
+    &:after {
+      content: ' ';
+      position: absolute;
+      right: 0;
+      width: 20px;
+      border: 1px solid #7792c4;
+      display: none;
+    }
+    .yr-txt {
+      font-size: 20px;
+      color: $blue;
+      font-family: 'TungstenSemiBold';
+      position: relative;
+      top: -32px;
+    }
+    .year {
+      font-size: 40px;
+      color: #e30d45;
+      font-family: 'TungstenSemiBold';
+      line-height: 0px;
+      padding-bottom: 20px;
+    }
+    .story {
+      font-size: 20px;
+      color: #727a89;
+      line-height: 24px;
+    }
+  }
+}
+
+// Know More Section
+.know-more-sec {
+  background: $blue;
+  border-radius: 35px 35px 0px 0px;
+  padding: 35px 50px;
+  color: $white;
+  line-height: 22px;
+  .close-btn {
+    background: url('/assets/images/close-icon.png') no-repeat;
+    height: 30px;
+    width: 30px;
+    float: right;
+  }
+  h3 {
+    font-family: NoteworthyBold;
+    color: $white;
+  }
+  img {
+    border-radius: 50px;
+    background-color: $white;
+    padding: 4px;
+    margin: 20px 50px 0 0;
   }
 }

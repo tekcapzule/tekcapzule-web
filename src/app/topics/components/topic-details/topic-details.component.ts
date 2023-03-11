@@ -12,9 +12,9 @@ import { CapsuleItem, TopicItem } from '@app/shared/models';
   styleUrls: ['./topic-details.component.scss'],
 })
 export class TopicDetailsComponent implements OnInit, OnDestroy {
-  topic: TopicItem;
-  firstThreeCapsules: CapsuleItem[] = [];
-  destroy$ = new Subject<boolean>();
+  // topic: TopicItem;
+  // firstThreeCapsules: CapsuleItem[] = [];
+  // destroy$ = new Subject<boolean>();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,40 +23,37 @@ export class TopicDetailsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      if (history?.state?.topic) {
-        this.topic = history.state.topic;
-
-        if (this.topic?.capsules.length > 0) {
-          const threeCapsuleIds = this.topic.capsules.slice(0, 3);
-          const capsuleItems$: Observable<any>[] = [];
-
-          threeCapsuleIds.forEach(capsuleId => {
-            capsuleItems$.push(this.capsuleApi.getCapsuleById(capsuleId));
-          });
-
-          forkJoin(capsuleItems$).subscribe(data => {
-            this.firstThreeCapsules = data;
-          });
-        }
-      }
-    });
+    // this.activatedRoute.queryParams.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    //   if (history?.state?.topic) {
+    //     this.topic = history.state.topic;
+    //     if (this.topic?.capsules.length > 0) {
+    //       const threeCapsuleIds = this.topic.capsules.slice(0, 3);
+    //       const capsuleItems$: Observable<any>[] = [];
+    //       threeCapsuleIds.forEach(capsuleId => {
+    //         capsuleItems$.push(this.capsuleApi.getCapsuleById(capsuleId));
+    //       });
+    //       forkJoin(capsuleItems$).subscribe(data => {
+    //         this.firstThreeCapsules = data;
+    //       });
+    //     }
+    //   }
+    // });
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
+    // this.destroy$.next(true);
+    // this.destroy$.unsubscribe();
   }
 
-  isFollowingTopic(): boolean {
-    return this.topicApi.isFollowingTopic(this.topic.code);
-  }
+  // isFollowingTopic(): boolean {
+  //   return this.topicApi.isFollowingTopic(this.topic.code);
+  // }
 
-  followTopic(): void {
-    this.topicApi.followTopic(this.topic.code);
-  }
+  // followTopic(): void {
+  //   this.topicApi.followTopic(this.topic.code);
+  // }
 
-  unfollowTopic(): void {
-    this.topicApi.unfollowTopic(this.topic.code);
-  }
+  // unfollowTopic(): void {
+  //   this.topicApi.unfollowTopic(this.topic.code);
+  // }
 }
