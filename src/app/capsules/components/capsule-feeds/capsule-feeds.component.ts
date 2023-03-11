@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { filter, finalize, switchMap, takeUntil } from 'rxjs/operators';
+import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import {

@@ -1,17 +1,17 @@
 export class CreateCapsuleForm {
-  topicCode: String;
+  topicCode: string;
   publishedDate: any;
-  title: String;
-  imageUrl: String;
-  duration: Number;
-  author: String;
-  description: String;
-  publisher: String;
-  resourceURL: String;
-  type: String;
-  audience: String;
-  level: String;
-  expiryDate: String;
-  editorsPick: Number;
+  title: string;
+  imageUrl: string;
+  duration: number;
+  author: string;
+  description: string;
+  publisher: string;
+  resourceURL: string;
+  type: string;
+  audience: string;
+  level: string;
+  expiryDate: string;
+  editorsPick: number;
   tags: string[];
 }

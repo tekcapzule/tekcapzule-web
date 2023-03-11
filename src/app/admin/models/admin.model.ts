@@ -1,4 +1,4 @@
-import { CapsuleStatus, Quiz } from '@app/shared/models/capsule-item.model';
+import { CapsuleStatus } from '@app/shared/models/capsule-item.model';
 
 export interface AdminCapsuleDataItem {
   capsuleTitle: string;

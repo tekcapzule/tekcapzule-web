@@ -83,7 +83,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   navigateToActiveCapsulePage(refreshCache?: boolean): void {
-    let activeNavTab: NavTab = this.navTabs[0];
+    let activeNavTab: NavTab;
 
     if (this.auth.isUserLoggedIn()) {
       this.navTabs[0].isHidden = false;

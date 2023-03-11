@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin-create-topic',
