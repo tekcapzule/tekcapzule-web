@@ -12,11 +12,11 @@
   .topics-bg {
     background-repeat: no-repeat;
     padding-top: 50px;
-    height: 520px;
+    height: 420px;
     background-image: url('../../assets/images/pattern-1.svg'),
       url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     background-size: cover;
-    margin-bottom: 70px;
+    // margin-bottom: 70px;
   }
   .container {
     max-width: 1600px !important;
@@ -31,7 +31,7 @@
   font-family: $heading-fonts !important;
   font-size: 28px;
   .category-heading {
-    padding-right: 12rem;
+    padding-right: 16rem;
     border-right: 1px solid #cbcbcb;
     margin-right: 20px;
   }
@@ -72,19 +72,20 @@
   .mat-tab-labels {
     flex-direction: column;
     .mat-tab-label {
-      width: 380px;
-      height: 90px;
+      width: 360px;
+      // height: 90px;
       text-align: left;
-      color: #2f2f2f;
+      color: #6C6B6C;
       opacity: 1;
       margin-bottom: 15px;
-      border: 1px solid #c7abab;
-      font-size: 19px;
-      font-family: $heading-fonts;
+      // border: 1px solid #c7abab;
+      font-size: 24px;
+      font-family: $subheading-font;
       justify-content: left !important;
+      padding-left: 0;
       &:hover {
-        background: #e7245f;
-        color: #fff;
+        // background: #e7245f;
+        color: #e7245f;
       }
       .mat-tab-label-content {
         justify-content: flex-start;
@@ -93,14 +94,14 @@
       }
     }
     .mat-tab-label-active {
-      background: #e7245f;
-      color: #fff;
-      &::after {
-        content: '';
-        background: url(../../assets/images/right-arrow.svg) no-repeat;
-        height: 23px;
-        width: 23px;
-      }
+      // background: #e7245f;
+      color: #e7245f;
+      // &::after {
+      //   content: '';
+      //   background: url(../../assets/images/right-arrow.svg) no-repeat;
+      //   height: 23px;
+      //   width: 23px;
+      // }
     }
   }
   .mat-ink-bar {
@@ -168,4 +169,32 @@
       color: $white;
     }
   }
+}
+
+.topics-btn {
+  li {
+    font-size: 22px;
+    border: 1px solid #E60041;
+    border-radius: 32px;
+    padding: 12px 25px;
+    font-family: $cardtitle-font;
+    margin: 0 20px 20px 0;
+    display: inline-flex;
+    background: #fff;
+    min-width: 120px;
+    justify-content: center;
+    color: #000;
+    cursor: pointer;
+    &.active {
+      background: #E60041;
+      color: #fff;
+    }
+    &:hover {
+      color: #E60041;
+    }
+  }
+}
+.topics-desc {
+  background: linear-gradient(0deg, #E2E2E2, #FFF 100%);
+  padding: 2rem 4rem;
 }
