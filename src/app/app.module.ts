@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@app/shared';
 import { AuthModule } from '@app/auth';
-import { HomeModule } from '@app/home';
 import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
 
 @NgModule({
@@ -18,9 +17,7 @@ import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    CoreModule,
     AuthModule,
-    HomeModule,
   ],
   exports: [],
   providers: [
