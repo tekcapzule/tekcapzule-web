@@ -3,7 +3,47 @@
   <app-home-carousel
     (subscribeClicked)="subscribeSection.nativeElement.focus()"
   ></app-home-carousel>
+  <!-- ======= Explore Topics Section ======= -->
+  <h2 class="text-center">Start Exploring our topics</h2>
 
+  <section id="exploretopics" class="explore-topics-section">
+    <div class="container">
+      <div class="section-title">
+        <p class="content-sub-text">
+          Current tech landscape is so dynamic and fast evolving. Don’t find yourself lost in an
+          ocean of tech jargons! Our engaging tech capsules will help you excel at every phase of
+          your career.
+        </p>
+      </div>
+    </div>
+    <div class="container d-flex pb-5">
+      <div>
+        <img src="/assets/images/explore-topic-banner.png" class="img-fluid" alt="" />
+      </div>
+      <div class="banner-text col-lg-6">      
+        <h1>
+        Learning
+        <span>TECH</span> is never<br> this
+        <span>EASY!</span>
+      </h1>
+        <button
+          mat-raised-button
+          class="col-xl-4 col-lg-6 order-1 order-lg-2 button primary"
+          (click)="gotoCapsulesPage()"
+        >
+          Explore
+        </button>
+      </div>
+    </div>
+    <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-5">
+      <div id="homepage_owl_carousel" class="owl-carousel owl-theme d-flex">
+        <ng-container *ngFor="let capsule of capsules">
+          <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+  <!-- End xplore Topics Section-->
   <!-- ======= Intro Section ======= -->
   <section id="intro" class="services">
     <div class="container">
@@ -16,7 +56,8 @@
         </p>
       </div>
     </div>
-
+</section>
+<section>
     <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
       <div id="homepage_owl_carousel" class="owl-carousel owl-theme d-flex">
         <ng-container *ngFor="let capsule of capsules">
@@ -72,10 +113,10 @@
           <a href="https://twitter.com/tekcapsule" target="__blank"
             ><img src="/assets/images/twitter.svg" />#TekCapsule</a
           >
-          <span class="divider"> &nbsp;|&nbsp;</span>
+          <!-- <span class="divider"> &nbsp;|&nbsp;</span>
           <a href="https://www.meetup.com/tekcapsule/" target="__blank"
             ><img src="/assets/images/meet.png" />TekCapsule</a
-          >
+          > -->
         </div>
       </div>
     </div>
