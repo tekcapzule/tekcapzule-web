@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 import { CapsuleApiService, SubscriptionApiService, UserApiService, AuthService } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
@@ -45,7 +53,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   }
 
   initOwlCarousel(): void {
-    jQuery('#homepage_owl_carousel').owlCarousel({
+    jQuery('.homepage_owl_carousel').owlCarousel({
       loop: true,
       margin: 10,
       responsiveClass: true,

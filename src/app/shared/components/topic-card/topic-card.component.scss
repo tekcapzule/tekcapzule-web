@@ -1,14 +1,15 @@
-@import './../../../../assets/styles/variables.scss';
+@import '../../../../assets/styles/variables.scss';
 
-.topic-card {
+/**********Topics Card***********/
+.topics-card {
   max-width: 350px;
   min-height: 450px;
-  box-shadow: 0px 3px 39px #0000000f;
-  margin: 0px 40px 40px 0px;
+  box-shadow: 0px 3px 36px #00000034;
+  border: 1px solid #cbcbcb;
+  margin: 0px 27px 40px 0px;
   transition: 0.3s;
   background: #fff;
   width: 100%;
-  position: relative;
   &:hover {
     transform: scale(1.03);
     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
@@ -16,8 +17,6 @@
   .header-image {
     height: 180px;
     width: 100%;
-    min-height: 180px;
-    min-width: 350px;
     margin-bottom: 20px;
     border-bottom: 1px solid #f3f3f3;
   }
@@ -36,7 +35,7 @@
     }
   }
   .follow-btn {
-    width: 80px;
+    width: 70px;
     height: 25px;
     border-radius: 15px;
     font-size: 12px;
@@ -45,15 +44,70 @@
     border: 1px solid $primary-color;
     background: $white;
     padding: 3px 10px;
-    position: absolute;
-    bottom: 15px;
-    left: 30px;
     &:hover {
       background: $primary-color;
       color: $white;
     }
-    @media only screen and (max-width: 990px) {
-      padding: 5px 10px;
-    }
+    // position the button to the center
+    position: relative;
+    left: 109px;
   }
 }
+
+// .topic-card {
+//   max-width: 350px;
+//   min-height: 450px;
+//   box-shadow: 0px 3px 39px #0000000f;
+//   margin: 0px 40px 40px 0px;
+//   transition: 0.3s;
+//   background: #fff;
+//   width: 100%;
+//   position: relative;
+//   &:hover {
+//     transform: scale(1.03);
+//     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+//   }
+//   .header-image {
+//     height: 180px;
+//     width: 100%;
+//     min-height: 180px;
+//     min-width: 350px;
+//     margin-bottom: 20px;
+//     border-bottom: 1px solid #f3f3f3;
+//   }
+//   .content {
+//     padding: 0 30px;
+//     .title {
+//       font-size: 20px;
+//       font-family: $cardtitle-font;
+//       line-height: 23px;
+//       padding-bottom: 20px;
+//     }
+//     .description {
+//       font-family: $primary-font-light;
+//       font-size: 14px;
+//       min-height: 160px;
+//     }
+//   }
+//   .follow-btn {
+//     width: 80px;
+//     height: 25px;
+//     border-radius: 15px;
+//     font-size: 12px;
+//     font-family: $cardtitle-font;
+//     color: $primary-color;
+//     border: 1px solid $primary-color;
+//     background: $white;
+//     padding: 3px 10px;
+//     position: absolute;
+//     bottom: 15px;
+//     left: 30px;
+//     &:hover {
+//       background: $primary-color;
+//       color: $white;
+//     }
+//     @media only screen and (max-width: 990px) {
+//       padding: 5px 10px;
+//     }
+//   }
+// }

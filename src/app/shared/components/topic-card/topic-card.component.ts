@@ -10,7 +10,7 @@ import { TopicItem, UserInfo } from '@app/shared/models';
   styleUrls: ['./topic-card.component.scss'],
 })
 export class TopicCardComponent implements OnInit {
-  @Input() topic!: TopicItem;
+  // @Input() topic!: TopicItem;
 
   userInfo: UserInfo = null;
 
@@ -21,26 +21,26 @@ export class TopicCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userInfo = this.userApi.getUserCache();
+    // this.userInfo = this.userApi.getUserCache();
   }
 
-  gotoTopicDetails(): void {
-    this.router.navigate(['topics', 'topicdetails'], {
-      state: {
-        topic: this.topic,
-      },
-    });
-  }
+  // gotoTopicDetails(): void {
+  //   this.router.navigate(['topics', 'topicdetails'], {
+  //     state: {
+  //       topic: this.topic,
+  //     },
+  //   });
+  // }
 
-  isFollowingTopic(): boolean {
-    return this.topicApi.isFollowingTopic(this.topic.code);
-  }
+  // isFollowingTopic(): boolean {
+  //   return this.topicApi.isFollowingTopic(this.topic.code);
+  // }
 
-  followTopic(): void {
-    this.topicApi.followTopic(this.topic.code);
-  }
+  // followTopic(): void {
+  //   this.topicApi.followTopic(this.topic.code);
+  // }
 
-  unfollowTopic(): void {
-    this.topicApi.unfollowTopic(this.topic.code);
-  }
+  // unfollowTopic(): void {
+  //   this.topicApi.unfollowTopic(this.topic.code);
+  // }
 }

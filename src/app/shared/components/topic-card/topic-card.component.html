@@ -1,4 +1,4 @@
-<div class="topic-card">
+<!-- <div class="topic-card">
   <div>
     <img [src]="this.topic.imageUrl" class="header-image" alt="" />
   </div>
@@ -16,5 +16,21 @@
       UNFOLLOW
     </button>
     <button class="button follow-btn float-right" (click)="gotoTopicDetails()">MORE</button>
+  </div>
+</div> -->
+<div class="topics-card">
+  <div><img src="/assets/images/topics-1.png" alt="" class="header-image" /></div>
+  <div class="content">
+    <div class="title">#Cyber Security</div>
+    <div class="description pb-3">
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque
+        laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et
+        quasi architecto beatae vitae quia dicta sunt.
+      </p>
+    </div>
+    <button class="button follow-btn" tabindex="0" [routerLink]="['/topics/details']">
+      EXPLORE
+    </button>
   </div>
 </div>

@@ -67,7 +67,7 @@
   position: relative;
 }
 .owl-prev:before, .owl-next:before{
-  background: url(../images/previous-arrow.png) no-repeat;
+  background: url(/assets/images/previous-arrow.svg) no-repeat;
   display: inline-block;
   width:26px;
   height: 26px;
@@ -77,7 +77,7 @@
   background-size: 100%;
 }
 .owl-next:before{
-  background: url(../images/next-arrow.png) no-repeat;
+  background: url(/assets/images/next-arrow.svg) no-repeat;
   right:-60px;
   left: auto;
   background-size: 100%;

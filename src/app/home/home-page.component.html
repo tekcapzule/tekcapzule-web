@@ -20,12 +20,13 @@
       <div>
         <img src="/assets/images/explore-topic-banner.png" class="img-fluid" alt="" />
       </div>
-      <div class="banner-text col-lg-6">      
+      <div class="banner-text col-lg-6">
         <h1>
-        Learning
-        <span>TECH</span> is never<br> this
-        <span>EASY!</span>
-      </h1>
+          Learning
+          <span>TECH</span> is never<br />
+          this
+          <span>EASY!</span>
+        </h1>
         <button
           mat-raised-button
           class="col-xl-4 col-lg-6 order-1 order-lg-2 button primary"
@@ -36,10 +37,17 @@
       </div>
     </div>
     <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-5">
-      <div id="homepage_owl_carousel" class="owl-carousel owl-theme d-flex">
-        <ng-container *ngFor="let capsule of capsules">
+      <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
+        <!-- <ng-container *ngFor="let capsule of capsules">
           <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
-        </ng-container>
+        </ng-container> -->
+        <app-topic-card class="item mr-4"></app-topic-card>
+        <app-topic-card class="item mr-4"></app-topic-card>
+        <app-topic-card class="item mr-4"></app-topic-card>
+        <app-topic-card class="item mr-4"></app-topic-card>
+        <app-topic-card class="item mr-4"></app-topic-card>
+        <app-topic-card class="item mr-4"></app-topic-card>
+        <app-topic-card class="item mr-4"></app-topic-card>
       </div>
     </div>
   </section>
@@ -56,10 +64,10 @@
         </p>
       </div>
     </div>
-</section>
-<section>
+  </section>
+  <section>
     <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
-      <div id="homepage_owl_carousel" class="owl-carousel owl-theme d-flex">
+      <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
         <ng-container *ngFor="let capsule of capsules">
           <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
         </ng-container>
