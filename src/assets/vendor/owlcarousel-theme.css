@@ -67,17 +67,17 @@
   position: relative;
 }
 .owl-prev:before, .owl-next:before{
-  background: url(../images/previous-arrow.svg) no-repeat;
+  background: url(../images/previous-arrow.png) no-repeat;
   display: inline-block;
-  width:62px;
-  height: 62px;
+  width:26px;
+  height: 26px;
   content: "";
   position: absolute;
   left: -50px;
   background-size: 100%;
 }
 .owl-next:before{
-  background: url(../images/next-arrow.svg) no-repeat;
+  background: url(../images/next-arrow.png) no-repeat;
   right:-60px;
   left: auto;
   background-size: 100%;

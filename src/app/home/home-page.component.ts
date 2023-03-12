@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 
 import { CapsuleApiService, SubscriptionApiService, UserApiService, AuthService } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
+import { Router } from '@angular/router';
 
 declare const jQuery: any;
 
@@ -20,7 +21,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private auth: AuthService,
-    private subscriptionApi: SubscriptionApiService
+    private subscriptionApi: SubscriptionApiService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -73,5 +75,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   onSubscribe(): void {
     this.subscriptionApi.subscribe(this.subscriberEmailId).subscribe();
     this.subscriberEmailId = '';
+  }
+  gotoCapsulesPage(): void {
+    this.router.navigateByUrl('/capsules');
   }
 }
