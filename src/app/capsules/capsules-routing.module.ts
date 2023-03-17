@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CapsulesPageComponent } from './capsules-page.component';
 import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-trending.component';
-import { CreateCapsuleComponent } from './components/create-capsule/create-capsule.component';
+import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { EditorsPickComponent } from './components/editors-pick/editors-pick.component';
 
@@ -26,8 +26,8 @@ const routes: Routes = [
         component: EditorsPickComponent,
       },
       {
-        path: 'create',
-        component: CreateCapsuleComponent,
+        path: 'contribute',
+        component: ContributeCapsuleComponent,
       },
       {
         path: 'congratz',

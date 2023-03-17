@@ -7,19 +7,19 @@ import { SharedModule } from '@app/shared';
 import { CapsulesRoutingModule } from './capsules-routing.module';
 import { CapsulesPageComponent } from './capsules-page.component';
 import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
-import { CreateCapsuleComponent } from './components/create-capsule/create-capsule.component';
 import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-trending.component';
 import { EditorsPickComponent } from './components/editors-pick/editors-pick.component';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
+import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
 
 @NgModule({
   declarations: [
     CapsulesPageComponent,
     CapsuleFeedsComponent,
-    CreateCapsuleComponent,
     CapsuleTrendingComponent,
     EditorsPickComponent,
     CreateSuccessComponent,
+    ContributeCapsuleComponent,
   ],
   imports: [CommonModule, FormsModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
 })
