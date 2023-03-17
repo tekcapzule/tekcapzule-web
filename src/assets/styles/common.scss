@@ -332,12 +332,16 @@ h4 {
 .back-link {
   margin-bottom: 30px;
   margin-top: -25px;
+  font-size: 18px;
+  font-family: $cardtitle-font;
+ 
   a {
-    font-size: 15px;
-    font-family: $cardtitle-font;
-    color: $primary-color;
-    position: relative;
+    // position: relative;
     top: -25px;
+    color: $primary-color;
+    &:after {
+      background: url('../images/hamburger-arrow.svg') center right no-repeat;
+    }
   }
 }
 .reset-btn {
