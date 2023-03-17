@@ -4,7 +4,6 @@
       <ng-container *ngFor="let navTab of navTabs">
         <a
           mat-tab-link
-          *ngIf="!navTab.isHidden"
           (click)="setActiveTab(navTab)"
           [active]="isActiveTab(navTab)"
           [routerLink]="[navTab.navUrl]"

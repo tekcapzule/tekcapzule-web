@@ -35,9 +35,11 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(event => {
-        const refresh = event.data && event.data.refreshCache ? true : false;
+        const refresh = event?.data?.refreshCache ? true : false;
         this.fetchMyFeedCapsules(refresh);
       });
+
+    this.eventChannel.publish({ event: ChannelEvent.SetActiveCapsuleTab });
   }
 
   ngOnInit(): void {
