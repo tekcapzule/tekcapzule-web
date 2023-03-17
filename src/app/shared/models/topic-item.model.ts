@@ -1,11 +1,15 @@
 export interface TopicItem {
   code: string;
-  name: string;
-  category: string;
-  description: string;
+  title: string;
   imageUrl: string;
-  aliases: string[];
-  keyHighlights: string[];
-  capsules: string[];
+  summary: string;
+  description: string;
+  categories: TopicCategoryItem[];
   status: string;
+}
+
+export interface TopicCategoryItem {
+  title: string;
+  summary: string;
+  imageURL: string;
 }

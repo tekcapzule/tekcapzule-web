@@ -92,10 +92,10 @@ export class AdminTopicsComponent implements OnInit {
           topics.map(
             topic =>
               new AdminTopicDataItemImpl(
-                topic.name,
+                topic.title,
                 topic.description,
-                topic.aliases,
-                topic.keyHighlights,
+                [],
+                [],
                 topic.status,
                 topic.code
               )

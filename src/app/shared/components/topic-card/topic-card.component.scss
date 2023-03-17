@@ -32,6 +32,8 @@
       font-family: $primary-font-light;
       font-size: 14px;
       min-height: 160px;
+      max-height: 160px;
+      overflow: hidden;
     }
   }
   .follow-btn {

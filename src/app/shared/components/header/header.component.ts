@@ -47,9 +47,8 @@ export class HeaderComponent implements OnInit {
   searchInputChanged(value: string): void {
     if (value.length > 0) {
       this.searchedTopics = this.topics.filter(
-        topic =>
-          topic.name.toLowerCase().includes(value.toLowerCase()) ||
-          topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
+        topic => topic.title.toLowerCase().includes(value.toLowerCase())
+        // || topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
       );
 
       if (this.searchedTopics.length > 0) {

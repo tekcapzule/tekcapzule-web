@@ -10,7 +10,7 @@ import { TopicItem, UserInfo } from '@app/shared/models';
   styleUrls: ['./topic-card.component.scss'],
 })
 export class TopicCardComponent implements OnInit {
-  // @Input() topic!: TopicItem;
+  @Input() topic: TopicItem = null;
 
   userInfo: UserInfo = null;
 

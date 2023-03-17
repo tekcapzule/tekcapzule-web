@@ -38,16 +38,9 @@
     </div>
     <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-5">
       <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
-        <!-- <ng-container *ngFor="let capsule of capsules">
-          <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
-        </ng-container> -->
-        <app-topic-card class="item mr-4"></app-topic-card>
-        <app-topic-card class="item mr-4"></app-topic-card>
-        <app-topic-card class="item mr-4"></app-topic-card>
-        <app-topic-card class="item mr-4"></app-topic-card>
-        <app-topic-card class="item mr-4"></app-topic-card>
-        <app-topic-card class="item mr-4"></app-topic-card>
-        <app-topic-card class="item mr-4"></app-topic-card>
+        <ng-container *ngFor="let topic of topics">
+          <app-topic-card [topic]="topic" class="item mr-4"></app-topic-card>
+        </ng-container>
       </div>
     </div>
   </section>

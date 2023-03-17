@@ -1,16 +1,15 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-  EventEmitter,
-  Output,
-} from '@angular/core';
-
-import { CapsuleApiService, SubscriptionApiService, UserApiService, AuthService } from '@app/core';
-import { CapsuleItem } from '@app/shared/models';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
+import {
+  CapsuleApiService,
+  SubscriptionApiService,
+  UserApiService,
+  AuthService,
+  TopicApiService,
+} from '@app/core';
+import { CapsuleItem, TopicItem } from '@app/shared/models';
+import { shuffleArray } from '@app/shared/utils';
 
 declare const jQuery: any;
 
@@ -21,16 +20,18 @@ declare const jQuery: any;
 })
 export class HomePageComponent implements OnInit, AfterViewInit {
   capsules: CapsuleItem[] = [];
+  topics: TopicItem[] = [];
   subscriberEmailId = '';
 
   @ViewChild('subscribe') subscribeSection: ElementRef;
 
   constructor(
+    private router: Router,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private auth: AuthService,
     private subscriptionApi: SubscriptionApiService,
-    private router: Router
+    private topicApi: TopicApiService
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +40,14 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     }
 
     this.capsuleApi.getEditorsPickCapsules().subscribe(capsules => {
-      this.capsules = capsules;
+      this.capsules = shuffleArray(capsules, 10);
+      setTimeout(() => {
+        this.initOwlCarousel();
+      }, 0);
+    });
+
+    this.topicApi.getAllTopics().subscribe(topics => {
+      this.topics = shuffleArray(topics, 5);
       setTimeout(() => {
         this.initOwlCarousel();
       }, 0);
@@ -84,6 +92,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.subscriptionApi.subscribe(this.subscriberEmailId).subscribe();
     this.subscriberEmailId = '';
   }
+
   gotoCapsulesPage(): void {
     this.router.navigateByUrl('/capsules');
   }

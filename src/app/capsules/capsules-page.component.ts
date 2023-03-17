@@ -214,9 +214,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
       this.topicsByCategory.forEach(category => {
         const matchedTopics = category.topics.filter(
-          topic =>
-            topic.name.toLowerCase().includes(value.toLowerCase()) ||
-            topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
+          topic => topic.title.toLowerCase().includes(value.toLowerCase())
+          // || topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
         );
 
         if (matchedTopics.length > 0) {

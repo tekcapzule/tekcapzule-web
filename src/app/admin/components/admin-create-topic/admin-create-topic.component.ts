@@ -11,13 +11,11 @@ import { ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
 export class AdminCreateTopicComponent implements OnInit, AfterViewInit {
   topicDetails = {
     code: '',
-    category: '',
-    name: '',
-    description: '',
+    title: '',
     imageUrl: '',
-    aliases: ['', ''],
-    keyHighlights: ['', ''],
-    capsules: ['', ''],
+    summary: '',
+    description: '',
+    categories: [],
   };
   isEditMode = false;
 
@@ -51,9 +49,9 @@ export class AdminCreateTopicComponent implements OnInit, AfterViewInit {
 
   onSubmit(): void {
     const clearEmptyElementsInArray = (array: string[]) => array.filter(e => e);
-    this.topicDetails.aliases = clearEmptyElementsInArray(this.topicDetails.aliases);
-    this.topicDetails.keyHighlights = clearEmptyElementsInArray(this.topicDetails.keyHighlights);
-    this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
+    // this.topicDetails.aliases = clearEmptyElementsInArray(this.topicDetails.aliases);
+    // this.topicDetails.keyHighlights = clearEmptyElementsInArray(this.topicDetails.keyHighlights);
+    // this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
     if (this.isEditMode) {
       this.router.navigate(['/admin/capsules']);
       this.topicApi.updateTopic(this.topicDetails).subscribe(res => {
@@ -81,12 +79,7 @@ export class AdminCreateTopicComponent implements OnInit, AfterViewInit {
   }
 
   isFormValid() {
-    return (
-      this.topicDetails.category &&
-      this.topicDetails.code &&
-      this.topicDetails.description &&
-      this.topicDetails.name
-    );
+    return this.topicDetails.code && this.topicDetails.description && this.topicDetails.title;
   }
 
   getDashboardLink() {
