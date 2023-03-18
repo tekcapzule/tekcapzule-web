@@ -30,14 +30,18 @@ export class AdminCapsulesComponent implements OnInit {
       columnName: 'Tags',
       disableSort: true,
       columnFormatter: (tags: string[]) => {
-        return tags
-          .map(
-            tag => `
+        if (tags) {
+          return tags
+            .map(
+              tag => `
               <span class="badge badge-pill badge-light border border-secondary rounded-pill mr-1 px-2">
                 ${tag}
               </span>`
-          )
-          .join('');
+            )
+            .join('');
+        } else {
+          return '';
+        }
       },
     },
     {

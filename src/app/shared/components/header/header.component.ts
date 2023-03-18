@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
       this.zone.run(() => {
         this.isLoggedIn = isLoggedIn;
         this.userDetails = this.auth.getUserInfo();
-        this.router.navigateByUrl('/home');
+        // this.router.navigateByUrl('/home'); // TODO: FIXME
       });
     });
 
