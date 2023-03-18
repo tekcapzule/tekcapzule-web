@@ -58,7 +58,7 @@ export class CapsuleApiService {
     );
   }
 
-  getEditorsPickCapsules(): Observable<CapsuleItem[]> {
+  getEditorsPickCapsules(refreshCache?: boolean): Observable<CapsuleItem[]> {
     return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getEditorsPick`,
       {},
@@ -66,6 +66,7 @@ export class CapsuleApiService {
         params: {
           cache: 'yes',
           expiry: API_CACHE_EXPIRY_HOURS,
+          refresh: refreshCache ? 'yes' : 'no',
           ckey: CAPSULE_EDITORSPICK_CACHE_KEY,
         },
       }

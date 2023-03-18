@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs/operators';
+import { filter, finalize, takeUntil } from 'rxjs/operators';
 
-import { AppSpinnerService, CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
+import { Subject } from 'rxjs';
+import { CapsuleItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-editors-pick',
@@ -9,15 +11,40 @@ import { AppSpinnerService, CapsuleApiService } from '@app/core';
   styleUrls: ['./editors-pick.component.scss'],
 })
 export class EditorsPickComponent implements OnInit {
-  capsules = [];
+  destroy$ = new Subject<boolean>();
+  capsules: CapsuleItem[] = [];
 
-  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
+  constructor(
+    private capsuleApi: CapsuleApiService,
+    private spinner: AppSpinnerService,
+    private eventChannel: EventChannelService
+  ) {
+    this.eventChannel
+      .getChannel()
+      .pipe(
+        filter(out => out.event === ChannelEvent.LoadDataForActiveCapsuleTab),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(event => {
+        const refresh = event.data && event.data.refreshCache ? true : false;
+        this.fetchEditorsPickCapsules(refresh);
+      });
+  }
 
   ngOnInit(): void {
+    this.fetchEditorsPickCapsules(false);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
+
+  fetchEditorsPickCapsules(refreshCache?: boolean): void {
     this.spinner.show();
 
     this.capsuleApi
-      .getEditorsPickCapsules()
+      .getEditorsPickCapsules(refreshCache)
       .pipe(
         finalize(() => {
           this.spinner.hide();
