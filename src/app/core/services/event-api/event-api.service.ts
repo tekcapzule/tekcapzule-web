@@ -9,9 +9,7 @@ const EVENT_API_PATH = `${environment.apiEndpointTemplate}/event`
   .replace('{{api-gateway}}', environment.eventApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const API_CACHE_EXPIRY_HOURS =
-  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
-
+const EVENTS_GETALLEVENTS_CACHE_KEY = 'com.tekcapsule.events.allevents';
 @Injectable({
   providedIn: 'root',
 })
@@ -28,8 +26,8 @@ export class EventApiService {
       {},
       {
         params: {
-          cache: 'true',
-          expiry: API_CACHE_EXPIRY_HOURS,
+          cache: 'yes',
+          ckey: EVENTS_GETALLEVENTS_CACHE_KEY,
         },
       }
     );

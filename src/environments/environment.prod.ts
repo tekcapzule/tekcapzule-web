@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   apiStageEnv: 'prod',
-  apiCacheExpiryHours: '12',
+  apiCacheExpiryHours: 12,
   capsuleApiGateway: 'zap74fwmn4',
   eventApiGateway: 'df12haib2m',
   feedbackApiGateway: '325i7celr1',

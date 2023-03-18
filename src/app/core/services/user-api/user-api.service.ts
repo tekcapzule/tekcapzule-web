@@ -11,8 +11,6 @@ const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
   .replace('{{aws-region}}', environment.awsRegion);
 
 const USER_INFO_CACHE_KEY = 'com.tekcapsule.user.info';
-const API_CACHE_EXPIRY_HOURS =
-  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +29,6 @@ export class UserApiService {
       {
         params: {
           cache: 'yes',
-          expiry: API_CACHE_EXPIRY_HOURS,
           refresh: refreshCache ? 'yes' : 'no',
           ckey: USER_INFO_CACHE_KEY,
         },

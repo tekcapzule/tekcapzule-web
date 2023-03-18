@@ -15,8 +15,6 @@ const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`
 
 const TOPICS_ALLTOPICS_CACHE_KEY = 'com.tekcapsule.topics.alltopics';
 const TOPICS_GETTOPIC_CACHE_KEY = 'com.tekcapsule.topics.gettopic.<code>';
-const API_CACHE_EXPIRY_HOURS =
-  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable({
   providedIn: 'root',
@@ -44,7 +42,6 @@ export class TopicApiService {
       {
         params: {
           cache: 'yes',
-          expiry: API_CACHE_EXPIRY_HOURS,
           ckey: TOPICS_ALLTOPICS_CACHE_KEY,
         },
       }
@@ -84,7 +81,6 @@ export class TopicApiService {
     return this.httpClient.post<TopicItem>(`${TOPIC_API_PATH}/get`, code, {
       params: {
         cache: 'yes',
-        expiry: API_CACHE_EXPIRY_HOURS,
         ckey: TOPICS_GETTOPIC_CACHE_KEY.replace('<code>', code),
       },
     });

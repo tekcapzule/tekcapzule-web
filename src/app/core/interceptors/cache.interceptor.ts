@@ -9,7 +9,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { share, tap } from 'rxjs/operators';
 
-import { cacheManager } from '@app/shared/utils';
+import { cacheManager, Constants } from '@app/shared/utils';
+import { environment } from '@env/environment';
+
+const API_CACHE_EXPIRY_HOURS =
+  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
@@ -17,13 +21,12 @@ export class CacheInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const cache = request.params.get('cache') === 'yes' ? true : false;
-    const expiry = parseInt(request.params.get('expiry'), 10);
     const refresh = request.params.get('refresh') === 'yes' ? true : false;
     const cacheKey = request.params.get('ckey') || 'com.tekcapsule.unknown';
 
     if (cache) {
       if (refresh) {
-        return this.cacheApiResponse(request, next, cacheKey, expiry);
+        return this.cacheApiResponse(request, next, cacheKey, API_CACHE_EXPIRY_HOURS);
       }
 
       const cachedResponseBodyWithExpiry = cacheManager.getItem(cacheKey);
@@ -33,7 +36,7 @@ export class CacheInterceptor implements HttpInterceptor {
         : null;
 
       if (cachedResponseBodyWithExpiry && Date.now() > +cachedResponseBodyWithExpiry.expiry) {
-        return this.cacheApiResponse(request, next, cacheKey, expiry);
+        return this.cacheApiResponse(request, next, cacheKey, API_CACHE_EXPIRY_HOURS);
       }
 
       if (cachedResponseBody) {
@@ -44,7 +47,7 @@ export class CacheInterceptor implements HttpInterceptor {
           })
         );
       } else {
-        return this.cacheApiResponse(request, next, cacheKey, expiry);
+        return this.cacheApiResponse(request, next, cacheKey, API_CACHE_EXPIRY_HOURS);
       }
     }
 
