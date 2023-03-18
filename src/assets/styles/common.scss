@@ -334,7 +334,7 @@ h4 {
   margin-top: -25px;
   font-size: 18px;
   font-family: $cardtitle-font;
- 
+
   a {
     // position: relative;
     top: -25px;
@@ -680,7 +680,11 @@ select {
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 200px;
+  // height: 200px;
+}
+
+::-webkit-scrollbar:horizontal {
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
