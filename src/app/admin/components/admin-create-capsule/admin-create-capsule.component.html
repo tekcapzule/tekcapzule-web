@@ -8,15 +8,15 @@
     </div>
 
       <h2 class="text-center">Create Capsule</h2>
-    <div class="justify-content-center mb-4 pb-4">
+    <div [formGroup]="capsuleForm" class="justify-content-center mb-4 pb-4">
       <div class="title">Capsule Front Side Information</div>
       <div class="row">
 
         <div class="col-6"><label for="capsuleTitle">Capsule Title</label>
-          <input type="text" name="title" [(ngModel)]="createCapsuleForm.title" class="form-control" placeholder="Enter Capsule Title" />
+          <input type="text" name="title" formControlName="title" class="form-control" placeholder="Enter Capsule Title" />
         </div>
         <div class="col-6"> <label>Topic Category</label>
-          <select name="type" [(ngModel)]="createCapsuleForm.type" name="Select" class="form-control">
+          <select name="type" formControlName="category" name="Select" class="form-control">
             <option>Topic Category</option>
           </select>
         </div>
@@ -25,32 +25,35 @@
         <div class="col-6">
           <div class="form-group">
             <label>Duration</label>
-            <select name="duration" [(ngModel)]="createCapsuleForm.duration" class="form-control">
+            <select name="duration" formControlName="duration" class="form-control">
               <option disabled value="0">Duration</option>
               <option value="15">15</option>
               <option value="30">30</option>
+              <option value="45">45</option>
+              <option value="60">60</option>
+              <option value="120">120</option>
             </select>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-6"><label for="capsuleTitle">Summary by/Author</label>
-          <input type="text" name="auther" class="form-control" />
+          <input type="text" name="author" formControlName="author" class="form-control" />
         </div>
         <div class="col-6"> <label>Published Date</label>
-          <input type="text" name="date" class="form-control" />
+          <input type="text" formControlName="publishedDate" name="publishedDate" class="form-control" />
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <label for="description">Description</label>
-          <textarea class="form-control" name="description" [(ngModel)]="createCapsuleForm.description"
+          <textarea class="form-control" name="description" formControlName="description"
             rows="4"></textarea>
         </div>
       </div>
       <div class="row">
         <div class="col-12"><label for="capsuleTitle">Upload Image <span>(formats: jpg, jpeg, png)</span></label>
-          <input type="file" name="uplaodImage" class="form-control" />
+          <input type="file" name="uplaodImage" formControlName="imageUrl" class="form-control" />
         </div>
       </div>
 
@@ -59,7 +62,7 @@
         <div class="title">Capsule Flip Side Information</div>
         <div class="form-group">
           <label for="Description">Add Tags</label>
-          <input type="search" class="form-control" />
+          <input type="search" class="form-control" formControlName="tags" />
         </div>
       </div>
 
@@ -70,7 +73,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Capsule Type</label>
-                <select name="type" [(ngModel)]="createCapsuleForm.type" class="form-control">
+                <select name="type"  formControlName="type" class="form-control">
                   <option>Capsule Type</option>
                 </select>
               </div>
@@ -78,7 +81,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Publisher</label>
-                <select name="publisher" [(ngModel)]="createCapsuleForm.publisher" class="form-control">
+                <select name="publisher" formControlName="publisher" class="form-control">
                   <option>Publisher</option>
                 </select>
               </div>
@@ -90,7 +93,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Topic Level</label>
-                <select name="level" [(ngModel)]="createCapsuleForm.level" class="form-control">
+                <select name="level" formControlName="level" class="form-control">
                   <option>Beginner</option>
                   <option>Intermediate</option>
                   <option>Advance</option>
@@ -100,7 +103,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Target Audience</label>
-                <select name="audience" [(ngModel)]="createCapsuleForm.audience" class="form-control">
+                <select name="audience" formControlName="audience" class="form-control">
                   <option value="All">All</option>
                 </select>
               </div>
@@ -128,14 +131,14 @@
           </div>
           <div class="form-group">
             <label for="resourceURL">Resource URL</label>
-            <input type="text" name="resourceURL" [(ngModel)]="createCapsuleForm.resourceURL" class="form-control"
+            <input type="text" name="resourceURL" formControlName="resourceURL" class="form-control"
               placeholder="URL" />
           </div>
           <div class="row">
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Expiry Date</label>
-                <select name="expiryDate" [(ngModel)]="createCapsuleForm.expiryDate" class="form-control">
+                <select name="expiryDate" formControlName="expiryDate" class="form-control">
                   <option>1 Week</option>
                 </select>
               </div>
@@ -144,7 +147,7 @@
               <label>Editors Pick</label>
 
               <div class="custom-control custom-switch">
-                <input type="checkbox" name="editorsPick" value="1" [(ngModel)]="createCapsuleForm.editorsPick"
+                <input type="checkbox" name="editorsPick" value="1" formControlName="editorsPick"
                   class="custom-control-input" id="customSwitch1" />
                 <label class="custom-control-label" for="customSwitch1"></label>
               </div>
