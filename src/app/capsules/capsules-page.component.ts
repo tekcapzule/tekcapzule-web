@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, forkJoin } from 'rxjs';
 
 import {
   EventChannelService,
@@ -9,6 +9,8 @@ import {
   TopicApiService,
   UserApiService,
   AuthService,
+  CapsuleApiService,
+  AppSpinnerService,
 } from '@app/core';
 import { NavTab, TopicItem, UserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
@@ -44,7 +46,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     private eventChannel: EventChannelService,
     private auth: AuthService,
     private topicApi: TopicApiService,
-    private userApi: UserApiService
+    private userApi: UserApiService,
+    private capsuleApi: CapsuleApiService,
+    private spinner: AppSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -213,9 +217,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       const filteredTopics: TopicsByCategory[] = [];
 
       this.topicsByCategory.forEach(category => {
-        const matchedTopics = category.topics.filter(
-          topic => topic.title.toLowerCase().includes(value.toLowerCase())
-          // || topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
+        const matchedTopics = category.topics.filter(topic =>
+          topic.title.toLowerCase().includes(value.toLowerCase())
         );
 
         if (matchedTopics.length > 0) {
@@ -227,5 +230,21 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     } else {
       this.filteredTopicsByCategory = this.topicsByCategory;
     }
+  }
+
+  onHardRefreshCapsules(): void {
+    this.spinner.show();
+
+    forkJoin([
+      this.capsuleApi.getTrendingCapsules(true),
+      this.capsuleApi.getEditorsPickCapsules(true),
+    ]).subscribe(() => {
+      this.spinner.hide();
+
+      this.eventChannel.publish({
+        event: ChannelEvent.LoadDataForActiveCapsuleTab,
+        data: { refreshCache: true },
+      });
+    });
   }
 }

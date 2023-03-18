@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, timer } from 'rxjs';
 
 import { AppSpinnerService, CapsuleApiService, EventChannelService, ChannelEvent } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
