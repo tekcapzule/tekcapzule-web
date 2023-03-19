@@ -10,22 +10,24 @@
       padding-bottom: 28px;
     } 
     label {
-    font-family: $primary-font-medium;
-    font-size: 18px;
-  }
-  input::file-selector-button {
-    content: 'Upload Image';
-    color: #E7245F;
-    padding: 0.5em;
-    border: 0 none;
-    background: none;
-    float: right;
-    font-size: 16px;
-    font-family: $primary-font-bold;
-    vertical-align: middle;
+      font-family: $primary-font-medium;
+      font-size: 18px;
     }
   }
- 
+  input, textarea, select {
+    margin-bottom: 0px;
+  }
+  .error-text {
+    input, textarea, select {
+      border-color: red;
+    }
+    .error-msg {
+      color: red !important;
+    }
+  }
+  .form-field {
+    margin-bottom: 25px !important;
+  }
   .carousel-card {
     height: 630px;
     transition: none;

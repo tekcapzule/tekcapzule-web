@@ -4,6 +4,7 @@ import { finalize } from 'rxjs/operators';
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
 import { AppSpinnerService, CapsuleApiService } from '@app/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -13,13 +14,13 @@ import { AppSpinnerService, CapsuleApiService } from '@app/core';
 export class AdminCapsulesComponent implements OnInit {
   adminCapsuleColumns: ColumnDef[] = [
     {
-      columnId: 'capsuleTitle',
+      columnId: 'title',
       columnName: 'Capsule Title',
       clazz: ['title-column', 'custom-title-col'],
     },
     {
       columnId: 'author',
-      columnName: 'Author',
+      columnName: 'Summary By',
     },
     {
       columnId: 'publishedDate',
@@ -102,26 +103,23 @@ export class AdminCapsulesComponent implements OnInit {
   ];
 
   capsulePendingApproval: CapsuleItem[] = [];
-
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
+  constructor(private capsuleApi: CapsuleApiService,
+    private spinner: AppSpinnerService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    sessionStorage.removeItem('capsuleItem');
     this.fetchPendingApprovalCapsules();
   }
 
   fetchPendingApprovalCapsules(refreshCache?: boolean): void {
     this.spinner.show();
 
-    this.capsuleApi
-      .getPendingApproval(refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
-      .subscribe(pendingCapsules => {
+    this.capsuleApi.getPendingApproval(refreshCache).pipe(finalize(() => {
+      this.spinner.hide();
+    })).subscribe(pendingCapsules => {
         this.capsulePendingApproval = pendingCapsules;
         this.adminCapsulesData = this.capsulePendingApproval.map(
           capsule =>
@@ -141,17 +139,19 @@ export class AdminCapsulesComponent implements OnInit {
       });
   }
 
-  editActionCallback(row: AdminCapsuleDataItem): void {
-    // console.log('editActionCallback: ', row);
+  editActionCallback(row: CapsuleItem): void {
+    //console.log('editActionCallback: ', row);
+    sessionStorage.setItem('capsuleItem', JSON.stringify(row));
+    this.router.navigate(['/admin/editcapsule']);
   }
 
-  deleteActionCallback(row: AdminCapsuleDataItem): void {
+  deleteActionCallback(row: CapsuleItem): void {
     this.capsuleApi.disableCapsule(row.capsuleId).subscribe(capsule => {
       // console.log('capsule disabled : ', capsule)
     });
   }
 
-  approveActionCallback(row: AdminCapsuleDataItem): void {
+  approveActionCallback(row: CapsuleItem): void {
     this.spinner.show();
 
     this.capsuleApi

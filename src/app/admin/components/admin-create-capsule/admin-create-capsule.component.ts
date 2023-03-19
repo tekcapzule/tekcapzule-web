@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService } from '@app/core';
 import { CreateCapsuleForm } from '@app/admin/models';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as moment from 'moment';
+import { Router } from '@angular/router';
+import { CapsuleItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-admin-create-capsule',
@@ -9,18 +12,12 @@ import { CreateCapsuleForm } from '@app/admin/models';
   styleUrls: ['./admin-create-capsule.component.scss'],
 })
 export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
-  constructor(
-    private eventChannel: EventChannelService,
-    private capsuleApi: CapsuleApiService,
-    private appSpinnerService: AppSpinnerService
-  ) {}
 
-  createCapsuleForm = new CreateCapsuleForm();
-  isCreateCapsuleSubmitted = false;
-  pipe = new DatePipe('en-US');
-  now = Date.now();
-
-  responseBodySample = {
+  capsuleFormGroup: FormGroup;
+  isCreateCapsuleSubmitted: boolean;
+  isEditMode: boolean;
+  editCapsule: CapsuleItem;
+  /*responseBodySample = {
     topicCode: 'Cloud Computing',
     publishedDate: '10/10/2022',
     title: 'Block chain',
@@ -38,15 +35,46 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     expiryDate: '10/10/2022',
     editorsPick: 1,
     tags: ['cld', 'cloud', 'compute', 'storage'],
-  };
+  };*/
+
+  constructor(
+    private eventChannel: EventChannelService,
+    private capsuleApi: CapsuleApiService,
+    private appSpinnerService: AppSpinnerService,
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.createCapsuleForm.topicCode = '';
-    this.createCapsuleForm.editorsPick = 1;
-    this.createCapsuleForm.duration = 0;
-    this.createCapsuleForm.audience = '';
-    this.createCapsuleForm.tags = ['cld', 'cloud', 'compute', 'storage'];
-    this.createCapsuleForm.publishedDate = this.pipe.transform(this.now, 'dd/MM/yyyy');
+    this.createCapsuleForm();
+    if (this.router.url.includes('editcapsule')) {
+      this.isEditMode = true;
+      this.editCapsule = JSON.parse(sessionStorage.getItem('capsuleItem'));
+      this.capsuleFormGroup.patchValue(this.editCapsule);
+    }
+  }
+
+  createCapsuleForm() {
+    this.capsuleFormGroup = this.fb.group({
+      capsuleId: [''],
+      topicCode: ['', Validators.required],
+      category: [''],
+      publishedDate: [moment().format('DD/MM/YYYY'), Validators.required],
+      title: ['', Validators.required],
+      imageUrl: ['', Validators.required],
+      duration: [, Validators.required],
+      author: [, Validators.required],
+      description: ['', Validators.required],
+      publisher: ['', Validators.required],
+      resourceURL: ['', Validators.required],
+      type: ['', Validators.required],
+      audience: [''],
+      level: ['', Validators.required],
+      expiryDate: [moment().format('DD/MM/YYYY'), Validators.required],
+      expiryDateDisp: [7, Validators.required],
+      editorsPick: [true],
+      tags: ['']
+    })
   }
 
   ngAfterViewInit(): void {
@@ -55,36 +83,41 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     });
   }
 
-  isFormValid() {
-    return (
-      this.createCapsuleForm.topicCode &&
-      this.createCapsuleForm.title &&
-      this.createCapsuleForm.imageUrl &&
-      this.createCapsuleForm.duration &&
-      this.createCapsuleForm.author &&
-      this.createCapsuleForm.description &&
-      this.createCapsuleForm.publisher &&
-      this.createCapsuleForm.resourceURL &&
-      this.createCapsuleForm.type &&
-      this.createCapsuleForm.audience &&
-      this.createCapsuleForm.level &&
-      this.createCapsuleForm.expiryDate
-    );
-  }
-
   onCreateCapsule(): void {
-    if (this.isFormValid) {
-      this.createCapsuleForm.expiryDate = this.pipe.transform(this.now, 'dd/MM/yyyy');
+    // Testing Purpose
+    Object.keys(this.capsuleFormGroup.controls).forEach(key => {
+      if(!this.capsuleFormGroup.get(key).valid) {
+        console.log(key, this.capsuleFormGroup.get(key).valid, this.capsuleFormGroup.get(key).value);
+      }
+    });
+    this.capsuleFormGroup.markAllAsTouched();
+    if (this.capsuleFormGroup.valid) {
+      let requestBody = this.capsuleFormGroup.value;
+      requestBody.expiryDate = moment().add(requestBody.expiryDateDisp, 'days').format("DD/MM/YYYY");
+      requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
       this.isCreateCapsuleSubmitted = false;
       this.appSpinnerService.show();
-      this.createCapsuleForm.editorsPick = this.createCapsuleForm.editorsPick ? 1 : 0;
-      console.log(this.createCapsuleForm);
-      this.capsuleApi.createCapsule(this.createCapsuleForm).subscribe(_ => {
-        this.createCapsuleForm = new CreateCapsuleForm();
-        this.isCreateCapsuleSubmitted = true;
-        this.appSpinnerService.hide();
-      });
+      if(this.editCapsule) {
+        this.updateCapsule(requestBody);
+      } else {
+        this.createCapsule(requestBody);
+      }
     }
+  }
+
+  updateCapsule(requestBody) {
+    this.capsuleApi.updateCapsule(requestBody).subscribe(data => {
+      this.isCreateCapsuleSubmitted = true;
+      this.appSpinnerService.hide();
+    });
+  }
+
+  createCapsule(requestBody) {
+    this.capsuleApi.createCapsule(requestBody).subscribe(data => {
+      this.capsuleFormGroup.reset();
+      this.isCreateCapsuleSubmitted = true;
+      this.appSpinnerService.hide();
+    });
   }
 
   showAdminCapsulesTab(): void {

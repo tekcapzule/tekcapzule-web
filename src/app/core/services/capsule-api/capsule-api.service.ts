@@ -121,4 +121,8 @@ export class CapsuleApiService {
   createCapsule(capsuleInfo: any): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/create`, capsuleInfo);
   }
+
+  updateCapsule(capsuleInfo: CapsuleItem): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/update`, capsuleInfo);
+  }
 }
