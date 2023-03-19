@@ -58,38 +58,39 @@
                 <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
               </div>
             </div>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+              (click)="searchInputValue = ''; searchInputChanged('')"
+            >
               <img src="/assets/images/close-icon.svg" />
             </button>
           </div>
           <div class="modal-body pt-0">
             <div class="row pb-4">
-              <!-- <div class="col-xl-3 col-md-6">
-              <img src="/assets/images/browse-topics.png" alt="" />
-            </div> -->
-              <ng-container *ngFor="let item of filteredTopicsByCategory">
-                <div class="col-md-12">
-                  <!-- <h2>{{ item.category }}</h2> -->
-                  <ul class="topics-list">
-                    <li *ngFor="let topic of item.topics">
-                      #{{ topic.title }}
-                      <ng-container *ngIf="!isTopicSubscribed(topic.code)">
-                        <span style="cursor: pointer" (click)="followTopic(topic.code)"
-                          >FOLLOW</span
-                        >
-                      </ng-container>
-                      <ng-container *ngIf="isTopicSubscribed(topic.code)">
-                        <span
-                          class="active"
-                          style="cursor: pointer"
-                          (click)="unfollowTopic(topic.code)"
-                          >FOLLOWING</span
-                        >
-                      </ng-container>
-                    </li>
-                  </ul>
-                </div>
-              </ng-container>
+              <div class="col-md-12">
+                <ul class="topics-list">
+                  <ng-container *ngFor="let item of filteredBrowseByTopics">
+                    <li [class.active]="item.isSubscribed">#{{ item.topic.title }}</li>
+                  </ng-container>
+                  <!-- <li>
+                    #{{ item.topic.title }}
+                    <ng-container *ngIf="!isTopicSubscribed(topic.code)">
+                      <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
+                    </ng-container>
+                    <ng-container *ngIf="isTopicSubscribed(topic.code)">
+                      <span
+                        class="active"
+                        style="cursor: pointer"
+                        (click)="unfollowTopic(topic.code)"
+                        >FOLLOWING</span
+                      >
+                    </ng-container>
+                  </li> -->
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -17,9 +17,9 @@ import { Constants } from '@app/shared/utils';
 
 declare const jQuery: any;
 
-interface TopicsByCategory {
-  category: string;
-  topics: TopicItem[];
+export interface BrowseByTopic {
+  topic: TopicItem;
+  isSubscribed: boolean;
 }
 
 @Component({
@@ -30,10 +30,10 @@ interface TopicsByCategory {
 export class CapsulesPageComponent implements OnInit, OnDestroy {
   searchInputValue = '';
   activeTab = 'myFeeds';
-  topicsByCategory: TopicsByCategory[] = [];
-  filteredTopicsByCategory: TopicsByCategory[] = [];
   userInfo: UserInfo = null;
   destroy$ = new Subject<boolean>();
+  browseByTopics: BrowseByTopic[] = [];
+  filteredBrowseByTopics: BrowseByTopic[] = [];
 
   navTabs: NavTab[] = [
     { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'For You' },
@@ -65,12 +65,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       });
 
     this.topicApi.getAllTopics().subscribe(topics => {
-      this.setTopicsByCategory(topics);
+      this.setBrowseByTopics(topics);
     });
-
-    if (this.router.url !== '/capsules/create') {
-      this.navigateToActiveCapsulePage(false);
-    }
   }
 
   ngOnDestroy(): void {
@@ -87,14 +83,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   navigateToActiveCapsulePage(refreshCache?: boolean): void {
-    // if (this.auth.isUserLoggedIn()) {
-    //   this.navTabs[0].isHidden = false;
-    //   activeNavTab = this.navTabs[0];
-    // } else {
-    //   this.navTabs[0].isHidden = true;
-    //   activeNavTab = this.navTabs[1];
-    // }
-
     const activeNavTab = this.navTabs[0];
     this.activeTab = activeNavTab.uniqueId;
 
@@ -106,36 +94,15 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  setTopicsByCategory(topics: any[]): void {
-    const categoryMap = {};
-    const miscTopics = [];
-
+  setBrowseByTopics(topics: TopicItem[]): void {
     if (topics && topics.length > 0) {
-      topics.forEach(topic => {
-        if (topic.category) {
-          categoryMap[topic.category] = categoryMap[topic.category] || [];
-          categoryMap[topic.category].push(topic);
-        } else {
-          miscTopics.push(topic);
-        }
-      });
-    }
+      const filteredTopics = topics
+        .filter(topic => topic.title !== '' && topic.code !== '')
+        .map<BrowseByTopic>(topic => ({ topic, isSubscribed: false }));
 
-    for (const category of Object.keys(categoryMap)) {
-      this.topicsByCategory.push({
-        category,
-        topics: categoryMap[category],
-      });
+      this.browseByTopics = filteredTopics;
+      this.filteredBrowseByTopics = filteredTopics;
     }
-
-    if (miscTopics.length > 0) {
-      this.topicsByCategory.push({
-        category: 'Miscellaneous',
-        topics: miscTopics,
-      });
-    }
-
-    this.filteredTopicsByCategory = this.topicsByCategory;
   }
 
   setActiveTab(navTab: NavTab): void {
@@ -165,10 +132,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   followTopic(topicCode: string): void {
     jQuery('#browseByTopicModal').modal('hide');
 
-    if (!this.auth.isUserLoggedIn()) {
-      this.router.navigateByUrl('/auth/signin');
-      return;
-    }
+    // if (!this.auth.isUserLoggedIn()) {
+    //   this.router.navigateByUrl('/auth/signin');
+    //   return;
+    // }
 
     const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
 
@@ -189,10 +156,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   unfollowTopic(topicCode: string): void {
     jQuery('#browseByTopicModal').modal('hide');
 
-    if (!this.auth.isUserLoggedIn()) {
-      this.router.navigateByUrl('/auth/signin');
-      return;
-    }
+    // if (!this.auth.isUserLoggedIn()) {
+    //   this.router.navigateByUrl('/auth/signin');
+    //   return;
+    // }
 
     const userSubscribedTopics = this.userInfo.subscribedTopics
       ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
@@ -214,21 +181,11 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   searchInputChanged(value: string): void {
     if (value.length > 0) {
-      const filteredTopics: TopicsByCategory[] = [];
-
-      this.topicsByCategory.forEach(category => {
-        const matchedTopics = category.topics.filter(topic =>
-          topic.title.toLowerCase().includes(value.toLowerCase())
-        );
-
-        if (matchedTopics.length > 0) {
-          filteredTopics.push({ category: category.category, topics: matchedTopics });
-        }
+      this.filteredBrowseByTopics = this.browseByTopics.filter(item => {
+        return item.topic.title.toLowerCase().includes(value.toLowerCase());
       });
-
-      this.filteredTopicsByCategory = filteredTopics;
     } else {
-      this.filteredTopicsByCategory = this.topicsByCategory;
+      this.filteredBrowseByTopics = this.browseByTopics;
     }
   }
 
