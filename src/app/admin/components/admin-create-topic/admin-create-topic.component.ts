@@ -44,7 +44,7 @@ export class AdminCreateTopicComponent implements OnInit, AfterViewInit {
   }
 
   showAdminNavTabs(): void {
-    this.eventChannel.publish({ event: ChannelEvent.ShowAdminNavTabs });
+    this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
   }
 
   onSubmit(): void {

@@ -52,15 +52,14 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'category',
       columnName: 'Category',
+      columnFormatter: (category: string) => {
+        return category ?? 'n/a';
+      },
     },
     {
       columnId: 'description',
       columnName: 'Description',
       clazz: ['custom-description-col'],
-    },
-    {
-      columnId: 'questions',
-      columnName: 'Questions',
     },
     {
       columnId: 'status',
@@ -105,9 +104,11 @@ export class AdminCapsulesComponent implements OnInit {
   capsulePendingApproval: CapsuleItem[] = [];
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  constructor(private capsuleApi: CapsuleApiService,
+  constructor(
+    private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     sessionStorage.removeItem('capsuleItem');
@@ -117,9 +118,14 @@ export class AdminCapsulesComponent implements OnInit {
   fetchPendingApprovalCapsules(refreshCache?: boolean): void {
     this.spinner.show();
 
-    this.capsuleApi.getPendingApproval(refreshCache).pipe(finalize(() => {
-      this.spinner.hide();
-    })).subscribe(pendingCapsules => {
+    this.capsuleApi
+      .getPendingApproval(refreshCache)
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(pendingCapsules => {
         this.capsulePendingApproval = pendingCapsules;
         this.adminCapsulesData = this.capsulePendingApproval.map(
           capsule =>
