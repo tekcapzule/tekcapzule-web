@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 
 import { Constants } from '@app/shared/utils';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
-import { UserInfoImpl } from '@app/shared/models';
+import { TekUserInfoImpl } from '@app/shared/models';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -43,7 +43,7 @@ export interface AwsUserInfo {
 })
 export class AuthService {
   private isLoggedIn = false;
-  private userInfo: AwsUserInfo = null;
+  private awsUserInfo: AwsUserInfo = null;
   private loggedInStatusChange$ = new BehaviorSubject<boolean>(this.isLoggedIn);
   private signInErrorChange$ = new BehaviorSubject<string>('');
 
@@ -71,30 +71,31 @@ export class AuthService {
   }
 
   private createUserIfDoesNotExist(user: AwsUserInfo): void {
-    if (!this.userApi.isUserCacheExists()) {
-      const newUserInfo = new UserInfoImpl(
+    if (!this.userApi.isTekUserInfoCacheExists()) {
+      const newUserInfo = new TekUserInfoImpl(
         user.username,
         user.attributes.email,
         user.attributes.phone_number
       );
 
-      this.userApi.updateUserCache(newUserInfo);
-
-      this.userApi
-        .getUser(user.username, true)
-        .pipe(catchError(() => this.userApi.createUser(newUserInfo)))
-        .subscribe();
-    } else {
-      this.userApi.getUser(user.username, true).subscribe();
+      this.userApi.updateTekUserInfoCache(newUserInfo);
+      this.userApi.createTekUserInfo(newUserInfo).subscribe();
+      // this.userApi
+      //   .getTekUserInfo(user.username, true)
+      //   .pipe(catchError(() => this.userApi.createTekUserInfo(newUserInfo)))
+      //   .subscribe();
     }
+    // else {
+    //   this.userApi.getTekUserInfo(user.username, true).subscribe();
+    // }
   }
 
   private invalidateUser(): void {
-    this.userInfo = null;
+    this.awsUserInfo = null;
     this.isLoggedIn = false;
     this.loggedInStatusChange$.next(this.isLoggedIn);
     this.signInErrorChange$.next('');
-    this.userApi.deleteUserCache();
+    this.userApi.deleteTekUserInfoCache();
   }
 
   private authenticateUser(): void {
@@ -102,7 +103,7 @@ export class AuthService {
       .auth()
       .currentAuthenticatedUser()
       .then((user: AwsUserInfo) => {
-        this.userInfo = user;
+        this.awsUserInfo = user;
         this.isLoggedIn = true;
         this.loggedInStatusChange$.next(this.isLoggedIn);
         this.signInErrorChange$.next('');
@@ -114,7 +115,9 @@ export class AuthService {
   }
 
   private getUserGroups(): string[] {
-    return idx(['signInUserSession', 'idToken', 'payload', 'cognito:groups'], this.userInfo) || [];
+    return (
+      idx(['signInUserSession', 'idToken', 'payload', 'cognito:groups'], this.awsUserInfo) || []
+    );
   }
 
   public onLoggedInStatusChange(): Observable<boolean> {
@@ -125,8 +128,8 @@ export class AuthService {
     return this.signInErrorChange$.asObservable();
   }
 
-  public getUserInfo(): AwsUserInfo {
-    return this.userInfo;
+  public getAwsUserInfo(): AwsUserInfo {
+    return this.awsUserInfo;
   }
 
   public isUserLoggedIn(): boolean {

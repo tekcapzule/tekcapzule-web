@@ -1,4 +1,4 @@
-export interface UserInfo {
+export interface TekUserInfo {
   userId: string;
   active: boolean;
   firstName: string;
@@ -10,7 +10,7 @@ export interface UserInfo {
   activeSince: string;
 }
 
-export class UserInfoImpl implements UserInfo {
+export class TekUserInfoImpl implements TekUserInfo {
   userId: string;
   active: boolean;
   firstName: string;

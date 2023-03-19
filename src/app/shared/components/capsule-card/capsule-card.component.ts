@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
 import { CapsuleApiService, UserApiService, AuthService, AwsUserInfo } from '@app/core';
-import { CapsuleBadge, CapsuleItem, UserInfo } from '@app/shared/models';
+import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 
 @Component({
   selector: 'app-capsule-card',
@@ -12,7 +12,7 @@ import { CapsuleBadge, CapsuleItem, UserInfo } from '@app/shared/models';
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
-  userInfo: UserInfo = null;
+  userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
 
   @Input() capsule: CapsuleItem;
@@ -30,10 +30,10 @@ export class CapsuleCardComponent implements OnInit {
 
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
-      this.awsUserInfo = this.auth.getUserInfo();
+      this.awsUserInfo = this.auth.getAwsUserInfo();
 
       this.userApi
-        .getUser(this.awsUserInfo.username, refreshCache)
+        .getTekUserInfo(this.awsUserInfo.username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -83,7 +83,7 @@ export class CapsuleCardComponent implements OnInit {
       bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
     };
 
-    this.userApi.updateUserCache(this.userInfo);
+    this.userApi.updateTekUserInfoCache(this.userInfo);
   }
 
   onCapsuleBookmarkRemove(): void {
@@ -101,7 +101,7 @@ export class CapsuleCardComponent implements OnInit {
       bookmarks: this.userInfo.bookmarks.filter(id => id !== this.capsule.capsuleId),
     };
 
-    this.userApi.updateUserCache(this.userInfo);
+    this.userApi.updateTekUserInfoCache(this.userInfo);
   }
 
   getCapsuleBadgeUrls(): string[] {

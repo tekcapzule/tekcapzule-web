@@ -18,7 +18,6 @@ import {
 })
 export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
-
   capsules = [];
 
   constructor(
@@ -54,7 +53,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   fetchMyFeedCapsules(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.spinner.show();
-      const userInfo = this.userApi.getUserCache();
+      const userInfo = this.userApi.getTekUserInfoCache();
 
       this.capsuleApi
         .getMyFeedCapsules(userInfo.subscribedTopics || [], refreshCache)
@@ -66,6 +65,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
         .subscribe(capsules => {
           this.capsules = capsules;
         });
+    } else {
     }
   }
 }

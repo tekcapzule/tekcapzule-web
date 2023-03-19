@@ -36,7 +36,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     if (this.auth.isUserLoggedIn()) {
-      this.userApi.getUser(this.auth.getUserInfo().username).subscribe();
+      this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().username).subscribe();
     }
 
     this.capsuleApi.getEditorsPickCapsules().subscribe(capsules => {

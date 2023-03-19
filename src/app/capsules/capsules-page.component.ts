@@ -12,7 +12,7 @@ import {
   CapsuleApiService,
   AppSpinnerService,
 } from '@app/core';
-import { NavTab, TopicItem, UserInfo } from '@app/shared/models';
+import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
 
 declare const jQuery: any;
@@ -30,7 +30,7 @@ export interface BrowseByTopic {
 export class CapsulesPageComponent implements OnInit, OnDestroy {
   searchInputValue = '';
   activeTab = 'myFeeds';
-  userInfo: UserInfo = null;
+  userInfo: TekUserInfo = null;
   destroy$ = new Subject<boolean>();
   browseByTopics: BrowseByTopic[] = [];
   filteredBrowseByTopics: BrowseByTopic[] = [];
@@ -77,7 +77,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
-        .getUser(this.auth.getUserInfo().username, refreshCache)
+        .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -139,7 +139,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
     const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
 
-    this.userApi.followTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
+    this.userApi.followTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
       this.fetchUserInfo(true);
     });
 
@@ -148,8 +148,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       subscribedTopics: userSubscribedTopics,
     };
 
-    this.userApi.updateUserCache(this.userInfo);
-
+    this.userApi.updateTekUserInfoCache(this.userInfo);
     this.navigateToActiveCapsulePage(true);
   }
 
@@ -165,7 +164,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
       : [];
 
-    this.userApi.unfollowTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
+    this.userApi.unfollowTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
       this.fetchUserInfo(true);
     });
 
@@ -174,8 +173,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       subscribedTopics: userSubscribedTopics,
     };
 
-    this.userApi.updateUserCache(this.userInfo);
-
+    this.userApi.updateTekUserInfoCache(this.userInfo);
     this.navigateToActiveCapsulePage(true);
   }
 

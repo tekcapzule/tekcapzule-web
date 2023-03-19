@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.zone.run(() => {
         this.isLoggedIn = isLoggedIn;
-        this.userDetails = this.auth.getUserInfo();
+        this.userDetails = this.auth.getAwsUserInfo();
         // this.router.navigateByUrl('/home'); // TODO: FIXME
       });
     });
