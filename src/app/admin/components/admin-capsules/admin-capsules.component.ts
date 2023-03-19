@@ -110,6 +110,7 @@ export class AdminCapsulesComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    sessionStorage.removeItem('capsuleItem');
     this.fetchPendingApprovalCapsules();
   }
 
@@ -120,7 +121,6 @@ export class AdminCapsulesComponent implements OnInit {
       this.spinner.hide();
     })).subscribe(pendingCapsules => {
         this.capsulePendingApproval = pendingCapsules;
-        console.log('pendingCapsules ---->> ',pendingCapsules);
         this.adminCapsulesData = this.capsulePendingApproval.map(
           capsule =>
             new AdminCapsuleDataItemImpl(
@@ -140,7 +140,7 @@ export class AdminCapsulesComponent implements OnInit {
   }
 
   editActionCallback(row: CapsuleItem): void {
-    console.log('editActionCallback: ', row);
+    //console.log('editActionCallback: ', row);
     sessionStorage.setItem('capsuleItem', JSON.stringify(row));
     this.router.navigate(['/admin/editcapsule']);
   }
