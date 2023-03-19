@@ -31,6 +31,10 @@ const routes: Routes = [
         component: AdminCreateCapsuleComponent,
       },
       {
+        path: 'editcapsule',
+        component: AdminCreateCapsuleComponent,
+      },
+      {
         path: 'createquestions',
         component: AdminCreateQuestionsComponent,
       },

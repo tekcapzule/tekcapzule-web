@@ -3,6 +3,8 @@ import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService
 import { CreateCapsuleForm } from '@app/admin/models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
+import { CapsuleItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-admin-create-capsule',
@@ -11,9 +13,10 @@ import * as moment from 'moment';
 })
 export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
 
-  capsuleForm: FormGroup;
-  createCapsuleForm= new CreateCapsuleForm();
-  isCreateCapsuleSubmitted = false;
+  capsuleFormGroup: FormGroup;
+  isCreateCapsuleSubmitted: boolean;
+  isEditMode: boolean;
+  editCapsule: CapsuleItem;
   /*responseBodySample = {
     topicCode: 'Cloud Computing',
     publishedDate: '10/10/2022',
@@ -38,32 +41,39 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     private eventChannel: EventChannelService,
     private capsuleApi: CapsuleApiService,
     private appSpinnerService: AppSpinnerService,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.createForm();
+    this.createCapsuleForm();
+    if (this.router.url.includes('editcapsule')) {
+      this.isEditMode = true;
+      this.editCapsule = JSON.parse(sessionStorage.getItem('capsuleItem'));
+      this.capsuleFormGroup.patchValue(this.editCapsule);
+    }
   }
 
-  createForm() {
-    this.capsuleForm = this.fb.group({
-      topicCode: ['Cloud Computing', Validators.required],
+  createCapsuleForm() {
+    this.capsuleFormGroup = this.fb.group({
+      capsuleId: [''],
+      topicCode: ['', Validators.required],
       category: [''],
       publishedDate: [moment().format('DD/MM/YYYY'), Validators.required],
-      title:  ['Block chain', Validators.required],
-      imageUrl:  ['https://tekcapsule-web-dev.s3-website.us-east-2.amazonaws.com/assets/images/card-3.png', Validators.required],
-      duration:  ['120', Validators.required],
-      author:  ['Linjith Kunnon', Validators.required],
-      description:  ['Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.', Validators.required],
-      publisher:  ['Medium', Validators.required],
-      resourceURL:  ['https://tekcapsule-web-dev.s3-website.us-east-2.amazonaws.com/assets/images/card-3.png', Validators.required],
-      type:  ['ARTICLE', Validators.required],
-      audience:  ['ALL'],
-      level:  ['ADVANCED', Validators.required],
-      expiryDate:  [moment().format('DD/MM/YYYY'), Validators.required],
-      expiryDateDisp:  [7, Validators.required],
-      editorsPick:  [true],
-      tags:  [ ['cld', 'cloud', 'compute', 'storage']]
+      title: ['', Validators.required],
+      imageUrl: ['', Validators.required],
+      duration: [, Validators.required],
+      author: [, Validators.required],
+      description: ['', Validators.required],
+      publisher: ['', Validators.required],
+      resourceURL: ['', Validators.required],
+      type: ['', Validators.required],
+      audience: [''],
+      level: ['', Validators.required],
+      expiryDate: [moment().format('DD/MM/YYYY'), Validators.required],
+      expiryDateDisp: [7, Validators.required],
+      editorsPick: [true],
+      tags: ['']
     })
   }
 
@@ -75,24 +85,39 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
 
   onCreateCapsule(): void {
     // Testing Purpose
-    /*Object.keys(this.capsuleForm.controls).forEach(key => {
-      if(!this.capsuleForm.get(key).valid) {
-        console.log(key, this.capsuleForm.get(key).valid, this.capsuleForm.get(key).value);
+    Object.keys(this.capsuleFormGroup.controls).forEach(key => {
+      if(!this.capsuleFormGroup.get(key).valid) {
+        console.log(key, this.capsuleFormGroup.get(key).valid, this.capsuleFormGroup.get(key).value);
       }
-    });*/
-    if (this.capsuleForm.valid) {
-      let requestBody = this.capsuleForm.value;
+    });
+    this.capsuleFormGroup.markAllAsTouched();
+    if (this.capsuleFormGroup.valid) {
+      let requestBody = this.capsuleFormGroup.value;
       requestBody.expiryDate = moment().add(requestBody.expiryDateDisp, 'days').format("DD/MM/YYYY");
       requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
       this.isCreateCapsuleSubmitted = false;
       this.appSpinnerService.show();
-      console.log('request  ', requestBody);
-      this.capsuleApi.createCapsule(requestBody).subscribe(data => {
-        this.capsuleForm.reset();
-        this.isCreateCapsuleSubmitted = true;
-        this.appSpinnerService.hide();
-      });
+      if(this.editCapsule) {
+        this.updateCapsule(requestBody);
+      } else {
+        this.createCapsule(requestBody);
+      }
     }
+  }
+
+  updateCapsule(requestBody) {
+    this.capsuleApi.updateCapsule(requestBody).subscribe(data => {
+      this.isCreateCapsuleSubmitted = true;
+      this.appSpinnerService.hide();
+    });
+  }
+
+  createCapsule(requestBody) {
+    this.capsuleApi.createCapsule(requestBody).subscribe(data => {
+      this.capsuleFormGroup.reset();
+      this.isCreateCapsuleSubmitted = true;
+      this.appSpinnerService.hide();
+    });
   }
 
   showAdminCapsulesTab(): void {
