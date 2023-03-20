@@ -12,21 +12,22 @@ import { SharedModule } from '@app/shared';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPageComponent } from './admin-page.component';
 import { AdminCapsulesComponent } from './components/admin-capsules/admin-capsules.component';
-import { AdminTopicsComponent } from './components/admin-topics/admin-topics.component';
+import { AdminTekByteComponent } from './components/admin-tekbyte/admin-tekbyte.component';
 import { AdminFeedbackComponent } from './components/admin-feedback/admin-feedback.component';
 import { AdminCreateCapsuleComponent } from './components/admin-create-capsule/admin-create-capsule.component';
-import { AdminCreateTopicComponent } from './components/admin-create-topic/admin-create-topic.component';
+import { AdminCreateTekByteComponent } from './components/admin-create-tekbyte/admin-create-tekbyte.component';
 import { AdminCreateQuestionsComponent } from './components/admin-create-questions/admin-create-questions.component';
+import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
   declarations: [
     AdminPageComponent,
     AdminCapsulesComponent,
-    AdminTopicsComponent,
+    AdminTekByteComponent,
     AdminFeedbackComponent,
     AdminCreateCapsuleComponent,
-    AdminCreateTopicComponent,
-    AdminCreateQuestionsComponent,
+    AdminCreateTekByteComponent,
+    AdminCreateQuestionsComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +41,7 @@ import { AdminCreateQuestionsComponent } from './components/admin-create-questio
     MatTabsModule,
     SharedModule,
     AdminRoutingModule,
+    TagInputModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

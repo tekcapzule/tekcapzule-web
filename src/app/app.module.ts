@@ -17,7 +17,7 @@ import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    AuthModule,
+    AuthModule
   ],
   exports: [],
   providers: [

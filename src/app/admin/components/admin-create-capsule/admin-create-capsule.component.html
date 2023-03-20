@@ -23,32 +23,32 @@
         </div>
         <div class="form-field col-6">
           <label>Topic Category</label>
-          <select name="type" formControlName="category" name="Select" class="form-control">
+          <select name="type" formControlName="category" name="Select" class="form-control"  placeholder="Select Topic Category">
             <option>Topic Category</option>
           </select>
         </div>
         <div class="form-field col-6" [ngClass]="{'error-text':capsuleFormGroup.get('author').touched && capsuleFormGroup.get('author').invalid}">
           <label for="author">Summary by/Author</label>
-          <input type="text" name="author" formControlName="author" class="form-control" />
+          <input type="text" name="author" formControlName="author" class="form-control"  placeholder="Enter Author Name"/>
           <span class="error-msg" *ngIf="capsuleFormGroup.get('author').touched && capsuleFormGroup.get('author').invalid">Please enter author name.</span>
         </div>
         <div class="form-field col-6" [ngClass]="{'error-text':capsuleFormGroup.get('publishedDate').touched && capsuleFormGroup.get('publishedDate').invalid}">
           <label>Published Date</label>
-          <input type="text" formControlName="publishedDate" name="publishedDate" class="form-control" />
+          <input type="text" formControlName="publishedDate" name="publishedDate" class="form-control"  placeholder="Enter Publish Date"/>
           <span class="error-msg" *ngIf="capsuleFormGroup.get('publishedDate').touched && capsuleFormGroup.get('publishedDate').invalid">Please enter publish date.</span>
         </div>
       </div>
       <div class="row">
         <div class="form-field col-12" [ngClass]="{'error-text':capsuleFormGroup.get('description').touched && capsuleFormGroup.get('description').invalid}">
           <label for="description">Description</label>
-          <textarea class="form-control" name="description" formControlName="description" rows="4"></textarea>
+          <textarea class="form-control" name="description" formControlName="description" rows="4"  placeholder="Enter Description"></textarea>
           <span class="error-msg" *ngIf="capsuleFormGroup.get('description').touched && capsuleFormGroup.get('description').invalid">Please enter description.</span>
         </div>
       </div>
       <div class="row">
         <div class="form-field col-12" [ngClass]="{'error-text':capsuleFormGroup.get('imageUrl').touched && capsuleFormGroup.get('imageUrl').invalid}">
           <label for="uplaodImage">Image Url</label>
-          <input type="text" name="uplaodImage" formControlName="imageUrl" class="form-control" />
+          <input type="text" name="uplaodImage" formControlName="imageUrl" class="form-control"  placeholder="Enter Image URL"/>
           <span class="error-msg" *ngIf="capsuleFormGroup.get('imageUrl').touched && capsuleFormGroup.get('imageUrl').invalid">Please enter image url.</span>
         </div>
       </div>
@@ -57,7 +57,8 @@
         <div class="title">Capsule Flip Side Information</div>
         <div class="form-group">
           <label for="Description">Add Tags</label>
-          <input type="search" class="form-control" formControlName="tags" />
+          <input type="search" class="form-control" formControlName="tags"  placeholder="Enter Tags"/>
+          <!--tag-input class="form-control" [(ngModel)]="items" [editable]="true" (onTagEdited)="onTagEdited($event)"></tag-input-->
         </div>
       </div>
 
@@ -68,7 +69,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Capsule Type</label>
-                <select name="type" formControlName="type" class="form-control">
+                <select name="type" formControlName="type" class="form-control"  placeholder="Select Capsule Type">
                   <option>Capsule Type</option>
                 </select>
               </div>
@@ -76,7 +77,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-field form-group" [ngClass]="{'error-text':capsuleFormGroup.get('author').touched && capsuleFormGroup.get('author').invalid}">
                 <label>Publisher</label>
-                <select name="publisher" formControlName="publisher" class="form-control">
+                <select name="publisher" formControlName="publisher" class="form-control"  placeholder="Enter Publisher">
                   <option>Publisher</option>
                 </select>
                 <span class="error-msg" *ngIf="capsuleFormGroup.get('publisher').touched && capsuleFormGroup.get('publisher').invalid">Please enter publisher name.</span>
@@ -87,7 +88,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Topic Level</label>
-                <select name="level" formControlName="level" class="form-control">
+                <select name="level" formControlName="level" class="form-control"  placeholder="Select Topic Level">
                   <option>Beginner</option>
                   <option>Intermediate</option>
                   <option>Advance</option>
@@ -97,7 +98,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-field form-group">
                 <label>Target Audience</label>
-                <select name="audience" formControlName="audience" class="form-control">
+                <select name="audience" formControlName="audience" class="form-control"  placeholder="Select Audience">
                   <option value="All">All</option>
                 </select>
               </div>
@@ -117,7 +118,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Primary Category</label>
-                <select class="form-control">
+                <select class="form-control" placeholder="Select Primary Category">
                   <option>1</option>
                   <option>2</option>
                 </select>
@@ -126,7 +127,7 @@
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Secondary Category</label>
-                <select class="form-control">
+                <select class="form-control" placeholder="Select Secondary Category">
                   <option>1</option>
                   <option>2</option>
                 </select>
@@ -136,14 +137,14 @@
           <div class="form-field form-group" [ngClass]="{'error-text':capsuleFormGroup.get('resourceURL').touched && capsuleFormGroup.get('resourceURL').invalid}">
             <label for="resourceURL">Resource URL</label>
             <input type="text" name="resourceURL" formControlName="resourceURL" class="form-control"
-              placeholder="URL" />
+              placeholder="Enter Resources URL" />
               <span class="error-msg" *ngIf="capsuleFormGroup.get('resourceURL').touched && capsuleFormGroup.get('resourceURL').invalid">Please enter resource url.</span>
           </div>
           <div class="row">
             <div class="form-field col-lg-6 col-sm-12">
               <div class="form-group" [ngClass]="{'error-text':capsuleFormGroup.get('expiryDateDisp').touched && capsuleFormGroup.get('expiryDateDisp').invalid}">
                 <label>Expiry Date</label>
-                <select name="expiryDateDisp" formControlName="expiryDateDisp" class="form-control">
+                <select name="expiryDateDisp" formControlName="expiryDateDisp" class="form-control" placeholder="Select Expiry Date">
                   <option value="7">1 Week</option>
                   <option value="30">1 Month</option>
                   <option value="365">1 Year</option>

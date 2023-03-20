@@ -5,9 +5,9 @@ import { AdminPageComponent } from './admin-page.component';
 import { AdminCapsulesComponent } from './components/admin-capsules/admin-capsules.component';
 import { AdminCreateCapsuleComponent } from './components/admin-create-capsule/admin-create-capsule.component';
 import { AdminCreateQuestionsComponent } from './components/admin-create-questions/admin-create-questions.component';
-import { AdminCreateTopicComponent } from './components/admin-create-topic/admin-create-topic.component';
+import { AdminCreateTekByteComponent } from './components/admin-create-tekbyte/admin-create-tekbyte.component';
 import { AdminFeedbackComponent } from './components/admin-feedback/admin-feedback.component';
-import { AdminTopicsComponent } from './components/admin-topics/admin-topics.component';
+import { AdminTekByteComponent } from './components/admin-tekbyte/admin-tekbyte.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
         component: AdminCapsulesComponent,
       },
       {
-        path: 'topics',
-        component: AdminTopicsComponent,
+        path: 'tekByte',
+        component: AdminTekByteComponent,
       },
       {
         path: 'feedback',
@@ -39,12 +39,12 @@ const routes: Routes = [
         component: AdminCreateQuestionsComponent,
       },
       {
-        path: 'createtopic',
-        component: AdminCreateTopicComponent,
+        path: 'createtekbyte',
+        component: AdminCreateTekByteComponent,
       },
       {
-        path: 'edittopic/:topicCode',
-        component: AdminCreateTopicComponent,
+        path: 'edittekByte/:topicCode',
+        component: AdminCreateTekByteComponent,
       },
       {
         path: '',

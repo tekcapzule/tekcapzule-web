@@ -17,6 +17,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   isCreateCapsuleSubmitted: boolean;
   isEditMode: boolean;
   editCapsule: CapsuleItem;
+  items = ['cloud'];
   /*responseBodySample = {
     topicCode: 'Cloud Computing',
     publishedDate: '10/10/2022',
@@ -127,4 +128,9 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   hideAdminNavTabs(): void {
     this.eventChannel.publish({ event: ChannelEvent.HideAdminNavTabs });
   }
+  
+  public onTagEdited(item) {
+    console.log('tag edited: current value is ' + item);
+  }
+
 }

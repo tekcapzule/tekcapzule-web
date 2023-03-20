@@ -7,11 +7,11 @@ import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@a
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-topics',
-  templateUrl: './admin-topics.component.html',
-  styleUrls: ['./admin-topics.component.scss'],
+  selector: 'app-admin-tekbyte',
+  templateUrl: './admin-tekbyte.component.html',
+  styleUrls: ['./admin-tekbyte.component.scss'],
 })
-export class AdminTopicsComponent implements OnInit {
+export class AdminTekByteComponent implements OnInit {
   adminTopicColumns: ColumnDef[] = [
     {
       columnId: 'topicName',
