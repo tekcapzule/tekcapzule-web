@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { TopicItem, UserInfo } from '@app/shared/models';
+import { TopicItem } from '@app/shared/models';
 import { cacheManager, Constants } from '@app/shared/utils';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
@@ -21,7 +21,7 @@ const TEKBYTE_GETTEKBYTE_CACHE_KEY = 'com.tekcapsule.tekbyte.gettekbyte.<code>';
   providedIn: 'root',
 })
 export class TekByteApiService {
-  userInfo: UserInfo = null;
+  // userInfo: UserInfo = null;
 
   constructor(
     private httpClient: HttpClient,
@@ -29,7 +29,7 @@ export class TekByteApiService {
     private auth: AuthService,
     private userApi: UserApiService
   ) {
-    this.userInfo = this.userApi.getUserCache();
+    // this.userInfo = this.userApi.getUserCache();
   }
 
   getTekByteApiPath(): string {
