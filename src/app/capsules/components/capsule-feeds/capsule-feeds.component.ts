@@ -50,22 +50,28 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
+  /**
+   * Fetch my feed capsules based on user subscribed topics, if user logged in.
+   * Otherwise load my feed capsules for default topics like AI, CLD and SWD.
+   */
   fetchMyFeedCapsules(refreshCache?: boolean): void {
-    if (this.auth.isUserLoggedIn()) {
-      this.spinner.show();
-      const userInfo = this.userApi.getTekUserInfoCache();
+    const userInfo = this.userApi.getTekUserInfoCache();
+    const subscribedTopics =
+      this.auth.isUserLoggedIn() && userInfo?.subscribedTopics
+        ? userInfo.subscribedTopics
+        : ['AI', 'CLD', 'SWD'];
 
-      this.capsuleApi
-        .getMyFeedCapsules(userInfo.subscribedTopics || [], refreshCache)
-        .pipe(
-          finalize(() => {
-            this.spinner.hide();
-          })
-        )
-        .subscribe(capsules => {
-          this.capsules = capsules;
-        });
-    } else {
-    }
+    this.spinner.show();
+
+    this.capsuleApi
+      .getMyFeedCapsules(subscribedTopics, refreshCache)
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(capsules => {
+        this.capsules = capsules;
+      });
   }
 }

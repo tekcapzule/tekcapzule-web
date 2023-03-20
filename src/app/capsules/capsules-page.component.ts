@@ -122,6 +122,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   isTopicSubscribed(topicCode: string): boolean {
+    // const defaultTopics = ['AI', 'CLD', 'SWD'];
+
     if (this.auth.isUserLoggedIn()) {
       return this.userInfo?.subscribedTopics?.includes(topicCode);
     }

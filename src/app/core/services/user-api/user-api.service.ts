@@ -75,7 +75,8 @@ export class UserApiService {
 
   updateTekUserInfoCache(userInfo: TekUserInfo): void {
     const current = new Date();
-    current.setHours(current.getHours() + 12);
+    current.setHours(current.getHours() + Constants.DefaultApiCacheExpiryHours);
+
     cacheManager.setItem(USER_INFO_CACHE_KEY, {
       body: userInfo,
       expiry: current.getTime(),

@@ -65,6 +65,7 @@ export class CacheInterceptor implements HttpInterceptor {
         if (httpEvent instanceof HttpResponse) {
           const current = new Date();
           current.setHours(current.getHours() + expiry);
+
           cacheManager.setItem(cacheKey, {
             body: httpEvent.body,
             expiry: current.getTime(),
