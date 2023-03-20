@@ -1,0 +1,24 @@
+.contribute-page{
+    .contribute-bg{
+        background: url(../../../../assets/images/contribute-bg.svg) no-repeat;
+        width: 100%;
+        height: 967px;
+        background-size: cover;
+        .container {
+            max-width: 950px;
+        }
+    }
+    .contribute-form-bg {
+        background: url(../../../../assets/images/contribute-form-bg.svg) no-repeat;
+        padding: 70px 125px;
+        height: 52rem;
+    }
+    .formuser-icon {
+        background: url(../../../../assets/images/form-man.png) no-repeat;
+        width: 293px;
+        height: 579px;
+        position: absolute;
+        left: 12%;
+        top: 30rem;
+    }
+}
