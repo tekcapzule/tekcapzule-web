@@ -20,8 +20,8 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     'Applications',
     'Trends',
     'Challenges',
-    'Story So Far'
-  ]
+    'Story So Far',
+  ];
   tekByteFormGroup: FormGroup;
 
   constructor(
@@ -30,7 +30,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     private tekByteAPI: TekByteApiService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private fb:FormBuilder
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -67,10 +67,12 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
       applications: this.fb.array([this.getTitleAndDescFormGroup()]),
       currentTrends: this.fb.array([this.getTitleAndDescFormGroup()]),
       challenges: this.fb.array([this.getTitleAndDescFormGroup()]),
-      timeline: this.fb.array([this.fb.group({
-        timelineDate: [''],
-        description: ['']
-      })])
+      timeline: this.fb.array([
+        this.fb.group({
+          timelineDate: [''],
+          description: [''],
+        }),
+      ]),
     });
   }
 
@@ -85,8 +87,8 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   getTitleAndDescFormGroup(): FormGroup {
     return this.fb.group({
       title: [''],
-      description: ['']
-    })
+      description: [''],
+    });
   }
 
   onAddTitleAndDesc(fieldName) {
@@ -112,12 +114,12 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   get timeline() {
     return this.tekByteFormGroup.get('timeline') as FormArray;
   }
-  
+
   addStoryFormArray() {
-    if(this.timeline.length < 10) {
+    if (this.timeline.length < 10) {
       const timelineGp = this.fb.group({
         timelineDate: [''],
-        storyDescription: ['']
+        storyDescription: [''],
       });
       this.timeline.push(timelineGp);
     }
@@ -142,7 +144,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     // this.topicDetails.keyHighlights = clearEmptyElementsInArray(this.topicDetails.keyHighlights);
     // this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
     this.tekByteFormGroup.markAllAsTouched();
-    if(this.tekByteFormGroup.valid) {
+    if (this.tekByteFormGroup.valid) {
       if (this.isEditMode) {
         /*this.router.navigate(['/admin/capsules']);
         this.tekByteAPI.updateTopic(this.topicDetails).subscribe(res => {

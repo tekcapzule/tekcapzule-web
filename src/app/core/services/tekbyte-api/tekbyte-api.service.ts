@@ -17,7 +17,6 @@ const TEKBYTE_API_PATH = `${environment.apiEndpointTemplate}/topic`
 const TEKBYTE_ALLTEKBYTE_CACHE_KEY = 'com.tekcapsule.tekbyte.alltekbyte';
 const TEKBYTE_GETTEKBYTE_CACHE_KEY = 'com.tekcapsule.tekbyte.gettekbyte.<code>';
 
-
 @Injectable({
   providedIn: 'root',
 })
