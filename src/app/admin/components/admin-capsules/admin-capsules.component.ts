@@ -3,7 +3,7 @@ import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
-import { AppSpinnerService, CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -107,11 +107,13 @@ export class AdminCapsulesComponent implements OnInit {
   constructor(
     private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
-    private router: Router
+    private router: Router,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
     sessionStorage.removeItem('capsuleItem');
+    this.showAdminCapsulesTab();
     this.fetchPendingApprovalCapsules();
   }
 
@@ -127,21 +129,6 @@ export class AdminCapsulesComponent implements OnInit {
       )
       .subscribe(pendingCapsules => {
         this.capsulePendingApproval = pendingCapsules;
-        this.adminCapsulesData = this.capsulePendingApproval.map(
-          capsule =>
-            new AdminCapsuleDataItemImpl(
-              capsule.title,
-              capsule.author,
-              capsule.publishedDate,
-              capsule.tags,
-              capsule.duration,
-              capsule.type,
-              capsule.description,
-              capsule.quizzes ? capsule.quizzes.length : 0,
-              capsule.status,
-              capsule.capsuleId
-            )
-        );
       });
   }
 
@@ -170,5 +157,9 @@ export class AdminCapsulesComponent implements OnInit {
       .subscribe(() => {
         this.fetchPendingApprovalCapsules(true);
       });
+  }
+  
+  showAdminCapsulesTab(): void {
+    this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
   }
 }
