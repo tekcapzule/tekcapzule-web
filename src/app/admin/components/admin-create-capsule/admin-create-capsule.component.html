@@ -70,7 +70,8 @@
               <div class="form-group">
                 <label>Capsule Type</label>
                 <select name="type" formControlName="type" class="form-control"  placeholder="Select Capsule Type">
-                  <option>Capsule Type</option>
+                  <option value="">Select Capsule Type</option>
+                  <option  *ngFor="let type of metadata?.capsuleType; let i = index" value="{{type}}">{{type}}</option>
                 </select>
               </div>
             </div>
@@ -78,7 +79,8 @@
               <div class="form-field form-group" [ngClass]="{'error-text':capsuleFormGroup.get('author').touched && capsuleFormGroup.get('author').invalid}">
                 <label>Publisher</label>
                 <select name="publisher" formControlName="publisher" class="form-control"  placeholder="Enter Publisher">
-                  <option>Publisher</option>
+                  <option value="">Select Publisher</option>
+                  <option  *ngFor="let publisher of metadata?.publisher; let i = index" value="{{publisher}}">{{publisher}}</option>
                 </select>
                 <span class="error-msg" *ngIf="capsuleFormGroup.get('publisher').touched && capsuleFormGroup.get('publisher').invalid">Please enter publisher name.</span>
               </div>
@@ -89,9 +91,8 @@
               <div class="form-group">
                 <label>Topic Level</label>
                 <select name="level" formControlName="level" class="form-control"  placeholder="Select Topic Level">
-                  <option>Beginner</option>
-                  <option>Intermediate</option>
-                  <option>Advance</option>
+                  <option value="">Select Topic Level</option>
+                  <option  *ngFor="let level of metadata?.topicLevel; let i = index" value="{{level}}">{{level}}</option>
                 </select>
               </div>
             </div>
@@ -99,7 +100,8 @@
               <div class="form-field form-group">
                 <label>Target Audience</label>
                 <select name="audience" formControlName="audience" class="form-control"  placeholder="Select Audience">
-                  <option value="All">All</option>
+                  <option value="">Select Target Audience</option>
+                  <option  *ngFor="let audience of metadata?.targetAudience; let i = index" value="{{audience}}">{{audience}}</option>
                 </select>
               </div>
             </div>
@@ -145,10 +147,8 @@
               <div class="form-group" [ngClass]="{'error-text':capsuleFormGroup.get('expiryDateDisp').touched && capsuleFormGroup.get('expiryDateDisp').invalid}">
                 <label>Expiry Date</label>
                 <select name="expiryDateDisp" formControlName="expiryDateDisp" class="form-control" placeholder="Select Expiry Date">
-                  <option value="7">1 Week</option>
-                  <option value="30">1 Month</option>
-                  <option value="365">1 Year</option>
-                  <option value="3650">No Expire</option>
+                  <option value="">Select ExpiryDate</option>
+                  <option  *ngFor="let expiry of metadata?.expiryInterval; let i = index" value="{{expiry}}">{{expiry}}</option>
                 </select>
               <span class="error-msg" *ngIf="capsuleFormGroup.get('expiryDateDisp').touched && capsuleFormGroup.get('expiryDateDisp').invalid">Please enter expiry date.</span>
               </div>

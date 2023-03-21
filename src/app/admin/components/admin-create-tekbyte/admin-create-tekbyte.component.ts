@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
 import { TopicCategoryItem, TopicItem } from '@app/shared/models';
 import * as moment from 'moment';
+import { Create_TekByte } from './create-tekbyte.constants';
 
 @Component({
   selector: 'app-admin-create-tekbyte',
@@ -14,16 +15,7 @@ import * as moment from 'moment';
 export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   isEditMode = false;
   tabIndex = 0;
-  tabDetails: string[] = [
-    'Top Banner',
-    'Why, How & What',
-    'Facts & Future',
-    '3 Key Concepts',
-    'Applications',
-    'Trends',
-    'Challenges',
-    'Story So Far',
-  ];
+  tabDetails: string[] = Create_TekByte.tabDetails;
   topics: TopicItem[] = [];
   tekByteFormGroup: FormGroup;
   categories: TopicCategoryItem[] = [];
@@ -65,7 +57,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
 
   createTopicFormGroup() {
     this.tekByteFormGroup = this.fb.group({
-      code: ['AI'],
+      code: [''],
       topicCode: ['', Validators.required],
       title: ['', Validators.required],
       imageUrl: ['', Validators.required],

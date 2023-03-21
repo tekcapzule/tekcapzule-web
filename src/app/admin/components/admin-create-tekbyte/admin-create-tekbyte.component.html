@@ -384,7 +384,7 @@
               />
             </div>
             <ng-container formArrayName="challenges">
-              <ng-container *ngFor="let challenge of challenges.controls; let i = index">
+              <ng-container *ngFor="let challenge of metadata?.expiryInterval; let i = index">
                 <div [formGroup]="challenge" class="innerCardSection">
                   <div class="form-group">
                     <div class="d-flex justify-content-between">

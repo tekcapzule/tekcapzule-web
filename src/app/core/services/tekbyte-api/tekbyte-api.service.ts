@@ -54,4 +54,18 @@ export class TekByteApiService {
   updateTekByte(tekByte: any): Observable<any> {
     return this.httpClient.post(`${TEKBYTE_API_PATH}/update`, tekByte);
   }
+
+  getAllTekByte(): Observable<TekByteItem[]> {
+    return this.httpClient.post<TekByteItem[]>(
+      `${TEKBYTE_API_PATH}/getAll`,
+      {},
+      {
+        params: {
+          cache: 'yes',
+          ckey: TEKBYTE_ALLTEKBYTE_CACHE_KEY,
+        },
+      }
+    );
+  }
+
 }
