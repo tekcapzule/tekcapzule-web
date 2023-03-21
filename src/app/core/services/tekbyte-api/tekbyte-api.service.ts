@@ -10,7 +10,7 @@ import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 
-const TEKBYTE_API_PATH = `${environment.apiEndpointTemplate}/topic`
+const TEKBYTE_API_PATH = `${environment.apiEndpointTemplate}/tekbyte`
   .replace('{{api-gateway}}', environment.tekByteApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
@@ -49,5 +49,9 @@ export class TekByteApiService {
     }
 
     return this.httpClient.post(`${TEKBYTE_API_PATH}/create`, tekByte);
+  }
+
+  updateTekByte(tekByte: any): Observable<any> {
+    return this.httpClient.post(`${TEKBYTE_API_PATH}/update`, tekByte);
   }
 }
