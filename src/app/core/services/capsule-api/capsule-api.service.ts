@@ -125,4 +125,8 @@ export class CapsuleApiService {
   updateCapsule(capsuleInfo: CapsuleItem): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/update`, capsuleInfo);
   }
+
+  getMetadata(): Observable<ApiSuccess> {
+    return this.httpClient.get<ApiSuccess>('https://kjkyqgkvqk.execute-api.us-west-2.amazonaws.com/dev/capsule/getMetadata');
+  }
 }

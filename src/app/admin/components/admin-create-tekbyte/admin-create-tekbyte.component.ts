@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
+import { TopicCategoryItem, TopicItem } from '@app/shared/models';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-admin-create-tekbyte',
@@ -22,19 +24,21 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     'Challenges',
     'Story So Far',
   ];
+  topics: TopicItem[] = [];
   tekByteFormGroup: FormGroup;
+  categories: TopicCategoryItem[] = [];
 
   constructor(
     private eventChannel: EventChannelService,
     private topicApi: TopicApiService,
     private tekByteAPI: TekByteApiService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
     this.createTopicFormGroup();
+    this.getAllTopics();
     if (this.router.url.includes('edittekbyte')) {
       this.isEditMode = true;
     }
@@ -46,9 +50,16 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     });
   }
 
+  getAllTopics() {
+    this.topicApi.getAllTopics().subscribe(topics => {
+      console.log('topics ---->> ', topics);
+      this.topics = topics;
+    });
+  }
+
   createTopicFormGroup() {
     this.tekByteFormGroup = this.fb.group({
-      code: [''],
+      code: ['AI'],
       topicCode: ['', Validators.required],
       title: ['', Validators.required],
       imageUrl: ['', Validators.required],
@@ -119,7 +130,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     if (this.timeline.length < 10) {
       const timelineGp = this.fb.group({
         timelineDate: [''],
-        storyDescription: [''],
+        description: [''],
       });
       this.timeline.push(timelineGp);
     }
@@ -138,29 +149,46 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
   }
 
-  onSubmit(): void {
-    const clearEmptyElementsInArray = (array: string[]) => array.filter(e => e);
-    // this.topicDetails.aliases = clearEmptyElementsInArray(this.topicDetails.aliases);
-    // this.topicDetails.keyHighlights = clearEmptyElementsInArray(this.topicDetails.keyHighlights);
-    // this.topicDetails.capsules = clearEmptyElementsInArray(this.topicDetails.capsules);
-    this.tekByteFormGroup.markAllAsTouched();
-    if (this.tekByteFormGroup.valid) {
-      if (this.isEditMode) {
-        /*this.router.navigate(['/admin/capsules']);
-        this.tekByteAPI.updateTopic(this.topicDetails).subscribe(res => {
-          // console.log(this.topicDetails, res)
-        });*/
-      } else {
-        /*this.tekByteAPI.createTekByte(this.topicDetails).subscribe(res => {
-          // console.log(this.topicDetails, res)
-        });*/
-      }
-    }
-
-    this.showAdminNavTabs();
-  }
 
   getDashboardLink() {
     return this.isEditMode ? ['../../capsules'] : ['../capsules'];
+  }
+
+  onTopicChange(event) {
+    const topicCode = event.target.value;
+    if(topicCode) {
+      const topic = this.topics.find(topic => topic.code === topicCode);
+      this.categories = topic.categories;
+      console.log(' ----------', topic);
+      this.tekByteFormGroup.patchValue({
+        description: topic.description,
+        imageUrl: topic.imageUrl,
+        status: topic.status,
+        summary: topic.summary,
+        title: topic.title
+      })
+    }
+  }
+
+  
+  onSubmit(): void {
+    this.tekByteFormGroup.markAllAsTouched();
+    console.log(' ----- ', this.tekByteFormGroup.valid, this.tekByteFormGroup.value);
+    if (this.tekByteFormGroup.valid) {
+      const requestBody = this.tekByteFormGroup.value;
+      requestBody.timeline.forEach(tm => {
+        tm.timelineDate = moment(tm.timelineDate).format('DD/MM/YYYY')
+      });
+      if (this.isEditMode) {
+        /*this.router.navigate(['/admin/capsules']);
+        this.tekByteAPI.create(this.topicDetails).subscribe(res => {
+          // console.log(this.topicDetails, res)
+        });*/
+      } else {
+        this.tekByteAPI.createTekByte(requestBody).subscribe(res => {
+          console.log("tek byte ---- ", res)
+        });
+      }
+    }
   }
 }

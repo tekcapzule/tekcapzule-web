@@ -40,9 +40,11 @@
                   name="topicCode"
                   formControlName="topicCode"
                   class="form-control"
-                  placeholder="Select topic code"
+                  placeholder="Select Topic Code"
+                  (change)="onTopicChange($event)"
                 >
-                  <option value="CloudComputing">Cloud Computing</option>
+                <option value="">Select Topic Code</option>
+                <option *ngFor="let topic of topics; let i = index" value="{{topic.code}}">{{topic.code}}</option>
                 </select>
 
                 <span
@@ -92,7 +94,9 @@
                   class="form-control"
                   placeholder="Select category"
                 >
-                  <option value="AI3">AI</option>
+                <option value="">Select category</option>
+                <option *ngFor="let category of categories; let i = index" value="{{category.title}}">{{category.title}}</option>
+                
                 </select>
 
                 <span
@@ -202,7 +206,7 @@
               >
             </div>
           </div>
-          <div [fromGroup]="goldenCircle" *ngIf="tabIndex === 1" id="why">
+          <div formGroupName="goldenCircle" *ngIf="tabIndex === 1" id="why">
             <h2>Why, How & What</h2>
             <div class="form-group">
               <label for="Description">Why</label>
@@ -480,7 +484,6 @@
         class="button secondary-btn-md cta"
         *ngIf="tabIndex < tabDetails.length - 1"
         (click)="onTabChange(tabIndex + 1)"
-        [routerLink]="['../capsules']"
       >
         Continue
       </button>
@@ -488,7 +491,6 @@
         class="button secondary-btn-md cta"
         *ngIf="tabIndex === tabDetails.length - 1"
         (click)="onSubmit()"
-        [routerLink]="['../capsules']"
       >
         Complete
       </button>

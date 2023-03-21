@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService } from '@app/core';
-import { CreateCapsuleForm } from '@app/admin/models';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
-import { Router } from '@angular/router';
 import { CapsuleItem } from '@app/shared/models';
 
 @Component({
@@ -48,11 +47,18 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.createCapsuleForm();
+    this.getMetadata();
     if (this.router.url.includes('editcapsule')) {
       this.isEditMode = true;
       this.editCapsule = JSON.parse(sessionStorage.getItem('capsuleItem'));
       this.capsuleFormGroup.patchValue(this.editCapsule);
     }
+  }
+
+  getMetadata() {
+    this.capsuleApi.getMetadata().subscribe(data => {
+      console.log(' mettatadda --- ',data);
+    });
   }
 
   createCapsuleForm() {
