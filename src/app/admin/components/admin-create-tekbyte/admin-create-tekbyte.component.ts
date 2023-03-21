@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
 import { TopicCategoryItem, TopicItem } from '@app/shared/models';
 import * as moment from 'moment';
 
@@ -32,11 +32,13 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     private eventChannel: EventChannelService,
     private topicApi: TopicApiService,
     private tekByteAPI: TekByteApiService,
+    private spinner: AppSpinnerService,
     private router: Router,
     private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.createTopicFormGroup();
     this.getAllTopics();
     if (this.router.url.includes('edittekbyte')) {
@@ -54,6 +56,10 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     this.topicApi.getAllTopics().subscribe(topics => {
       console.log('topics ---->> ', topics);
       this.topics = topics;
+      this.spinner.hide();
+    }, error => {
+      console.log(' ee', error);
+      this.spinner.hide();
     });
   }
 
@@ -175,6 +181,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     this.tekByteFormGroup.markAllAsTouched();
     console.log(' ----- ', this.tekByteFormGroup.valid, this.tekByteFormGroup.value);
     if (this.tekByteFormGroup.valid) {
+      this.spinner.show();
       const requestBody = this.tekByteFormGroup.value;
       requestBody.timeline.forEach(tm => {
         tm.title = moment(tm.title).format('DD/MM/YYYY')
@@ -182,10 +189,18 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
       if (this.isEditMode) {
         this.tekByteAPI.updateTekByte(requestBody).subscribe(res => {
           console.log("tek byte ---- ", res)
+          this.spinner.hide();
+        }, error => {
+          console.log('ERR --- ',error);
+          this.spinner.hide();
         });
       } else {
         this.tekByteAPI.createTekByte(requestBody).subscribe(res => {
-          console.log("tek byte ---- ", res)
+          console.log("tek byte ---- ", res);
+          this.spinner.hide();
+        }, error => {
+          console.log('ERR --- ',error);
+          this.spinner.hide();
         });
       }
     }

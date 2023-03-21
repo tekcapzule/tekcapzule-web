@@ -40,7 +40,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   constructor(
     private eventChannel: EventChannelService,
     private capsuleApi: CapsuleApiService,
-    private appSpinnerService: AppSpinnerService,
+    private spinner: AppSpinnerService,
     private fb: FormBuilder,
     private router: Router
   ) { }
@@ -99,11 +99,11 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     });
     this.capsuleFormGroup.markAllAsTouched();
     if (this.capsuleFormGroup.valid) {
+      this.spinner.show();
       let requestBody = this.capsuleFormGroup.value;
       requestBody.expiryDate = moment().add(requestBody.expiryDateDisp, 'days').format("DD/MM/YYYY");
       requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
       this.isCreateCapsuleSubmitted = false;
-      this.appSpinnerService.show();
       if(this.editCapsule) {
         this.updateCapsule(requestBody);
       } else {
@@ -115,7 +115,10 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   updateCapsule(requestBody) {
     this.capsuleApi.updateCapsule(requestBody).subscribe(data => {
       this.isCreateCapsuleSubmitted = true;
-      this.appSpinnerService.hide();
+      this.spinner.hide();
+    }, error => {
+      console.log('ERR --- ',error);
+      this.spinner.hide();
     });
   }
 
@@ -123,7 +126,10 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     this.capsuleApi.createCapsule(requestBody).subscribe(data => {
       this.capsuleFormGroup.reset();
       this.isCreateCapsuleSubmitted = true;
-      this.appSpinnerService.hide();
+      this.spinner.hide();
+    }, error => {
+      console.log('ERR --- ',error);
+      this.spinner.hide();
     });
   }
 
