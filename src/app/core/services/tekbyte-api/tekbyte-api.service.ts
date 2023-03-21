@@ -50,4 +50,8 @@ export class TekByteApiService {
 
     return this.httpClient.post(`${TEKBYTE_API_PATH}/create`, tekByte);
   }
+
+  updateTekByte(tekByte: any): Observable<any> {
+    return this.httpClient.post(`${TEKBYTE_API_PATH}/update`, tekByte);
+  }
 }

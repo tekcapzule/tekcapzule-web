@@ -80,7 +80,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
       challenges: this.fb.array([this.getTitleAndDescFormGroup()]),
       timeline: this.fb.array([
         this.fb.group({
-          timelineDate: [''],
+          title: [''],
           description: [''],
         }),
       ]),
@@ -129,7 +129,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   addStoryFormArray() {
     if (this.timeline.length < 10) {
       const timelineGp = this.fb.group({
-        timelineDate: [''],
+        title: [''],
         description: [''],
       });
       this.timeline.push(timelineGp);
@@ -177,13 +177,12 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     if (this.tekByteFormGroup.valid) {
       const requestBody = this.tekByteFormGroup.value;
       requestBody.timeline.forEach(tm => {
-        tm.timelineDate = moment(tm.timelineDate).format('DD/MM/YYYY')
+        tm.title = moment(tm.title).format('DD/MM/YYYY')
       });
       if (this.isEditMode) {
-        /*this.router.navigate(['/admin/capsules']);
-        this.tekByteAPI.create(this.topicDetails).subscribe(res => {
-          // console.log(this.topicDetails, res)
-        });*/
+        this.tekByteAPI.updateTekByte(requestBody).subscribe(res => {
+          console.log("tek byte ---- ", res)
+        });
       } else {
         this.tekByteAPI.createTekByte(requestBody).subscribe(res => {
           console.log("tek byte ---- ", res)
