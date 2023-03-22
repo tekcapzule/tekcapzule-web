@@ -22,6 +22,8 @@ export interface BrowseByTopic {
   isSubscribed: boolean;
 }
 
+const DEFAULT_SUBSCRIPTION_TOPICS = ['AI', 'CLD', 'SWD'];
+
 @Component({
   selector: 'app-capsules-page',
   templateUrl: './capsules-page.component.html',
@@ -61,7 +63,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
-        this.navigateToActiveCapsulePage(false);
+        this.navigateToActiveCapsulePage(null, false);
       });
 
     this.topicApi.getAllTopics().subscribe(topics => {
@@ -74,6 +76,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
+  hideBroweByTopicModal(): void {
+    jQuery('#browseByTopicModal').modal('hide');
+  }
+
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
@@ -82,14 +88,14 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  navigateToActiveCapsulePage(refreshCache?: boolean): void {
+  navigateToActiveCapsulePage(topics: string[], refreshCache?: boolean): void {
     const activeNavTab = this.navTabs[0];
     this.activeTab = activeNavTab.uniqueId;
 
     this.router.navigate(['capsules', activeNavTab.navUrl]).then(() => {
       this.eventChannel.publish({
         event: ChannelEvent.LoadDataForActiveCapsuleTab,
-        data: { refreshCache },
+        data: { topics, refreshCache },
       });
     });
   }
@@ -98,7 +104,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     if (topics && topics.length > 0) {
       const filteredTopics = topics
         .filter(topic => topic.title !== '' && topic.code !== '')
-        .map<BrowseByTopic>(topic => ({ topic, isSubscribed: false }));
+        .map<BrowseByTopic>(topic => {
+          const isSubscribed = this.isTopicSubscribed(topic.code);
+          return { topic, isSubscribed };
+        });
 
       this.browseByTopics = filteredTopics;
       this.filteredBrowseByTopics = filteredTopics;
@@ -121,63 +130,72 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     return this.activeTab === Constants.None;
   }
 
+  /**
+   * If user is logged in, user subscribed topics are selected.
+   * If there are no user subscribed topics, data for default topcis are loaded in my feeds page.
+   * If user is not logged in, default topics are selected.
+   */
   isTopicSubscribed(topicCode: string): boolean {
-    // const defaultTopics = ['AI', 'CLD', 'SWD'];
-
     if (this.auth.isUserLoggedIn()) {
-      return this.userInfo?.subscribedTopics?.includes(topicCode);
+      return this.userInfo?.subscribedTopics?.length > 0
+        ? this.userInfo.subscribedTopics.includes(topicCode)
+        : false;
+    } else {
+      return Constants.DefaultSubscriptionTopics.includes(topicCode);
     }
-
-    return false;
   }
 
-  followTopic(topicCode: string): void {
-    jQuery('#browseByTopicModal').modal('hide');
-
-    // if (!this.auth.isUserLoggedIn()) {
-    //   this.router.navigateByUrl('/auth/signin');
-    //   return;
-    // }
-
-    const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
-
-    this.userApi.followTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
-      this.fetchUserInfo(true);
-    });
-
-    this.userInfo = {
-      ...this.userInfo,
-      subscribedTopics: userSubscribedTopics,
-    };
-
-    this.userApi.updateTekUserInfoCache(this.userInfo);
-    this.navigateToActiveCapsulePage(true);
+  toggleSubscribeTopic(item: BrowseByTopic): void {
+    item.isSubscribed = !item.isSubscribed;
   }
 
-  unfollowTopic(topicCode: string): void {
-    jQuery('#browseByTopicModal').modal('hide');
+  // followTopic(topicCode: string): void {
+  //   jQuery('#browseByTopicModal').modal('hide');
 
-    // if (!this.auth.isUserLoggedIn()) {
-    //   this.router.navigateByUrl('/auth/signin');
-    //   return;
-    // }
+  //   // if (!this.auth.isUserLoggedIn()) {
+  //   //   this.router.navigateByUrl('/auth/signin');
+  //   //   return;
+  //   // }
 
-    const userSubscribedTopics = this.userInfo.subscribedTopics
-      ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
-      : [];
+  //   const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
 
-    this.userApi.unfollowTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
-      this.fetchUserInfo(true);
-    });
+  //   this.userApi.followTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
+  //     this.fetchUserInfo(true);
+  //   });
 
-    this.userInfo = {
-      ...this.userInfo,
-      subscribedTopics: userSubscribedTopics,
-    };
+  //   this.userInfo = {
+  //     ...this.userInfo,
+  //     subscribedTopics: userSubscribedTopics,
+  //   };
 
-    this.userApi.updateTekUserInfoCache(this.userInfo);
-    this.navigateToActiveCapsulePage(true);
-  }
+  //   this.userApi.updateTekUserInfoCache(this.userInfo);
+  //   this.navigateToActiveCapsulePage(true);
+  // }
+
+  // unfollowTopic(topicCode: string): void {
+  //   jQuery('#browseByTopicModal').modal('hide');
+
+  //   // if (!this.auth.isUserLoggedIn()) {
+  //   //   this.router.navigateByUrl('/auth/signin');
+  //   //   return;
+  //   // }
+
+  //   const userSubscribedTopics = this.userInfo.subscribedTopics
+  //     ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
+  //     : [];
+
+  //   this.userApi.unfollowTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
+  //     this.fetchUserInfo(true);
+  //   });
+
+  //   this.userInfo = {
+  //     ...this.userInfo,
+  //     subscribedTopics: userSubscribedTopics,
+  //   };
+
+  //   this.userApi.updateTekUserInfoCache(this.userInfo);
+  //   this.navigateToActiveCapsulePage(true);
+  // }
 
   searchInputChanged(value: string): void {
     if (value.length > 0) {
@@ -203,5 +221,32 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         data: { refreshCache: true },
       });
     });
+  }
+
+  doLoadFeedsForSelectedTopics(): void {
+    let selectedTopics: string[] = this.filteredBrowseByTopics
+      .filter(item => item.isSubscribed)
+      .map(item => item.topic.code);
+
+    // update local user cache for logged-in user.
+    if (this.auth.isUserLoggedIn()) {
+      this.userInfo = this.userApi.getTekUserInfoCache();
+      const userSubscribedTopics = this.userInfo?.subscribedTopics ?? [];
+      selectedTopics = [...new Set([...userSubscribedTopics, ...selectedTopics])];
+
+      this.userInfo = {
+        ...this.userInfo,
+        subscribedTopics: selectedTopics,
+      };
+
+      this.userApi.updateTekUserInfoCache(this.userInfo);
+
+      // update user subscription to backend
+      // TODO: FIXME
+    }
+
+    // navigate to feeds and load data for selected topics.
+    this.hideBroweByTopicModal();
+    this.navigateToActiveCapsulePage(selectedTopics, true);
   }
 }

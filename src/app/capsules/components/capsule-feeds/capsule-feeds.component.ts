@@ -10,6 +10,7 @@ import {
   UserApiService,
   AuthService,
 } from '@app/core';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -35,14 +36,15 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
       )
       .subscribe(event => {
         const refresh = event?.data?.refreshCache ? true : false;
-        this.fetchMyFeedCapsules(refresh);
+        const topics = event?.data?.topics ?? null;
+        this.fetchMyFeedCapsules(topics, refresh);
       });
 
     this.eventChannel.publish({ event: ChannelEvent.SetActiveCapsuleTab });
   }
 
   ngOnInit(): void {
-    this.fetchMyFeedCapsules(false);
+    this.fetchMyFeedCapsules(null, false);
   }
 
   ngOnDestroy(): void {
@@ -54,12 +56,14 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
    * Fetch my feed capsules based on user subscribed topics, if user logged in.
    * Otherwise load my feed capsules for default topics like AI, CLD and SWD.
    */
-  fetchMyFeedCapsules(refreshCache?: boolean): void {
+  fetchMyFeedCapsules(topics: string[], refreshCache?: boolean): void {
     const userInfo = this.userApi.getTekUserInfoCache();
-    const subscribedTopics =
-      this.auth.isUserLoggedIn() && userInfo?.subscribedTopics
-        ? userInfo.subscribedTopics
-        : ['AI', 'CLD', 'SWD'];
+
+    const subscribedTopics = topics
+      ? topics
+      : this.auth.isUserLoggedIn() && userInfo?.subscribedTopics?.length > 0
+      ? userInfo.subscribedTopics
+      : Constants.DefaultSubscriptionTopics;
 
     this.spinner.show();
 

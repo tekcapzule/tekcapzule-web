@@ -474,9 +474,15 @@ Modal Dialogue
   .modal-header {
     border-bottom: 0;
   }
-
   .modal-body {
     padding: 30px 70px;
+  }
+  .modal-footer {
+    border-top: 0;
+    .apply-btn {
+      margin-top: 0;
+      margin-right: 12px;
+    }
   }
 }
 .modal-backdrop {
