@@ -1,3 +1,5 @@
+import { TopicCategoryItem } from "./topic-item.model";
+
 export interface TekByteItem {
   name: string;
   code: string;
@@ -16,12 +18,6 @@ export interface TekByteItem {
   currentTrends: CurrentTrendItem;
   challenges: ChallengeItem;
   timeline: TimelineItem;
-}
-
-export interface TopicCategoryItem {
-  title: string;
-  summary: string;
-  imageURL: string;
 }
 export interface GoldenCircleItem {
   why: string;

@@ -74,3 +74,11 @@ export interface CapsuleCreation {
   editorsPick: number;
   tags: string[];
 }
+
+export interface MetadataItem {
+  expiryInterval: string[];
+  publisher: string[];
+  targetAudience: string[];
+  topicLevel: string[];
+  capsuleType: string[];
+}

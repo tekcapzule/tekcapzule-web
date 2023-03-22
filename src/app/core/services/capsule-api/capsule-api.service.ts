@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { ApiSuccess, CapsuleItem } from '@app/shared/models';
 import { cacheManager, Constants } from '@app/shared/utils';
+import { MetadataItem } from '@app/shared/models/capsule-item.model';
 
 const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`
   .replace('{{api-gateway}}', environment.capsuleApiGateway)
@@ -14,6 +15,7 @@ const CAPSULE_MYFEEDS_CACHE_KEY = 'com.tekcapsule.capsules.myfeeds';
 const CAPSULE_TRENDING_CACHE_KEY = 'com.tekcapsule.capsules.trending';
 const CAPSULE_EDITORSPICK_CACHE_KEY = 'com.tekcapsule.capsules.editorspick';
 const CAPSULE_PENDING_APPROVAL_CACHE_KEY = 'com.tekcapsule.capsules.pending.approval';
+const CAPSULE_METADATA_CACHE_KEY = 'com.tekcapsule.capsules.metadata';
 
 @Injectable({
   providedIn: 'root',
@@ -126,7 +128,14 @@ export class CapsuleApiService {
     return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/update`, capsuleInfo);
   }
 
-  getMetadata(): Observable<ApiSuccess> {
-    return this.httpClient.get<ApiSuccess>('https://kjkyqgkvqk.execute-api.us-west-2.amazonaws.com/dev/capsule/getMetadata');
+  getMetadata(refreshCache?: boolean): Observable<MetadataItem> {
+    return this.httpClient.post<MetadataItem>(`${CAPSULE_API_PATH}/getMetadata`, {},
+    {
+      params: {
+        cache: 'yes',
+        refresh: refreshCache ? 'yes' : 'no',
+        ckey: CAPSULE_METADATA_CACHE_KEY,
+      },
+    });
   }
 }

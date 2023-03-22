@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 import { ColumnDef } from '@app/shared/models';
-import { TopicApiService } from '@app/core';
+import { AppSpinnerService, TekByteApiService, TopicApiService } from '@app/core';
 import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
 import { Router } from '@angular/router';
+import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 
 @Component({
   selector: 'app-admin-tekbyte',
@@ -12,11 +13,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-tekbyte.component.scss'],
 })
 export class AdminTekByteComponent implements OnInit {
-  adminTopicColumns: ColumnDef[] = [
+  adminTekByteColumns: ColumnDef[] = [
     {
-      columnId: 'topicName',
-      columnName: 'Topic Name',
-      clazz: ['title-column', 'custom-title-col'],
+      columnId: 'topicCode',
+      columnName: 'Tekbyte Code',
+      clazz: ['title-column', 'custom-title-col']
+    },
+    {
+      columnId: 'category',
+      columnName: 'Category'
+    }, 
+    {
+      columnId: 'summary',
+      columnName: 'Summary'
     },
     {
       columnId: 'description',
@@ -24,7 +33,7 @@ export class AdminTekByteComponent implements OnInit {
       clazz: ['custom-description-col'],
     },
     {
-      columnId: 'tags',
+      columnId: 'aliases',
       columnName: 'Tags',
       disableSort: true,
       columnFormatter: (tags: string[]) => {
@@ -43,27 +52,9 @@ export class AdminTekByteComponent implements OnInit {
       },
     },
     {
-      columnId: 'keyHighlights',
-      columnName: 'Key Highlights',
-      disableSort: true,
-      columnFormatter: (value: number) => {
-        return `
-          <span class="badge badge-pill badge-light border border-secondary rounded-pill px-2">
-            ${value}
-          </span>`;
-      },
-    },
-    {
       columnId: 'status',
       columnName: 'Status',
-      disableSort: true,
-      columnFormatter: (value: AdminTopicStatus) => {
-        if (value === AdminTopicStatus.Failure) {
-          return '<img class="status-icon" src="/assets/images/cross.svg" />';
-        } else {
-          return '<img class="status-icon" src="/assets/images/check.svg" />';
-        }
-      },
+      disableSort: true
     },
     {
       columnId: 'action',
@@ -84,31 +75,25 @@ export class AdminTekByteComponent implements OnInit {
     },
   ];
 
-  adminTopicsData: AdminTopicDataItem[] = [];
+  adminTekByteData: TekByteItem[] = [];
 
-  constructor(private topicApi: TopicApiService, private router: Router) {}
+  constructor(private topicApi: TopicApiService, 
+    private tekbyteService: TekByteApiService,
+    private spinner: AppSpinnerService,
+    private router: Router) {}
 
   ngOnInit(): void {
-    this.topicApi
-      .getAllTopics()
-      .pipe(
-        map(topics =>
-          topics.map(
-            topic =>
-              new AdminTopicDataItemImpl(
-                topic.title,
-                topic.description,
-                [],
-                [],
-                topic.status,
-                topic.code
-              )
-          )
-        )
-      )
-      .subscribe(topic => {
-        this.adminTopicsData = topic;
-      });
+    this.spinner.show();
+    this.tekbyteService.getAllTekByte().subscribe(data => {
+      console.log(' tek bytes', data);
+      if(data) {
+        this.adminTekByteData = data;
+        this.spinner.hide();
+      }
+    }, error => {
+      console.log('error', error);
+      this.spinner.hide();
+    });
   }
 
   editActionCallback(row: AdminTopicDataItem): void {

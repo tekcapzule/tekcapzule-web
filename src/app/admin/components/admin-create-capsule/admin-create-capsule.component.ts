@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { CapsuleItem } from '@app/shared/models';
+import { MetadataItem } from '@app/shared/models/capsule-item.model';
 
 @Component({
   selector: 'app-admin-create-capsule',
@@ -17,6 +18,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   isEditMode: boolean;
   editCapsule: CapsuleItem;
   items = ['cloud'];
+  metadata: MetadataItem;
   /*responseBodySample = {
     topicCode: 'Cloud Computing',
     publishedDate: '10/10/2022',
@@ -46,8 +48,8 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.createCapsuleForm();
     this.getMetadata();
+    this.createCapsuleForm();
     if (this.router.url.includes('editcapsule')) {
       this.isEditMode = true;
       this.editCapsule = JSON.parse(sessionStorage.getItem('capsuleItem'));
@@ -58,6 +60,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   getMetadata() {
     this.capsuleApi.getMetadata().subscribe(data => {
       console.log(' mettatadda --- ',data);
+      this.metadata = data;
     });
   }
 
