@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 import { ColumnDef } from '@app/shared/models';
 import { AppSpinnerService, TekByteApiService, TopicApiService } from '@app/core';
-import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
 import { Router } from '@angular/router';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 
@@ -96,14 +94,13 @@ export class AdminTekByteComponent implements OnInit {
     });
   }
 
-  editActionCallback(row: AdminTopicDataItem): void {
-    this.router.navigate(['/admin/edittopic', row.code]);
+  editActionCallback(row: TekByteItem): void {
+    sessionStorage.setItem('tekbyteCode', row.code);
+    this.router.navigate(['/admin/edittekbyte']);
   }
 
-  deleteActionCallback(row: AdminTopicDataItem): void {
-    if (row.status !== AdminTopicStatus.Failure) {
-      this.topicApi.disableTopic(row.code).subscribe();
-      row.status = AdminTopicStatus.Failure;
-    }
+  deleteActionCallback(row: TekByteItem): void {
+    console.log('disable --->> ', row.code)
+    this.tekbyteService.disableTekByte(row.code).subscribe();
   }
 }
