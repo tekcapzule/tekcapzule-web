@@ -17,7 +17,7 @@ export class AdminPageComponent implements OnInit, OnDestroy {
 
   navTabs: NavTab[] = [
     { uniqueId: 'adminCapsules', navUrl: 'capsules', displayName: 'Capsules' },
-    { uniqueId: 'adminTopics', navUrl: 'topics', displayName: 'Topics' },
+    { uniqueId: 'adminTekByte', navUrl: 'tekByte', displayName: 'TekByte' },
     { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
   ];
 

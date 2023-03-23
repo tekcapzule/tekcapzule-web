@@ -4,15 +4,13 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { cacheManager, Constants } from '@app/shared/utils';
-import { ApiSuccess, UserInfo } from '@app/shared/models';
+import { ApiSuccess, TekUserInfo } from '@app/shared/models';
 
 const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
   .replace('{{api-gateway}}', environment.userApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
 const USER_INFO_CACHE_KEY = 'com.tekcapsule.user.info';
-const API_CACHE_EXPIRY_HOURS =
-  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable({
   providedIn: 'root',
@@ -24,14 +22,13 @@ export class UserApiService {
     return USER_API_PATH;
   }
 
-  getUser(userId: string, refreshCache?: boolean): Observable<UserInfo> {
-    return this.httpClient.post<UserInfo>(
+  getTekUserInfo(userId: string, refreshCache?: boolean): Observable<TekUserInfo> {
+    return this.httpClient.post<TekUserInfo>(
       `${USER_API_PATH}/get`,
       { userId },
       {
         params: {
           cache: 'yes',
-          expiry: API_CACHE_EXPIRY_HOURS,
           refresh: refreshCache ? 'yes' : 'no',
           ckey: USER_INFO_CACHE_KEY,
         },
@@ -39,25 +36,27 @@ export class UserApiService {
     );
   }
 
-  createUser(user: UserInfo): Observable<ApiSuccess> {
+  createTekUserInfo(user: TekUserInfo): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/create`, user);
   }
 
   bookmarCapsule(userId: string, capsuleId: string): Observable<any> {
-    const userInfo = this.getUserCache();
+    const userInfo = this.getTekUserInfoCache();
     if (userInfo && userInfo.bookmarks) {
       userInfo.bookmarks.push(capsuleId);
-      this.updateUserCache(userInfo);
+      this.updateTekUserInfoCache(userInfo);
     }
+
     return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, capsuleId });
   }
 
   removeCapsuleBookmark(userId: string, capsuleId: string): Observable<any> {
-    const userInfo = this.getUserCache();
+    const userInfo = this.getTekUserInfoCache();
     if (userInfo && userInfo.bookmarks) {
       userInfo.bookmarks = userInfo.bookmarks.filter(bm => bm !== capsuleId);
-      this.updateUserCache(userInfo);
+      this.updateTekUserInfoCache(userInfo);
     }
+
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });
   }
 
@@ -69,25 +68,26 @@ export class UserApiService {
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/unfollow`, { userId, topicCode });
   }
 
-  getUserCache(): UserInfo | null {
+  getTekUserInfoCache(): TekUserInfo | null {
     const cache = cacheManager.getItem(USER_INFO_CACHE_KEY);
-    return cache ? (cache.body as UserInfo) : null;
+    return cache ? (cache.body as TekUserInfo) : null;
   }
 
-  updateUserCache(userInfo: UserInfo): void {
+  updateTekUserInfoCache(userInfo: TekUserInfo): void {
     const current = new Date();
-    current.setHours(current.getHours() + 12);
+    current.setHours(current.getHours() + Constants.DefaultApiCacheExpiryHours);
+
     cacheManager.setItem(USER_INFO_CACHE_KEY, {
       body: userInfo,
       expiry: current.getTime(),
     });
   }
 
-  isUserCacheExists(): boolean {
+  isTekUserInfoCacheExists(): boolean {
     return cacheManager.getItem(USER_INFO_CACHE_KEY) ? true : false;
   }
 
-  deleteUserCache(): void {
+  deleteTekUserInfoCache(): void {
     cacheManager.removeItem(USER_INFO_CACHE_KEY);
   }
 }

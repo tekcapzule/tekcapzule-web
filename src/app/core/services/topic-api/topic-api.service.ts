@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { TopicItem, UserInfo } from '@app/shared/models';
+import { TopicItem, TekUserInfo } from '@app/shared/models';
 import { cacheManager, Constants } from '@app/shared/utils';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
@@ -15,14 +15,12 @@ const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`
 
 const TOPICS_ALLTOPICS_CACHE_KEY = 'com.tekcapsule.topics.alltopics';
 const TOPICS_GETTOPIC_CACHE_KEY = 'com.tekcapsule.topics.gettopic.<code>';
-const API_CACHE_EXPIRY_HOURS =
-  environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable({
   providedIn: 'root',
 })
 export class TopicApiService {
-  userInfo: UserInfo = null;
+  userInfo: TekUserInfo = null;
 
   constructor(
     private httpClient: HttpClient,
@@ -30,7 +28,7 @@ export class TopicApiService {
     private auth: AuthService,
     private userApi: UserApiService
   ) {
-    this.userInfo = this.userApi.getUserCache();
+    this.userInfo = this.userApi.getTekUserInfoCache();
   }
 
   getTopicApiPath(): string {
@@ -44,7 +42,6 @@ export class TopicApiService {
       {
         params: {
           cache: 'yes',
-          expiry: API_CACHE_EXPIRY_HOURS,
           ckey: TOPICS_ALLTOPICS_CACHE_KEY,
         },
       }
@@ -84,7 +81,6 @@ export class TopicApiService {
     return this.httpClient.post<TopicItem>(`${TOPIC_API_PATH}/get`, code, {
       params: {
         cache: 'yes',
-        expiry: API_CACHE_EXPIRY_HOURS,
         ckey: TOPICS_GETTOPIC_CACHE_KEY.replace('<code>', code),
       },
     });
@@ -109,7 +105,7 @@ export class TopicApiService {
   updateUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
-        .getUser(this.auth.getUserInfo().username, refreshCache)
+        .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -137,9 +133,9 @@ export class TopicApiService {
       subscribedTopics: userSubscribedTopics,
     };
 
-    this.userApi.updateUserCache(this.userInfo);
+    this.userApi.updateTekUserInfoCache(this.userInfo);
 
-    this.userApi.followTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
+    this.userApi.followTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
       this.updateUserInfo(true);
     });
   }
@@ -159,9 +155,9 @@ export class TopicApiService {
       subscribedTopics: userSubscribedTopics,
     };
 
-    this.userApi.updateUserCache(this.userInfo);
+    this.userApi.updateTekUserInfoCache(this.userInfo);
 
-    this.userApi.unfollowTopic(this.auth.getUserInfo().username, topicCode).subscribe(() => {
+    this.userApi.unfollowTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
       this.updateUserInfo(true);
     });
   }

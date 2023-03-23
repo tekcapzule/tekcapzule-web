@@ -3,7 +3,8 @@ import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
-import { AppSpinnerService, CapsuleApiService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -13,13 +14,13 @@ import { AppSpinnerService, CapsuleApiService } from '@app/core';
 export class AdminCapsulesComponent implements OnInit {
   adminCapsuleColumns: ColumnDef[] = [
     {
-      columnId: 'capsuleTitle',
+      columnId: 'title',
       columnName: 'Capsule Title',
       clazz: ['title-column', 'custom-title-col'],
     },
     {
       columnId: 'author',
-      columnName: 'Author',
+      columnName: 'Summary By',
     },
     {
       columnId: 'publishedDate',
@@ -30,14 +31,18 @@ export class AdminCapsulesComponent implements OnInit {
       columnName: 'Tags',
       disableSort: true,
       columnFormatter: (tags: string[]) => {
-        return tags
-          .map(
-            tag => `
+        if (tags) {
+          return tags
+            .map(
+              tag => `
               <span class="badge badge-pill badge-light border border-secondary rounded-pill mr-1 px-2">
                 ${tag}
               </span>`
-          )
-          .join('');
+            )
+            .join('');
+        } else {
+          return '';
+        }
       },
     },
     {
@@ -47,15 +52,14 @@ export class AdminCapsulesComponent implements OnInit {
     {
       columnId: 'category',
       columnName: 'Category',
+      columnFormatter: (category: string) => {
+        return category ?? 'n/a';
+      },
     },
     {
       columnId: 'description',
       columnName: 'Description',
       clazz: ['custom-description-col'],
-    },
-    {
-      columnId: 'questions',
-      columnName: 'Questions',
     },
     {
       columnId: 'status',
@@ -98,12 +102,18 @@ export class AdminCapsulesComponent implements OnInit {
   ];
 
   capsulePendingApproval: CapsuleItem[] = [];
-
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
-  constructor(private capsuleApi: CapsuleApiService, private spinner: AppSpinnerService) {}
+  constructor(
+    private capsuleApi: CapsuleApiService,
+    private spinner: AppSpinnerService,
+    private router: Router,
+    private eventChannel: EventChannelService
+  ) {}
 
   ngOnInit(): void {
+    sessionStorage.removeItem('capsuleItem');
+    this.showAdminCapsulesTab();
     this.fetchPendingApprovalCapsules();
   }
 
@@ -119,35 +129,22 @@ export class AdminCapsulesComponent implements OnInit {
       )
       .subscribe(pendingCapsules => {
         this.capsulePendingApproval = pendingCapsules;
-        this.adminCapsulesData = this.capsulePendingApproval.map(
-          capsule =>
-            new AdminCapsuleDataItemImpl(
-              capsule.title,
-              capsule.author,
-              capsule.publishedDate,
-              capsule.tags,
-              capsule.duration,
-              capsule.type,
-              capsule.description,
-              capsule.quizzes ? capsule.quizzes.length : 0,
-              capsule.status,
-              capsule.capsuleId
-            )
-        );
       });
   }
 
-  editActionCallback(row: AdminCapsuleDataItem): void {
-    // console.log('editActionCallback: ', row);
+  editActionCallback(row: CapsuleItem): void {
+    //console.log('editActionCallback: ', row);
+    sessionStorage.setItem('capsuleItem', JSON.stringify(row));
+    this.router.navigate(['/admin/editcapsule']);
   }
 
-  deleteActionCallback(row: AdminCapsuleDataItem): void {
+  deleteActionCallback(row: CapsuleItem): void {
     this.capsuleApi.disableCapsule(row.capsuleId).subscribe(capsule => {
       // console.log('capsule disabled : ', capsule)
     });
   }
 
-  approveActionCallback(row: AdminCapsuleDataItem): void {
+  approveActionCallback(row: CapsuleItem): void {
     this.spinner.show();
 
     this.capsuleApi
@@ -160,5 +157,9 @@ export class AdminCapsulesComponent implements OnInit {
       .subscribe(() => {
         this.fetchPendingApprovalCapsules(true);
       });
+  }
+  
+  showAdminCapsulesTab(): void {
+    this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
   }
 }

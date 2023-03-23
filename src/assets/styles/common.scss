@@ -334,7 +334,7 @@ h4 {
   margin-top: -25px;
   font-size: 18px;
   font-family: $cardtitle-font;
- 
+
   a {
     // position: relative;
     top: -25px;
@@ -474,9 +474,15 @@ Modal Dialogue
   .modal-header {
     border-bottom: 0;
   }
-
   .modal-body {
     padding: 30px 70px;
+  }
+  .modal-footer {
+    border-top: 0;
+    .apply-btn {
+      margin-top: 0;
+      margin-right: 12px;
+    }
   }
 }
 .modal-backdrop {
@@ -680,7 +686,11 @@ select {
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 200px;
+  // height: 200px;
+}
+
+::-webkit-scrollbar:horizontal {
+  display: none;
 }
 
 ::-webkit-scrollbar-track {

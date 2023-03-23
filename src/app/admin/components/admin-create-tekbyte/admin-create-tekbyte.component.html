@@ -1,0 +1,499 @@
+<div class="create-topic-page-Admin">
+  <div class="container pt-5">
+    <div class="back-link pt-0">
+      <a [routerLink]="['../capsules']"> Admin </a> >
+      <span>{{ isEditMode ? 'Edit' : 'Create' }} TekByte</span>
+    </div>
+
+    <h1 class="text-center pb-3">{{ isEditMode ? 'Edit' : 'Create' }} TekByte</h1>
+    <div class="row adminPagesCard p-4">
+      <div class="col-lg-3">
+        <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left sideways">
+          <li
+            *ngFor="let tab of tabDetails; let i = index"
+            [ngClass]="{ active: tabIndex === i }"
+            (click)="onTabChange(i)"
+          >
+            <a href="javascript:void(0);">{{ tab }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Tab panes -->
+        <div [formGroup]="tekByteFormGroup" class="tab-content mt-3">
+          <div *ngIf="tabIndex === 0" id="banner">
+            <h2>Top Banner Section</h2>
+            <div class="row">
+              <div
+                class="form-field form-group col-6"
+                [ngClass]="{
+                  'error-text':
+                    tekByteFormGroup.get('topicCode').touched &&
+                    tekByteFormGroup.get('topicCode').invalid
+                }"
+              >
+                <label for="Topic Code">Topic Code</label>
+                <select
+                  name="topicCode"
+                  formControlName="topicCode"
+                  class="form-control"
+                  placeholder="Select Topic Code"
+                  (change)="onTopicChange($event)"
+                >
+                <option value="">Select Topic Code</option>
+                <option *ngFor="let topic of topics; let i = index" value="{{topic.code}}">{{topic.code}}</option>
+                </select>
+
+                <span
+                  class="error-msg"
+                  *ngIf="
+                    tekByteFormGroup.get('topicCode').touched &&
+                    tekByteFormGroup.get('topicCode').invalid
+                  "
+                  >Please select topic code.</span
+                >
+              </div>
+              <div
+                class="form-field form-group col-6"
+                [ngClass]="{
+                  'error-text':
+                    tekByteFormGroup.get('title').touched && tekByteFormGroup.get('title').invalid
+                }"
+              >
+                <label for="Topic Name">Topic Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="title"
+                  placeholder="Enter Topic Name"
+                />
+                <span
+                  class="error-msg"
+                  *ngIf="
+                    tekByteFormGroup.get('title').touched && tekByteFormGroup.get('title').invalid
+                  "
+                  >Please enter topic name.</span
+                >
+              </div>
+
+              <div
+                class="form-field form-group col-6"
+                [ngClass]="{
+                  'error-text':
+                    tekByteFormGroup.get('categories').touched &&
+                    tekByteFormGroup.get('categories').invalid
+                }"
+              >
+                <label for="Topic Categorie">Topic Categorie</label>
+                <select
+                  name="expiryDateDisp"
+                  formControlName="categories"
+                  class="form-control"
+                  placeholder="Select category"
+                >
+                <option value="">Select category</option>
+                <option *ngFor="let category of categories; let i = index" value="{{category.title}}">{{category.title}}</option>
+                
+                </select>
+
+                <span
+                  class="error-msg"
+                  *ngIf="
+                    tekByteFormGroup.get('categories').touched &&
+                    tekByteFormGroup.get('categories').invalid
+                  "
+                  >Please select category</span
+                >
+              </div>
+
+              <div
+                class="form-field form-group col-12"
+                [ngClass]="{
+                  'error-text':
+                    tekByteFormGroup.get('summary').touched &&
+                    tekByteFormGroup.get('summary').invalid
+                }"
+              >
+                <label for="Summary">Summary</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="summary"
+                  placeholder="Enter Summary"
+                />
+                <span
+                  class="error-msg"
+                  *ngIf="
+                    tekByteFormGroup.get('summary').touched &&
+                    tekByteFormGroup.get('summary').invalid
+                  "
+                  >Please enter summary.</span
+                >
+              </div>
+
+              <div
+                class="form-field form-group col-12"
+                [ngClass]="{
+                  'error-text':
+                    tekByteFormGroup.get('imageUrl').touched &&
+                    tekByteFormGroup.get('imageUrl').invalid
+                }"
+              >
+                <label for="Topic Name">Image URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="imageUrl"
+                  placeholder="Enter Image URL"
+                />
+                <span
+                  class="error-msg"
+                  *ngIf="
+                    tekByteFormGroup.get('imageUrl').touched &&
+                    tekByteFormGroup.get('imageUrl').invalid
+                  "
+                  >Please enter image url.</span
+                >
+              </div>
+            </div>
+            <div
+              class="form-field form-group"
+              [ngClass]="{
+                'error-text':
+                  tekByteFormGroup.get('description').touched &&
+                  tekByteFormGroup.get('description').invalid
+              }"
+            >
+              <label for="Description">Description</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                formControlName="description"
+                placeholder="Enter Description"
+              ></textarea>
+              <span
+                class="error-msg"
+                *ngIf="
+                  tekByteFormGroup.get('description').touched &&
+                  tekByteFormGroup.get('description').invalid
+                "
+                >Please enter description.</span
+              >
+            </div>
+            <div
+              class="form-field form-group"
+              [ngClass]="{
+                'error-text':
+                  tekByteFormGroup.get('aliases').touched && tekByteFormGroup.get('aliases').invalid
+              }"
+            >
+              <label for="tags">Add Tags</label>
+              <input
+                type="search"
+                class="form-control"
+                formControlName="aliases"
+                placeholder="Enter Tags"
+              />
+              <span
+                class="error-msg"
+                *ngIf="
+                  tekByteFormGroup.get('aliases').touched && tekByteFormGroup.get('aliases').invalid
+                "
+                >Please enter tags.</span
+              >
+            </div>
+          </div>
+          <div formGroupName="goldenCircle" *ngIf="tabIndex === 1" id="why">
+            <h2>Why, How & What</h2>
+            <div class="form-group">
+              <label for="Description">Why</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                formControlName="why"
+                placeholder="Enter Text"
+              >
+              </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">How</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                formControlName="how"
+                placeholder="Enter Text"
+              >
+              </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">What</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                formControlName="what"
+                placeholder="Enter Text"
+              >
+              </textarea>
+            </div>
+          </div>
+          <div *ngIf="tabIndex === 2" id="feature">
+            <h2>Facts & Future</h2>
+            <div class="form-group">
+              <label for="Description">Did you know?</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                formControlName="didYouKnow"
+                placeholder="Enter Text"
+              >
+              </textarea>
+            </div>
+            <div class="form-group">
+              <label for="Description">Way Forward</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                formControlName="wayForward"
+                placeholder="Enter Text"
+              >
+              </textarea>
+            </div>
+          </div>
+          <div *ngIf="tabIndex === 3" id="keyconcepts">
+            <h2>3 Key Concepts</h2>
+            <ng-container formArrayName="keyConcepts">
+              <ng-container *ngFor="let keyConcept of keyConcepts.controls; let i = index">
+                <div [formGroup]="keyConcept" class="form-group">
+                  <label for="Topic Name">Concept 0{{ i + 1 }}</label>
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    formControlName="title"
+                    placeholder="Enter Title"
+                  />
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    formControlName="description"
+                    placeholder="Enter Text"
+                  >
+                  </textarea>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div *ngIf="tabIndex === 4" id="applications">
+            <div class="d-flex justify-content-between">
+              <h2>Applications</h2>
+              <img
+                class="add-item"
+                (click)="onAddTitleAndDesc('applications')"
+                src="../../../../assets/images/add-icon.svg"
+              />
+            </div>
+            <ng-container formArrayName="applications">
+              <ng-container *ngFor="let application of applications.controls; let i = index">
+                <div [formGroup]="application" class="innerCardSection">
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="Topic Name">Applications 0{{ i + 1 }}</label>
+                      <div>
+                        <a href="javascript:void(0);" class="mx-3"
+                          ><img src="../../../../assets/images/drag.png" alt="add"
+                        /></a>
+                        <a
+                          *ngIf="applications.controls.length > 1"
+                          (click)="onDeleteArrayItem(i, 'applications')"
+                          href="javascript:void(0);"
+                          ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
+                        /></a>
+                      </div>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control mb-3"
+                      formControlName="title"
+                      placeholder="Enter Title"
+                    />
+                    <textarea
+                      class="form-control"
+                      rows="3"
+                      formControlName="description"
+                      placeholder="Enter Text"
+                    >
+                    </textarea>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div *ngIf="tabIndex === 5" id="trends">
+            <div class="d-flex justify-content-between">
+              <h2>Trends</h2>
+              <img
+                class="add-item"
+                (click)="onAddTitleAndDesc('currentTrends')"
+                src="../../../../assets/images/add-icon.svg"
+              />
+            </div>
+            <ng-container formArrayName="currentTrends">
+              <ng-container *ngFor="let currentTrend of currentTrends.controls; let i = index">
+                <div [formGroup]="currentTrend" class="innerCardSection">
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="Topic Name">Trends 0{{ i + 1 }}</label>
+                      <div>
+                        <a href="javascript:void(0);" class="mx-3"
+                          ><img src="../../../../assets/images/drag.png" alt="add"
+                        /></a>
+                        <a
+                          *ngIf="currentTrends.controls.length > 1"
+                          (click)="onDeleteArrayItem(i, 'currentTrends')"
+                          href="javascript:void(0);"
+                          ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
+                        /></a>
+                      </div>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control mb-3"
+                      formControlName="title"
+                      placeholder="Enter Title"
+                    />
+                    <textarea
+                      class="form-control"
+                      rows="3"
+                      formControlName="description"
+                      placeholder="Enter Text"
+                    ></textarea>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div *ngIf="tabIndex === 6" id="challenges">
+            <div class="d-flex justify-content-between">
+              <h2>Challenges</h2>
+              <img
+                class="add-item"
+                (click)="onAddTitleAndDesc('challenges')"
+                src="../../../../assets/images/add-icon.svg"
+              />
+            </div>
+            <ng-container formArrayName="challenges">
+              <ng-container *ngFor="let challenge of metadata?.expiryInterval; let i = index">
+                <div [formGroup]="challenge" class="innerCardSection">
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="Topic Name">Challenges 0{{ i + 1 }}</label>
+                      <div>
+                        <a href="javascript:void(0);" class="mx-3">
+                          <img src="../../../../assets/images/drag.png" alt="add" />
+                        </a>
+                        <a
+                          *ngIf="challenges.controls.length > 1"
+                          (click)="onDeleteArrayItem(i, 'challenges')"
+                          href="javascript:void(0);"
+                          ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
+                        /></a>
+                      </div>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control mb-3"
+                      formControlName="title"
+                      placeholder="Enter Title"
+                    />
+                    <textarea
+                      class="form-control"
+                      rows="3"
+                      formControlName="description"
+                      placeholder="Enter Text"
+                    >
+                    </textarea>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div *ngIf="tabIndex === 7" id="storysofar">
+            <h2>Story So Far</h2>
+            <div class="innerCardSection">
+              <div class="row">
+                <div class="col-lg-2 form-group mb-0">
+                  <label>Year</label>
+                </div>
+                <div class="col-lg-9 form-group mb-0 ml-3">
+                  <label>Story</label>
+                </div>
+                <div class="add-item" (click)="addStoryFormArray()">
+                  <img src="../../../../assets/images/add-icon.svg" />
+                </div>
+              </div>
+              <ng-container formArrayName="timeline">
+                <ng-container *ngFor="let tm of timeline.controls; let i = index">
+                  <div [formGroup]="tm" class="my-2 d-flex align-items-center pb-2">
+                    <input
+                      type="date"
+                      id="year"
+                      name="year"
+                      formControlName="title"
+                      class="date-control"
+                      placeholder="DD/MM/YY"
+                    />
+                    <input
+                      type="text"
+                      class="form-control mb-0"
+                      formControlName="description"
+                      placeholder="Enter Text"
+                    />
+                    <a href="javascript:void(0);" class="mx-3"
+                      ><img src="../../../../assets/images/drag.png" alt="add"
+                    /></a>
+                    <a
+                      *ngIf="timeline.controls.length > 1"
+                      (click)="onDeleteArrayItem(i, 'timeline')"
+                      href="javascript:void(0);"
+                      ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
+                    /></a>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="row justify-content-center my-4">
+      <button
+        class="button secondary-btn-md mr-3"
+        (click)="showAdminNavTabs()"
+        [routerLink]="getDashboardLink()"
+      >
+        Cancel
+      </button>
+      <button class="button secondary-btn-md mr-3" (click)="showAdminNavTabs()" [routerLink]="">
+        Previous
+      </button>
+      <button
+        class="button secondary-btn-md cta"
+        *ngIf="tabIndex < tabDetails.length - 1"
+        (click)="onTabChange(tabIndex + 1)"
+      >
+        Continue
+      </button>
+      <button
+        class="button secondary-btn-md cta"
+        *ngIf="tabIndex === tabDetails.length - 1"
+        (click)="onSubmit()"
+      >
+        Complete
+      </button>
+    </div>
+  </div>
+</div>

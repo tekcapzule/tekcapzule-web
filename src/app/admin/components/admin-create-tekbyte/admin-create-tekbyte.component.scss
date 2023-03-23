@@ -19,6 +19,24 @@
     padding: 20px;
     border-radius: 5px;
   }
+  input, textarea, select {
+    margin-bottom: 0px;
+  }
+  .error-text {
+    input, textarea, select {
+      border-color: red;
+    }
+    .error-msg {
+      color: red !important;
+    }
+  }
+  .form-field {
+    margin-bottom: 25px !important;
+  }
+
+  .add-item {
+    cursor: pointer;
+  }
 }
 
 button:disabled,

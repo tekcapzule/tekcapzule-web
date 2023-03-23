@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminCreateTopicComponent } from './admin-create-topic.component';
+import { AdminCreateTekByteComponent } from './admin-create-tekbyte.component';
 
 describe('AdminCreateTopicComponent', () => {
-  let component: AdminCreateTopicComponent;
-  let fixture: ComponentFixture<AdminCreateTopicComponent>;
+  let component: AdminCreateTekByteComponent;
+  let fixture: ComponentFixture<AdminCreateTekByteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminCreateTopicComponent],
+      declarations: [AdminCreateTekByteComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminCreateTopicComponent);
+    fixture = TestBed.createComponent(AdminCreateTekByteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

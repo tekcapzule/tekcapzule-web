@@ -10,6 +10,7 @@ import {
   UserApiService,
   AuthService,
 } from '@app/core';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -18,7 +19,6 @@ import {
 })
 export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
-
   capsules = [];
 
   constructor(
@@ -36,14 +36,15 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
       )
       .subscribe(event => {
         const refresh = event?.data?.refreshCache ? true : false;
-        this.fetchMyFeedCapsules(refresh);
+        const topics = event?.data?.topics ?? null;
+        this.fetchMyFeedCapsules(topics, refresh);
       });
 
     this.eventChannel.publish({ event: ChannelEvent.SetActiveCapsuleTab });
   }
 
   ngOnInit(): void {
-    this.fetchMyFeedCapsules(false);
+    this.fetchMyFeedCapsules(null, false);
   }
 
   ngOnDestroy(): void {
@@ -51,21 +52,30 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
-  fetchMyFeedCapsules(refreshCache?: boolean): void {
-    if (this.auth.isUserLoggedIn()) {
-      this.spinner.show();
-      const userInfo = this.userApi.getUserCache();
+  /**
+   * Fetch my feed capsules based on user subscribed topics, if user logged in.
+   * Otherwise load my feed capsules for default topics like AI, CLD and SWD.
+   */
+  fetchMyFeedCapsules(topics: string[], refreshCache?: boolean): void {
+    const userInfo = this.userApi.getTekUserInfoCache();
 
-      this.capsuleApi
-        .getMyFeedCapsules(userInfo.subscribedTopics || [], refreshCache)
-        .pipe(
-          finalize(() => {
-            this.spinner.hide();
-          })
-        )
-        .subscribe(capsules => {
-          this.capsules = capsules;
-        });
-    }
+    const subscribedTopics = topics
+      ? topics
+      : this.auth.isUserLoggedIn() && userInfo?.subscribedTopics?.length > 0
+      ? userInfo.subscribedTopics
+      : Constants.DefaultSubscriptionTopics;
+
+    this.spinner.show();
+
+    this.capsuleApi
+      .getMyFeedCapsules(subscribedTopics, refreshCache)
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(capsules => {
+        this.capsules = capsules;
+      });
   }
 }

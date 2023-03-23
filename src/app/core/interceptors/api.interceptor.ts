@@ -9,7 +9,7 @@ export class ApiInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const userInfo = this.auth.isUserLoggedIn() ? this.auth.getUserInfo() : null;
+    const userInfo = this.auth.isUserLoggedIn() ? this.auth.getAwsUserInfo() : null;
     const loggedInUserName = userInfo ? userInfo.username : 'linjith.kunnon@gmail.com';
     const authToken = userInfo ? userInfo?.signInUserSession?.accessToken?.jwtToken : null;
 

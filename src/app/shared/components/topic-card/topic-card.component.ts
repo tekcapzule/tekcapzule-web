@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TopicApiService, UserApiService } from '@app/core';
-import { TopicItem, UserInfo } from '@app/shared/models';
+import { TopicItem, TekUserInfo } from '@app/shared/models';
 
 @Component({
   selector: 'app-topic-card',
@@ -12,7 +12,7 @@ import { TopicItem, UserInfo } from '@app/shared/models';
 export class TopicCardComponent implements OnInit {
   @Input() topic: TopicItem = null;
 
-  userInfo: UserInfo = null;
+  userInfo: TekUserInfo = null;
 
   constructor(
     private router: Router,
