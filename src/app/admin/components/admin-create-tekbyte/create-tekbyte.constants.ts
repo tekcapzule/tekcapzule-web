@@ -1,4 +1,3 @@
-import { ColumnDef } from '@app/shared/models';
 
 export const Create_TekByte = {
   tabDetails: [
@@ -12,3 +11,6 @@ export const Create_TekByte = {
   'Story So Far',
   ]
 };
+
+
+Object.freeze(Create_TekByte);

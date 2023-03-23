@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 import { ColumnDef } from '@app/shared/models';
 import { AppSpinnerService, TekByteApiService, TopicApiService } from '@app/core';
-import { AdminTopicDataItem, AdminTopicDataItemImpl, AdminTopicStatus } from '@app/admin/models';
 import { Router } from '@angular/router';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 
