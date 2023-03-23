@@ -104,7 +104,8 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     if (this.capsuleFormGroup.valid) {
       this.spinner.show();
       let requestBody = this.capsuleFormGroup.value;
-      requestBody.expiryDate = moment().add(requestBody.expiryDateDisp, 'days').format("DD/MM/YYYY");
+      // fix this
+      requestBody.expiryDate = moment().add(7, 'days').format("DD/MM/YYYY");
       requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
       this.isCreateCapsuleSubmitted = false;
       if(this.editCapsule) {

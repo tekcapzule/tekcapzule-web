@@ -67,5 +67,27 @@ export class TekByteApiService {
       }
     );
   }
+  
+  getTekByte(code: string): Observable<TekByteItem> {
+    return this.httpClient.post<TekByteItem>(`${TEKBYTE_API_PATH}/get`, code, {
+      params: {
+        cache: 'no'
+      },
+    });
+  }
+  
+  disableTekByte(code: string): Observable<any> {
+    const allTekByteCache = cacheManager.getItem(TEKBYTE_ALLTEKBYTE_CACHE_KEY);
+
+    if (allTekByteCache) {
+      const allTekByte = allTekByteCache.body as TekByteItem[];
+      allTekByte.find(tekbyte => tekbyte.code === code).status = 'INACTIVE';
+      cacheManager.setItem(TEKBYTE_ALLTEKBYTE_CACHE_KEY, {
+        body: allTekByte,
+        expiry: allTekByteCache.expiry,
+      });
+    }
+    return this.httpClient.post(`${TEKBYTE_API_PATH}/disable`, { capsuleId: code });
+  }
 
 }

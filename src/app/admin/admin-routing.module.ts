@@ -43,7 +43,7 @@ const routes: Routes = [
         component: AdminCreateTekByteComponent,
       },
       {
-        path: 'edittekByte/:topicCode',
+        path: 'edittekbyte',
         component: AdminCreateTekByteComponent,
       },
       {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
 import { TopicCategoryItem, TopicItem } from '@app/shared/models';
+import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import * as moment from 'moment';
 import { Create_TekByte } from './create-tekbyte.constants';
 
@@ -19,6 +20,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   topics: TopicItem[] = [];
   tekByteFormGroup: FormGroup;
   categories: TopicCategoryItem[] = [];
+  tekbyte: TekByteItem;
 
   constructor(
     private eventChannel: EventChannelService,
@@ -31,11 +33,20 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.createTopicFormGroup();
-    this.getAllTopics();
     if (this.router.url.includes('edittekbyte')) {
       this.isEditMode = true;
+      this.getTekByte();
     }
+    this.createTopicFormGroup();
+    this.getAllTopics();
+  }
+
+  getTekByte() {
+    const tekbyteCode = sessionStorage.getItem('tekbyteCode');
+    this.tekByteAPI.getTekByte(tekbyteCode).subscribe(data => {
+      this.tekbyte = data;
+      console.log(' tekbyte ------>> ', tekbyteCode, this.tekbyte);
+    });
   }
 
   ngAfterViewInit(): void {
@@ -46,7 +57,6 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
 
   getAllTopics() {
     this.topicApi.getAllTopics().subscribe(topics => {
-      console.log('topics ---->> ', topics);
       this.topics = topics;
       this.spinner.hide();
     }, error => {
