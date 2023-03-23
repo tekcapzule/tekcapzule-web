@@ -73,25 +73,22 @@
               <div class="col-md-12">
                 <ul class="topics-list">
                   <ng-container *ngFor="let item of filteredBrowseByTopics">
-                    <li [class.active]="item.isSubscribed">#{{ item.topic.title }}</li>
+                    <li [class.active]="item.isSubscribed" (click)="toggleSubscribeTopic(item)">
+                      #{{ item.topic.title }}
+                    </li>
                   </ng-container>
-                  <!-- <li>
-                    #{{ item.topic.title }}
-                    <ng-container *ngIf="!isTopicSubscribed(topic.code)">
-                      <span style="cursor: pointer" (click)="followTopic(topic.code)">FOLLOW</span>
-                    </ng-container>
-                    <ng-container *ngIf="isTopicSubscribed(topic.code)">
-                      <span
-                        class="active"
-                        style="cursor: pointer"
-                        (click)="unfollowTopic(topic.code)"
-                        >FOLLOWING</span
-                      >
-                    </ng-container>
-                  </li> -->
                 </ul>
               </div>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              mat-stroked-button
+              class="button secondary-btn-sm apply-btn"
+              (click)="doLoadFeedsForSelectedTopics()"
+            >
+              Apply
+            </button>
           </div>
         </div>
       </div>
