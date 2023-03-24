@@ -50,4 +50,8 @@ export class DataTableComponent implements OnInit, AfterViewInit, OnChanges {
   isDataSourceEmpty(): boolean {
     return this.dataSource.data && this.dataSource.data.length === 0;
   }
+
+  onSearch(value: string) {
+    this.dataSource.filter = value.trim().toLowerCase();
+  }
 }

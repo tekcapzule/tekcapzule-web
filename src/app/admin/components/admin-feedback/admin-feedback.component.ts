@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ColumnDef } from '@app/shared/models';
 import { AdminFeedbackDataItem } from '@app/admin/models';
+import { DataTableComponent } from '@app/shared/components/data-table/data-table.component';
 
 @Component({
   selector: 'app-admin-feedback',
@@ -56,11 +57,17 @@ export class AdminFeedbackComponent implements OnInit {
     },
   ];
 
+  @ViewChild('feedbackTable') feedbackTable: DataTableComponent;
+
   constructor() {}
 
   ngOnInit(): void {}
 
   actionCallback(row: AdminFeedbackDataItem): void {
     // console.log('actionCallback: ', row);
+  }
+
+  onSearch(event) {
+    this.feedbackTable.onSearch(event.currentTarget.value);
   }
 }

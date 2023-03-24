@@ -4,6 +4,9 @@ import { ColumnDef } from '@app/shared/models';
 import { AppSpinnerService, TekByteApiService, TopicApiService } from '@app/core';
 import { Router } from '@angular/router';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
+import { ViewChild } from '@angular/core';
+import { DataTableComponent } from '@app/shared/components/data-table/data-table.component';
+
 
 @Component({
   selector: 'app-admin-tekbyte',
@@ -74,6 +77,7 @@ export class AdminTekByteComponent implements OnInit {
   ];
 
   adminTekByteData: TekByteItem[] = [];
+  @ViewChild('tekByteTable') tekByteTable: DataTableComponent;
 
   constructor(private topicApi: TopicApiService, 
     private tekbyteService: TekByteApiService,
@@ -102,5 +106,9 @@ export class AdminTekByteComponent implements OnInit {
   deleteActionCallback(row: TekByteItem): void {
     console.log('disable --->> ', row.code)
     this.tekbyteService.disableTekByte(row.code).subscribe();
+  }
+
+  onSearch(event) {
+    this.tekByteTable.onSearch(event.currentTarget.value);
   }
 }
