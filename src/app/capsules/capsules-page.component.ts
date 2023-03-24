@@ -22,8 +22,6 @@ export interface BrowseByTopic {
   isSubscribed: boolean;
 }
 
-const DEFAULT_SUBSCRIPTION_TOPICS = ['AI', 'CLD', 'SWD'];
-
 @Component({
   selector: 'app-capsules-page',
   templateUrl: './capsules-page.component.html',
@@ -59,11 +57,22 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.eventChannel
       .getChannel()
       .pipe(
-        filter(out => out.event === ChannelEvent.SetActiveCapsuleTab),
+        filter(
+          out =>
+            out.event === ChannelEvent.SetActiveFeedsTab ||
+            out.event === ChannelEvent.SetActiveTrendingTab ||
+            out.event == ChannelEvent.SetActiveEditorsTab
+        ),
         takeUntil(this.destroy$)
       )
-      .subscribe(() => {
-        this.navigateToActiveCapsulePage(null, false);
+      .subscribe(event => {
+        const tabUrl = event?.data?.tabUrl ?? 'myfeeds';
+
+        if (tabUrl != 'myfeeds') {
+          this.navigateToCapsulePageByUrl(tabUrl, false);
+        } else {
+          this.navigateToActiveFeedsPage(null, false);
+        }
       });
 
     this.topicApi.getAllTopics().subscribe(topics => {
@@ -88,7 +97,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  navigateToActiveCapsulePage(topics: string[], refreshCache?: boolean): void {
+  navigateToActiveFeedsPage(topics: string[], refreshCache?: boolean): void {
     const activeNavTab = this.navTabs[0];
     this.activeTab = activeNavTab.uniqueId;
 
@@ -96,6 +105,15 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       this.eventChannel.publish({
         event: ChannelEvent.LoadDataForActiveCapsuleTab,
         data: { topics, refreshCache },
+      });
+    });
+  }
+
+  navigateToCapsulePageByUrl(tabUrl: string, refreshCache?: boolean): void {
+    this.router.navigate(['capsules', tabUrl]).then(() => {
+      this.eventChannel.publish({
+        event: ChannelEvent.LoadDataForActiveCapsuleTab,
+        data: { refreshCache },
       });
     });
   }
@@ -247,6 +265,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
     // navigate to feeds and load data for selected topics.
     this.hideBroweByTopicModal();
-    this.navigateToActiveCapsulePage(selectedTopics, true);
+    this.navigateToActiveFeedsPage(selectedTopics, true);
   }
 }
