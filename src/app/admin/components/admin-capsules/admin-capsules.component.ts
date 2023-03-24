@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { CapsuleItem, CapsuleStatus, ColumnDef } from '@app/shared/models';
 import { AdminCapsuleDataItem, AdminCapsuleDataItemImpl } from '@app/admin/models';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 import { Router } from '@angular/router';
+import { DataTableComponent } from '@app/shared/components/data-table/data-table.component';
 
 @Component({
   selector: 'app-admin-capsules',
@@ -101,6 +102,8 @@ export class AdminCapsulesComponent implements OnInit {
     },
   ];
 
+  @ViewChild('capsuleTable') capsuleTable: DataTableComponent;
+
   capsulePendingApproval: CapsuleItem[] = [];
   adminCapsulesData: AdminCapsuleDataItem[] = [];
 
@@ -161,5 +164,9 @@ export class AdminCapsulesComponent implements OnInit {
   
   showAdminCapsulesTab(): void {
     this.eventChannel.publish({ event: ChannelEvent.SetAdminCapsulesNavTab });
+  }
+
+  onSearch(event) {
+    this.capsuleTable.onSearch(event.currentTarget.value);
   }
 }

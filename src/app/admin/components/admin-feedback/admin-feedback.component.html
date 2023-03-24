@@ -1,3 +1,10 @@
 <div class="admin-feedback-table">
-  <app-data-table [columns]="adminFeedbackColumns" [data]="adminFeebbackData"></app-data-table>
+  <div class="col-lg-3 float-left">
+    <div class="search-box">
+      <input type="search" name="search" placeholder="What are you looking for?" (keyup)="onSearch($event)"/>
+      <!--button title="search bar" class="search-btn" (click)="onSearch($event)"></button-->
+    </div>
+  </div>
+  
+  <app-data-table #feedbackTable [columns]="adminFeedbackColumns" [data]="adminFeebbackData"></app-data-table>
 </div>
