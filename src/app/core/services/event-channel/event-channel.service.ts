@@ -9,6 +9,7 @@ export enum ChannelEvent {
   LoadDataForActiveCapsuleTab = 'LOAD_DATA_FOR_ACTIVE_CAPSULE_TAB',
   HideAdminNavTabs = 'HIDE_ADMIN_NAV_TABS',
   ShowAdminNavTabs = 'SHOW_ADMIN_NAV_TABS',
+  HideCapsuleNavTabs = 'HIDE_CAPSULE_NAV_TABS',
 }
 
 export interface EventChannelOutput {

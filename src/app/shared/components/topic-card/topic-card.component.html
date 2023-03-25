@@ -7,9 +7,7 @@
     <div class="description pb-3">
       <p>{{ topic.summary }}</p>
     </div>
-    <button class="button follow-btn" tabindex="0" [routerLink]="['/topics/details']">
-      EXPLORE
-    </button>
+    <button class="button follow-btn" tabindex="0" (click)="onExploreTopic()">EXPLORE</button>
   </div>
 </div>
 

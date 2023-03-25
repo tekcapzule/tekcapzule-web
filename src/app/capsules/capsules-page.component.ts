@@ -75,6 +75,16 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         }
       });
 
+    this.eventChannel
+      .getChannel()
+      .pipe(
+        filter(out => out.event === ChannelEvent.HideCapsuleNavTabs),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.deActivateTabs();
+      });
+
     this.topicApi.getAllTopics().subscribe(topics => {
       this.setBrowseByTopics(topics);
     });

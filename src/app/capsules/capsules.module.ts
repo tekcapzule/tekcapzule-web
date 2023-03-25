@@ -11,6 +11,7 @@ import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-
 import { EditorsPickComponent } from './components/editors-pick/editors-pick.component';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
+import { CapsuleDetailsComponent } from './components/capsule-details/capsule-details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ContributeCapsuleComponent } from './components/contribute-capsule/cont
     EditorsPickComponent,
     CreateSuccessComponent,
     ContributeCapsuleComponent,
+    CapsuleDetailsComponent,
   ],
   imports: [CommonModule, FormsModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
 })

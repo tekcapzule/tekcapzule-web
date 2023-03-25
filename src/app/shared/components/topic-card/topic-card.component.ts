@@ -24,6 +24,11 @@ export class TopicCardComponent implements OnInit {
     // this.userInfo = this.userApi.getUserCache();
   }
 
+  onExploreTopic(): void {
+    const code = this?.topic?.code?.toLowerCase() ?? 'cloud';
+    this.router.navigate(['topics', code, 'details']);
+  }
+
   // gotoTopicDetails(): void {
   //   this.router.navigate(['topics', 'topicdetails'], {
   //     state: {
