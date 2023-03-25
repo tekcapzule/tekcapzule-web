@@ -40,7 +40,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
         this.fetchMyFeedCapsules(topics, refresh);
       });
 
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveCapsuleTab });
+    this.eventChannel.publish({ event: ChannelEvent.SetActiveFeedsTab });
   }
 
   ngOnInit(): void {

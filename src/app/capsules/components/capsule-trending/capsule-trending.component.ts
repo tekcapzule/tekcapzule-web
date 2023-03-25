@@ -29,6 +29,11 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
         const refresh = event.data && event.data.refreshCache ? true : false;
         this.fetchTrendingCapsules(refresh);
       });
+
+    this.eventChannel.publish({
+      event: ChannelEvent.SetActiveTrendingTab,
+      data: { tabUrl: 'trending' },
+    });
   }
 
   ngOnInit(): void {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CapsulesPageComponent } from './capsules-page.component';
+import { CapsuleDetailsComponent } from './components/capsule-details/capsule-details.component';
 import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-trending.component';
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'congratz',
         component: CreateSuccessComponent,
+      },
+      {
+        path: ':capsuleId/details',
+        component: CapsuleDetailsComponent,
       },
       {
         path: '',

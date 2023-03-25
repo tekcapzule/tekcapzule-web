@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 
 import { ChannelEvent, EventChannelService } from '@app/core';
 import { NavTab } from '@app/shared/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -21,7 +22,8 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
   ];
 
-  constructor(private eventChannel: EventChannelService) {}
+  constructor(private eventChannel: EventChannelService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.eventChannel
@@ -70,6 +72,6 @@ export class AdminPageComponent implements OnInit, OnDestroy {
   }
 
   isActiveTab(navTab: NavTab): boolean {
-    return this.activeTab === navTab.uniqueId;
+    return this.router.url.includes(navTab.navUrl);
   }
 }

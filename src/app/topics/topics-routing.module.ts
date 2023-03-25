@@ -15,7 +15,7 @@ const routes: Routes = [
         component: ExploreTopicsComponent,
       },
       {
-        path: 'details',
+        path: ':code/details',
         component: TopicDetailsComponent,
       },
       {

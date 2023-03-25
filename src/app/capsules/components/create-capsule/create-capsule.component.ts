@@ -21,6 +21,6 @@ export class CreateCapsuleComponent implements OnInit {
   }
 
   activateFirstNavTab(): void {
-    this.eventChannel.publish({ event: ChannelEvent.SetActiveCapsuleTab });
+    this.eventChannel.publish({ event: ChannelEvent.SetActiveFeedsTab });
   }
 }

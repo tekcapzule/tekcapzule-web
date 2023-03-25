@@ -29,6 +29,11 @@ export class EditorsPickComponent implements OnInit {
         const refresh = event.data && event.data.refreshCache ? true : false;
         this.fetchEditorsPickCapsules(refresh);
       });
+
+    this.eventChannel.publish({
+      event: ChannelEvent.SetActiveEditorsTab,
+      data: { tabUrl: 'editorspick' },
+    });
   }
 
   ngOnInit(): void {

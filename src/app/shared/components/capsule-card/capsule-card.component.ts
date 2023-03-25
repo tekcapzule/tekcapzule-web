@@ -2,7 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
-import { CapsuleApiService, UserApiService, AuthService, AwsUserInfo } from '@app/core';
+import {
+  CapsuleApiService,
+  UserApiService,
+  AuthService,
+  AwsUserInfo,
+  EventChannelService,
+  ChannelEvent,
+} from '@app/core';
 import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 
 @Component({
@@ -21,7 +28,8 @@ export class CapsuleCardComponent implements OnInit {
     private router: Router,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
-    private auth: AuthService
+    private auth: AuthService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +56,9 @@ export class CapsuleCardComponent implements OnInit {
 
   onCardClick(): void {
     this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
-    window.open(this.capsule.resourceUrl, '_blank');
+    // window.open(this.capsule.resourceUrl, '_blank');
+    this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
+    this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
   }
 
   onCapsuleRecommend(): void {
