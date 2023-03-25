@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService } from '@app/core';
+import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService, TopicApiService } from '@app/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
-import { CapsuleItem } from '@app/shared/models';
+import { CapsuleItem, TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 
 @Component({
@@ -19,36 +19,23 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   editCapsule: CapsuleItem;
   items = ['cloud'];
   metadata: MetadataItem;
-  /*responseBodySample = {
-    topicCode: 'Cloud Computing',
-    publishedDate: '10/10/2022',
-    title: 'Block chain',
-    imageUrl:
-      'http://tekcapsule-web-dev.s3-website.us-east-2.amazonaws.com/assets/images/card-3.png',
-    duration: 120,
-    author: 'Linjith Kunnon',
-    description:
-      'Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.',
-    publisher: 'Medium',
-    resourceUrl: 'url',
-    type: 'ARTICLE',
-    audience: 'ALL',
-    level: 'ADVANCED',
-    expiryDate: '10/10/2022',
-    editorsPick: 1,
-    tags: ['cld', 'cloud', 'compute', 'storage'],
-  };*/
-
+  topics: TopicItem[] = [];
+  categories: TopicCategoryItem[] = [];
+  expiryCode = [{value: 7, name: 'ONEWEEK'}, {value: 30, name: 'ONEMONTH'},
+  {value: 180, name: 'SIXMONTHS'}, {value: 3650, name: 'NOEXPIRY'}]
+  
   constructor(
     private eventChannel: EventChannelService,
     private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private topicApi: TopicApiService
   ) { }
 
   ngOnInit() {
     this.getMetadata();
+    this.getAllTopics();
     this.createCapsuleForm();
     if (this.router.url.includes('editcapsule')) {
       this.isEditMode = true;
@@ -57,9 +44,18 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     }
   }
 
+  getAllTopics() {
+    this.topicApi.getAllTopics().subscribe(topics => {
+      this.topics = topics;
+      this.spinner.hide();
+    }, error => {
+      console.log(' ee', error);
+      this.spinner.hide();
+    });
+  }
+
   getMetadata() {
     this.capsuleApi.getMetadata().subscribe(data => {
-      console.log(' mettatadda --- ',data);
       this.metadata = data;
     });
   }
@@ -81,7 +77,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
       audience: [''],
       level: ['', Validators.required],
       expiryDate: [moment().format('DD/MM/YYYY'), Validators.required],
-      expiryDateDisp: [7, Validators.required],
+      expiryDateDisp: ['', Validators.required],
       editorsPick: [true],
       tags: ['']
     })
@@ -105,7 +101,8 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
       this.spinner.show();
       let requestBody = this.capsuleFormGroup.value;
       // fix this
-      requestBody.expiryDate = moment().add(7, 'days').format("DD/MM/YYYY");
+      const selectedDays = this.expiryCode.find(ex=> ex.name === requestBody.expiryDateDisp);
+      requestBody.expiryDate = moment().add(selectedDays.value, 'days').format("DD/MM/YYYY");
       requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
       this.isCreateCapsuleSubmitted = false;
       if(this.editCapsule) {
@@ -147,6 +144,21 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   
   public onTagEdited(item) {
     console.log('tag edited: current value is ' + item);
+  }
+
+  
+  onTopicChange(event) {
+    const topicCode = event.target.value;
+    if(topicCode) {
+      const topic = this.topics.find(topic => topic.code === topicCode);
+      this.categories = topic.categories;
+      console.log(' ----------', topic);
+      this.capsuleFormGroup.patchValue({
+        description: topic.description,
+        imageUrl: topic.imageUrl,
+        title: topic.title
+      })
+    }
   }
 
 }

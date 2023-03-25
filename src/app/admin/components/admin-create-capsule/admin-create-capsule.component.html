@@ -11,21 +11,37 @@
     <div [formGroup]="capsuleFormGroup" class="justify-content-center mb-4 pb-4">
       <div class="title">Capsule Front Side Information</div>
       <div class="row">
+        <div class="form-field col-6" [ngClass]="{'error-text':capsuleFormGroup.get('topicCode').touched && capsuleFormGroup.get('topicCode').invalid}">
+          <label for="Topic Code">Topic Code</label>
+          <select
+            name="topicCode"
+            formControlName="topicCode"
+            class="form-control"
+            placeholder="Select Topic Code"
+            (change)="onTopicChange($event)"
+          >
+          <option value="">Select Topic Code</option>
+          <option *ngFor="let topic of topics; let i = index" value="{{topic.code}}">{{topic.code}}</option>
+          </select>
+          <span class="error-msg" *ngIf="capsuleFormGroup.get('topicCode').touched && capsuleFormGroup.get('topicCode').invalid">Please select topic code.</span>
+        </div>
         <div class="form-field col-6" [ngClass]="{'error-text':capsuleFormGroup.get('title').touched && capsuleFormGroup.get('title').invalid}">
           <label for="capsuleTitle">Capsule Title</label>
           <input type="text" name="title" formControlName="title" class="form-control" placeholder="Enter Capsule Title" />
           <span class="error-msg" *ngIf="capsuleFormGroup.get('title').touched && capsuleFormGroup.get('title').invalid">Please enter title.</span>
         </div>
-        <div class="form-field col-6" [ngClass]="{'error-text':capsuleFormGroup.get('topicCode').touched && capsuleFormGroup.get('topicCode').invalid}">
-          <label for="topicCode">Topic Code</label>
-          <input type="text" name="topicCode" formControlName="topicCode" class="form-control" placeholder="Enter Topic Code" />
-          <span class="error-msg" *ngIf="capsuleFormGroup.get('topicCode').touched && capsuleFormGroup.get('topicCode').invalid">Please enter topic code.</span>
-        </div>
         <div class="form-field col-6">
           <label>Topic Category</label>
-          <select name="type" formControlName="category" name="Select" class="form-control"  placeholder="Select Topic Category">
-            <option>Topic Category</option>
+          <select
+              name="expiryDateDisp"
+              formControlName="category"
+              class="form-control"
+              placeholder="Select category"
+          >
+          <option value="">Select category</option>
+          <option *ngFor="let category of categories; let i = index" value="{{category.title}}">{{category.title}}</option>
           </select>
+
         </div>
         <div class="form-field col-6" [ngClass]="{'error-text':capsuleFormGroup.get('author').touched && capsuleFormGroup.get('author').invalid}">
           <label for="author">Summary by/Author</label>
@@ -116,26 +132,6 @@
               <span class="error-msg" *ngIf="capsuleFormGroup.get('duration').touched && capsuleFormGroup.get('duration').invalid">Please enter duration.</span>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-6 col-sm-12">
-              <div class="form-group">
-                <label>Primary Category</label>
-                <select class="form-control" placeholder="Select Primary Category">
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-              <div class="form-group">
-                <label>Secondary Category</label>
-                <select class="form-control" placeholder="Select Secondary Category">
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div>
-            </div>
-          </div>
           <div class="form-field form-group" [ngClass]="{'error-text':capsuleFormGroup.get('resourceURL').touched && capsuleFormGroup.get('resourceURL').invalid}">
             <label for="resourceURL">Resource URL</label>
             <input type="text" name="resourceURL" formControlName="resourceURL" class="form-control"
@@ -148,7 +144,7 @@
                 <label>Expiry Date</label>
                 <select name="expiryDateDisp" formControlName="expiryDateDisp" class="form-control" placeholder="Select Expiry Date">
                   <option value="">Select ExpiryDate</option>
-                  <option  *ngFor="let expiry of metadata?.expiryInterval; let i = index" value="{{expiry}}">{{expiry}}</option>
+                  <option *ngFor="let expiry of metadata?.expiryInterval; let i = index" value="{{expiry}}">{{expiry}}</option>
                 </select>
               <span class="error-msg" *ngIf="capsuleFormGroup.get('expiryDateDisp').touched && capsuleFormGroup.get('expiryDateDisp').invalid">Please enter expiry date.</span>
               </div>
