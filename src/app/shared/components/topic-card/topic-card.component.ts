@@ -25,7 +25,7 @@ export class TopicCardComponent implements OnInit {
   }
 
   onExploreTopic(): void {
-    const code = this?.topic?.code?.toLowerCase() ?? 'cloud';
+    const code = this?.topic?.code?.toLowerCase() ?? 'tech';
     this.router.navigate(['topics', code, 'details']);
   }
 }
