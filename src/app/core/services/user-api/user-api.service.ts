@@ -60,8 +60,8 @@ export class UserApiService {
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });
   }
 
-  followTopic(userId: string, topics: string[]): Observable<ApiSuccess> {
-    return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/follow`, { userId, topics });
+  followTopic(userId: string, topicCodes: string[]): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/follow`, { userId, topicCodes });
   }
 
   unfollowTopic(userId: string, topicCode: string): Observable<ApiSuccess> {
