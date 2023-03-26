@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { share, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { ApiSuccess, CapsuleItem } from '@app/shared/models';
-import { cacheManager, Constants } from '@app/shared/utils';
+import { cacheManager } from '@app/shared/utils';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 
 const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`
@@ -105,15 +106,21 @@ export class CapsuleApiService {
   }
 
   updateCapsuleViewCount(capsuleId: string): Observable<ApiSuccess> {
-    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/view`, { capsuleId });
+    return this.httpClient
+      .post<ApiSuccess>(`${CAPSULE_API_PATH}/view`, { capsuleId })
+      .pipe(tap(() => this.updateViewCountInCache(capsuleId)));
   }
 
   updateCapsuleRecommendCount(capsuleId: string): Observable<ApiSuccess> {
-    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/recommend`, { capsuleId });
+    return this.httpClient
+      .post<ApiSuccess>(`${CAPSULE_API_PATH}/recommend`, { capsuleId })
+      .pipe(tap(() => this.updateRecommendationCountInCache(capsuleId)));
   }
 
   updateCapsuleBookmarkCount(capsuleId: string): Observable<ApiSuccess> {
-    return this.httpClient.post<ApiSuccess>(`${CAPSULE_API_PATH}/bookmark`, { capsuleId });
+    return this.httpClient
+      .post<ApiSuccess>(`${CAPSULE_API_PATH}/bookmark`, { capsuleId })
+      .pipe(tap(() => this.updateBookmarkCountInCache(capsuleId)));
   }
 
   approveCapsule(capsuleId: string): Observable<ApiSuccess> {
@@ -129,13 +136,79 @@ export class CapsuleApiService {
   }
 
   getMetadata(refreshCache?: boolean): Observable<MetadataItem> {
-    return this.httpClient.post<MetadataItem>(`${CAPSULE_API_PATH}/getMetadata`, {},
-    {
-      params: {
-        cache: 'yes',
-        refresh: refreshCache ? 'yes' : 'no',
-        ckey: CAPSULE_METADATA_CACHE_KEY,
-      },
-    });
+    return this.httpClient.post<MetadataItem>(
+      `${CAPSULE_API_PATH}/getMetadata`,
+      {},
+      {
+        params: {
+          cache: 'yes',
+          refresh: refreshCache ? 'yes' : 'no',
+          ckey: CAPSULE_METADATA_CACHE_KEY,
+        },
+      }
+    );
+  }
+
+  updateViewCountInCache(capsuleId: string): void {
+    [CAPSULE_MYFEEDS_CACHE_KEY, CAPSULE_TRENDING_CACHE_KEY, CAPSULE_EDITORSPICK_CACHE_KEY]
+      .map(cacheKey => ({ cacheKey, cacheItem: cacheManager.getItem(cacheKey) }))
+      .map(item => {
+        if (item.cacheItem?.body) {
+          (item.cacheItem.body as CapsuleItem[]).forEach(cap => {
+            if (cap.capsuleId === capsuleId) {
+              cap.views += 1;
+            }
+          });
+        }
+        return item;
+      })
+      .forEach(item => {
+        cacheManager.setItem(item.cacheKey, {
+          body: item.cacheItem.body,
+          expiry: item.cacheItem.expiry,
+        });
+      });
+  }
+
+  updateRecommendationCountInCache(capsuleId: string): void {
+    [CAPSULE_MYFEEDS_CACHE_KEY, CAPSULE_TRENDING_CACHE_KEY, CAPSULE_EDITORSPICK_CACHE_KEY]
+      .map(cacheKey => ({ cacheKey, cacheItem: cacheManager.getItem(cacheKey) }))
+      .map(item => {
+        if (item.cacheItem?.body) {
+          (item.cacheItem.body as CapsuleItem[]).forEach(cap => {
+            if (cap.capsuleId === capsuleId) {
+              cap.recommendations += 1;
+            }
+          });
+        }
+        return item;
+      })
+      .forEach(item => {
+        cacheManager.setItem(item.cacheKey, {
+          body: item.cacheItem.body,
+          expiry: item.cacheItem.expiry,
+        });
+      });
+  }
+
+  updateBookmarkCountInCache(capsuleId: string): void {
+    [CAPSULE_MYFEEDS_CACHE_KEY, CAPSULE_TRENDING_CACHE_KEY, CAPSULE_EDITORSPICK_CACHE_KEY]
+      .map(cacheKey => ({ cacheKey, cacheItem: cacheManager.getItem(cacheKey) }))
+      .map(item => {
+        if (item.cacheItem?.body) {
+          (item.cacheItem.body as CapsuleItem[]).forEach(cap => {
+            if (cap.capsuleId === capsuleId) {
+              cap.bookmarks += 1;
+            }
+          });
+        }
+        return item;
+      })
+      .forEach(item => {
+        cacheManager.setItem(item.cacheKey, {
+          body: item.cacheItem.body,
+          expiry: item.cacheItem.expiry,
+        });
+      });
   }
 }

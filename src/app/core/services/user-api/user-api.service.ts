@@ -60,8 +60,8 @@ export class UserApiService {
     return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });
   }
 
-  followTopic(userId: string, topicCode: string): Observable<ApiSuccess> {
-    return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/follow`, { userId, topicCode });
+  followTopic(userId: string, topics: string[]): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/follow`, { userId, topics });
   }
 
   unfollowTopic(userId: string, topicCode: string): Observable<ApiSuccess> {
@@ -74,12 +74,11 @@ export class UserApiService {
   }
 
   updateTekUserInfoCache(userInfo: TekUserInfo): void {
-    const current = new Date();
-    current.setHours(current.getHours() + Constants.DefaultApiCacheExpiryHours);
+    const currentCache = cacheManager.getItem(USER_INFO_CACHE_KEY);
 
     cacheManager.setItem(USER_INFO_CACHE_KEY, {
       body: userInfo,
-      expiry: current.getTime(),
+      expiry: currentCache.expiry,
     });
   }
 

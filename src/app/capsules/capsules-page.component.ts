@@ -177,54 +177,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     item.isSubscribed = !item.isSubscribed;
   }
 
-  // followTopic(topicCode: string): void {
-  //   jQuery('#browseByTopicModal').modal('hide');
-
-  //   // if (!this.auth.isUserLoggedIn()) {
-  //   //   this.router.navigateByUrl('/auth/signin');
-  //   //   return;
-  //   // }
-
-  //   const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
-
-  //   this.userApi.followTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
-  //     this.fetchUserInfo(true);
-  //   });
-
-  //   this.userInfo = {
-  //     ...this.userInfo,
-  //     subscribedTopics: userSubscribedTopics,
-  //   };
-
-  //   this.userApi.updateTekUserInfoCache(this.userInfo);
-  //   this.navigateToActiveCapsulePage(true);
-  // }
-
-  // unfollowTopic(topicCode: string): void {
-  //   jQuery('#browseByTopicModal').modal('hide');
-
-  //   // if (!this.auth.isUserLoggedIn()) {
-  //   //   this.router.navigateByUrl('/auth/signin');
-  //   //   return;
-  //   // }
-
-  //   const userSubscribedTopics = this.userInfo.subscribedTopics
-  //     ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
-  //     : [];
-
-  //   this.userApi.unfollowTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
-  //     this.fetchUserInfo(true);
-  //   });
-
-  //   this.userInfo = {
-  //     ...this.userInfo,
-  //     subscribedTopics: userSubscribedTopics,
-  //   };
-
-  //   this.userApi.updateTekUserInfoCache(this.userInfo);
-  //   this.navigateToActiveCapsulePage(true);
-  // }
-
   searchInputChanged(value: string): void {
     if (value.length > 0) {
       this.filteredBrowseByTopics = this.browseByTopics.filter(item => {
@@ -270,7 +222,11 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       this.userApi.updateTekUserInfoCache(this.userInfo);
 
       // update user subscription to backend
-      // TODO: FIXME
+      this.userApi
+        .followTopic(this.auth.getAwsUserInfo().username, selectedTopics)
+        .subscribe(() => {
+          this.fetchUserInfo(true);
+        });
     }
 
     // navigate to feeds and load data for selected topics.

@@ -44,16 +44,4 @@ export class TopicDetailsComponent implements OnInit, OnDestroy {
     // this.destroy$.next(true);
     // this.destroy$.unsubscribe();
   }
-
-  // isFollowingTopic(): boolean {
-  //   return this.topicApi.isFollowingTopic(this.topic.code);
-  // }
-
-  // followTopic(): void {
-  //   this.topicApi.followTopic(this.topic.code);
-  // }
-
-  // unfollowTopic(): void {
-  //   this.topicApi.unfollowTopic(this.topic.code);
-  // }
 }

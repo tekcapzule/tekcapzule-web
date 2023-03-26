@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
@@ -24,7 +23,6 @@ export class TopicApiService {
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router,
     private auth: AuthService,
     private userApi: UserApiService
   ) {
@@ -108,57 +106,5 @@ export class TopicApiService {
         .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
-  }
-
-  isFollowingTopic(topicCode: string): boolean {
-    if (this.auth.isUserLoggedIn()) {
-      return this?.userInfo?.subscribedTopics
-        ? this.userInfo.subscribedTopics.includes(topicCode)
-        : false;
-    }
-
-    return false;
-  }
-
-  followTopic(topicCode: string): void {
-    if (!this.auth.isUserLoggedIn()) {
-      this.router.navigateByUrl('/auth/signin');
-      return;
-    }
-
-    const userSubscribedTopics = [...(this.userInfo.subscribedTopics || []), topicCode];
-
-    this.userInfo = {
-      ...this.userInfo,
-      subscribedTopics: userSubscribedTopics,
-    };
-
-    this.userApi.updateTekUserInfoCache(this.userInfo);
-
-    this.userApi.followTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
-      this.updateUserInfo(true);
-    });
-  }
-
-  unfollowTopic(topicCode: string): void {
-    if (!this.auth.isUserLoggedIn()) {
-      this.router.navigateByUrl('/auth/signin');
-      return;
-    }
-
-    const userSubscribedTopics = this.userInfo.subscribedTopics
-      ? this.userInfo.subscribedTopics.filter(topic => topic !== topicCode)
-      : [];
-
-    this.userInfo = {
-      ...this.userInfo,
-      subscribedTopics: userSubscribedTopics,
-    };
-
-    this.userApi.updateTekUserInfoCache(this.userInfo);
-
-    this.userApi.unfollowTopic(this.auth.getAwsUserInfo().username, topicCode).subscribe(() => {
-      this.updateUserInfo(true);
-    });
   }
 }

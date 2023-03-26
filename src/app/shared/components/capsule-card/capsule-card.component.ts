@@ -19,6 +19,7 @@ import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
+  isCapsuleRecommended = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
 
@@ -55,14 +56,23 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCardClick(): void {
+    this.capsule.views += 1;
     this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
-    // window.open(this.capsule.resourceUrl, '_blank');
     this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
     this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
   }
 
   onCapsuleRecommend(): void {
+    this.capsule.recommendations += 1;
     this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
+  }
+
+  canShowBookmark(): boolean {
+    if (this.auth.isUserLoggedIn()) {
+      return true;
+    }
+
+    return false;
   }
 
   isBookmarked(): boolean {
@@ -74,37 +84,36 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleBookmark(): void {
-    // if (!this.auth.isUserLoggedIn()) {
-    //   this.router.navigateByUrl('/auth/signin');
-    //   return;
-    // }
+    if (!this.auth.isUserLoggedIn()) {
+      return;
+    }
 
     this.userApi
-      .bookmarCapsule('linjith.kunnon101@gmail.com', this.capsule.capsuleId)
+      .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
       .pipe(
         tap(() => {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
         })
       )
-      .subscribe(() => {});
+      .subscribe();
 
     this.userInfo = {
       ...this.userInfo,
       bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
     };
 
+    this.capsule.bookmarks += 1;
     this.userApi.updateTekUserInfoCache(this.userInfo);
   }
 
   onCapsuleBookmarkRemove(): void {
     if (!this.auth.isUserLoggedIn()) {
-      this.router.navigateByUrl('/auth/signin');
       return;
     }
 
     this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
-      .subscribe(() => {});
+      .subscribe();
 
     this.userInfo = {
       ...this.userInfo,
