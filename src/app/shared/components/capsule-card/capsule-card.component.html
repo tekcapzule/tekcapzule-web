@@ -6,7 +6,7 @@
   >
     <div class="capsule-card card-front">
       <div class="card-head">
-        <div class="icons bookmark">
+        <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img
             src="/assets/images/bookmark-filled.svg"
             class="rounded-img"

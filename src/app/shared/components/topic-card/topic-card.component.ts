@@ -25,27 +25,7 @@ export class TopicCardComponent implements OnInit {
   }
 
   onExploreTopic(): void {
-    const code = this?.topic?.code?.toLowerCase() ?? 'cloud';
+    const code = this?.topic?.code?.toLowerCase() ?? 'tech';
     this.router.navigate(['topics', code, 'details']);
   }
-
-  // gotoTopicDetails(): void {
-  //   this.router.navigate(['topics', 'topicdetails'], {
-  //     state: {
-  //       topic: this.topic,
-  //     },
-  //   });
-  // }
-
-  // isFollowingTopic(): boolean {
-  //   return this.topicApi.isFollowingTopic(this.topic.code);
-  // }
-
-  // followTopic(): void {
-  //   this.topicApi.followTopic(this.topic.code);
-  // }
-
-  // unfollowTopic(): void {
-  //   this.topicApi.unfollowTopic(this.topic.code);
-  // }
 }

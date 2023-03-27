@@ -12,7 +12,7 @@ import { share, tap } from 'rxjs/operators';
 import { cacheManager, Constants } from '@app/shared/utils';
 import { environment } from '@env/environment';
 
-const API_CACHE_EXPIRY_HOURS =
+const API_CACHE_EXPIRY_HOURS: number =
   environment.apiCacheExpiryHours || Constants.DefaultApiCacheExpiryHours;
 
 @Injectable()
