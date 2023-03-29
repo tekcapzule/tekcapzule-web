@@ -51,11 +51,16 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   doFlipCard(): void {
+    if (!this.isCapsuleViewed) {
+      this.capsule.views += 1;
+      this.isCapsuleViewed = true;
+      this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
+    }
     this.isCardFlipped = !this.isCardFlipped;
   }
 
   doStartReading(): void {
-    window.open(this.capsule.resourceUrl, '_blank');
+    this.navigateToCapsuleDetailsPage();
   }
 
   onCardClick(): void {
@@ -64,8 +69,31 @@ export class CapsuleCardComponent implements OnInit {
       this.isCapsuleViewed = true;
       this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
     }
-    this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
-    this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
+    this.navigateToCapsuleDetailsPage();
+  }
+
+  navigateToCapsuleDetailsPage(): void {
+    const resourceUrl = this.isValidUrl(this.capsule.resourceUrl)
+      ? btoa(this.capsule.resourceUrl)
+      : btoa('https://tekcapsule.blog');
+
+    const srcUri = this.router.url.includes('trending')
+      ? 'trending'
+      : this.router.url.includes('editorspick')
+      ? 'editorspick'
+      : 'myfeeds';
+
+    this.router
+      .navigate(['capsules', this.capsule.capsuleId, 'details'], {
+        queryParams: { url: resourceUrl, src: srcUri },
+      })
+      .then(() => {
+        this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
+      });
+  }
+
+  isValidUrl(url: string): boolean {
+    return url.startsWith('https://') || url.startsWith('http://');
   }
 
   onCapsuleRecommend(): void {

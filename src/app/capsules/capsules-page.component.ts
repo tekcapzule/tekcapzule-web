@@ -120,6 +120,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   navigateToCapsulePageByUrl(tabUrl: string, refreshCache?: boolean): void {
+    this.activeTab = tabUrl === 'trending' ? 'trending' : 'editorsPick';
+
     this.router.navigate(['capsules', tabUrl]).then(() => {
       this.eventChannel.publish({
         event: ChannelEvent.LoadDataForActiveCapsuleTab,
