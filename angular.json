@@ -134,6 +134,5 @@
     "@schematics/angular:component": {
       "styleext": "scss"
     }
-  },
-  "defaultProject": "tekcapsule-web"
+  }
 }

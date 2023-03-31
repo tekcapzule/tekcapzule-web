@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
@@ -18,7 +18,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   tabIndex = 0;
   tabDetails: string[] = Create_TekByte.tabDetails;
   topics: TopicItem[] = [];
-  tekByteFormGroup: FormGroup;
+  tekByteFormGroup: UntypedFormGroup;
   categories: TopicCategoryItem[] = [];
   tekbyte: TekByteItem;
 
@@ -28,7 +28,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     private tekByteAPI: TekByteApiService,
     private spinner: AppSpinnerService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -103,7 +103,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     return keyConcepts;
   }
 
-  getTitleAndDescFormGroup(): FormGroup {
+  getTitleAndDescFormGroup(): UntypedFormGroup {
     return this.fb.group({
       title: [''],
       description: [''],
@@ -111,27 +111,27 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   }
 
   onAddTitleAndDesc(fieldName) {
-    const field = this.tekByteFormGroup.get(fieldName) as FormArray;
+    const field = this.tekByteFormGroup.get(fieldName) as UntypedFormArray;
     field.push(this.getTitleAndDescFormGroup());
   }
 
   get goldenCircle() {
-    return this.tekByteFormGroup.get('goldenCircle') as FormGroup;
+    return this.tekByteFormGroup.get('goldenCircle') as UntypedFormGroup;
   }
   get keyConcepts() {
-    return this.tekByteFormGroup.get('keyConcepts') as FormArray;
+    return this.tekByteFormGroup.get('keyConcepts') as UntypedFormArray;
   }
   get applications() {
-    return this.tekByteFormGroup.get('applications') as FormArray;
+    return this.tekByteFormGroup.get('applications') as UntypedFormArray;
   }
   get currentTrends() {
-    return this.tekByteFormGroup.get('currentTrends') as FormArray;
+    return this.tekByteFormGroup.get('currentTrends') as UntypedFormArray;
   }
   get challenges() {
-    return this.tekByteFormGroup.get('challenges') as FormArray;
+    return this.tekByteFormGroup.get('challenges') as UntypedFormArray;
   }
   get timeline() {
-    return this.tekByteFormGroup.get('timeline') as FormArray;
+    return this.tekByteFormGroup.get('timeline') as UntypedFormArray;
   }
 
   addStoryFormArray() {
@@ -145,7 +145,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   }
 
   onDeleteArrayItem(index: number, fieldName) {
-    const field = this.tekByteFormGroup.get(fieldName) as FormArray;
+    const field = this.tekByteFormGroup.get(fieldName) as UntypedFormArray;
     field.removeAt(index);
   }
 

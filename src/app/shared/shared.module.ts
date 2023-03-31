@@ -13,7 +13,7 @@ import { DataTableComponent } from './components/data-table/data-table.component
 import { CapsuleCardComponent } from './components/capsule-card/capsule-card.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { IvyCarouselModule } from 'carousel-angular';
 
 @NgModule({
   declarations: [

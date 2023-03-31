@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CapsuleApiService, ChannelEvent, EventChannelService, AppSpinnerService, TopicApiService } from '@app/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { CapsuleItem, TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
@@ -13,7 +13,7 @@ import { MetadataItem } from '@app/shared/models/capsule-item.model';
 })
 export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
 
-  capsuleFormGroup: FormGroup;
+  capsuleFormGroup: UntypedFormGroup;
   isCreateCapsuleSubmitted: boolean;
   isEditMode: boolean;
   editCapsule: CapsuleItem;
@@ -28,7 +28,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     private eventChannel: EventChannelService,
     private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private topicApi: TopicApiService
   ) { }
