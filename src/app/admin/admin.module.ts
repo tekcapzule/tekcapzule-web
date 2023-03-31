@@ -17,7 +17,6 @@ import { AdminFeedbackComponent } from './components/admin-feedback/admin-feedba
 import { AdminCreateCapsuleComponent } from './components/admin-create-capsule/admin-create-capsule.component';
 import { AdminCreateTekByteComponent } from './components/admin-create-tekbyte/admin-create-tekbyte.component';
 import { AdminCreateQuestionsComponent } from './components/admin-create-questions/admin-create-questions.component';
-import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { TagInputModule } from 'ngx-chips';
     MatButtonModule,
     MatTabsModule,
     SharedModule,
-    AdminRoutingModule,
-    TagInputModule
+    AdminRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
