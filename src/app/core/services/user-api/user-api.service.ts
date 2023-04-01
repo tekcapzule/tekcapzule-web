@@ -76,10 +76,12 @@ export class UserApiService {
   updateTekUserInfoCache(userInfo: TekUserInfo): void {
     const currentCache = cacheManager.getItem(USER_INFO_CACHE_KEY);
 
-    cacheManager.setItem(USER_INFO_CACHE_KEY, {
-      body: userInfo,
-      expiry: currentCache.expiry,
-    });
+    if(currentCache) {
+      cacheManager.setItem(USER_INFO_CACHE_KEY, {
+        body: userInfo,
+        expiry: currentCache.expiry,
+      });
+    }
   }
 
   isTekUserInfoCacheExists(): boolean {

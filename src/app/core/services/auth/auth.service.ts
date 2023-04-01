@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { AmplifyService } from 'aws-amplify-angular';
+
+import { Amplify, Auth, I18n } from 'aws-amplify';
 import { Hub } from 'aws-amplify';
 import { catchError } from 'rxjs/operators';
 
 import { Constants } from '@app/shared/utils';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
 import { TekUserInfoImpl } from '@app/shared/models';
+import { AuthenticatorService } from '@aws-amplify/ui-angular';
+import { Router } from '@angular/router';
 
 const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
 
@@ -47,7 +50,8 @@ export class AuthService {
   private loggedInStatusChange$ = new BehaviorSubject<boolean>(this.isLoggedIn);
   private signInErrorChange$ = new BehaviorSubject<string>('');
 
-  constructor(private amplify: AmplifyService, private userApi: UserApiService) {
+  constructor(private amplify: AuthenticatorService, private userApi: UserApiService,
+    private router:Router) {
     this.authenticateUser();
 
     Hub.listen('auth', data => {
@@ -59,8 +63,10 @@ export class AuthService {
   private authEventChanged(authEvent: string, authData: any): void {
     if (authEvent === 'signIn') {
       this.authenticateUser();
+      this.router.navigate(['/home']);
     } else if (authEvent === 'signOut') {
       this.invalidateUser();
+      this.router.navigate(['/sing-in']);
     } else if (authEvent === 'signIn_failure') {
       this.handleSignInFailure(authData);
     }
@@ -99,17 +105,16 @@ export class AuthService {
   }
 
   private authenticateUser(): void {
-    this.amplify
-      .auth()
-      .currentAuthenticatedUser()
-      .then((user: AwsUserInfo) => {
+    Auth.currentAuthenticatedUser()
+      .then((user: any) => {
         this.awsUserInfo = user;
         this.isLoggedIn = true;
         this.loggedInStatusChange$.next(this.isLoggedIn);
         this.signInErrorChange$.next('');
         this.createUserIfDoesNotExist(user);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log('error --- ', error);
         this.invalidateUser();
       });
   }
@@ -137,7 +142,7 @@ export class AuthService {
   }
 
   public signOutUser(): void {
-    this.amplify.auth().signOut();
+    Auth.signOut();
   }
 
   public isAdminUser(): boolean {

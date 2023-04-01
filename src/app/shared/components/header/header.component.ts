@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyMenuTrigger as MatMenuTrigger } from '@angular/material/legacy-menu';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 
 import { TopicApiService, AuthService, AwsUserInfo } from '@app/core';
@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
     this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.zone.run(() => {
         this.isLoggedIn = isLoggedIn;
+        console.log('this.isLoggedIn --------- ',this.isLoggedIn);
         this.userDetails = this.auth.getAwsUserInfo();
         // this.router.navigateByUrl('/home'); // TODO: FIXME
       });
