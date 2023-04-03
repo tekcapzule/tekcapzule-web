@@ -29,7 +29,7 @@ export class CapsuleDetailsComponent implements OnInit {
   }
 
   onIFrameClose(): void {
-    const queryParamSrc = this.route.snapshot.queryParamMap.get('src') || 'myfeeds';
-    this.router.navigate(['capsules', queryParamSrc]);
+    const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
+    this.router.navigate(['capsules', queryParamTab]);
   }
 }

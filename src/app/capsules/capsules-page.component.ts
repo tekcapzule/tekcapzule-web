@@ -85,7 +85,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         this.deActivateTabs();
       });
 
-    this.topicApi.getAllTopics().subscribe(topics => {
+    this.topicApi.getAllTopics(true).subscribe(topics => {
       this.setBrowseByTopics(topics);
     });
   }
@@ -234,5 +234,20 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     // navigate to feeds and load data for selected topics.
     this.hideBroweByTopicModal();
     this.navigateToActiveFeedsPage(selectedTopics, true);
+  }
+
+  navigateToContributePage(): void {
+    const tabUri = this.router.url.includes('trending')
+      ? 'trending'
+      : this.router.url.includes('editorspick')
+      ? 'editorspick'
+      : 'myfeeds';
+
+    this.deActivateTabs();
+    this.router.navigate(['capsules', 'contribute'], {
+      queryParams: {
+        tab: tabUri,
+      },
+    });
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { SharedModule } from '@app/shared';
@@ -23,6 +23,13 @@ import { CapsuleDetailsComponent } from './components/capsule-details/capsule-de
     ContributeCapsuleComponent,
     CapsuleDetailsComponent,
   ],
-  imports: [CommonModule, FormsModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    SharedModule,
+    CapsulesRoutingModule,
+  ],
 })
 export class CapsulesModule {}
