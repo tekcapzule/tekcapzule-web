@@ -1,0 +1,12 @@
+<amplify-authenticator
+  [hideSignIn]="true"
+  initialState="signUp"
+  [formFields]="formFields"
+>
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+  </ng-template>
+</amplify-authenticator>

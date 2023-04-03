@@ -15,11 +15,12 @@ export class AdminPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   isNavTabsHidden = false;
   activeTab = 'adminCapsules';
+  activeLinkIndex = 0;
 
   navTabs: NavTab[] = [
-    { uniqueId: 'adminCapsules', navUrl: 'capsules', displayName: 'Capsules' },
-    { uniqueId: 'adminTekByte', navUrl: 'tekByte', displayName: 'TekByte' },
-    { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback' },
+    { uniqueId: 'adminCapsules', navUrl: 'capsules', displayName: 'Capsules', index: 0 },
+    { uniqueId: 'adminTekByte', navUrl: 'tekByte', displayName: 'TekByte', index: 1 },
+    { uniqueId: 'adminFeedback', navUrl: 'feedback', displayName: 'Feedback', index: 2 },
   ];
 
   constructor(private eventChannel: EventChannelService,

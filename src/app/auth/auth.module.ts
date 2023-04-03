@@ -5,9 +5,10 @@ import { AmplifyAuthenticatorModule, AuthenticatorService } from '@aws-amplify/u
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthPageComponent } from './auth-page.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
-  declarations: [AuthPageComponent, SigninComponent],
+  declarations: [AuthPageComponent, SigninComponent, SignupComponent],
   imports: [CommonModule, AmplifyAuthenticatorModule, AuthRoutingModule],
   providers: [AuthenticatorService],
   schemas: [NO_ERRORS_SCHEMA],

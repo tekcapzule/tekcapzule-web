@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { Amplify, Auth, I18n } from 'aws-amplify';
 import { Hub } from 'aws-amplify';
-import { catchError } from 'rxjs/operators';
 
 import { Constants } from '@app/shared/utils';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
@@ -52,21 +51,20 @@ export class AuthService {
 
   constructor(private amplify: AuthenticatorService, private userApi: UserApiService,
     private router:Router) {
-    this.authenticateUser();
-
-    Hub.listen('auth', data => {
-      const { payload } = data;
-      this.authEventChanged(payload.event, payload.data);
-    });
+      this.authenticateUser();
+      Hub.listen('auth', data => {
+        const { payload } = data;
+        this.authEventChanged(payload.event, payload.data);
+      });
   }
 
   private authEventChanged(authEvent: string, authData: any): void {
+    console.log("authEventChanged --->> ", authEvent, authData);
     if (authEvent === 'signIn') {
       this.authenticateUser();
       this.router.navigate(['/home']);
     } else if (authEvent === 'signOut') {
       this.invalidateUser();
-      this.router.navigate(['/sing-in']);
     } else if (authEvent === 'signIn_failure') {
       this.handleSignInFailure(authData);
     }
@@ -112,6 +110,9 @@ export class AuthService {
         this.loggedInStatusChange$.next(this.isLoggedIn);
         this.signInErrorChange$.next('');
         this.createUserIfDoesNotExist(user);
+        if(this.router.url.includes('auth')) {
+          this.router.navigate(['/home']);
+        }
       })
       .catch((error) => {
         console.log('error --- ', error);
@@ -142,10 +143,21 @@ export class AuthService {
   }
 
   public signOutUser(): void {
-    Auth.signOut();
+    Auth.signOut().then(data=> {
+      this.routeToSingIn();
+    }).catch(error => {
+      console.log('signOutUser error ------', error);
+      this.routeToSingIn();
+    });
   }
 
   public isAdminUser(): boolean {
     return this.getUserGroups().includes(Constants.AdminUserGroup);
+  }
+
+  private routeToSingIn() {
+    if(!this.router.url.includes('auth')) {
+      this.router.navigate(['auth/signin']);
+    }
   }
 }

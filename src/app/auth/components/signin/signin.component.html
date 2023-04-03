@@ -1,8 +1,13 @@
 <div class="signin">
   <div *ngIf="errorMessage" class="error-msg text-danger">{{ errorMessage }}</div>
-  <amplify-authenticator>
-    <!--div class="signout">
-      <amplify-sign-out></amplify-sign-out>
-    </div-->
-  </amplify-authenticator>
+  
+  <amplify-authenticator [hideSignUp]="true">
+    <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+  
+</ng-template>
+</amplify-authenticator>
 </div>

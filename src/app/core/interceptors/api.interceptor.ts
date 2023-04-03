@@ -12,6 +12,7 @@ export class ApiInterceptor implements HttpInterceptor {
     const userInfo = this.auth.isUserLoggedIn() ? this.auth.getAwsUserInfo() : null;
     const loggedInUserName = userInfo ? userInfo.username : 'linjith.kunnon@gmail.com';
     const authToken = userInfo ? userInfo?.signInUserSession?.accessToken?.jwtToken : null;
+    //console.log(' --------------   ', loggedInUserName, authToken);
 
     request = request.clone({
       headers: request.headers

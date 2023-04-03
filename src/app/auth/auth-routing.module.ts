@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthPageComponent } from './auth-page.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -14,15 +15,10 @@ const routes: Routes = [
         component: SigninComponent,
       },
       {
-        path: '',
-        redirectTo: 'signin',
-        pathMatch: 'full',
-      },
-      {
-        path: '**',
-        redirectTo: 'signin',
-      },
-    ],
+        path: 'signup',
+        component: SignupComponent,
+      }
+    ]
   },
 ];
 
