@@ -36,13 +36,13 @@
         </button>
       </div>
     </div>
-    <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-5">
-      <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
-        <ng-container *ngFor="let topic of topics">
-          <app-topic-card [topic]="topic" class="item mr-4"></app-topic-card>
-        </ng-container>
-      </div>
-    </div>
+
+    <p-carousel [value]="topics" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+      <ng-template let-topic pTemplate="item">
+        <app-topic-card [topic]="topic" class="item mr-4"></app-topic-card>
+      </ng-template>
+    </p-carousel>
+    
   </section>
   <!-- End xplore Topics Section-->
   <!-- ======= Intro Section ======= -->
@@ -59,13 +59,13 @@
     </div>
   </section>
   <section>
-    <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
-      <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
-        <ng-container *ngFor="let capsule of capsules">
-          <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
-        </ng-container>
-      </div>
-    </div>
+       
+        <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+          <ng-template let-capsule pTemplate="item">
+            <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
+          </ng-template>
+        </p-carousel>
+    
   </section>
   <!-- End Intro Section-->
 

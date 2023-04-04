@@ -18,13 +18,29 @@ declare const jQuery: any;
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit, AfterViewInit {
+export class HomePageComponent implements OnInit {
   capsules: CapsuleItem[] = [];
   topics: TopicItem[] = [];
   subscriberEmailId = '';
 
   @ViewChild('subscribe') subscribeSection: ElementRef;
-
+  responsiveOptions: any[] = [
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '991px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1
+    }
+  ];
   constructor(
     private router: Router,
     private capsuleApi: CapsuleApiService,
@@ -41,52 +57,16 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
     this.capsuleApi.getEditorsPickCapsules().subscribe(capsules => {
       this.capsules = shuffleArray(capsules, 10);
-      setTimeout(() => {
-        this.initOwlCarousel();
-      }, 0);
     });
 
     this.topicApi.getAllTopics().subscribe(topics => {
-      this.topics = shuffleArray(topics, 5);
-      setTimeout(() => {
-        this.initOwlCarousel();
-      }, 0);
+      this.topics = shuffleArray(topics, 5);      
     });
 
     this.capsuleApi.getTrendingCapsules().subscribe();
   }
 
-  ngAfterViewInit(): void {
-    this.initOwlCarousel();
-  }
 
-  initOwlCarousel(): void {
-    jQuery('.homepage_owl_carousel').owlCarousel({
-      loop: true,
-      margin: 10,
-      responsiveClass: true,
-      responsive: {
-        0: {
-          items: 1,
-          nav: true,
-        },
-        768: {
-          items: 2,
-          nav: true,
-        },
-        1000: {
-          items: 2,
-          nav: true,
-          loop: false,
-        },
-        1366: {
-          items: 3,
-          nav: true,
-          loop: false,
-        },
-      },
-    });
-  }
 
   onSubscribe(): void {
     this.subscriptionApi.subscribe(this.subscriberEmailId).subscribe();

@@ -38,6 +38,8 @@
     "@aws-amplify/ui-angular": "^3.2.12",
     "aws-amplify": "^5.0.23",
     "moment": "2.29.4",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.3.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

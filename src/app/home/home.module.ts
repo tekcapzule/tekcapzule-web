@@ -7,10 +7,11 @@ import { SharedModule } from '@app/shared';
 import { HomePageComponent } from './home-page.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [HomePageComponent, HomeCarouselComponent],
-  imports: [CommonModule, HttpClientModule, FormsModule, SharedModule, HomeRoutingModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, SharedModule, CarouselModule, HomeRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class HomeModule {}
