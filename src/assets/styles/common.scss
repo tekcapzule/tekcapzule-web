@@ -338,17 +338,17 @@ h4 {
   a {
     // position: relative;
     top: -25px;
-    color: $primary-color!important;
-    &:nth-child(2){
+    color: $primary-color !important;
+    &:nth-child(2) {
       padding-left: 25px;
     }
     &:after {
-      content: "";
+      content: '';
       background: url('../images/hamburger-arrow.svg') center right no-repeat;
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 6px;
+      margin-top: 3px;
     }
   }
   span {
@@ -726,9 +726,9 @@ label {
   font-size: 18px;
 }
 
-
 /***********iframe container styles****************/
-iframe .navbar-container, .cs-container {
+iframe .navbar-container,
+.cs-container {
   max-width: 1366px;
   padding-left: 0;
 }

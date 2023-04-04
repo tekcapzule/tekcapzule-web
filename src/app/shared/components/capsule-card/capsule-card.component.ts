@@ -19,9 +19,12 @@ import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
-  isCapsuleRecommended = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
+
+  isCapsuleViewed = false;
+  isCapsuleBookmarked = false;
+  isCapsuleRecommended = false;
 
   @Input() capsule: CapsuleItem;
 
@@ -48,23 +51,57 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   doFlipCard(): void {
+    if (!this.isCapsuleViewed) {
+      this.capsule.views += 1;
+      this.isCapsuleViewed = true;
+      this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
+    }
     this.isCardFlipped = !this.isCardFlipped;
   }
 
   doStartReading(): void {
-    window.open(this.capsule.resourceUrl, '_blank');
+    this.navigateToCapsuleDetailsPage();
   }
 
   onCardClick(): void {
-    this.capsule.views += 1;
-    this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
-    this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
-    this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
+    if (!this.isCapsuleViewed) {
+      this.capsule.views += 1;
+      this.isCapsuleViewed = true;
+      this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
+    }
+    this.navigateToCapsuleDetailsPage();
+  }
+
+  navigateToCapsuleDetailsPage(): void {
+    const resourceUrl = this.isValidUrl(this.capsule.resourceUrl)
+      ? btoa(this.capsule.resourceUrl)
+      : btoa('https://tekcapsule.blog');
+
+    const tabUri = this.router.url.includes('trending')
+      ? 'trending'
+      : this.router.url.includes('editorspick')
+      ? 'editorspick'
+      : 'myfeeds';
+
+    this.router
+      .navigate(['capsules', this.capsule.capsuleId, 'details'], {
+        queryParams: { url: resourceUrl, tab: tabUri },
+      })
+      .then(() => {
+        this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
+      });
+  }
+
+  isValidUrl(url: string): boolean {
+    return url.startsWith('https://') || url.startsWith('http://');
   }
 
   onCapsuleRecommend(): void {
-    this.capsule.recommendations += 1;
-    this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
+    if (!this.isCapsuleRecommended) {
+      this.capsule.recommendations += 1;
+      this.isCapsuleRecommended = true;
+      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
+    }
   }
 
   canShowBookmark(): boolean {
@@ -102,8 +139,12 @@ export class CapsuleCardComponent implements OnInit {
       bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
     };
 
-    this.capsule.bookmarks += 1;
     this.userApi.updateTekUserInfoCache(this.userInfo);
+
+    if (!this.isCapsuleBookmarked) {
+      this.capsule.bookmarks += 1;
+      this.isCapsuleBookmarked = true;
+    }
   }
 
   onCapsuleBookmarkRemove(): void {

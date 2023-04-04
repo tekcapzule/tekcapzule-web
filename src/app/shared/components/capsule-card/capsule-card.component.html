@@ -80,7 +80,12 @@
             <span>{{ capsule.bookmarks }}</span>
           </label>
           <label>
-            <img src="/assets/images/okhand-icon.svg" (click)="onCapsuleRecommend()" />
+            <img
+              *ngIf="!isCapsuleRecommended"
+              src="/assets/images/okhand-icon.svg"
+              (click)="onCapsuleRecommend()"
+            />
+            <img *ngIf="isCapsuleRecommended" src="/assets/images/okhand-icon-active.svg" />
             <span>{{ capsule.recommendations }}</span>
           </label>
           <div class="tags-input">

@@ -1,14 +1,12 @@
 <section class="container-fluid bg-white">
-    <div class="container pt-5">
-        <div class="back-link pt-0">
-            <a>
-                My Feeds
-            </a><span>Capsule</span>
-            <button type="button" class="close">
-                <img src="/assets/images/close-icon.svg" />
-            </button>
-        </div>
-        <div>
+  <div class="container pt-1">
+    <div class="back-link pt-0 mt-1">
+      <!-- <a>My Feeds</a><span>Capsule</span> -->
+      <button type="button" class="close" (click)="onIFrameClose()">
+        <img src="/assets/images/close-icon.svg" />
+      </button>
+    </div>
+    <!-- <div>
             <div class="topic-details">
                 <div class="title"> The Rise of Artificial Intelligence <p> by
                         Linjith Kunnon
@@ -22,12 +20,23 @@
                 decision-making. With the exponential growth of data and computing power, AI has become more powerful
                 and more prevalent in a wide range of industries, from healthcare to finance, transportation to
                 entertainment.</p>
-        </div>
-    </div>
-    <div>
-        <iframe id="theFrame"
-            src="https://tekcapsule.blog/the-rise-of-artificial-intelligence-exploring-the-benefits-challenges-and-future-implications/"
-            style="width:100%; height:500px" frameborder="0">
-        </iframe>
-    </div>
+        </div> -->
+  </div>
+  <!-- <div>
+    <iframe
+      id="theFrame"
+      src="https://tekcapsule.blog/the-rise-of-artificial-intelligence-exploring-the-benefits-challenges-and-future-implications/"
+      style="width: 100%; height: 500px"
+      frameborder="0"
+    >
+    </iframe>
+  </div> -->
+  <div>
+    <iframe
+      id="theFrame"
+      [src]="resourceUrl"
+      style="width: 100%; height: 700px"
+      frameborder="0"
+    ></iframe>
+  </div>
 </section>

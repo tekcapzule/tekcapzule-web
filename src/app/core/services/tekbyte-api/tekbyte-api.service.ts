@@ -67,15 +67,15 @@ export class TekByteApiService {
       }
     );
   }
-  
+
   getTekByte(code: string): Observable<TekByteItem> {
     return this.httpClient.post<TekByteItem>(`${TEKBYTE_API_PATH}/get`, code, {
       params: {
-        cache: 'no'
+        cache: 'no',
       },
     });
   }
-  
+
   disableTekByte(code: string): Observable<any> {
     const allTekByteCache = cacheManager.getItem(TEKBYTE_ALLTEKBYTE_CACHE_KEY);
 
@@ -87,7 +87,7 @@ export class TekByteApiService {
         expiry: allTekByteCache.expiry,
       });
     }
+
     return this.httpClient.post(`${TEKBYTE_API_PATH}/disable`, { capsuleId: code });
   }
-
 }
