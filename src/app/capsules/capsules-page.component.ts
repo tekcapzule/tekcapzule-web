@@ -53,6 +53,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchUserInfo();
+    this.getAllTopics(false);
 
     this.eventChannel
       .getChannel()
@@ -84,15 +85,17 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.deActivateTabs();
       });
-
-    this.topicApi.getAllTopics(true).subscribe(topics => {
-      this.setBrowseByTopics(topics);
-    });
   }
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  getAllTopics(refresh?: boolean): void {
+    this.topicApi.getAllTopics(refresh).subscribe(topics => {
+      this.setBrowseByTopics(topics);
+    });
   }
 
   hideBroweByTopicModal(): void {

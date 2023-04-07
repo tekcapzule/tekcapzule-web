@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, CapsuleApiService, TopicApiService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
+import { MetadataItem } from '@app/shared/models/capsule-item.model';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -14,6 +15,7 @@ import { finalize } from 'rxjs/operators';
 export class ContributeCapsuleComponent implements OnInit {
   contributeFormGroup: FormGroup;
   allTopics: TopicItem[] = [];
+  capsuleTypes: string[] = [];
 
   constructor(
     private router: Router,
@@ -25,9 +27,22 @@ export class ContributeCapsuleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getAllTopics(false);
+    this.getCapsuleTypes(false);
     this.createContriubuteformGroup();
-    this.topicApi.getAllTopics().subscribe(topics => {
+  }
+
+  getAllTopics(refresh?: boolean): void {
+    this.topicApi.getAllTopics(refresh).subscribe(topics => {
       this.allTopics = topics;
+    });
+  }
+
+  getCapsuleTypes(refresh?: boolean) {
+    this.capsuleApi.getMetadata(refresh).subscribe(data => {
+      if (data && data.capsuleType) {
+        this.capsuleTypes = data.capsuleType;
+      }
     });
   }
 
@@ -37,6 +52,8 @@ export class ContributeCapsuleComponent implements OnInit {
       resourceUrl: ['', Validators.required],
       topicCode: ['', Validators.required],
       category: ['', Validators.required],
+      type: ['', Validators.required],
+      author: ['', Validators.required],
       description: [''],
     });
   }
@@ -74,7 +91,9 @@ export class ContributeCapsuleComponent implements OnInit {
           title: formValue.title,
           resourceUrl: formValue.resourceUrl,
           topicCode: formValue.topicCode,
-          // category: formValue.category,
+          category: formValue.category,
+          type: formValue.type,
+          author: formValue.author,
           description: formValue.description,
         })
         .pipe(
