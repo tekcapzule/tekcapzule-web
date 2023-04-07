@@ -5,6 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { CapsuleItem, TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
+import { MatChipInputEvent } from '@angular/material/chips';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+
 
 @Component({
   selector: 'app-admin-create-capsule',
@@ -22,7 +25,9 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   topics: TopicItem[] = [];
   categories: TopicCategoryItem[] = [];
   expiryCode = [{value: 7, name: 'ONEWEEK'}, {value: 30, name: 'ONEMONTH'},
-  {value: 180, name: 'SIXMONTHS'}, {value: 3650, name: 'NOEXPIRY'}]
+  {value: 180, name: 'SIXMONTHS'}, {value: 3650, name: 'NOEXPIRY'}];
+  tagsValue: string[] = [];
+  separatorKeysCodes: number[] = [ENTER, COMMA];
   
   constructor(
     private eventChannel: EventChannelService,
@@ -104,6 +109,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
       const selectedDays = this.expiryCode.find(ex=> ex.name === requestBody.expiryDateDisp);
       requestBody.expiryDate = moment().add(selectedDays.value, 'days').format("DD/MM/YYYY");
       requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
+      requestBody.tags = this.tagsValue.toString();
       this.isCreateCapsuleSubmitted = false;
       if(this.editCapsule) {
         this.updateCapsule(requestBody);
@@ -152,7 +158,6 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     if(topicCode) {
       const topic = this.topics.find(topic => topic.code === topicCode);
       this.categories = topic.categories;
-      console.log(' ----------', topic);
       this.capsuleFormGroup.patchValue({
         description: topic.description,
         imageUrl: topic.imageUrl,
@@ -160,5 +165,29 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
       })
     }
   }
+
+  
+  get tags() {
+    return this.capsuleFormGroup.get('tags');
+  }
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    if (value) {
+      this.tagsValue.push(value);
+    }
+
+    event.chipInput!.clear();
+  }
+
+  remove(tag: string): void {
+    const index = this.tagsValue.indexOf(tag);
+
+    if (index >= 0) {
+      this.tagsValue.splice(index, 1);
+    }    
+  }
+
 
 }

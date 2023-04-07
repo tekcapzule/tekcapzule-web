@@ -7,6 +7,8 @@ import { TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import * as moment from 'moment';
 import { Create_TekByte } from './create-tekbyte.constants';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-admin-create-tekbyte',
@@ -21,6 +23,8 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   tekByteFormGroup: FormGroup;
   categories: TopicCategoryItem[] = [];
   tekbyte: TekByteItem;
+  tagsValue: string[] = [];
+  separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
     private eventChannel: EventChannelService,
@@ -207,4 +211,32 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
+  
+  get tags() {
+    return this.tekByteFormGroup.get('aliases');
+  }
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.tagsValue.push(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+
+  }
+
+  remove(tag: string): void {
+    const index = this.tagsValue.indexOf(tag);
+
+    if (index >= 0) {
+      this.tagsValue.splice(index, 1);
+    }
+    
+  }
+
 }
