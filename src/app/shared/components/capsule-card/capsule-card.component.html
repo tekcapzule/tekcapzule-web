@@ -22,9 +22,15 @@
         </div>
         <div class="icons okHand">
           <img
-            src="/assets/images/okhand-icon.svg"
+            *ngIf="!isCapsuleRecommended"
             class="rounded-img"
+            src="/assets/images/okhand-icon.svg"
             (click)="onCapsuleRecommend()"
+          />
+          <img
+            *ngIf="isCapsuleRecommended"
+            class="rounded-img"
+            src="/assets/images/okhand-icon-active.svg"
           />
         </div>
         <div class="icons timer">
@@ -53,7 +59,7 @@
           <img src="/assets/images/article-icon.svg" class="float-left" />
           <div class="float-right">
             <img src="/assets/images/flip-icon.svg" class="mr-4" (click)="doFlipCard()" />
-            <img src="/assets/images/share-icon.png" />
+            <img src="/assets/images/share-icon.png" (click)="onCardClick()" />
           </div>
         </div>
       </div>
@@ -80,12 +86,7 @@
             <span>{{ capsule.bookmarks }}</span>
           </label>
           <label>
-            <img
-              *ngIf="!isCapsuleRecommended"
-              src="/assets/images/okhand-icon.svg"
-              (click)="onCapsuleRecommend()"
-            />
-            <img *ngIf="isCapsuleRecommended" src="/assets/images/okhand-icon-active.svg" />
+            <img src="/assets/images/okhand-icon.svg" />
             <span>{{ capsule.recommendations }}</span>
           </label>
           <div class="tags-input">

@@ -85,7 +85,7 @@ export class CapsuleCardComponent implements OnInit {
 
     this.router
       .navigate(['capsules', this.capsule.capsuleId, 'details'], {
-        queryParams: { url: resourceUrl, tab: tabUri },
+        queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
       })
       .then(() => {
         this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
