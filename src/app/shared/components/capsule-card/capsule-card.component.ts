@@ -9,6 +9,7 @@ import {
   AwsUserInfo,
   EventChannelService,
   ChannelEvent,
+  AppSpinnerService,
 } from '@app/core';
 import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 
@@ -33,7 +34,8 @@ export class CapsuleCardComponent implements OnInit {
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private auth: AuthService,
-    private eventChannel: EventChannelService
+    private eventChannel: EventChannelService,
+    private spinner: AppSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -73,6 +75,7 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   navigateToCapsuleDetailsPage(): void {
+    this.spinner.show();
     const resourceUrl = this.isValidUrl(this.capsule.resourceUrl)
       ? btoa(this.capsule.resourceUrl)
       : btoa('https://tekcapsule.blog');

@@ -8,6 +8,7 @@ import {
   UserApiService,
   AuthService,
   TopicApiService,
+  AppSpinnerService,
 } from '@app/core';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { shuffleArray } from '@app/shared/utils';
@@ -51,7 +52,8 @@ export class HomePageComponent implements OnInit {
     private subscriptionApi: SubscriptionApiService,
     private topicApi: TopicApiService,
     private fb: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private spinner: AppSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -78,11 +80,14 @@ export class HomePageComponent implements OnInit {
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
     if(this.subscriberFormGroup.valid) {
+      this.spinner.show();
       this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(data => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Subscribed successfully' });
         this.subscriberFormGroup.reset();
+        this.spinner.hide();
       }, error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
+        this.spinner.hide();
       });
     } else {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Enter valid email' });
