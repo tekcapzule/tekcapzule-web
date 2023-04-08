@@ -10,6 +10,7 @@ import { AuthModule } from '@app/auth';
 import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
 import { AuthGuard } from './core/services/auth-guard/auth-guard';
 import { HelperService } from './core/services/common/helper.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { HelperService } from './core/services/common/helper.service';
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     AuthGuard,
+    MessageService,
     HelperService
   ],
   bootstrap: [AppComponent],

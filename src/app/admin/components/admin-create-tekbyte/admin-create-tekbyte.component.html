@@ -1,4 +1,6 @@
 <div class="create-topic-page-Admin">
+  <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
   <div class="container pt-5">
     <div class="back-link pt-0">
       <a [routerLink]="['../capsules']"> Admin </a>
@@ -200,7 +202,7 @@
                   </button>
                 </mat-chip-row>
               </mat-chip-grid>
-              <input placeholder="New tag..." #tagInput [formControl]="tags"
+              <input placeholder="Enter tag" #tagInput [formControl]="tags"
                 [matChipInputFor]="chipGrid"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 (matChipInputTokenEnd)="add($event)"/>

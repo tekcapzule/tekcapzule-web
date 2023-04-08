@@ -5,6 +5,8 @@
   ></app-home-carousel>
   <!-- ======= Explore Topics Section ======= -->
 
+  <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
   <section id="exploretopics" class="explore-topics-section">
     <div class="container">
       <h2 class="text-center pt-5">Start Exploring our topics</h2>
@@ -96,19 +98,34 @@
       <div class="section-title pb-0">
         <h2>Get inspired by our vibrant tech community!</h2>
         <p class="content-sub-text pb-4">We will never spam you. That is our promise!</p>
+        <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
         <div
           class="d-flex align-items-center justify-content-center subscibeSection-row position-relative"
+          [ngClass]="{
+            'error-text':
+            subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
+          }"
         >
           <input
-            [(ngModel)]="subscriberEmailId"
             type="email"
-            name="email"
+            name="email id"
+            formControlName="emailId"
             class="input-mail mb-0"
             placeholder="Enter Your Email ID"
-          /><button mat-raised-button class="button tertiary" (click)="onSubscribe()">
+          />
+          <button mat-raised-button class="button tertiary" (click)="onSubscribe()">
             Subscribe
           </button>
         </div>
+        <span
+            class="error-msg"
+            *ngIf="
+            subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
+            "
+            >Enter valid email.</span
+          >
+        </div>
+          
         <div class="follow-us">
           <span class="content-sub-text">Join us on</span>
           <a href="https://twitter.com/tekcapsule" target="__blank"

@@ -18,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatChipsModule,
     SharedModule,
     AdminRoutingModule
+  ],
+  providers: [
+    MessageService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

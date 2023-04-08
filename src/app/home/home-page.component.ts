@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {
@@ -10,6 +11,7 @@ import {
 } from '@app/core';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { shuffleArray } from '@app/shared/utils';
+import { MessageService } from 'primeng/api';
 
 declare const jQuery: any;
 
@@ -21,8 +23,8 @@ declare const jQuery: any;
 export class HomePageComponent implements OnInit {
   capsules: CapsuleItem[] = [];
   topics: TopicItem[] = [];
-  subscriberEmailId = '';
-
+  subscriberFormGroup: FormGroup;
+  
   @ViewChild('subscribe') subscribeSection: ElementRef;
   responsiveOptions: any[] = [
     {
@@ -47,10 +49,15 @@ export class HomePageComponent implements OnInit {
     private userApi: UserApiService,
     private auth: AuthService,
     private subscriptionApi: SubscriptionApiService,
-    private topicApi: TopicApiService
+    private topicApi: TopicApiService,
+    private fb: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
+    this.subscriberFormGroup = this.fb.group({
+      emailId: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
+    })
     if (this.auth.isUserLoggedIn()) {
       this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().username).subscribe();
     }
@@ -69,8 +76,17 @@ export class HomePageComponent implements OnInit {
 
 
   onSubscribe(): void {
-    this.subscriptionApi.subscribe(this.subscriberEmailId).subscribe();
-    this.subscriberEmailId = '';
+    this.subscriberFormGroup.markAsTouched();
+    if(this.subscriberFormGroup.valid) {
+      this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(data => {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Subscribed successfully' });
+        this.subscriberFormGroup.reset();
+      }, error => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
+      });
+    } else {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Enter valid email' });
+    }
   }
 
   gotoCapsulesPage(): void {

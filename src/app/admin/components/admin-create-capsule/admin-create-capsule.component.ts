@@ -7,6 +7,8 @@ import { CapsuleItem, TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 import { MatChipInputEvent } from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { HelperService } from '@app/core/services/common/helper.service';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -35,7 +37,8 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     private spinner: AppSpinnerService,
     private fb: FormBuilder,
     private router: Router,
-    private topicApi: TopicApiService
+    private topicApi: TopicApiService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -122,9 +125,11 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   updateCapsule(requestBody) {
     this.capsuleApi.updateCapsule(requestBody).subscribe(data => {
       this.isCreateCapsuleSubmitted = true;
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Capsule updated successfully'});
       this.spinner.hide();
     }, error => {
       console.log('ERR --- ',error);
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
       this.spinner.hide();
     });
   }
@@ -132,10 +137,12 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   createCapsule(requestBody) {
     this.capsuleApi.createCapsule(requestBody).subscribe(data => {
       this.capsuleFormGroup.reset();
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Capsule created successfully'});
       this.isCreateCapsuleSubmitted = true;
       this.spinner.hide();
     }, error => {
       console.log('ERR --- ',error);
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
       this.spinner.hide();
     });
   }
