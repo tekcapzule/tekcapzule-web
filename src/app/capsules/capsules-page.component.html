@@ -1,5 +1,7 @@
 <div id="capsules" class="capsules-page p-main">
-  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()">
+  <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
+  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel">
     <div class="container d-flex">
       <ng-container *ngFor="let navTab of navTabs">
         <a
@@ -31,7 +33,9 @@
       </div>
     </div>
   </nav>
-  <router-outlet></router-outlet>
+  <mat-tab-nav-panel #tabPanel>
+    <router-outlet></router-outlet>
+  </mat-tab-nav-panel>
   <!-- Modal -->
   <div
     class="modal fade in mobileOverlayMenu"

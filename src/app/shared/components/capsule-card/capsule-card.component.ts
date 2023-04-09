@@ -12,6 +12,7 @@ import {
   AppSpinnerService,
 } from '@app/core';
 import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-capsule-card',
@@ -22,7 +23,7 @@ export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
-
+  searchInputValue = '';
   isCapsuleViewed = false;
   isCapsuleBookmarked = false;
   isCapsuleRecommended = false;
@@ -35,7 +36,8 @@ export class CapsuleCardComponent implements OnInit {
     private userApi: UserApiService,
     private auth: AuthService,
     private eventChannel: EventChannelService,
-    private spinner: AppSpinnerService
+    private spinner: AppSpinnerService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -103,7 +105,9 @@ export class CapsuleCardComponent implements OnInit {
     if (!this.isCapsuleRecommended) {
       this.capsule.recommendations += 1;
       this.isCapsuleRecommended = true;
-      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe();
+      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data=> {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Recommandation done successfully' });
+      });
     }
   }
 
@@ -132,7 +136,9 @@ export class CapsuleCardComponent implements OnInit {
       .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
       .pipe(
         tap(() => {
-          this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe();
+          this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe(data => {
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Bookmark done' });
+          });
         })
       )
       .subscribe();
@@ -157,7 +163,9 @@ export class CapsuleCardComponent implements OnInit {
 
     this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
-      .subscribe();
+      .subscribe(data => {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Bookmark removed' });
+      });
 
     this.userInfo = {
       ...this.userInfo,

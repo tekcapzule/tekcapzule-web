@@ -3,6 +3,7 @@ import { AppSpinnerService } from '@app/core';
 
 import { FeedbackApiService } from '@app/core/services/feedback-api/feedback-api.service';
 import { CollaborateForm } from '@app/mission/models/collaborate-form.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-collaborate-form',
@@ -15,7 +16,8 @@ export class CollaborateFormComponent implements OnInit {
 
   constructor(
     private feedbackApi: FeedbackApiService,
-    private appSpinnerService: AppSpinnerService
+    private appSpinnerService: AppSpinnerService,
+    private messageService: MessageService
   ) {}
 
   collaborateForm = new CollaborateForm();
@@ -36,6 +38,7 @@ export class CollaborateFormComponent implements OnInit {
       this.collaborateForm = new CollaborateForm();
       this.isColabFormSubmitted = true;
       this.appSpinnerService.hide();
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
     });
   }
 }
