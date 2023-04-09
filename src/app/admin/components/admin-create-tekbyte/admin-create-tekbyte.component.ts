@@ -7,6 +7,10 @@ import { TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import * as moment from 'moment';
 import { Create_TekByte } from './create-tekbyte.constants';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MessageService } from 'primeng/api';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
   selector: 'app-admin-create-tekbyte',
@@ -21,6 +25,8 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   tekByteFormGroup: FormGroup;
   categories: TopicCategoryItem[] = [];
   tekbyte: TekByteItem;
+  tagsValue: string[] = [];
+  separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
     private eventChannel: EventChannelService,
@@ -28,7 +34,8 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
     private tekByteAPI: TekByteApiService,
     private spinner: AppSpinnerService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -96,7 +103,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   }
 
   getKeyConceptFormArray() {
-    const keyConcepts = this.fb.array([]);
+    const keyConcepts = this.fb.array([]) as FormArray;
     keyConcepts.push(this.getTitleAndDescFormGroup());
     keyConcepts.push(this.getTitleAndDescFormGroup());
     keyConcepts.push(this.getTitleAndDescFormGroup());
@@ -190,21 +197,49 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
       });
       if (this.isEditMode) {
         this.tekByteAPI.updateTekByte(requestBody).subscribe(res => {
-          console.log("tek byte ---- ", res)
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'TekByte created successfully'});
           this.spinner.hide();
         }, error => {
-          console.log('ERR --- ',error);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
           this.spinner.hide();
         });
       } else {
-        this.tekByteAPI.createTekByte(requestBody).subscribe(res => {
-          console.log("tek byte ---- ", res);
+        this.tekByteAPI.createTekByte(requestBody).subscribe((res) => {
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'TekByte updated successfully'});
           this.spinner.hide();
         }, error => {
-          console.log('ERR --- ',error);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
           this.spinner.hide();
         });
       }
     }
   }
+
+  
+  get tags() {
+    return this.tekByteFormGroup.get('aliases');
+  }
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.tagsValue.push(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+
+  }
+
+  remove(tag: string): void {
+    const index = this.tagsValue.indexOf(tag);
+
+    if (index >= 0) {
+      this.tagsValue.splice(index, 1);
+    }
+    
+  }
+
 }

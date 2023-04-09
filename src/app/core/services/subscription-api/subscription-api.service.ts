@@ -19,7 +19,7 @@ export class SubscriptionApiService {
     return SUBSCRIPTION_API_PATH;
   }
 
-  subscribe(emailId: string): Observable<ApiSuccess> {
+  subscribeEmail(emailId: string): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${SUBSCRIPTION_API_PATH}/subscribe`, { emailId });
   }
 }

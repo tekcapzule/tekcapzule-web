@@ -8,6 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@app/shared';
 import { AuthModule } from '@app/auth';
 import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
+import { AuthGuard } from './core/services/auth-guard/auth-guard';
+import { HelperService } from './core/services/common/helper.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +26,9 @@ import { ApiInterceptor, CacheInterceptor, CoreModule } from '@app/core';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+    AuthGuard,
+    MessageService,
+    HelperService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -5,6 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { CapsuleItem, TopicCategoryItem, TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
+import { MatChipInputEvent } from '@angular/material/chips';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { HelperService } from '@app/core/services/common/helper.service';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-admin-create-capsule',
@@ -22,7 +27,9 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   topics: TopicItem[] = [];
   categories: TopicCategoryItem[] = [];
   expiryCode = [{value: 7, name: 'ONEWEEK'}, {value: 30, name: 'ONEMONTH'},
-  {value: 180, name: 'SIXMONTHS'}, {value: 3650, name: 'NOEXPIRY'}]
+  {value: 180, name: 'SIXMONTHS'}, {value: 3650, name: 'NOEXPIRY'}];
+  tagsValue: string[] = [];
+  separatorKeysCodes: number[] = [ENTER, COMMA];
   
   constructor(
     private eventChannel: EventChannelService,
@@ -30,7 +37,8 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     private spinner: AppSpinnerService,
     private fb: FormBuilder,
     private router: Router,
-    private topicApi: TopicApiService
+    private topicApi: TopicApiService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -104,6 +112,7 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
       const selectedDays = this.expiryCode.find(ex=> ex.name === requestBody.expiryDateDisp);
       requestBody.expiryDate = moment().add(selectedDays.value, 'days').format("DD/MM/YYYY");
       requestBody.editorsPick = requestBody.editorsPick ? 1 : 0;
+      requestBody.tags = this.tagsValue.toString();
       this.isCreateCapsuleSubmitted = false;
       if(this.editCapsule) {
         this.updateCapsule(requestBody);
@@ -116,9 +125,11 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   updateCapsule(requestBody) {
     this.capsuleApi.updateCapsule(requestBody).subscribe(data => {
       this.isCreateCapsuleSubmitted = true;
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Capsule updated successfully'});
       this.spinner.hide();
     }, error => {
       console.log('ERR --- ',error);
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
       this.spinner.hide();
     });
   }
@@ -126,10 +137,12 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   createCapsule(requestBody) {
     this.capsuleApi.createCapsule(requestBody).subscribe(data => {
       this.capsuleFormGroup.reset();
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Capsule created successfully'});
       this.isCreateCapsuleSubmitted = true;
       this.spinner.hide();
     }, error => {
       console.log('ERR --- ',error);
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
       this.spinner.hide();
     });
   }
@@ -152,7 +165,6 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
     if(topicCode) {
       const topic = this.topics.find(topic => topic.code === topicCode);
       this.categories = topic.categories;
-      console.log(' ----------', topic);
       this.capsuleFormGroup.patchValue({
         description: topic.description,
         imageUrl: topic.imageUrl,
@@ -160,5 +172,29 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
       })
     }
   }
+
+  
+  get tags() {
+    return this.capsuleFormGroup.get('tags');
+  }
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    if (value) {
+      this.tagsValue.push(value);
+    }
+
+    event.chipInput!.clear();
+  }
+
+  remove(tag: string): void {
+    const index = this.tagsValue.indexOf(tag);
+
+    if (index >= 0) {
+      this.tagsValue.splice(index, 1);
+    }    
+  }
+
 
 }

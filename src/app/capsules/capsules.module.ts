@@ -12,6 +12,8 @@ import { EditorsPickComponent } from './components/editors-pick/editors-pick.com
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
 import { CapsuleDetailsComponent } from './components/capsule-details/capsule-details.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,16 @@ import { CapsuleDetailsComponent } from './components/capsule-details/capsule-de
     CapsuleDetailsComponent,
   ],
   imports: [
+    ToastModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
     SharedModule,
-    CapsulesRoutingModule,
+    CapsulesRoutingModule
   ],
+  providers: [
+    MessageService
+  ]
 })
 export class CapsulesModule {}

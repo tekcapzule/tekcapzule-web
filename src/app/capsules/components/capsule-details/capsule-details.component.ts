@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, ChannelEvent, EventChannelService } from '@app/core';
@@ -8,7 +8,7 @@ import { AppSpinnerService, ChannelEvent, EventChannelService } from '@app/core'
   templateUrl: './capsule-details.component.html',
   styleUrls: ['./capsule-details.component.scss'],
 })
-export class CapsuleDetailsComponent implements OnInit, AfterViewInit {
+export class CapsuleDetailsComponent implements OnInit, OnDestroy {
   resourceUrl: SafeResourceUrl;
 
   constructor(
@@ -20,6 +20,7 @@ export class CapsuleDetailsComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     const queryParamUrl = atob(
       this.route.snapshot.queryParamMap.get('url') || btoa('https://tekcapsule.blog')
     );
@@ -27,10 +28,11 @@ export class CapsuleDetailsComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
     });
+    
   }
 
-  ngAfterViewInit(): void {
-    this.spinner.show();
+  ngOnDestroy(): void {
+    this.resourceUrl = '';
   }
 
   getNavBreadcrumbs(): { label: string; url?: string }[] {
@@ -62,10 +64,14 @@ export class CapsuleDetailsComponent implements OnInit, AfterViewInit {
 
   onIFrameClose(): void {
     const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
+    this.resourceUrl = '';
     this.router.navigate(['capsules', queryParamTab]);
   }
 
   onAfterIframeLoaded(): void {
-    this.spinner.hide();
+    if(this.resourceUrl) {
+      this.spinner.hide();
+    }
   }
+
 }

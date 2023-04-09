@@ -5,6 +5,8 @@
   ></app-home-carousel>
   <!-- ======= Explore Topics Section ======= -->
 
+  <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
   <section id="exploretopics" class="explore-topics-section">
     <div class="container">
       <h2 class="text-center pt-5">Start Exploring our topics</h2>
@@ -36,13 +38,13 @@
         </button>
       </div>
     </div>
-    <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-5">
-      <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
-        <ng-container *ngFor="let topic of topics">
-          <app-topic-card [topic]="topic" class="item mr-4"></app-topic-card>
-        </ng-container>
-      </div>
-    </div>
+
+    <p-carousel [value]="topics" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+      <ng-template let-topic pTemplate="item">
+        <app-topic-card [topic]="topic" class="item mr-4"></app-topic-card>
+      </ng-template>
+    </p-carousel>
+    
   </section>
   <!-- End xplore Topics Section-->
   <!-- ======= Intro Section ======= -->
@@ -59,13 +61,13 @@
     </div>
   </section>
   <section>
-    <div class="container card-section d-flex justify-content-center p-relative mb-4 pb-4">
-      <div class="homepage_owl_carousel owl-carousel owl-theme d-flex">
-        <ng-container *ngFor="let capsule of capsules">
-          <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
-        </ng-container>
-      </div>
-    </div>
+       
+        <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+          <ng-template let-capsule pTemplate="item">
+            <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
+          </ng-template>
+        </p-carousel>
+    
   </section>
   <!-- End Intro Section-->
 
@@ -96,19 +98,34 @@
       <div class="section-title pb-0">
         <h2>Get inspired by our vibrant tech community!</h2>
         <p class="content-sub-text pb-4">We will never spam you. That is our promise!</p>
+        <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
         <div
           class="d-flex align-items-center justify-content-center subscibeSection-row position-relative"
+          [ngClass]="{
+            'error-text':
+            subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
+          }"
         >
           <input
-            [(ngModel)]="subscriberEmailId"
             type="email"
-            name="email"
+            name="email id"
+            formControlName="emailId"
             class="input-mail mb-0"
             placeholder="Enter Your Email ID"
-          /><button mat-raised-button class="button tertiary" (click)="onSubscribe()">
+          />
+          <button mat-raised-button class="button tertiary" (click)="onSubscribe()">
             Subscribe
           </button>
         </div>
+        <span
+            class="error-msg"
+            *ngIf="
+            subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
+            "
+            >Enter valid email.</span
+          >
+        </div>
+          
         <div class="follow-us">
           <span class="content-sub-text">Join us on</span>
           <a href="https://twitter.com/tekcapsule" target="__blank"

@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row">
-      <nav mat-tab-nav-bar *ngIf="isNavTabsVisible()">
+      <nav mat-tab-nav-bar *ngIf="isNavTabsVisible()" [tabPanel]="tabPanel">
         <div class="container px-0 resp-tab">
           <a
             mat-tab-link
@@ -35,9 +35,12 @@
           </a>
         </div>
       </nav>
-      <div class="container px-0">
-        <router-outlet></router-outlet>
-      </div>
+      
+      <mat-tab-nav-panel #tabPanel>
+        <div class="container px-0">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-tab-nav-panel>
     </div>
   </div>
 </div>
