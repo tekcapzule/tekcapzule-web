@@ -1,43 +1,27 @@
-<section class="container-fluid bg-white">
+<section class="container-fluid bg-white capsule-details">
   <div class="container pt-1">
-    <div class="back-link pt-0 mt-1">
-      <!-- <a>My Feeds</a><span>Capsule</span> -->
+    <div class="back-link pt-0">
+      <ng-container *ngFor="let crumb of getNavBreadcrumbs()">
+        <ng-container *ngIf="crumb.url; else simplecrumb">
+          <a class="url-link" (click)="navigateToCapsulePage(crumb.url)">{{ crumb.label }}</a>
+        </ng-container>
+        <ng-template #simplecrumb>
+          <span>{{ crumb.label }}</span>
+        </ng-template>
+      </ng-container>
       <button type="button" class="close" (click)="onIFrameClose()">
         <img src="/assets/images/close-icon.svg" />
       </button>
     </div>
-    <!-- <div>
-            <div class="topic-details">
-                <div class="title"> The Rise of Artificial Intelligence <p> by
-                        Linjith Kunnon
-                        <span>(March 5, 2023)</span>
-                    </p>
-                </div>
-            </div>
-            <p>Artificial intelligence, or AI, is a rapidly growing field that has become increasingly relevant in
-                today’s world. AI is the development of computer systems that are capable of performing tasks that
-                typically require human intelligence, such as perception, learning, problem-solving, and
-                decision-making. With the exponential growth of data and computing power, AI has become more powerful
-                and more prevalent in a wide range of industries, from healthcare to finance, transportation to
-                entertainment.</p>
-        </div> -->
   </div>
-  <!-- <div>
-    <iframe
-      id="theFrame"
-      src="https://tekcapsule.blog/the-rise-of-artificial-intelligence-exploring-the-benefits-challenges-and-future-implications/"
-      style="width: 100%; height: 500px"
-      frameborder="0"
-    >
-    </iframe>
-  </div> -->
   <div>
     <iframe
       id="theFrame"
       [src]="resourceUrl"
       style="width: 100%; height: 700px"
       frameborder="0"
-      (load)="onLoad()"
+      (load)="onAfterIframeLoaded()"
+      (error)="onAfterIframeLoaded()"
     ></iframe>
   </div>
 </section>

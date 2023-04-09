@@ -33,13 +33,14 @@ export class TopicApiService {
     return TOPIC_API_PATH;
   }
 
-  getAllTopics(): Observable<TopicItem[]> {
+  getAllTopics(refreshCache?: boolean): Observable<TopicItem[]> {
     return this.httpClient.post<TopicItem[]>(
       `${TOPIC_API_PATH}/getAll`,
       {},
       {
         params: {
           cache: 'yes',
+          refresh: refreshCache ? 'yes' : 'no',
           ckey: TOPICS_ALLTOPICS_CACHE_KEY,
         },
       }
@@ -72,13 +73,15 @@ export class TopicApiService {
         expiry: allTopicCache.expiry,
       });
     }
+
     return this.httpClient.post(`${TOPIC_API_PATH}/disable`, { code });
   }
 
-  getTopic(code: string): Observable<TopicItem> {
+  getTopic(code: string, refreshCache?: boolean): Observable<TopicItem> {
     return this.httpClient.post<TopicItem>(`${TOPIC_API_PATH}/get`, code, {
       params: {
         cache: 'yes',
+        refresh: refreshCache ? 'yes' : 'no',
         ckey: TOPICS_GETTOPIC_CACHE_KEY.replace('<code>', code),
       },
     });

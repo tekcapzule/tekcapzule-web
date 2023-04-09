@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, ChannelEvent, EventChannelService } from '@app/core';
 
 @Component({
@@ -35,15 +35,43 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy {
     this.resourceUrl = '';
   }
 
-  onIFrameClose(): void {
-    const queryParamSrc = this.route.snapshot.queryParamMap.get('src') || 'myfeeds';
-    this.resourceUrl = '';
-    this.router.navigate(['capsules', queryParamSrc]);
+  getNavBreadcrumbs(): { label: string; url?: string }[] {
+    const crumbs: { label: string; url?: string }[] = [];
+    const queryTab = this.route.snapshot.queryParamMap.get('tab');
+    const queryTitle = this.route.snapshot.queryParamMap.get('title');
+
+    if (queryTab === 'trending') {
+      crumbs.push({ label: 'My Feeds', url: 'myfeeds' }, { label: 'Trending', url: 'trending' });
+    } else if (queryTab === 'editorspick') {
+      crumbs.push(
+        { label: 'My Feeds', url: 'myfeeds' },
+        { label: 'Editors Pick', url: 'editorspick' }
+      );
+    } else {
+      crumbs.push({ label: 'My Feeds', url: 'myfeeds' });
+    }
+
+    if (queryTitle) {
+      crumbs.push({ label: queryTitle });
+    }
+
+    return crumbs;
   }
 
-  onLoad() {
+  navigateToCapsulePage(url: string): void {
+    this.router.navigate(['capsules', url]);
+  }
+
+  onIFrameClose(): void {
+    const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
+    this.resourceUrl = '';
+    this.router.navigate(['capsules', queryParamTab]);
+  }
+
+  onAfterIframeLoaded(): void {
     if(this.resourceUrl) {
       this.spinner.hide();
     }
   }
+
 }

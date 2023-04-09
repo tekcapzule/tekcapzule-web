@@ -53,6 +53,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchUserInfo();
+    this.getAllTopics(false);
 
     this.eventChannel
       .getChannel()
@@ -84,15 +85,17 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.deActivateTabs();
       });
-
-    this.topicApi.getAllTopics().subscribe(topics => {
-      this.setBrowseByTopics(topics);
-    });
   }
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  getAllTopics(refresh?: boolean): void {
+    this.topicApi.getAllTopics(refresh).subscribe(topics => {
+      this.setBrowseByTopics(topics);
+    });
   }
 
   hideBroweByTopicModal(): void {
@@ -234,5 +237,20 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     // navigate to feeds and load data for selected topics.
     this.hideBroweByTopicModal();
     this.navigateToActiveFeedsPage(selectedTopics, true);
+  }
+
+  navigateToContributePage(): void {
+    const tabUri = this.router.url.includes('trending')
+      ? 'trending'
+      : this.router.url.includes('editorspick')
+      ? 'editorspick'
+      : 'myfeeds';
+
+    this.deActivateTabs();
+    this.router.navigate(['capsules', 'contribute'], {
+      queryParams: {
+        tab: tabUri,
+      },
+    });
   }
 }

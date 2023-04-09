@@ -1,34 +1,154 @@
 <div class="contribute-page">
-    <section class="container-fluid contribute-bg">
-        <div class="container pt-5">
-            <div class="contribute-form-bg">
-                <div class="text-center pb-4">
-                    <h2>Contribute</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem.</p>
-                </div>
-                <div class="form-group">
-                    <label for="capsuleTitle">Capsule Title</label>
-                    <input type="text" class="form-control" id="capsuleTitle" />
-                </div>
-                <div class="form-group">
-                    <label for="link">Link</label>
-                    <input type="text" class="form-control" id="link" />
-                </div>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select name="type" name="Select" class="form-control">
-                        <option>Select Type</option>
-                      </select>
-                </div>
-                <div class="form-group">
-                    <label for="comment">Comment</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                </div>
-                <div class="text-center">
-                <button class="button primary mb-5">Submit</button>
-            </div>
-            </div>
-            <div class="formuser-icon"></div>
+  <section class="container-fluid contribute-bg">
+    <div class="container pt-5">
+      <div class="contribute-form-bg" [formGroup]="contributeFormGroup">
+        <div class="text-center pb-2">
+          <h2>Contribute</h2>
         </div>
-    </section>
+        <div
+          class="form-group"
+          [ngClass]="{
+            'error-text':
+              contributeFormGroup.get('title').touched && contributeFormGroup.get('title').invalid
+          }"
+        >
+          <label for="capsuleTitle">Capsule Title</label>
+          <input type="text" class="form-control" name="title" formControlName="title" />
+          <span
+            class="error-msg"
+            *ngIf="
+              contributeFormGroup.get('title').touched && contributeFormGroup.get('title').invalid
+            "
+            >Please enter capsule title.</span
+          >
+        </div>
+        <div
+          class="form-group"
+          [ngClass]="{
+            'error-text':
+              contributeFormGroup.get('resourceUrl').touched &&
+              contributeFormGroup.get('resourceUrl').invalid
+          }"
+        >
+          <label for="link">Link</label>
+          <input
+            type="text"
+            class="form-control"
+            name="resourceUrl"
+            formControlName="resourceUrl"
+          />
+          <span
+            class="error-msg"
+            *ngIf="
+              contributeFormGroup.get('resourceUrl').touched &&
+              contributeFormGroup.get('resourceUrl').invalid
+            "
+            >Please enter capsule link.</span
+          >
+        </div>
+        <div
+          class="form-group"
+          [ngClass]="{
+            'error-text':
+              contributeFormGroup.get('topicCode').touched &&
+              contributeFormGroup.get('topicCode').invalid
+          }"
+        >
+          <label for="topic">Topic</label>
+          <select class="form-control" name="topicCode" formControlName="topicCode">
+            <option value="">Select Topic</option>
+            <option *ngFor="let topic of allTopics" value="{{ topic.code }}">
+              {{ topic.title }}
+            </option>
+          </select>
+          <span
+            class="error-msg"
+            *ngIf="
+              contributeFormGroup.get('topicCode').touched &&
+              contributeFormGroup.get('topicCode').invalid
+            "
+            >Please select a topic.</span
+          >
+        </div>
+        <div
+          class="form-group"
+          *ngIf="hasTopicSelected()"
+          [ngClass]="{
+            'error-text':
+              contributeFormGroup.get('category').touched &&
+              contributeFormGroup.get('category').invalid
+          }"
+        >
+          <label for="category">Category</label>
+          <select class="form-control" name="category" formControlName="category">
+            <option value="">Select Category</option>
+            <option *ngFor="let category of getCategoriesByTopicCode()" value="{{ category }}">
+              {{ category }}
+            </option>
+          </select>
+          <span
+            class="error-msg"
+            *ngIf="
+              contributeFormGroup.get('category').touched &&
+              contributeFormGroup.get('category').invalid
+            "
+            >Please select a category.</span
+          >
+        </div>
+        <div
+          class="form-group"
+          [ngClass]="{
+            'error-text':
+              contributeFormGroup.get('type').touched && contributeFormGroup.get('type').invalid
+          }"
+        >
+          <label for="type">Type</label>
+          <select class="form-control" name="type" formControlName="type">
+            <option value="">Select Type</option>
+            <option *ngFor="let type of capsuleTypes" value="{{ type }}">
+              {{ type }}
+            </option>
+          </select>
+          <span
+            class="error-msg"
+            *ngIf="
+              contributeFormGroup.get('type').touched && contributeFormGroup.get('type').invalid
+            "
+            >Please select a type.</span
+          >
+        </div>
+        <div
+          class="form-group"
+          [ngClass]="{
+            'error-text':
+              contributeFormGroup.get('author').touched && contributeFormGroup.get('author').invalid
+          }"
+        >
+          <label for="author">Email</label>
+          <input type="text" class="form-control" name="author" formControlName="author" />
+          <span
+            class="error-msg"
+            *ngIf="
+              contributeFormGroup.get('author').touched && contributeFormGroup.get('author').invalid
+            "
+            >Please enter email.</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea
+            class="form-control"
+            rows="3"
+            name="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+        <div class="text-center">
+          <button class="button secondary mr-5" (click)="onCancel()">Cancel</button>
+          <button class="button primary" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+      <div class="formuser-icon"></div>
+    </div>
+  </section>
 </div>

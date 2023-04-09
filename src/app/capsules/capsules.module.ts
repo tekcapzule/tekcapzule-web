@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { SharedModule } from '@app/shared';
 import { CapsulesRoutingModule } from './capsules-routing.module';
@@ -11,9 +12,7 @@ import { EditorsPickComponent } from './components/editors-pick/editors-pick.com
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
 import { CapsuleDetailsComponent } from './components/capsule-details/capsule-details.component';
-import { MatTabsModule } from '@angular/material/tabs';
 import { ToastModule } from 'primeng/toast';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { MessageService } from 'primeng/api';
 
 @NgModule({
@@ -26,7 +25,17 @@ import { MessageService } from 'primeng/api';
     ContributeCapsuleComponent,
     CapsuleDetailsComponent,
   ],
-  imports: [ToastModule, CommonModule, FormsModule, MatTabsModule, SharedModule, CapsulesRoutingModule],
-  providers: [MessageService]
+  imports: [
+    ToastModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    SharedModule,
+    CapsulesRoutingModule
+  ],
+  providers: [
+    MessageService
+  ]
 })
 export class CapsulesModule {}

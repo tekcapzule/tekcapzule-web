@@ -82,7 +82,7 @@ export class CapsuleCardComponent implements OnInit {
       ? btoa(this.capsule.resourceUrl)
       : btoa('https://tekcapsule.blog');
 
-    const srcUri = this.router.url.includes('trending')
+    const tabUri = this.router.url.includes('trending')
       ? 'trending'
       : this.router.url.includes('editorspick')
       ? 'editorspick'
@@ -90,7 +90,7 @@ export class CapsuleCardComponent implements OnInit {
 
     this.router
       .navigate(['capsules', this.capsule.capsuleId, 'details'], {
-        queryParams: { url: resourceUrl, src: srcUri },
+        queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
       })
       .then(() => {
         this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
