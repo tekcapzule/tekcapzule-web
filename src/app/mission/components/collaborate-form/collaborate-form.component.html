@@ -1,57 +1,64 @@
-<section class="contact-form section-bg pb-0">
-  <div class="container">
+<section *ngIf="feedbackFormGroup" class="contact-form section-bg pb-0">
+  <div [formGroup]="feedbackFormGroup" class="container">
     <div class="section-title pb-0">
       <h2>We love to collaborate!</h2>
-      <span class="content-sub-text pb-4"
-        >We are excited to hear from you, please drop a note!</span
-      >
+      <span class="content-sub-text pb-4">We are excited to hear from you, please drop a note!</span>
     </div>
     <div class="row mt-5">
-      <div class="col-6">
-        <input
-          type="text"
-          name="firstname"
-          placeholder="First Name *"
-          [(ngModel)]="collaborateForm.firstName"
-        />
+      <div class="col-6 form-field "
+        [ngClass]="{'error-text': feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid}">
+        <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" />
+
+        <span class="error-msg" *ngIf="
+            feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid
+            ">Please enter first name.</span>
       </div>
-      <div class="col-6">
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Last Name *"
-          [(ngModel)]="collaborateForm.lastName"
-        />
+      <div class="col-6 form-field "
+        [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
+        <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
+        <span class="error-msg" *ngIf="
+            feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid
+            ">Please enter last name.</span>
       </div>
     </div>
-    <input
-      type="email"
-      pattern="{{ emailValidationRegEx }}"
-      type="email"
-      name="email"
-      placeholder="Email Address *"
-      [(ngModel)]="collaborateForm.emailId"
-    />
-    <input
-      type="text"
-      name="subject"
-      placeholder="Subject *"
-      [(ngModel)]="collaborateForm.subject"
-    />
-    <textarea
-      name="description"
-      rows="4"
-      [(ngModel)]="collaborateForm.description"
-      placeholder="Description *"
-    >
-    </textarea>
+    <div class="row">
+      <div class="col-12 form-field "
+        [ngClass]="{'error-text': feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid}">
+        <input type="email" name="email" placeholder="Email Address *" formControlName="emailId" />
+
+        <span class="error-msg" *ngIf="
+    feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid
+    ">Please enter valid email.</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 form-field "
+        [ngClass]="{'error-text': feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid}">
+
+        <input type="text" name="subject" placeholder="Subject *" formControlName="subject" />
+
+        <span class="error-msg" *ngIf="
+    feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid
+    ">Please enter subject.</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 form-field "
+        [ngClass]="{'error-text': feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid}">
+
+        <textarea name="description" rows="4" formControlName="description" placeholder="Description *">
+        </textarea>
+    <span
+    class="error-msg"
+    *ngIf="
+    feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid
+    "
+    >Please enter description.</span>
+    
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
-      <button
-        mat-raised-button
-        class="button tertiary"
-        [disabled]="!isFormValid()"
-        (click)="onCollabFormSubmit()"
-      >
+      <button mat-raised-button class="button tertiary" (click)="onCollabFormSubmit()">
         Submit
       </button>
     </div>
