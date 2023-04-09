@@ -47,7 +47,7 @@ export class CollaborateFormComponent implements OnInit {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
       });
     } else {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Enter the values' });
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Complete the form before submit' });
     }
   }
 }
