@@ -3,18 +3,39 @@
   <app-home-carousel
     (subscribeClicked)="subscribeSection.nativeElement.focus()"
   ></app-home-carousel>
+  <!-- ======= Intro Section ======= -->
+  <section id="intro" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Stay ahead of the curve with our insightful and engaging tech capsules!</h2>
+        <p class="content-sub-text">
+          Current tech landscape is so dynamic and fast evolving. Don’t find yourself lost in an
+          ocean of tech jargons! Our engaging tech capsules will help you excel at every phase of
+          your career.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section>
+       
+        <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+          <ng-template let-capsule pTemplate="item">
+            <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
+          </ng-template>
+        </p-carousel>
+    
+  </section>
+  <!-- End Intro Section-->
   <!-- ======= Explore Topics Section ======= -->
 
   <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
 
   <section id="exploretopics" class="explore-topics-section">
     <div class="container">
-      <h2 class="text-center pt-5">Start Exploring our topics</h2>
+      <h2 class="text-center pt-5">Empower your tech journey with AI mentoring!</h2>
       <div class="section-title">
         <p class="content-sub-text">
-          Current tech landscape is so dynamic and fast evolving. Don’t find yourself lost in an
-          ocean of tech jargons! Our engaging tech capsules will help you excel at every phase of
-          your career.
+          Take your tech journey to new heights with our AI-powered mentoring, covering the latest and greatest in tech, including Artificial Intelligence, IoT, Big Data, Blockchain, Data Science, Metaverse and more.
         </p>
       </div>
     </div>
@@ -34,7 +55,7 @@
           class="col-xl-4 col-lg-6 order-1 order-lg-2 button primary"
           (click)="gotoCapsulesPage()"
         >
-          Explore
+          Launching Soon!
         </button>
       </div>
     </div>
@@ -47,29 +68,7 @@
     
   </section>
   <!-- End xplore Topics Section-->
-  <!-- ======= Intro Section ======= -->
-  <section id="intro" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>It's all about Capsules!</h2>
-        <p class="content-sub-text">
-          Current tech landscape is so dynamic and fast evolving. Don’t find yourself lost in an
-          ocean of tech jargons! Our engaging tech capsules will help you excel at every phase of
-          your career.
-        </p>
-      </div>
-    </div>
-  </section>
-  <section>
-       
-        <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
-          <ng-template let-capsule pTemplate="item">
-            <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
-          </ng-template>
-        </p-carousel>
-    
-  </section>
-  <!-- End Intro Section-->
+  
 
   <!-- ======= App Install Section ======= -->
   <section id="app-install" class="install-now">
