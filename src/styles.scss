@@ -12,7 +12,7 @@
 // TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
 //  The following line adds:
 //    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//    2. Styles for typography hierarchy classes (e.g. .mat-mdc-headline-1)
 //  If you specify typography styles for the components you use elsewhere, you should delete this line.
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
@@ -60,15 +60,15 @@ body {
   color: #414141;
 }
 
-.mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+.mat-mdc-tab-group.mat-mdc-primary .mat-mdc-ink-bar,
+.mat-mdc-tab-nav-bar.mat-mdc-primary .mat-mdc-ink-bar {
   background-color: #e7245f !important;
   height: 4px;
   // width: auto!important;
   // min-width: 80px;
 }
 
-.mat-tab-link {
+.mat-mdc-tab-link {
   min-width: 70px !important;
   padding: 0 !important;
   text-align: start !important;
@@ -85,7 +85,7 @@ body {
 .data-table {
   background: #fff;
   margin-bottom: 40px;
-  table.mat-table {
+  table.mat-mdc-table {
     width: 100%;
     border: 0 !important;
     @media only screen and (max-width: 990px) {
@@ -93,16 +93,16 @@ body {
       overflow-x: auto;
       white-space: nowrap;
     }
-    tr.mat-header-row {
+    tr.mat-mdc-header-row {
       border-top: 0;
-      th.mat-header-cell {
+      th.mat-mdc-header-cell {
         font-size: 14px !important;
         font-weight: bold;
         color: #2e2e2e;
       }
     }
-    tr.mat-row {
-      td.mat-cell {
+    tr.mat-mdc-row {
+      td.mat-mdc-cell {
         font-size: 14px !important;
         color: #454964 !important;
         &.title-column {
@@ -135,8 +135,8 @@ body {
       text-align: center;
     }
   }
-  .mat-paginator,
-  .mat-paginator-page-size .mat-select-trigger {
+  .mat-mdc-paginator,
+  .mat-mdc-paginator-page-size .mat-mdc-select-trigger {
     font-size: 14px !important;
   }
 }
