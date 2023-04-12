@@ -486,7 +486,7 @@ Modal Dialogue
     border-bottom: 0;
   }
   .modal-body {
-    padding: 30px 70px;
+    padding: 0px 70px;
   }
   .modal-footer {
     border-top: 0;
@@ -747,5 +747,26 @@ iframe .navbar-container,
         color: #9b9b9b;
       }
     }
+  }
+}
+
+/***********Carousel Slider****************/
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background-color: #ddd!important;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: #e30045!important;
+}
+.pi {
+  font-size: 2rem!important;
+}
+.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
+  width: 3rem!important;
+  height: 3rem!important;
+}
+
+.carousel {
+  .container {
+    max-width: 1565px;
   }
 }

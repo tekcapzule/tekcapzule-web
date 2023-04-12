@@ -5,103 +5,75 @@
         <div class="text-center pb-2">
           <h2>Contribute</h2>
         </div>
-        <div
-          class="form-group"
-          [ngClass]="{
+        <div class="form-group" [ngClass]="{
             'error-text':
               contributeFormGroup.get('title').touched && contributeFormGroup.get('title').invalid
-          }"
-        >
+          }">
           <label for="capsuleTitle">Capsule Title</label>
           <input type="text" class="form-control" name="title" formControlName="title" />
-          <span
-            class="error-msg"
-            *ngIf="
+          <span class="error-msg" *ngIf="
               contributeFormGroup.get('title').touched && contributeFormGroup.get('title').invalid
-            "
-            >Please enter capsule title.</span
-          >
+            ">Please enter capsule title.</span>
         </div>
-        <div
-          class="form-group"
-          [ngClass]="{
+        <div class="form-group" [ngClass]="{
             'error-text':
               contributeFormGroup.get('resourceUrl').touched &&
               contributeFormGroup.get('resourceUrl').invalid
-          }"
-        >
+          }">
           <label for="link">Link</label>
-          <input
-            type="text"
-            class="form-control"
-            name="resourceUrl"
-            formControlName="resourceUrl"
-          />
-          <span
-            class="error-msg"
-            *ngIf="
+          <input type="text" class="form-control" name="resourceUrl" formControlName="resourceUrl" />
+          <span class="error-msg" *ngIf="
               contributeFormGroup.get('resourceUrl').touched &&
               contributeFormGroup.get('resourceUrl').invalid
-            "
-            >Please enter capsule link.</span
-          >
+            ">Please enter capsule link.</span>
         </div>
-        <div
-          class="form-group"
-          [ngClass]="{
-            'error-text':
-              contributeFormGroup.get('topicCode').touched &&
-              contributeFormGroup.get('topicCode').invalid
-          }"
-        >
-          <label for="topic">Topic</label>
-          <select class="form-control" name="topicCode" formControlName="topicCode">
-            <option value="">Select Topic</option>
-            <option *ngFor="let topic of allTopics" value="{{ topic.code }}">
-              {{ topic.title }}
-            </option>
-          </select>
-          <span
-            class="error-msg"
-            *ngIf="
-              contributeFormGroup.get('topicCode').touched &&
-              contributeFormGroup.get('topicCode').invalid
-            "
-            >Please select a topic.</span
-          >
-        </div>
-        <div
-          class="form-group"
-          *ngIf="hasTopicSelected()"
-          [ngClass]="{
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group" [ngClass]="{
+              'error-text':
+                contributeFormGroup.get('topicCode').touched &&
+                contributeFormGroup.get('topicCode').invalid
+            }">
+              <label for="topic">Topic</label>
+              <select class="form-control" name="topicCode" formControlName="topicCode">
+                <option value="">Select Topic</option>
+                <option *ngFor="let topic of allTopics" value="{{ topic.code }}">
+                  {{ topic.title }}
+                </option>
+              </select>
+              <span class="error-msg" *ngIf="
+                contributeFormGroup.get('topicCode').touched &&
+                contributeFormGroup.get('topicCode').invalid
+              ">Please select a topic.</span>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group" *ngIf="hasTopicSelected()" [ngClass]="{
             'error-text':
               contributeFormGroup.get('category').touched &&
               contributeFormGroup.get('category').invalid
-          }"
-        >
-          <label for="category">Category</label>
-          <select class="form-control" name="category" formControlName="category">
-            <option value="">Select Category</option>
-            <option *ngFor="let category of getCategoriesByTopicCode()" value="{{ category }}">
-              {{ category }}
-            </option>
-          </select>
-          <span
-            class="error-msg"
-            *ngIf="
+          }">
+              <label for="category">Category</label>
+              <select class="form-control" name="category" formControlName="category">
+                <option value="">Select Category</option>
+                <option *ngFor="let category of getCategoriesByTopicCode()" value="{{ category }}">
+                  {{ category }}
+                </option>
+              </select>
+              <span class="error-msg" *ngIf="
               contributeFormGroup.get('category').touched &&
               contributeFormGroup.get('category').invalid
-            "
-            >Please select a category.</span
-          >
+            ">Please select a category.</span>
+            </div>
+          </div>
+
         </div>
-        <div
-          class="form-group"
-          [ngClass]="{
+
+        <div class="form-group" [ngClass]="{
             'error-text':
               contributeFormGroup.get('type').touched && contributeFormGroup.get('type').invalid
-          }"
-        >
+          }">
           <label for="type">Type</label>
           <select class="form-control" name="type" formControlName="type">
             <option value="">Select Type</option>
@@ -109,39 +81,23 @@
               {{ type }}
             </option>
           </select>
-          <span
-            class="error-msg"
-            *ngIf="
+          <span class="error-msg" *ngIf="
               contributeFormGroup.get('type').touched && contributeFormGroup.get('type').invalid
-            "
-            >Please select a type.</span
-          >
+            ">Please select a type.</span>
         </div>
-        <div
-          class="form-group"
-          [ngClass]="{
+        <div class="form-group" [ngClass]="{
             'error-text':
               contributeFormGroup.get('author').touched && contributeFormGroup.get('author').invalid
-          }"
-        >
+          }">
           <label for="author">Email</label>
           <input type="text" class="form-control" name="author" formControlName="author" />
-          <span
-            class="error-msg"
-            *ngIf="
+          <span class="error-msg" *ngIf="
               contributeFormGroup.get('author').touched && contributeFormGroup.get('author').invalid
-            "
-            >Please enter email.</span
-          >
+            ">Please enter email.</span>
         </div>
         <div class="form-group">
           <label for="comment">Comment</label>
-          <textarea
-            class="form-control"
-            rows="3"
-            name="description"
-            formControlName="description"
-          ></textarea>
+          <textarea class="form-control" rows="1" name="description" formControlName="description"></textarea>
         </div>
         <div class="text-center">
           <button class="button secondary mr-5" (click)="onCancel()">Cancel</button>

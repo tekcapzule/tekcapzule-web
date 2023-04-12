@@ -16,14 +16,14 @@
       </div>
     </div>
   </section>
-  <section>
-       
+  <section class="carousel">
+       <div class="container">
         <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
           <ng-template let-capsule pTemplate="item">
             <app-capsule-card [capsule]="capsule" class="item mr-4"></app-capsule-card>
           </ng-template>
         </p-carousel>
-    
+      </div>
   </section>
   <!-- End Intro Section-->
   <!-- ======= Explore Topics Section ======= -->
