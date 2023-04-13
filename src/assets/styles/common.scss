@@ -81,8 +81,8 @@ h4 {
 
 /* Carousel Slider Styles Starts */
 .carousel {
-  padding-top: 100px;
-  margin-bottom: 80px;
+  // padding-top: 100px;
+  // margin-bottom: 80px;
   @media only screen and (max-width: 768px) {
     margin-bottom: 30px;
   }
@@ -769,4 +769,14 @@ iframe .navbar-container,
   .container {
     max-width: 1565px;
   }
+}
+
+.badge-danger {
+  background: linear-gradient(90deg, rgba(244,201,133,1) 0%, rgba(245,61,109,1) 100%);
+    font-family: GTWalsheimPro-Regular;
+    font-size: 14px;
+    position: absolute;
+    top: -20px;
+    left: 72px;
+    width: 72px;
 }

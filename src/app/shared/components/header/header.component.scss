@@ -11,7 +11,10 @@
   box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   -webkit-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
-  height: 90px;
+  .header-align {
+    height: 90px;
+    display: flex;
+  }
   .header-scrolled,
   .header-inner-pages {
     padding: 12px 0;
@@ -106,7 +109,7 @@
       position: relative;
       white-space: nowrap;
       // padding: 10px 40px;
-      padding: 10px 97px;
+      padding: 10px 75px;
       @media only screen and (max-width: 1500px) {
         padding: 10px;
       }
