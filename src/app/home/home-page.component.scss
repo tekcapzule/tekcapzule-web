@@ -1,5 +1,8 @@
 @import './../../assets/styles/variables.scss';
 
+.home-page {
+  margin-top: 100px;
+}
 /*--------------------------------------------------------------
 # Install Now Section
 --------------------------------------------------------------*/
@@ -68,7 +71,7 @@
         }
       }
       .input-mail {
-        background: #f6f6f6;
+        background: #E5E5E5;
         border: 0 none;
         padding: 14px;
         border-radius: 10px;
