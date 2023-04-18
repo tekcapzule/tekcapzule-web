@@ -56,6 +56,10 @@ $subheading-font-url: '../fonts/Proxima-Nova-Semibold.ttf';
   font-family: NoteworthyBold;
   src: url('../fonts/Noteworthy-Bold.ttf');
 }
+@font-face {
+  font-family: HelveticaNeueLTPro-medium;
+  src: url('../fonts/Helvetica Neue LT Pro 67 Medium Condensed.otf');
+}
 @mixin TungstenSemiBold {
   font-family: TungstenSemiBold;
 }

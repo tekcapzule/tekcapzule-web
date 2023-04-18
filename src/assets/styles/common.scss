@@ -8,6 +8,7 @@ a {
 }
 .link {
   color: $primary-color;
+  cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
@@ -359,6 +360,7 @@ h4 {
   border: 0 none;
   background: transparent;
   img {
+    height: 34px;
     &:hover {
       -webkit-animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
       animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
@@ -752,22 +754,24 @@ iframe .navbar-container,
 
 /***********Carousel Slider****************/
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-    background-color: #ddd!important;
+  background-color: #ddd !important;
+  background-color: #e30045 !important;
 }
-.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: #e30045!important;
-}
+
 .pi {
-  font-size: 2rem!important;
+  font-size: 2rem !important;
 }
-.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
-  width: 3rem!important;
-  height: 3rem!important;
+
+.p-carousel .p-carousel-content {
+  .p-carousel-prev, .p-carousel-next {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
 }
 
 .carousel {
   .container {
-    max-width: 1565px;
+    max-width: 1470px;
   }
 }
 
@@ -778,5 +782,47 @@ iframe .navbar-container,
     position: absolute;
     top: -20px;
     left: 72px;
-    width: 72px;
+    width: 115px;
 }
+
+.bookmark-icon {
+  background: url("../images/bookmark-icon.svg") no-repeat;
+  width: 11px;
+  height: 16px;
+}
+.okhand-icon {
+  background: url("../images/okhand-icon.svg") no-repeat;
+  width: 14px;
+  height: 19px;
+  margin-left: 15px!important;
+}
+.git-icon {
+  background: url("../images/github.svg") no-repeat;
+  width: 14px;
+  height: 19px;
+}
+
+.mdc-tab-indicator--active .mdc-tab-indicator__content {
+  color: red!important;
+  border-top-width: 4px!important;
+}
+.mat-mdc-tab-link-container {
+  padding-top: 5px!important;
+}
+
+.tags {
+  max-height: 235px;
+  overflow-x: hidden;
+}
+// iframe::-webkit-scrollbar {
+//   width: 12px;               /* width of the entire scrollbar */
+// }
+
+// iframe::-webkit-scrollbar-track {
+//   background: orange;        /* color of the tracking area */
+// }
+// iframe::-webkit-scrollbar-thumb {
+//   background-color: blue;    /* color of the scroll thumb */
+//   border-radius: 20px;       /* roundness of the scroll thumb */
+//   border: 3px solid orange;  /* creates padding around scroll thumb */
+// }

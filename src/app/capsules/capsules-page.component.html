@@ -15,12 +15,12 @@
       </ng-container>
 
       <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal">
-        <span style="width: 160px">Browse by Topic</span>
+        <span style="width: 120px">Browse by Topic</span>
         <img src="/assets/images/down-arrow.svg" class="pl-2" />
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
-          <img src="/assets/images/reset.svg" alt="" class="pr-3 pt-2" />
+          <img src="/assets/images/reset.svg" alt="" class="pr-3 pt-1" />
         </button>
         <button
           mat-stroked-button
@@ -47,10 +47,10 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="container">
+        <div class="container p-0">
           <div class="modal-header">
-            <div class="col-lg-12">
-              <div class="search-box">
+            <div class="col-lg-12 px-0">
+              <div class="search-box mx-0">
                 <input
                   type="search"
                   name="search"
@@ -68,10 +68,10 @@
               aria-hidden="true"
               (click)="searchInputValue = ''; searchInputChanged('')"
             >
-              <img src="/assets/images/close-icon.svg" />
+              <img src="/assets/images/close-icon-new.svg" style="width:35px" />
             </button>
           </div>
-          <div class="modal-body pt-0">
+          <div class="modal-body pt-0 px-4 tags">
             <div class="row pb-4">
               <div class="col-md-12">
                 <ul class="topics-list">
