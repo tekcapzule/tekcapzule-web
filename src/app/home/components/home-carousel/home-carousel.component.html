@@ -1,16 +1,17 @@
 <div id="heroBanner" class="carousel slide" data-ride="carousel" data-interval="5000">
-  <!-- <ul class="carousel-indicators">
+  <ul class="carousel-indicators">
     <li data-target="#heroBanner" data-slide-to="0" class="active"></li>
     <li data-target="#heroBanner" data-slide-to="1"></li>
-  </ul> -->
+    <li data-target="#heroBanner" data-slide-to="2"></li>
+  </ul>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carousel-caption">
         <section class="d-flex align-items-center">
-          <div class="container-fluid">
+          <div class="container">
             <div class="row justify-content-center d-flex">
               <div
-                class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center justify-content-center sliderContent"
+                class="col-xl-6 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center justify-content-center sliderContent"
               >
                 <h1>
                   Everything tech in
@@ -42,7 +43,7 @@
                   > -->
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img">
+              <div class="col-xl-5 col-lg-6 order-1 order-lg-2 hero-img">
                 <img src="/assets/images/hero-slide-1.png" class="img-fluid" alt="" />
               </div>
             </div>
@@ -50,34 +51,80 @@
         </section>
       </div>
     </div>
-    <!-- <div class="carousel-item">
+    <div class="carousel-item">
       <div class="carousel-caption">
         <section class="d-flex align-items-center">
-          <div class="container-fluid-with-text-over-image">
-            <div class="row justify-content-center p-relative">
-              <div class="sliderContent banner-text">
+          <div class="container">
+            <div class="row justify-content-center d-flex">
+              <div
+                class="col-xl-6 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center justify-content-center sliderContent"
+              >
                 <h1>
-                  Learning
-                  <span>TECH</span> is never this
-                  <span>EASY!</span>
+                  ARTIFICIAL
+                  <span>INTELLIGENCY</span>
                 </h1>
+                <p class="hero-text">
+                  Fall in love with tech with our unique tech capsules. <br />Get your daily dose
+                  now!
+                </p>
                 <div>
-                  <button
-                    mat-raised-button
-                    class="col-xl-4 col-lg-6 order-1 order-lg-2 button primary"
-                    (click)="gotoCapsulesPage()"
-                  >
+                  <button mat-raised-button class="button primary" (click)="gotoCapsulesPage()">
                     Explore
+                  </button>
+                  <button
+                    mat-stroked-button
+                    class="button secondary"
+                    (click)="subscribeClicked.emit()"
+                  >
+                    Subscribe
                   </button>
                 </div>
               </div>
-              <div class="hero-img">
-                <img src="/assets/images/homeBanner2.svg" class="img-fluid" alt="" />
+              <div class="col-xl-5 col-lg-6 order-1 order-lg-2 hero-img">
+                <img src="/assets/images/hero-slide-1.png" class="img-fluid" alt="" />
               </div>
             </div>
           </div>
         </section>
       </div>
-    </div> -->
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-caption">
+        <section class="d-flex align-items-center">
+          <div class="container">
+            <div class="row justify-content-center d-flex">
+              <div
+                class="col-xl-6 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center justify-content-center sliderContent"
+              >
+                <h1>
+                  Our Content
+                  <span>Categories</span>
+                </h1>
+                <p class="hero-text">
+                  Fall in love with tech with our unique tech capsules. <br />Get your daily dose
+                  now!
+                </p>
+                <div>
+                  <button mat-raised-button class="button primary" (click)="gotoCapsulesPage()">
+                    Explore
+                  </button>
+                  <button
+                    mat-stroked-button
+                    class="button secondary"
+                    (click)="subscribeClicked.emit()"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-6 order-1 order-lg-2 hero-img">
+                <img src="/assets/images/hero-slide-1.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    
   </div>
 </div>

@@ -19,10 +19,14 @@
   background: #fff;
   margin-bottom: 40px;
   // cursor: pointer;
-  backface-visibility: hidden;
-  border: 1px solid #ddd;
+  // backface-visibility: hidden;
+  border: 1px solid #cbcbcb;
+  // transition: transform .15s ease-out;
+  transform: translateZ(0);
+  will-change: transform;
   .card-head {
     position: relative;
+    
     .icons {
       text-align: center;
       cursor: pointer;
@@ -73,8 +77,9 @@
       font-size: 20px;
       font-family: $cardtitle-font;
       line-height: 23px;
-      min-height: 70px;
+      // min-height: 70px;
       margin-top: 20px;
+      margin-bottom: 20px;
       p {
         font-family: $primary-font-medium;
         font-size: 14px;
@@ -91,6 +96,8 @@
     .card-footer {
       background: none;
       border: 0 none;
+      padding-left: 0;
+      padding-right: 0;
       img {
         cursor: pointer;
       }
@@ -100,11 +107,40 @@
     margin: 0 0px;
   }
   &:hover {
-    transform: scale(1.08);
+    // transform: scale(1.05);
     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+    // backface-visibility: hidden;
     @media only screen and (max-width: 768px) {
       transform: none;
     }
+  }
+  .button.secondary-btn-sm {
+    width: auto!important;
+    display: flex;
+    height: 25px;
+    padding: 2px 10px;
+    &:hover {
+      background: none;
+      color: $primary-color;
+    }
+    .flip-icon {
+      background: url("../../../../assets/images/flip-icon.svg") no-repeat;
+      width: 15px;
+      height: 13px;
+      margin: 4px 0px 4px 6px;
+    }
+    .share-icon {
+      background: url("../../../../assets/images/share-icon.svg") no-repeat;
+      width: 12px;
+      height: 11px;
+      margin: 4px 0px 4px 6px
+    }
+  }
+  .book-icon {
+    background: url("../../../../assets/images/book-icon.svg") no-repeat;
+    width: 17px;
+    height: 13px;
+    margin: 3px 8px 0 0;
   }
 }
 
@@ -112,13 +148,13 @@
   cursor: default;
   .title {
     min-height: unset;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
   }
   .description {
     min-height: 380px;
   }
   label {
-    margin-bottom: 35px;
+    margin-bottom: 10px;
     img {
       padding-right: 10px;
     }
@@ -155,6 +191,28 @@
       min-height: 160px;
       padding: 30px 10px;
       margin-bottom: 20px;
+    }
+  }
+  .key-points {
+    border: 1px solid #DBDBDB;
+    padding: 20px;
+    background: #f9f9f9;
+    .flip-title {
+      font-family: $heading-fonts;
+      font-size: 14px;
+      color: black;
+    }
+    .key-points-list {
+      font-family: HelveticaNeueLTPro-medium;
+      font-size: 15px;
+      color: #5E5E5E;
+      padding-inline-start: 18px;
+      li {
+        padding-bottom: 10px;
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
     }
   }
   .shield {

@@ -11,8 +11,14 @@
   .contribute-form-bg {
     background: url(../../../../assets/images/contribute-form-bg.svg) no-repeat;
     padding: 60px 125px;
-    height: 53rem;
-    background-size: 920px 870px;
+    // height: 53rem;
+    // background-size: 920px 870px;
+    background-size: 100%;
+    @media only screen and (max-width: 990px) { 
+      background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px 0px;
+      padding: 30px 20px;
+      border-radius: 20px;
+    }
   }
   .formuser-icon {
     background: url(../../../../assets/images/form-man.png) no-repeat;
@@ -20,7 +26,10 @@
     height: 579px;
     position: absolute;
     left: 12%;
-    top: 33rem;
+    top: 30rem;
+    @media only screen and (max-width: 990px) { 
+      display: none;
+    }
   }
   .error-text {
     input,
@@ -37,4 +46,10 @@
   textarea {
     margin-bottom: 5px;
   }
+  @media only screen and (max-width: 767px) { 
+  .button {
+    width: 135px;
+    margin-right: 20px!important;
+  }
+}
 }
