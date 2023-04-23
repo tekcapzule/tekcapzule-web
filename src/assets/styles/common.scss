@@ -35,8 +35,9 @@ h1 {
   line-height: 64px;
   color: #000;
   @media only screen and (max-width: 767px) {
-    line-height: normal;
-    font-size: 30px;
+    line-height: 40px;
+    font-size: 25px;
+    padding-bottom: 20px;
   }
   span {
     color: $primary-color;
@@ -88,8 +89,10 @@ h4 {
     margin-bottom: 30px;
   }
   .carousel-indicators li {
-    background-color: #ddd;
-    height: 5px;
+    background-color: #fff;
+    height: 7px;
+    border: 1px solid #e30045;
+    border-radius: 5px;
     &.active {
       background-color: #e30045;
     }
@@ -101,7 +104,7 @@ h4 {
       height: 580px;
       width: 100%;
       @media only screen and (max-width: 990px) {
-        height: 620px;
+        height: 545px;
       }
       .carousel-caption {
         top: auto;
@@ -278,7 +281,7 @@ h4 {
     }
   }
   &.secondary-btn-sm {
-    width: 132px;
+    max-width: 132px;
     height: 32px;
     border-radius: 18px;
     font-size: 14px;
@@ -760,12 +763,19 @@ iframe .navbar-container,
 
 .pi {
   font-size: 2rem !important;
+  @media only screen and (max-width: 990px) {
+    font-size: 1rem !important;
+  }
 }
 
 .p-carousel .p-carousel-content {
   .p-carousel-prev, .p-carousel-next {
     width: 3rem !important;
     height: 3rem !important;
+    @media only screen and (max-width: 990px) {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
   }
 }
 
@@ -801,9 +811,16 @@ iframe .navbar-container,
   width: 14px;
   height: 19px;
 }
+.close-icon {
+  background: url("../images/iframe-close-icon.png") no-repeat;
+  width: 31px;
+  height: 32px;
+  opacity: 1;
+}
+
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
-  color: red!important;
+  color: $primary-color!important;
   border-top-width: 4px!important;
 }
 .mat-mdc-tab-link-container {
@@ -826,3 +843,7 @@ iframe .navbar-container,
 //   border-radius: 20px;       /* roundness of the scroll thumb */
 //   border: 3px solid orange;  /* creates padding around scroll thumb */
 // }
+
+.capsule-top {
+  padding-top: 45px;
+}
