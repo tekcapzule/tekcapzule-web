@@ -37,13 +37,11 @@
           <img src="/assets/images/article-icon.svg" class="float-left" />
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
-              Flip<span class="flip-icon"></span>
+              Read Highlights<span class="flip-icon"></span>
             </button>
-            <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onCardClick()">
+            <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onShareClick()">
               Share <span class="share-icon"></span>
             </button>
-            <!-- <img src="/assets/images/flip-icon.svg" class="mr-4" (click)="doFlipCard()" />
-            <img src="/assets/images/share-icon.png" (click)="onCardClick()" /> -->
           </div>
         </div>
       </div>
@@ -91,13 +89,13 @@
         </div>
         <div class="card-footer d-flex justify-content-between">
           <button class="button primary-btn-sm mb-3 d-flex" (click)="onCardClick()">
-            <span class="book-icon"></span> Start Reading
+            <span [ngClass]="capsule.type === 'VIDEO' ? 'video-icon' : 'book-icon'"></span> {{capsule.type === 'VIDEO' ? 'Watch Now' : 'Start Reading'}}
           </button>
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
               Flip<span class="flip-icon"></span>
             </button>
-            <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onCardClick()">
+            <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onShareClick()">
               Share <span class="share-icon"></span>
             </button>
             
