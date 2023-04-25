@@ -27,7 +27,15 @@
 
         <div class="collapse navbar-collapse nav-menu" id="navbarNav">
           <ul class="navbar-nav">
-            
+            <li *ngIf="isMobileResolution">
+              <a
+                data-toggle="collapse"
+                data-target=".navbar-collapse.show"
+                [routerLink]="['/home']"
+                class="pe-none"
+                >Home</a
+              >
+            </li>
             <li class="dropdown"  routerLinkActive="active">
               <a class="dropdown-toggle d-flex" data-toggle="dropdown" href="#"
               [routerLink]="['/capsules']"
