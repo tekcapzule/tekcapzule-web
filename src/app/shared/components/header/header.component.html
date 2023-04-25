@@ -27,14 +27,27 @@
 
         <div class="collapse navbar-collapse nav-menu" id="navbarNav">
           <ul class="navbar-nav">
-            <li routerLinkActive="active">
+            
+            <li class="dropdown"  routerLinkActive="active">
+              <a class="dropdown-toggle d-flex" data-toggle="dropdown" href="#"
+              [routerLink]="['/capsules']"
+              >My Feeds
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">For You</a></li>
+                <li><a href="#">Trending</a></li>
+                <li><a href="#">Editor Pick</a></li>
+                <li><a href="#">Browse by Topic</a></li>
+              </ul>
+            </li>
+            <!-- <li routerLinkActive="active">
               <a
                 data-toggle="collapse"
                 data-target=".navbar-collapse.show"
                 [routerLink]="['/capsules']"
                 >My Feeds</a
               >
-            </li>
+            </li> -->
             <!-- <li routerLinkActive="active"> -->
               <li>
               <a

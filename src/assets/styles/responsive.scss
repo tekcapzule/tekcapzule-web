@@ -1,5 +1,11 @@
 @media only screen and (max-width: 990px) {
   
+  // .dropdown-menu {
+  //   display: block!important;
+  // }
+  // a.dropdown-toggle.d-flex::after {
+  //   display: block!important;
+  // }
   .capsule-card-container {
     width: 320px !important;
     height: 625px !important;
@@ -103,6 +109,10 @@
       width: 100% !important;
     }
   }
+  .badge-danger {
+    top: 0 !important;
+    left: 90px !important;
+  }
 }
 
 @media only screen and (width: 768px) {
@@ -151,4 +161,23 @@
   .hero-img {
     text-align: center;
   }
+}
+
+
+/*******iPhone 10 mobile responsive******/
+@media only screen and (max-device-width: 375px) {
+.capsule-card-container {
+  width: 345px !important;
+  height: 575px !important;
+}
+.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
+  margin: 0 !important;
+  display: none;
+}
+.capsule-card .card-content {
+  padding: 0 15px !important;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  width: 1rem!important;
+}
 }
