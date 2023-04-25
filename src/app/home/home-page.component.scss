@@ -34,15 +34,6 @@
   }
 }
 
-.error-text {
-  input {
-    border-color: red;
-  }
-  .error-msg {
-    text-align: left;
-    color: red !important;
-  }
-}
 
 /*--------------------------------------------------------------
 # subscribe Section
@@ -69,6 +60,10 @@
         @media only screen and (max-width: 480px) {
           flex-wrap: wrap;
         }
+      }
+      .error-msg {
+        text-align: left;
+        color: red !important;
       }
       .input-mail {
         background: #E5E5E5;

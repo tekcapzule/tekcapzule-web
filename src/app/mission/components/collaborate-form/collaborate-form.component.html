@@ -11,14 +11,14 @@
 
         <span class="error-msg" *ngIf="
             feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid
-            ">Please enter first name.</span>
+            ">Please enter first name</span>
       </div>
       <div class="col-6 form-field "
         [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
         <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
         <span class="error-msg" *ngIf="
             feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid
-            ">Please enter last name.</span>
+            ">Please enter last name</span>
       </div>
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
 
         <span class="error-msg" *ngIf="
     feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid
-    ">Please enter valid email.</span>
+    ">Please enter valid email</span>
       </div>
     </div>
     <div class="row">
@@ -39,7 +39,7 @@
 
         <span class="error-msg" *ngIf="
     feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid
-    ">Please enter subject.</span>
+    ">Please enter subject</span>
       </div>
     </div>
     <div class="row">
@@ -53,7 +53,7 @@
     *ngIf="
     feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid
     "
-    >Please enter description.</span>
+    >Please enter description</span>
     
       </div>
     </div>
