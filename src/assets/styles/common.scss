@@ -756,9 +756,19 @@ iframe .navbar-container,
 }
 
 /***********Carousel Slider****************/
+.p-carousel .p-carousel-indicators .p-carousel-indicator {
+    background-color: #fff;
+    height: 7px;
+    border: 1px solid #e30045;
+    border-radius: 5px;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+   background-color: transparent !important;
+}
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: #ddd !important;
-  background-color: #e30045 !important;
+    background-color: #e30045 !important;
+    border-radius: 5px;
+    height: 6px;
 }
 
 .pi {
