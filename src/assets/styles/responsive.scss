@@ -110,8 +110,18 @@
     }
   }
   .badge-danger {
-    top: 0 !important;
-    left: 90px !important;
+    top: 17px !important;
+    left: 105px !important;
+    border: 1px solid #fff;
+  }
+  .nav-menu .active > a {
+    color: $white!important;
+  }
+  .dropdown {
+    padding-bottom: 10px !important;
+  }
+  .back-link {
+    font-size: 14px !important;
   }
 }
 
@@ -179,5 +189,9 @@
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button {
   width: 1rem!important;
+}
+.contribute-page .button {
+  width: 115px !important;
+  height: 45px;
 }
 }

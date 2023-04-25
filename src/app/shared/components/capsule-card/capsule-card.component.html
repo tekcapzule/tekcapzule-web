@@ -19,7 +19,10 @@
         <div class="icons labelRed">
           <span>#{{ capsule.topicCode }}</span>
         </div>
+        <div class="video_thumb">
         <img [src]="capsule.imageUrl" class="header-image" alt="" (click)="onCardClick()" />
+        <div class="play-button"></div>
+      </div>
       </div>
       <div class="card-content">
         <div class="title" (click)="onCardClick()">

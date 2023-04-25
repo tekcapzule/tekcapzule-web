@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, HostBinding, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   searchInputValue = '';
   topics: TopicItem[] = [];
   searchedTopics: TopicItem[] = [];
+  isMobileResolution: boolean;
 
   constructor(
     private auth: AuthService,
@@ -37,10 +38,17 @@ export class HeaderComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
     });
+    this.onResize();
   }
 
   signOutUser(): void {
     this.auth.signOutUser();
+  }
+  
+  @HostBinding('widnow:resize')
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false; 
+    console.log(this.isMobileResolution);
   }
 
   searchInputChanged(value: string): void {
