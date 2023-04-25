@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {Clipboard} from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
@@ -37,7 +38,8 @@ export class CapsuleCardComponent implements OnInit {
     private auth: AuthService,
     private eventChannel: EventChannelService,
     private spinner: AppSpinnerService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private clipboard: Clipboard
   ) {}
 
   ngOnInit(): void {
@@ -194,5 +196,10 @@ export class CapsuleCardComponent implements OnInit {
     }
 
     return [];
+  }
+
+  onShareClick() {
+    this.clipboard.copy(this.capsule.resourceUrl);
+    this.messageService.add({ severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
   }
 }
