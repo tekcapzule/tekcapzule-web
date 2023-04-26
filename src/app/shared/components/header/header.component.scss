@@ -12,7 +12,8 @@
   -webkit-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   .header-align {
-    height: 90px;
+    // height: 90px;
+    height: 75px;
     display: flex;
   }
   .header-scrolled,
@@ -333,27 +334,10 @@ a.dropdown-toggle.d-flex::after {
   .navbar-toggler {
     margin-right: 20px;
     padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-    background: url('../../../../assets/images/burgerMenuIcon.svg') 10px 10px no-repeat;
-    // .navbar-toggler-icon{
-    // position: relative;
-    // display: inline-block;
-    // width: 1.5em;
-    // height: 1.25em;
-    // border-top: 0.15em solid #e30045;
-    // border-bottom: 0.15em solid #e30045;
-    // &:before{
-    // content: "";
-    // position: absolute;
-    // top: 0.4em;
-    // left: 0px;
-    // width: 100%;
-    // border-top: 0.15em solid #e30045;
-    // }
-    // }
+    background: url('../../../../assets/images/mobile-menu-icon.svg') 10px 10px no-repeat;
   }
   .navbar-toggler[aria-expanded='true'] {
-    background: url('../../../../assets/images/crossMobileMenu.svg') 10px 10px no-repeat;
+    background: url('../../../../assets/images/mobile-menu-close.svg') 5px 3px no-repeat;
   }
   .nav-menu > ul > li {
     padding: 0 10px;
@@ -361,7 +345,7 @@ a.dropdown-toggle.d-flex::after {
   }
   .navbar-collapse {
     position: fixed;
-    top: 93px;
+    top: 75px;
     left: 0;
     padding-left: 15px;
     padding-right: 15px;
