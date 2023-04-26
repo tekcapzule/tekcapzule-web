@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
-import { Subject, timer } from 'rxjs';
+import { Subject } from 'rxjs';
 
 import { AppSpinnerService, CapsuleApiService, EventChannelService, ChannelEvent } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
+import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 
 @Component({
   selector: 'app-capsule-trending',
@@ -13,6 +14,7 @@ import { CapsuleItem } from '@app/shared/models';
 export class CapsuleTrendingComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   capsules: CapsuleItem[] = [];
+  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
 
   constructor(
     private capsuleApi: CapsuleApiService,
@@ -58,5 +60,9 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
       .subscribe(capsules => {
         this.capsules = capsules;
       });
+  }
+  
+  onCardOpened(capsuleId) {
+    this.capsuleComp.closeCard(capsuleId);
   }
 }

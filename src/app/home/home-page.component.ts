@@ -10,6 +10,7 @@ import {
   TopicApiService,
   AppSpinnerService,
 } from '@app/core';
+import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { shuffleArray } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
@@ -25,7 +26,8 @@ export class HomePageComponent implements OnInit {
   capsules: CapsuleItem[] = [];
   topics: TopicItem[] = [];
   subscriberFormGroup: FormGroup;
-  
+  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
+
   @ViewChild('subscribe') subscribeSection: ElementRef;
   responsiveOptions: any[] = [
     {
@@ -96,5 +98,9 @@ export class HomePageComponent implements OnInit {
 
   gotoCapsulesPage(): void {
     this.router.navigateByUrl('/capsules');
+  }
+
+  onCardOpened(capsuleId) {
+    this.capsuleComp.closeCard(capsuleId);
   }
 }
