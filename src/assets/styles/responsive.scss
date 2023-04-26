@@ -7,8 +7,8 @@
   //   display: block!important;
   // }
   .capsule-card-container {
-    width: 320px !important;
-    height: 625px !important;
+    width: 390px !important;
+    height: 590px !important;
   }
   .section-title h2,
   h2 {
@@ -123,8 +123,31 @@
   .back-link {
     font-size: 14px !important;
   }
+  .mission-page, .community-page {
+  .tech-learning {
+      padding: 40px 0 !important;
+    }
+   p {
+        text-align: justify;
+   }
+   h2 {
+    margin-bottom: 0 !important;
+   }
+  }
+  #header .header-align {
+    height: 75px !important;
+    padding: 0;
+  }
+  .navbar-toggler-icon {
+    width: 25px;
+    height: 30px;
+  }
 }
-
+@media only screen and (width: 1024px) {
+  .col-card {
+    justify-content: center!important;
+  }
+}
 @media only screen and (width: 768px) {
   h1{
     line-height: 44px !important;
@@ -147,6 +170,10 @@
   .topics-card {
     margin: 8px !important;
   }
+  .capsule-card-container {
+    width: 350px !important;
+    height: 590px !important;
+}
 }
 @media only screen and (max-width: 767px) { 
   .banner-text {
@@ -176,9 +203,15 @@
 
 /*******iPhone 10 mobile responsive******/
 @media only screen and (max-device-width: 375px) {
+
 .capsule-card-container {
-  width: 345px !important;
+  width: 355px !important;
   height: 575px !important;
+}
+.home-page {
+  .capsule-card-container {
+    width: 345px !important;
+  }
 }
 .p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
   margin: 0 !important;
