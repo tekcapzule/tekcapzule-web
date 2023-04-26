@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   topics: TopicItem[] = [];
   searchedTopics: TopicItem[] = [];
   isMobileResolution: boolean;
-  @ViewChild('navbarNav') navbarNav: ElementRef;
 
   constructor(
     private auth: AuthService,
@@ -29,9 +28,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe(value => {
-      console.log(this.navbarNav);
-    });
     this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.zone.run(() => {
         this.isLoggedIn = isLoggedIn;
