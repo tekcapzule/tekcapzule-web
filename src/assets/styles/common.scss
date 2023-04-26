@@ -810,13 +810,61 @@ iframe .navbar-container,
   background: url("../images/bookmark-icon.svg") no-repeat;
   width: 11px;
   height: 16px;
+  cursor: pointer;
 }
 .okhand-icon {
   background: url("../images/okhand-icon.svg") no-repeat;
   width: 14px;
   height: 19px;
   margin-left: 15px!important;
+  cursor: pointer;
 }
+
+.share-icon {
+  background: url("../images/share-icon.svg") no-repeat;
+  width: 12px;
+  height: 11px;
+  margin: 4px 0px 4px 6px;
+  cursor: pointer;
+}
+.icon-type {
+  width: auto!important;
+  display: flex;
+  height: 25px;
+  padding: 0px;
+}
+.article-icon {
+  background: url("../images/article-icon.svg") no-repeat;
+  width: 38px;
+  height: 21px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.book-icon {
+  background: url("../images/book-icon.svg") no-repeat;
+  width: 17px;
+  height: 13px;
+  margin: 3px 8px 0 0;
+  cursor: pointer;
+}
+
+.video-icon {
+  background: url("../images/video-icon.svg") no-repeat;
+  width: 38px;
+  height: 21px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.job-icon {
+  background: url("../images/jobs-icon.svg") no-repeat;
+  width: 38px;
+  height: 21px;
+  margin: 0px;
+  cursor: pointer;
+}
+
 .git-icon {
   background: url("../images/github.svg") no-repeat;
   width: 14px;

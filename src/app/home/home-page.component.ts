@@ -84,15 +84,15 @@ export class HomePageComponent implements OnInit {
     if(this.subscriberFormGroup.valid) {
       this.spinner.show();
       this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(data => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Subscribed successfully' });
+        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Subscribed successfully' });
         this.subscriberFormGroup.reset();
         this.spinner.hide();
       }, error => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
+        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
         this.spinner.hide();
       });
     } else {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Enter valid email' });
+      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Enter valid email' });
     }
   }
 

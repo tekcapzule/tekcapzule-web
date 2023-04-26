@@ -1,4 +1,4 @@
-import { Component, HostBinding, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 

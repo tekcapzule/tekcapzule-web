@@ -197,18 +197,18 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
       });
       if (this.isEditMode) {
         this.tekByteAPI.updateTekByte(requestBody).subscribe(res => {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'TekByte created successfully'});
+          this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'TekByte created successfully'});
           this.spinner.hide();
         }, error => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
+          this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
           this.spinner.hide();
         });
       } else {
         this.tekByteAPI.createTekByte(requestBody).subscribe((res) => {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'TekByte updated successfully'});
+          this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'TekByte updated successfully'});
           this.spinner.hide();
         }, error => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
+          this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
           this.spinner.hide();
         });
       }
