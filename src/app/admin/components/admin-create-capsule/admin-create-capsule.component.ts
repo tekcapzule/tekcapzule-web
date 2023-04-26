@@ -125,11 +125,11 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   updateCapsule(requestBody) {
     this.capsuleApi.updateCapsule(requestBody).subscribe(data => {
       this.isCreateCapsuleSubmitted = true;
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Capsule updated successfully'});
+      this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Capsule updated successfully'});
       this.spinner.hide();
     }, error => {
       console.log('ERR --- ',error);
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
+      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
       this.spinner.hide();
     });
   }
@@ -137,12 +137,12 @@ export class AdminCreateCapsuleComponent implements OnInit, AfterViewInit {
   createCapsule(requestBody) {
     this.capsuleApi.createCapsule(requestBody).subscribe(data => {
       this.capsuleFormGroup.reset();
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Capsule created successfully'});
+      this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Capsule created successfully'});
       this.isCreateCapsuleSubmitted = true;
       this.spinner.hide();
     }, error => {
       console.log('ERR --- ',error);
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
+      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something went wrong. Please try after sometime'});
       this.spinner.hide();
     });
   }

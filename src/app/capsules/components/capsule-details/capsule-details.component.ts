@@ -1,30 +1,39 @@
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppSpinnerService, ChannelEvent, EventChannelService } from '@app/core';
+import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-capsule-details',
   templateUrl: './capsule-details.component.html',
   styleUrls: ['./capsule-details.component.scss'],
+  providers: [MessageService]
 })
 export class CapsuleDetailsComponent implements OnInit, OnDestroy {
   resourceUrl: SafeResourceUrl;
+  capsuleId: string;
+  queryParamUrl: string;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private eventChannel: EventChannelService,
-    private spinner: AppSpinnerService
+    private spinner: AppSpinnerService,
+    private messageService: MessageService,
+    private capsuleApi: CapsuleApiService,
+    private clipboard: Clipboard
   ) {}
 
   ngOnInit(): void {
     this.spinner.show();
-    const queryParamUrl = atob(
+    this.queryParamUrl = atob(
       this.route.snapshot.queryParamMap.get('url') || btoa('https://tekcapsule.blog')
     );
-    this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(queryParamUrl);
+    this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.queryParamUrl);
+    this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     setTimeout(() => {
       this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
     });
@@ -74,4 +83,14 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
+  onRecommendClick() {
+    this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data=> {
+      this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Recommandation done successfully' });
+    });
+  }
+
+  onShareClick() {
+    this.clipboard.copy(this.queryParamUrl);
+    this.messageService.add({ key: 'tc', severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
+  }
 }

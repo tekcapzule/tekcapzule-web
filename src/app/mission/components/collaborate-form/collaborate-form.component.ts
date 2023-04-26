@@ -42,12 +42,12 @@ export class CollaborateFormComponent implements OnInit {
       this.feedbackApi.createFeedback(this.feedbackFormGroup.value).subscribe(_ => {
         this.feedbackFormGroup.reset();
         this.appSpinnerService.hide();        
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
+        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
       }, err => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
+        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
       });
     } else {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Complete the form before submit' });
+      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Complete the form before submit' });
     }
   }
 }

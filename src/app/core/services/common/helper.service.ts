@@ -19,10 +19,10 @@ export class HelperService {
   }
 
   showSuccess(msg) {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: msg });
+    this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: msg });
   }
 
   showError(msg) {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: msg });
+    this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: msg });
   }
 }

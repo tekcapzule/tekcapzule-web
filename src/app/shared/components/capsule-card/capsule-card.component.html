@@ -95,7 +95,7 @@
         </div>
         <div class="card-footer d-flex justify-content-between">
           <button class="button primary-btn-sm mb-3 d-flex" (click)="onCardClick()">
-            <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span> {{capsule.type === 'VIDEO' ? 'Watch Now' : 'Start Reading'}}
+            <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span> {{capsule.type === 'VIDEO' ? 'Play' : 'Read'}}
           </button>
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">

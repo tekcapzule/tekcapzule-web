@@ -112,7 +112,7 @@ export class CapsuleCardComponent implements OnInit {
       this.capsule.recommendations += 1;
       this.isCapsuleRecommended = true;
       this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data=> {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Recommandation done successfully' });
+        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Recommandation done successfully' });
       });
     }
   }
@@ -143,7 +143,7 @@ export class CapsuleCardComponent implements OnInit {
       .pipe(
         tap(() => {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe(data => {
-            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Bookmark done' });
+            this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Bookmark done' });
           });
         })
       )
@@ -170,7 +170,7 @@ export class CapsuleCardComponent implements OnInit {
     this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
       .subscribe(data => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Bookmark removed' });
+        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Bookmark removed' });
       });
 
     this.userInfo = {
@@ -204,7 +204,7 @@ export class CapsuleCardComponent implements OnInit {
 
   onShareClick() {
     this.clipboard.copy(this.capsule.resourceUrl);
-    this.messageService.add({ severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
+    this.messageService.add({ key:'tc', severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
   }
 
   closeCard(capsuleId: string) {
