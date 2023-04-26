@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import * as moment from 'moment';
 
 import {
   CapsuleApiService,
@@ -31,6 +32,7 @@ export class CapsuleCardComponent implements OnInit {
 
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
+  dateAgoStr: string;
 
   constructor(
     private router: Router,
@@ -45,6 +47,7 @@ export class CapsuleCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchUserInfo();
+    this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
