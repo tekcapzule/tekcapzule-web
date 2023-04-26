@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
@@ -30,6 +30,7 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleRecommended = false;
 
   @Input() capsule: CapsuleItem;
+  @Output() cardOpened: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -63,6 +64,9 @@ export class CapsuleCardComponent implements OnInit {
       this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
     }
     this.isCardFlipped = !this.isCardFlipped;
+    if(this.isCardFlipped) {
+      this.cardOpened.emit(this.capsule.capsuleId);
+    }
   }
 
   doStartReading(): void {
@@ -201,5 +205,11 @@ export class CapsuleCardComponent implements OnInit {
   onShareClick() {
     this.clipboard.copy(this.capsule.resourceUrl);
     this.messageService.add({ severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
+  }
+
+  closeCard(capsuleId: string) {
+    if(this.capsule.capsuleId !== capsuleId) {
+      this.isCardFlipped = false;
+    }
   }
 }

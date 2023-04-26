@@ -19,9 +19,9 @@
         <div class="icons labelRed">
           <span>#{{ capsule.topicCode }}</span>
         </div>
-        <div class="video_thumb">
-        <img [src]="capsule.imageUrl" class="header-image" alt="" (click)="onCardClick()" />
-        <div class="play-button"></div>
+        <div class="video_thumb" (click)="onCardClick()">
+        <img [src]="capsule.imageUrl" class="header-image" alt=""/>
+        <div *ngIf="capsule.type === 'VIDEO'" class="play-button"></div>
       </div>
       </div>
       <div class="card-content">
@@ -37,7 +37,10 @@
           </p>
         </div>
         <div class="card-footer d-flex justify-content-between">
-          <img src="/assets/images/article-icon.svg" class="float-left" />
+          <div class="icon-type float-left">
+            <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span>
+          </div>
+          <!--img src="/assets/images/article-icon.svg" class="float-left" /-->
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
               Read Highlights<span class="flip-icon"></span>
@@ -92,7 +95,7 @@
         </div>
         <div class="card-footer d-flex justify-content-between">
           <button class="button primary-btn-sm mb-3 d-flex" (click)="onCardClick()">
-            <span [ngClass]="capsule.type === 'VIDEO' ? 'video-icon' : 'book-icon'"></span> {{capsule.type === 'VIDEO' ? 'Watch Now' : 'Start Reading'}}
+            <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span> {{capsule.type === 'VIDEO' ? 'Watch Now' : 'Start Reading'}}
           </button>
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
