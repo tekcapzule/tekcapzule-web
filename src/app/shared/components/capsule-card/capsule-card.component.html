@@ -79,11 +79,8 @@
           </div> -->
           <div class="key-points">
             <p class="flip-title">Key Points</p>
-            <ul class="key-points-list">
-              <li>Sed ut perspiciatis unde omnis steomnstesteomn steomnsteomn</li>
-              <li>Sed ut perspiciatis unde omnis steomnstesteomn</li>
-              <li>Sed ut perspiciatis unde omnis steomnstesteomn steomnsteomn</li>
-              <li>Sed ut perspiciatis unde omnis steomnstesteomn steomnsteomn</li>
+            <ul *ngIf="capsule.keyPoints" class="key-points-list">
+              <li *ngFor="let keyPoint of capsule.keyPoints">{{keyPoint}}</li>
             </ul>
           </div>
           <div class="shield mb-4 pt-2">
