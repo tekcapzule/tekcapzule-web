@@ -202,7 +202,7 @@
 
 
 /*******iPhone 10 mobile responsive******/
-@media only screen and (max-device-width: 375px) {
+@media only screen and (min-device-width: 375px)and (max-device-width: 414px) {
 
 .capsule-card-container {
   width: 355px !important;
@@ -210,7 +210,8 @@
 }
 .home-page {
   .capsule-card-container {
-    width: 345px !important;
+    width: 99% !important;
+    align-items: center;
   }
 }
 .p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
