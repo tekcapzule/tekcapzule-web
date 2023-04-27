@@ -33,6 +33,7 @@ export class CapsuleCardComponent implements OnInit {
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   dateAgoStr: string;
+  localPublisher: string[] = ["TEKCAPSULE", "AITODAY", "YOUTUBE"];
 
   constructor(
     private router: Router,
@@ -86,6 +87,12 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   navigateToCapsuleDetailsPage(): void {
+    const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
+    if(!isLocalPublisher) {
+      window.open(this.capsule.resourceUrl, '_blank');
+      return;
+    }
+
     this.spinner.show();
     const resourceUrl = this.isValidUrl(this.capsule.resourceUrl)
       ? btoa(this.capsule.resourceUrl)
