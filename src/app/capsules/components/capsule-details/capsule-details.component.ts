@@ -9,7 +9,7 @@ import { MessageService } from 'primeng/api';
   selector: 'app-capsule-details',
   templateUrl: './capsule-details.component.html',
   styleUrls: ['./capsule-details.component.scss'],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class CapsuleDetailsComponent implements OnInit, OnDestroy {
   resourceUrl: SafeResourceUrl;
@@ -37,7 +37,6 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
     });
-    
   }
 
   ngOnDestroy(): void {
@@ -78,19 +77,33 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy {
   }
 
   onAfterIframeLoaded(): void {
-    if(this.resourceUrl) {
+    if (this.resourceUrl) {
       this.spinner.hide();
     }
   }
 
   onRecommendClick() {
-    this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data=> {
-      this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Recommandation done successfully' });
+    this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data => {
+      this.messageService.add({
+        key: 'tc',
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Recommandation done successfully',
+      });
     });
   }
 
   onShareClick() {
-    this.clipboard.copy(this.queryParamUrl);
-    this.messageService.add({ key: 'tc', severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
+    // this.clipboard.copy(this.queryParamUrl);
+    const shareableUrl = new URL(window.location.href);
+    shareableUrl.searchParams.delete('tab');
+    this.clipboard.copy(shareableUrl.toString());
+
+    this.messageService.add({
+      key: 'tc',
+      severity: 'success',
+      summary: '',
+      detail: 'Link copied. You can share it now.',
+    });
   }
 }
