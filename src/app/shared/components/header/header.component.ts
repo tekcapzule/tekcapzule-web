@@ -79,7 +79,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onBrowseClick(): void {
-    console.log('openBrowse --- ', this.router.url);
     this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
   }
 }
