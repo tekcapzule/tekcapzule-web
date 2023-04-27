@@ -2,7 +2,7 @@ import { Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild } from '@
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 
-import { TopicApiService, AuthService, AwsUserInfo } from '@app/core';
+import { TopicApiService, AuthService, AwsUserInfo, ChannelEvent, EventChannelService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
 
 @Component({
@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService,
     private zone: NgZone,
     private router: Router,
-    private topicApi: TopicApiService
+    private topicApi: TopicApiService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
@@ -75,5 +76,10 @@ export class HeaderComponent implements OnInit {
       state: { topic },
       queryParams: { code: topic.code },
     });
+  }
+
+  onBrowseClick(): void {
+    console.log('openBrowse --- ', this.router.url);
+    this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
   }
 }

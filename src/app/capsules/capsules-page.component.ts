@@ -85,7 +85,15 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.deActivateTabs();
       });
+      this.subscribeBrowseByTopicEvent();
   }
+
+  subscribeBrowseByTopicEvent() {
+    this.eventChannel.getChannel().pipe(filter(out => out.event === ChannelEvent.ShowBrowseByTopic),
+      takeUntil(this.destroy$)).subscribe(() => {
+        this.showBroweByTopicModal();
+      });
+   }
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
@@ -100,6 +108,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   hideBroweByTopicModal(): void {
     jQuery('#browseByTopicModal').modal('hide');
+  }
+
+  showBroweByTopicModal(): void {
+    jQuery('#browseByTopicModal').modal('show');
   }
 
   fetchUserInfo(refreshCache?: boolean): void {

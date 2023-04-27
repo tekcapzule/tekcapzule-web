@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from '../aws-exports';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -29,8 +29,10 @@ export class AppComponent implements OnInit {
   }
 
   scrollToTop() {
-    this.router.events.subscribe(value => {
-      window.scrollTo(0, 0);
+    this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
     });
   }
 
