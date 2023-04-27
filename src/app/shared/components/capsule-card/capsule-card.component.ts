@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Clipboard} from '@angular/cdk/clipboard';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import * as moment from 'moment';
@@ -29,11 +29,11 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleViewed = false;
   isCapsuleBookmarked = false;
   isCapsuleRecommended = false;
+  dateAgoStr: string;
+  localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
 
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
-  dateAgoStr: string;
-  localPublisher: string[] = ["TEKCAPSULE", "AITODAY", "YOUTUBE"];
 
   constructor(
     private router: Router,
@@ -68,7 +68,7 @@ export class CapsuleCardComponent implements OnInit {
       this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
     }
     this.isCardFlipped = !this.isCardFlipped;
-    if(this.isCardFlipped) {
+    if (this.isCardFlipped) {
       this.cardOpened.emit(this.capsule.capsuleId);
     }
   }
@@ -88,7 +88,8 @@ export class CapsuleCardComponent implements OnInit {
 
   navigateToCapsuleDetailsPage(): void {
     const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
-    if(!isLocalPublisher) {
+
+    if (!isLocalPublisher) {
       window.open(this.capsule.resourceUrl, '_blank');
       return;
     }
@@ -121,8 +122,13 @@ export class CapsuleCardComponent implements OnInit {
     if (!this.isCapsuleRecommended) {
       this.capsule.recommendations += 1;
       this.isCapsuleRecommended = true;
-      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data=> {
-        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Recommandation done successfully' });
+      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data => {
+        this.messageService.add({
+          key: 'tc',
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Recommandation done successfully',
+        });
       });
     }
   }
@@ -153,7 +159,12 @@ export class CapsuleCardComponent implements OnInit {
       .pipe(
         tap(() => {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe(data => {
-            this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Bookmark done' });
+            this.messageService.add({
+              key: 'tc',
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Bookmark done',
+            });
           });
         })
       )
@@ -180,7 +191,12 @@ export class CapsuleCardComponent implements OnInit {
     this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
       .subscribe(data => {
-        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Bookmark removed' });
+        this.messageService.add({
+          key: 'tc',
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Bookmark removed',
+        });
       });
 
     this.userInfo = {
@@ -213,12 +229,29 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onShareClick() {
-    this.clipboard.copy(this.capsule.resourceUrl);
-    this.messageService.add({ key:'tc', severity: 'success', summary: '', detail: 'Link copied. You can share it now.' });
+    const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
+
+    if (isLocalPublisher) {
+      const shareableUrl = `${window.location.origin}/capsules/${
+        this.capsule.capsuleId
+      }/details?url=${btoa(this.capsule.resourceUrl)}&title=${encodeURIComponent(
+        this.capsule.title
+      )}`;
+      this.clipboard.copy(shareableUrl);
+    } else {
+      this.clipboard.copy(this.capsule.resourceUrl);
+    }
+
+    this.messageService.add({
+      key: 'tc',
+      severity: 'success',
+      summary: '',
+      detail: 'Link copied. You can share it now.',
+    });
   }
 
   closeCard(capsuleId: string) {
-    if(this.capsule.capsuleId !== capsuleId) {
+    if (this.capsule.capsuleId !== capsuleId) {
       this.isCardFlipped = false;
     }
   }
