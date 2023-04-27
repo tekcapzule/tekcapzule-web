@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from '../aws-exports';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,13 +18,20 @@ export class AppComponent implements OnInit {
   footerHidden: boolean;
   isLoggedIn: boolean;
 
-  constructor(private eventChannel: EventChannelService, public authService: AuthService) {
+  constructor(private eventChannel: EventChannelService, public authService: AuthService, private router: Router) {
     Amplify.configure(awsExports);
   }
   
   ngOnInit(): void {
+    this.scrollToTop();
     this.footerStatus();
     this.loggedInStatus();
+  }
+
+  scrollToTop() {
+    this.router.events.subscribe(value => {
+      window.scrollTo(0, 0);
+    });
   }
 
   footerStatus() {
