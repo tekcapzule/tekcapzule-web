@@ -58,6 +58,8 @@ body {
   margin: 0;
   font-family: $primary-font-regular;
   color: #414141;
+  -moz-osx-font-smoothing: grayscale;   /* Firefox */
+  -webkit-font-smoothing: antialiased; /* WebKit  */
 }
 
 .mat-mdc-tab-group.mat-mdc-primary .mat-mdc-ink-bar,

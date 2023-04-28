@@ -26,7 +26,7 @@
   will-change: transform;
   .card-head {
     position: relative;
-    
+    height: 180px;
     .icons {
       text-align: center;
       cursor: pointer;
@@ -37,6 +37,13 @@
       padding: 5px 7px 7px;
       height: 35px;
       width: 35px;
+      &::before{
+        transition-duration: 0.5s;
+        box-shadow: inset 0 0 0 1px $primary-color;
+      }
+      &:hover::before{
+        box-shadow: inset 0 0 0 $primary-color;
+      }
       &.bookmark {
         right: 0;
       }
@@ -135,9 +142,11 @@
     display: flex;
     height: 25px;
     padding: 2px 10px;
+    transition: all 150ms ease-in-out;
     &:hover {
       background: none;
       color: $primary-color;
+      box-shadow: 0 0 0px 0 #e30045 inset, 0 0 10px 1px #e30045!important;
     }
     .flip-icon {
       background: url("../../../../assets/images/flip-icon.svg") no-repeat;
@@ -157,6 +166,11 @@
   }
   .description {
     min-height: 380px;
+  }
+  @media not all and (min-resolution:.001dpcm) { 
+    .description {
+      min-height: 350px;
+    }
   }
   label {
     margin-bottom: 10px;

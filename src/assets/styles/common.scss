@@ -31,7 +31,6 @@ h6 {
 h1 {
   margin: 0;
   font-size: 42px;
-  font-weight: 700;
   line-height: 64px;
   color: #000;
   @media only screen and (max-width: 767px) {
@@ -468,7 +467,7 @@ Search Box
 Modal Dialogue
 ***************************************/
 .modal.show .modal-dialog {
-  margin-top: 150px;
+  margin-top: 142px;
 }
 .modal-open .modal {
   padding-right: 0 !important;
@@ -794,7 +793,9 @@ iframe .navbar-container,
     max-width: 1470px;
   }
 }
-
+.badge {
+  font-weight: normal;
+}
 .badge-danger {
   background: linear-gradient(90deg, rgba(244,201,133,1) 0%, rgba(245,61,109,1) 100%);
     font-family: GTWalsheimPro-Light;
@@ -804,6 +805,7 @@ iframe .navbar-container,
     left: 72px;
     width: 115px;
     height: 24px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .bookmark-icon {

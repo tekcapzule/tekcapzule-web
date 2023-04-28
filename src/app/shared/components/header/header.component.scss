@@ -95,7 +95,7 @@
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
-@media (min-width: 992px) and (max-width: 1920px){
+@media (min-width: 768px){
 a.dropdown-toggle.d-flex::after {
   display: none!important;
 }
@@ -147,13 +147,15 @@ a.dropdown-toggle.d-flex::after {
     color: #000;
     transition: 0.3s;
     font-size: 20px!important;
-    font-weight: 600;
+    -moz-osx-font-smoothing: grayscale;   /* Firefox */
+    -webkit-font-smoothing: antialiased; /* WebKit  */
     @include helveticaNeueFont();
     @media (max-width: 992px) {
       padding-top: 15px;
       font-family: HelveticaNeueLTProBoldCondensed;
       color: $white;
       font-size: 16px!important;
+      -webkit-font-smoothing: antialiased;
     }
 
     &:hover:before {
@@ -197,7 +199,6 @@ a.dropdown-toggle.d-flex::after {
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
-  font-weight: 600;
   display: inline-block;
   border: 2px solid rgba(255, 255, 255, 0.5);
 
