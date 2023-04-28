@@ -83,7 +83,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
         this.capsules = capsules;
       });
   }
-  
+
   onCardOpened(capsuleId) {
     this.capsuleComp.closeCard(capsuleId);
   }
