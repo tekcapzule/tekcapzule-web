@@ -17,7 +17,7 @@
         </button>
         <div class="navbar-brand logo">
           <a
-            [routerLink]="['/home']"
+            [routerLink]="['/']"
             data-toggle="collapse"
             data-target=".navbar-collapse.show"
             routerLinkActive="active"
@@ -31,29 +31,56 @@
               <a
                 data-toggle="collapse"
                 data-target=".navbar-collapse.show"
-                [routerLink]="['/home']"
+                [routerLink]="['/']"
                 class="pe-none"
                 >Home</a
               >
             </li>
-            <li class="dropdown"  routerLinkActive="active">
-              <a class="dropdown-toggle d-flex" data-toggle="dropdown" href="#"
-              [routerLink]="['/capsules']"
-              >My Feeds
-              <span class="caret"></span></a>
+            <li class="dropdown" routerLinkActive="active">
+              <a
+                class="dropdown-toggle d-flex"
+                data-toggle="dropdown"
+                href="#"
+                [routerLink]="['/capsules']"
+                >My Feeds <span class="caret"></span
+              ></a>
               <ul class="dropdown-menu">
-                <li><a href="#" data-toggle="collapse"
-                  data-target=".navbar-collapse.show"
-                  [routerLink]="['/capsules/myfeeds']">For You</a></li>
-                <li><a href="#" data-toggle="collapse"
-                  data-target=".navbar-collapse.show"
-                  [routerLink]="['/capsules/trending']">Trending</a></li>
-                <li><a href="#" data-toggle="collapse"
-                  data-target=".navbar-collapse.show"
-                  [routerLink]="['/capsules/editorspick']">Editor Pick</a></li>
-                <li><a href="Javascript: Void(0)" data-toggle="collapse"
-                  data-target=".navbar-collapse.show"
-                  (click)="onBrowseClick()">Browse by Topic</a></li>
+                <li>
+                  <a
+                    href="#"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    [routerLink]="['/capsules/myfeeds']"
+                    >For You</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    [routerLink]="['/capsules/trending']"
+                    >Trending</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    [routerLink]="['/capsules/editorspick']"
+                    >Editor Pick</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="Javascript: Void(0)"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    (click)="onBrowseClick()"
+                    >Browse by Topic</a
+                  >
+                </li>
               </ul>
             </li>
             <!-- <li routerLinkActive="active">
@@ -65,7 +92,7 @@
               >
             </li> -->
             <!-- <li routerLinkActive="active"> -->
-              <li>
+            <li>
               <a
                 data-toggle="collapse"
                 data-target=".navbar-collapse.show"

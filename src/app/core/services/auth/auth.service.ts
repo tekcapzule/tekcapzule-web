@@ -49,20 +49,23 @@ export class AuthService {
   private loggedInStatusChange$ = new BehaviorSubject<boolean>(this.isLoggedIn);
   private signInErrorChange$ = new BehaviorSubject<string>('');
 
-  constructor(private amplify: AuthenticatorService, private userApi: UserApiService,
-    private router:Router) {
-      this.authenticateUser();
-      Hub.listen('auth', data => {
-        const { payload } = data;
-        this.authEventChanged(payload.event, payload.data);
-      });
+  constructor(
+    private amplify: AuthenticatorService,
+    private userApi: UserApiService,
+    private router: Router
+  ) {
+    this.authenticateUser();
+    Hub.listen('auth', data => {
+      const { payload } = data;
+      this.authEventChanged(payload.event, payload.data);
+    });
   }
 
   private authEventChanged(authEvent: string, authData: any): void {
-    console.log("authEventChanged --->> ", authEvent, authData);
+    console.log('authEventChanged --->> ', authEvent, authData);
     if (authEvent === 'signIn') {
       this.authenticateUser();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     } else if (authEvent === 'signOut') {
       this.invalidateUser();
     } else if (authEvent === 'signIn_failure') {
@@ -110,11 +113,11 @@ export class AuthService {
         this.loggedInStatusChange$.next(this.isLoggedIn);
         this.signInErrorChange$.next('');
         this.createUserIfDoesNotExist(user);
-        if(this.router.url.includes('auth')) {
-          this.router.navigate(['/home']);
+        if (this.router.url.includes('auth')) {
+          this.router.navigate(['/']);
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log('error --- ', error);
         this.invalidateUser();
       });
@@ -143,12 +146,14 @@ export class AuthService {
   }
 
   public signOutUser(): void {
-    Auth.signOut().then(data=> {
-      this.routeToSingIn();
-    }).catch(error => {
-      console.log('signOutUser error ------', error);
-      this.routeToSingIn();
-    });
+    Auth.signOut()
+      .then(data => {
+        this.routeToSingIn();
+      })
+      .catch(error => {
+        console.log('signOutUser error ------', error);
+        this.routeToSingIn();
+      });
   }
 
   public isAdminUser(): boolean {
@@ -156,7 +161,7 @@ export class AuthService {
   }
 
   private routeToSingIn() {
-    if(!this.router.url.includes('auth')) {
+    if (!this.router.url.includes('auth')) {
       this.router.navigate(['auth/signin']);
     }
   }
