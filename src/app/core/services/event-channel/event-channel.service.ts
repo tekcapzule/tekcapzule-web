@@ -10,6 +10,7 @@ export enum ChannelEvent {
   HideAdminNavTabs = 'HIDE_ADMIN_NAV_TABS',
   ShowAdminNavTabs = 'SHOW_ADMIN_NAV_TABS',
   HideCapsuleNavTabs = 'HIDE_CAPSULE_NAV_TABS',
+  ShowBrowseByTopic = 'SHOW_BROWSE_BY_TOPIC'
 }
 
 export interface EventChannelOutput {
