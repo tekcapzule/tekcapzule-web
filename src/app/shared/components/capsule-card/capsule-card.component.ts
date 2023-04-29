@@ -31,7 +31,7 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleRecommended = false;
   dateAgoStr: string;
   localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
-
+  buttonLabel: any = {article: 'Read', video: 'Play', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
 
