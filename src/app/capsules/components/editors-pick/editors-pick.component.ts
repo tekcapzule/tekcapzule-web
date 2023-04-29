@@ -63,6 +63,7 @@ export class EditorsPickComponent implements OnInit {
   }
   
   onCardOpened(capsuleId) {
+    console.log('capsuleId ------   ',capsuleId);
     this.capsuleComp.closeCard(capsuleId);
   }
 }

@@ -4,168 +4,46 @@
     <div class="container header-align">
       <!-- Responsive Menu -->
       <nav class="navbar navbar-expand-lg">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-brand logo">
-          <a
-            [routerLink]="['/']"
-            data-toggle="collapse"
-            data-target=".navbar-collapse.show"
-            routerLinkActive="active"
-            ><img src="/assets/images/logo.svg"
-          /></a>
+        <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
+          class="navbar-brand logo">
+          <a [routerLink]="['/']" data-toggle="collapse" data-target=".navbar-collapse.show"
+            routerLinkActive="active"><img src="/assets/images/logo.svg" /></a>
+        </div>
+        <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+          <span>{{selectedMenuItem?.displayName}}</span>
         </div>
 
         <div class="collapse navbar-collapse nav-menu" id="navbarNav">
+
           <ul class="navbar-nav">
-            <li *ngIf="isMobileResolution">
-              <a
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-                [routerLink]="['/']"
-                class="pe-none"
-                >Home</a
-              >
-            </li>
-            <li class="dropdown" routerLinkActive="active">
-              <a
-                class="dropdown-toggle d-flex"
-                data-toggle="dropdown"
-                href="#"
-                [routerLink]="['/capsules']"
-                >My Feeds <span class="caret"></span
-              ></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse.show"
-                    [routerLink]="['/capsules/myfeeds']"
-                    >For You</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse.show"
-                    [routerLink]="['/capsules/trending']"
-                    >Trending</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse.show"
-                    [routerLink]="['/capsules/editorspick']"
-                    >Editor Pick</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="Javascript: Void(0)"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse.show"
-                    (click)="onBrowseClick()"
-                    >Browse by Topic</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <!-- <li routerLinkActive="active">
-              <a
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-                [routerLink]="['/capsules']"
-                >My Feeds</a
-              >
-            </li> -->
-            <!-- <li routerLinkActive="active"> -->
-            <li>
-              <a
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-                [routerLink]="['/']"
-                class="pe-none"
-                >Skill Studio <span class="badge badge-pill badge-danger">Launching Soon</span></a
-              >
-            </li>
-            <li routerLinkActive="active">
-              <a
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-                [routerLink]="['/community']"
-                >Community</a
-              >
-            </li>
-            <li routerLinkActive="active">
-              <a
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-                [routerLink]="['/mission']"
-                >Our Mission</a
-              >
-            </li>
-            <!--li routerLinkActive="active">
-              <a
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-                [routerLink]="['/admin']"
-                >Admin</a
-              >
-            </li-->
+            <ng-container *ngFor="let hm of headerMenu; let i=index">
+              <li [ngClass]="{'dropdown': isMobileResolution && hm.children, 'active': selectedMenuItem.uniqueId === hm.uniqueId}"
+                *ngIf="hm.showOnMobile ? isMobileResolution : true">
+                <a *ngIf="hm.uniqueId !== 'Skill_Studio'" href="Javascript:void(0)" class="pe-none"
+                  (click)="onMenuClick(hm)">{{hm.displayName}}
+                  <span *ngIf="isMobileResolution && hm.children && selectedMenuItem.uniqueId === 'My_Feeds'"
+                    [ngClass]="{'parent-menu': isMobileResolution && hm.children}" class="caret"></span></a>
+
+                <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === 'My_Feeds'">
+                  <ul class="dropdown-menu show">
+                    <li *ngFor="let menuItem of hm.children; let i=index">
+                      <a href="Javascript:void(0)" (click)="onChildMenuClick(menuItem)">{{menuItem.displayName}}</a>
+                    </li>
+                  </ul>
+                </ng-container>
+
+                <a *ngIf="hm.uniqueId === 'Skill_Studio'" data-toggle="collapse" data-target=".navbar-collapse.show"
+                  class="pe-none" (click)="onSkillStudioClick()">{{hm.displayName}}<span
+                    class="badge badge-pill badge-danger">Launching Soon</span></a>
+              </li>
+            </ng-container>
           </ul>
         </div>
       </nav>
-      <!-- Responsive Menu End
-      <div class="d-flex align-items-center mr-2">
-        <div class="respSearchIcon">
-          <img src="../../../../assets/images/search-icon.svg" alt="Search" />
-        </div>
-        <div class="search-box">
-          <input
-            type="search"
-            name="search"
-            placeholder="What are you looking for?"
-            [(ngModel)]="searchInputValue"
-            (input)="searchInputChanged($event.target.value)"
-          />
-          <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
-          <div [matMenuTriggerFor]="globalSearchTrigger"></div>
-          <mat-menu class="global-search-menu" #globalSearchTrigger="matMenu">
-            <span mat-menu-item style="display: none"></span>
-            <ng-container *ngFor="let topic of searchedTopics">
-              <span mat-menu-item (click)="gotoTopicDetailsPage(topic)">{{ topic.name }}</span>
-            </ng-container>
-          </mat-menu>
-        </div>
-        <div class="login-section">
-          <div *ngIf="!isLoggedIn">
-            <a routerLink="/auth/signin" routerLinkActive="active">
-              <button mat-raised-button title="Sign In" class="button primary respIconBtn">
-                Sign In
-              </button></a
-            >
-          </div>
-          <div *ngIf="isLoggedIn">
-            <span>{{ userDetails.username }}</span>
-            <button mat-raised-button class="button primary ml-3" (click)="signOutUser()">
-              Sign Out
-            </button>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </header>
