@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
       ]  
     },
     { uniqueId:'Skill_Studio', displayName: 'Skill Studio', navUrl: ''},
+    { uniqueId:'Contribute', displayName: 'Contribute', navUrl:'capsules/contribute', showOnMobile: true},
     { uniqueId:'Community', displayName: 'Community', navUrl:'/community'},
     { uniqueId:'Our_Mission', displayName: 'Our Mission', navUrl:'/mission'}
   ];
