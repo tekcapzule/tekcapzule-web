@@ -95,10 +95,6 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  onBrowseClick(): void {
-    this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
-  }
-
   onMenuClick(navTab: NavTab): void {
     this.selectedMenuItem = navTab;
     if(!this.isMobileResolution) {
