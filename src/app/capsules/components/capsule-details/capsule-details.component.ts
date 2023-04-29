@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
@@ -11,7 +11,7 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./capsule-details.component.scss'],
   providers: [MessageService],
 })
-export class CapsuleDetailsComponent implements OnInit, OnDestroy {
+export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   resourceUrl: SafeResourceUrl;
   capsuleId: string;
   queryParamUrl: string;
@@ -34,13 +34,16 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy {
     );
     this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.queryParamUrl);
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
-    setTimeout(() => {
-      this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
-    });
   }
 
   ngOnDestroy(): void {
     this.resourceUrl = '';
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
+    });
   }
 
   getNavBreadcrumbs(): { label: string; url?: string }[] {

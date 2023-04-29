@@ -31,7 +31,7 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleRecommended = false;
   dateAgoStr: string;
   localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
-
+  buttonLabel: any = {article: 'Read', video: 'Play', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
 
@@ -105,13 +105,9 @@ export class CapsuleCardComponent implements OnInit {
       ? 'editorspick'
       : 'myfeeds';
 
-    this.router
-      .navigate(['capsules', this.capsule.capsuleId, 'details'], {
-        queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
-      })
-      .then(() => {
-        this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
-      });
+    this.router.navigate(['capsules', this.capsule.capsuleId, 'details'], {
+      queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
+    });
   }
 
   isValidUrl(url: string): boolean {

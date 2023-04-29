@@ -42,8 +42,8 @@
           </div>
           <!--img src="/assets/images/article-icon.svg" class="float-left" /-->
           <div class="float-right d-flex">
-            <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
-              Read Highlights<span class="flip-icon" aria-label="read highlights"></span>
+            <button *ngIf="capsule.type !== 'AD'" mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
+              Read Highlights<span class="flip-icon"  aria-label="read highlights"></span>
             </button>
             <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onShareClick()">
               Share <span class="share-icon" aria-label="share"></span>
@@ -91,8 +91,13 @@
 
         </div>
         <div class="card-footer d-flex justify-content-between">
+<<<<<<< HEAD
           <button class="button primary-btn-sm d-flex w-auto px-3" (click)="onCardClick()" aria-label="read">
             <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span> {{capsule.type === 'VIDEO' ? 'Play' : 'Read'}}
+=======
+          <button class="button primary-btn-sm d-flex w-auto px-3" (click)="onCardClick()">
+            <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span> {{buttonLabel[capsule.type.toLowerCase()]}}
+>>>>>>> 2ab7b05ced7e751ae8b9a0de1951020290f08ac0
           </button>
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">

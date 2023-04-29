@@ -1,7 +1,7 @@
 <div id="capsules" class="capsules-page p-main">
   <div class="flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
-  </div>  
+  </div>
 
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel">
     <div class="container d-flex">
@@ -84,18 +84,17 @@
                   </ng-container>
                 </ul>
                 <div class="text-right">
-                <button
-              mat-stroked-button
-              class="button secondary-btn-sm apply-btn"
-              (click)="doLoadFeedsForSelectedTopics()"
-            >
-              Apply
-            </button>
-          </div>
+                  <button
+                    mat-stroked-button
+                    class="button secondary-btn-sm apply-btn"
+                    (click)="doLoadFeedsForSelectedTopics()"
+                  >
+                    Apply
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
