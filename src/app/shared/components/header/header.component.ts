@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   isMobileResolution: boolean;
   openedMenuItem: NavTab;
   headerMenu: NavTab[] = [
-    { uniqueId:'HOME', displayName: 'HOME', navUrl:'/', showOnMobile: true},
+    { uniqueId:'HOME', displayName: 'Home', navUrl:'/', showOnMobile: true},
     { uniqueId:'My_Feeds', displayName: 'My Feeds', navUrl:'/capsules',
       children: [
         { uniqueId:'For_You', displayName: 'For You', navUrl:'/capsules/myfeeds'},
@@ -101,6 +101,10 @@ export class HeaderComponent implements OnInit {
 
   onMenuClick(navTab: NavTab): void {
     this.selectedMenuItem = navTab;
+    if(!this.isMobileResolution) {
+      this.router.navigate([navTab.navUrl]);
+      return;
+    }
     if(this.openedMenuItem && this.openedMenuItem.uniqueId === navTab.uniqueId) {
       this.openedMenuItem = null;
     } else {
@@ -114,6 +118,10 @@ export class HeaderComponent implements OnInit {
   }
   
   onChildMenuClick(menuItem: NavTab): void {
+    if(!this.isMobileResolution) {
+      this.router.navigate([menuItem.navUrl]);
+      return;
+    }
     this.closeMenu();
     if(menuItem.navUrl) {
       this.router.navigate([menuItem.navUrl]);
@@ -121,7 +129,15 @@ export class HeaderComponent implements OnInit {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
     }
   }
-
+  
+  onSkillStudioClick() {
+    this.selectedMenuItem = this.headerMenu[0];
+    this.router.navigate(['/']);
+    if(this.isMobileResolution) {
+      this.closeMenu();
+    }
+  }
+  
   closeMenu() {
     let inputElement: HTMLElement = this.collapseBtn.nativeElement as HTMLElement;
     inputElement.click();

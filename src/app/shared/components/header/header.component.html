@@ -21,7 +21,7 @@
 
           <ul class="navbar-nav">
             <ng-container *ngFor="let hm of headerMenu; let i=index">
-              <li [ngClass]="{'dropdown active': isMobileResolution && hm.children}"
+              <li [ngClass]="{'dropdown': isMobileResolution && hm.children, 'active': selectedMenuItem.uniqueId === hm.uniqueId}"
                 *ngIf="hm.showOnMobile ? isMobileResolution : true">
                 <a *ngIf="hm.uniqueId !== 'Skill_Studio'" href="Javascript:void(0)" class="pe-none"
                   (click)="onMenuClick(hm)">{{hm.displayName}}
@@ -37,7 +37,7 @@
                 </ng-container>
 
                 <a *ngIf="hm.uniqueId === 'Skill_Studio'" data-toggle="collapse" data-target=".navbar-collapse.show"
-                  [routerLink]="['/']" class="pe-none">{{hm.displayName}}<span
+                  class="pe-none" (click)="onSkillStudioClick()">{{hm.displayName}}<span
                     class="badge badge-pill badge-danger">Launching Soon</span></a>
               </li>
             </ng-container>
