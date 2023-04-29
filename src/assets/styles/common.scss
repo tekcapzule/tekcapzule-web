@@ -808,7 +808,27 @@ iframe .navbar-container,
   height: 24px;
   -webkit-font-smoothing: antialiased;
 }
-
+.news-icon {
+  background: url('../images/news-icon.svg') no-repeat;
+  background-size: 28px;
+  width: 34px;
+  height: 28px;
+  cursor: pointer;
+}
+.event-icon {
+  background: url('../images/event-icon.svg') no-repeat;
+  background-size: 28px;
+  width: 34px;
+  height: 28px;
+  cursor: pointer;
+}
+.course-icon {
+  background: url('../images/course-icon.svg') no-repeat;
+  background-size: 28px;
+  width: 34px;
+  height: 28px;
+  cursor: pointer;
+}
 .bookmark-icon {
   background: url('../images/bookmark-icon.svg') no-repeat;
   width: 11px;
