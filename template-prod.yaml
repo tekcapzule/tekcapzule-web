@@ -20,9 +20,9 @@ Resources:
     Properties:
       PublicAccessBlockConfiguration:
           BlockPublicAcls: false
-        OwnershipControls:
-          Rules:
-            - ObjectOwnership: ObjectWriter
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: ObjectWriter
       BucketName: !Ref BucketName
       WebsiteConfiguration:
         ErrorDocument: "error.html"
