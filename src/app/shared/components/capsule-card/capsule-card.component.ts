@@ -105,13 +105,9 @@ export class CapsuleCardComponent implements OnInit {
       ? 'editorspick'
       : 'myfeeds';
 
-    this.router
-      .navigate(['capsules', this.capsule.capsuleId, 'details'], {
-        queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
-      })
-      .then(() => {
-        this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
-      });
+    this.router.navigate(['capsules', this.capsule.capsuleId, 'details'], {
+      queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
+    });
   }
 
   isValidUrl(url: string): boolean {

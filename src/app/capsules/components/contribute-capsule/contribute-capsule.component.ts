@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppSpinnerService, CapsuleApiService, TopicApiService } from '@app/core';
+import {
+  AppSpinnerService,
+  CapsuleApiService,
+  ChannelEvent,
+  EventChannelService,
+  TopicApiService,
+} from '@app/core';
 import { TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 import { finalize } from 'rxjs/operators';
@@ -12,7 +18,7 @@ import { finalize } from 'rxjs/operators';
   templateUrl: './contribute-capsule.component.html',
   styleUrls: ['./contribute-capsule.component.scss'],
 })
-export class ContributeCapsuleComponent implements OnInit {
+export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
   contributeFormGroup: FormGroup;
   allTopics: TopicItem[] = [];
   capsuleTypes: string[] = [];
@@ -23,13 +29,20 @@ export class ContributeCapsuleComponent implements OnInit {
     private formBuilder: FormBuilder,
     private topicApi: TopicApiService,
     private capsuleApi: CapsuleApiService,
-    private spinner: AppSpinnerService
+    private spinner: AppSpinnerService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
     this.getAllTopics(false);
     this.getCapsuleTypes(false);
     this.createContriubuteformGroup();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.eventChannel.publish({ event: ChannelEvent.HideCapsuleNavTabs });
+    });
   }
 
   getAllTopics(refresh?: boolean): void {
