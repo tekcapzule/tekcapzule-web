@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 
 import { TopicApiService, AuthService, AwsUserInfo, ChannelEvent, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-header',
@@ -21,22 +22,8 @@ export class HeaderComponent implements OnInit {
   searchedTopics: TopicItem[] = [];
   isMobileResolution: boolean;
   openedMenuItem: NavTab;
-  headerMenu: NavTab[] = [
-    { uniqueId:'HOME', displayName: 'Home', navUrl:'/', showOnMobile: true},
-    { uniqueId:'My_Feeds', displayName: 'My Feeds', navUrl:'/capsules',
-      children: [
-        { uniqueId:'For_You', displayName: 'For You', navUrl:'/capsules/myfeeds'},
-        { uniqueId:'Trending', displayName: 'Trending', navUrl:'/capsules/trending'},
-        { uniqueId:'Editor_Pick', displayName: 'Editor Pick', navUrl:'/capsules/editorspick'},
-        { uniqueId:'BROWSE_BYTOPIC', displayName: 'Browse by Topic', navUrl:''}
-      ]  
-    },
-    { uniqueId:'Skill_Studio', displayName: 'Skill Studio', navUrl: ''},
-    { uniqueId:'Contribute', displayName: 'Contribute', navUrl:'capsules/contribute', showOnMobile: true},
-    { uniqueId:'Community', displayName: 'Community', navUrl:'/community'},
-    { uniqueId:'Our_Mission', displayName: 'Our Mission', navUrl:'/mission'}
-  ];
-  selectedMenuItem: NavTab = { uniqueId:'HOME', displayName: 'HOME', navUrl:'/', showOnMobile: true};
+  headerMenu: NavTab[] = Constants.HeaderMenu;
+  selectedMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
 
   constructor(
@@ -50,6 +37,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.onResize();
     this.scrollToTop();
     this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.zone.run(() => {
@@ -61,17 +49,27 @@ export class HeaderComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
     });
-    this.onResize();
   }
 
   scrollToTop() {
     this.router.events.subscribe(ev => {
-      if (ev instanceof NavigationEnd) {
+      if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
         if(!this.selectedMenuItem) {
-          this.headerMenu.forEach(hm => {
-            if(this.router.url.includes(hm.navUrl)) {
-              this.selectedMenuItem = hm;
+          this.getSelectedMenu(ev);
+        }
+      }
+    });
+  }
+  
+  getSelectedMenu(ev: any) {
+    this.headerMenu.forEach(hm => {
+      if(hm.navUrl && ev.url.includes(hm.navUrl)) {
+        this.selectedMenuItem = hm;
+        if(this.selectedMenuItem.children) {
+          hm.children.forEach(cm => {
+            if(cm.navUrl && ev.url.includes(cm.navUrl)) {
+              this.selectedChildMenuItem = cm;
             }
           });
         }
@@ -122,6 +120,9 @@ export class HeaderComponent implements OnInit {
       this.router.navigate([navTab.navUrl]);
       return;
     }
+    if(!this.selectedMenuItem.children) {
+      this.selectedChildMenuItem = null;
+    }
     if(this.openedMenuItem && this.openedMenuItem.uniqueId === navTab.uniqueId) {
       this.openedMenuItem = null;
     } else {
@@ -131,7 +132,6 @@ export class HeaderComponent implements OnInit {
       }
       this.router.navigate([this.openedMenuItem.navUrl]);
     }
-    
   }
   
   onChildMenuClick(menuItem: NavTab): void {

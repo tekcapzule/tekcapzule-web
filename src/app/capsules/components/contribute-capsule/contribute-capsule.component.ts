@@ -9,6 +9,7 @@ import {
   EventChannelService,
   TopicApiService,
 } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 import { finalize } from 'rxjs/operators';
@@ -30,7 +31,8 @@ export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
     private topicApi: TopicApiService,
     private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
-    private eventChannel: EventChannelService
+    private eventChannel: EventChannelService,
+    public helperService: HelperService
   ) {}
 
   ngOnInit(): void {
