@@ -54,7 +54,6 @@ export class HeaderComponent implements OnInit {
   scrollToTop() {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
-        console.log('ev  ',ev, this.router.url);
         window.scrollTo(0, 0);
         if(!this.selectedMenuItem) {
           this.getSelectedMenu(ev);

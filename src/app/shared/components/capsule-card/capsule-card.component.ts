@@ -118,7 +118,7 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleRecommend(): void {
-    if (!this.isCapsuleRecommended) {
+    if(!this.isCapsuleRecommended) {
       this.capsule.recommendations += 1;
       this.isCapsuleRecommended = true;
       this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data => {
@@ -128,6 +128,10 @@ export class CapsuleCardComponent implements OnInit {
           summary: 'Success',
           detail: 'Recommandation done successfully',
         });
+      }, err => {
+        this.capsule.recommendations -= 1;
+        this.isCapsuleRecommended = false;
+        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Please try recommandation after sometime!' });
       });
     }
   }
