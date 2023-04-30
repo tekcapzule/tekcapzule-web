@@ -21,7 +21,7 @@ export interface BreadcrumbNavItem {
 export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   resourceUrl: SafeResourceUrl;
   capsuleId: string;
-  queryParamUrl: string;
+  capsuleURL: string;
 
   constructor(
     private router: Router,
@@ -37,10 +37,10 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngOnInit(): void {
     this.spinner.show();
-    this.queryParamUrl = atob(
+    this.capsuleURL = atob(
       sessionStorage.getItem('capsuleURL') || btoa('https://tekcapsule.blog')
     );
-    this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.queryParamUrl);
+    this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
   }
 
@@ -58,7 +58,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   getNavBreadcrumbs(): BreadcrumbNavItem[] {
     const crumbs: BreadcrumbNavItem[] = [];
     const queryTab = this.route.snapshot.queryParamMap.get('tab');
-    const queryTitle = this.route.snapshot.queryParamMap.get('title');
+    const queryTitle = sessionStorage.getItem('cardTitle');
     const isMobile = this.helperService.getMobileResolution();
 
     if (queryTab === 'trending') {
@@ -87,9 +87,9 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   onIFrameClose(): void {
-    const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
     this.resourceUrl = '';
-    this.router.navigate(['capsules', queryParamTab]);
+    console.log('sessionStorage.getIt', sessionStorage.getItem('pageURL'));
+    this.router.navigate([sessionStorage.getItem('pageURL')]);
   }
 
   onAfterIframeLoaded(): void {

@@ -106,11 +106,11 @@ export class CapsuleCardComponent implements OnInit {
       : 'myfeeds';
 
     this.router.navigate(['capsules', this.capsule.capsuleId, 'details'], {
-      queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
+      queryParams: { tab: tabUri },
     });
     sessionStorage.setItem('capsuleURL', resourceUrl);
-    sessionStorage.setItem('cardtitle', this.capsule.title);
-    sessionStorage.setItem('navURL', this.router.url);
+    sessionStorage.setItem('cardTitle', this.capsule.title);
+    sessionStorage.setItem('pageURL', this.router.url);
   }
 
   isValidUrl(url: string): boolean {

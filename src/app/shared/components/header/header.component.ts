@@ -56,26 +56,14 @@ export class HeaderComponent implements OnInit {
       if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
         if(!this.selectedMenuItem) {
-          this.getSelectedMenu(ev);
+          const selectedMenu = this.helperService.getSelectedMenu(ev.url, this.headerMenu);
+          this.selectedMenuItem = selectedMenu.selectedMenuItem;
+          this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
         }
       }
     });
   }
   
-  getSelectedMenu(ev: any) {
-    this.headerMenu.forEach(hm => {
-      if(hm.navUrl && ev.url.includes(hm.navUrl)) {
-        this.selectedMenuItem = hm;
-        if(this.selectedMenuItem.children) {
-          hm.children.forEach(cm => {
-            if(cm.navUrl && ev.url.includes(cm.navUrl)) {
-              this.selectedChildMenuItem = cm;
-            }
-          });
-        }
-      }
-    });
-  }
 
   signOutUser(): void {
     this.auth.signOutUser();
