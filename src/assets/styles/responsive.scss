@@ -115,6 +115,15 @@
   }
   .back-link {
     font-size: 14px !important;
+    span {
+      &:first-child{
+        margin-left: 0 !important;
+        display: block;
+      }
+      &:nth-child(2) {
+        margin-left: 0 !important;
+      }
+    }
   }
   .mission-page, .community-page {
   .tech-learning {
@@ -146,6 +155,12 @@
   }
   .capsule-top {
     padding-top: 0 !important;
+  }
+  .follow-us {
+    margin-top: 20px !important;
+  }
+  h1{
+    padding-bottom: 0 !important;
   }
 }
 @media only screen and (width: 1024px) {
