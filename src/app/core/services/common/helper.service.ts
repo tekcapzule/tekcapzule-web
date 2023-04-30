@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { MessageService } from 'primeng/api';
 
 @Injectable({
@@ -7,7 +8,8 @@ import { MessageService } from 'primeng/api';
 })
 export class HelperService {
   isMobileResolution: boolean;
-
+  selectedMenu: SelectedMenu;
+  
   constructor(private router: Router, private messageService: MessageService) {}
 
   private routeToSingIn() {
@@ -16,19 +18,27 @@ export class HelperService {
     }
   }
 
-  showSuccess(msg) {
+  showSuccess(msg): void {
     this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: msg });
   }
 
-  showError(msg) {
+  showError(msg): void {
     this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: msg });
   }
 
-  setMobileResolution(isMobileResolution) {
+  setMobileResolution(isMobileResolution): void {
     this.isMobileResolution = isMobileResolution;
   }
 
-  getMobileResolution() {
+  getMobileResolution(): boolean {
     return this.isMobileResolution;
+  }
+
+  setSelectedMenu(selectedMenu:SelectedMenu): void {
+    this.selectedMenu = selectedMenu;
+  }
+  
+  getSelectedMenu(): any {
+    return this.selectedMenu;
   }
 }
