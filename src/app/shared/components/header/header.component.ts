@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { TopicApiService, AuthService, AwsUserInfo, ChannelEvent, EventChannelService } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
 
 @Component({
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit {
     { uniqueId:'Our_Mission', displayName: 'Our Mission', navUrl:'/mission'}
   ];
   selectedMenuItem: NavTab = { uniqueId:'HOME', displayName: 'HOME', navUrl:'/', showOnMobile: true};
+  selectedChildMenuItem: NavTab;
 
   constructor(
     private auth: AuthService,
@@ -43,10 +45,12 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private topicApi: TopicApiService,
     private eventChannel: EventChannelService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
+    this.scrollToTop();
     this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
       this.zone.run(() => {
         this.isLoggedIn = isLoggedIn;
@@ -60,14 +64,30 @@ export class HeaderComponent implements OnInit {
     this.onResize();
   }
 
+  scrollToTop() {
+    this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+        if(!this.selectedMenuItem) {
+          this.headerMenu.forEach(hm => {
+            if(this.router.url.includes(hm.navUrl)) {
+              this.selectedMenuItem = hm;
+            }
+          });
+        }
+      }
+    });
+  }
+
   signOutUser(): void {
     this.auth.signOutUser();
   }
   
   @HostBinding('widnow:resize')
   onResize(event = null) {
+    console.log('helperService ', this.isMobileResolution);
     this.isMobileResolution = window.innerWidth < 992 ? true : false; 
-    console.log(this.isMobileResolution);
+    this.helperService.setMobileResolution(this.isMobileResolution);
   }
 
   searchInputChanged(value: string): void {
@@ -121,6 +141,7 @@ export class HeaderComponent implements OnInit {
     }
     this.closeMenu();
     if(menuItem.navUrl) {
+      this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);
     } else {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });

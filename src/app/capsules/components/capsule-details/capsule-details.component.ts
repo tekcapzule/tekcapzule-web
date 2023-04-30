@@ -30,13 +30,14 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   ngOnInit(): void {
     this.spinner.show();
     this.queryParamUrl = atob(
-      this.route.snapshot.queryParamMap.get('url') || btoa('https://tekcapsule.blog')
+      sessionStorage.getItem('capsuleURL') || btoa('https://tekcapsule.blog')
     );
     this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.queryParamUrl);
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
   }
 
   ngOnDestroy(): void {
+    sessionStorage.removeItem('capsuleURL');
     this.resourceUrl = '';
   }
 
