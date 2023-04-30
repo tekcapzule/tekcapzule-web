@@ -14,6 +14,7 @@ import {
 } from '@app/core';
 import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 declare const jQuery: any;
 
@@ -34,7 +35,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   browseByTopics: BrowseByTopic[] = [];
   filteredBrowseByTopics: BrowseByTopic[] = [];
-
   navTabs: NavTab[] = [
     { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'For You' },
     { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
@@ -48,7 +48,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     private topicApi: TopicApiService,
     private userApi: UserApiService,
     private capsuleApi: CapsuleApiService,
-    private spinner: AppSpinnerService
+    private spinner: AppSpinnerService,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
@@ -178,7 +179,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   canHideNavTabs(): boolean {
-    return this.activeTab === Constants.None;
+    return this.activeTab === Constants.None || this.helperService.getMobileResolution();
   }
 
   /**

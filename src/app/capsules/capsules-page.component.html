@@ -5,8 +5,8 @@
 
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel">
     <div class="container d-flex">
-      <ng-container *ngFor="let navTab of navTabs">
-        <a
+      <ng-container>
+        <a *ngFor="let navTab of navTabs"
           mat-tab-link
           (click)="setActiveTab(navTab)"
           [active]="isActiveTab(navTab)"

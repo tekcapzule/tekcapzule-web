@@ -23,18 +23,10 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.scrollToTop();
     this.footerStatus();
     this.loggedInStatus();
   }
 
-  scrollToTop() {
-    this.router.events.subscribe(ev => {
-      if (ev instanceof NavigationEnd) {
-        window.scrollTo(0, 0);
-      }
-    });
-  }
 
   footerStatus() {
     this.eventChannel.getChannel().pipe(
