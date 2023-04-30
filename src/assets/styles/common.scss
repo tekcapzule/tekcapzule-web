@@ -241,11 +241,17 @@ h4 {
     background-color: $primary-color;
     color: $white;
     margin-right: 15px;
+    &:hover {
+      box-shadow: 8px 8px 10px #fc5454;
+    }
   }
 
   &.secondary {
     background-color: $white;
     color: $primary-color;
+    &:hover {
+      box-shadow: 8px 8px 10px #fe0d56;
+    }
   }
   &.tertiary {
     border-radius: 8px !important;
@@ -467,7 +473,7 @@ Search Box
 Modal Dialogue
 ***************************************/
 .modal.show .modal-dialog {
-  margin-top: 142px;
+  margin-top: 77px !important;
 }
 .modal-open .modal {
   padding-right: 0 !important;
@@ -944,6 +950,10 @@ iframe .navbar-container,
     color: #000 !important;
     border-bottom: 5px solid #00a64e !important;
   }
+  &.p-toast-message-error {
+    border: 1px solid $primary-color !important;
+    border-bottom: 5px solid $primary-color !important;
+  }
   &.p-toast-message-success .p-toast-message-icon,
   .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
     background: #00a64e !important;
@@ -1002,3 +1012,84 @@ iframe .navbar-container,
   }
 }
 /* Button hover CSS end */
+
+
+.modal-dialog {
+  margin: 0 !important;
+}
+
+
+/********Fancy Button Styles**********/
+#cubic span {
+  display: block;
+  background: $primary-color;
+  // padding: 20px 50px;
+  top: 0;
+  transition: .4s all ease;
+  -webkit-transform-origin:50% 0;
+  -moz-transform-origin:50% 0;
+  -ms-transform-origin:50% 0;
+  -o-transform-origin:50% 0;
+  transform-origin:50% 0;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -webkit-transform-style:preserve-3d;
+  -moz-transform-style:preserve-3d;
+  -ms-transform-style:preserve-3d;
+  -o-transform-style:preserve-3d;
+  transform-style:preserve-3d;
+  color: $white;
+  width: 132px;
+  height: 32px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-family: HelveticaNeueLTProBoldCondensed;
+  color: #fff;
+  border: 1px solid #e30045;
+  background: #e30045;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+#cubic:hover span {
+  background: #efd6dd ;
+  -webkit-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  -moz-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  -ms-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  -o-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  transform: translate3d(0px,0px,-60px) rotateX(90deg);
+}
+
+#cubic span:after {
+  content: attr(title);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transition: .8s all ease;
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform: translate3d(0px, 100%,0) rotateX(-90deg);
+  -moz-transform: translate3d(0px, 100%,0) rotateX(-90deg);
+  -ms-transform: translate3d(0px, 100%,0) rotateX(-90deg);
+  -o-transform: translate3d(0px, 100%,0) rotateX(-90deg);
+  transform: translate3d(0px, 100%,0) rotateX(-90deg);
+  width: 132px;
+  height: 32px;
+  border-radius: 18px;
+  padding: 6px 10px;
+}
+
+#cubic:hover span:after {
+  background: #fff;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
