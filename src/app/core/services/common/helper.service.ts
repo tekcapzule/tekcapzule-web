@@ -8,8 +8,7 @@ import { MessageService } from 'primeng/api';
 })
 export class HelperService {
   isMobileResolution: boolean;
-  selectedMenu: SelectedMenu;
-  
+
   constructor(private router: Router, private messageService: MessageService) {}
 
   private routeToSingIn() {
@@ -32,13 +31,5 @@ export class HelperService {
 
   getMobileResolution(): boolean {
     return this.isMobileResolution;
-  }
-
-  setSelectedMenu(selectedMenu:SelectedMenu): void {
-    this.selectedMenu = selectedMenu;
-  }
-  
-  getSelectedMenu(): any {
-    return this.selectedMenu;
   }
 }

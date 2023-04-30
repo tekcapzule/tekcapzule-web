@@ -75,7 +75,6 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
-    this.helperService.setSelectedMenu({selectedMenuItem: this.selectedMenuItem, selectedChildMenuItem: this.selectedChildMenuItem});
   }
 
   signOutUser(): void {
@@ -133,7 +132,6 @@ export class HeaderComponent implements OnInit {
       }
       this.router.navigate([this.openedMenuItem.navUrl]);
     }
-    this.helperService.setSelectedMenu({selectedMenuItem: this.selectedMenuItem, selectedChildMenuItem: this.selectedChildMenuItem});
   }
   
   onChildMenuClick(menuItem: NavTab): void {
@@ -148,7 +146,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
     }
-    this.helperService.setSelectedMenu({selectedMenuItem: this.selectedMenuItem, selectedChildMenuItem: this.selectedChildMenuItem});
   }
   
   onSkillStudioClick() {
