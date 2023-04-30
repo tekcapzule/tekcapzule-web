@@ -473,7 +473,7 @@ Search Box
 Modal Dialogue
 ***************************************/
 .modal.show .modal-dialog {
-  margin-top: 142px !important;
+  margin-top: 77px !important;
 }
 .modal-open .modal {
   padding-right: 0 !important;
@@ -949,6 +949,10 @@ iframe .navbar-container,
     /* border-width: 0 0 0 6px; */
     color: #000 !important;
     border-bottom: 5px solid #00a64e !important;
+  }
+  &.p-toast-message-error {
+    border: 1px solid $primary-color !important;
+    border-bottom: 5px solid $primary-color !important;
   }
   &.p-toast-message-success .p-toast-message-icon,
   .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
