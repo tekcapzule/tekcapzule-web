@@ -129,9 +129,6 @@
   .tech-learning {
       padding: 40px 0 !important;
     }
-   p {
-        text-align: justify;
-   }
    h2 {
     margin-bottom: 0 !important;
    }
@@ -161,6 +158,12 @@
   }
   h1{
     padding-bottom: 0 !important;
+  }
+  .tags {
+    max-height: 480px !important;
+  }
+  .topic-apply {
+    text-align: center !important;
   }
 }
 @media only screen and (width: 1024px) {

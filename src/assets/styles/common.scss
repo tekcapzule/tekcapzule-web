@@ -942,6 +942,12 @@ iframe .navbar-container,
 }
 
 /********Toast********/
+.p-toast-top-center {
+  top: 76px !important;
+}
+.p-toast {
+  width: 23rem !important;
+}
 .p-toast .p-toast-message {
   &.p-toast-message-success {
     background: #b5eacc !important;
@@ -961,6 +967,7 @@ iframe .navbar-container,
     color: #fff !important;
     padding: 0px 6px !important;
     width: 2rem;
+    height: 2rem;
   }
   .p-toast-message-content .p-toast-message-text {
     font-family: 'GTWalsheimPro-Medium', sans-serif;
@@ -970,6 +977,11 @@ iframe .navbar-container,
     font-size: 20px;
     top: -3px !important;
     position: relative;
+    @media only screen and (max-width: 990px) {
+      top: 5px !important;
+    }
+
+
   }
   .pi-times:before {
     font-size: 20px;
