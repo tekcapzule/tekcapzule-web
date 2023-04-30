@@ -20,7 +20,7 @@ import { MessageService } from 'primeng/api';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    AuthModule
+    AuthModule,
   ],
   exports: [],
   providers: [
@@ -28,7 +28,7 @@ import { MessageService } from 'primeng/api';
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     AuthGuard,
     MessageService,
-    HelperService
+    HelperService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

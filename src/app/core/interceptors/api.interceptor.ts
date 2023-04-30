@@ -16,8 +16,8 @@ export class ApiInterceptor implements HttpInterceptor {
 
     request = request.clone({
       headers: request.headers
-        .set('X-User-Login', loggedInUserName)
-        .set('X-Channel-Code', 'WEB_CLIENT'),
+        .set('x-user-login', loggedInUserName)
+        .set('x-channel-code', 'WEB_CLIENT'),
     });
 
     if (this.auth.isUserLoggedIn() && authToken) {
