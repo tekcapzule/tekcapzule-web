@@ -7,7 +7,8 @@ import { MessageService } from 'primeng/api';
   providedIn: 'root',
 })
 export class HelperService {
-  
+  isMobileResolution:boolean;
+
   constructor(private router:Router,
     private messageService: MessageService) {
   }
@@ -24,5 +25,13 @@ export class HelperService {
 
   showError(msg) {
     this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: msg });
+  }
+
+  setMobileResolution(isMobileResolution) {
+    this.isMobileResolution = isMobileResolution;
+  }
+
+  getMobileResolution() {
+    return this.isMobileResolution;
   }
 }
