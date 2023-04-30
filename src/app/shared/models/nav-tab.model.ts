@@ -7,8 +7,3 @@ export interface NavTab {
   isHidden?: boolean;
   showOnMobile?: boolean;
 }
-
-export interface SelectedMenu {
-  selectedMenuItem: NavTab;
-  selectedChildMenuItem: NavTab;
-}
