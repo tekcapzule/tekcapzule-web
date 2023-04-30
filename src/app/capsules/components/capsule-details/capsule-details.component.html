@@ -7,7 +7,9 @@
     <div class="back-link pt-0">
       <ng-container *ngFor="let crumb of getNavBreadcrumbs()">
         <ng-container *ngIf="crumb.url; else simplecrumb">
-          <a class="url-link" (click)="navigateToCapsulePage(crumb.url)">{{ crumb.label }}</a>
+          <a class="url-link" *ngIf="!crumb.isMobile" (click)="navigateToCapsulePage(crumb.url)">{{
+            crumb.label
+          }}</a>
         </ng-container>
         <ng-template #simplecrumb>
           <span>{{ crumb.label }}</span>

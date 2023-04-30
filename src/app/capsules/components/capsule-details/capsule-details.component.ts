@@ -3,7 +3,14 @@ import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { MessageService } from 'primeng/api';
+
+export interface BreadcrumbNavItem {
+  label: string;
+  url?: string;
+  isMobile?: boolean;
+}
 
 @Component({
   selector: 'app-capsule-details',
@@ -24,6 +31,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     private spinner: AppSpinnerService,
     private messageService: MessageService,
     private capsuleApi: CapsuleApiService,
+    private helperService: HelperService,
     private clipboard: Clipboard
   ) {}
 
@@ -47,20 +55,24 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     });
   }
 
-  getNavBreadcrumbs(): { label: string; url?: string }[] {
-    const crumbs: { label: string; url?: string }[] = [];
+  getNavBreadcrumbs(): BreadcrumbNavItem[] {
+    const crumbs: BreadcrumbNavItem[] = [];
     const queryTab = this.route.snapshot.queryParamMap.get('tab');
     const queryTitle = this.route.snapshot.queryParamMap.get('title');
+    const isMobile = this.helperService.getMobileResolution();
 
     if (queryTab === 'trending') {
-      crumbs.push({ label: 'My Feeds', url: 'myfeeds' }, { label: 'Trending', url: 'trending' });
+      crumbs.push(
+        { label: 'My Feeds', url: 'myfeeds', isMobile },
+        { label: 'Trending', url: 'trending', isMobile }
+      );
     } else if (queryTab === 'editorspick') {
       crumbs.push(
-        { label: 'My Feeds', url: 'myfeeds' },
-        { label: 'Editors Pick', url: 'editorspick' }
+        { label: 'My Feeds', url: 'myfeeds', isMobile },
+        { label: 'Editors Pick', url: 'editorspick', isMobile }
       );
     } else {
-      crumbs.push({ label: 'My Feeds', url: 'myfeeds' });
+      crumbs.push({ label: 'My Feeds', url: 'myfeeds', isMobile });
     }
 
     if (queryTitle) {
