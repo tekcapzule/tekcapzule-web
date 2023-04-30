@@ -11,11 +11,14 @@
         <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
           class="navbar-brand logo">
           <a [routerLink]="['/']" data-toggle="collapse" data-target=".navbar-collapse.show"
-            routerLinkActive="active"><img src="/assets/images/logo.svg" /></a>
+            routerLinkActive="active"><img src="/assets/images/logo.svg" alt="Tekcapsule Logo"/></a>
         </div>
+        
         <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-          <span>{{selectedMenuItem?.displayName}}</span>
+          <div class="main-nav">{{selectedMenuItem?.displayName}}</div>
+          <div class="sub-nav">{{selectedMenuItem?.displayName}}</div>
         </div>
+        <div class="menu-hide">&nbsp;</div>
 
         <div class="collapse navbar-collapse nav-menu" id="navbarNav">
 

@@ -351,7 +351,7 @@ h4 {
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 3px;
+      margin-top: 7px;
     }
   }
   span {
@@ -485,6 +485,7 @@ Modal Dialogue
   border: 0;
   .close {
     padding: 50px 60px 0 !important;
+    opacity: 1 !important;
   }
   .modal-header {
     border-bottom: 0;
@@ -501,7 +502,8 @@ Modal Dialogue
   }
 }
 .modal-backdrop {
-  opacity: 0 !important;
+  opacity: .5 !important;
+  top: 142px;
 }
 @media only screen and (max-width: 1199px) {
   .mobileOverlayMenu {
@@ -845,8 +847,8 @@ iframe .navbar-container,
 
 .share-icon {
   background: url('../images/share-icon.svg') no-repeat;
-  width: 12px;
-  height: 11px;
+  width: 15px;
+  height: 14px;
   margin: 4px 0px 4px 6px;
   cursor: pointer;
 }
@@ -967,3 +969,36 @@ iframe .navbar-container,
     background: none;
   }
 }
+
+/* Button hover CSS starts */
+.okHand:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+}
+.okHand:hover {
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: border-color 0.3s ease-in;
+}
+.okHand:hover:after {
+  animation: shockwave 1s ease-in infinite;
+}
+@keyframes shockwave {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 2px #fff;
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: 0 0 80px #fff, inset 0 0 40px #ccc;
+  }
+}
+/* Button hover CSS end */

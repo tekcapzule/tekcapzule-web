@@ -18,11 +18,11 @@
 
       <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal">
         <span style="width: 120px">Browse by Topic</span>
-        <img src="/assets/images/down-arrow.svg" class="pl-2" />
+        <img src="/assets/images/down-arrow.svg" class="pl-2" alt="down arrow"/>
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
-          <img src="/assets/images/reset.svg" alt="" class="pr-3 pt-1" />
+          <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
         </button>
         <button
           mat-stroked-button
@@ -51,7 +51,7 @@
       <div class="modal-content">
         <div class="container p-0">
           <div class="modal-header">
-            <div class="col-lg-12 px-0">
+            <div class="col-lg-11 px-0">
               <div class="search-box mx-0">
                 <input
                   type="search"
@@ -70,7 +70,7 @@
               aria-hidden="true"
               (click)="searchInputValue = ''; searchInputChanged('')"
             >
-              <img src="/assets/images/iframe-close-icon.png" style="width: 35px" />
+              <img src="/assets/images/iframe-close-icon.png" alt="close icon" style="width:35px" />
             </button>
           </div>
           <div class="modal-body pt-0 px-4 tags">

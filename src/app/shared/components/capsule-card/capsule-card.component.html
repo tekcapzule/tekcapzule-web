@@ -4,23 +4,23 @@
       <div class="card-head">
         <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img src="/assets/images/bookmark-filled.svg" class="rounded-img" *ngIf="isBookmarked()"
-            (click)="onCapsuleBookmarkRemove()" />
+            (click)="onCapsuleBookmarkRemove()" alt="bookmark filled"/>
           <img src="/assets/images/bookmark-icon.svg" class="rounded-img" *ngIf="!isBookmarked()"
-            (click)="onCapsuleBookmark()" />
+            (click)="onCapsuleBookmark()" alt="bookmark"/>
         </div>
         <div class="icons okHand">
-          <img *ngIf="!isCapsuleRecommended" class="rounded-img" src="/assets/images/okhand-icon.svg"
+          <img *ngIf="!isCapsuleRecommended" class="rounded-img" src="/assets/images/okhand-icon.svg" alt="okhand icon"
             (click)="onCapsuleRecommend()" />
-          <img *ngIf="isCapsuleRecommended" class="rounded-img" src="/assets/images/okhand-icon-active.svg" />
+          <img *ngIf="isCapsuleRecommended" class="rounded-img" src="/assets/images/okhand-icon-active.svg" alt="okhand icon filled"/>
         </div>
         <div class="icons timer">
-          <img src="/assets/images/timer.svg" class="rounded-img" /><span>{{ capsule.duration }} mins</span>
+          <img src="/assets/images/timer.svg" class="rounded-img" alt="timer" /><span>{{ capsule.duration }} mins</span>
         </div>
         <div class="icons labelRed">
           <span>#{{ capsule.topicCode }}</span>
         </div>
         <div class="video_thumb" (click)="onCardClick()">
-        <img [src]="capsule.imageUrl" class="header-image" alt=""/>
+        <img [src]="capsule.imageUrl" class="header-image" alt=" play icon"/>
         <div *ngIf="capsule.type === 'VIDEO'" class="play-button"></div>
       </div>
       </div>
@@ -43,10 +43,10 @@
           <!--img src="/assets/images/article-icon.svg" class="float-left" /-->
           <div class="float-right d-flex">
             <button *ngIf="capsule.type !== 'AD'" mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
-              Read Highlights<span class="flip-icon"></span>
+              Read Highlights<span class="flip-icon"  aria-label="read highlights"></span>
             </button>
             <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onShareClick()">
-              Share <span class="share-icon"></span>
+              Share <span class="share-icon" aria-label="share"></span>
             </button>
           </div>
         </div>
@@ -57,16 +57,16 @@
         <div class="title">{{ capsule.title }}</div>
         <div class="description">
           <label>
-            <img src="/assets/images/eye-icon.svg" />
+            <img src="/assets/images/eye-icon.svg" alt="eye icon"/>
             <span>{{ capsule.views }}</span>
           </label>
           <label>
-            <img src="/assets/images/bookmark-filled.svg" *ngIf="isBookmarked()" (click)="onCapsuleBookmarkRemove()" />
-            <img src="/assets/images/bookmark-icon.svg" *ngIf="!isBookmarked()" (click)="onCapsuleBookmark()" />
+            <img src="/assets/images/bookmark-filled.svg" *ngIf="isBookmarked()" (click)="onCapsuleBookmarkRemove()" alt="bookmark filled"/>
+            <img src="/assets/images/bookmark-icon.svg" *ngIf="!isBookmarked()" (click)="onCapsuleBookmark()" alt="bookmark"/>
             <span>{{ capsule.bookmarks }}</span>
           </label>
           <label>
-            <img src="/assets/images/okhand-icon.svg" />
+            <img src="/assets/images/okhand-icon.svg" alt="ok hand" />
             <span>{{ capsule.recommendations }}</span>
           </label>
           <!-- <div class="tags-input">
@@ -85,7 +85,7 @@
           </div>
           <div class="shield mb-4 pt-2">
             <ng-container *ngFor="let url of getCapsuleBadgeUrls()">
-              <img [src]="url" alt="" />
+              <img [src]="url" alt="shield icons" />
             </ng-container>
           </div>
 
@@ -96,10 +96,10 @@
           </button>
           <div class="float-right d-flex">
             <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
-              Flip<span class="flip-icon"></span>
+              Flip<span class="flip-icon" aria-label="flip"></span>
             </button>
             <button mat-stroked-button class="button secondary-btn-sm ml-2" (click)="onShareClick()">
-              Share <span class="share-icon"></span>
+              Share <span class="share-icon" aria-label="share"></span>
             </button>
             
           </div>
