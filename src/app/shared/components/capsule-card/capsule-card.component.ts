@@ -106,11 +106,11 @@ export class CapsuleCardComponent implements OnInit {
       : 'myfeeds';
 
     this.router.navigate(['capsules', this.capsule.capsuleId, 'details'], {
-      queryParams: { url: resourceUrl, title: this.capsule.title, tab: tabUri },
+      queryParams: { tab: tabUri },
     });
     sessionStorage.setItem('capsuleURL', resourceUrl);
-    sessionStorage.setItem('cardtitle', this.capsule.title);
-    sessionStorage.setItem('navURL', this.router.url);
+    sessionStorage.setItem('cardTitle', this.capsule.title);
+    sessionStorage.setItem('pageURL', this.router.url);
   }
 
   isValidUrl(url: string): boolean {
@@ -118,7 +118,7 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleRecommend(): void {
-    if (!this.isCapsuleRecommended) {
+    if(!this.isCapsuleRecommended) {
       this.capsule.recommendations += 1;
       this.isCapsuleRecommended = true;
       this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data => {
@@ -128,6 +128,10 @@ export class CapsuleCardComponent implements OnInit {
           summary: 'Success',
           detail: 'Recommandation done successfully',
         });
+      }, err => {
+        this.capsule.recommendations -= 1;
+        this.isCapsuleRecommended = false;
+        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Please try recommandation after sometime!' });
       });
     }
   }

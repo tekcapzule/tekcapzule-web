@@ -24,11 +24,11 @@
 
           <ul class="navbar-nav">
             <ng-container *ngFor="let hm of headerMenu; let i=index">
-              <li [ngClass]="{'dropdown': isMobileResolution && hm.children, 'active': selectedMenuItem.uniqueId === hm.uniqueId}"
+              <li [ngClass]="{'dropdown': isMobileResolution && hm.children, 'active': selectedMenuItem?.uniqueId === hm.uniqueId}"
                 *ngIf="hm.showOnMobile ? isMobileResolution : true">
                 <a *ngIf="hm.uniqueId !== 'Skill_Studio'" href="Javascript:void(0)" class="pe-none"
                   (click)="onMenuClick(hm)">{{hm.displayName}}
-                  <span *ngIf="isMobileResolution && hm.children && selectedMenuItem.uniqueId === 'My_Feeds'"
+                  <span *ngIf="isMobileResolution && hm.children && selectedMenuItem?.uniqueId === 'My_Feeds'"
                     [ngClass]="{'parent-menu': isMobileResolution && hm.children}" class="caret"></span></a>
 
                 <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === 'My_Feeds'">

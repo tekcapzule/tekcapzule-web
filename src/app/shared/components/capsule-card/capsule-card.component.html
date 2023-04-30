@@ -8,9 +8,9 @@
           <img src="/assets/images/bookmark-icon.svg" class="rounded-img" *ngIf="!isBookmarked()"
             (click)="onCapsuleBookmark()" alt="bookmark"/>
         </div>
-        <div class="icons okHand">
+        <div class="icons okHand" (click)="onCapsuleRecommend()">
           <img *ngIf="!isCapsuleRecommended" class="rounded-img" src="/assets/images/okhand-icon.svg" alt="okhand icon"
-            (click)="onCapsuleRecommend()" />
+             />
           <img *ngIf="isCapsuleRecommended" class="rounded-img" src="/assets/images/okhand-icon-active.svg" alt="okhand icon filled"/>
         </div>
         <div class="icons timer">

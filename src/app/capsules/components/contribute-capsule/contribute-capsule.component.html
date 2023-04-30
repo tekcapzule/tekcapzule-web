@@ -3,7 +3,7 @@
     <div class="container">
       <div class="contribute-form-bg" [formGroup]="contributeFormGroup">
         <div class="text-center pb-2">
-          <h2>Contribute</h2>
+          <h2 *ngIf="!helperService.getMobileResolution()">Contribute</h2>
           <p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium,
             sdda sdftotam rem aperiam, vitae quia dicta sunt explicabo.</p>
         </div>

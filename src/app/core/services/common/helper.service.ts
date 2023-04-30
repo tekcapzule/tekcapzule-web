@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavTab } from '@app/shared/models';
+import { SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { MessageService } from 'primeng/api';
 
 @Injectable({
@@ -16,19 +18,37 @@ export class HelperService {
     }
   }
 
-  showSuccess(msg) {
+  showSuccess(msg): void {
     this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: msg });
   }
 
-  showError(msg) {
+  showError(msg): void {
     this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: msg });
   }
 
-  setMobileResolution(isMobileResolution) {
+  setMobileResolution(isMobileResolution): void {
     this.isMobileResolution = isMobileResolution;
   }
 
-  getMobileResolution() {
+  getMobileResolution(): boolean {
     return this.isMobileResolution;
+  }
+
+  
+  getSelectedMenu(navUrl: string, headerMenu:NavTab[]) {
+    let selectedMenu: SelectedMenu;
+    headerMenu.forEach(hm => {
+      if(hm.navUrl && navUrl.includes(hm.navUrl)) {
+        selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
+        if(hm.children) {
+          hm.children.forEach(cm => {
+            if(cm.navUrl && navUrl.includes(cm.navUrl)) {
+              selectedMenu.selectedChildMenuItem = cm;
+            }
+          });
+        }
+      }
+    });
+    return selectedMenu;
   }
 }
