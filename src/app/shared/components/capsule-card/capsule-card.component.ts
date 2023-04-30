@@ -99,15 +99,7 @@ export class CapsuleCardComponent implements OnInit {
       ? btoa(this.capsule.resourceUrl)
       : btoa('https://tekcapsule.blog');
 
-    const tabUri = this.router.url.includes('trending')
-      ? 'trending'
-      : this.router.url.includes('editorspick')
-      ? 'editorspick'
-      : 'myfeeds';
-
-    this.router.navigate(['capsules', this.capsule.capsuleId, 'details'], {
-      queryParams: { tab: tabUri },
-    });
+    this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
     sessionStorage.setItem('capsuleURL', resourceUrl);
     sessionStorage.setItem('cardTitle', this.capsule.title);
     sessionStorage.setItem('pageURL', this.router.url);
