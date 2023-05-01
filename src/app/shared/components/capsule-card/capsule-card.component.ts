@@ -31,7 +31,7 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleRecommended = false;
   dateAgoStr: string;
   localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
-  buttonLabel: any = {article: 'Read', video: 'Play', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
+  buttonLabel: any = {article: 'Read', video: 'Play', book: 'Read', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
 
@@ -95,13 +95,7 @@ export class CapsuleCardComponent implements OnInit {
     }
 
     this.spinner.show();
-    const resourceUrl = this.isValidUrl(this.capsule.resourceUrl)
-      ? btoa(this.capsule.resourceUrl)
-      : btoa('https://tekcapsule.blog');
-
     this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
-    sessionStorage.setItem('capsuleURL', resourceUrl);
-    sessionStorage.setItem('cardTitle', this.capsule.title);
     sessionStorage.setItem('pageURL', this.router.url);
   }
 

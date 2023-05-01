@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { NavTab } from '@app/shared/models';
+import { CapsuleItem, NavTab } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -18,6 +18,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   capsuleId: string;
   capsuleURL: string;
   isMobileResolution: boolean;
+  capsuleDetail: CapsuleItem;
 
   constructor(
     private router: Router,
@@ -33,16 +34,21 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngOnInit(): void {
     this.isMobileResolution = this.helperService.getMobileResolution();
-    this.spinner.show();
-    this.capsuleURL = atob(
-      sessionStorage.getItem('capsuleURL') || btoa('https://tekcapsule.blog')
-    );
-    this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
+    this.spinner.show();
+    this.fetchCapsuleDetails();
+    
+  }
+
+  fetchCapsuleDetails() {
+    this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
+      this.capsuleDetail = data;
+      this.capsuleURL = this.capsuleDetail.resourceUrl || btoa('https://tekcapsule.blog');
+      this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
+    });
   }
 
   ngOnDestroy(): void {
-    sessionStorage.removeItem('capsuleURL');
     this.resourceUrl = '';
   }
 
@@ -54,7 +60,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getNavBreadcrumbs(): NavTab | any [] {
     const crumbs: NavTab | any [] = [];
-    const queryTitle = sessionStorage.getItem('cardTitle');
+    const queryTitle = this.capsuleDetail.title;
     const selectedMenu = this.helperService.getSelectedMenu(sessionStorage.getItem('pageURL'));
     crumbs.push(selectedMenu.selectedMenuItem);
     if(selectedMenu.selectedChildMenuItem) {

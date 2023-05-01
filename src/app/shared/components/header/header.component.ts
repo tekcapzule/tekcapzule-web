@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild, HostListener } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { NavigationStart, Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ import { Constants } from '@app/shared/utils';
 export class HeaderComponent implements OnInit {
   @ViewChild(MatMenuTrigger) globalSearchTrigger: MatMenuTrigger;
   @ViewChild('collapseBtn') collapseBtn: ElementRef;
+  @ViewChild('navbarNav') navbarNav: ElementRef;
   isLoggedIn = false;
   userDetails: AwsUserInfo = null;
   searchInputValue = '';
@@ -45,10 +46,20 @@ export class HeaderComponent implements OnInit {
         this.userDetails = this.auth.getAwsUserInfo();
       });
     });
-
     this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
     });
+  }
+
+  @HostListener('document:click', ['$event'])
+  @HostListener('document:touchstart', ['$event'])
+  handleOutsideClick(event) {
+    // Some kind of logic to exclude clicks in Component.
+    // This example is borrowed Kamil's answer    
+    let inputElement: HTMLElement = this.navbarNav.nativeElement as HTMLElement;
+    if (!inputElement.contains(event.target)) {
+      console.log('came --- 000');
+    }
   }
 
   scrollToTop() {
