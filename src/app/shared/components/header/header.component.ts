@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
       if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
         if(!this.selectedMenuItem) {
-          const selectedMenu = this.helperService.getSelectedMenu(ev.url, this.headerMenu);
+          const selectedMenu = this.helperService.getSelectedMenu(ev.url);
           this.selectedMenuItem = selectedMenu.selectedMenuItem;
           this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
         }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavTab } from '@app/shared/models';
 import { SelectedMenu } from '@app/shared/models/nav-tab.model';
+import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
 
 @Injectable({
@@ -35,9 +36,9 @@ export class HelperService {
   }
 
   
-  getSelectedMenu(navUrl: string, headerMenu:NavTab[]) {
+  getSelectedMenu(navUrl: string) {
     let selectedMenu: SelectedMenu;
-    headerMenu.forEach(hm => {
+    Constants.HeaderMenu.forEach(hm => {
       if(hm.navUrl && navUrl.includes(hm.navUrl)) {
         selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
         if(hm.children) {

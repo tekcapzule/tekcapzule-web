@@ -4,13 +4,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { NavTab } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
-
-export interface BreadcrumbNavItem {
-  label: string;
-  url?: string;
-  isMobile?: boolean;
-}
 
 @Component({
   selector: 'app-capsule-details',
@@ -22,6 +17,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   resourceUrl: SafeResourceUrl;
   capsuleId: string;
   capsuleURL: string;
+  isMobileResolution: boolean;
 
   constructor(
     private router: Router,
@@ -36,6 +32,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   ) {}
 
   ngOnInit(): void {
+    this.isMobileResolution = this.helperService.getMobileResolution();
     this.spinner.show();
     this.capsuleURL = atob(
       sessionStorage.getItem('capsuleURL') || btoa('https://tekcapsule.blog')
@@ -55,35 +52,22 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     });
   }
 
-  getNavBreadcrumbs(): BreadcrumbNavItem[] {
-    const crumbs: BreadcrumbNavItem[] = [];
-    const queryTab = this.route.snapshot.queryParamMap.get('tab');
+  getNavBreadcrumbs(): NavTab | any [] {
+    const crumbs: NavTab | any [] = [];
     const queryTitle = sessionStorage.getItem('cardTitle');
-    const isMobile = this.helperService.getMobileResolution();
-
-    if (queryTab === 'trending') {
-      crumbs.push(
-        { label: 'My Feeds', url: 'myfeeds', isMobile },
-        { label: 'Trending', url: 'trending', isMobile }
-      );
-    } else if (queryTab === 'editorspick') {
-      crumbs.push(
-        { label: 'My Feeds', url: 'myfeeds', isMobile },
-        { label: 'Editors Pick', url: 'editorspick', isMobile }
-      );
-    } else {
-      crumbs.push({ label: 'My Feeds', url: 'myfeeds', isMobile });
+    const selectedMenu = this.helperService.getSelectedMenu(sessionStorage.getItem('pageURL'));
+    crumbs.push(selectedMenu.selectedMenuItem);
+    if(selectedMenu.selectedChildMenuItem) {
+      crumbs.push(selectedMenu.selectedChildMenuItem);
     }
-
     if (queryTitle) {
-      crumbs.push({ label: queryTitle });
+      crumbs.push({ displayName: queryTitle });
     }
-
     return crumbs;
   }
 
   navigateToCapsulePage(url: string): void {
-    this.router.navigate(['capsules', url]);
+    this.router.navigate([url]);
   }
 
   onIFrameClose(): void {
