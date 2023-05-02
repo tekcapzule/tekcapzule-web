@@ -221,11 +221,7 @@ export class CapsuleCardComponent implements OnInit {
     const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
 
     if (isLocalPublisher) {
-      const shareableUrl = `${window.location.origin}/capsules/${
-        this.capsule.capsuleId
-      }/details?url=${btoa(this.capsule.resourceUrl)}&title=${encodeURIComponent(
-        this.capsule.title
-      )}`;
+      const shareableUrl = `${window.location.origin}/capsules/${this.capsule.capsuleId}/details`;
       this.clipboard.copy(shareableUrl);
     } else {
       this.clipboard.copy(this.capsule.resourceUrl);
