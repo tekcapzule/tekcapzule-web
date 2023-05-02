@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavTab } from '@app/shared/models';
+import { ErrorModel } from '@app/shared/models';
 import { SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
@@ -23,8 +23,8 @@ export class HelperService {
     this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: msg });
   }
 
-  showError(msg): void {
-    this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: msg });
+  getInternalErrorMessage(): ErrorModel {
+    return { key: 'tc', severity: 'error', summary: 'Error', detail: 'Something went wrong! Please try again later.' };
   }
 
   setMobileResolution(isMobileResolution): void {

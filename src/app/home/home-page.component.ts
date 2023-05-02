@@ -10,6 +10,7 @@ import {
   TopicApiService,
   AppSpinnerService,
 } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { shuffleArray } from '@app/shared/utils';
@@ -55,7 +56,8 @@ export class HomePageComponent implements OnInit {
     private topicApi: TopicApiService,
     private fb: FormBuilder,
     private messageService: MessageService,
-    private spinner: AppSpinnerService
+    private spinner: AppSpinnerService,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
@@ -88,7 +90,7 @@ export class HomePageComponent implements OnInit {
         this.subscriberFormGroup.reset();
         this.spinner.hide();
       }, error => {
-        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
+        this.messageService.add(this.helperService.getInternalErrorMessage());
         this.spinner.hide();
       });
     } else {

@@ -1,25 +1,24 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import * as moment from 'moment';
+import { tap } from 'rxjs/operators';
 
 import {
-  CapsuleApiService,
-  UserApiService,
+  AppSpinnerService,
   AuthService,
   AwsUserInfo,
-  EventChannelService,
-  ChannelEvent,
-  AppSpinnerService,
+  CapsuleApiService,
+  UserApiService
 } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
-  styleUrls: ['./capsule-card.component.scss'],
+  styleUrls: ['./capsule-card.component.scss']
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
@@ -40,10 +39,10 @@ export class CapsuleCardComponent implements OnInit {
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private auth: AuthService,
-    private eventChannel: EventChannelService,
     private spinner: AppSpinnerService,
     private messageService: MessageService,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
@@ -118,7 +117,7 @@ export class CapsuleCardComponent implements OnInit {
       }, err => {
         this.capsule.recommendations -= 1;
         this.isCapsuleRecommended = false;
-        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Please try recommandation after sometime!' });
+        this.messageService.add(this.helperService.getInternalErrorMessage());
       });
     }
   }
@@ -225,7 +224,6 @@ export class CapsuleCardComponent implements OnInit {
     } else {
       this.clipboard.copy(this.capsule.resourceUrl);
     }
-
     this.messageService.add({
       key: 'tc',
       severity: 'success',
