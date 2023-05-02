@@ -10,6 +10,7 @@ import { MessageService } from 'primeng/api';
 })
 export class HelperService {
   isMobileResolution: boolean;
+  selectedMenu: SelectedMenu;
 
   constructor(private router: Router, private messageService: MessageService) {}
 
@@ -35,22 +36,24 @@ export class HelperService {
     return this.isMobileResolution;
   }
 
-  
-  getSelectedMenu(navUrl: string) {
+  getSelectedMenu(): SelectedMenu {
+    return this.selectedMenu;
+  }
+  findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
-    let selectedMenu: SelectedMenu = {selectedMenuItem: headerMenu[0], selectedChildMenuItem: null};
+    this.selectedMenu = {selectedMenuItem: headerMenu[0], selectedChildMenuItem: null};
     headerMenu.forEach(hm => {
       if(hm.navUrl && navUrl.includes(hm.navUrl)) {
-        selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
+        this.selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
         if(hm.children) {
           hm.children.forEach(cm => {
             if(cm.navUrl && navUrl.includes(cm.navUrl)) {
-              selectedMenu.selectedChildMenuItem = cm;
+              this.selectedMenu.selectedChildMenuItem = cm;
             }
           });
         }
       }
     });
-    return selectedMenu;
+    return this.selectedMenu;
   }
 }
