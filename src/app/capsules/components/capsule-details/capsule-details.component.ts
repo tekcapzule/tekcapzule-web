@@ -60,7 +60,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   getNavBreadcrumbs(): NavTab | any [] {
     const crumbs: NavTab | any [] = [];
     const queryTitle = this.capsuleDetail.title;
-    const selectedMenu = this.helperService.getSelectedMenu(sessionStorage.getItem('pageURL'));
+    const selectedMenu = this.helperService.getSelectedMenu(sessionStorage.getItem('pageURL') || this.router.url);
     crumbs.push(selectedMenu.selectedMenuItem);
     if(selectedMenu.selectedChildMenuItem) {
       crumbs.push(selectedMenu.selectedChildMenuItem);
