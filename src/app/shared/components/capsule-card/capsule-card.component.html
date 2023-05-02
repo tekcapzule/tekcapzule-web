@@ -17,7 +17,7 @@
           <img src="/assets/images/timer.svg" class="rounded-img" alt="timer" /><span>{{ capsule.duration }} mins</span>
         </div>
         <div class="icons labelRed">
-          <span>#{{ capsule.topicCode }}</span>
+          <span>#{{ topicDetail?.title }}</span>
         </div>
         <div class="video_thumb" (click)="onCardClick()">
         <img [src]="capsule.imageUrl" class="header-image" alt=" play icon"/>

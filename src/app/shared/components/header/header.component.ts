@@ -59,6 +59,7 @@ export class HeaderComponent implements OnInit {
     });
     this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
+      this.helperService.setTopicData(data);
     });
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ErrorModel } from '@app/shared/models';
+import { ErrorModel, TopicItem } from '@app/shared/models';
 import { SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
@@ -11,6 +11,7 @@ import { MessageService } from 'primeng/api';
 export class HelperService {
   isMobileResolution: boolean;
   selectedMenu: SelectedMenu;
+  topicData: TopicItem[] = [];
 
   constructor(private router: Router, private messageService: MessageService) {}
 
@@ -39,6 +40,19 @@ export class HelperService {
   getSelectedMenu(): SelectedMenu {
     return this.selectedMenu;
   }
+
+  setTopicData(topicData: TopicItem[]): void {
+    this.topicData = topicData;
+  }
+
+  getTopicData(): TopicItem[] {
+    return this.topicData;
+  }
+
+  getTopic(topicCode: string): TopicItem {
+    return this.topicData.find(topic => topic.code === topicCode);
+  }
+
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = {selectedMenuItem: headerMenu[0], selectedChildMenuItem: null};

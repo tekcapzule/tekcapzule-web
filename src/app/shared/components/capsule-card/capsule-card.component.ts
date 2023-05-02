@@ -12,7 +12,7 @@ import {
   UserApiService
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
+import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -33,6 +33,7 @@ export class CapsuleCardComponent implements OnInit {
   buttonLabel: any = {article: 'Read', video: 'Play', book: 'Read', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
+  topicDetail: TopicItem;
 
   constructor(
     private router: Router,
@@ -47,6 +48,7 @@ export class CapsuleCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchUserInfo();
+    this.topicDetail = this.helperService.getTopic(this.capsule.topicCode); 
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
 
