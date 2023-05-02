@@ -87,16 +87,17 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   navigateToCapsuleDetailsPage(): void {
-    const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
-
-    if (!isLocalPublisher) {
+    if (this.isLocalPublisher()) {
+      this.spinner.show();
+      this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
+      sessionStorage.setItem('pageURL', this.router.url);
+    } else {
       window.open(this.capsule.resourceUrl, '_blank');
-      return;
-    }
+    }    
+  }
 
-    this.spinner.show();
-    this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
-    sessionStorage.setItem('pageURL', this.router.url);
+  isLocalPublisher() {
+    return this.localPublisher.find(pub => pub === this.capsule.publisher);
   }
 
   isValidUrl(url: string): boolean {
@@ -218,9 +219,7 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onShareClick() {
-    const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
-
-    if (isLocalPublisher) {
+    if (this.isLocalPublisher()) {
       const shareableUrl = `${window.location.origin}/capsules/${this.capsule.capsuleId}/details`;
       this.clipboard.copy(shareableUrl);
     } else {
