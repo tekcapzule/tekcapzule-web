@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService, TopicApiService } from '@app/core';
@@ -125,22 +125,31 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
   get goldenCircle() {
     return this.tekByteFormGroup.get('goldenCircle') as FormGroup;
   }
-  get keyConcepts() {
-    return this.tekByteFormGroup.get('keyConcepts') as FormArray;
-  }
-  get applications() {
-    return this.tekByteFormGroup.get('applications') as FormArray;
-  }
-  get currentTrends() {
-    return this.tekByteFormGroup.get('currentTrends') as FormArray;
-  }
-  get challenges() {
-    return this.tekByteFormGroup.get('challenges') as FormArray;
-  }
-  get timeline() {
-    return this.tekByteFormGroup.get('timeline') as FormArray;
+  get timeline(): FormGroup[] {
+    const formArray = this.tekByteFormGroup?.get('timeline') as FormArray;
+    return formArray.controls as FormGroup[];
   }
 
+  get currentTrends(): FormGroup[] {
+    const formArray = this.tekByteFormGroup?.get('currentTrends') as FormArray;
+    return formArray.controls as FormGroup[];
+  }
+
+  get applications(): FormGroup[] {
+    const formArray = this.tekByteFormGroup?.get('applications') as FormArray;
+    return formArray.controls as FormGroup[];
+  }
+
+  get keyConcepts(): FormGroup[] {
+    const formArray = this.tekByteFormGroup?.get('keyConcepts') as FormArray;
+    return formArray.controls as FormGroup[];
+  }
+
+  get challenges(): FormGroup[] {
+    const formArray = this.tekByteFormGroup?.get('challenges') as FormArray;
+    return formArray.controls as FormGroup[];
+  }
+  
   addStoryFormArray() {
     if (this.timeline.length < 10) {
       const timelineGp = this.fb.group({
@@ -217,7 +226,7 @@ export class AdminCreateTekByteComponent implements OnInit, AfterViewInit {
 
   
   get tags() {
-    return this.tekByteFormGroup.get('aliases');
+    return this.tekByteFormGroup.get('aliases') as FormControl;
   }
 
   add(event: MatChipInputEvent): void {
