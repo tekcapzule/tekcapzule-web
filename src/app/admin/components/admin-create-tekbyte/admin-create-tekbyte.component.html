@@ -276,7 +276,7 @@
           <div *ngIf="tabIndex === 3" id="keyconcepts">
             <h2>3 Key Concepts</h2>
             <ng-container formArrayName="keyConcepts">
-              <ng-container *ngFor="let keyConcept of keyConcepts.controls; let i = index">
+              <ng-container *ngFor="let keyConcept of keyConcepts; let i = index">
                 <div [formGroup]="keyConcept" class="form-group">
                   <label for="Topic Name">Concept 0{{ i + 1 }}</label>
                   <input
@@ -306,7 +306,7 @@
               />
             </div>
             <ng-container formArrayName="applications">
-              <ng-container *ngFor="let application of applications.controls; let i = index">
+              <ng-container *ngFor="let application of applications; let i = index">
                 <div [formGroup]="application" class="innerCardSection">
                   <div class="form-group">
                     <div class="d-flex justify-content-between">
@@ -316,7 +316,7 @@
                           ><img src="../../../../assets/images/drag.png" alt="add"
                         /></a>
                         <a
-                          *ngIf="applications.controls.length > 1"
+                          *ngIf="applications.length > 1"
                           (click)="onDeleteArrayItem(i, 'applications')"
                           href="javascript:void(0);"
                           ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
@@ -351,7 +351,7 @@
               />
             </div>
             <ng-container formArrayName="currentTrends">
-              <ng-container *ngFor="let currentTrend of currentTrends.controls; let i = index">
+              <ng-container *ngFor="let currentTrend of currentTrends; let i = index">
                 <div [formGroup]="currentTrend" class="innerCardSection">
                   <div class="form-group">
                     <div class="d-flex justify-content-between">
@@ -361,7 +361,7 @@
                           ><img src="../../../../assets/images/drag.png" alt="add"
                         /></a>
                         <a
-                          *ngIf="currentTrends.controls.length > 1"
+                          *ngIf="currentTrends.length > 1"
                           (click)="onDeleteArrayItem(i, 'currentTrends')"
                           href="javascript:void(0);"
                           ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
@@ -395,7 +395,7 @@
               />
             </div>
             <ng-container formArrayName="challenges">
-              <ng-container *ngFor="let challenge of metadata?.expiryInterval; let i = index">
+              <ng-container *ngFor="let challenge of challenges; let i = index">
                 <div [formGroup]="challenge" class="innerCardSection">
                   <div class="form-group">
                     <div class="d-flex justify-content-between">
@@ -405,7 +405,7 @@
                           <img src="../../../../assets/images/drag.png" alt="add" />
                         </a>
                         <a
-                          *ngIf="challenges.controls.length > 1"
+                          *ngIf="challenges.length > 1"
                           (click)="onDeleteArrayItem(i, 'challenges')"
                           href="javascript:void(0);"
                           ><img width="15" src="../../../../assets/images/trash.svg" alt="add"
@@ -445,7 +445,7 @@
                 </div>
               </div>
               <ng-container formArrayName="timeline">
-                <ng-container *ngFor="let tm of timeline.controls; let i = index">
+                <ng-container *ngFor="let tm of timeline; let i = index">
                   <div [formGroup]="tm" class="my-2 d-flex align-items-center pb-2">
                     <input
                       type="date"
@@ -465,7 +465,7 @@
                       ><img src="../../../../assets/images/drag.png" alt="add"
                     /></a>
                     <a
-                      *ngIf="timeline.controls.length > 1"
+                      *ngIf="timeline.length > 1"
                       (click)="onDeleteArrayItem(i, 'timeline')"
                       href="javascript:void(0);"
                       ><img width="15" src="../../../../assets/images/trash.svg" alt="add"

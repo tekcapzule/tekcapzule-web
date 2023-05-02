@@ -1,25 +1,24 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import * as moment from 'moment';
+import { tap } from 'rxjs/operators';
 
 import {
-  CapsuleApiService,
-  UserApiService,
+  AppSpinnerService,
   AuthService,
   AwsUserInfo,
-  EventChannelService,
-  ChannelEvent,
-  AppSpinnerService,
+  CapsuleApiService,
+  UserApiService
 } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
-  styleUrls: ['./capsule-card.component.scss'],
+  styleUrls: ['./capsule-card.component.scss']
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
@@ -31,7 +30,7 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleRecommended = false;
   dateAgoStr: string;
   localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
-  buttonLabel: any = {article: 'Read', video: 'Play', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
+  buttonLabel: any = {article: 'Read', video: 'Play', book: 'Read', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
 
@@ -40,10 +39,10 @@ export class CapsuleCardComponent implements OnInit {
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private auth: AuthService,
-    private eventChannel: EventChannelService,
     private spinner: AppSpinnerService,
     private messageService: MessageService,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
@@ -87,22 +86,17 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   navigateToCapsuleDetailsPage(): void {
-    const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
-
-    if (!isLocalPublisher) {
+    if (this.isLocalPublisher()) {
+      this.spinner.show();
+      this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
+      sessionStorage.setItem('pageURL', this.router.url);
+    } else {
       window.open(this.capsule.resourceUrl, '_blank');
-      return;
-    }
+    }    
+  }
 
-    this.spinner.show();
-    const resourceUrl = this.isValidUrl(this.capsule.resourceUrl)
-      ? btoa(this.capsule.resourceUrl)
-      : btoa('https://tekcapsule.blog');
-
-    this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
-    sessionStorage.setItem('capsuleURL', resourceUrl);
-    sessionStorage.setItem('cardTitle', this.capsule.title);
-    sessionStorage.setItem('pageURL', this.router.url);
+  isLocalPublisher() {
+    return this.localPublisher.find(pub => pub === this.capsule.publisher);
   }
 
   isValidUrl(url: string): boolean {
@@ -123,7 +117,7 @@ export class CapsuleCardComponent implements OnInit {
       }, err => {
         this.capsule.recommendations -= 1;
         this.isCapsuleRecommended = false;
-        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Please try recommandation after sometime!' });
+        this.messageService.add(this.helperService.getInternalErrorMessage());
       });
     }
   }
@@ -224,19 +218,12 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onShareClick() {
-    const isLocalPublisher = this.localPublisher.find(pub => pub === this.capsule.publisher);
-
-    if (isLocalPublisher) {
-      const shareableUrl = `${window.location.origin}/capsules/${
-        this.capsule.capsuleId
-      }/details?url=${btoa(this.capsule.resourceUrl)}&title=${encodeURIComponent(
-        this.capsule.title
-      )}`;
+    if (this.isLocalPublisher()) {
+      const shareableUrl = `${window.location.origin}/capsules/${this.capsule.capsuleId}/details`;
       this.clipboard.copy(shareableUrl);
     } else {
       this.clipboard.copy(this.capsule.resourceUrl);
     }
-
     this.messageService.add({
       key: 'tc',
       severity: 'success',

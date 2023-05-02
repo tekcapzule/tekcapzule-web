@@ -4,7 +4,7 @@
   </div>
 
   <div class="container pt-1">
-    <div class="back-link pt-0">
+    <div *ngIf="capsuleDetail" class="back-link pt-0">
       <ng-container *ngFor="let crumb of getNavBreadcrumbs()">
         <ng-container *ngIf="crumb.navUrl; else simplecrumb">
           <a class="url-link" *ngIf="!isMobileResolution" (click)="navigateToCapsulePage(crumb.navUrl)">{{
@@ -21,7 +21,7 @@
       <button type="button" class="close close-icon" (click)="onIFrameClose()"></button>
     </div>
   </div>
-  <div class="container">
+  <div *ngIf="capsuleDetail" class="container">
     <iframe
       id="theFrame"
       [src]="resourceUrl"

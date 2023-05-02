@@ -12,6 +12,7 @@ export interface CapsuleItem {
   publisher: string;
   recommendations: number;
   resourceUrl: string;
+  keyPoints: string[]; 
   tags: string[];
   title: string;
   topicCode: string;

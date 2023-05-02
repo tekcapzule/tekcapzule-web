@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppSpinnerService } from '@app/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 import { FeedbackApiService } from '@app/core/services/feedback-api/feedback-api.service';
 import { CollaborateForm } from '@app/mission/models/collaborate-form.model';
@@ -18,7 +19,8 @@ export class CollaborateFormComponent implements OnInit {
     private feedbackApi: FeedbackApiService,
     private appSpinnerService: AppSpinnerService,
     private messageService: MessageService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
@@ -44,10 +46,10 @@ export class CollaborateFormComponent implements OnInit {
         this.appSpinnerService.hide();        
         this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
       }, err => {
-        this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Something Went wrong! Please try after sometime.' });
+        this.messageService.add(this.helperService.getInternalErrorMessage());
       });
     } else {
-      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Complete the form before submit' });
+      this.messageService.add(this.helperService.getInternalErrorMessage());
     }
   }
 }
