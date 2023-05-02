@@ -20,7 +20,7 @@
         </div>
         <div class="menu-hide">&nbsp;</div>
 
-        <div #navbarNav class="collapse navbar-collapse nav-menu" id="navbarNav">
+        <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
 
           <ul class="navbar-nav">
             <ng-container *ngFor="let hm of headerMenu; let i=index">

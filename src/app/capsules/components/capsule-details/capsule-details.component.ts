@@ -37,7 +37,6 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     this.spinner.show();
     this.fetchCapsuleDetails();
-    
   }
 
   fetchCapsuleDetails() {
@@ -78,8 +77,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   onIFrameClose(): void {
     this.resourceUrl = '';
-    console.log('sessionStorage.getIt', sessionStorage.getItem('pageURL'));
-    this.router.navigate([sessionStorage.getItem('pageURL')]);
+    this.router.navigate([sessionStorage.getItem('pageURL') || '/']);
   }
 
   onAfterIframeLoaded(): void {
@@ -100,7 +98,6 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   onShareClick() {
-    // this.clipboard.copy(this.queryParamUrl);
     const shareableUrl = new URL(window.location.href);
     shareableUrl.searchParams.delete('tab');
     this.clipboard.copy(shareableUrl.toString());

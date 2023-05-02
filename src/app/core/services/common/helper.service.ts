@@ -37,8 +37,12 @@ export class HelperService {
 
   
   getSelectedMenu(navUrl: string) {
-    let selectedMenu: SelectedMenu;
-    Constants.HeaderMenu.forEach(hm => {
+    const headerMenu = Constants.HeaderMenu;
+    let selectedMenu: SelectedMenu = {selectedMenuItem: headerMenu[0], selectedChildMenuItem: null};
+    if(!navUrl) {
+      return selectedMenu;
+    }
+    headerMenu.forEach(hm => {
       if(hm.navUrl && navUrl.includes(hm.navUrl)) {
         selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
         if(hm.children) {

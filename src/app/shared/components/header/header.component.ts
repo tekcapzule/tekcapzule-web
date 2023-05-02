@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild, HostListener, Renderer2 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { NavigationStart, Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Constants } from '@app/shared/utils';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   @ViewChild(MatMenuTrigger) globalSearchTrigger: MatMenuTrigger;
@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   selectedChildMenuItem: NavTab;
 
   constructor(
+    private renderer: Renderer2,
     private auth: AuthService,
     private zone: NgZone,
     private router: Router,
@@ -35,7 +36,17 @@ export class HeaderComponent implements OnInit {
     private eventChannel: EventChannelService,
     private cdr: ChangeDetectorRef,
     private helperService: HelperService
-  ) {}
+  ) {
+    this.menuClickOutsideEvent();
+  }
+
+  menuClickOutsideEvent() {
+    this.renderer.listen('window', 'click',(e:Event)=>{
+      if(this.navbarNav.nativeElement.classList.contains('show')) {
+        this.closeMenu();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.onResize();
@@ -51,7 +62,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  @HostListener('document:click', ['$event'])
+  onStopClick(eve) {
+    eve.stopPropagation();
+  }
+
+  /*@HostListener('document:click', ['$event'])
   @HostListener('document:touchstart', ['$event'])
   handleOutsideClick(event) {
     // Some kind of logic to exclude clicks in Component.
@@ -60,7 +75,7 @@ export class HeaderComponent implements OnInit {
     if (!inputElement.contains(event.target)) {
       console.log('came --- 000');
     }
-  }
+  }*/
 
   scrollToTop() {
     this.router.events.subscribe(ev => {
