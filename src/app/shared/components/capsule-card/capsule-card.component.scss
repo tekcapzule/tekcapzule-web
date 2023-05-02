@@ -90,6 +90,13 @@
         -webkit-transition: background-position 200ms ease-in-out;
         -moz-transition: background-position 200ms ease-in-out;
         transition: background-position 200ms ease-in-out;
+        background-image: url("../../../../assets/images/play-button-hover.svg");
+        // animation: pulse-border 1500ms ease-out infinite;
+        animation-name: pulse-border;
+    animation-duration: 1500ms;
+    animation-delay: ease-out;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.65,0,.34,1);
       }
   }
   }
@@ -156,6 +163,16 @@
     }
   }
   
+}
+
+@keyframes pulse-border {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
 }
 
 .flip-card {

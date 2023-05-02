@@ -122,13 +122,13 @@ a.dropdown-toggle.d-flex::after {
       position: relative;
       white-space: nowrap;
       // padding: 10px 40px;
-      padding: 10px 24%;
+      padding: 10px 6rem;
       @media only screen and (max-width: 1500px) {
         // padding: 10px;
-        padding: 10px 24%;
+        padding: 10px 6rem;
       }
       @media only screen and (width: 1536px) {
-        padding: 10px 24%;
+        padding: 10px 6rem;
       }
       ::after {
         content: '';
