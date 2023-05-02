@@ -7,12 +7,15 @@
     <div *ngIf="capsuleDetail" class="back-link pt-0">
       <ng-container *ngFor="let crumb of getNavBreadcrumbs()">
         <ng-container *ngIf="crumb.navUrl; else simplecrumb">
-          <a class="url-link" *ngIf="!isMobileResolution" (click)="navigateToCapsulePage(crumb.navUrl)">{{
-            crumb.displayName
-          }}</a>
+          <a
+            class="url-link"
+            *ngIf="!isMobileResolution"
+            (click)="navigateToCapsulePage(crumb.navUrl)"
+            >{{ crumb.displayName }}</a
+          >
         </ng-container>
         <ng-template #simplecrumb>
-          <span [ngClass]="{'crumb-title': isMobileResolution}">{{ crumb.displayName }}</span>
+          <span [ngClass]="{ 'crumb-title': isMobileResolution }">{{ crumb.displayName }}</span>
         </ng-template>
       </ng-container>
       <!--span class="icon-type bookmark-icon d-inline-block"></span-->

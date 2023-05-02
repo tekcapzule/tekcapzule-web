@@ -57,12 +57,14 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     });
   }
 
-  getNavBreadcrumbs(): NavTab | any [] {
-    const crumbs: NavTab | any [] = [];
+  getNavBreadcrumbs(): NavTab | any[] {
+    const crumbs: NavTab | any[] = [];
     const queryTitle = this.capsuleDetail.title;
-    const selectedMenu = this.helperService.findSelectedMenu(sessionStorage.getItem('pageURL') || this.router.url);
+    const selectedMenu = this.helperService.findSelectedMenu(
+      sessionStorage.getItem('pageURL') || this.router.url
+    );
     crumbs.push(selectedMenu.selectedMenuItem);
-    if(selectedMenu.selectedChildMenuItem) {
+    if (selectedMenu.selectedChildMenuItem) {
       crumbs.push(selectedMenu.selectedChildMenuItem);
     }
     if (queryTitle) {
@@ -99,7 +101,6 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   onShareClick() {
     const shareableUrl = new URL(window.location.href);
-    shareableUrl.searchParams.delete('tab');
     this.clipboard.copy(shareableUrl.toString());
 
     this.messageService.add({

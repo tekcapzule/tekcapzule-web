@@ -9,7 +9,7 @@ import {
   AuthService,
   AwsUserInfo,
   CapsuleApiService,
-  UserApiService
+  UserApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
@@ -18,7 +18,7 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
-  styleUrls: ['./capsule-card.component.scss']
+  styleUrls: ['./capsule-card.component.scss'],
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
@@ -30,7 +30,17 @@ export class CapsuleCardComponent implements OnInit {
   isCapsuleRecommended = false;
   dateAgoStr: string;
   localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
-  buttonLabel: any = {article: 'Read', video: 'Play', book: 'Read', news: 'Read', jobs: 'apply', course: 'Enroll', event: 'Enroll', ad: 'View', product: 'Buy'};
+  buttonLabel: any = {
+    article: 'Read',
+    video: 'Play',
+    book: 'Read',
+    news: 'Read',
+    jobs: 'apply',
+    course: 'Enroll',
+    event: 'Enroll',
+    ad: 'View',
+    product: 'Buy',
+  };
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
@@ -48,7 +58,7 @@ export class CapsuleCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchUserInfo();
-    this.topicDetail = this.helperService.getTopic(this.capsule.topicCode); 
+    this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
 
@@ -94,7 +104,7 @@ export class CapsuleCardComponent implements OnInit {
       sessionStorage.setItem('pageURL', this.router.url);
     } else {
       window.open(this.capsule.resourceUrl, '_blank');
-    }    
+    }
   }
 
   isLocalPublisher() {
@@ -106,21 +116,24 @@ export class CapsuleCardComponent implements OnInit {
   }
 
   onCapsuleRecommend(): void {
-    if(!this.isCapsuleRecommended) {
+    if (!this.isCapsuleRecommended) {
       this.capsule.recommendations += 1;
       this.isCapsuleRecommended = true;
-      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(data => {
-        this.messageService.add({
-          key: 'tc',
-          severity: 'success',
-          summary: 'Success',
-          detail: 'Recommandation done successfully',
-        });
-      }, err => {
-        this.capsule.recommendations -= 1;
-        this.isCapsuleRecommended = false;
-        this.messageService.add(this.helperService.getInternalErrorMessage());
-      });
+      this.capsuleApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(
+        data => {
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Recommandation done successfully',
+          });
+        },
+        err => {
+          this.capsule.recommendations -= 1;
+          this.isCapsuleRecommended = false;
+          this.messageService.add(this.helperService.getInternalErrorMessage());
+        }
+      );
     }
   }
 

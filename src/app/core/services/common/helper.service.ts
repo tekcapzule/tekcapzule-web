@@ -26,7 +26,12 @@ export class HelperService {
   }
 
   getInternalErrorMessage(): ErrorModel {
-    return { key: 'tc', severity: 'error', summary: 'Error', detail: 'Something went wrong! Please try again later.' };
+    return {
+      key: 'tc',
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Something went wrong! Please try again later.',
+    };
   }
 
   setMobileResolution(isMobileResolution): void {
@@ -55,13 +60,13 @@ export class HelperService {
 
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
-    this.selectedMenu = {selectedMenuItem: headerMenu[0], selectedChildMenuItem: null};
+    this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
     headerMenu.forEach(hm => {
-      if(hm.navUrl && navUrl.includes(hm.navUrl)) {
-        this.selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
-        if(hm.children) {
+      if (hm.navUrl && navUrl.includes(hm.navUrl)) {
+        this.selectedMenu = { selectedMenuItem: hm, selectedChildMenuItem: null };
+        if (hm.children) {
           hm.children.forEach(cm => {
-            if(cm.navUrl && navUrl.includes(cm.navUrl)) {
+            if (cm.navUrl && navUrl.includes(cm.navUrl)) {
               this.selectedMenu.selectedChildMenuItem = cm;
             }
           });
