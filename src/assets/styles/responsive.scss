@@ -115,6 +115,7 @@
   }
   .back-link {
     font-size: 14px !important;
+    display: block !important;
     span {
       &:first-child{
         margin-left: 0 !important;
@@ -167,6 +168,9 @@
   }
   .flip-card .key-points {
     height: 317px !important;
+  }
+  .modal.show .modal-dialog {
+    margin-top: 77px!important;
   }
 }
 @media only screen and (width: 1024px) {
@@ -272,4 +276,15 @@
   width: 115px !important;
   height: 45px;
 }
+}
+
+@media only screen and (width: 1440px) {
+  .contribute-page .formuser-icon {
+    left: 0 !important;
+  }
+}
+@media only screen and (width: 1536px) {
+  .contribute-page .formuser-icon {
+    left: 4% !important;
+  }
 }
