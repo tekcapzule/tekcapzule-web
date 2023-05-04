@@ -170,8 +170,16 @@
   .col-card {
     justify-content: center!important;
   }
+  .nav-menu > ul > li {
+    padding: 10px 3rem !important;
+  }
+  .capsule-card-container {
+    width: 410px !important;
+    margin-right: 20px;
+  }
 }
 @media only screen and (width: 768px) {
+
   h1{
     line-height: 44px !important;
     font-size: 30px !important;
@@ -196,6 +204,13 @@
   .capsule-card-container {
     width: 350px !important;
     height: 590px !important;
+}
+.carousel .carousel-inner .carousel-item {
+  height: 535px !important;
+}
+.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
+  margin: 0 !important;
+  display: none;
 }
 }
 @media only screen and (max-width: 767px) { 

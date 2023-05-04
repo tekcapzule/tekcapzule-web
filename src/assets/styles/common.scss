@@ -242,15 +242,23 @@ h4 {
     color: $white;
     margin-right: 15px;
     &:hover {
-      box-shadow: 8px 8px 10px #fc5454;
+      // box-shadow: 8px 8px 10px #fc5454;
+      background: linear-gradient(90deg, rgb(244, 201, 133) 0%, rgb(245, 61, 109) 100%);
+      border: 2px solid $primary-color;
+      color: $white;
     }
   }
 
   &.secondary {
     background-color: $white;
     color: $primary-color;
+    transition: all .5s ease;
+    
     &:hover {
-      box-shadow: 8px 8px 10px #fe0d56;
+      // box-shadow: 8px 8px 10px #fe0d56;
+      background: linear-gradient(90deg, rgb(244, 201, 133) 0%, rgb(245, 61, 109) 100%);
+      border: 2px solid $primary-color;
+      color: $white;
     }
   }
   &.tertiary {
@@ -832,7 +840,7 @@ iframe .navbar-container,
 }
 .course-icon {
   background: url('../images/course-icon.svg') no-repeat;
-  background-size: 28px;
+  background-size: 22px;
   width: 34px;
   height: 28px;
   cursor: pointer;
@@ -874,10 +882,9 @@ iframe .navbar-container,
 
 .book-icon {
   background: url('../images/book-icon.svg') no-repeat;
-  background-size: 28px;
   width: 25px;
   height: 25px;
-  margin: 3px 8px 0 0;
+  margin-right: 8px;
   cursor: pointer;
 }
 
