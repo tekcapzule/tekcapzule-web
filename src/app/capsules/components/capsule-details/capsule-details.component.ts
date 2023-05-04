@@ -35,9 +35,9 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
-    this.spinner.show();
     this.fetchCapsuleDetails();
   }
   
@@ -49,11 +49,12 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   fetchCapsuleDetails() {
-    this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
+    const sub = this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
       this.capsuleDetail = data;
       this.capsuleURL = this.capsuleDetail.resourceUrl || btoa('https://tekcapsule.blog');
       this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
     });
+    this.subrscription.push(sub);
   }
 
   ngOnDestroy(): void {
@@ -97,7 +98,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   onRecommendClick() {
-    this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data => {
+    const sub = this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data => {
       this.messageService.add({
         key: 'tc',
         severity: 'success',
@@ -105,6 +106,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         detail: 'Recommandation done successfully',
       });
     });
+    this.subrscription.push(sub);
   }
 
   onShareClick() {
