@@ -3,7 +3,7 @@ export const Constants = {
   NotAvailable: 'N/A',
   AdminUserGroup: 'admin_users_group',
   DefaultApiCacheExpiryHours: 12,
-  DefaultSubscriptionTopics: ['AI', 'CLD', 'SWD'],
+  DefaultSubscriptionTopics: ['AIM', 'BDT', 'BLC'],
   HeaderMenu: [
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', showOnMobile: true },
     {
