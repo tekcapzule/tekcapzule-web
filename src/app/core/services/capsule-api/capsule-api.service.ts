@@ -184,10 +184,12 @@ export class CapsuleApiService {
         return item;
       })
       .forEach(item => {
-        cacheManager.setItem(item.cacheKey, {
-          body: item.cacheItem.body,
-          expiry: item.cacheItem.expiry,
-        });
+        if (item && item.cacheItem) {
+          cacheManager.setItem(item.cacheKey, {
+            body: item.cacheItem.body,
+            expiry: item.cacheItem.expiry,
+          });
+        }
       });
   }
 
@@ -205,10 +207,12 @@ export class CapsuleApiService {
         return item;
       })
       .forEach(item => {
-        cacheManager.setItem(item.cacheKey, {
-          body: item.cacheItem.body,
-          expiry: item.cacheItem.expiry,
-        });
+        if (item && item.cacheItem) {
+          cacheManager.setItem(item.cacheKey, {
+            body: item.cacheItem.body,
+            expiry: item.cacheItem.expiry,
+          });
+        }
       });
   }
 }
