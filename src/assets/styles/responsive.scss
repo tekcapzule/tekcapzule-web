@@ -57,7 +57,9 @@
     .tech-repo {
       background-position: center !important;
       .inline-points {
-        li {
+        left: 0 !important;
+        top: 25% !important;
+        ul > li {
           margin-left: 0 !important;
         }
       }
@@ -245,6 +247,12 @@
   }
   .hero-img {
     text-align: center;
+  }
+  .community-page
+  {
+    .tech-repo {
+      height: 390px !important;
+    }
   }
 }
 

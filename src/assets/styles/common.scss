@@ -957,7 +957,7 @@ iframe .navbar-container,
   top: 76px !important;
 }
 .p-toast {
-  width: 23rem !important;
+  width: 26rem !important;
 }
 
 .p-toast .p-toast-message {
@@ -971,6 +971,7 @@ iframe .navbar-container,
   &.p-toast-message-error {
     border: 1px solid $primary-color !important;
     border-bottom: 5px solid $primary-color !important;
+    color: #000 !important;
   }
   &.p-toast-message-success .p-toast-message-icon,
   .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
@@ -1021,7 +1022,6 @@ iframe .navbar-container,
 }
 .okHand:hover {
   cursor: pointer;
-  border: 1px solid #fff;
   transition: border-color 0.3s ease-in;
 }
 .okHand:hover:after {
@@ -1124,4 +1124,7 @@ iframe .navbar-container,
 
 .primary-color {
   color: $primary-color !important;
+}
+.primary-bg {
+  background: $primary-color !important;
 }
