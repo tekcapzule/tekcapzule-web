@@ -27,10 +27,6 @@ const routes: Routes = [
   {
     path: 'legaldocs',
     loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
-  },
-  {
-    path: '',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
