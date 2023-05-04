@@ -6,6 +6,7 @@ import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleItem, NavTab } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-capsule-details',
@@ -19,6 +20,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   capsuleURL: string;
   isMobileResolution: boolean;
   capsuleDetail: CapsuleItem;
+  subrscription: Subscription[] = [];
 
   constructor(
     private router: Router,
@@ -33,10 +35,17 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   ) {}
 
   ngOnInit(): void {
-    this.isMobileResolution = this.helperService.getMobileResolution();
+    this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     this.spinner.show();
     this.fetchCapsuleDetails();
+  }
+  
+  onResize() {
+    const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
+      this.isMobileResolution = isMobileResolution;
+    });
+    this.subrscription.push(sub);
   }
 
   fetchCapsuleDetails() {
@@ -49,6 +58,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngOnDestroy(): void {
     this.resourceUrl = '';
+    this.subrscription.forEach(sub => sub.unsubscribe());
   }
 
   ngAfterViewInit(): void {
