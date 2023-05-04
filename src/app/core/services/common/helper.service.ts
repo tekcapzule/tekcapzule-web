@@ -4,14 +4,16 @@ import { ErrorModel, TopicItem } from '@app/shared/models';
 import { SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HelperService {
-  isMobileResolution: boolean;
+  isMobileResolution = false;
   selectedMenu: SelectedMenu;
   topicData: TopicItem[] = [];
+  private resizeChange$ = new BehaviorSubject<boolean>(this.isMobileResolution);
 
   constructor(private router: Router, private messageService: MessageService) {}
 
@@ -34,8 +36,14 @@ export class HelperService {
     };
   }
 
+  
+  public onResizeChange$(): Observable<boolean> {
+    return this.resizeChange$.asObservable();
+  }
+
   setMobileResolution(isMobileResolution): void {
     this.isMobileResolution = isMobileResolution;
+    this.resizeChange$.next(this.isMobileResolution);
   }
 
   getMobileResolution(): boolean {

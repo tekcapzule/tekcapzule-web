@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component, ElementRef, HostBinding, NgZone, OnInit, ViewChild, HostListener, Renderer2 } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, NgZone, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { NavigationStart, Router } from '@angular/router';
 
-import { TopicApiService, AuthService, AwsUserInfo, ChannelEvent, EventChannelService } from '@app/core';
+import { AuthService, AwsUserInfo, ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
@@ -96,9 +96,8 @@ export class HeaderComponent implements OnInit {
     this.auth.signOutUser();
   }
   
-  @HostBinding('widnow:resize')
+  @HostListener('window:resize', ['$event'])
   onResize(event = null) {
-    console.log('helperService ', this.isMobileResolution);
     this.isMobileResolution = window.innerWidth < 992 ? true : false; 
     this.helperService.setMobileResolution(this.isMobileResolution);
   }

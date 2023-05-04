@@ -6,6 +6,7 @@ import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleItem, NavTab } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-capsule-details',
@@ -19,6 +20,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   capsuleURL: string;
   isMobileResolution: boolean;
   capsuleDetail: CapsuleItem;
+  subrscription: Subscription[] = [];
 
   constructor(
     private router: Router,
@@ -33,22 +35,31 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   ) {}
 
   ngOnInit(): void {
-    this.isMobileResolution = this.helperService.getMobileResolution();
-    this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     this.spinner.show();
+    this.onResize();
+    this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     this.fetchCapsuleDetails();
+  }
+  
+  onResize() {
+    const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
+      this.isMobileResolution = isMobileResolution;
+    });
+    this.subrscription.push(sub);
   }
 
   fetchCapsuleDetails() {
-    this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
+    const sub = this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
       this.capsuleDetail = data;
       this.capsuleURL = this.capsuleDetail.resourceUrl || btoa('https://tekcapsule.blog');
       this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
     });
+    this.subrscription.push(sub);
   }
 
   ngOnDestroy(): void {
     this.resourceUrl = '';
+    this.subrscription.forEach(sub => sub.unsubscribe());
   }
 
   ngAfterViewInit(): void {
@@ -89,7 +100,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   onRecommendClick() {
-    this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data => {
+    const sub = this.capsuleApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data => {
       this.messageService.add({
         key: 'tc',
         severity: 'success',
@@ -97,6 +108,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         detail: 'Recommandation done successfully',
       });
     });
+    this.subrscription.push(sub);
   }
 
   onShareClick() {
