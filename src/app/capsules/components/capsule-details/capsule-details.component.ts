@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, Renderer2, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
@@ -21,6 +21,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   isMobileResolution: boolean;
   capsuleDetail: CapsuleItem;
   subrscription: Subscription[] = [];
+  @ViewChild('capsuleFrame') capsuleFrame: ElementRef;
 
   constructor(
     private router: Router,
@@ -31,7 +32,8 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     private messageService: MessageService,
     private capsuleApi: CapsuleApiService,
     private helperService: HelperService,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     this.fetchCapsuleDetails();
+    
   }
 
   onResize() {
@@ -53,13 +56,22 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       this.capsuleDetail = data;
       this.capsuleURL = this.capsuleDetail.resourceUrl || btoa('https://tekcapsule.blog');
       this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
+      this.cdr.detectChanges();
+      const detailFrame = this.capsuleFrame.nativeElement as HTMLIFrameElement;
+      detailFrame.addEventListener('load', this.onIframeLoaded.bind(this));
     });
     this.subrscription.push(sub);
+  }
+
+  onIframeLoaded() {
+    this.spinner.hide();
   }
 
   ngOnDestroy(): void {
     this.resourceUrl = '';
     this.subrscription.forEach(sub => sub.unsubscribe());
+    const detailFrame = this.capsuleFrame.nativeElement as HTMLIFrameElement;
+    detailFrame.removeEventListener('load', this.onIframeLoaded.bind(this));
   }
 
   ngAfterViewInit(): void {
@@ -91,12 +103,6 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   onIFrameClose(): void {
     this.resourceUrl = '';
     this.router.navigate([sessionStorage.getItem('pageURL') || '/']);
-  }
-
-  onAfterIframeLoaded(): void {
-    if (this.resourceUrl) {
-      this.spinner.hide();
-    }
   }
 
   onRecommendClick() {
