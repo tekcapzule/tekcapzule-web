@@ -40,7 +40,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     this.fetchCapsuleDetails();
   }
-  
+
   onResize() {
     const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
       this.isMobileResolution = isMobileResolution;

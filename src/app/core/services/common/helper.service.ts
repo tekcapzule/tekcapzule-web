@@ -36,7 +36,6 @@ export class HelperService {
     };
   }
 
-  
   public onResizeChange$(): Observable<boolean> {
     return this.resizeChange$.asObservable();
   }
