@@ -1,10 +1,6 @@
-<div class="capsule-card-container card" *ngIf="capsule">
-  <div
-    class="card-flipper back-flipped"
-    [class.front-flipped]="isCardFlipped"
-    [class.back-flipped]="!isCardFlipped"
-  >
-    <div class="capsule-card card-front">
+<div class="capsule-card-container card tp-wrapper" *ngIf="capsule">
+  <div class="tp-box" [@flipState]="flip">
+    <div class="capsule-card card-front tp-box__side tp-box__front">
       <div class="card-head">
         <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img
@@ -71,7 +67,7 @@
               *ngIf="capsule.type !== 'AD'"
               mat-stroked-button
               class="button secondary-btn-sm"
-              (click)="doFlipCard()"
+              (click)="toggleFlip()"
             >
               Read Highlights<span class="flip-icon" aria-label="read highlights"></span>
             </button>
@@ -86,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="capsule-card card-back">
+    <div class="capsule-card card-back tp-box__side tp-box__back">
       <div class="card-content flip-card mt-4">
         <div class="title">{{ capsule.title }}</div>
         <div class="description">
@@ -121,7 +117,7 @@
               </ng-container>
             </div>
           </div> -->
-          <div class="key-points">
+          <div class="key-points" [ngClass]="{'card-flipped': isCardFlipped}">
             <p class="flip-title">Key Points</p>
             <ul *ngIf="capsule.keyPoints" class="key-points-list">
               <li *ngFor="let keyPoint of capsule.keyPoints">{{ keyPoint }}</li>
@@ -139,7 +135,7 @@
             {{ buttonLabel[capsule.type.toLowerCase()] }}
           </button>
           <div class="float-right d-flex">
-            <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
+            <button mat-stroked-button class="button secondary-btn-sm" (click)="toggleFlip()">
               Flip<span class="flip-icon" aria-label="flip"></span>
             </button>
             <button

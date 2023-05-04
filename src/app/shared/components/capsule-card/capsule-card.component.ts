@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import {
   AppSpinnerService,
@@ -19,6 +20,18 @@ import { MessageService } from 'primeng/api';
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
   styleUrls: ['./capsule-card.component.scss'],
+  animations: [
+    trigger('flipState', [
+      state('active', style({
+        transform: 'rotateY(179deg)'
+      })),
+      state('inactive', style({
+        transform: 'rotateY(0)'
+      })),
+      transition('active => inactive', animate('500ms ease-out')),
+      transition('inactive => active', animate('500ms ease-in'))
+    ])
+  ]
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
@@ -44,6 +57,8 @@ export class CapsuleCardComponent implements OnInit {
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
+  testKepoints = ["AI mimics human intelligence to some extent, can process information, learn from it, and make decisions based on that information", "There are several types of AI: Reactive Machines, Limited Memory, Theory of Mind, and Self-aware AI.", "AI relies on a range of techniques and technologies, including machine learning, natural language processing, computer vision, robotics, and expert systems."];
+  flip: string = 'inactive';
 
   constructor(
     private router: Router,
@@ -60,6 +75,10 @@ export class CapsuleCardComponent implements OnInit {
     this.fetchUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
+  }
+
+  toggleFlip() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
