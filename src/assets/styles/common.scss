@@ -408,7 +408,7 @@ textarea {
   padding-top: 155px;
   padding-bottom: 20px;
   @media only screen and (max-width: 990px) {
-    padding-top: 75px;
+    padding: 75px 12px 0;
   }
 }
 .container {
@@ -637,11 +637,13 @@ input:-webkit-autofill:active {
 .scroller::-webkit-scrollbar {
   width: 8px;
   background-color: #f6f6f6;
+  overflow: visible;
 }
 
 .scroller::-webkit-scrollbar-thumb {
   background-color: #858585;
   border-radius: 7px;
+  -webkit-border-radius:7px;
   min-height: 50px;
 }
 @media only screen and (max-width: 1199px) {
@@ -873,7 +875,7 @@ iframe .navbar-container,
   width: auto !important;
   display: flex;
   height: 25px;
-  padding: 0px;
+  padding-top: 4px;
 }
 .article-icon {
   background: url('../images/article-icon.svg') no-repeat;
