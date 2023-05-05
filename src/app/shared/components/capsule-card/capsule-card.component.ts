@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
@@ -33,7 +33,8 @@ import { MessageService } from 'primeng/api';
     ])
   ]
 })
-export class CapsuleCardComponent implements OnInit {
+
+export class CapsuleCardComponent implements OnInit, OnChanges {
   isCardFlipped = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
@@ -54,11 +55,11 @@ export class CapsuleCardComponent implements OnInit {
     ad: 'View',
     product: 'Buy',
   };
+  topicDetail: TopicItem;
+  flip: string = 'inactive';
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
-  topicDetail: TopicItem;
-  testKepoints = ["AI mimics human intelligence to some extent, can process information, learn from it, and make decisions based on that information", "There are several types of AI: Reactive Machines, Limited Memory, Theory of Mind, and Self-aware AI.", "AI relies on a range of techniques and technologies, including machine learning, natural language processing, computer vision, robotics, and expert systems."];
-  flip: string = 'inactive';
+  @Input() selectedCapsuleId: string;
 
   constructor(
     private router: Router,
@@ -77,8 +78,13 @@ export class CapsuleCardComponent implements OnInit {
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
 
-  toggleFlip() {
-    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    if (changes.selectedCapsuleId && changes.selectedCapsuleId.currentValue) {
+      if (changes.selectedCapsuleId.currentValue !== this.capsule.capsuleId && this.flip === 'active') {
+        this.toggleFlip();
+      }
+    }
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
@@ -91,14 +97,14 @@ export class CapsuleCardComponent implements OnInit {
     }
   }
 
-  doFlipCard(): void {
+  toggleFlip() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
     if (!this.isCapsuleViewed) {
       this.capsule.views += 1;
       this.isCapsuleViewed = true;
       this.capsuleApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
     }
-    this.isCardFlipped = !this.isCardFlipped;
-    if (this.isCardFlipped) {
+    if (this.flip === 'active') {
       this.cardOpened.emit(this.capsule.capsuleId);
     }
   }
@@ -168,7 +174,6 @@ export class CapsuleCardComponent implements OnInit {
     if (!this.auth.isUserLoggedIn()) {
       return false;
     }
-
     return this?.userInfo?.bookmarks?.find(id => id === this.capsule.capsuleId) ? true : false;
   }
 
@@ -264,11 +269,5 @@ export class CapsuleCardComponent implements OnInit {
       summary: '',
       detail: 'Link copied. You can share it now.',
     });
-  }
-
-  closeCard(capsuleId: string) {
-    if (this.capsule.capsuleId !== capsuleId) {
-      this.isCardFlipped = false;
-    }
   }
 }

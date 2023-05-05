@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
-import { Subject } from 'rxjs';
 import { CapsuleItem } from '@app/shared/models';
-import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-editors-pick',
@@ -14,7 +13,7 @@ import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsul
 export class EditorsPickComponent implements OnInit {
   destroy$ = new Subject<boolean>();
   capsules: CapsuleItem[] = [];
-  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
+  selectedCapsuleId: string;
 
   constructor(
     private capsuleApi: CapsuleApiService,
@@ -63,7 +62,6 @@ export class EditorsPickComponent implements OnInit {
   }
   
   onCardOpened(capsuleId) {
-    console.log('capsuleId ------   ',capsuleId);
-    this.capsuleComp.closeCard(capsuleId);
+    this.selectedCapsuleId =capsuleId;
   }
 }

@@ -27,8 +27,8 @@ export class HomePageComponent implements OnInit {
   capsules: CapsuleItem[] = [];
   topics: TopicItem[] = [];
   subscriberFormGroup: FormGroup;
+  selectedCapsuleId: string;
   @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
-
   @ViewChild('subscribe') subscribeSection: ElementRef;
   responsiveOptions: any[] = [
     {
@@ -103,6 +103,6 @@ export class HomePageComponent implements OnInit {
   }
 
   onCardOpened(capsuleId) {
-    this.capsuleComp.closeCard(capsuleId);
+    this.selectedCapsuleId = capsuleId;
   }
 }

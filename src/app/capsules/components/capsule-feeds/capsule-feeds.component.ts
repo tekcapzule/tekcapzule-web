@@ -1,17 +1,16 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { filter, finalize, takeUntil } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import {
   AppSpinnerService,
-  CapsuleApiService,
-  EventChannelService,
-  ChannelEvent,
-  UserApiService,
   AuthService,
+  CapsuleApiService,
+  ChannelEvent,
+  EventChannelService,
+  UserApiService,
 } from '@app/core';
 import { Constants } from '@app/shared/utils';
-import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -21,7 +20,7 @@ import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsul
 export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   capsules = [];
-  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
+  selectedCasuleId: string;
 
   constructor(
     private auth: AuthService,
@@ -85,6 +84,6 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   onCardOpened(capsuleId) {
-    this.capsuleComp.closeCard(capsuleId);
+    this.selectedCasuleId = capsuleId;
   }
 }

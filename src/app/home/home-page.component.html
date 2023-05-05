@@ -20,7 +20,7 @@
        <div class="container">
         <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
           <ng-template let-capsule pTemplate="item">
-            <app-capsule-card #capsuleComp [capsule]="capsule" class="item mr-4" (cardOpened)="onCardOpened($event)"></app-capsule-card>
+            <app-capsule-card #capsuleComp [selectedCapsuleId]="selectedCapsuleId" [capsule]="capsule" class="item mr-4" (cardOpened)="onCardOpened($event)"></app-capsule-card>
           </ng-template>
         </p-carousel>
       </div>
