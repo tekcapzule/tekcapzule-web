@@ -121,7 +121,8 @@
     .description {
       font-family: $primary-font-light;
       font-size: 14px;
-      min-height: 208px;
+      min-height: 208px !important;
+      height: -webkit-fit-content;
     }
     .card-footer {
       background: none;
@@ -266,7 +267,7 @@
   height: 100%;
   position: relative;
   // transition: transform 1s;
-  // transform-style: preserve-3d;
+  transform-style: preserve-3d;
   perspective: 600px;
   .card-front,
   .card-back {
