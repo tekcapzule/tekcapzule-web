@@ -5,7 +5,8 @@ import { Subject } from 'rxjs';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from '../aws-exports';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Carousel } from 'primeng/carousel';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
 
   constructor(private eventChannel: EventChannelService, public authService: AuthService, private router: Router) {
     Amplify.configure(awsExports);
+    Carousel.prototype.onTouchMove = (): void => {}
   }
   
   ngOnInit(): void {
