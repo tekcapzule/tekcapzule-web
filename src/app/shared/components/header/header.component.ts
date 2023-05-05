@@ -1,8 +1,23 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, NgZone, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  NgZone,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
-import { AuthService, AwsUserInfo, ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
+import {
+  AuthService,
+  AwsUserInfo,
+  ChannelEvent,
+  EventChannelService,
+  TopicApiService,
+} from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
@@ -10,7 +25,7 @@ import { Constants } from '@app/shared/utils';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   @ViewChild(MatMenuTrigger) globalSearchTrigger: MatMenuTrigger;
@@ -41,8 +56,8 @@ export class HeaderComponent implements OnInit {
   }
 
   menuClickOutsideEvent() {
-    this.renderer.listen('window', 'click',(e:Event)=>{
-      if(this.navbarNav.nativeElement.classList.contains('show')) {
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (this.navbarNav.nativeElement.classList.contains('show')) {
         this.closeMenu();
       }
     });
@@ -82,23 +97,27 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
-        if(!this.selectedMenuItem) {
+        if (!this.selectedMenuItem) {
           const selectedMenu = this.helperService.findSelectedMenu(ev.url);
           this.selectedMenuItem = selectedMenu.selectedMenuItem;
           this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
         }
       }
+      if (ev instanceof NavigationEnd) {
+        const selectedMenu = this.helperService.findSelectedMenu(ev.url);
+        this.selectedMenuItem = selectedMenu.selectedMenuItem;
+        this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
+      }
     });
   }
-  
 
   signOutUser(): void {
     this.auth.signOutUser();
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
-    this.isMobileResolution = window.innerWidth < 992 ? true : false; 
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
   }
 
@@ -130,46 +149,46 @@ export class HeaderComponent implements OnInit {
 
   onMenuClick(navTab: NavTab): void {
     this.selectedMenuItem = navTab;
-    if(!this.isMobileResolution) {
+    if (!this.isMobileResolution) {
       this.router.navigate([navTab.navUrl]);
       return;
     }
-    if(!this.selectedMenuItem.children) {
+    if (!this.selectedMenuItem.children) {
       this.selectedChildMenuItem = null;
     }
-    if(this.openedMenuItem && this.openedMenuItem.uniqueId === navTab.uniqueId) {
+    if (this.openedMenuItem && this.openedMenuItem.uniqueId === navTab.uniqueId) {
       this.openedMenuItem = null;
     } else {
       this.openedMenuItem = navTab;
-      if(!this.openedMenuItem.children) {
+      if (!this.openedMenuItem.children) {
         this.closeMenu();
       }
       this.router.navigate([this.openedMenuItem.navUrl]);
     }
   }
-  
+
   onChildMenuClick(menuItem: NavTab): void {
-    if(!this.isMobileResolution) {
+    if (!this.isMobileResolution) {
       this.router.navigate([menuItem.navUrl]);
       return;
     }
     this.closeMenu();
-    if(menuItem.navUrl) {
+    if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);
     } else {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
     }
   }
-  
+
   onSkillStudioClick() {
     this.selectedMenuItem = this.headerMenu[0];
     this.router.navigate(['/']);
-    if(this.isMobileResolution) {
+    if (this.isMobileResolution) {
       this.closeMenu();
     }
   }
-  
+
   closeMenu() {
     let inputElement: HTMLElement = this.collapseBtn.nativeElement as HTMLElement;
     inputElement.click();
