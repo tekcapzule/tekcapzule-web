@@ -267,7 +267,7 @@
 @media only screen and (min-device-width: 375px)and (max-device-width: 414px) {
 
 .capsule-card-container {
-  width: 355px !important;
+  width: 333px !important;
   height: 575px !important;
 }
 .home-page {
@@ -290,7 +290,17 @@
   width: 115px !important;
   height: 45px;
 }
+.carousel .carousel-inner .carousel-item {
+  height: 525px !important;
 }
+}
+
+@media only screen and (width: 375px) {
+  .capsule-card-container {
+    width: 330px !important;
+  }
+}
+
 
 @media only screen and (width: 1440px) {
   .contribute-page .formuser-icon {
