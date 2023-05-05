@@ -1085,16 +1085,16 @@ iframe .navbar-container,
 }
 
 #cubic:hover span {
-  background: #efd6dd ;
-  -webkit-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  -moz-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  -ms-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  -o-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  background: #fff ;
+  color: #e30045 ;
+  // -webkit-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // -moz-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // -ms-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // -o-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // transform: translate3d(0px,0px,-60px) rotateX(90deg);
 }
 
 #cubic span:after {
-  content: attr(title);
   display: block;
   width: 100%;
   position: absolute;
