@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -14,7 +14,7 @@ import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsul
 export class CapsuleTrendingComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   capsules: CapsuleItem[] = [];
-  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
+  selectedCapsuleId:string;
 
   constructor(
     private capsuleApi: CapsuleApiService,
@@ -62,7 +62,7 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
       });
   }
   
-  onCardOpened(capsuleId) {
-    this.capsuleComp.closeCard(capsuleId);
+  onCardOpened(capsuleId: string): void {
+    this.selectedCapsuleId = capsuleId;
   }
 }

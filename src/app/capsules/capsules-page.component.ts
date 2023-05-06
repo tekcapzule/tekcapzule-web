@@ -40,6 +40,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
     { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
   ];
+  capsuleTypes: any[] = [];
+  selectedCapsuleTypes: any[] = [];
 
   constructor(
     private router: Router,
@@ -55,7 +57,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fetchUserInfo();
     this.getAllTopics(false);
-
+    this.getMetadata();
     this.eventChannel
       .getChannel()
       .pipe(
@@ -88,6 +90,14 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       });
 
     this.subscribeBrowseByTopicEvent();
+  }
+
+  getMetadata() {
+    this.capsuleApi.getMetadata().subscribe(data => {
+      data.capsuleType.forEach(type => {
+        this.capsuleTypes.push({code:type, name: type});
+      });
+    });
   }
 
   subscribeBrowseByTopicEvent() {
@@ -198,6 +208,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   toggleSubscribeTopic(item: BrowseByTopic): void {
+    if()
     item.isSubscribed = !item.isSubscribed;
   }
 
@@ -271,5 +282,16 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         tab: tabUri,
       },
     });
+  }
+
+  onChange(eve) {
+    this.selectedCapsuleTypes = eve.value;
+    const selectedTypes = [];
+    if(eve.value.length) {
+      this.selectedCapsuleTypes.forEach(type => selectedTypes.push(type.name));
+      this.helperService.setFilterByCapsuleType(selectedTypes.toString());
+    } else {
+      this.helperService.setFilterByCapsuleType('');
+    }
   }
 }

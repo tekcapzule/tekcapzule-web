@@ -21,6 +21,8 @@
         <img src="/assets/images/down-arrow.svg" class="pl-2" alt="down arrow"/>
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
+        <p-multiSelect *ngIf="capsuleTypes" [options]="capsuleTypes" filter="false" (onChange)="onChange($event)" defaultLabel="Select Capsule Type" optionLabel="name" display="chip"></p-multiSelect>
+
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
           <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
         </button>

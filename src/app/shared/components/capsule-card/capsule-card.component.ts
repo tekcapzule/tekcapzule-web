@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
@@ -20,7 +20,7 @@ import { MessageService } from 'primeng/api';
   templateUrl: './capsule-card.component.html',
   styleUrls: ['./capsule-card.component.scss'],
 })
-export class CapsuleCardComponent implements OnInit {
+export class CapsuleCardComponent implements OnInit, OnChanges {
   isCardFlipped = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
@@ -41,6 +41,7 @@ export class CapsuleCardComponent implements OnInit {
     ad: 'View',
     product: 'Buy',
   };
+  @Input() selectedCapsuleId: string;
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
@@ -60,6 +61,14 @@ export class CapsuleCardComponent implements OnInit {
     this.fetchUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.selectedCapsuleId && changes.selectedCapsuleId.currentValue) {
+      if (changes.selectedCapsuleId.currentValue !== this.capsule.capsuleId && this.isCardFlipped) {
+        this.doFlipCard();
+      }
+    }
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
@@ -245,11 +254,5 @@ export class CapsuleCardComponent implements OnInit {
       summary: '',
       detail: 'Link copied. You can share it now.',
     });
-  }
-
-  closeCard(capsuleId: string) {
-    if (this.capsule.capsuleId !== capsuleId) {
-      this.isCardFlipped = false;
-    }
   }
 }

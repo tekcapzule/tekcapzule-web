@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 import {
   AppSpinnerService,
@@ -12,6 +12,7 @@ import {
 } from '@app/core';
 import { Constants } from '@app/shared/utils';
 import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -21,14 +22,17 @@ import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsul
 export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   capsules = [];
-  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
-
+  filteredCapsule = [];
+  selectedCapsuleId: string;
+  selectedCapsuleType: string;
+  subrscription: Subscription[] = [];
   constructor(
     private auth: AuthService,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private spinner: AppSpinnerService,
-    private eventChannel: EventChannelService
+    private eventChannel: EventChannelService,
+    private helperService: HelperService
   ) {
     this.eventChannel
       .getChannel()
@@ -50,11 +54,30 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchMyFeedCapsules(null, false);
+    this.subscribeFilterType();
   }
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  subscribeFilterType(): void {
+    const sub = this.helperService.onFilterByCapsuleType$().subscribe(selectedCapsuleType => {
+      this.selectedCapsuleType = selectedCapsuleType;
+      this.filterByCapsuleType();
+    });
+    this.subrscription.push(sub);
+  }
+
+  filterByCapsuleType() {
+    if(this.selectedCapsuleType) {
+      this.filteredCapsule = this.capsules.filter(capsule => {
+        return this.selectedCapsuleType.includes(capsule.type);
+      });
+    } else {
+      this.filteredCapsule = this.capsules;
+    }
   }
 
   /**
@@ -81,10 +104,11 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
       )
       .subscribe(capsules => {
         this.capsules = capsules;
+        this.filterByCapsuleType();
       });
   }
 
-  onCardOpened(capsuleId) {
-    this.capsuleComp.closeCard(capsuleId);
+  onCardOpened(capsuleId: string): void {
+    this.selectedCapsuleId = capsuleId;
   }
 }

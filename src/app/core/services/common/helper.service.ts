@@ -11,9 +11,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class HelperService {
   isMobileResolution = false;
+  selectedCapsuleType = '';
   selectedMenu: SelectedMenu;
   topicData: TopicItem[] = [];
   private resizeChange$ = new BehaviorSubject<boolean>(this.isMobileResolution);
+  private filterByCapsuleType$ = new BehaviorSubject<string>(this.selectedCapsuleType);
 
   constructor(private router: Router, private messageService: MessageService) {}
 
@@ -38,6 +40,11 @@ export class HelperService {
 
   public onResizeChange$(): Observable<boolean> {
     return this.resizeChange$.asObservable();
+  }
+
+  setFilterByCapsuleType(selectedCapsuleType: string): void {
+    this.selectedCapsuleType = selectedCapsuleType;
+    this.filterByCapsuleType$.next(this.selectedCapsuleType);
   }
 
   setMobileResolution(isMobileResolution): void {
