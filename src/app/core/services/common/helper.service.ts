@@ -53,6 +53,10 @@ export class HelperService {
     return this.selectedMenu;
   }
 
+  setSelectedMenu(selectedMenu): void {
+    this.selectedMenu = selectedMenu;
+  }
+
   setTopicData(topicData: TopicItem[]): void {
     this.topicData = topicData;
   }
