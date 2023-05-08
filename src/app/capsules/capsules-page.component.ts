@@ -42,6 +42,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   ];
   capsuleTypes: any[] = [];
   selectedCapsuleTypes: any[] = [];
+  selectedTopics: string[] = [];
+  currentSelectedTopic: BrowseByTopic[] = [];
 
   constructor(
     private router: Router,
@@ -168,6 +170,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         .filter(topic => topic.title !== '' && topic.code !== '')
         .map<BrowseByTopic>(topic => {
           const isSubscribed = this.isTopicSubscribed(topic.code);
+          if(isSubscribed) {
+            this.currentSelectedTopic.push({ topic, isSubscribed });
+            this.selectedTopics.push(topic.code);
+          }
           return { topic, isSubscribed };
         });
 
@@ -208,8 +214,20 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   toggleSubscribeTopic(item: BrowseByTopic): void {
-    if()
     item.isSubscribed = !item.isSubscribed;
+    if(item.isSubscribed) {
+      if(this.currentSelectedTopic.length >= 3) {
+        this.filteredBrowseByTopics.find(topic => topic.topic.code === this.currentSelectedTopic[0].topic.code).isSubscribed = false
+        this.currentSelectedTopic.splice(0,1);
+      } 
+      this.currentSelectedTopic.push(item);
+    } else {
+      const index = this.currentSelectedTopic.findIndex(
+        topic => topic.topic.code === item.topic.code
+      );
+      this.currentSelectedTopic.splice(index,1);
+    }
+    console.log('curent-->>', this.currentSelectedTopic);
   }
 
   searchInputChanged(value: string): void {
@@ -239,26 +257,26 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   doLoadFeedsForSelectedTopics(): void {
-    let selectedTopics: string[] = this.filteredBrowseByTopics
-      .filter(item => item.isSubscribed)
-      .map(item => item.topic.code);
-
+    this.selectedTopics = this.filteredBrowseByTopics
+    .filter(item => item.isSubscribed)
+    .map(item => item.topic.code);
+    
     // update local user cache for logged-in user.
     if (this.auth.isUserLoggedIn()) {
       this.userInfo = this.userApi.getTekUserInfoCache();
       const userSubscribedTopics = this.userInfo?.subscribedTopics ?? [];
-      selectedTopics = [...new Set([...userSubscribedTopics, ...selectedTopics])];
+      this.selectedTopics = [...new Set([...userSubscribedTopics, ...this.selectedTopics])];
 
       this.userInfo = {
         ...this.userInfo,
-        subscribedTopics: selectedTopics,
+        subscribedTopics: this.selectedTopics,
       };
 
       this.userApi.updateTekUserInfoCache(this.userInfo);
 
       // update user subscription to backend
       this.userApi
-        .followTopic(this.auth.getAwsUserInfo().username, selectedTopics)
+        .followTopic(this.auth.getAwsUserInfo().username, this.selectedTopics)
         .subscribe(() => {
           this.fetchUserInfo(true);
         });
@@ -266,7 +284,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
     // navigate to feeds and load data for selected topics.
     this.hideBroweByTopicModal();
-    this.navigateToActiveFeedsPage(selectedTopics, true);
+    this.navigateToActiveFeedsPage(this.selectedTopics, true);
   }
 
   navigateToContributePage(): void {
@@ -293,5 +311,23 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     } else {
       this.helperService.setFilterByCapsuleType('');
     }
+  }
+
+  closeModal() {
+    this.clearNewlySelectedTopics();
+    this.searchInputValue = '';
+    this.searchInputChanged('');
+  }
+
+  clearNewlySelectedTopics() {
+    this.currentSelectedTopic = [];
+    this.filteredBrowseByTopics.forEach(item => {
+      if(this.selectedTopics.includes(item.topic.code)) {
+        item.isSubscribed = true;
+        this.currentSelectedTopic.push(item);
+      } else {
+        item.isSubscribed = false;
+      }
+    });
   }
 }

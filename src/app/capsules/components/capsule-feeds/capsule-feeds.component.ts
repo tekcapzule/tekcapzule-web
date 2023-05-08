@@ -78,6 +78,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     } else {
       this.filteredCapsule = this.capsules;
     }
+    console.log('filteredCapsule ', this.selectedCapsuleId, this.capsules, this.filteredCapsule);
   }
 
   /**

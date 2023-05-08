@@ -21,7 +21,7 @@
         <img src="/assets/images/down-arrow.svg" class="pl-2" alt="down arrow"/>
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
-        <p-multiSelect *ngIf="capsuleTypes" [options]="capsuleTypes" filter="false" (onChange)="onChange($event)" defaultLabel="Select Capsule Type" optionLabel="name" display="chip"></p-multiSelect>
+        <p-multiSelect [options]="capsuleTypes" [filter]="false" (onChange)="onChange($event)" optionLabel="name"></p-multiSelect>
 
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
           <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
@@ -35,7 +35,19 @@
         </button>
       </div>
     </div>
+
   </nav>
+    <div class="selected-topic-list">
+      Your Tags:
+      <ul class="topics-list">
+        <ng-container *ngFor="let item of currentSelectedTopic">
+          <li class="active">
+            #{{ item.topic.title }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    
   <mat-tab-nav-panel #tabPanel>
     <router-outlet></router-outlet>
   </mat-tab-nav-panel>
@@ -70,7 +82,7 @@
               class="close"
               data-dismiss="modal"
               aria-hidden="true"
-              (click)="searchInputValue = ''; searchInputChanged('')"
+              (click)="closeModal();"
             >
               <img src="/assets/images/iframe-close-icon.png" alt="close icon" style="width:35px" />
             </button>
@@ -85,14 +97,17 @@
                     </li>
                   </ng-container>
                 </ul>
-                <div class="text-right topic-apply">
-                  <button
-                    mat-stroked-button
-                    class="button secondary-btn-sm apply-btn"
-                    (click)="doLoadFeedsForSelectedTopics()"
-                  >
-                    Apply
-                  </button>
+                <div class="row">
+                  <div class="note text-left">You can select maximum 3 tags</div>
+                  <div class="text-right topic-apply">
+                    <button
+                      mat-stroked-button
+                      class="button secondary-btn-sm apply-btn"
+                      (click)="doLoadFeedsForSelectedTopics()"
+                    >
+                      Apply
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
