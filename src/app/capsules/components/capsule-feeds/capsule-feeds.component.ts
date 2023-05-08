@@ -12,6 +12,7 @@ import {
 } from '@app/core';
 import { Constants } from '@app/shared/utils';
 import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -30,6 +31,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     private spinner: AppSpinnerService,
     private eventChannel: EventChannelService
   ) {
+    Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
       .getChannel()
       .pipe(

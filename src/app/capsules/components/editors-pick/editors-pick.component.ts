@@ -5,6 +5,7 @@ import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService
 import { Subject } from 'rxjs';
 import { CapsuleItem } from '@app/shared/models';
 import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-editors-pick',
@@ -21,6 +22,7 @@ export class EditorsPickComponent implements OnInit {
     private spinner: AppSpinnerService,
     private eventChannel: EventChannelService
   ) {
+    Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
       .getChannel()
       .pipe(
