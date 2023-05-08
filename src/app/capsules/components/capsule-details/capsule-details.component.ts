@@ -22,6 +22,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   capsuleDetail: CapsuleItem;
   subrscription: Subscription[] = [];
   @ViewChild('capsuleFrame') capsuleFrame: ElementRef;
+  isDataAvailable: boolean;
 
   constructor(
     private router: Router,
@@ -40,8 +41,13 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.spinner.show();
     this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
-    this.fetchCapsuleDetails();
-    
+    if(sessionStorage.getItem('resourceURL')) {
+      this.capsuleURL = sessionStorage.getItem('resourceURL') || btoa('https://tekcapsule.blog');
+      this.isDataAvailable = true;
+      this.loadCapsule();
+    } else {
+      this.fetchCapsuleDetails();
+    }    
   }
 
   onResize() {
@@ -55,12 +61,16 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     const sub = this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
       this.capsuleDetail = data;
       this.capsuleURL = this.capsuleDetail.resourceUrl || btoa('https://tekcapsule.blog');
-      this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
-      this.cdr.detectChanges();
-      const detailFrame = this.capsuleFrame.nativeElement as HTMLIFrameElement;
-      detailFrame.addEventListener('load', this.onIframeLoaded.bind(this));
+      this.loadCapsule(); 
     });
     this.subrscription.push(sub);
+  }
+
+  loadCapsule() {
+    this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.capsuleURL);
+    this.cdr.detectChanges();
+    const detailFrame = this.capsuleFrame.nativeElement as HTMLIFrameElement;
+    detailFrame.addEventListener('load', this.onIframeLoaded.bind(this));
   }
 
   onIframeLoaded() {
@@ -82,7 +92,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getNavBreadcrumbs(): NavTab | any[] {
     const crumbs: NavTab | any[] = [];
-    const queryTitle = this.capsuleDetail.title;
+    const queryTitle = sessionStorage.getItem('capsuleTitle') || this.capsuleDetail.title;
     const selectedMenu = this.helperService.findSelectedMenu(
       sessionStorage.getItem('pageURL') || this.router.url
     );

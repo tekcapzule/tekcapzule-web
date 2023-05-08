@@ -102,6 +102,8 @@ export class CapsuleCardComponent implements OnInit {
       this.spinner.show();
       this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
       sessionStorage.setItem('pageURL', this.router.url);
+      sessionStorage.setItem('resourceURL', this.capsule.resourceUrl);
+      sessionStorage.setItem('capsuleTitle', this.capsule.title);
     } else {
       window.open(this.capsule.resourceUrl, '_blank');
     }
