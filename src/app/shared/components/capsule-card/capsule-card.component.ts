@@ -125,8 +125,10 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   navigateToCapsuleDetailsPage(): void {
     if (this.isLocalPublisher()) {
       this.spinner.show();
+      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapsule.resourceURL', this.capsule.resourceUrl);
+      sessionStorage.setItem('com.tekcapsule.capsuleTitle', this.capsule.title);
       this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
-      sessionStorage.setItem('pageURL', this.router.url);
     } else {
       window.open(this.capsule.resourceUrl, '_blank');
     }

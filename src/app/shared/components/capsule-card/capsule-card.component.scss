@@ -121,7 +121,11 @@
     .description {
       font-family: $primary-font-light;
       font-size: 14px;
-      min-height: 208px;
+      min-height: 208px !important;
+      height: -webkit-fit-content;
+      @media only screen and (min-device-width: 375px)and (max-device-width: 414px) {
+        min-height: 222px !important;
+      }
     }
     .card-footer {
       background: none;

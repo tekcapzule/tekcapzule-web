@@ -3,6 +3,7 @@ import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
 import { CapsuleItem } from '@app/shared/models';
+import { Carousel } from 'primeng/carousel';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -20,6 +21,7 @@ export class EditorsPickComponent implements OnInit {
     private spinner: AppSpinnerService,
     private eventChannel: EventChannelService
   ) {
+    Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
       .getChannel()
       .pipe(

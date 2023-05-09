@@ -163,7 +163,7 @@ export class CapsuleApiService {
         return item;
       })
       .forEach(item => {
-        if(item.cacheItem) {
+        if (item && item.cacheItem) {
           cacheManager.setItem(item.cacheKey, {
             body: item.cacheItem.body,
             expiry: item.cacheItem.expiry,

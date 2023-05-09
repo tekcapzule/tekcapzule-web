@@ -245,15 +245,15 @@ h4 {
       // box-shadow: 8px 8px 10px #fc5454;
       background: $white;
       border: 2px solid $primary-color;
-      color:  $primary-color;
+      color: $primary-color;
     }
   }
 
   &.secondary {
     background-color: $white;
     color: $primary-color;
-    transition: all .5s ease;
-    
+    transition: all 0.5s ease;
+
     &:hover {
       // box-shadow: 8px 8px 10px #fe0d56;
       background: $primary-color;
@@ -365,7 +365,7 @@ h4 {
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 7px;
+      margin-top: 3px;
     }
   }
   span {
@@ -408,7 +408,7 @@ textarea {
   padding-top: 155px;
   padding-bottom: 20px;
   @media only screen and (max-width: 990px) {
-    padding-top: 75px;
+    padding: 75px 12px 0;
   }
 }
 .container {
@@ -519,7 +519,7 @@ Modal Dialogue
   }
 }
 .modal-backdrop {
-  opacity: .5 !important;
+  opacity: 0.5 !important;
   top: 142px;
 }
 @media only screen and (max-width: 1199px) {
@@ -637,11 +637,13 @@ input:-webkit-autofill:active {
 .scroller::-webkit-scrollbar {
   width: 8px;
   background-color: #f6f6f6;
+  overflow: visible;
 }
 
 .scroller::-webkit-scrollbar-thumb {
   background-color: #858585;
   border-radius: 7px;
+  -webkit-border-radius: 7px;
   min-height: 50px;
 }
 @media only screen and (max-width: 1199px) {
@@ -873,7 +875,7 @@ iframe .navbar-container,
   width: auto !important;
   display: flex;
   height: 25px;
-  padding: 0px;
+  padding-top: 4px;
 }
 .article-icon {
   background: url('../images/article-icon.svg') no-repeat;
@@ -957,7 +959,7 @@ iframe .navbar-container,
   top: 76px !important;
 }
 .p-toast {
-  width: 23rem !important;
+  width: 26rem !important;
 }
 
 .p-toast .p-toast-message {
@@ -971,6 +973,7 @@ iframe .navbar-container,
   &.p-toast-message-error {
     border: 1px solid $primary-color !important;
     border-bottom: 5px solid $primary-color !important;
+    color: #000 !important;
   }
   &.p-toast-message-success .p-toast-message-icon,
   .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
@@ -992,8 +995,6 @@ iframe .navbar-container,
     @media only screen and (max-width: 990px) {
       top: 5px !important;
     }
-
-
   }
   .pi-times:before {
     font-size: 20px;
@@ -1010,7 +1011,7 @@ iframe .navbar-container,
 
 /* Button hover CSS starts */
 .okHand:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -1021,7 +1022,6 @@ iframe .navbar-container,
 }
 .okHand:hover {
   cursor: pointer;
-  border: 1px solid #fff;
   transition: border-color 0.3s ease-in;
 }
 .okHand:hover:after {
@@ -1041,11 +1041,9 @@ iframe .navbar-container,
 }
 /* Button hover CSS end */
 
-
 .modal-dialog {
   margin: 0 !important;
 }
-
 
 /********Fancy Button Styles**********/
 #cubic span {
@@ -1053,22 +1051,22 @@ iframe .navbar-container,
   background: $primary-color;
   // padding: 20px 50px;
   top: 0;
-  transition: .4s all ease;
-  -webkit-transform-origin:50% 0;
-  -moz-transform-origin:50% 0;
-  -ms-transform-origin:50% 0;
-  -o-transform-origin:50% 0;
-  transform-origin:50% 0;
+  transition: 0.4s all ease;
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
   transform: rotateX(0deg);
-  -webkit-transform-style:preserve-3d;
-  -moz-transform-style:preserve-3d;
-  -ms-transform-style:preserve-3d;
-  -o-transform-style:preserve-3d;
-  transform-style:preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   color: $white;
   width: 132px;
   height: 32px;
@@ -1083,33 +1081,33 @@ iframe .navbar-container,
 }
 
 #cubic:hover span {
-  background: #efd6dd ;
-  -webkit-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  -moz-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  -ms-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  -o-transform: translate3d(0px,0px,-60px) rotateX(90deg);
-  transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  background: #fff;
+  color: #e30045;
+  // -webkit-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // -moz-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // -ms-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // -o-transform: translate3d(0px,0px,-60px) rotateX(90deg);
+  // transform: translate3d(0px,0px,-60px) rotateX(90deg);
 }
 
 #cubic span:after {
-  content: attr(title);
   display: block;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background: #fff;
-  transition: .8s all ease;
+  transition: 0.8s all ease;
   -webkit-transform-origin: 50% 0;
   -moz-transform-origin: 50% 0;
   -ms-transform-origin: 50% 0;
   -o-transform-origin: 50% 0;
   transform-origin: 50% 0;
-  -webkit-transform: translate3d(0px, 100%,0) rotateX(-90deg);
-  -moz-transform: translate3d(0px, 100%,0) rotateX(-90deg);
-  -ms-transform: translate3d(0px, 100%,0) rotateX(-90deg);
-  -o-transform: translate3d(0px, 100%,0) rotateX(-90deg);
-  transform: translate3d(0px, 100%,0) rotateX(-90deg);
+  -webkit-transform: translate3d(0px, 100%, 0) rotateX(-90deg);
+  -moz-transform: translate3d(0px, 100%, 0) rotateX(-90deg);
+  -ms-transform: translate3d(0px, 100%, 0) rotateX(-90deg);
+  -o-transform: translate3d(0px, 100%, 0) rotateX(-90deg);
+  transform: translate3d(0px, 100%, 0) rotateX(-90deg);
   width: 132px;
   height: 32px;
   border-radius: 18px;
@@ -1124,4 +1122,7 @@ iframe .navbar-container,
 
 .primary-color {
   color: $primary-color !important;
+}
+.primary-bg {
+  background: $primary-color !important;
 }

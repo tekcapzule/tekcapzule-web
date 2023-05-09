@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
   selector: 'app-home-carousel',
@@ -9,11 +10,12 @@ import { Router } from '@angular/router';
 export class HomeCarouselComponent implements OnInit {
   @Output() subscribeClicked = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private helperService: HelperService) {}
 
   ngOnInit(): void {}
 
   gotoCapsulesPage(): void {
-    this.router.navigateByUrl('/capsules');
+    this.helperService.setSelectedMenu(null);
+    this.router.navigateByUrl('/capsules/myfeeds');
   }
 }
