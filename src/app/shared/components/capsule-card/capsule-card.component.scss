@@ -270,23 +270,16 @@
   height: 100%;
   position: relative;
   // transition: transform 1s;
-  transform-style: preserve-3d;
-  perspective: 600px;
+  //transform-style: preserve-3d;
+  //perspective: 600px;
   .card-front,
   .card-back {
     width: 100%;
     height: 100%;
     position: absolute;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    //-webkit-backface-visibility: hidden;
+    //backface-visibility: hidden;
   }
 }
 
-.card-flipper.front-flipped .card-front {
-  transform: rotateY(180deg);
-}
-
-.card-flipper.back-flipped .card-back {
-  transform: rotateY(180deg);
-}
 /* Capsule Card Styles - End */
