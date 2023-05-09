@@ -1,0 +1,125 @@
+name: CICD Pipeline
+on:
+  push:
+    branches:
+      - 'feature/**'
+  pull_request:
+    types: [opened, synchronize, reopened]
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+jobs:
+  Build:
+    name: Build TekCapsule Web App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: 18.15.0
+      - name: Install dependencies
+        run: npm install --force
+      - name: Build Angular App
+        run: npm run build:staging
+  setupDevInfra:
+    name: Setup Dev Hosting Infra
+    needs: Build
+    environment:
+      name: DEV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        id: creds
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: "us-east-1"
+      - name: deploy cloudformation stack
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: s3-bucket-tekcapsule-dev
+          template: template-dev.yaml
+          no-fail-on-empty-changeset: "1"
+          parameter-overrides: "DomainName=tekcapsule.com,HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }},BucketName=dev.tekcapsule.com"
+  devDeploy:
+    name: Upload web app to Dev S3 Bucket
+    needs: setupDevInfra
+    environment:
+      name: DEV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: 18.15.0
+      - name: Install dependencies
+        run: npm install --force
+      - name: Development Build
+        run: npm run build:staging
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: "dev.tekcapsule.com"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "us-east-1"
+          SOURCE_DIR: 'dist/tekcapsule-web'
+  setupProdInfra:
+    name: Setup Prod Hosting Infra
+    needs: devDeploy
+    environment:
+      name: PROD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        id: creds
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: "us-east-1"
+      - name: deploy cloudformation stack
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: s3-bucket-tekcapsule-prod
+          template: template-prod.yaml
+          no-fail-on-empty-changeset: "1"
+          parameter-overrides: "DomainName=tekcapsule.com,HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }},BucketName=tekcapsule.com"
+  prodDeploy:
+    name: Upload web app to Prod S3 Bucket.
+    needs: setupProdInfra
+    environment:
+      name: PROD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: 18.15.0
+      - name: Install dependencies
+        run: npm install --force
+      - name: Production Build
+        run: npm run build:prod
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: "tekcapsule.com"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "us-east-1"
+          SOURCE_DIR: 'dist/tekcapsule-web'
+
