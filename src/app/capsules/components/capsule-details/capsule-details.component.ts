@@ -1,5 +1,14 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, OnInit, OnDestroy, AfterViewInit, Renderer2, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  AfterViewInit,
+  Renderer2,
+  ViewChild,
+  ElementRef,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
@@ -41,13 +50,14 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.spinner.show();
     this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
-    if(sessionStorage.getItem('resourceURL')) {
-      this.capsuleURL = sessionStorage.getItem('resourceURL') || btoa('https://tekcapsule.blog');
+    if (sessionStorage.getItem('com.tekcapsule.resourceURL')) {
+      this.capsuleURL =
+        sessionStorage.getItem('com.tekcapsule.resourceURL') || 'https://tekcapsule.blog';
       this.isDataAvailable = true;
       this.loadCapsule();
     } else {
       this.fetchCapsuleDetails();
-    }    
+    }
   }
 
   onResize() {
@@ -60,8 +70,8 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   fetchCapsuleDetails() {
     const sub = this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
       this.capsuleDetail = data;
-      this.capsuleURL = this.capsuleDetail.resourceUrl || btoa('https://tekcapsule.blog');
-      this.loadCapsule(); 
+      this.capsuleURL = this.capsuleDetail.resourceUrl || 'https://tekcapsule.blog';
+      this.loadCapsule();
     });
     this.subrscription.push(sub);
   }
@@ -92,9 +102,10 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getNavBreadcrumbs(): NavTab | any[] {
     const crumbs: NavTab | any[] = [];
-    const queryTitle = sessionStorage.getItem('capsuleTitle') || this.capsuleDetail.title;
+    const queryTitle =
+      sessionStorage.getItem('com.tekcapsule.capsuleTitle') || this.capsuleDetail.title;
     const selectedMenu = this.helperService.findSelectedMenu(
-      sessionStorage.getItem('pageURL') || this.router.url
+      sessionStorage.getItem('com.tekcapsule.pageURL') || this.router.url
     );
     crumbs.push(selectedMenu.selectedMenuItem);
     if (selectedMenu.selectedChildMenuItem) {
@@ -112,7 +123,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   onIFrameClose(): void {
     this.resourceUrl = '';
-    this.router.navigate([sessionStorage.getItem('pageURL') || '/']);
+    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
   }
 
   onRecommendClick() {
