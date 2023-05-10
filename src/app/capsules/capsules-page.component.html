@@ -21,7 +21,6 @@
         <img src="/assets/images/down-arrow.svg" class="pl-2" alt="down arrow"/>
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
-        <p-multiSelect [options]="capsuleTypes" [filter]="false" (onChange)="onChange($event)" optionLabel="name"></p-multiSelect>
 
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
           <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
@@ -37,16 +36,23 @@
     </div>
 
   </nav>
+<div class="capsule-filter">
+      <p-multiSelect [options]="capsuleTypes" [filter]="false" (onChange)="onChange($event)" optionLabel="name"></p-multiSelect>
+</div>
+  <div class="container-fluid tags-section">
+  <div class="container">
     <div class="selected-topic-list">
-      Your Tags:
-      <ul class="topics-list">
+      <span class="mr-4">Your Tags:</span>
+      <ul class="topics-list pb-0 mb-0">
         <ng-container *ngFor="let item of currentSelectedTopic">
-          <li class="active">
-            #{{ item.topic.title }}
+          <li class="active mb-0">
+            <span>#</span>{{ item.topic.title }}
           </li>
         </ng-container>
       </ul>
     </div>
+  </div>
+</div>
     
   <mat-tab-nav-panel #tabPanel>
     <router-outlet></router-outlet>
@@ -88,26 +94,24 @@
             </button>
           </div>
           <div class="modal-body pt-0 px-4 tags">
+            <div class="note text-left pb-2">You can select maximum 3 tags</div>
             <div class="row pb-4">
               <div class="col-md-12">
                 <ul class="topics-list">
                   <ng-container *ngFor="let item of filteredBrowseByTopics">
                     <li [class.active]="item.isSubscribed" (click)="toggleSubscribeTopic(item)">
-                      #{{ item.topic.title }}
+                      <span>#</span>{{ item.topic.title }}
                     </li>
                   </ng-container>
                 </ul>
-                <div class="row">
-                  <div class="note text-left">You can select maximum 3 tags</div>
-                  <div class="text-right topic-apply">
-                    <button
-                      mat-stroked-button
-                      class="button secondary-btn-sm apply-btn"
-                      (click)="doLoadFeedsForSelectedTopics()"
-                    >
-                      Apply
-                    </button>
-                  </div>
+                <div class="text-left topic-apply">
+                  <button
+                    mat-stroked-button
+                    class="button secondary-btn-sm apply-btn"
+                    (click)="doLoadFeedsForSelectedTopics()"
+                  >
+                    Apply
+                  </button>
                 </div>
               </div>
             </div>
