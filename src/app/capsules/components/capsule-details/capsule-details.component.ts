@@ -32,6 +32,8 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   subrscription: Subscription[] = [];
   @ViewChild('capsuleFrame') capsuleFrame: ElementRef;
   isDataAvailable: boolean;
+  pdfContent: any;
+  @ViewChild('pdfview') pdfview: ElementRef;
 
   constructor(
     private router: Router,
@@ -48,6 +50,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngOnInit(): void {
     this.spinner.show();
+    this.spinner.hide();
     this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
     if (sessionStorage.getItem('com.tekcapsule.resourceURL')) {
@@ -58,6 +61,36 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     } else {
       this.fetchCapsuleDetails();
     }
+  }
+  
+  showData() {
+    this.isDataAvailable = true;
+    let content = this.helperService.getDataFromAPI();
+
+    this.pdfContent =
+      URL.createObjectURL(this.b64toBlob(content, 'application/pdf')) +
+      '#toolbar=0&navpanes=0&scrollbar=0&view=FitH';
+    const pdfvi = this.pdfview.nativeElement as HTMLElement
+    pdfvi.setAttribute('data', this.pdfContent);
+  }
+
+  b64toBlob(b64Data, contentType) {
+    var byteCharacters = atob(b64Data);
+
+    var byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      var slice = byteCharacters.slice(offset, offset + 512),
+        byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      var byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+    var blob = new Blob(byteArrays, { type: contentType });
+    return blob;
   }
 
   onResize() {
@@ -71,7 +104,9 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     const sub = this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
       this.capsuleDetail = data;
       this.capsuleURL = this.capsuleDetail.resourceUrl || 'https://tekcapsule.blog';
-      this.loadCapsule();
+      
+      this.showData();
+      //this.loadCapsule();
     });
     this.subrscription.push(sub);
   }
@@ -103,7 +138,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   getNavBreadcrumbs(): NavTab | any[] {
     const crumbs: NavTab | any[] = [];
     const queryTitle =
-      sessionStorage.getItem('com.tekcapsule.capsuleTitle') || this.capsuleDetail.title;
+      sessionStorage.getItem('com.tekcapsule.capsuleTitle') || "Metaverse";
     const selectedMenu = this.helperService.findSelectedMenu(
       sessionStorage.getItem('com.tekcapsule.pageURL') || this.router.url
     );

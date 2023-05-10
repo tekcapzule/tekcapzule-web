@@ -1,4 +1,4 @@
-<section *ngIf="isDataAvailable || capsuleDetail" class="container-fluid bg-white capsule-details">
+<section *ngIf="!isDataAvailable || capsuleDetail" class="container-fluid bg-white capsule-details">
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
@@ -24,13 +24,21 @@
       <button type="button" class="close close-icon" (click)="onIFrameClose()"></button>
     </div>
   </div>
-  <div class="container">
-    <iframe #capsuleFrame
+  <div class="container" style="width:100px; height: auto">
+    <!--iframe #capsuleFrame
       [src]="resourceUrl"
       style="width: 100%; height: 700px"
       frameborder="0"
       (error)="onAfterIframeLoaded()"
     >
-    </iframe>
+    </iframe-->
+    <!--img src="blob:https:\\clubrunner.blob.core.windows.net\00000100463\en-ca\files\homepage\sample-pdf-page\SamplePDFPage.pdf" alt="" role="presentation"-->
+    <object #pdfview
+    [data]=''
+    type="application/pdf"
+    width="100%"
+    height="auto"
+    >
+    </object>
   </div>
 </section>
