@@ -270,7 +270,7 @@
   height: 100%;
   position: relative;
   // transition: transform 1s;
-  perspective: 600px;
+  
   .card-front,
   .card-back {
     width: 100%;
@@ -282,6 +282,12 @@
 }
 .card-flipper.web-flipper {
   transform-style: preserve-3d;
+  perspective: 600px;
+  .card-front,
+  .card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
 .card-flipper.web-flipper.front-flipped .card-front {
   transform: rotateY(180deg);
