@@ -1,8 +1,6 @@
 <div class="capsule-card-container card" *ngIf="capsule">
-  <div
-    class="card-flipper back-flipped"
-  >
-    <div class="capsule-card card-front">
+  <div class="card-flipper back-flipped" [@cardFlip]="data.state">
+    <div class="capsule-card face back">
       <div class="card-head">
         <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img
@@ -84,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="isCardFlipped" class="capsule-card card-back">
+    <div class="capsule-card face front">
       <div class="card-content flip-card mt-4">
         <div class="title">{{ capsule.title }}</div>
         <div class="description">

@@ -14,11 +14,45 @@ import {
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+
+
+export interface CardData {
+  imageId: string;
+  state: "default" | "flipped" | "matched";
+}
 
 @Component({
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
   styleUrls: ['./capsule-card.component.scss'],
+  animations: [
+    trigger("cardFlip", [
+      state(
+        "default",
+        style({
+          transform: "none"
+        })
+      ),
+      state(
+        "flipped",
+        style({
+          transform: "rotateY(180deg)"
+        })
+      ),
+      state(
+        "matched",
+        style({
+          visibility: "false",
+          transform: "scale(0.05)",
+          opacity: 0
+        })
+      ),
+      transition("default => flipped", [animate("400ms")]),
+      transition("flipped => default", [animate("400ms")]),
+      transition("* => matched", [animate("400ms")])
+    ])
+  ]
 })
 export class CapsuleCardComponent implements OnInit {
   isCardFlipped = false;
@@ -44,6 +78,11 @@ export class CapsuleCardComponent implements OnInit {
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
+  data: CardData = {
+    imageId: "pDGNBK9A0sk",
+    state: "default"
+  };
+
 
   constructor(
     private router: Router,
@@ -82,6 +121,7 @@ export class CapsuleCardComponent implements OnInit {
     if (this.isCardFlipped) {
       this.cardOpened.emit(this.capsule.capsuleId);
     }
+    this.cardClicked();
   }
 
   doStartReading(): void {
@@ -252,6 +292,14 @@ export class CapsuleCardComponent implements OnInit {
   closeCard(capsuleId: string) {
     if (this.capsule.capsuleId !== capsuleId) {
       this.isCardFlipped = false;
+    }
+  }
+
+  cardClicked() {
+    if (this.data.state === "default") {
+      this.data.state = "flipped";
+    } else {
+      this.data.state = "default";
     }
   }
 }
