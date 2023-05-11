@@ -214,6 +214,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   toggleSubscribeTopic(item: BrowseByTopic): void {
+    if(item.isSubscribed && this.currentSelectedTopic.length === 1) {
+      return;
+    }
     item.isSubscribed = !item.isSubscribed;
     if(item.isSubscribed) {
       if(this.currentSelectedTopic.length >= 3) {
@@ -227,7 +230,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       );
       this.currentSelectedTopic.splice(index,1);
     }
-    console.log('curent-->>', this.currentSelectedTopic);
   }
 
   searchInputChanged(value: string): void {

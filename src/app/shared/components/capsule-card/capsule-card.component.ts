@@ -58,7 +58,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    console.log('--- ', this.capsule);
     this.fetchUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
