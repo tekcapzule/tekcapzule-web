@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
@@ -14,13 +14,15 @@ import {
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
   styleUrls: ['./capsule-card.component.scss'],
 })
-export class CapsuleCardComponent implements OnInit {
+export class CapsuleCardComponent implements OnInit, OnDestroy {
+  isMobileResolution = false;
   isCardFlipped = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
@@ -44,6 +46,7 @@ export class CapsuleCardComponent implements OnInit {
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
+  subrscription: Subscription[] = [];
 
   constructor(
     private router: Router,
@@ -57,9 +60,20 @@ export class CapsuleCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.onResize();
     this.fetchUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
+  }
+  
+  ngOnDestroy(): void {
+    this.subrscription.forEach((sub: Subscription) => sub.unsubscribe());
+  }
+  onResize() {
+    const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
+      this.isMobileResolution = isMobileResolution;
+    });
+    this.subrscription.push(sub);
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
