@@ -279,6 +279,10 @@ h4 {
     border: 1px solid $primary-color;
     background: $primary-color;
     padding: 6px 10px;
+    &:hover {
+      background: $white;
+      color: $primary-color;
+    }
   }
   &.secondary-btn-md {
     font-size: 18px;
