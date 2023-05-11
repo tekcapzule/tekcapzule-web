@@ -96,7 +96,7 @@ export class HomePageComponent implements OnInit {
         this.spinner.hide();
       });
     } else {
-      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Enter valid email' });
+      this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
   }
 

@@ -18,7 +18,7 @@
 
       <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal">
         <span style="width: 120px">Browse by Topic</span>
-        <img src="/assets/images/down-arrow.svg" class="pl-2" alt="down arrow"/>
+        <img src="/assets/images/down-arrow.svg" class="pl-2 down-arrow" alt="down arrow"/>
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
 
@@ -42,7 +42,7 @@
   <div class="container-fluid tags-section">
   <div class="container">
     <div class="selected-topic-list">
-      <span class="mr-4">Your Tags:</span>
+      <span class="mr-4 tag-title">Your Tags:</span>
       <ul class="topics-list pb-0 mb-0">
         <ng-container *ngFor="let item of currentSelectedTopic">
           <li class="active mb-0">

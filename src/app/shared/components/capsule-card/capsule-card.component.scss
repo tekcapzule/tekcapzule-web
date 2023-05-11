@@ -159,6 +159,12 @@
       background: $primary-color;
       color: $white;
       // box-shadow: 0 0 0px 0 #e30045 inset, 0 0 10px 1px #e30045!important;
+      .flip-icon {
+        background: url("../../../../assets/images/flip-icon-hover.svg") no-repeat;
+      }
+      .share-icon {
+        background: url('../../../../assets/images/share-icon-hover.svg') no-repeat;
+      }
     }
     .flip-icon {
       background: url("../../../../assets/images/flip-icon.svg") no-repeat;
