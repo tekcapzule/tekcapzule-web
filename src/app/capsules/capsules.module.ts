@@ -14,6 +14,7 @@ import { ContributeCapsuleComponent } from './components/contribute-capsule/cont
 import { CapsuleDetailsComponent } from './components/capsule-details/capsule-details.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { CardModule } from '@app/shared/components/card/card.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
+    CardModule,
     SharedModule,
     CapsulesRoutingModule
   ],

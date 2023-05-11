@@ -13,6 +13,8 @@ import {
 import { Constants } from '@app/shared/utils';
 import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { Carousel } from 'primeng/carousel';
+import { CardType } from '@app/shared/components/card/card-type.enum';
+import { FlipAxis } from '@app/shared/components/card/flip-card/flip-axis.enum';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -23,7 +25,9 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   capsules = [];
   @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
-
+  public CardType = CardType;
+  public FlipAxis = FlipAxis;
+  
   constructor(
     private auth: AuthService,
     private capsuleApi: CapsuleApiService,

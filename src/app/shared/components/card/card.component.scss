@@ -1,0 +1,70 @@
+@import './scss/variables';
+@import './scss/mixins';
+
+:host ::ng-deep .card {
+  box-sizing: border-box;
+  background: $card-background;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @include box-shadow;
+  
+  foo-card-header,
+  foo-card-body,
+  foo-card-footer {
+    padding: 1rem;
+  }
+
+  foo-card-body {
+    flex-grow: 1;
+  }
+
+  &.card-default {
+    foo-card-header {
+      color: $card-background;
+      background: $default;
+    }
+  }
+
+  &.card-primary {
+    foo-card-header {
+      color: $card-background;
+      background: $primary;
+    }
+  }
+
+  &.card-secondary {
+    foo-card-header {
+      color: $card-background;
+      background: $secondary;
+    }
+  }
+
+  &.card-success {
+    foo-card-header {
+      color: $card-background;
+      background: $success;
+    }
+  }
+
+  &.card-info {
+    foo-card-header {
+      color: $card-background;
+      background: $info;
+    }
+  }
+
+  &.card-warning {
+    foo-card-header {
+      color: $card-background;
+      background: $warning;
+    }
+  }
+
+  &.card-danger {
+    foo-card-header {
+      color: $card-background;
+      background: $danger;
+    }
+  }
+}

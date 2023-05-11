@@ -8,6 +8,32 @@
           class="mb-4 mr-4"
           (cardOpened)="onCardOpened($event)"
         ></app-capsule-card>
+        
+      <!--div class="card card-body">
+        <foo-flip-card [flipAxis]="FlipAxis.Y">
+          <foo-front-card>
+            <foo-card [type]="CardType.SECONDARY">
+              <foo-card-header>
+                <h3 class="margin-0">Secondary Front Card</h3>
+              </foo-card-header>
+              <foo-card-body>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </foo-card-body>
+            </foo-card>
+          </foo-front-card>
+          <foo-back-card>
+            <foo-card [type]="CardType.BLANK">
+              <foo-card-header>
+                <h3 class="margin-0">Blank Back Card</h3>
+              </foo-card-header>
+              <foo-card-body>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </foo-card-body>
+            </foo-card>
+          </foo-back-card>
+        </foo-flip-card>
+      </!--div-->
+
       </ng-container>
     </div>
   </div>

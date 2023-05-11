@@ -15,6 +15,7 @@ import { DataTableComponent } from './components/data-table/data-table.component
 import { CapsuleCardComponent } from './components/capsule-card/capsule-card.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { CardModule } from './components/card/card.module';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    ToastModule
+    ToastModule,
+    CardModule
   ],
   exports: [
     HeaderComponent,

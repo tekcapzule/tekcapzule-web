@@ -14,6 +14,8 @@ import {
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
+import { FlipAxis } from '../card/flip-card/flip-axis.enum';
+import { CardType } from '../card/card-type.enum';
 
 @Component({
   selector: 'app-capsule-card',
@@ -41,6 +43,8 @@ export class CapsuleCardComponent implements OnInit {
     ad: 'View',
     product: 'Buy',
   };
+  public CardType = CardType;
+  public FlipAxis = FlipAxis;
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;

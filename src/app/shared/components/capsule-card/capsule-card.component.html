@@ -1,8 +1,11 @@
-<div class="capsule-card-container card" *ngIf="capsule">
-  <div
-    class="card-flipper back-flipped"
-  >
-    <div class="capsule-card card-front">
+
+<div class="capsule-card-container card card-body" *ngIf="capsule">
+  <foo-flip-card class="card-flipper" [flipAxis]="FlipAxis.Y">
+  <foo-front-card>
+      <foo-card [type]="CardType.BLANK">
+      <foo-card-body> 
+      <div class="capsule-card card-front">
+      
       <div class="card-head">
         <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img
@@ -84,72 +87,83 @@
         </div>
       </div>
     </div>
-    <div *ngIf="isCardFlipped" class="capsule-card card-back">
-      <div class="card-content flip-card mt-4">
-        <div class="title">{{ capsule.title }}</div>
-        <div class="description">
-          <label>
-            <img src="/assets/images/eye-icon.svg" alt="eye icon" />
-            <span>{{ capsule.views }}</span>
-          </label>
-          <label>
-            <img
-              src="/assets/images/bookmark-filled.svg"
-              *ngIf="isBookmarked()"
-              (click)="onCapsuleBookmarkRemove()"
-              alt="bookmark filled"
-            />
-            <img
-              src="/assets/images/bookmark-icon.svg"
-              *ngIf="!isBookmarked()"
-              (click)="onCapsuleBookmark()"
-              alt="bookmark"
-            />
-            <span>{{ capsule.bookmarks }}</span>
-          </label>
-          <label>
-            <img src="/assets/images/okhand-icon.svg" alt="ok hand" />
-            <span>{{ capsule.recommendations }}</span>
-          </label>
-          <!-- <div class="tags-input">
-            <label>Tags</label>
-            <div class="tags-label">
-              <ng-container *ngFor="let tag of capsule.tags">
-                <label class="tags">#{{ tag }}</label>
-              </ng-container>
-            </div>
-          </div> -->
-          <div class="key-points">
-            <p class="flip-title">Key Points</p>
-            <ul *ngIf="capsule.keyPoints" class="key-points-list">
-              <li *ngFor="let keyPoint of capsule.keyPoints">{{ keyPoint }}</li>
-            </ul>
-          </div>
-          <div class="shield mb-4 pt-2">
-            <ng-container *ngFor="let url of getCapsuleBadgeUrls()">
-              <img [src]="url" alt="shield icons" />
-            </ng-container>
-          </div>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <button class="button primary-btn-sm d-flex w-auto px-3" (click)="onCardClick()">
-            <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span>
-            {{ buttonLabel[capsule.type.toLowerCase()] }}
-          </button>
-          <div class="float-right d-flex">
-            <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
-              Flip<span class="flip-icon" aria-label="flip"></span>
-            </button>
-            <button
-              mat-stroked-button
-              class="button secondary-btn-sm ml-2"
-              (click)="onShareClick()"
-            >
-              Share <span class="share-icon" aria-label="share"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </foo-card-body>
+    </foo-card>
+  </foo-front-card>
+    <foo-back-card>
+      <foo-card [type]="CardType.BLANK">
+          <foo-card-body>      
+              <div class="capsule-card card-back">
+                  <div class="card-content flip-card mt-4">
+                  <div class="title">{{ capsule.title }}</div>
+                  <div class="description">
+                      <label>
+                      <img src="/assets/images/eye-icon.svg" alt="eye icon" />
+                      <span>{{ capsule.views }}</span>
+                      </label>
+                      <label>
+                      <img
+                          src="/assets/images/bookmark-filled.svg"
+                          *ngIf="isBookmarked()"
+                          (click)="onCapsuleBookmarkRemove()"
+                          alt="bookmark filled"
+                      />
+                      <img
+                          src="/assets/images/bookmark-icon.svg"
+                          *ngIf="!isBookmarked()"
+                          (click)="onCapsuleBookmark()"
+                          alt="bookmark"
+                      />
+                      <span>{{ capsule.bookmarks }}</span>
+                      </label>
+                      <label>
+                      <img src="/assets/images/okhand-icon.svg" alt="ok hand" />
+                      <span>{{ capsule.recommendations }}</span>
+                      </label>
+                      <!-- <div class="tags-input">
+                      <label>Tags</label>
+                      <div class="tags-label">
+                          <ng-container *ngFor="let tag of capsule.tags">
+                          <label class="tags">#{{ tag }}</label>
+                          </ng-container>
+                      </div>
+                      </div> -->
+                      <div class="key-points">
+                      <p class="flip-title">Key Points</p>
+                      <ul *ngIf="capsule.keyPoints" class="key-points-list">
+                          <li *ngFor="let keyPoint of capsule.keyPoints">{{ keyPoint }}</li>
+                      </ul>
+                      </div>
+                      <div class="shield mb-4 pt-2">
+                      <ng-container *ngFor="let url of getCapsuleBadgeUrls()">
+                          <img [src]="url" alt="shield icons" />
+                      </ng-container>
+                      </div>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between">
+                      <button class="button primary-btn-sm d-flex w-auto px-3" (click)="onCardClick()">
+                      <span [ngClass]="capsule.type.toLowerCase() + '-icon'"></span>
+                      {{ buttonLabel[capsule.type.toLowerCase()] }}
+                      </button>
+                      <div class="float-right d-flex">
+                      <button mat-stroked-button class="button secondary-btn-sm" (click)="doFlipCard()">
+                          Flip<span class="flip-icon" aria-label="flip"></span>
+                      </button>
+                      <button
+                          mat-stroked-button
+                          class="button secondary-btn-sm ml-2"
+                          (click)="onShareClick()"
+                      >
+                          Share <span class="share-icon" aria-label="share"></span>
+                      </button>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </foo-card-body>
+      </foo-card>
+    </foo-back-card>
+  
+  </foo-flip-card>
 </div>
+
