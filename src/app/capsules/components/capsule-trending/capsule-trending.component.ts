@@ -3,8 +3,9 @@ import { Subject, Subscription } from 'rxjs';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
-import { CapsuleItem } from '@app/shared/models';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { CapsuleItem } from '@app/shared/models';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-capsule-trending',
@@ -25,6 +26,7 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
     private eventChannel: EventChannelService,
     private helperService: HelperService
   ) {
+    Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
       .getChannel()
       .pipe(

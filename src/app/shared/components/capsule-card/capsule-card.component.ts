@@ -14,6 +14,7 @@ import {
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-capsule-card',
@@ -45,6 +46,8 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
+  subrscription: Subscription[] = [];
+  isMobileResolution = false;
 
   constructor(
     private router: Router,
@@ -58,9 +61,20 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
+    this.onResize();
     this.fetchUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
+  }
+  
+  ngOnDestroy(): void {
+    this.subrscription.forEach((sub: Subscription) => sub.unsubscribe());
+  }
+  onResize() {
+    const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
+      this.isMobileResolution = isMobileResolution;
+    });
+    this.subrscription.push(sub);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -109,8 +123,10 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   navigateToCapsuleDetailsPage(): void {
     if (this.isLocalPublisher()) {
       this.spinner.show();
+      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapsule.resourceURL', this.capsule.resourceUrl);
+      sessionStorage.setItem('com.tekcapsule.capsuleTitle', this.capsule.title);
       this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
-      sessionStorage.setItem('pageURL', this.router.url);
     } else {
       window.open(this.capsule.resourceUrl, '_blank');
     }

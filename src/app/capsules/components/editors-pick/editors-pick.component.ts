@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
-import { Subject, Subscription } from 'rxjs';
-import { CapsuleItem } from '@app/shared/models';
-import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { CapsuleItem } from '@app/shared/models';
+import { Carousel } from 'primeng/carousel';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-editors-pick',
@@ -26,6 +26,7 @@ export class EditorsPickComponent implements OnInit {
     private eventChannel: EventChannelService,
     private helperService: HelperService
   ) {
+    Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
       .getChannel()
       .pipe(

@@ -3,8 +3,9 @@
     class="card-flipper back-flipped"
     [class.front-flipped]="isCardFlipped"
     [class.back-flipped]="!isCardFlipped"
+    [ngClass]="{'web-flipper': !isMobileResolution}"
   >
-    <div class="capsule-card card-front">
+    <div *ngIf="!isMobileResolution || (isMobileResolution || !isCardFlipped)" class="capsule-card card-front">
       <div class="card-head">
         <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img
@@ -29,17 +30,13 @@
             src="/assets/images/okhand-icon.svg"
             alt="okhand icon"
           />
-         
-        </div>
-        <div class="icons okHand primary-bg" *ngIf="isCapsuleRecommended">
           <img
-          *ngIf="isCapsuleRecommended"
-          class="rounded-img"
-          src="/assets/images/okhand-icon-hover.svg"
-          alt="okhand icon filled"
-        />
+            *ngIf="isCapsuleRecommended"
+            class="rounded-img"
+            src="/assets/images/okhand-icon-active.svg"
+            alt="okhand icon filled"
+          />
         </div>
-
         <div class="icons timer">
           <img src="/assets/images/timer.svg" class="rounded-img" alt="timer" /><span
             >{{ capsule.duration }} mins</span
@@ -90,7 +87,7 @@
         </div>
       </div>
     </div>
-    <div class="capsule-card card-back">
+    <div *ngIf="!isMobileResolution || (isMobileResolution || isCardFlipped)" class="capsule-card card-back">
       <div class="card-content flip-card mt-4">
         <div class="title">{{ capsule.title }}</div>
         <div class="description">

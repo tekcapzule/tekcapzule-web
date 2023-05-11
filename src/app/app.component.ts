@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private eventChannel: EventChannelService, public authService: AuthService, private router: Router) {
     window.scroll(0, 0);
     Amplify.configure(awsExports);
-    Carousel.prototype.onTouchMove = (): void => {}
+    Carousel.prototype.onTouchMove = (): void => {};
   }
   
   ngOnInit(): void {

@@ -1,18 +1,18 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { filter, finalize, takeUntil } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
+import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import {
   AppSpinnerService,
-  CapsuleApiService,
-  EventChannelService,
-  ChannelEvent,
-  UserApiService,
   AuthService,
+  CapsuleApiService,
+  ChannelEvent,
+  EventChannelService,
+  UserApiService,
 } from '@app/core';
-import { Constants } from '@app/shared/utils';
-import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { Constants } from '@app/shared/utils';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -34,6 +34,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     private eventChannel: EventChannelService,
     private helperService: HelperService
   ) {
+    Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
       .getChannel()
       .pipe(

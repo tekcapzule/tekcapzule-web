@@ -15,6 +15,7 @@ import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsul
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { shuffleArray } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
+import { Carousel } from 'primeng/carousel';
 
 declare const jQuery: any;
 
@@ -57,7 +58,9 @@ export class HomePageComponent implements OnInit {
     private messageService: MessageService,
     private spinner: AppSpinnerService,
     private helperService: HelperService
-  ) {}
+  ) {
+    Carousel.prototype.onTouchMove = (): void => {};
+  }
 
   ngOnInit(): void {
     this.subscriberFormGroup = this.fb.group({

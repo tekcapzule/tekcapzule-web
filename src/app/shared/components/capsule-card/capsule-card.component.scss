@@ -281,12 +281,12 @@
     backface-visibility: hidden;
   }
 }
-
 .card-flipper.front-flipped .card-front {
-  transform: rotateY(180deg);
+  //transform: rotateY(180deg);
 }
 
 .card-flipper.back-flipped .card-back {
-  transform: rotateY(180deg);
+  //transform: rotateY(180deg);
 }
+
 /* Capsule Card Styles - End */
