@@ -13,12 +13,7 @@ export class CreateSuccessComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // activateFirstNavTab(): void {
-  //   this.eventChannel.publish({ event: ChannelEvent.SetActiveFeedsTab });
-  // }
-
   navigateToCapsulesPage(): void {
-    const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
-    this.router.navigate(['capsules', queryParamTab]);
+    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
   }
 }

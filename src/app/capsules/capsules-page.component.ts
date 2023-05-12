@@ -290,18 +290,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   navigateToContributePage(): void {
-    const tabUri = this.router.url.includes('trending')
-      ? 'trending'
-      : this.router.url.includes('editorspick')
-      ? 'editorspick'
-      : 'myfeeds';
-
+    sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
     this.deActivateTabs();
-    this.router.navigate(['capsules', 'contribute'], {
-      queryParams: {
-        tab: tabUri,
-      },
-    });
+    this.router.navigate(['capsules', 'contribute']);
   }
 
   onChange(eve) {
