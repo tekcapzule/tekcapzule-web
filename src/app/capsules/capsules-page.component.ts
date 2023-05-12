@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
-import { Subject, forkJoin } from 'rxjs';
+import { Subject, forkJoin, Subscription } from 'rxjs';
 
 import {
   EventChannelService,
@@ -44,6 +44,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   selectedCapsuleTypes: any[] = [];
   selectedTopics: string[] = [];
   currentSelectedTopic: BrowseByTopic[] = [];
+  isMobileResolution = false;
+  subscriptions: Subscription[] = [];
 
   constructor(
     private router: Router,
@@ -57,6 +59,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.onResize();
     this.fetchUserInfo();
     this.getAllTopics(false);
     this.getMetadata();
@@ -94,6 +97,13 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.subscribeBrowseByTopicEvent();
   }
 
+  onResize() {
+    const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
+      this.isMobileResolution = isMobileResolution;
+    });
+    this.subscriptions.push(sub);
+  }
+
   getMetadata() {
     this.capsuleApi.getMetadata().subscribe(data => {
       data.capsuleType.forEach(type => {
@@ -117,6 +127,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   getAllTopics(refresh?: boolean): void {
@@ -195,7 +206,8 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   canHideNavTabs(): boolean {
-    return this.activeTab === Constants.None || this.helperService.getMobileResolution();
+    console.log(' -------->>>>   ', this.activeTab === Constants.None, this.isMobileResolution);
+    return this.activeTab === Constants.None || this.isMobileResolution;
   }
 
   /**

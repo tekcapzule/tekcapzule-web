@@ -2,8 +2,7 @@
   <div class="flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-
-  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel">
+  <nav *ngIf="!canHideNavTabs()" mat-tab-nav-bar [tabPanel]="tabPanel">
     <div class="container d-flex">
       <ng-container>
         <a *ngFor="let navTab of navTabs"
@@ -36,23 +35,26 @@
     </div>
 
   </nav>
-<div class="capsule-filter">
-      <p-multiSelect [options]="capsuleTypes" [filter]="false" (onChange)="onChange($event)" optionLabel="name"></p-multiSelect>
-</div>
-  <div class="container-fluid tags-section">
-  <div class="container">
-    <div class="selected-topic-list">
-      <span class="mr-4 tag-title">Your Tags:</span>
-      <ul class="topics-list pb-0 mb-0">
-        <ng-container *ngFor="let item of currentSelectedTopic">
-          <li class="active mb-0">
-            <span>#</span>{{ item.topic.title }}
-          </li>
-        </ng-container>
-      </ul>
+  
+  <div *ngIf="!canHideNavTabs()">
+    <div class="capsule-filter">
+        <p-multiSelect [options]="capsuleTypes" [filter]="false" (onChange)="onChange($event)" optionLabel="name"></p-multiSelect>
+    </div>
+    <div class="container-fluid tags-section">
+    <div class="container">
+      <div class="selected-topic-list">
+        <span class="mr-4 tag-title">Your Tags:</span>
+        <ul class="topics-list pb-0 mb-0">
+          <ng-container *ngFor="let item of currentSelectedTopic">
+            <li class="active mb-0">
+              <span>#</span>{{ item.topic.title }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
     </div>
   </div>
-</div>
     
   <mat-tab-nav-panel #tabPanel>
     <router-outlet></router-outlet>
