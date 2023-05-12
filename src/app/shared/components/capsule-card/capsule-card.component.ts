@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
@@ -21,8 +21,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './capsule-card.component.html',
   styleUrls: ['./capsule-card.component.scss'],
 })
-export class CapsuleCardComponent implements OnInit, OnDestroy {
-  isMobileResolution = false;
+export class CapsuleCardComponent implements OnInit, OnChanges {
   isCardFlipped = false;
   userInfo: TekUserInfo = null;
   awsUserInfo: AwsUserInfo = null;
@@ -43,10 +42,12 @@ export class CapsuleCardComponent implements OnInit, OnDestroy {
     ad: 'View',
     product: 'Buy',
   };
+  @Input() selectedCapsuleId: string;
   @Input() capsule: CapsuleItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
   subrscription: Subscription[] = [];
+  isMobileResolution = false;
 
   constructor(
     private router: Router,
@@ -74,6 +75,14 @@ export class CapsuleCardComponent implements OnInit, OnDestroy {
       this.isMobileResolution = isMobileResolution;
     });
     this.subrscription.push(sub);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.selectedCapsuleId && changes.selectedCapsuleId.currentValue) {
+      if (changes.selectedCapsuleId.currentValue !== this.capsule.capsuleId && this.isCardFlipped) {
+        this.doFlipCard();
+      }
+    }
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
@@ -261,11 +270,5 @@ export class CapsuleCardComponent implements OnInit, OnDestroy {
       summary: '',
       detail: 'Link copied. You can share it now.',
     });
-  }
-
-  closeCard(capsuleId: string) {
-    if (this.capsule.capsuleId !== capsuleId) {
-      this.isCardFlipped = false;
-    }
   }
 }

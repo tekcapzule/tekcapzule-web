@@ -28,8 +28,7 @@ export class HomePageComponent implements OnInit {
   capsules: CapsuleItem[] = [];
   topics: TopicItem[] = [];
   subscriberFormGroup: FormGroup;
-  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
-
+  selectedCasuleId: string;
   @ViewChild('subscribe') subscribeSection: ElementRef;
   responsiveOptions: any[] = [
     {
@@ -97,7 +96,7 @@ export class HomePageComponent implements OnInit {
         this.spinner.hide();
       });
     } else {
-      this.messageService.add({ key: 'tc', severity: 'error', summary: 'Error', detail: 'Enter valid email' });
+      this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
   }
 
@@ -106,6 +105,6 @@ export class HomePageComponent implements OnInit {
   }
 
   onCardOpened(capsuleId) {
-    this.capsuleComp.closeCard(capsuleId);
+    this.selectedCasuleId = capsuleId;
   }
 }

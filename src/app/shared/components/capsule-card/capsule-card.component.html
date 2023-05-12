@@ -1,11 +1,11 @@
 <div class="capsule-card-container card" *ngIf="capsule">
   <div
-    class="card-flipper back-flipped"
-    [class.front-flipped]="isCardFlipped"
-    [class.back-flipped]="!isCardFlipped"
-    [ngClass]="{'web-flipper': !isMobileResolution}"
+    class="card-flipper"
+    [class.front-flipped]="!isMobileResolution && isCardFlipped"
+    [class.back-flipped]="!isMobileResolution && !isCardFlipped"
+    [ngClass]="{'web-flipper': !isMobileResolution, 'back-flipped': !isMobileResolution}"
   >
-    <div *ngIf="!isMobileResolution || (isMobileResolution || !isCardFlipped)" class="capsule-card card-front">
+    <div *ngIf="!isMobileResolution || (isMobileResolution && !isCardFlipped)" class="capsule-card card-front">
       <div class="card-head">
         <div class="icons bookmark" *ngIf="canShowBookmark()">
           <img
@@ -87,7 +87,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="!isMobileResolution || (isMobileResolution || isCardFlipped)" class="capsule-card card-back">
+    <div *ngIf="!isMobileResolution || (isMobileResolution && isCardFlipped)" class="capsule-card card-back">
       <div class="card-content flip-card mt-4">
         <div class="title">{{ capsule.title }}</div>
         <div class="description">

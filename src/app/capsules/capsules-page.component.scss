@@ -79,9 +79,15 @@ ul {
       padding: 0 30px;
       float: left;
       cursor: pointer;
+      span {
+        color: $primary-color;
+      }
       &.active {
         background-color: $primary-color;
-        color: #fff;
+        color: $white;
+        span {
+          color: $white;
+        }
       }
       // span {
       //   font-size: 13px;
@@ -98,7 +104,7 @@ ul {
   }
 }
 .mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link {
-  width: 70px !important;
+  // width: 70px !important;
   padding: 0 !important;
   text-align: start !important;
   justify-content: initial !important;
@@ -115,3 +121,24 @@ ul {
 .mdc-tab-indicator, .mdc-tab-indicator .mdc-tab-indicator__content {
   color: #e7245f !important;
 }
+
+.tags-section {
+  top: 140px;
+    position: sticky;
+    height: 75px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.0588235294);
+    background: #fbfbfb;
+    z-index: 1;
+    border-top: 1px solid #ddd;
+    .selected-topic-list {
+      font-family: HelveticaNeueLTPro-medium;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+    }
+}
+
+
+
+

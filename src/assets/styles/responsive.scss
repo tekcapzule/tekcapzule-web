@@ -180,6 +180,28 @@
     height: auto;
     width: auto;
   }
+  .capsule-filter {
+    z-index: 999 !important;
+    right: 7% !important;
+    top: 24px !important;
+  }
+
+  .p-multiselect-panel {
+    border-radius: 0 !important;
+  }
+  .p-multiselect-items-wrapper {
+    max-height: 500px !important;
+  }
+  .tags-section {
+    top: 75px !important;
+    height: auto !important;
+    .selected-topic-list {
+        display: block !important;
+    }
+    ul.topics-list li {
+      margin-bottom: 13px !important;
+    }
+  }
 }
 @media only screen and (width: 1024px) {
   .col-card {

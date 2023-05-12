@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 
 import { AppSpinnerService, CapsuleApiService, ChannelEvent, EventChannelService } from '@app/core';
-import { Subject } from 'rxjs';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleItem } from '@app/shared/models';
-import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { Carousel } from 'primeng/carousel';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-editors-pick',
@@ -15,12 +15,16 @@ import { Carousel } from 'primeng/carousel';
 export class EditorsPickComponent implements OnInit {
   destroy$ = new Subject<boolean>();
   capsules: CapsuleItem[] = [];
-  @ViewChild('capsuleComp') capsuleComp: CapsuleCardComponent;
+  selectedCapsuleId: string;
+  filteredCapsule = [];
+  selectedCapsuleType: string;
+  subrscription: Subscription[] = [];
 
   constructor(
     private capsuleApi: CapsuleApiService,
     private spinner: AppSpinnerService,
-    private eventChannel: EventChannelService
+    private eventChannel: EventChannelService,
+    private helperService: HelperService
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel
@@ -42,6 +46,7 @@ export class EditorsPickComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchEditorsPickCapsules(false);
+    this.subscribeFilterType();
   }
 
   ngOnDestroy(): void {
@@ -49,23 +54,37 @@ export class EditorsPickComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
+  subscribeFilterType(): void {
+    const sub = this.helperService.onFilterByCapsuleType$().subscribe(selectedCapsuleType => {
+      this.selectedCapsuleType = selectedCapsuleType;
+      this.filterByCapsuleType();
+    });
+    this.subrscription.push(sub);
+  }
+
+  filterByCapsuleType() {
+    if(this.selectedCapsuleType) {
+      this.filteredCapsule = this.capsules.filter(capsule => {
+        return this.selectedCapsuleType.includes(capsule.type);
+      });
+    } else {
+      this.filteredCapsule = this.capsules;
+    }
+  }
+
+
   fetchEditorsPickCapsules(refreshCache?: boolean): void {
     this.spinner.show();
-
-    this.capsuleApi
-      .getEditorsPickCapsules(refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
-      .subscribe(capsules => {
-        this.capsules = capsules;
-      });
+    this.capsuleApi.getEditorsPickCapsules(refreshCache).pipe(
+      finalize(() => {
+        this.spinner.hide();
+      })).subscribe(capsules => {
+      this.capsules = capsules;
+      this.filterByCapsuleType();
+    });
   }
   
-  onCardOpened(capsuleId) {
-    console.log('capsuleId ------   ',capsuleId);
-    this.capsuleComp.closeCard(capsuleId);
+  onCardOpened(capsuleId: string): void {
+    this.selectedCapsuleId = capsuleId;
   }
 }
