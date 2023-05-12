@@ -276,7 +276,7 @@
   height: 100%;
   position: relative;
   // transition: transform 1s;
-  
+  z-index:1;
   .card-front,
   .card-back {
     width: 100%;
@@ -301,6 +301,11 @@
 
 .card-flipper.web-flipper.back-flipped .card-back {
   transform: rotateY(180deg);
+}
+
+.card-back {
+  transition: all 0.5s ease;
+  transform: scale(1);
 }
 
 /* Capsule Card Styles - End */

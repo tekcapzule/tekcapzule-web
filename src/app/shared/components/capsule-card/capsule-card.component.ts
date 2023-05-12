@@ -15,11 +15,30 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-capsule-card',
   templateUrl: './capsule-card.component.html',
   styleUrls: ['./capsule-card.component.scss'],
+  animations: [
+    trigger('scaleAnimation', [
+      transition(':enter', [
+        style({ transform: 'scale(0)', opacity: 0, position: 'absolute' }),
+        animate(
+          '500ms',
+          style({ transform: 'scale(1)', opacity: 1, position: 'absolute' })
+        ),
+      ]),
+      transition(':leave', [
+        style({ transform: 'scale(1)', opacity: 1, position: 'absolute' }),
+        animate(
+          '200ms',
+          style({ transform: 'scale(0)', opacity: 0, position: 'absolute' })
+        ),
+      ]),
+    ]),
+  ]
 })
 export class CapsuleCardComponent implements OnInit, OnChanges {
   isCardFlipped = false;
@@ -73,6 +92,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   onResize() {
     const sub = this.helperService.onResizeChange$().subscribe(isMobileResolution => {
       this.isMobileResolution = isMobileResolution;
+      this.isMobileResolution = true;
     });
     this.subrscription.push(sub);
   }
