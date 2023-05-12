@@ -206,7 +206,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   canHideNavTabs(): boolean {
-    console.log(' -------->>>>   ', this.activeTab === Constants.None, this.isMobileResolution);
     return this.activeTab === Constants.None || this.isMobileResolution;
   }
 
