@@ -131,7 +131,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       this.messageService.add({
         key: 'tc',
         severity: 'success',
-        summary: 'Success',
+        // summary: 'Success',
         detail: 'Recommandation done successfully',
       });
     });
@@ -144,7 +144,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
     this.messageService.add({
       key: 'tc',
-      severity: 'success',
+      // severity: 'success',
       summary: '',
       detail: 'Link copied. You can share it now.',
     });

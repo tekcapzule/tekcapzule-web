@@ -6,6 +6,6 @@ export interface ApiSuccess {
 export interface ErrorModel {
   key: string;
   severity: string;
-  summary: string;
+  // summary: string;
   detail: string;
 }

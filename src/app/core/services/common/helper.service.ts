@@ -33,7 +33,7 @@ export class HelperService {
     return {
       key: 'tc',
       severity: 'error',
-      summary: 'Error',
+      // summary: 'Error',
       detail: 'Something went wrong! Please try again later.',
     };
   }
