@@ -46,7 +46,7 @@
   <div class="container-fluid tags-section" *ngIf="!canHideFilterAndTags()">
     <div class="container">
       <div class="selected-topic-list">
-        <span class="mr-4 tag-title">Your Tags:</span>
+        <span class="mr-4 tag-title d-none">Your Tags:</span>
         <ul class="topics-list pb-0 mb-0">
           <ng-container *ngFor="let item of currentSelectedTopic">
             <li class="active mb-0"><span>#</span>{{ item.topic.title }}</li>
