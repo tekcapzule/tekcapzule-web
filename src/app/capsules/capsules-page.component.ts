@@ -15,6 +15,7 @@ import {
 import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { toUpperCamelCase } from '@app/shared/utils/common-utils';
 
 declare const jQuery: any;
 
@@ -97,7 +98,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   getMetadata() {
     this.capsuleApi.getMetadata().subscribe(data => {
       data.capsuleType.forEach(type => {
-        this.capsuleTypes.push({code:type, name: type});
+        this.capsuleTypes.push({ code: type, name: type, displayName: toUpperCamelCase(type) });
       });
     });
   }
@@ -170,7 +171,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         .filter(topic => topic.title !== '' && topic.code !== '')
         .map<BrowseByTopic>(topic => {
           const isSubscribed = this.isTopicSubscribed(topic.code);
-          if(isSubscribed) {
+          if (isSubscribed) {
             this.currentSelectedTopic.push({ topic, isSubscribed });
             this.selectedTopics.push(topic.code);
           }
@@ -214,21 +215,23 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   toggleSubscribeTopic(item: BrowseByTopic): void {
-    if(item.isSubscribed && this.currentSelectedTopic.length === 1) {
+    if (item.isSubscribed && this.currentSelectedTopic.length === 1) {
       return;
     }
     item.isSubscribed = !item.isSubscribed;
-    if(item.isSubscribed) {
-      if(this.currentSelectedTopic.length >= 3) {
-        this.filteredBrowseByTopics.find(topic => topic.topic.code === this.currentSelectedTopic[0].topic.code).isSubscribed = false
-        this.currentSelectedTopic.splice(0,1);
-      } 
+    if (item.isSubscribed) {
+      if (this.currentSelectedTopic.length >= 3) {
+        this.filteredBrowseByTopics.find(
+          topic => topic.topic.code === this.currentSelectedTopic[0].topic.code
+        ).isSubscribed = false;
+        this.currentSelectedTopic.splice(0, 1);
+      }
       this.currentSelectedTopic.push(item);
     } else {
       const index = this.currentSelectedTopic.findIndex(
         topic => topic.topic.code === item.topic.code
       );
-      this.currentSelectedTopic.splice(index,1);
+      this.currentSelectedTopic.splice(index, 1);
     }
   }
 
@@ -260,9 +263,9 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   doLoadFeedsForSelectedTopics(): void {
     this.selectedTopics = this.filteredBrowseByTopics
-    .filter(item => item.isSubscribed)
-    .map(item => item.topic.code);
-    
+      .filter(item => item.isSubscribed)
+      .map(item => item.topic.code);
+
     // update local user cache for logged-in user.
     if (this.auth.isUserLoggedIn()) {
       this.userInfo = this.userApi.getTekUserInfoCache();
@@ -298,7 +301,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   onChange(eve) {
     this.selectedCapsuleTypes = eve.value;
     const selectedTypes = [];
-    if(eve.value.length) {
+    if (eve.value.length) {
       this.selectedCapsuleTypes.forEach(type => selectedTypes.push(type.name));
       this.helperService.setFilterByCapsuleType(selectedTypes.toString());
     } else {
@@ -315,7 +318,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   clearNewlySelectedTopics() {
     this.currentSelectedTopic = [];
     this.filteredBrowseByTopics.forEach(item => {
-      if(this.selectedTopics.includes(item.topic.code)) {
+      if (this.selectedTopics.includes(item.topic.code)) {
         item.isSubscribed = true;
         this.currentSelectedTopic.push(item);
       } else {

@@ -6,8 +6,13 @@
   <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel">
     <div class="container d-flex">
       <ng-container>
-        <a *ngFor="let navTab of navTabs" mat-tab-link (click)="setActiveTab(navTab)" [active]="isActiveTab(navTab)"
-          [routerLink]="[navTab.navUrl]">
+        <a
+          *ngFor="let navTab of navTabs"
+          mat-tab-link
+          (click)="setActiveTab(navTab)"
+          [active]="isActiveTab(navTab)"
+          [routerLink]="[navTab.navUrl]"
+        >
           <span>{{ navTab.displayName }}</span>
         </a>
       </ng-container>
@@ -17,20 +22,26 @@
         <img src="/assets/images/down-arrow.svg" class="pl-2 down-arrow" alt="down arrow" />
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
-
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
           <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
         </button>
-        <button mat-stroked-button class="button secondary-btn-sm contribute-btn" (click)="navigateToContributePage()">
+        <button
+          mat-stroked-button
+          class="button secondary-btn-sm contribute-btn"
+          (click)="navigateToContributePage()"
+        >
           Contribute
         </button>
       </div>
     </div>
-
   </nav>
   <div class="capsule-filter">
-    <p-multiSelect [options]="capsuleTypes" [filter]="false" (onChange)="onChange($event)"
-      optionLabel="name"></p-multiSelect>
+    <p-multiSelect
+      [options]="capsuleTypes"
+      [filter]="false"
+      (onChange)="onChange($event)"
+      optionLabel="displayName"
+    ></p-multiSelect>
   </div>
   <div class="container-fluid tags-section">
     <div class="container">
@@ -38,9 +49,7 @@
         <span class="mr-4 tag-title">Your Tags:</span>
         <ul class="topics-list pb-0 mb-0">
           <ng-container *ngFor="let item of currentSelectedTopic">
-            <li class="active mb-0">
-              <span>#</span>{{ item.topic.title }}
-            </li>
+            <li class="active mb-0"><span>#</span>{{ item.topic.title }}</li>
           </ng-container>
         </ul>
       </div>
@@ -51,21 +60,43 @@
     <router-outlet></router-outlet>
   </mat-tab-nav-panel>
   <!-- Modal -->
-  <div class="modal fade in mobileOverlayMenu" id="browseByTopicModal" tabindex="-1" role="dialog"
-    aria-labelledby="browseByTopicModalLabel" aria-hidden="true" data-backdrop="static">
+  <div
+    class="modal fade in mobileOverlayMenu"
+    id="browseByTopicModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="browseByTopicModalLabel"
+    aria-hidden="true"
+    data-backdrop="static"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="container p-0">
           <div class="modal-header">
             <div class="col-lg-11 px-0">
               <div class="search-box mx-0">
-                <input type="search" name="search" placeholder="What are you looking for?"
-                  [(ngModel)]="searchInputValue" (input)="searchInputChanged($event.target.value)" />
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="What are you looking for?"
+                  [(ngModel)]="searchInputValue"
+                  (input)="searchInputChanged($event.target.value)"
+                />
                 <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
               </div>
             </div>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal();">
-              <img src="/assets/images/iframe-close-icon.png" alt="close icon" style="width:35px" />
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+              (click)="closeModal()"
+            >
+              <img
+                src="/assets/images/iframe-close-icon.png"
+                alt="close icon"
+                style="width: 35px"
+              />
             </button>
           </div>
           <div class="modal-body pt-0 px-4 tags">
@@ -80,8 +111,11 @@
                   </ng-container>
                 </ul>
                 <div class="text-left topic-apply">
-                  <button mat-stroked-button class="button secondary-btn-sm apply-btn"
-                    (click)="doLoadFeedsForSelectedTopics()">
+                  <button
+                    mat-stroked-button
+                    class="button secondary-btn-sm apply-btn"
+                    (click)="doLoadFeedsForSelectedTopics()"
+                  >
                     Apply
                   </button>
                 </div>

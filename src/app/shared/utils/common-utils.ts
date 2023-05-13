@@ -6,3 +6,7 @@ export function shuffleArray(array: any[], count?: number): any[] {
 
   return count && count > 0 ? array.slice(0, count) : array;
 }
+
+export function toUpperCamelCase(str: string): string {
+  return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
+}
