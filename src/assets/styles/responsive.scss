@@ -19,7 +19,7 @@
   .create-capsule-page {
     .card-section {
       margin: 0 10px;
-      padding-top: 2rem !important;
+      padding-top: 6rem !important;
       margin-bottom: 0px !important;
       .carousel-card {
         margin-bottom: 20px;
@@ -194,13 +194,20 @@
   }
   .tags-section {
     top: 75px !important;
-    height: auto !important;
+    height: 76px!important;
+    position: absolute !important;
+    width: 100%;
+    padding: 0;
+    margin-left: -12px;
     .selected-topic-list {
         display: block !important;
     }
     ul.topics-list li {
       margin-bottom: 13px !important;
     }
+  }
+  .mat-mdc-tab-nav-panel {
+
   }
   .pi-times-circle:before {
     font-size: 25px;
@@ -331,9 +338,21 @@
   .contribute-page .formuser-icon {
     left: 0 !important;
   }
+  // .capsule-filter {
+  //   right: 28%;
+  // }
 }
 @media only screen and (width: 1536px) {
   .contribute-page .formuser-icon {
     left: 4% !important;
   }
+  .capsule-filter {
+    right: 21% !important;
+  }
 }
+@media not all and (min-resolution:.001dpcm) {
+  .capsule-filter {
+    right: 21% !important;
+  }
+}
+

@@ -1119,7 +1119,7 @@ iframe .navbar-container,
     right: 27%;
     top: 96px;
     @media only screen and (width: 1440px) {
-      right: 20%;
+      right: 19% !important;
     }
 }
 .p-multiselect {
