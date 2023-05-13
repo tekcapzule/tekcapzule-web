@@ -141,6 +141,9 @@ ul {
       display: flex;
       align-items: center;
       padding: 20px 0;
+      @media only screen and (max-width: 990px) {
+        padding: 10px 0 !important;
+      }
     }
 }
 
