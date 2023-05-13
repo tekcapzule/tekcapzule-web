@@ -199,6 +199,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     return this.activeTab === Constants.None || this.helperService.getMobileResolution();
   }
 
+  canHideFilterAndTags(): boolean {
+    return this.activeTab === Constants.None;
+  }
+
   /**
    * If user is logged in, user subscribed topics are selected.
    * If there are no user subscribed topics, data for default topcis are loaded in my feeds page.

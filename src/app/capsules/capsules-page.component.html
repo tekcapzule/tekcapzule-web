@@ -35,7 +35,7 @@
       </div>
     </div>
   </nav>
-  <div class="capsule-filter">
+  <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
     <p-multiSelect
       [options]="capsuleTypes"
       [filter]="false"
@@ -43,7 +43,7 @@
       optionLabel="displayName"
     ></p-multiSelect>
   </div>
-  <div class="container-fluid tags-section">
+  <div class="container-fluid tags-section" *ngIf="!canHideFilterAndTags()">
     <div class="container">
       <div class="selected-topic-list">
         <span class="mr-4 tag-title">Your Tags:</span>

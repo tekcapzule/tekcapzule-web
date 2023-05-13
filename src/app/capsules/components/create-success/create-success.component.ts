@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import { ChannelEvent, EventChannelService } from '@app/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-success',
@@ -9,11 +7,11 @@ import { ChannelEvent, EventChannelService } from '@app/core';
   styleUrls: ['./create-success.component.scss'],
 })
 export class CreateSuccessComponent implements OnInit {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  navigateToCapsulesPage(): void {
+  onDone(): void {
     this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
   }
 }

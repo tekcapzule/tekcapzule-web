@@ -89,12 +89,10 @@ export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
   }
 
   onCancel(): void {
-    const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
-    this.router.navigate(['capsules', queryParamTab]);
+    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
   }
 
   onSubmit(): void {
-    const queryParamTab = this.route.snapshot.queryParamMap.get('tab') || 'myfeeds';
     this.contributeFormGroup.markAllAsTouched();
 
     if (this.contributeFormGroup.valid) {
@@ -117,7 +115,7 @@ export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
           })
         )
         .subscribe(() => {
-          this.router.navigate(['capsules', 'congratz'], { queryParams: { tab: queryParamTab } });
+          this.router.navigate(['capsules', 'congratz']);
         });
     }
   }
