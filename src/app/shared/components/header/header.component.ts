@@ -56,11 +56,15 @@ export class HeaderComponent implements OnInit {
   }
 
   menuClickOutsideEvent() {
-    this.renderer.listen('window', 'click', (e: Event) => {
+    window.addEventListener('click', (e) => {
       if (this.navbarNav.nativeElement.classList.contains('show')) {
+        if(!e.target['classList'].contains('navbar-toggler')) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         this.closeMenu();
       }
-    });
+    }, true);
   }
 
   ngOnInit(): void {
