@@ -103,7 +103,7 @@
             <div class="note text-left pb-2">Please select at least one and up to three topics.</div>
             <div class="row pb-4">
               <div class="col-md-12">
-                <ul class="topics-list">
+                <ul class="topics-list d-inline-block">
                   <ng-container *ngFor="let item of filteredBrowseByTopics">
                     <li [class.active]="item.isSubscribed" (click)="toggleSubscribeTopic(item)">
                       <span>#</span>{{ item.topic.title }}
