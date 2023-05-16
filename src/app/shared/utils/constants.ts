@@ -14,7 +14,7 @@ export const Constants = {
         { uniqueId: 'For_You', displayName: 'For You', navUrl: '/capsules/myfeeds' },
         { uniqueId: 'Trending', displayName: 'Trending', navUrl: '/capsules/trending' },
         { uniqueId: 'Editor_Pick', displayName: 'Editor Pick', navUrl: '/capsules/editorspick' },
-        { uniqueId: 'BROWSE_BYTOPIC', displayName: 'Browse by Topic', navUrl: '' },
+        { uniqueId: 'BROWSE_BYTOPIC', displayName: 'Explore Topic', navUrl: '' },
       ],
     },
     { uniqueId: 'Skill_Studio', displayName: 'Skill Studio', navUrl: '' },
