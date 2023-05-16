@@ -150,7 +150,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
             key: 'tc',
             severity: 'success',
             summary: 'Success',
-            detail: 'Recommandation done successfully',
+            detail: 'Thank you for the recommendation!',
           });
         },
         err => {
