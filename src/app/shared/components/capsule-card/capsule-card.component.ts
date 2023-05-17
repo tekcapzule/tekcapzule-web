@@ -149,7 +149,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
           this.messageService.add({
             key: 'tc',
             severity: 'success',
-            summary: 'Success',
             detail: 'Thank you for the recommendation!',
           });
         },

@@ -88,7 +88,7 @@ export class HomePageComponent implements OnInit {
     if(this.subscriberFormGroup.valid) {
       this.spinner.show();
       this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(data => {
-        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'Thank you for subscribing!' });
+        this.messageService.add({ key: 'tc', severity: 'success', detail: 'Thank you for subscribing!' });
         this.subscriberFormGroup.reset();
         this.spinner.hide();
       }, error => {
