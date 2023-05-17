@@ -132,7 +132,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         key: 'tc',
         severity: 'success',
         // summary: 'Success',
-        detail: 'Recommandation done successfully',
+        detail: 'Thank you for the recommendation!',
       });
     });
     this.subrscription.push(sub);
