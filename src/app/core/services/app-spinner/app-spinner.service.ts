@@ -7,10 +7,10 @@ export class AppSpinnerService {
   constructor() {}
 
   show(): void {
-    document.getElementById('app_spinner').style.display = 'block';
+    //document.getElementById('app_spinner').style.display = 'block';
   }
 
   hide(): void {
-    document.getElementById('app_spinner').style.display = 'none';
+    //document.getElementById('app_spinner').style.display = 'none';
   }
 }
