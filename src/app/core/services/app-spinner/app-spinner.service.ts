@@ -7,10 +7,20 @@ export class AppSpinnerService {
   constructor() {}
 
   show(): void {
-    //document.getElementById('app_spinner').style.display = 'block';
+    const spinner = this.getSpinner();
+    if(spinner) {
+      spinner.style.display = 'block';
+    }
   }
 
   hide(): void {
-    //document.getElementById('app_spinner').style.display = 'none';
+    const spinner = this.getSpinner();
+    if(spinner) {
+      spinner.style.display = 'none';
+    }
+  }
+
+  getSpinner() {
+    return document.getElementById('app_spinner');
   }
 }
