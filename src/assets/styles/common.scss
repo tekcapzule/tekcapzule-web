@@ -717,6 +717,11 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
 }
+app-spinner {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
 
 /*.app-spinner {
   width: 100vw;
