@@ -58,11 +58,13 @@ export class HeaderComponent implements OnInit {
   menuClickOutsideEvent() {
     window.addEventListener('click', (e) => {
       if (this.navbarNav.nativeElement.classList.contains('show')) {
-        if(!e.target['classList'].contains('navbar-toggler')) {
+        if(!e.target['classList'].contains('navbar-toggler') && !e.target['classList'].contains('nav-item')) {
           e.preventDefault();
           e.stopPropagation();
         }
-        this.closeMenu();
+        if(!e.target['classList'].contains('parent-menu')) {
+          this.closeMenu();
+        }
       }
     }, true);
   }
@@ -85,17 +87,6 @@ export class HeaderComponent implements OnInit {
   onStopClick(eve) {
     eve.stopPropagation();
   }
-
-  /*@HostListener('document:click', ['$event'])
-  @HostListener('document:touchstart', ['$event'])
-  handleOutsideClick(event) {
-    // Some kind of logic to exclude clicks in Component.
-    // This example is borrowed Kamil's answer    
-    let inputElement: HTMLElement = this.navbarNav.nativeElement as HTMLElement;
-    if (!inputElement.contains(event.target)) {
-      console.log('came --- 000');
-    }
-  }*/
 
   scrollToTop() {
     this.router.events.subscribe(ev => {
