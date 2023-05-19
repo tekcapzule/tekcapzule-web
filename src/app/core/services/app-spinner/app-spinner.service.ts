@@ -1,26 +1,29 @@
 import { Injectable } from '@angular/core';
 
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AppSpinnerService {
+  showSpinner = false;
+  private spinnerChange$ = new BehaviorSubject<boolean>(this.showSpinner);
+
   constructor() {}
 
   show(): void {
-    const spinner = this.getSpinner();
-    if(spinner) {
-      spinner.style.display = 'block';
-    }
+    this.setSpinner(true);
   }
 
   hide(): void {
-    const spinner = this.getSpinner();
-    if(spinner) {
-      spinner.style.display = 'none';
-    }
+    this.setSpinner(false);
   }
 
-  getSpinner() {
-    return document.getElementById('app_spinner');
+  private setSpinner(showSpinner): void {
+    this.showSpinner = showSpinner;
+    this.spinnerChange$.next(this.showSpinner);
+  }
+
+  public onSpinnerChange$(): Observable<boolean> {
+    return this.spinnerChange$.asObservable();
   }
 }

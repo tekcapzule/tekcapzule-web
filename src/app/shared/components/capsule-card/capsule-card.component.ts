@@ -149,7 +149,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
           this.messageService.add({
             key: 'tc',
             severity: 'success',
-            summary: 'Success',
             detail: 'Thank you for the recommendation!',
           });
         },
@@ -191,7 +190,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
             this.messageService.add({
               key: 'tc',
               severity: 'success',
-              summary: 'Success',
               detail: 'Bookmark done',
             });
           });
@@ -223,7 +221,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
         this.messageService.add({
           key: 'tc',
           severity: 'success',
-          summary: 'Success',
           detail: 'Bookmark removed',
         });
       });
@@ -267,7 +264,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
     this.messageService.add({
       key: 'tc',
       severity: 'success',
-      summary: '',
       detail: 'Link copied. You can share it now.',
     });
   }
