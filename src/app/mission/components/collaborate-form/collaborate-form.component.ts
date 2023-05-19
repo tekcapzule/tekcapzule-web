@@ -17,7 +17,7 @@ export class CollaborateFormComponent implements OnInit {
 
   constructor(
     private feedbackApi: FeedbackApiService,
-    private appSpinnerService: AppSpinnerService,
+    private spinner: AppSpinnerService,
     private messageService: MessageService,
     private fb: FormBuilder,
     private helperService: HelperService
@@ -40,11 +40,11 @@ export class CollaborateFormComponent implements OnInit {
   onCollabFormSubmit(): void {
     this.feedbackFormGroup.markAllAsTouched();
     if(this.feedbackFormGroup.valid) {
-      this.appSpinnerService.show();
+      this.spinner.show();
       this.feedbackApi.createFeedback(this.feedbackFormGroup.value).subscribe(_ => {
         this.feedbackFormGroup.reset();
-        this.appSpinnerService.hide();        
-        this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
+        this.spinner.hide();        
+        this.messageService.add({ key: 'tc', severity: 'success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
       }, err => {
         this.messageService.add(this.helperService.getInternalErrorMessage());
       });

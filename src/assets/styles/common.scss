@@ -717,17 +717,13 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
 }
-// .spinner {
-//   margin: auto;
-//   width: 100%;
-//   height: 100vh;
-//   text-align: center;
-//   top: 50%;
-//   background: url('../images/loader.gif') 50% 50% no-repeat;
-//   content: 'Loading...';
-// }
+app-spinner {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
 
-.app-spinner {
+/*.app-spinner {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -744,7 +740,7 @@ $duration: 1.4s;
   //   position: relative;
   //   z-index: 1000;
   // }
-}
+}*/
 
 /*--------------------------------------------------------------
 # Global Search Menu

@@ -26,7 +26,7 @@ export class HelperService {
   }
 
   showSuccess(msg): void {
-    this.messageService.add({ key: 'tc', severity: 'success', summary: 'Success', detail: msg });
+    this.messageService.add({ key: 'tc', severity: 'success', detail: msg });
   }
 
   getInternalErrorMessage(): ErrorModel {
