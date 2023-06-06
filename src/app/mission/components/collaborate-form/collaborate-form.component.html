@@ -8,7 +8,8 @@
     <div class="row mt-5">
       <div class="col-6 form-field "
         [ngClass]="{'error-text': feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid}">
-        <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" />
+        <label for="firstName" class="sr-only">First Name</label>
+        <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" id="firstName" />
 
         <span class="error-msg" *ngIf="
             feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid
@@ -16,7 +17,8 @@
       </div>
       <div class="col-6 form-field "
         [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
-        <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
+        <label for="lastName" class="sr-only">Last Name</label>
+        <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" id="lastName" />
         <span class="error-msg" *ngIf="
             feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid
             ">Please enter last name</span>
@@ -25,7 +27,8 @@
     <div class="row">
       <div class="col-12 form-field "
         [ngClass]="{'error-text': feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid}">
-        <input type="email" name="email" placeholder="Email Address *" formControlName="emailId" />
+        <label for="emailId" class="sr-only">Email</label>
+        <input type="email" name="email" placeholder="Email Address *" formControlName="emailId" id="emailId" />
 
         <span class="error-msg" *ngIf="
     feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid
@@ -35,8 +38,8 @@
     <div class="row">
       <div class="col-12 form-field "
         [ngClass]="{'error-text': feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid}">
-
-        <input type="text" name="subject" placeholder="Subject *" formControlName="subject" />
+        <label for="subject" class="sr-only">Subject</label>
+        <input type="text" name="subject" placeholder="Subject *" formControlName="subject" id="subject" />
 
         <span class="error-msg" *ngIf="
     feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid
@@ -46,8 +49,8 @@
     <div class="row">
       <div class="col-12 form-field "
         [ngClass]="{'error-text': feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid}">
-
-        <textarea name="description" rows="4" formControlName="description" placeholder="Description *">
+        <label for="description" class="sr-only">Description</label>
+        <textarea name="description" rows="4" formControlName="description" placeholder="Description *" id="description">
         </textarea>
     <span
     class="error-msg"

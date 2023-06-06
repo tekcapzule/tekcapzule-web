@@ -75,12 +75,14 @@
           <div class="modal-header">
             <div class="col-lg-11 px-0">
               <div class="search-box mx-0">
+                <label for="searchId" class="sr-only">Search</label>
                 <input
                   type="search"
                   name="search"
                   placeholder="What are you looking for?"
                   [(ngModel)]="searchInputValue"
                   (input)="searchInputChanged($event.target.value)"
+                  id="searchId"
                 />
                 <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
               </div>
