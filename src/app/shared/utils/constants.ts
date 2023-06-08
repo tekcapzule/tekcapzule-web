@@ -17,7 +17,7 @@ export const Constants = {
         { uniqueId: 'BROWSE_BYTOPIC', displayName: 'Explore Topic', navUrl: '' },
       ],
     },
-    { uniqueId: 'Skill_Studio', displayName: 'Skill Studio', navUrl: '/topics' },
+    { uniqueId: 'Skill_Studio', displayName: 'Skill Studio', navUrl: '/skillstudio' },
     {
       uniqueId: 'Contribute',
       displayName: 'Contribute',

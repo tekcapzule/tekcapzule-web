@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'legaldocs',
     loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
+  },
+  {
+    path: 'skillstudio',
+    loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule),
   }
 ];
 
