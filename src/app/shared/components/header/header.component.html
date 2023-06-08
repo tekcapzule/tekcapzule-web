@@ -11,7 +11,7 @@
         <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
           class="navbar-brand logo">
           <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
-            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg" alt="Tekcapsule Logo"/></a>
+            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo-beta.svg" alt="Tekcapsule Logo"/></a>
         </div>
         
         <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
@@ -39,8 +39,8 @@
                   </ul>
                 </ng-container>
 
-                <a *ngIf="hm.uniqueId === 'Skill_Studio'" data-toggle="collapse" data-target=".navbar-collapse.show"
-                  class="pe-none" (click)="onSkillStudioClick()">{{hm.displayName}}<span
+                <a href="javascript:void(0)" *ngIf="hm.uniqueId === 'Skill_Studio'" data-toggle="collapse" data-target=".navbar-collapse.show"
+                  class="nav-item pe-none" (click)="onSkillStudioClick()">{{hm.displayName}}<span
                     class="badge badge-pill badge-danger">Launching Soon</span></a>
               </li>
             </ng-container>
