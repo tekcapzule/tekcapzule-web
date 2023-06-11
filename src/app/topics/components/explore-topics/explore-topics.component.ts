@@ -10,24 +10,24 @@ import { TopicItem } from '@app/shared/models';
   styleUrls: ['./explore-topics.component.scss'],
 })
 export class ExploreTopicsComponent implements OnInit {
-  // topics: TopicItem[] = [];
-  // allTopics: TopicItem[] = [];
+  topics: TopicItem[] = [];
+  allTopics: TopicItem[] = [];
 
   constructor(private topicApi: TopicApiService, private spinner: AppSpinnerService) {}
 
   ngOnInit(): void {
-    // this.spinner.show();
-    // this.topicApi
-    //   .getAllTopics()
-    //   .pipe(
-    //     finalize(() => {
-    //       this.spinner.hide();
-    //     })
-    //   )
-    //   .subscribe(topics => {
-    //     this.topics = topics;
-    //     this.allTopics = topics;
-    //   });
+    this.spinner.show();
+    this.topicApi
+      .getAllTopics()
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(topics => {
+        this.topics = topics;
+        this.allTopics = topics;
+      });
   }
 
   randomUUID(): string {

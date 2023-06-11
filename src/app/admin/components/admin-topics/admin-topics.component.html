@@ -1,0 +1,12 @@
+<div class="admin-topics-table">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h1>Topics</h1>
+      <ul class="breadcrumb">
+        <li class="link"><a href="javascript:void(0)" [routerLink]="['/admin']">Dashboard</a></li>
+        <li>Topics</li>
+      </ul>
+    </div>
+  </div>
+  <app-data-table [columns]="adminTopicColumns" [data]="adminTopicsData"></app-data-table>
+</div>

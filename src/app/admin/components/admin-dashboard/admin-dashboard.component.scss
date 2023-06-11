@@ -1,0 +1,32 @@
+@import '../../../../assets/styles/variables.scss';
+
+.dashboard-page {
+  .action-btn {
+    padding: 3px 0 0 0;
+    float: right;
+    height: 38px;
+  }
+  h1 {
+    font-family: $cardtitle-font;
+    font-size: 32px;
+    color: #484848;
+    line-height: 34px;
+  }
+  .dashboard-tile{
+    background-color: #fff;
+    height: 300px;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    svg{
+      width: 80px;
+    }
+    h5{
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="dashboard-page">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let navTab of navTabs" (click)="gotoNav(navTab.navUrl)">
+            <div class="dashboard-tile">
+                <img src='{{"/assets/images/" + navTab.icon + ".svg" }}' />
+                <h5>{{ navTab.displayName }}</h5>
+                <h2>{{capsulePendingApproval.length}}</h2>
+            </div>
+        </div>
+    </div>
+</div>

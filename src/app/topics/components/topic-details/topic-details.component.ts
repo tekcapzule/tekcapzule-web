@@ -12,7 +12,7 @@ import { CapsuleItem, TopicItem } from '@app/shared/models';
   styleUrls: ['./topic-details.component.scss'],
 })
 export class TopicDetailsComponent implements OnInit, OnDestroy {
-  // topic: TopicItem;
+  topic: TopicItem;
   // firstThreeCapsules: CapsuleItem[] = [];
   // destroy$ = new Subject<boolean>();
 

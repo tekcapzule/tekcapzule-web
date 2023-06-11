@@ -3,6 +3,7 @@ export interface NavTab {
   displayName: string;
   index?: number;
   navUrl: string;
+  icon?: string;
   children?: NavTab[];
   isHidden?: boolean;
   showOnMobile?: boolean;

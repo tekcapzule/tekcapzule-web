@@ -1,0 +1,9 @@
+@import './../../assets/styles/variables.scss';
+
+.admin-page {
+  background: #e6e6e6;
+  padding-bottom: 50px;
+  .container {
+    max-width: 1600px;
+  }
+}

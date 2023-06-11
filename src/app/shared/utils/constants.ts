@@ -26,6 +26,7 @@ export const Constants = {
     },
     { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
     { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
+    { uniqueId: 'Admin', displayName: 'Admin', navUrl: '/admin' },
   ],
 };
 
