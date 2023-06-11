@@ -11,7 +11,7 @@
         <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
           class="navbar-brand logo">
           <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
-            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo-beta.svg" alt="Tekcapsule Logo"/></a>
+            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo-beta.png" alt="Tekcapsule Logo"/></a>
         </div>
         
         <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
