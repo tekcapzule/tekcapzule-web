@@ -1210,3 +1210,28 @@ iframe .navbar-container,
       font-family: $cardtitle-font;
     }
 }
+
+
+/**********Common SLider Backrounds***********/
+.tekbyte-page {
+  font-size: 18px;
+
+  &.p-main {
+    padding-top: 75px;
+    @media only screen and (max-width: 768px) {
+      padding-top: 75px;
+    }
+  }
+  .topics-bg {
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    // height: 420px;
+    background-image: url('../../assets/images/pattern-1.svg'),
+      url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
+    // background-size: cover;
+    // margin-bottom: 70px;
+  }
+  .container {
+    // max-width: 1600px !important;
+  }
+}
