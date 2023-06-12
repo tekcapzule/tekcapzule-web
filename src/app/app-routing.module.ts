@@ -17,8 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('./capsules/capsules.module').then(m => m.CapsulesModule),
   },
   {
-    path: 'topics',
-    loadChildren: () => import('./topics/topics.module').then(m => m.TopicsModule),
+    path: 'tekbyte',
+    loadChildren: () => import('./tekbyte/tekbyte.module').then(m => m.TekbyteModule),
   },
   {
     path: 'community',

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopicsPageComponent } from './topics-page.component';
+import { TekbytePageComponent } from './tekbyte-page.component';
 
 describe('TopicsPageComponent', () => {
-  let component: TopicsPageComponent;
-  let fixture: ComponentFixture<TopicsPageComponent>;
+  let component: TekbytePageComponent;
+  let fixture: ComponentFixture<TekbytePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TopicsPageComponent],
+      declarations: [TekbytePageComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopicsPageComponent);
+    fixture = TestBed.createComponent(TekbytePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
