@@ -73,46 +73,11 @@
       </div>
     </section>
     <section class="mt-3 text-center">
-      <div class="skill-card">
-        <div class="topics-card tile-bg-1">
-          <div class="topic-title">Tekbytes</div>
-          <div class="topic-icon icon-1 d-inline-flex"></div>
-          <p>Get your AI Vocabulary Right</p>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="topics-card tile-bg-2">
-          <div class="topic-title">Courses</div>
-          <div class="topic-icon icon-2 d-inline-flex"></div>
-          <p>Get ahead in your AI journey with our cutting edge courses</p>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="topics-card tile-bg-3">
-          <div class="topic-title">Mentoring</div>
-          <div class="topic-icon icon-3 d-inline-flex"></div>
-          <p>Get ahead in your AI journey with our cutting edge courses</p>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="topics-card tile-bg-4">
-          <div class="topic-title">Weekly Digest</div>
-          <div class="topic-icon icon-4 d-inline-flex"></div>
-          <p>Get your AI Vocabulary Right</p>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="topics-card tile-bg-5">
-          <div class="topic-title">Interview Prep</div>
-          <div class="topic-icon icon-5 d-inline-flex"></div>
-          <p>Get ahead in your AI journey with our cutting edge courses</p>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="topics-card tile-bg-6">
-          <div class="topic-title">Events</div>
-          <div class="topic-icon icon-6 d-inline-flex"></div>
-          <p>Get ahead in your AI journey with our cutting edge courses</p>
+      <div class="skill-card" *ngFor="let tile of tileList; let i=index">
+        <div class="topics-card" [ngClass]="tile.uniqueId + ' tile-bg-' + (i+1)" [routerLink]="tile.navUrl">
+          <div class="topic-title">{{tile.displayName}}</div>
+          <div class="topic-icon d-inline-flex"  [ngClass]="tile.uniqueId + ' icon-' + (i+1)"></div>
+          <p>{{tile.desc}}</p>
         </div>
       </div>
     </section>
