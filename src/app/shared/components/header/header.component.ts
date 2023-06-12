@@ -173,7 +173,7 @@ export class HeaderComponent implements OnInit {
 
   onSkillStudioClick() {
     this.selectedMenuItem = this.headerMenu[0];
-    this.router.navigate(['/']);
+    this.router.navigate(['topics', 'topicdetails']);
     if (this.isMobileResolution) {
       this.closeMenu();
     }

@@ -1,0 +1,121 @@
+@import './../../assets/styles/variables.scss';
+
+/**************Carousel Style******************/
+.hero-img{
+    img{
+        width: 478px;
+    }
+}
+.carousel {
+    padding-top: 0;
+    .carousel-indicators {
+        li {
+            width: 19px;
+            height: 10px;
+            border: 1px solid #707070;
+            background-color: #fff;
+            &.active {
+                background: #E83068;
+            }
+        }
+    }
+    .carousel-inner {
+        .carousel-item {
+            height: 450px;
+                .carousel-caption {
+                  color: #444444;
+                  h2{
+                    font-size: 45px;
+                    padding-bottom: 40px;
+                  }
+                  p {
+                  font-size: 18px;
+                  line-height: 22px;
+                }
+                }
+              }
+        }
+    }
+
+
+
+    /*******Card Tile******/
+    .skill-card {
+        display: inline-flex;
+        margin: 0px 40px 40px 0px;
+        border: 0 none;
+    .topics-card {
+        height: 263px;
+        width: 536px;
+        box-shadow: 0px 3px 39px #0000000f;
+        transition: 0.3s;
+        color: #fff;
+        text-align: center;
+        padding: 30px 100px;
+        cursor: pointer;
+        .topic-title {
+            font-size: 34px;
+            font-family: $heading-fonts;
+        }
+        .topic-icon {
+            margin: 15px 0;
+            &.icon-1 {
+                background: url("../../assets/images/skill-course-icon.svg") no-repeat;
+                height: 62px;
+                width: 62px;
+            }
+            &.icon-2 {
+                background: url("../../assets/images/skill-course-icon.svg") no-repeat;
+                height: 62px;
+                width: 62px;
+            }
+            &.icon-3 {
+                background: url("../../assets/images/skill-mentoring-icon.svg") no-repeat;
+                height: 68px;
+                width: 87px;
+            }
+            &.icon-4 {
+                background: url("../../assets/images/skill-digest-icon.svg") no-repeat;
+                width: 66px;
+                height: 64px;
+            }
+            &.icon-5 {
+                background: url("../../assets/images/skill-interview-icon.svg") no-repeat;
+                width: 97px;
+                height: 71px;
+            }
+            &.icon-6 {
+                background: url("../../assets/images/skill-events-icon.svg") no-repeat;
+                width: 60px;
+                height: 67px;
+            }
+        }
+        &.tile-bg-1 {
+            background: url("../../assets/images/tile-bg-1.png");
+        }
+        &.tile-bg-2 {
+            background: url("../../assets/images/tile-bg-2.png");
+        }
+        &.tile-bg-3 {
+            background: url("../../assets/images/tile-bg-3.png");
+        }
+        &.tile-bg-4 {
+            background: url("../../assets/images/tile-bg-4.png");
+        }
+        &.tile-bg-5 {
+            background: url("../../assets/images/tile-bg-5.png");
+        }
+        &.tile-bg-6 {
+            background: url("../../assets/images/tile-bg-6.png");
+        }
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
+        }
+        .header-image {
+            height: 180px;
+            width: 100%;
+            margin-bottom: 20px;
+          }
+    }
+}

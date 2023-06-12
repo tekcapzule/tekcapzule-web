@@ -1,28 +1,6 @@
 @import '../../../../assets/styles/variables.scss';
 @import '../../../../assets/styles/common.scss';
 
-.tekbyte-page {
-  font-size: 18px;
-
-  &.p-main {
-    padding-top: 100px;
-    @media only screen and (max-width: 768px) {
-      padding-top: 75px;
-    }
-  }
-  .topics-bg {
-    background-repeat: no-repeat;
-    padding-top: 50px;
-    height: 420px;
-    background-image: url('../../../../assets/images/pattern-1.svg'),
-      url('../../../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
-    background-size: cover;
-    // margin-bottom: 70px;
-  }
-  .container {
-    max-width: 1600px !important;
-  }
-}
 /************Category Section**********/
 .category-section {
   border-bottom: 1px solid #cbcbcb;

@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./capsules/capsules.module').then(m => m.CapsulesModule),
   },
   {
+    path: 'tekbyte',
+    loadChildren: () => import('./tekbyte/tekbyte.module').then(m => m.TekbyteModule),
+  },
+  {
     path: 'community',
     loadChildren: () => import('./community/community.module').then(m => m.CommunityModule),
   },
@@ -27,6 +31,10 @@ const routes: Routes = [
   {
     path: 'legaldocs',
     loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
+  },
+  {
+    path: 'skillstudio',
+    loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule),
   }
 ];
 

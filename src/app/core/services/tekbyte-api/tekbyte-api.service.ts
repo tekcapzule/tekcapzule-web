@@ -69,7 +69,7 @@ export class TekByteApiService {
   }
 
   getTekByte(code: string): Observable<TekByteItem> {
-    return this.httpClient.post<TekByteItem>(`${TEKBYTE_API_PATH}/get`, code, {
+    return this.httpClient.post<TekByteItem>(`${TEKBYTE_API_PATH}/get`, {code}, {
       params: {
         cache: 'no',
       },

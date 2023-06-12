@@ -56,6 +56,11 @@ h3 {
   font-size: 50px;
   font-family: $heading-fonts;
 }
+.sub-heading {
+  font-size: 35px;
+  font-family: $heading-fonts;
+  color: #070707;
+}
 h4 {
   font-size: 24px;
   font-family: $heading-fonts;
@@ -459,17 +464,7 @@ Search Box
     height: 46px;
     border-radius: 30px;
   }
-  button {
-    &.search-btn {
-      background: url('../images/search-icon.svg') center right no-repeat;
-      width: 20px;
-      height: 44px;
-      border: none;
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-    }
-  }
+
   input[type='search']::-webkit-search-cancel-button {
     -webkit-appearance: none;
     width: 20px;
@@ -479,6 +474,17 @@ Search Box
     background-size: contain;
     opacity: 1;
     cursor: pointer;
+  }
+}
+button {
+  &.search-btn {
+    background: url('../images/search-icon.svg') center right no-repeat;
+    width: 20px;
+    height: 44px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
   }
 }
 
@@ -764,6 +770,9 @@ app-spinner {
 
 .bg-gray {
   background: #e2e2e2;
+}
+.bg-light-pink {
+  background: #f1dbe1;
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
@@ -1181,4 +1190,48 @@ iframe .navbar-container,
 }
 .down-arrow {
   width: 25px;
+}
+.follow {
+  margin: 14px 0 0 20px;
+  font-family: $cardtitle-font;
+  color: $primary-color;
+  cursor: pointer;
+}
+.img-placeholder {
+  background: $white;
+  border-radius: 36px;
+  height: 500px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+    label {
+      font-size: 35px;
+      color: #919191;
+      font-family: $cardtitle-font;
+    }
+}
+
+
+/**********Common SLider Backrounds***********/
+.tekbyte-page {
+  font-size: 18px;
+
+  &.p-main {
+    padding-top: 75px;
+    @media only screen and (max-width: 768px) {
+      padding-top: 75px;
+    }
+  }
+  .topics-bg {
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    // height: 420px;
+    background-image: url('../../assets/images/pattern-1.svg'),
+      url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
+    // background-size: cover;
+    // margin-bottom: 70px;
+  }
+  .container {
+    // max-width: 1600px !important;
+  }
 }

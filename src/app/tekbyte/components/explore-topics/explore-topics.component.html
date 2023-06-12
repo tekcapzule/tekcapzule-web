@@ -1,17 +1,14 @@
-<div id="tekbyte" class="tekbyte-page p-main">
-  <div class="pb-3 col-lg-12 px-0">
+<div id="tekbyte" class="tekbyte-page p-main pb-0">
+  <div class="col-lg-12 px-0">
     <section class="container-fluid topics-bg px-0">
       <div class="container">
         <h3 class="text-center pb-2 banner-heading">Here are the topics we have for you!</h3>
-
-        <div class="col-sm-12 px-0 d-flex pb-5">
+        <div class="search-box mt-0 py-4 mb-3 ml-0">
           <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
-          <button class="reset-btn">
-            <img src="/assets/images/reset.svg" alt="reset" class="pl-4" />
-          </button>
+          <button title="search bar" class="search-btn mt-2"></button>
         </div>
         <div>
-          <ul class="topics-btn">
+          <ul class="topics-btn pl-0">
             <li class="active">Software Development</li>
             <li>Internet of Things (IoT)</li>
             <li>Cloud Computing</li>
@@ -23,11 +20,20 @@
             <li>Quantum Computing</li>
             <li>Metaverse</li>
           </ul>
+          <!-- This below <a> tag need to be deleted after proper router link given -->
+          <a class="follow-btn" [routerLink]="['/tekbyte/cld/details']" >Link To--->Skil Studio Details Page</a>
+          <!-- End -->
+        </div>
+        <div class="img-placeholder">
+        <label>Placeholder for Illustration</label>
         </div>
       </div>
+      
     </section>
   </div>
-  <div class="container-fluid topics-desc">
+
+
+  <!-- <div class="container-fluid topics-desc">
     <div class="container">
       <div class="d-flex">
         <img src="/assets/images/topic-image.png" alt="topic image" class="pr-5 pb-3" />
@@ -208,5 +214,5 @@
         <mat-tab label="DevOps"> Tab One Content </mat-tab>
       </mat-tab-group>
     </div>
-  </div>
+  </div> -->
 </div>

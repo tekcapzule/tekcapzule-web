@@ -3,7 +3,7 @@
 .tekbyte-details-page {
   font-size: 18px;
   &.p-main {
-    padding-top: 100px;
+    padding-top: 76px;
     @media only screen and (max-width: 768px) {
       padding-top: 75px;
     }
@@ -61,7 +61,7 @@
       border-right: 20px solid transparent;
     }
     h2 {
-      font-size: 34px;
+      font-size: 28px;
       color: $white;
     }
   }
@@ -76,7 +76,7 @@
   }
   // Key Concepts
   .key-concepts {
-    padding: 60px 0;
+    padding: 60px 0 25px;
     h2 {
       font-size: 55px;
       line-height: 45px;
@@ -87,9 +87,10 @@
     }
     .key-points-img {
       padding-left: 30px;
+      height: 540px;
     }
     .key-points {
-      padding-bottom: 50px;
+      padding-bottom: 40px;
       display: flex;
 
       h3 {
@@ -180,30 +181,22 @@
     height: auto;
     margin: 5em auto 2em;
     border-radius: 5px 25px 25px 25px;
-    background: white;
+    background: #1949a0;
     position: relative;
-    margin-top: -43px;
-    padding: 0 60px 60px;
-    .heading {
+    padding: 0 85px 60px;
+    color: $white;
+    .sub-heading {
       top: -2rem !important;
       position: relative;
-      left: -1rem;
+      color: $white;
     }
-    .challenges-block {
-      width: 380px;
-      min-height: 235px;
-      &.margin-lr {
-        margin: 0 70px;
-      }
       h4 {
-        width: 300px;
-        min-height: 60px;
+        color: $white;
       }
       .description {
-        border-top: 2px solid #e2e2e2;
-        padding-top: 20px;
+        padding-bottom: 40px;
+        font-size: 18px;
       }
-    }
   }
 
   .challenges-container::before {
@@ -212,7 +205,7 @@
     top: -50px;
     width: 400px;
     height: 180px;
-    background: white;
+    background: #1949a0;
     border-radius: 25px 0 0 0;
     clip-path: polygon(0 0, 91% 0%, 100% 30%, 100% 30%, 30% 29%, 0 28%, 0 31%, 0% 30%);
     left: 0px;
@@ -329,7 +322,7 @@ ul.timeline {
     height: 100%;
   }
   > li {
-    margin: 20px 0 175px;
+    margin: 20px 0 150px;
     padding-right: 45px;
     &:before {
       content: ' ';
@@ -372,7 +365,7 @@ ul.timeline {
 .know-more-sec {
   background: $blue;
   border-radius: 35px 35px 0px 0px;
-  padding: 35px 50px;
+  padding: 35px 50px 15px;
   color: $white;
   line-height: 22px;
   .close-btn {

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExploreTopicsComponent } from './components/explore-topics/explore-topics.component';
-import { TopicDetailsComponent } from './components/topic-details/topic-details.component';
+import { TekbyteDetailsComponent } from './components/tekbyte-details/tekbyte-details.component';
 
-import { TopicsPageComponent } from './topics-page.component';
+import { TekbytePageComponent } from './tekbyte-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TopicsPageComponent,
+    component: TekbytePageComponent,
     children: [
       {
         path: 'explore',
@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: ':code/details',
-        component: TopicDetailsComponent,
+        component: TekbyteDetailsComponent,
       },
       {
         path: '',
@@ -35,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TopicsRoutingModule {}
+export class TekbyteRoutingModule {}
