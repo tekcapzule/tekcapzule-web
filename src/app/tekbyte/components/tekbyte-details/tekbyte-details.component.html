@@ -1,5 +1,7 @@
 <!-- ======= Tek Byte Page Section ======= -->
-<div id="tekbytetopicdetails" class="tekbyte-details-page p-main pb-0">
+<app-spinner></app-spinner>
+
+<div *ngIf="tekbyteData" id="tekbytetopicdetails" class="tekbyte-details-page p-main pb-0">
   <div class="container-fluid bg-light-pink">
     <div class="container">
     <div class="search-box mt-0 py-5">
@@ -24,14 +26,7 @@
                 <h2>User Experience Design</h2>
                 <span class="follow">FOLLOW</span>
               </div>
-              <p>
-                User experience (UX) is the overall experience of a person using a product, system or
-                service. It encompasses how easy, efficient, and satisfying it is to use, as well as
-                how it meets the user’s needs and expectations. UX design is the process of designing
-                and creating user-centered products and services. It involves understanding and
-                analyzing the user’s needs, testing and evaluating the design, and iterating based on
-                feedback.
-              </p>
+              <p>{{tekbyteData.description}}</p>
               <ul class="mr-2 list-unstyled">
                 <li>#UX</li>
                 <li>#User-centered design</li>
@@ -42,33 +37,24 @@
             </div>
           </div>
           <!-- Business Modal Section -->
-          <section class="container business-modal">
+          <section *ngIf="tekbyteData.goldenCircle" class="container business-modal">
             <div class="row">
               <div class="col-lg-4">
                 <h2>Why</h2>
                 <p>
-                  The reason for user experience (UX) is to design products and services that are easy
-                  to use, efficient, and enjoyable for the user, in order to improve their overall
-                  satisfaction and engagement.
+                  {{tekbyteData.goldenCircle.why}}
                 </p>
               </div>
               <div class="col-lg-4">
                 <h2>How</h2>
                 <p>
-                  The end result is a product or service that is designed to meet the needs and goals
-                  of the user, providing an efficient, easy-to-use, and enjoyable experience. This
-                  includes the ability to create products and services that are tailored to the user’s
-                  needs and preferences, and the ability to continuously improve the user experience
-                  through user feedback.
+                  {{tekbyteData.goldenCircle.how}}
                 </p>
               </div>
               <div class="col-lg-4">
                 <h2>What</h2>
                 <p>
-                  The way this is achieved is through the use of user-centered design methods, such as
-                  user research, prototyping, and usability testing, as well as design principles and
-                  guidelines. This includes concepts such as user needs, user goals, and user
-                  feedback.
+                  {{tekbyteData.goldenCircle.what}}
                 </p>
               </div>
             </div>
@@ -86,46 +72,17 @@
         </div>
       </section>
       <!-- Key Concepts Section -->
-      <section class="key-concepts container">
+      <section *ngIf="tekbyteData.keyConcepts" class="key-concepts container">
         <div class="row">
           <div class="col-lg-1 d-flex">
             <img src="/assets/images/keypoints-list.png" class="key-points-img" alt="bullet list" />
           </div>
           <div class="col-lg-11">
             <h3 class="sub-heading pb-3">Key Concepts</h3>
-            <div class="key-points">
+            <div *ngFor="let kc of tekbyteData.keyConcepts" class="key-points">
               <div>
-                <h3>Usability</h3>
-                <p>
-                  User experience (UX) is the overall perception that a user has of a product or
-                  service. One of the key concepts of UX is usability, which refers to how easy and
-                  intuitive it is for the user to accomplish their goals. This can include aspects
-                  such as ease of navigation, clear instructions, and logical layout.
-                </p>
-              </div>
-            </div>
-            <div class="key-points">
-              <div>
-                <h3>Emotion</h3>
-                <p>
-                  A third concept in UX is the emotional aspect of the user’s experience. This can
-                  include factors such as how the user feels while interacting with the product, how
-                  they perceive the overall aesthetic of the product, and how satisfied they are with
-                  the outcome. The emotional response of the user can be influenced by various factors
-                  such as the product’s design, branding, and overall user experience.
-                </p>
-              </div>
-            </div>
-            <div class="key-points">
-              <div>
-                <h3>Accessibility</h3>
-                <p>
-                  Another important concept in UX is accessibility, which refers to the design of
-                  products and services to be usable by as many people as possible, including those
-                  with disabilities. This can include features such as alternative text for images,
-                  keyboard navigation and larger text options, and high contrast mode for people with
-                  visual impairments
-                </p>
+                <h3>{{kc.title}}</h3>
+                <p>{{kc.description}}</p>
               </div>
             </div>
           </div>
@@ -133,42 +90,19 @@
       </section>
 
       <!-- Challenges Section -->
-      <section class="container">
+      <section *ngIf="tekbyteData.applications" class="container">
         <div class="challenges-container">
           <div class="sub-heading">Applications</div>
-          <div>
-            <h4>Web and mobile design</h4>
-            <p class="description">
-              UX is used to create a positive and engaging experience for users of websites and mobile applications, by
-              designing user interfaces that are easy to use and navigate.
-            </p>
-            <h4>Product design</h4>
-            <p class="description">
-              UX is used to create a positive and engaging experience for users of websites and mobile applications, by
-              designing user interfaces that are easy to use and navigate.
-            </p>
-            <h4>Service design</h4>
-            <p class="description">
-              UX is used to create a positive and engaging experience for users of services, such as banking,
-              transportation, and healthcare, by designing services that are easy to access and use.
-            </p>
-            <h4>Game design</h4>
-            <p class="description">
-              UX is used to create a positive and engaging experience for users of video games, by designing games that
-              are easy to play and understand.
-            </p>
-            <h4>Virtual & augmented reality</h4>
-            <p class="description">
-              UX is used to create a positive and engaging experience for users of virtual and augmented reality
-              applications, by designing interfaces that are easy to use and navigate.
-            </p>
+          <div *ngFor="let app of tekbyteData.applications">
+            <h4>{{app.title}}</h4>
+            <p class="description">{{app.description}}</p>
           </div>
 
         </div>
       </section>
       <div class="container-fluid bg-gray pt-3">
         <!-- Capsules Section -->
-        <section class="container">
+        <!--section class="container">
           <h2 class="text-center my-5 sub-heading">Few Capsules to get you started!</h2>
           <div class="card-section d-flex justify-content-center mb-4 pb-4">
             <img src="/assets/images/previous-arrow.svg" alt="previous arrow" />
@@ -299,7 +233,7 @@
             </div>
             <img src="/assets/images/next-arrow.svg" alt="next arrow" />
           </div>
-        </section>
+        </section-->
 
         <!-- Know More Section -->
         <section class="container">
@@ -312,18 +246,14 @@
                 </div>
                 <div>
                   <h3>Did you know?</h3>
-                  <p>A good user interface can raise website conversion rates by up to 200%</p>
+                  <p>{{tekbyteData.didYouKnow}}</p>
                 </div>
               </div>
               <div class="col-lg-6 d-flex">
                 <div><img src="/assets/images/knowmore-icon-right.png" alt="Way Forward icon" /></div>
                 <div>
                   <h3>Way Forward</h3>
-                  <p>
-                    Increased focus on emotional design: UX design is expected to place a greater
-                    emphasis on understanding and designing for the emotional needs of users, rather
-                    than just their functional needs.
-                  </p>
+                  <p>{{tekbyteData.wayForward}}</p>
                 </div>
               </div>
             </div>
