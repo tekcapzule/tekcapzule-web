@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillStudioComponent } from './skill-studio.component';
+
+import { InterviewPrepComponent } from './interview-prep.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: SkillStudioComponent
+    component: InterviewPrepComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SkillStudioRoutingModule {}
+export class InterviewPrepRoutingModule {}
