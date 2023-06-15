@@ -77,7 +77,7 @@ h4 {
   text-align: center;
   padding-bottom: 30px;
   h2 {
-    font-size: 38px;
+    font-size: 34px;
   }
 }
 
@@ -116,6 +116,7 @@ h4 {
         left: auto;
         right: auto;
         text-align: left;
+        color: #3C3B3B !important;
         .hero-text {
           color: #636363;
           margin: 10px 0 56px 0;
@@ -319,7 +320,7 @@ h4 {
   }
 }
 .content-sub-text {
-  font-size: 23px;
+  font-size: 24px;
   font-family: $primary-font-regular;
   line-height: 37px;
   color: $secondary-color;
@@ -1212,8 +1213,8 @@ iframe .navbar-container,
 }
 
 
-/**********Common SLider Backrounds***********/
-.tekbyte-page {
+/**********Skill Studio Common Slider Backrounds***********/
+.skill-studio-page {
   font-size: 18px;
 
   &.p-main {
@@ -1222,10 +1223,10 @@ iframe .navbar-container,
       padding-top: 75px;
     }
   }
-  .topics-bg {
+  .skill-studio-bg {
     background-repeat: no-repeat;
     padding: 50px 0;
-    // height: 420px;
+    min-height: 490px;
     background-image: url('../../assets/images/pattern-1.svg'),
       url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     // background-size: cover;
@@ -1234,4 +1235,8 @@ iframe .navbar-container,
   .container {
     // max-width: 1600px !important;
   }
+}
+.subscribe-btn {
+  position: absolute;
+  right: 10px;
 }
