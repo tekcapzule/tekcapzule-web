@@ -1,4 +1,5 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
+  <app-spinner></app-spinner>
   <div class="col-lg-12 px-0">
     <section class="container-fluid skill-studio-bg  px-0">
       <div class="container text-center">
@@ -9,15 +10,19 @@
           <p class="content-sub-text">Unlock the power of artificial intelligence with our weekly newsletter. Discover
             the latest AI News, trends, and innovations, handpicked for you. Subscribe now and level up your AI
             knowledge.</p>
-          <div class="">
+          <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
             <div
-              class="mx-auto w-50 d-flex align-items-center justify-content-center subscibeSection-row position-relative">
+              class="mx-auto w-50 d-flex align-items-center justify-content-center subscibeSection-row position-relative"
+              [ngClass]="{ 'error-text': subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid}">
               <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
                 placeholder="Enter Your Email ID" />
-              <button mat-raised-button class="button tertiary subscribe-btn">
+              <button mat-raised-button class="button tertiary subscribe-btn" (click)="onSubscribe()">
                 Subscribe Now
               </button>
             </div>
+            <span class="error-msg" *ngIf="subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid">
+              Please enter valid email
+            </span>
           </div>
         </div>
       </div>
@@ -27,58 +32,21 @@
         <div class="section-title">
           <h2>Other Popular AI Newsletters you may be interested in!</h2>
         </div>
-        <div class="section-title text-left pl-5 ml-5">
-          <h2>Pod Cast</h2>
-        </div>
-        <div class="mx-1 text-center">
-          <div class="digest-card">
-            <div class="title"><span class="play-btn"></span>Channel Name 01</div>
-            <div class="description">Author: Linjith Kunnon</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-            <div class="d-flex justify-content-between">
-            </div>
+
+        <div *ngFor="let category of categoryDetail; let i = index;">
+          <div class="section-title text-left pl-5 ml-5">
+            <h2>{{category.displayName}}</h2>
           </div>
-          <div class="digest-card">
-            <div class="title"><span class="play-btn"></span>Channel Name 01</div>
-            <div class="description">Author: Linjith Kunnon</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-            <div class="d-flex justify-content-between">
-            </div>
-          </div>
-          <div class="digest-card">
-            <div class="title"><span class="play-btn"></span>Channel Name 01</div>
-            <div class="description">Author: Linjith Kunnon</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-            <div class="d-flex justify-content-between">
+          <div class="mx-1 text-center">
+            <div *ngFor="let dig of digest[category.id]; let i = index;" class="digest-card"
+              [ngClass]="category.bgColor">
+              <div class="title"><span *ngIf="category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>
+              <div class="description">Author: {{dig.author}}</div>
+              <div class="description">{{dig.author}}</div>
             </div>
           </div>
         </div>
-        <div class="section-title text-left pl-5 ml-5 pt-5">
-          <h2>Newsletter</h2>
-        </div>
-        <div class="mx-1 text-center">
-          <div class="digest-card indigo-purple">
-            <div class="title">Alpha Signal</div>
-            <div class="description">Author: Linjith Kunnon</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="digest-card indigo-purple">
-            <div class="title">Alpha Signal</div>
-            <div class="description">Author: Linjith Kunnon</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="digest-card indigo-purple">
-            <div class="title">Alpha Signal</div>
-            <div class="description">Author: Linjith Kunnon</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-        </div>
+        
       </div>
     </section>
   </div>
