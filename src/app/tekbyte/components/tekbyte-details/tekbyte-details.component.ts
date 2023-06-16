@@ -17,13 +17,19 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private spinner: AppSpinnerService,
+    private route: ActivatedRoute, 
     private activatedRoute: ActivatedRoute,
     private tekbyteApi: TekByteApiService
   ) {}
 
   ngOnInit(): void {
     this.spinner.show();
-    const tekbyteCode = 'null-EMERGING_TECH-f82db6a6-0372-4346-ac2c-17b763e804a2';
+    this.route.params.subscribe(params => {
+      this.getTekbyteDetaills(params['code']);
+    });
+  }
+
+  getTekbyteDetaills(tekbyteCode: string) {
     this.tekbyteApi.getTekByte(tekbyteCode).subscribe(data => {
       console.log('tekbyteApi', data);
       this.tekbyteData = data;
