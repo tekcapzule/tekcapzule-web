@@ -263,7 +263,7 @@
           <li  *ngFor="let app of tekbyteData.timeline">
             <div class="year">
               <div class="yr-txt">YEAR</div>
-              {{app.title}}
+              {{app.title.includes('/') ? app.title.split('/')[2] : app.title}}
             </div>
             <p class="story">
               {{app.description}}

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExploreTopicsComponent } from './explore-topics.component';
+import { ExploreTekbyteComponent } from './explore-tekbyte.component';
 
-describe('ExploreTopicsComponent', () => {
-  let component: ExploreTopicsComponent;
-  let fixture: ComponentFixture<ExploreTopicsComponent>;
+describe('ExploreTekbyteComponent', () => {
+  let component: ExploreTekbyteComponent;
+  let fixture: ComponentFixture<ExploreTekbyteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ExploreTopicsComponent],
+      declarations: [ExploreTekbyteComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExploreTopicsComponent);
+    fixture = TestBed.createComponent(ExploreTekbyteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

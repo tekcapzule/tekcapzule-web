@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExploreTopicsComponent } from './components/explore-topics/explore-topics.component';
+import { ExploreTekbyteComponent } from './components/explore-tekbyte/explore-tekbyte.component';
 import { TekbyteDetailsComponent } from './components/tekbyte-details/tekbyte-details.component';
 
 import { TekbytePageComponent } from './tekbyte-page.component';
@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: 'explore',
-        component: ExploreTopicsComponent,
+        component: ExploreTekbyteComponent,
       },
       {
         path: ':code/details',
