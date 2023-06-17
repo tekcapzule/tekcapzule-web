@@ -9,6 +9,7 @@ export const environment = {
   topicApiGateway: '7j4scuzrp9',
   tekByteApiGateway: 'ddrp8i0mtd',
   userApiGateway: 'klpgscbxhh',
+  digestApiGateway: '7vrqxopm10',
   awsRegion: 'execute-api.us-east-1',
   apiEndpointTemplate: 'https://{{api-gateway}}.{{aws-region}}.amazonaws.com/prod',
 };
