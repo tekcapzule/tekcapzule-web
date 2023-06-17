@@ -66,155 +66,22 @@
     </section>
   </div>
   <div class="col-lg-12 bg-gray pb-5">
-    <section class="py-5">
+    <section *ngFor="let reg of region; let i = index" class="py-5">
       <div class="section-title text-left pl-5 ml-5">
-        <h2>Americas</h2>
+        <h2>{{reg}}</h2>
       </div>
       <div class="mx-1 text-center">
-        <div class="digest-card">
+        <div *ngFor="let eve of events[region]; let j = index;" class="digest-card" [ngClass]="{'razzmatazz': region === 'Europe', 'purple-heart': region === 'Middle East', 'indigo-purple': region === 'north America'}">
           <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
+            <div class="title">{{eve.name}}</div>
+            <div class="description">{{eve.description}}</div>
           </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
+          <div class="description"><span class="date-icon"></span>{{eve.schedule?.startDate - eve.schedule?.endDate}} <span> | </span>{{eve.schedule?.startTime - eve.schedule?.endTime}}</div>
+          <div class="description"><span class="location-icon"></span>{{eve.venue}}</div>
         </div>
       </div>
     </section>
-    <section>
-      <div class="section-title text-left pl-5 ml-5 pt-5">
-        <h2>Europe</h2>
-      </div>
-      <div class="mx-1 text-center">
-        <div class="digest-card razzmatazz">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card razzmatazz">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card razzmatazz">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="section-title text-left pl-5 ml-5 pt-5">
-        <h2>Middle East & Africa</h2>
-      </div>
-      <div class="mx-1 text-center">
-        <div class="digest-card purple-heart">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card purple-heart">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card purple-heart">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="section-title text-left pl-5 ml-5 pt-5">
-        <h2>Europe</h2>
-      </div>
-      <div class="mx-1 text-center">
-        <div class="digest-card indigo-purple">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card indigo-purple">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-        <div class="digest-card indigo-purple">
-          <div class="conference-header">
-            <div class="title">AI CONFERENCE 2023</div>
-            <div class="description">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-              the latest AI News, trends.</div>
-          </div>
-          <div class="description"><span class="date-icon"></span>July 24 - 26 <span> | </span> 10.00 - 14:00</div>
-          <div class="description"><span class="location-icon"></span>The Grand Concourse of McCormick, Chicago,
-            Illinois.</div>
-        </div>
-      </div>
-    </section>
-    <!-- Popular Events Section -->
+      <!-- Popular Events Section -->
     <section>
       <div class="section-title text-left pl-5 ml-5 pt-5">
         <h2>Popular Past Events</h2>
