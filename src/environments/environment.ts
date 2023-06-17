@@ -7,7 +7,7 @@ export const environment = {
   apiStage: 'dev',
   apiCacheExpiryHours: 12,
   capsuleApiGateway: 'kzqdp4mtmd',
-  eventApiGateway: 'ubm1d5yjrd',
+  eventApiGateway: 't9uk11ucqa',
   feedbackApiGateway: '7a0ynuuzb7',
   subscriptionApiGateway: 'jianrwq924',
   topicApiGateway: 'ydfobf5vfd',
