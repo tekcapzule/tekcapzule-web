@@ -1,9 +1,19 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
   <app-spinner></app-spinner>
   <div class="col-lg-12 px-0">
+    <div class="container-fluid top-navigation">
+      <div class="container">
+        <div class="back-link">
+          <a class="url-link">Skill Studio</a>
+          <span>Weekly Digest</span>
+        </div>
+      </div>
+    </div>
     <section class="container-fluid skill-studio-bg  px-0">
+
       <div class="container text-center">
-        <div class="section-title">
+
+        <div class="section-title mb-0">
           <h2>Tekcapsule AI Digest</h2>
           <p class="content-sub-text">Connecting you to the latest AI advancements and insights!</p>
           <img src="../../assets/images/news-letter.svg" alt="News Letter" class="pb-3" />
@@ -20,7 +30,8 @@
                 Subscribe Now
               </button>
             </div>
-            <span class="error-msg" *ngIf="subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid">
+            <span class="error-msg"
+              *ngIf="subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid">
               Please enter valid email
             </span>
           </div>
@@ -46,7 +57,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </section>
   </div>

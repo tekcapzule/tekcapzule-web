@@ -772,6 +772,9 @@ app-spinner {
 .bg-gray {
   background: #e2e2e2;
 }
+.bg-light-gray {
+  background: #F4F4F4;
+}
 .bg-light-pink {
   background: #f1dbe1;
 }
@@ -1225,18 +1228,40 @@ iframe .navbar-container,
   }
   .skill-studio-bg {
     background-repeat: no-repeat;
-    padding: 50px 0;
-    min-height: 490px;
+    padding: 30px 0 !important;
+    min-height: 418px;
     background-image: url('../../assets/images/pattern-1.svg'),
       url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     // background-size: cover;
     // margin-bottom: 70px;
-  }
-  .container {
-    // max-width: 1600px !important;
+    .carousel .carousel-inner .carousel-item {
+      height: 418px;
+    }
   }
 }
 .subscribe-btn {
   position: absolute;
   right: 10px;
+}
+.top-navigation {
+  background: #E8E8E8;
+  height: 60px;
+  margin-top: 26px;
+  .back-link {
+    padding: 20px 0;
+  }
+}
+.events-banner-img {
+  width: 443px;
+  height: 306px;
+  border-radius: 25px;
+}
+.free-btn {
+  background: #4A4239;
+  color: $white;
+  font-size: 14px;
+  font-family: 'HelveticaNeueLTProBoldCondensed';
+  border-radius: 20px;
+  padding: 5px 20px;
+  border: 0 none;
 }
