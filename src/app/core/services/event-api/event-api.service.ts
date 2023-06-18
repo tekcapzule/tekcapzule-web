@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IEventItem } from '@app/shared/models/event-item.model';
 import { Constants } from '@app/shared/utils';
 
 import { environment } from '@env/environment';
@@ -20,8 +21,8 @@ export class EventApiService {
     return EVENT_API_PATH;
   }
 
-  getAllEvents(): Observable<any> {
-    return this.httpClient.post(
+  getAllEvents(): Observable<IEventItem[]> {
+    return this.httpClient.post<IEventItem[]>(
       `${EVENT_API_PATH}/getAll`,
       {},
       {

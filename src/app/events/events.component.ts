@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as moment from 'moment';
 import { AppSpinnerService, EventApiService } from '@app/core';
 
 @Component({
@@ -9,7 +9,9 @@ import { AppSpinnerService, EventApiService } from '@app/core';
 })
 export class EventsComponent implements OnInit {
   events: any = {};
-  region: string[] = [];
+  regions: string[] = []; 
+  promotedEvents: any[] = [];
+  pastPopularEvent: any[] = [];
 
   constructor(private spinner: AppSpinnerService, private eventsApi: EventApiService) {}
 
@@ -18,19 +20,35 @@ export class EventsComponent implements OnInit {
   }
 
   getAllEvents() {
+    this.spinner.show();
     this.eventsApi.getAllEvents().subscribe(data => {
       data.forEach(item => {
-        if(item.venue) {
-          const regArr = item.venue.split(',');
-          const regionName = regArr[regArr.length - 1];
-          if(!this.events[regionName]) {
-            this.events[regionName] = [];
-          }
-          this.events[regionName].push(item);
+        item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format('MMM DD');
+        item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
+        if(!this.events[item.region]) {
+          this.events[item.region] = [];
         }
-        this.region = Object.keys(this.events);
-        console.log('events', this.events);
+        if(item.promotion) {
+          this.promotedEvents.push(item);
+        }
+        if(item.pastPopularEvent) {
+          this.pastPopularEvent.push(item);
+        }
+        this.events[item.region].push(item);
       });
+      this.regions = Object.keys(this.events);
+      this.spinner.hide();
+    }, err => {
+      this.spinner.hide();
     })
+  }
+
+  onRegister(eve) {
+    window.open(eve.registrationUrl, '_blank');
+    console.log('event',eve);
+  }
+
+  onPastEvents(eve) {
+    window.open(eve.eventRecordingUrl, '_blank');
   }
 }
