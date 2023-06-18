@@ -4,7 +4,7 @@
 .digest-card {
   background-image: url("../../assets/images/skill-studio-card-pattern.png");
   background-color: #2e375a;
-  height: 290px;
+  max-height: 290px;
   width: 520px;
   padding: 30px 60px;
   color: $white;

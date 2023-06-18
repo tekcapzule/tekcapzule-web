@@ -6,7 +6,7 @@
   background-image: url("../../assets/images/skill-studio-card-pattern.png");
   background-color: #2e375a;
   cursor: pointer;
-  height: 290px;
+  max-height: 290px;
   width: 520px;
   padding: 30px 60px;
   color: $white;
@@ -41,22 +41,31 @@
   .description {
     font-size: 20px;
     font-family: 'HelveticaNeueLTPro-regular';
-    display: inline-flex;
+    // display: inline-flex;
   }
 }
 .venue-details {
     font-size: 24px;
     font-family: 'HelveticaNeueLTPro-medium';
+    margin-bottom: 20px;
 }
 .date-icon {
     background: url("../../assets/images/date-icon.svg") no-repeat;
-    width: 36px;
-    height: 36px;
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    margin-right: 25px;
+    display: inline-block;
+    &.dark {
+      background: url("../../assets/images/date-icon-dark.svg") no-repeat;
+    }
   }
   .location-icon {
     background: url("../../assets/images/location-icon.svg") no-repeat;
-    width: 36px;
-    height: 36px;
-    margin-right: 10px;
+    width: 17px;
+    height: 22px;
+    margin-right: 25px;
+    display: inline-block;
+    &.dark {
+      background: url("../../assets/images/location-icon-dark.svg") no-repeat;
+    }
   }
