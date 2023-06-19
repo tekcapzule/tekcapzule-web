@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IEventItem } from '@app/shared/models/event-item.model';
-import { Constants } from '@app/shared/utils';
 
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
