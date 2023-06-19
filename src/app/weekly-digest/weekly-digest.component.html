@@ -48,7 +48,7 @@
           <div class="section-title text-left pl-5 ml-5">
             <h2>{{category.displayName}}</h2>
           </div>
-          <div class="mx-1 text-center">
+          <div class="mx-1 text-center container">
             <div *ngFor="let dig of digest[category.id]; let i = index;" class="digest-card"
               [ngClass]="category.bgColor">
               <div class="title"><span *ngIf="category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>

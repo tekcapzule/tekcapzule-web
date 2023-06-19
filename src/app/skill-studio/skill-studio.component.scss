@@ -45,13 +45,14 @@
         margin: 0px 40px 40px 0px;
         border: 0 none;
     .topics-card {
-        height: 263px;
-        width: 536px;
+        height: 250px;
+        width: 395px;
         box-shadow: 0px 3px 39px #0000000f;
         transition: 0.3s;
         color: #fff;
         text-align: center;
-        padding: 30px 100px;
+        padding: 20px;
+        border-radius: 10px;
         cursor: pointer;
         .topic-title {
             font-size: 34px;
@@ -63,31 +64,37 @@
                 background: url("../../assets/images/skill-course-icon.svg") no-repeat;
                 height: 62px;
                 width: 62px;
+                background-size: 80%;
             }
             &.icon-2 {
                 background: url("../../assets/images/skill-course-icon.svg") no-repeat;
                 height: 62px;
                 width: 62px;
+                background-size: 80%;
             }
             &.icon-3 {
                 background: url("../../assets/images/skill-mentoring-icon.svg") no-repeat;
                 height: 68px;
                 width: 87px;
+                background-size: 80%;
             }
             &.icon-4 {
                 background: url("../../assets/images/skill-digest-icon.svg") no-repeat;
                 width: 66px;
                 height: 64px;
+                background-size: 80%;
             }
             &.icon-5 {
                 background: url("../../assets/images/skill-interview-icon.svg") no-repeat;
                 width: 97px;
                 height: 71px;
+                background-size: 80%;
             }
             &.icon-6 {
                 background: url("../../assets/images/skill-events-icon.svg") no-repeat;
                 width: 60px;
                 height: 67px;
+                background-size: 80%;
             }
         }
         &.tile-bg-1 {

@@ -72,7 +72,7 @@
         </div>
       </div>
     </section>
-    <section class="mt-3 text-center">
+    <section class="mt-3 text-center container">
       <div class="skill-card" *ngFor="let tile of tileList; let i=index">
         <div class="topics-card" [ngClass]="tile.uniqueId + ' tile-bg-' + (i+1)" (click)="navigatePage(tile.navUrl)">
           <div class="topic-title">{{tile.displayName}}</div>
