@@ -44,11 +44,11 @@
           <h2>Other Popular AI Newsletters you may be interested in!</h2>
         </div>
 
-        <div *ngFor="let category of categoryDetail; let i = index;">
-          <div class="section-title text-left pl-5 ml-5">
+        <div *ngFor="let category of categoryDetail; let i = index;" class="container">
+          <div class="section-title text-left">
             <h2>{{category.displayName}}</h2>
           </div>
-          <div class="mx-1 text-center container">
+          <div>
             <div *ngFor="let dig of digest[category.id]; let i = index;" class="digest-card"
               [ngClass]="category.bgColor">
               <div class="title"><span *ngIf="category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>

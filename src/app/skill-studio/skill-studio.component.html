@@ -24,7 +24,7 @@
                       <button class="button primary-btn-sm">Know More</button>
                     </div>
                     <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img text-right">
-                      <img src="/assets/images/explore-banner-1.png" class="img-fluid animated" alt="" />
+                      <img src="/assets/images/explore-banner-1.png" class="img-fluid animated w-75" alt="" />
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                       <button class="button primary-btn-sm">Know More</button>
                     </div>
                     <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img text-right">
-                      <img src="/assets/images/explore-banner-1.png" class="img-fluid animated" alt="" />
+                      <img src="/assets/images/explore-banner-1.png" class="img-fluid animated w-75" alt="" />
                     </div>
                   </div>
                 </div>
@@ -76,7 +76,7 @@
       <div class="skill-card" *ngFor="let tile of tileList; let i=index">
         <div class="topics-card" [ngClass]="tile.uniqueId + ' tile-bg-' + (i+1)" (click)="navigatePage(tile.navUrl)">
           <div class="topic-title">{{tile.displayName}}</div>
-          <div class="topic-icon d-inline-flex"  [ngClass]="tile.uniqueId + ' icon-' + (i+1)"></div>
+          <div class="topic-icon"  [ngClass]="tile.uniqueId + ' icon-' + (i+1)"></div>
           <p>{{tile.desc}}</p>
         </div>
       </div>

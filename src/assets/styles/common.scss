@@ -75,9 +75,9 @@ h4 {
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   h2 {
-    font-size: 34px;
+    font-size: 28px;
   }
 }
 
@@ -1218,7 +1218,7 @@ iframe .navbar-container,
 
 /**********Skill Studio Common Slider Backrounds***********/
 .skill-studio-page {
-  font-size: 18px;
+  font-size: 16px;
 
   &.p-main {
     padding-top: 75px;
@@ -1235,7 +1235,7 @@ iframe .navbar-container,
     // background-size: cover;
     // margin-bottom: 70px;
     .carousel .carousel-inner .carousel-item {
-      height: 418px;
+      height: 418px !important;
     }
   }
 }
@@ -1252,7 +1252,7 @@ iframe .navbar-container,
   }
 }
 .events-banner-img {
-  width: 443px;
+  width: auto;
   height: 306px;
   border-radius: 25px;
 }
