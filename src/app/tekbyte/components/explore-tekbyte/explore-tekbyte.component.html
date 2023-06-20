@@ -9,54 +9,30 @@
         </div>
       </div>
     </div>
-    <section class="container-fluid skill-studio-bg d-flex px-0 pt-3 text-center align-items-center justify-content-center">
+    <section
+      class="container-fluid skill-studio-bg d-flex px-0 pt-3 text-center align-items-center justify-content-center">
       <label>Placeholder for Banner</label>
     </section>
   </div>
   <div class="col-lg-12 bg-light-gray pb-5">
-    
+
     <section class="container">
       <div class="search-box mt-0 py-4 mb-3 ml-0">
         <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
         <button title="search bar" class="search-btn mt-2"></button>
       </div>
-      <!-- This below <a> tag need to be deleted after proper router link given -->
-    <a class="follow-btn" [routerLink]="['/tekbyte/MTV-null-59e01c91-53e5-4506-aece-776a428d5460/details']">Link To -
-      Skill Studio Details Page</a>
-    <!-- End -->
+      <!-- End -->
+
     </section>
     <section class="py-3 container">
       <div class="section-title text-left">
         <h2>Featured Topics</h2>
       </div>
-      <div>
-        <div class="digest-card">
+      <div class="mx-1 text-center">
+        <div *ngFor="let tl of tekbyteList" class="digest-card" (click)="openTekbyte(tl)">
           <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
-            <div class="d-flex justify-content-between">
-              <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              <button class="free-btn">FREE</button>
-            </div>
-          </div>
-        </div>
-        <div class="digest-card">
-          <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
-            <div class="d-flex justify-content-between">
-              <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              <button class="free-btn">FREE</button>
-            </div>
-          </div>
-        </div>
-        <div class="digest-card">
-          <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
+            <div class="title">{{tl.title}}</div>
+            <div class="description">{{tl.summary}}</div>
             <div class="d-flex justify-content-between">
               <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
               <button class="free-btn">FREE</button>
