@@ -8,14 +8,15 @@
       padding-top: 75px;
     }
   }
+  
   .skill-studio-page  {
-    background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px -280px;
+    background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px -175px;
     // url("/assets/images/topics-bg-img.png") no-repeat;
     // background-image:linear-gradient(to bottom, rgba(255, 255, 252, 1), rgba(239, 214, 221, 1)),  url('/assets/images/topics-bg-img.png');
     padding-top: 50px;
   }
   .container {
-    max-width: 1400px;
+    // max-width: 1400px;
     .topics-img {
       height: 355px;
       margin-right: 90px;
@@ -77,6 +78,9 @@
   // Key Concepts
   .key-concepts {
     padding: 60px 0 25px;
+    .sub-heading {
+      font-size: 32px;
+    }
     h2 {
       font-size: 55px;
       line-height: 45px;
@@ -87,15 +91,17 @@
     }
     .key-points-img {
       padding-left: 30px;
-      height: 540px;
+      height: auto;
+      min-width: 58px;
     }
     .key-points {
       padding-bottom: 40px;
-      display: flex;
+      // display: flex;
 
       h3 {
         font-family: $heading-fonts;
         color: #3c3b3b;
+        font-size: 24px;
       }
       .numbers {
         font-size: 150px;
@@ -384,4 +390,9 @@ ul.timeline {
     padding: 4px;
     margin: 20px 50px 0 0;
   }
+}
+.heading-highlight {
+  border-left: 6px solid #E60041;
+  height: 42px;
+  margin-right: 17px;
 }
