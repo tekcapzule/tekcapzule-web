@@ -1,2 +1,65 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
+
+.filter-column {
+    background: $white;
+    border: 1px solid #D0D0D0;
+    border-radius: 5px;
+    padding: 40px;
+    font-family: "HelveticaNeueLTPro";
+
+    .filter-heading {
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+    .filter-topic {
+        font-size: 18px;
+        padding-bottom: 20px;
+    }
+}
+
+.appstore-tile {
+    background: $white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 320px;
+    height: 430px;  
+    border: 1px solid #BCBCBC;
+    display: inline-grid;
+    margin: 30px 30px 10px 0;
+    .app-logo {
+        margin-bottom: 20px;
+        width: 275px;
+        height: 162px;
+        align-items: center;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-around;
+        img{
+            max-height: 162px;
+            border-radius: 10px;
+        }
+    }
+    .title {
+        font-size: 24px;
+        font-family: "HelveticaNeueLTPro";
+        color: #262626;
+    }
+    .category-type {
+        background: #DEDEDE;
+        border-radius: 17px;
+        padding: 3px 12px;
+        width: fit-content;
+        font-size: 16px;
+        margin: 12px 0;
+    }
+    .description {
+        font-size: 16px;
+        font-family: "GTWalsheimPro-Medium";
+        color: #444444;
+    }
+}
+.show-result {
+    font-size: 24px;
+    font-family: "PROXIMANOVASEMIBOLD";
+}
