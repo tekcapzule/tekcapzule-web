@@ -24,11 +24,11 @@
       <!-- End -->
 
     </section>
-    <section class="py-3">
-      <div class="section-title text-left ml-5">
+    <section class="py-3 container">
+      <div class="section-title text-left">
         <h2>Featured Topics</h2>
       </div>
-      <div class="mx-1 text-center">
+      <div>
         <div *ngFor="let tl of tekbyteList" class="digest-card" (click)="openTekbyte(tl)">
           <div class="conference-header">
             <div class="title">{{tl.title}}</div>
@@ -43,23 +43,12 @@
     </section>
     <!-- Popular Events Section -->
 
-    <section class="py-3">
-      <div class="section-title text-left ml-5">
+    <section class="py-3 container">
+      <div class="section-title text-left">
         <h2>Other Popular Topics Based on Your Interest</h2>
       </div>
-      <div class="mx-1 text-center">
+      <div>
         <div class="digest-card night-rider">
-          <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
-            <div class="d-flex justify-content-between">
-              <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              <button class="free-btn">FREE</button>
-            </div>
-          </div>
-        </div>
-        <div class="digest-card">
           <div class="conference-header">
             <div class="title">So, You Want to Be a Coder</div>
             <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium

@@ -2,25 +2,36 @@
 <app-spinner></app-spinner>
 
 <div *ngIf="tekbyteData" id="tekbytetopicdetails" class="tekbyte-details-page p-main pb-0">
-  <div class="container-fluid bg-light-pink">
-    <div class="container">
-    <div class="search-box mt-0 py-5">
-      <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
-      <button title="search bar" class="search-btn mt-2"></button>
+  <div class="col-lg-12 px-0">
+    <div class="container-fluid top-navigation">
+      <div class="container">
+        <div class="back-link">
+          <a class="url-link">Skill Studio</a>
+          <a class="url-link">TekByte</a>
+          <span>{{tekbyteData.title}}</span>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
   <div class="row">
     <div class="col-lg-10 px-0 pb-0">
-      <section class="container-fluid skill-studio-bg px-0 pt-5">
+      <section class="container-fluid skill-studio-page px-0 pt-5 ">
         <div class="container">
           <div class="d-flex">
             <img src="/assets/images/topic-image.png" alt="topic image" class="topics-img" />
             <div class="pb-4">
               <div class="d-flex">
                 <h2>{{tekbyteData.title}}</h2>
+                <span class="follow">FOLLOW</span>
               </div>
               <p>{{tekbyteData.description}}</p>
+              <ul class="mr-2 list-unstyled">
+                <li>#UX</li>
+                <li>#User-centered design</li>
+                <li>#Interaction design</li>
+                <li>#Usability testing</li>
+                <li>#User research</li>
+              </ul>
             </div>
           </div>
           <!-- Business Modal Section -->
@@ -65,19 +76,40 @@
             <img src="/assets/images/keypoints-list.png" class="key-points-img" alt="bullet list" />
           </div>
           <div class="col-lg-11">
-            <h3 class="sub-heading pb-3">Key Concepts</h3>
+            <h3 class="sub-heading pb-3"><span class="heading-highlight"></span> Key Concepts</h3>
             <div *ngFor="let kc of tekbyteData.keyConcepts" class="key-points">
               <div>
                 <h3>{{kc.title}}</h3>
                 <p>{{kc.description}}</p>
               </div>
             </div>
+            <h3 class="sub-heading pb-3"><span class="heading-highlight"></span> Applications</h3>
+            <div *ngFor="let app of tekbyteData.applications" class="key-points">
+              <h3>{{app.title}}</h3>
+              <p class="description">{{app.description}}</p>
+            </div>
+            <div *ngFor="let app of tekbyteData.applications" class="key-points">
+              <h3>{{app.title}}</h3>
+              <p class="description">{{app.description}}</p>
+            </div>
+            <div *ngFor="let app of tekbyteData.applications" class="key-points">
+              <h3>{{app.title}}</h3>
+              <p class="description">{{app.description}}</p>
+            </div>
+            <div *ngFor="let app of tekbyteData.applications" class="key-points">
+              <h3>{{app.title}}</h3>
+              <p class="description">{{app.description}}</p>
+            </div>
+            <div *ngFor="let app of tekbyteData.applications" class="key-points">
+              <h3>{{app.title}}</h3>
+              <p class="description">{{app.description}}</p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Challenges Section -->
-      <section *ngIf="tekbyteData.applications" class="container">
+      <!-- <section *ngIf="tekbyteData.applications" class="container">
         <div class="challenges-container">
           <div class="sub-heading">Applications</div>
           <div *ngFor="let app of tekbyteData.applications">
@@ -86,7 +118,7 @@
           </div>
 
         </div>
-      </section>
+      </section> -->
       <div class="container-fluid bg-gray pt-3">
         <!-- Capsules Section -->
         <!--section class="container">

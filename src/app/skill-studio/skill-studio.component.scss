@@ -45,68 +45,75 @@
         margin: 0px 40px 40px 0px;
         border: 0 none;
     .topics-card {
-        height: 263px;
-        width: 536px;
+        height: 192px;
+        width: 395px;
         box-shadow: 0px 3px 39px #0000000f;
         transition: 0.3s;
         color: #fff;
         text-align: center;
-        padding: 30px 100px;
+        padding: 20px;
+        border-radius: 10px;
         cursor: pointer;
         .topic-title {
-            font-size: 34px;
+            font-size: 24px;
             font-family: $heading-fonts;
         }
         .topic-icon {
-            margin: 15px 0;
+            margin: 10px auto 0;
             &.icon-1 {
                 background: url("../../assets/images/skill-course-icon.svg") no-repeat;
                 height: 62px;
                 width: 62px;
+                background-size: 70%;
             }
             &.icon-2 {
                 background: url("../../assets/images/skill-course-icon.svg") no-repeat;
                 height: 62px;
                 width: 62px;
+                background-size: 70%;
             }
             &.icon-3 {
                 background: url("../../assets/images/skill-mentoring-icon.svg") no-repeat;
                 height: 68px;
                 width: 87px;
+                background-size: 70%;
             }
             &.icon-4 {
                 background: url("../../assets/images/skill-digest-icon.svg") no-repeat;
                 width: 66px;
                 height: 64px;
+                background-size: 70%;
             }
             &.icon-5 {
                 background: url("../../assets/images/skill-interview-icon.svg") no-repeat;
                 width: 97px;
                 height: 71px;
+                background-size: 70%;
             }
             &.icon-6 {
                 background: url("../../assets/images/skill-events-icon.svg") no-repeat;
                 width: 60px;
                 height: 67px;
+                background-size: 70%;
             }
         }
         &.tile-bg-1 {
-            background: url("../../assets/images/tile-bg-1.png");
+            background: url("../../assets/images/tile-bg-1.png") no-repeat 0 0/100%;
         }
         &.tile-bg-2 {
-            background: url("../../assets/images/tile-bg-2.png");
+            background: url("../../assets/images/tile-bg-2.png") no-repeat 0 0/100%;
         }
         &.tile-bg-3 {
-            background: url("../../assets/images/tile-bg-3.png");
+            background: url("../../assets/images/tile-bg-3.png") no-repeat 0 0/100%;
         }
         &.tile-bg-4 {
-            background: url("../../assets/images/tile-bg-4.png");
+            background: url("../../assets/images/tile-bg-4.png") no-repeat 0 0/100%;
         }
         &.tile-bg-5 {
-            background: url("../../assets/images/tile-bg-5.png");
+            background: url("../../assets/images/tile-bg-5.png") no-repeat 0 0/100%;
         }
         &.tile-bg-6 {
-            background: url("../../assets/images/tile-bg-6.png");
+            background: url("../../assets/images/tile-bg-6.png") no-repeat 0 0/100%;
         }
         &:hover {
           transform: scale(1.03);
