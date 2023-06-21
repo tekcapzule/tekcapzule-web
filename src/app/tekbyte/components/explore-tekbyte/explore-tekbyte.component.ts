@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, TekByteApiService } from '@app/core';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
+import { Constants } from '@app/shared/utils';
+import { ITile } from '@app/skill-studio/models/tile.model';
+import { HelperService } from './../../../core/services/common/helper.service';
 
 @Component({
   selector: 'app-explore-tekbyte',
@@ -11,6 +14,7 @@ import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 })
 export class ExploreTekbyteComponent implements OnInit {
   tekbyteList: TekByteItem[] = [];
+  tileDetail: ITile;
 
   constructor(private tekbyteApi: TekByteApiService,
     private spinner: AppSpinnerService, private router: Router) {}

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ErrorModel, TopicItem } from '@app/shared/models';
 import { SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
+import { ITile } from '@app/skill-studio/models/tile.model';
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -96,5 +97,9 @@ export class HelperService {
       }
     });
     return this.selectedMenu;
+  }
+
+  getTileDetails(uniqueId):ITile {
+    return Constants.SkillTiles.find(tile=> tile.uniqueId === uniqueId);
   }
 }
