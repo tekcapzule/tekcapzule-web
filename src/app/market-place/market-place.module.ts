@@ -5,9 +5,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '@app/shared';
 import { MarketPlaceComponent } from './market-place.component';
 import { MarketPlaceRoutingModule } from './market-place-routing.module';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [MarketPlaceComponent],
-  imports: [CommonModule, SharedModule, MatTabsModule, MarketPlaceRoutingModule],
+  imports: [CommonModule, SharedModule, MatTabsModule, MarketPlaceRoutingModule, CheckboxModule],
 })
 export class MarketPlaceModule {}
