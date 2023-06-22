@@ -31,7 +31,6 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
 
   getTekbyteDetaills(tekbyteCode: string) {
     this.tekbyteApi.getTekByte(tekbyteCode).subscribe(data => {
-      console.log('tekbyteApi', data);
       this.tekbyteData = data;
       this.spinner.hide();
     }, err => {

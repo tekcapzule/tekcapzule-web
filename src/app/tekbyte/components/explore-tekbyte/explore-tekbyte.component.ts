@@ -24,7 +24,6 @@ export class ExploreTekbyteComponent implements OnInit {
     this.tekbyteApi.getAllTekByte().subscribe(data => {
       if(data) {
         this.tekbyteList = data;
-        console.log(this.tekbyteList);
         this.spinner.hide();
       }
     }, err => {

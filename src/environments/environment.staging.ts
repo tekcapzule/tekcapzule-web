@@ -8,6 +8,7 @@ export const environment = {
   subscriptionApiGateway: 'jianrwq924',
   topicApiGateway: 'ydfobf5vfd',
   tekByteApiGateway: '66ja8b3hcl',
+  marketplaceApiGateway: '2qdikhxbob',
   userApiGateway: 'x5jyub91a3',
   digestApiGateway: '7vrqxopm10',
   awsRegion: 'execute-api.us-east-1',
