@@ -17,7 +17,15 @@
         padding-bottom: 20px;
     }
 }
-
+.field-checkbox {
+    display: flex;
+    label {
+        margin-bottom: 0;
+        margin-left: 15px;
+        font-family: "GTWalsheimPro-Medium";
+        color: #2C2C2C;
+    }
+}
 .appstore-tile {
     background: $white;
     padding: 20px;
@@ -48,10 +56,11 @@
     .category-type {
         background: #DEDEDE;
         border-radius: 17px;
-        padding: 3px 12px;
+        padding: 3px 20px;
         width: fit-content;
         font-size: 16px;
         margin: 12px 0;
+        height: 30px;
     }
     .description {
         font-size: 16px;
@@ -62,4 +71,12 @@
 .show-result {
     font-size: 24px;
     font-family: "PROXIMANOVASEMIBOLD";
+}
+select {
+    font-family: "HelveticaNeueLTPro";
+    font-size: 18px;
+    background-color: #fff;
+    height: 60px;
+    border-radius: 7px;
+    color: #2C2C2C;
 }
