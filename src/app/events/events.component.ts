@@ -45,7 +45,6 @@ export class EventsComponent implements OnInit {
 
   onRegister(eve) {
     window.open(eve.registrationUrl, '_blank');
-    console.log('event',eve);
   }
 
   onPastEvents(eve) {

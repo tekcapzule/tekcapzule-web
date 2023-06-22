@@ -41,7 +41,6 @@ export class WeeklyDigestComponent implements OnInit {
         this.digest[item.category].push(item);
       });;
       this.categories = Object.keys(this.digest).sort();
-      console.log(this.digest, this.categories);
       this.spinner.hide();
     }, err => {
       this.spinner.hide();

@@ -67,14 +67,21 @@
             <div class="filter-heading">FILTER</div>
             <div>
             <div class="filter-topic">Type</div>
-            <p-checkbox value="New York" inputId="ny"></p-checkbox>
-              <label for="ny">Free</label><br>
-              <p-checkbox value="New York" inputId="ny"></p-checkbox>
-              <label for="ny">Paid</label><br>
+              <div *ngFor="let category of paymentCategories" class="field-checkbox">
+                <p-checkbox name="payment" [value]="category" (onChange)="onPaymentTypeChange($event, category.key)" [inputId]="category.key"></p-checkbox>
+                <label [for]="category.key">{{ category.name }}</label>
             </div>
             <div class="filter-topic">OS</div>
+              <div *ngFor="let category of osCategories" class="field-checkbox">
+              <p-checkbox name="os" [value]="category" [(ngModel)]="selectedOS" [inputId]="category.key"></p-checkbox>
+              <label [for]="category.key">{{ category.name }}</label>
+          </div>
             <div class="filter-topic">Used</div>
+              <p-checkbox value="mostused" inputId="mostused" (change)="onUsedChange($event.value, 'mostused')"></p-checkbox>
+              <label for="ny">Most Used</label><br>
+            </div>
             <div class="filter-topic">Category</div>
+
             <div class="filter-topic">Filter Title 01</div>
 
           </div>
@@ -94,96 +101,22 @@
             </div>
           </div>
         </div>
-          <div class="show-result">Showing <span>1774</span> of <span>774</span></div>
+          <div class="show-result">Showing <span>{{filteredProducts.length}}</span> of <span>{{products.length}}</span></div>
+          
           <div class="d-flex flex-wrap">
-            <div class="appstore-tile">
+            <div *ngFor="let product of products; let i = index;" class="appstore-tile">
               <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-1.png" alt="" />
+                <img [src]="product.imageUrl" alt="" />
               </div>
-              <div class="title">Petal</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
+              <div class="title">{{product.title}}</div>
+              <div class="category-type">{{product.category}}</div>
+              <p class="description">{{product.summary}}</p>
               <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
+                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>{{product.recommendations}}</div>
               </div>
             </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-2.png" alt="" />
-              </div>
-              <div class="title">Music Clips</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-3.png" alt="" />
-              </div>
-              <div class="title">UKit AI</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-4.png" alt="" />
-              </div>
-              <div class="title">Durable</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-5.png" alt="" />
-              </div>
-              <div class="title">Shuffle</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-6.png" alt="" />
-              </div>
-              <div class="title">Programming Helper</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-7.png" alt="" />
-              </div>
-              <div class="title">Zentask</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
-            <div class="appstore-tile">
-              <div class="app-logo">
-                <img src="../../assets/images/appstore-icon-8.png" alt="" />
-              </div>
-              <div class="title">Zigpoll</div>
-              <div class="category-type">Category Type</div>
-              <p class="description">A tool to optimize resumes for ATS and job search success.</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>225</div>
-              </div>
-            </div>
+
+
           </div>
         </div>
       </div>

@@ -62,7 +62,7 @@ export class AuthService {
   }
 
   private authEventChanged(authEvent: string, authData: any): void {
-    console.log('authEventChanged --->> ', authEvent, authData);
+    //console.log('authEventChanged --->> ', authEvent, authData);
     if (authEvent === 'signIn') {
       this.authenticateUser();
       this.router.navigate(['/']);
@@ -118,7 +118,7 @@ export class AuthService {
         }
       })
       .catch(error => {
-        console.log('error --- ', error);
+        //console.log('error --- ', error);
         this.invalidateUser();
       });
   }
@@ -151,7 +151,7 @@ export class AuthService {
         this.routeToSingIn();
       })
       .catch(error => {
-        console.log('signOutUser error ------', error);
+        //console.log('signOutUser error ------', error);
         this.routeToSingIn();
       });
   }

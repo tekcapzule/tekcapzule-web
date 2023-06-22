@@ -11,4 +11,5 @@ export { UserApiService } from './services/user-api/user-api.service';
 export { ApiInterceptor } from './interceptors/api.interceptor';
 export { CacheInterceptor } from './interceptors/cache.interceptor';
 export { AppSpinnerService } from './services/app-spinner/app-spinner.service';
+export { MarketPlaceApiService } from './services/market-place-api/market-place-api.service';
 export { AuthService, AwsUserInfo } from './services/auth/auth.service';
