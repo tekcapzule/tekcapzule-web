@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, MarketPlaceApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -12,40 +12,39 @@ import { IProduct } from '@app/shared/models/market.model';
 })
 export class ProductDetailComponent implements OnInit {
   product: IProduct;
-  productList: IProduct[];
+  productList: IProduct[] = [];
   titleUrl: string[];
 
   constructor(private spinner: AppSpinnerService,
     private marketService: MarketPlaceApiService,
     private route: ActivatedRoute,
-    private helperService: HelperService
-    ) {}
+    private helperService: HelperService,
+    private router: Router) {
+    }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.titleUrl = [this.helperService.getTileDetails('tekbytes').navUrl];
-    this.getProduct();
-  }
-
-  getProduct() {
     this.route.params.subscribe(params => {
-      this.marketService.getProduct(params['code']).subscribe(data => {
-        this.product = data;
-        this.spinner.hide();
-      }, err => {
-        console.log(err);
-        this.spinner.hide();
-      });
+      this.getAllProducts(params['code']);
     });
   }
 
-  getAllProducts() {
+  getAllProducts(code: string) {
     this.marketService.getAllProducts().subscribe(data => {
+      this.product = data.find(pd => pd.code === code);
       this.productList = data.filter(pd => pd.category === this.product.category);
+      this.spinner.hide();
+    }, err => {
+      this.spinner.hide();
     });
   }
-
 
   onExplore() {
     window.open(this.product.productDemo.videoUrl, '_blank');
+  }
+
+  openProductDetails(product) {
+    this.router.navigateByUrl('/product-detail/' + product.code);
   }
 }
