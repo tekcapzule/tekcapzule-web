@@ -11,12 +11,12 @@ export interface IProduct {
   website: string;
   recommendations: number;
   imageUrl: string;
-  productDemo: IProductDetails;
-  userGuides: IProductDetails;
+  productDemo: IProductDet;
+  userGuides: IProductDet;
   status: string;
 }
 
-export interface IProductDetails {
+export interface IProductDet {
   title: string;
   durationInMinutes: string;
   summary: string;

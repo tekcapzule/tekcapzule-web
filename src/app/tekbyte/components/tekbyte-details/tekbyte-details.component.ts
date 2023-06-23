@@ -6,6 +6,8 @@ import { takeUntil } from 'rxjs/operators';
 import { AppSpinnerService, CapsuleApiService, TekByteApiService, TopicApiService } from '@app/core';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
+import { HelperService } from '@app/core/services/common/helper.service';
+import { ITile } from '@app/skill-studio/models/tile.model';
 
 @Component({
   selector: 'app-tekbyte-details',
@@ -14,15 +16,17 @@ import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 })
 export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   tekbyteData: TekByteItem;
+  titleUrl: string[];
 
   constructor(
     private spinner: AppSpinnerService,
-    private route: ActivatedRoute, 
-    private activatedRoute: ActivatedRoute,
-    private tekbyteApi: TekByteApiService
+    private route: ActivatedRoute,
+    private tekbyteApi: TekByteApiService,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
+    this.titleUrl = [this.helperService.getTileDetails('tekbytes').navUrl];
     this.spinner.show();
     this.route.params.subscribe(params => {
       this.getTekbyteDetaills(params['code']);

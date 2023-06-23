@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppSpinnerService, MarketPlaceApiService } from '@app/core';
 import { IProduct } from '@app/shared/models/market.model';
@@ -25,7 +26,8 @@ export class MarketPlaceComponent implements OnInit {
     { name: 'Linux', key: 'linux' }
   ];
 
-  constructor(private spinner: AppSpinnerService, private marketApi: MarketPlaceApiService) {}
+  constructor(private spinner: AppSpinnerService, private marketApi: MarketPlaceApiService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -61,5 +63,9 @@ export class MarketPlaceComponent implements OnInit {
 
   onUsedChange(value, type) {
     console.log('sdfdsf', value, type);
+  }
+
+  openProductDetails(product) {
+    this.router.navigateByUrl('/product-detail/' + product.code);
   }
 }
