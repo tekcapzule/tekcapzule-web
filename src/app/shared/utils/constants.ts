@@ -33,6 +33,7 @@ export const Constants = {
     {uniqueId: 'courses', displayName: 'Courses', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/courses'},
     {uniqueId: 'mentoring', displayName: 'Mentoring', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'},
     {uniqueId: 'weeklyDigest', displayName: 'Weekly Digest', desc: 'Get your weekly digest from us', navUrl:'/weekly-digest'},
+    //{uniqueId: 'marketPlace', displayName: 'Market Place', desc: 'See the products available in market', navUrl:'/market-place'},
     {uniqueId: 'interviewPrep', displayName: 'Interview Prep', desc: 'Go ahead and prepare for your interview', navUrl:'/interview-prepartion'},
     {uniqueId: 'events', displayName: 'Events', desc: 'Get ahead in your AI journey with our Events', navUrl:'/events'}
   ]
