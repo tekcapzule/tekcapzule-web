@@ -877,8 +877,37 @@ iframe .navbar-container,
     max-width: 1470px;
   }
 }
+
 .badge {
+  border-radius: 17px;
+  padding: 3px 20px;
+  width: fit-content;
+  font-size: 16px;
+  margin-bottom: 12px;
+  height: 30px;
+  align-items: center;
+  display: flex;
   font-weight: normal;
+
+  &.category {
+      background: #DEDEDE;
+  }
+  &.free {
+      background: #A4CA80;
+  }
+  &.paid {
+      background: #FDBCBC;
+  }
+  &.premium {
+      background: #FFD86F;
+  }
+  &.pink {
+    background: #E60041;
+    color: #fff;
+  }
+  &.green {
+    background: #00FF84;
+  }
 }
 .badge-danger {
   background: linear-gradient(90deg, rgba(244, 201, 133, 1) 0%, rgba(245, 61, 109, 1) 100%);
@@ -1267,4 +1296,44 @@ iframe .navbar-container,
   border-radius: 20px;
   padding: 5px 20px;
   border: 0 none;
+}
+
+/*************Filter Styles**************/
+.filter-column {
+  background: $white;
+  border: 1px solid #D0D0D0;
+  border-radius: 5px;
+  padding: 40px;
+  font-family: "HelveticaNeueLTPro";
+
+  .filter-heading {
+      font-size: 20px;
+      padding-bottom: 20px;
+  }
+  .filter-topic {
+      font-size: 18px;
+      padding-bottom: 20px;
+  }
+}
+.field-checkbox {
+  display: flex;
+  label {
+      margin-bottom: 0;
+      margin-left: 15px;
+      font-family: "GTWalsheimPro-Medium";
+      color: #2C2C2C;
+  }
+}
+
+.show-result {
+  font-size: 24px;
+  font-family: "PROXIMANOVASEMIBOLD";
+}
+select {
+  font-family: "HelveticaNeueLTPro";
+  font-size: 18px;
+  background-color: #fff;
+  height: 60px;
+  border-radius: 7px;
+  color: #2C2C2C;
 }

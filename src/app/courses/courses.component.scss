@@ -1,2 +1,22 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
+
+.carousel-card
+{
+    height: 415px;
+    width: 33.33%;
+    &:hover {
+        transform: none;
+    }
+    .header-image {
+        height: auto;
+    }
+}
+.search-box {
+    margin: 0;
+    font-style: italic;
+    input {
+        font-size: 18px;
+        font-family: 'GTWalsheimPro-Regular';
+    }
+}

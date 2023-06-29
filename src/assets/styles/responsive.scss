@@ -282,6 +282,8 @@
   }
   .hero-img {
     text-align: center;
+    display: initial !important;
+    height: inherit !important;
   }
   .community-page
   {
@@ -345,6 +347,9 @@
   }
   .capsule-filter {
     right: 21% !important;
+  }
+  .carousel-card {
+    height: 440px;
   }
 }
 @media not all and (min-resolution:.001dpcm) {

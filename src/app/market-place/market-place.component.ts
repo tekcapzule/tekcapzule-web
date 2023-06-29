@@ -16,12 +16,12 @@ export class MarketPlaceComponent implements OnInit {
   selectedOS: any[] = [];
   paymentCategories: any[] = [
     { name: 'Free', key: 'FREE' },
-    { name: 'FREEMIUM', key: 'FREEMIUM' },
+    { name: 'Premium', key: 'PREMIUM' },
     { name: 'Paid', key: 'PAID' }
   ];
 
   osCategories: any[] = [
-    { name: 'windows', key: 'Windows' },
+    { name: 'Windows', key: 'Windows' },
     { name: 'Mac', key: 'Mac' },
     { name: 'Linux', key: 'linux' }
   ];

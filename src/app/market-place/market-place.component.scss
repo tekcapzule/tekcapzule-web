@@ -1,34 +1,9 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 
-.filter-column {
-    background: $white;
-    border: 1px solid #D0D0D0;
-    border-radius: 5px;
-    padding: 40px;
-    font-family: "HelveticaNeueLTPro";
-
-    .filter-heading {
-        font-size: 20px;
-        padding-bottom: 20px;
-    }
-    .filter-topic {
-        font-size: 18px;
-        padding-bottom: 20px;
-    }
-}
-.field-checkbox {
-    display: flex;
-    label {
-        margin-bottom: 0;
-        margin-left: 15px;
-        font-family: "GTWalsheimPro-Medium";
-        color: #2C2C2C;
-    }
-}
 .appstore-tile {
     background: $white;
-    padding: 20px;
+    padding: 20px 20px 0px;
     border-radius: 15px;
     width: 320px;
     height: 430px;  
@@ -44,6 +19,8 @@
         display: flex;
         margin: 0 auto;
         justify-content: space-around;
+        border: 1px solid #B4B4B4;
+        border-radius: 10px;
         img{
             max-height: 162px;
             border-radius: 10px;
@@ -54,30 +31,18 @@
         font-family: "HelveticaNeueLTPro";
         color: #262626;
     }
-    .category-type {
-        background: #DEDEDE;
-        border-radius: 17px;
-        padding: 3px 20px;
-        width: fit-content;
-        font-size: 16px;
-        margin: 12px 0;
-        height: 30px;
-    }
+    
     .description {
         font-size: 16px;
         font-family: "GTWalsheimPro-Medium";
         color: #444444;
     }
 }
-.show-result {
-    font-size: 24px;
-    font-family: "PROXIMANOVASEMIBOLD";
-}
-select {
-    font-family: "HelveticaNeueLTPro";
-    font-size: 18px;
-    background-color: #fff;
-    height: 60px;
-    border-radius: 7px;
-    color: #2C2C2C;
+.search-box {
+    margin: 0;
+    font-style: italic;
+    input {
+        font-size: 18px;
+        font-family: 'GTWalsheimPro-Regular';
+    }
 }
