@@ -271,7 +271,7 @@ h4 {
     }
   }
   &.tertiary {
-    border-radius: 8px !important;
+    border-radius: 8px;
     background-color: $primary-color;
     color: $white;
     width: 170px;
@@ -1336,4 +1336,37 @@ select {
   height: 60px;
   border-radius: 7px;
   color: #2C2C2C;
+}
+.b-radius {
+  border-radius: 25px!important;
+}
+
+.sub-title {
+  font-size: 24px;
+  font-family: "HelveticaNeueLTPro";
+  color: #262626;
+}
+
+/**********Video*********/
+.play-button {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 29px);
+  width: 60px;
+  height: 60px;
+  transition: background-color 0.5s ease;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/play-button.svg");
+  &:hover{
+    -webkit-transition: background-position 200ms ease-in-out;
+    -moz-transition: background-position 200ms ease-in-out;
+    transition: background-position 200ms ease-in-out;
+    background-image: url("../../assets/images/play-button-hover.svg");
+    // animation: pulse-border 1500ms ease-out infinite;
+    animation-name: pulse-border;
+animation-duration: 1500ms;
+animation-delay: ease-out;
+animation-iteration-count: infinite;
+animation-timing-function: cubic-bezier(.65,0,.34,1);
+  }
 }
