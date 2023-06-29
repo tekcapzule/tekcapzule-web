@@ -4,8 +4,19 @@
 .carousel-card
 {
     height: 415px;
-    width: 405px;
+    width: 33.33%;
     &:hover {
         transform: none;
+    }
+    .header-image {
+        height: auto;
+    }
+}
+.search-box {
+    margin: 0;
+    font-style: italic;
+    input {
+        font-size: 18px;
+        font-family: 'GTWalsheimPro-Regular';
     }
 }
