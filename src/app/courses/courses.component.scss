@@ -1,2 +1,11 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
+
+.carousel-card
+{
+    height: 415px;
+    width: 405px;
+    &:hover {
+        transform: none;
+    }
+}

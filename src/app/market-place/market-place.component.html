@@ -3,7 +3,7 @@
 
   <div class="col-lg-12 px-0">
     <section class="container-fluid skill-studio-bg  px-0 pt-3">
-      <div id="heroBanner" class="carousel slide" data-ride="carousel">
+      <div id="heroBanner" class="carousel slide container" data-ride="carousel">
         <ul class="carousel-indicators">
           <li data-target="#heroBanner" data-slide-to="0" class="active"></li>
           <li data-target="#heroBanner" data-slide-to="1"></li>
@@ -15,7 +15,7 @@
                 <div>
                   <div class="row justify-content-center">
                     <div
-                      class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center onOverlayContent">
+                      class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center onOverlayContent">
 
                       <h3>MEET HOCOOS</h3>
                       <h2>YOUR AI WEBSITE BUILDER</h2>
@@ -39,7 +39,7 @@
                 <div>
                   <div class="row justify-content-center">
                     <div
-                      class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center onOverlayContent">
+                      class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center onOverlayContent">
 
                       <h3>MEET HOCOOS</h3>
                       <h2>YOUR AI WEBSITE BUILDER</h2>
@@ -64,7 +64,7 @@
   <div class="col-lg-12 bg-gray py-5">
     <section class="container-fluid px-5">
       <div class="row">
-        <div class="col-lg-2">
+        <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="filter-column">
             <div class="filter-heading">FILTER</div>
             <div>
@@ -98,7 +98,7 @@
 
           </div>
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-9 col-md-8  col-sm-6">
           <div class="row">
           <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-8">
             <input type="text" name="searchTopics"
@@ -121,10 +121,11 @@
                 <img [src]="product.imageUrl" alt="" />
               </div>
               <div class="title">{{product.title}}</div>
-              <div class="category-type">{{product.category}}</div>
+              <div class="badge category">{{product.category}}</div>
               <p class="description">{{product.summary}}</p>
-              <div class="mt-3">
-                <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>{{product.recommendations}}</div>
+              <div class="mt-3 d-flex align-items-center justify-content-between">
+                <div class="pl-0"><span class="okhand-icon pr-4"></span>{{product.recommendations}}</div>
+                <div class="badge free">FREE</div>
               </div>
             </div>
 
