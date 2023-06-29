@@ -12,4 +12,5 @@ export { ApiInterceptor } from './interceptors/api.interceptor';
 export { CacheInterceptor } from './interceptors/cache.interceptor';
 export { AppSpinnerService } from './services/app-spinner/app-spinner.service';
 export { MarketPlaceApiService } from './services/market-place-api/market-place-api.service';
+export { CourseApiService } from './services/course-api/course-api.service';
 export { AuthService, AwsUserInfo } from './services/auth/auth.service';

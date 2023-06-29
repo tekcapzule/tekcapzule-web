@@ -8,6 +8,7 @@ export const environment = {
   apiCacheExpiryHours: 12,
   capsuleApiGateway: 'kzqdp4mtmd',
   eventApiGateway: 't9uk11ucqa',
+  courseApiGateway: 'pir8ksji0b',
   feedbackApiGateway: '7a0ynuuzb7',
   subscriptionApiGateway: 'jianrwq924',
   topicApiGateway: 'ydfobf5vfd',
