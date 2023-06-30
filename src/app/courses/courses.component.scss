@@ -3,8 +3,11 @@
 
 .carousel-card
 {
-    height: 440px;
-    width: 33.33%;
+    max-height: 440px;
+    width: 31%;
+    float: left;
+    height: auto;
+    padding-bottom: 30px;
     &:hover {
         transform: none;
     }

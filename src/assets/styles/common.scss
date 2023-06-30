@@ -882,13 +882,14 @@ iframe .navbar-container,
   border-radius: 17px;
   padding: 3px 20px;
   width: fit-content;
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-size: 14px;
+  // margin-bottom: 12px;
   height: 30px;
   align-items: center;
   display: flex;
   font-weight: normal;
-
+  font-family: 'PROXIMANOVASEMIBOLD';
+  text-transform: uppercase;
   &.category {
       background: #DEDEDE;
   }
@@ -951,7 +952,7 @@ iframe .navbar-container,
   background: url('../images/okhand-icon.svg') no-repeat;
   width: 14px;
   height: 19px;
-  margin-left: 15px !important;
+  // margin-left: 15px !important;
   cursor: pointer;
 }
 
@@ -1288,15 +1289,7 @@ iframe .navbar-container,
   height: 306px;
   border-radius: 25px;
 }
-.free-btn {
-  background: #4A4239;
-  color: $white;
-  font-size: 14px;
-  font-family: 'HelveticaNeueLTProBoldCondensed';
-  border-radius: 20px;
-  padding: 5px 20px;
-  border: 0 none;
-}
+
 
 /*************Filter Styles**************/
 .filter-column {
