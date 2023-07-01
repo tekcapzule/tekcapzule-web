@@ -13,21 +13,30 @@
       <div id="heroBanner" class="carousel slide container" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="carousel-caption">
-              <section class="d-flex align-items-center">
+            <div class="w-100 carousel-caption">
+              <section class="align-items-center">
                 <div>
                   <div class="row justify-content-center">
                     <div class="col-xl-4 col-lg-6 order-1 order-lg-1 hero-img text-right mr-5">
-                      <img [src]="product.imageUrl" class="img-fluid" alt="" />
+                      <img [src]="product.imageUrl" class="img-fluid b-radius" alt="" />
                     </div>
                     <div
                       class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center onOverlayContent">
-                      <h2>{{product.title}}</h2>
+                      <div class="d-flex align-items-center">
+                        <h2>{{product.title}}</h2>
+                        <span> | </span>
+                        <div><span class="okhand-icon pr-4"></span>100</div>
+                      </div>
 
-                      <p class="mb-5">
+                      <p class="mb-3">
                         {{product.description}}
                       </p>
-                      <button class="button primary-btn-sm" (click)="onExplore()">Explore</button>
+                      <div class="d-flex">
+                      <span class="badge paid mr-2">paid</span>
+                      <span class="badge paid mr-2">tag 01</span>
+                      <span class="badge paid">tag 02</span>
+                    </div>
+                      <button class="button tertiary b-radius mt-4" (click)="onExplore()">Check Now</button>
                     </div>
                   </div>
                 </div>
@@ -39,27 +48,55 @@
       </div>
     </section>
   </div>
+  <div class="bg-light-gray">
+    <section class="py-5 container">
+
+      <div class="row justify-content-between">          
+
+        <div class="col-lg-5">
+          <div class="sub-title d-flex pb-4 align-items-center"><span class="video-icon mr-3"></span>Watch Product Demo</div>
+
+          <div class="video_thumb">
+            <img src="../../../assets/images/video-1.png"  alt="play icon" />
+            <div class="play-button"></div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="sub-title d-flex pb-4 align-items-center"><span class="video-icon mr-3"></span>Watch User Guide</div>
+
+          <div class="video_thumb">
+            <img src="../../../assets/images/video-2.png"  alt="play icon" />
+            <div class="play-button"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <div class="col-lg-12 bg-gray pb-5">
     <section class="pt-3 container">
       <div class="section-title text-center pb-0">
         <h2>Similar Product from this Category</h2>
       </div>
-        <div class="d-flex flex-wrap">
+      <div class="d-flex flex-wrap">
 
-          <div *ngFor="let pd of productList" class="appstore-tile" (click)="openProductDetails(pd)">
-            <div class="app-logo">
-              <img [src]="pd.imageUrl" alt="" />
-            </div>
-            <div class="title">{{pd.title}}</div>
-            <div class="badge category">{{pd.category}}</div>
-            <p class="description">{{pd.title}}</p>
-            <div class="mt-3">
-              <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>{{pd.recommendations}}</div>
-            </div>
+        <div *ngFor="let pd of productList" class="appstore-tile" (click)="openProductDetails(pd)">
+          <div class="app-logo">
+            <img [src]="pd.imageUrl" alt="" />
           </div>
-          
+          <div class="title">{{pd.title}}</div>
+          <div class="badge category">{{pd.category}}</div>
+          <p class="description">{{pd.title}}</p>
+          <div class="mt-3 d-flex align-items-center justify-content-between">
+            <div class="pl-0"><span class="okhand-icon pr-4"></span>{{pd.recommendations}}</div>
+            <div class="badge premium">PREMIUM</div>
+          </div>
+          <!-- <div class="mt-3">
+            <div class="d-flex align-items-center"><span class="okhand-icon pr-4"></span>{{pd.recommendations}}</div>
+          </div> -->
+        </div>
+
       </div>
-      
+
     </section>
   </div>
 </div>

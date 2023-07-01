@@ -271,7 +271,7 @@ h4 {
     }
   }
   &.tertiary {
-    border-radius: 8px !important;
+    border-radius: 8px;
     background-color: $primary-color;
     color: $white;
     width: 170px;
@@ -882,13 +882,14 @@ iframe .navbar-container,
   border-radius: 17px;
   padding: 3px 20px;
   width: fit-content;
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-size: 14px;
+  // margin-bottom: 12px;
   height: 30px;
   align-items: center;
   display: flex;
   font-weight: normal;
-
+  font-family: 'PROXIMANOVASEMIBOLD';
+  text-transform: uppercase;
   &.category {
       background: #DEDEDE;
   }
@@ -951,7 +952,7 @@ iframe .navbar-container,
   background: url('../images/okhand-icon.svg') no-repeat;
   width: 14px;
   height: 19px;
-  margin-left: 15px !important;
+  // margin-left: 15px !important;
   cursor: pointer;
 }
 
@@ -1288,15 +1289,7 @@ iframe .navbar-container,
   height: 306px;
   border-radius: 25px;
 }
-.free-btn {
-  background: #4A4239;
-  color: $white;
-  font-size: 14px;
-  font-family: 'HelveticaNeueLTProBoldCondensed';
-  border-radius: 20px;
-  padding: 5px 20px;
-  border: 0 none;
-}
+
 
 /*************Filter Styles**************/
 .filter-column {
@@ -1336,4 +1329,37 @@ select {
   height: 60px;
   border-radius: 7px;
   color: #2C2C2C;
+}
+.b-radius {
+  border-radius: 25px!important;
+}
+
+.sub-title {
+  font-size: 24px;
+  font-family: "HelveticaNeueLTPro";
+  color: #262626;
+}
+
+/**********Video*********/
+.play-button {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 29px);
+  width: 60px;
+  height: 60px;
+  transition: background-color 0.5s ease;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/play-button.svg");
+  &:hover{
+    -webkit-transition: background-position 200ms ease-in-out;
+    -moz-transition: background-position 200ms ease-in-out;
+    transition: background-position 200ms ease-in-out;
+    background-image: url("../../assets/images/play-button-hover.svg");
+    // animation: pulse-border 1500ms ease-out infinite;
+    animation-name: pulse-border;
+animation-duration: 1500ms;
+animation-delay: ease-out;
+animation-iteration-count: infinite;
+animation-timing-function: cubic-bezier(.65,0,.34,1);
+  }
 }
