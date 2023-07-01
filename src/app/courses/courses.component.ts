@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppSpinnerService, TopicApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -33,7 +34,8 @@ export class CoursesComponent implements OnInit {
 
   constructor(private spinner: AppSpinnerService,
     private courseApi: CourseApiService,
-    private topicApi: TopicApiService) {}
+    private topicApi: TopicApiService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -74,6 +76,10 @@ export class CoursesComponent implements OnInit {
 
   onUsedChange(value, type) {
     console.log('sdfdsf', value, type);
+  }
+
+  onCourseClick(course: ICourseDetail) {
+    this.router.navigateByUrl('/course-detail/'+ course.courseId)
   }
 
 }
