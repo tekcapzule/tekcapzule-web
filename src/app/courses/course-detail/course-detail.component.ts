@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppSpinnerService, CourseApiService, MarketPlaceApiService } from '@app/core';
+import { AppSpinnerService, CourseApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
-import { IProduct } from '@app/shared/models/market.model';
 
 @Component({
   selector: 'app-course-detail',
