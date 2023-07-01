@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppSpinnerService, TopicApiService } from '@app/core';
-import { HelperService } from '@app/core/services/common/helper.service';
-import { CourseApiService } from '@app/core/services/course-api/course-api.service';
+import { AppSpinnerService, CourseApiService, TopicApiService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { shuffleArray } from '@app/shared/utils';
