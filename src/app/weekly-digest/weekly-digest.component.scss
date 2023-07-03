@@ -5,7 +5,8 @@
   background-image: url("../../assets/images/skill-studio-card-pattern.png");
   background-color: #2e375a;
   max-height: 290px;
-  width: 395px;
+  max-width: 395px;
+  width: 100%;
   padding: 30px;
   color: $white;
   border-radius: 15px;

@@ -22,7 +22,7 @@
             knowledge.</p>
           <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
             <div
-              class="mx-auto w-50 d-flex align-items-center justify-content-center subscibeSection-row position-relative"
+              class="mx-auto col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-center subscibeSection-row position-relative"
               [ngClass]="{ 'error-text': subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid}">
               <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
                 placeholder="Enter Your Email ID" />
