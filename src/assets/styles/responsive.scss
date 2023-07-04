@@ -174,11 +174,11 @@
   .modal.show .modal-dialog {
     margin-top: 77px!important;
   }
-  .button.primary {
+  .button.primary, button.tertiary {
     padding: 5px 20px;
     font-size: 15px;
-    height: auto;
-    width: auto;
+    height: auto !important;
+    width: auto !important;
   }
   .capsule-filter {
     z-index: 999 !important;
@@ -208,6 +208,13 @@
   }
   .pi-times-circle:before {
     font-size: 25px;
+  }
+  .banner-content {
+    align-items: center;
+    text-align: center;
+  }
+  .space-fill {
+    padding: 0 1rem !important;
   }
 }
 @media only screen and (width: 1024px) {
@@ -358,3 +365,21 @@
   }
 }
 
+
+/**************Skil Studio Responsive start****************/
+.skill-studio-page {
+  .skill-studio-bg {
+    padding-bottom: 0 !important;
+  }
+  &.p-main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .banner-img {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/**************Skil Studio Responsive End****************/

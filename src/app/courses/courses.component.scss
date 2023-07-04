@@ -4,7 +4,8 @@
 .carousel-card
 {
     max-height: 440px;
-    width: 31%;
+    width: 100%;
+    max-width: 400px;
     float: left;
     height: auto;
     padding-bottom: 30px;
@@ -14,6 +15,9 @@
     }
     .header-image {
         height: auto;
+    }
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 30px;
     }
 }
 .search-box {

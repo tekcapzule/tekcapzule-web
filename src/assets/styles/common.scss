@@ -773,7 +773,7 @@ app-spinner {
 }
 
 .bg-gray {
-  background: #e2e2e2;
+  background: #f6f6f6;
 }
 .bg-light-gray {
   background: #F4F4F4;
@@ -1261,14 +1261,21 @@ iframe .navbar-container,
   }
   .skill-studio-bg {
     background-repeat: no-repeat;
-    padding: 30px 0 !important;
-    min-height: 418px;
+    padding: 30px 0 0!important;
+    min-height: 360px;
+    
     background-image: url('../../assets/images/pattern-1.svg'),
       url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     // background-size: cover;
     // margin-bottom: 70px;
-    .carousel .carousel-inner .carousel-item {
-      height: 418px !important;
+    .carousel {
+       margin-bottom: 0;
+      .carousel-inner .carousel-item {
+        height: 360px !important;
+        @media only screen and (max-width: 768px) { 
+          min-height: 560px !important;
+        }
+     }
     }
   }
 }
@@ -1282,6 +1289,9 @@ iframe .navbar-container,
   margin-top: 26px;
   .back-link {
     padding: 20px 0;
+  }
+  @media only screen and (max-width: 768px) { 
+    display: none;
   }
 }
 .events-banner-img {
@@ -1362,4 +1372,10 @@ animation-delay: ease-out;
 animation-iteration-count: infinite;
 animation-timing-function: cubic-bezier(.65,0,.34,1);
   }
+}
+
+.cards-spacing {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
 }

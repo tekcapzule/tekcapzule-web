@@ -1,49 +1,16 @@
 @import './../../assets/styles/variables.scss';
+// @import './../home/components/home-carousel/home-carousel.component.scss';
 
 /**************Carousel Style******************/
-.hero-img{
-    img{
-        width: 478px;
-    }
-}
-.carousel {
-    padding-top: 0;
-    .carousel-indicators {
-        li {
-            width: 19px;
-            height: 10px;
-            border: 1px solid #707070;
-            background-color: #fff;
-            &.active {
-                background: #E83068;
-            }
-        }
-    }
-    .carousel-inner {
-        .carousel-item {
-            height: 450px;
-                .carousel-caption {
-                  color: #444444;
-                  h2{
-                    font-size: 45px;
-                    padding-bottom: 40px;
-                  }
-                  p {
-                  font-size: 18px;
-                  line-height: 22px;
-                }
-                }
-              }
-        }
-    }
-
-
 
     /*******Card Tile******/
     .skill-card {
         display: inline-flex;
         margin: 0px 40px 40px 0px;
         border: 0 none;
+        @media only screen and (max-width: 990px) {
+            margin: 0;
+        }
     .topics-card {
         height: 192px;
         width: 395px;
@@ -53,6 +20,12 @@
         text-align: center;
         padding: 20px;
         border-radius: 10px;
+        @media only screen and (max-width: 990px) { 
+            height: 170px;
+            width: 340px;
+            padding: 10px;
+        }
+
         cursor: pointer;
         .topic-title {
             font-size: 24px;
@@ -60,41 +33,47 @@
         }
         .topic-icon {
             margin: 10px auto 0;
+            &.icon-1, &.icon-2, &.icon-3, &.icon-4, &.icon-5, &.icon-6 {
+                background-size: 70%;
+                background-repeat: no-repeat;
+                @media only screen and (max-width: 990px)
+                {
+                    background-size: 90%;
+                    background-repeat: no-repeat;
+                    max-height: 60px!important;
+                    width: 50px!important;
+                }
+            }
+
             &.icon-1 {
-                background: url("../../assets/images/skill-course-icon.svg") no-repeat;
+                background-image: url("../../assets/images/skill-course-icon.svg");
                 height: 62px;
                 width: 62px;
-                background-size: 70%;
             }
             &.icon-2 {
-                background: url("../../assets/images/skill-course-icon.svg") no-repeat;
+                background-image: url("../../assets/images/skill-course-icon.svg");
                 height: 62px;
                 width: 62px;
-                background-size: 70%;
             }
             &.icon-3 {
-                background: url("../../assets/images/skill-mentoring-icon.svg") no-repeat;
+                background-image: url("../../assets/images/skill-mentoring-icon.svg");
                 height: 68px;
                 width: 87px;
-                background-size: 70%;
             }
             &.icon-4 {
-                background: url("../../assets/images/skill-digest-icon.svg") no-repeat;
+                background-image: url("../../assets/images/skill-digest-icon.svg");
                 width: 66px;
                 height: 64px;
-                background-size: 70%;
             }
             &.icon-5 {
-                background: url("../../assets/images/skill-interview-icon.svg") no-repeat;
+                background-image: url("../../assets/images/skill-interview-icon.svg");
                 width: 97px;
                 height: 71px;
-                background-size: 70%;
             }
             &.icon-6 {
-                background: url("../../assets/images/skill-events-icon.svg") no-repeat;
+                background-image: url("../../assets/images/skill-events-icon.svg");
                 width: 60px;
                 height: 67px;
-                background-size: 70%;
             }
         }
         &.tile-bg-1 {
