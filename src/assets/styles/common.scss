@@ -1386,3 +1386,11 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
     display: flex;
     justify-content: space-between;
 }
+
+.box-content {
+  border: 1px solid #B4B4B4;
+  padding: 20px 30px;
+  h4 {
+    color: $blue;
+  }
+}
