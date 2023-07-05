@@ -38,6 +38,13 @@
                     </li>
                   </ul>
                 </ng-container>
+                <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === 'Skill_Studio'">
+                  <ul class="dropdown-menu show">
+                    <li *ngFor="let menuItem of hm.children; let i=index">
+                      <a href="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{menuItem.displayName}}</a>
+                    </li>
+                  </ul>
+                </ng-container>
 
                 
               </li>

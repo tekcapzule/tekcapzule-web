@@ -1268,6 +1268,10 @@ iframe .navbar-container,
       url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     // background-size: cover;
     // margin-bottom: 70px;
+    @media only screen and (max-width: 768px) { 
+      background: linear-gradient(to bottom, white, #efd6dd);
+      padding: 25px !important;
+    }
     .carousel {
        margin-bottom: 0;
       .carousel-inner .carousel-item {
@@ -1298,6 +1302,9 @@ iframe .navbar-container,
   width: auto;
   height: 306px;
   border-radius: 25px;
+  @media only screen and (max-width: 990px) { 
+    height: auto;
+  }
 }
 
 
