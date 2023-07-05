@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, CourseApiService, TopicApiService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
@@ -33,6 +33,7 @@ export class CoursesComponent implements OnInit {
   constructor(private spinner: AppSpinnerService,
     private courseApi: CourseApiService,
     private topicApi: TopicApiService,
+    private route: ActivatedRoute,
     private router: Router) {}
 
   ngOnInit(): void {
