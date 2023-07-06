@@ -41,12 +41,19 @@ export const Constants = {
   ],
   SkillTiles: [
     {uniqueId: 'tekbytes', displayName: 'Tekbytes', desc: 'Get your AI Vocabulary Right', navUrl:'/tekbyte/explore'},
-    {uniqueId: 'courses', displayName: 'Courses', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/courses'},
-    {uniqueId: 'mentoring', displayName: 'Mentoring', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'},
     {uniqueId: 'weeklyDigest', displayName: 'Weekly Digest', desc: 'Get your weekly digest from us', navUrl:'/weekly-digest'},
-    //{uniqueId: 'marketPlace', displayName: 'Market Place', desc: 'See the products available in market', navUrl:'/market-place'},
+    {uniqueId: 'events', displayName: 'Events', desc: 'Get ahead in your AI journey with our Events', navUrl:'/events'},
+    {uniqueId: 'courses', displayName: 'Courses', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/courses'},
     {uniqueId: 'interviewPrep', displayName: 'Interview Prep', desc: 'Go ahead and prepare for your interview', navUrl:'/interview-prepartion'},
-    {uniqueId: 'events', displayName: 'Events', desc: 'Get ahead in your AI journey with our Events', navUrl:'/events'}
+    {uniqueId: 'mentoring', displayName: 'Mentoring', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'},
+
+    {uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/prompts'},
+    {uniqueId: 'videoLibrary', displayName: 'Video Library', desc: 'Get your weekly digest from us', navUrl:'/weekly-digest'},
+    {uniqueId: 'researchPapers', displayName: 'Research Papers', desc: 'Get ahead in your AI journey with our Events', navUrl:'/events'},
+    {uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/courses'},
+    {uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/interview-prepartion'},
+    {uniqueId: 'insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'}
+        //{uniqueId: 'marketPlace', displayName: 'Market Place', desc: 'See the products available in market', navUrl:'/market-place'},
   ]
 };
 
