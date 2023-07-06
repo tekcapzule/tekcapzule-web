@@ -142,7 +142,9 @@
   },
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss",
+      "inlineTemplate": true,
+      "inlineStyle": true
     }
   },
   "cli": {
