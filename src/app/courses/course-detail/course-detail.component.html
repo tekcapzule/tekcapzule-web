@@ -4,9 +4,9 @@
     <div class="container-fluid top-navigation">
       <div class="container">
         <div class="back-link">
-          <a class="url-link" [routerLink]="['/skillstudio']">Skill Studio</a>
-          <a class="url-link" [routerLink]="titleUrl">Courses</a>
-          <span>So, You Want to Be a Coder?</span>
+          <a class="url-link" [routerLink]="['/skillstudio']">AI Hub</a>
+          <a class="url-link" [routerLink]="['/courses']">Courses</a>
+          <span>{{courseDetail.title}}</span>
         </div>
       </div>
     </div>
@@ -17,22 +17,18 @@
         <div>
           <div class="row justify-content-center">
             <div class="col-xl-4 col-lg-6 order-1 order-lg-1 hero-img text-right">
-              <img src="/assets/images/topic-image.png" alt="topic image" class="course-img" />
+              <img [src]="courseDetail.imageUrl" alt="topic image" class="course-img" />
             </div>
             <div
               class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center">
-              <h2>So, You Want to Be a Coder?</h2>
-              <h6>Linjith Kunnon (August 16, 2010)</h6>
+              <h2>{{courseDetail.title}}</h2>
+              <h6>{{courseDetail.author}} (August 16, 2010)</h6>
               <p class="mb-3">
-                Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque
-                laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi
-                architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia
-                uuntur magni dolores eos qui ratione voluptatem sequi.
+                {{courseDetail.summary}}
               </p>
               <div class="mt-4 d-flex align-items-center">
-                <div class="pl-0 mr-3"><span class="okhand-icon pr-4"></span>100</div>
-                <div class="badge premium mb-0">Udemy</div>
+                <div class="pl-0 mr-3"><span class="okhand-icon pr-4"></span>0</div>
+                <div class="badge premium mb-0">{{courseDetail.publisher}}</div>
             </div>
             </div>
           </div>
@@ -44,13 +40,10 @@
   <section class="py-5">
     <div class="container">
         <h3 class="sub-heading">Curriculum</h3>
-        <p>Learners will be introduced to designing lesson plans based on principles and knowledge of learning
-          objectives, assessment plans, methods, materials, and learning activities. Learners will find and prepare
-          appropriate teaching materials through careful analysis, adaptation and creation of professional resources.
-          Learners will also reflect on the cohesion between lesson design and teaching philosophies.</p>
-    <div class="box-content">
-        <h4>Basic Instruction Design <span class="link-icon"></span></h4>
-        <p>Learners will be introduced to designing lesson plans based on principles and knowledge of learning objectives, assessment plans, methods, materials, and learning activities. Learners will find and prepare appropriate teaching materials</p>
+        <p>{{courseDetail.description}}</p>
+    <div *ngFor="let module of courseDetail.modules" class="box-content">
+        <h4>{{module.title}} <span class="link-icon"></span></h4>
+        <p>{{module.description}}</p>
           <div class="description"><span class="date-icon dark"></span>2 - 3 weeks</div>
     </div>
     </div>
@@ -61,93 +54,34 @@
         <h3 class="sub-heading text-center pb-5">Related Topics</h3>
         <div class="d-flex flex-wrap">
           <div class="card-section cards-spacing d-flex justify-content-center mb-4 pb-4">
-            <div class="carousel-card">
+            <div *ngFor="let course of relatedCourseList" class="course-card carousel-card"  (click)="onCourseClick(course)">
               <div class="position-relative">
                 <div class="icons timer">
                   <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                   >20
-                    mins</span>
+                   >{{course.duration}} mins</span>
                 </div>
-                <div class="icons labelRed"><span>#CLOUD</span></div>
-                <img src="/assets/images/card-3.png" alt="card 3" class="header-image" />
+                <div class="icons labelRed"><span>#{{course.topicCode}}</span></div>
+                <img [src]="course.imageUrl" alt="card 3" class="header-image" />
               </div>
               <div class="content">
                 <div class="title">
-                  So, You Want to Be a Coder?
+                  {{course.title}}
                   <p>
-                    Summary by AWS <span>(August 16, 2010)</span>
+                    Summary by {{course.author}} <span>(August 16, 2010)</span>
                   </p>
                 </div>
                 <div class="description">
                   <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque
-                    laudantium, sdda sdftotam rem aperiam, eaque ipsa quae.
+                    {{course.summary}}
                   </p>
                 </div>
                 <div class="mt-4 d-flex align-items-center justify-content-between">
                     <div class="pl-0"><span class="okhand-icon pr-4"></span>100</div>
-                    <div class="badge pink mb-0">Pluralinsight</div>
+                    <div class="badge pink mb-0">{{course.publisher}}</div>
                 </div>
               </div>
             </div>
-            <div class="carousel-card">
-              <div class="position-relative">
-                <div class="icons timer">
-                  <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                   >20
-                    mins</span>
-                </div>
-                <div class="icons labelRed"><span>#CLOUD</span></div>
-                <img src="/assets/images/card-2.png" alt="card 2" class="header-image" />
-              </div>
-              <div class="content">
-                <div class="title">
-                  So, You Want to Be a Coder?
-                  <p>
-                    Summary by Linjith Kunnan <span>(August 16, 2010)</span>
-                  </p>
-                </div>
-                <div class="description">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque
-                    laudantium, sdda sdftotam rem aperiam, eaque ipsa quae.
-                  </p>
-                </div>
-                <div class="mt-4 d-flex align-items-center justify-content-between">
-                  <div class="pl-0"><span class="okhand-icon pr-4"></span>100</div>
-                  <div class="badge green mb-0">Skillshare</div>
-              </div>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="position-relative">
-                <div class="icons timer">
-                  <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                   >20
-                    mins</span>
-                </div>
-                <div class="icons labelRed"><span>#CLOUD</span></div>
-                <img src="/assets/images/card-1.png" alt="card 1" class="header-image" />
-              </div>
-              <div class="content">
-                <div class="title">
-                  So, You Want to Be a Coder?
-                  <p>
-                    Summary by Rob Percival <span>(August 16, 2010)</span>
-                  </p>
-                </div>
-                <div class="description">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque
-                    laudantium, sdda sdftotam rem aperiam, eaque ipsa quae.
-                  </p>
-                </div>
-                <div class="mt-4 d-flex align-items-center justify-content-between">
-                  <div class="pl-0"><span class="okhand-icon pr-4"></span>100</div>
-                  <div class="badge premium mb-0">Udemy</div>
-              </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

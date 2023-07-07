@@ -13,6 +13,7 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 export class CourseDetailComponent implements OnInit {
   courseDetail: ICourseDetail;
   courseList: ICourseDetail[] = [];
+  relatedCourseList: ICourseDetail[] = [];
   titleUrl: string[];
 
   constructor(private spinner: AppSpinnerService,
@@ -33,6 +34,8 @@ export class CourseDetailComponent implements OnInit {
   getAllCourses(code: string) {
     this.courseApi.getAllCourse().subscribe(data => {
       this.courseDetail = data.find(c => c.courseId === code);
+      this.relatedCourseList = data.filter(c => c.topicCode === this.courseDetail.topicCode && c.courseId !== this.courseDetail.courseId);
+      console.log('this.courseDetail', this.courseDetail);
       //this.courseList = data.filter(pd => pd.category === this.product.category);
       this.spinner.hide();
     }, err => {
@@ -44,7 +47,7 @@ export class CourseDetailComponent implements OnInit {
     //window.open(this.product.productDemo.videoUrl, '_blank');
   }
 
-  openProductDetails(product) {
-    this.router.navigateByUrl('/product-detail/' + product.code);
+  onCourseClick(course: ICourseDetail) {
+    this.router.navigateByUrl('/course-detail/'+ course.courseId)
   }
 }
