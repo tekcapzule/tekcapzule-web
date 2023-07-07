@@ -53,7 +53,11 @@
               [ngClass]="category.bgColor">
               <div class="title"><span *ngIf="category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>
               <div class="description">Author: {{dig.author}}</div>
-              <div class="description">{{dig.author}}</div>
+              <div class="description">{{dig.summary}}</div>
+              <div class="row">
+                <div class="description col-6 text-left">{{dig.recommendations}}</div>
+                <div class="calendar-text col-6 text-right">{{dig.schedule}}</div>
+              </div>
             </div>
           </div>
         </div>

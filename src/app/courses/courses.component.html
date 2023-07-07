@@ -3,7 +3,7 @@
     <div class="container-fluid top-navigation">
       <div class="container">
         <div class="back-link">
-          <a class="url-link">Skill Studio</a>
+          <a class="url-link" [routerLink]="['/skillstudio']">Skill Studio</a>
           <span>Courses</span>
         </div>
       </div>
@@ -134,14 +134,14 @@
                 </div>
                 <div class="content">
                   <div class="title">
-                    {{course.summary}}
+                    {{course.title}}
                     <p _ngcontent-xwg-c263="">
                       Summary by {{course.author}} <span _ngcontent-xwg-c263="">(August 16, 2010)</span>
                     </p>
                   </div>
                   <div class="description">
                     <p _ngcontent-xwg-c263="">
-                      {{course.description}}
+                      {{course.summary}}
                     </p>
                   </div>
                   <div class="mt-4 d-flex align-items-center justify-content-between">
