@@ -3,7 +3,7 @@
     <div class="container-fluid top-navigation">
       <div class="container">
         <div class="back-link">
-          <a class="url-link">Skill Studio</a>
+          <a class="url-link" [routerLink]="['/skillstudio']">AI Hub</a>
           <span>Courses</span>
         </div>
       </div>
@@ -123,7 +123,7 @@
 
           <div>
             <div class="cards-spacing card-section mb-4 pb-4">
-              <div *ngFor="let course of filteredCourseList; let i = index;" class="carousel-card mx-0">
+              <div *ngFor="let course of filteredCourseList; let i = index;" class="course-card carousel-card mx-0" (click)="onCourseClick(course)">
                 <div class="position-relative">
                   <div class="icons timer">
                     <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
@@ -134,14 +134,14 @@
                 </div>
                 <div class="content">
                   <div class="title">
-                    {{course.summary}}
+                    {{course.title}}
                     <p _ngcontent-xwg-c263="">
                       Summary by {{course.author}} <span _ngcontent-xwg-c263="">(August 16, 2010)</span>
                     </p>
                   </div>
                   <div class="description">
                     <p _ngcontent-xwg-c263="">
-                      {{course.description}}
+                      {{course.summary}}
                     </p>
                   </div>
                   <div class="mt-4 d-flex align-items-center justify-content-between">
