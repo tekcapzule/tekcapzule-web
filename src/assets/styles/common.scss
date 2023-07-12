@@ -211,7 +211,7 @@ h4 {
     padding: 0 30px;
     .title {
       font-size: 20px;
-      font-family: $cardtitle-font;
+      font-family: $primary-font-medium;
       line-height: 23px;
       min-height: 70px;
       margin-top: 20px;
@@ -225,7 +225,7 @@ h4 {
       }
     }
     .description {
-      font-family: $primary-font-light;
+      font-family: $primary-font-regular;
       font-size: 14px;
     }
   }
@@ -275,7 +275,7 @@ h4 {
     background-color: $primary-color;
     color: $white;
     width: 170px;
-    height: 50px;
+    height: 45px;
     font-size: 16px;
   }
   &.primary-btn-sm {
@@ -283,7 +283,7 @@ h4 {
     height: 32px;
     border-radius: 18px;
     font-size: 14px;
-    font-family: $cardtitle-font;
+    font-family: $primary-font-medium;
     color: $white;
     border: 1px solid $primary-color;
     background: $primary-color;
@@ -298,7 +298,7 @@ h4 {
     height: 45px;
     color: $primary-color;
     background-color: $white;
-    font-family: $cardtitle-font;
+    font-family: $primary-font-medium;
     width: auto;
     padding: 0 33px;
     &.cta {
@@ -307,11 +307,11 @@ h4 {
     }
   }
   &.secondary-btn-sm {
-    max-width: 132px;
+    max-width: 170px;
     height: 32px;
     border-radius: 18px;
     font-size: 14px;
-    font-family: $cardtitle-font;
+    font-family: $primary-font-medium;
     color: $primary-color;
     border: 1px solid $primary-color;
     background-color: $white;
@@ -362,8 +362,8 @@ h4 {
 .back-link {
   margin-bottom: 30px;
   margin-top: -25px;
-  font-size: 18px;
-  font-family: $cardtitle-font;
+  font-size: 16px;
+  font-family: $primary-font-medium;
 
   a {
     // position: relative;
@@ -378,7 +378,7 @@ h4 {
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 6px;
+      margin-top: 3px;
       background-size: 12px;
     }
   }
@@ -408,11 +408,11 @@ input,
 textarea {
   background: #fff;
   border: 0 none;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   color: #000;
   font-family: $primary-font-medium;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 25px;
   width: 100%;
   border: 1px solid #ced4da;
@@ -809,8 +809,8 @@ app-spinner {
   text-align: right;
 }
 label {
-  font-family: GTWalsheimPro-Medium;
-  font-size: 18px;
+  font-family: OpenSans-Medium;
+  font-size: 16px;
 }
 
 /***********iframe container styles****************/
@@ -823,7 +823,7 @@ iframe .navbar-container,
 .topic-details {
   .title {
     font-size: 20px;
-    font-family: $cardtitle-font;
+    font-family: $primary-font-medium;
     line-height: 23px;
     p {
       font-family: $primary-font-medium;
@@ -888,7 +888,7 @@ iframe .navbar-container,
   align-items: center;
   display: flex;
   font-weight: normal;
-  font-family: 'PROXIMANOVASEMIBOLD';
+  font-family: 'OpenSans-Bold';
   text-transform: uppercase;
   &.category {
       background: #DEDEDE;
@@ -912,7 +912,7 @@ iframe .navbar-container,
 }
 .badge-danger {
   background: linear-gradient(90deg, rgba(244, 201, 133, 1) 0%, rgba(245, 61, 109, 1) 100%);
-  font-family: GTWalsheimPro-Light;
+  font-family: OpenSans-Light;
   font-size: 14px;
   position: absolute;
   top: -20px;
@@ -1158,7 +1158,7 @@ iframe .navbar-container,
   z-index: 2;
     position: fixed;
     float: right;
-    right: 27%;
+    right: 29%;
     top: 96px;
     @media only screen and (width: 1440px) {
       right: 19% !important;
@@ -1200,7 +1200,7 @@ iframe .navbar-container,
   justify-content: center;
 
 .p-multiselect-item {
-  font-family: HelveticaNeueLTPro-medium;
+  font-family: OpenSans-medium;
   font-size: 18px;
   &:focus {
     box-shadow: none !important;
@@ -1230,7 +1230,7 @@ iframe .navbar-container,
 }
 .follow {
   margin: 14px 0 0 20px;
-  font-family: $cardtitle-font;
+  font-family: $primary-font-medium;
   color: $primary-color;
   cursor: pointer;
 }
@@ -1244,7 +1244,7 @@ iframe .navbar-container,
     label {
       font-size: 35px;
       color: #919191;
-      font-family: $cardtitle-font;
+      font-family: $primary-font-medium;
     }
 }
 
@@ -1314,7 +1314,7 @@ iframe .navbar-container,
   border: 1px solid #D0D0D0;
   border-radius: 5px;
   padding: 40px;
-  font-family: "HelveticaNeueLTPro";
+  font-family: "OpenSans-Bold";
 
   .filter-heading {
       font-size: 20px;
@@ -1330,20 +1330,20 @@ iframe .navbar-container,
   label {
       margin-bottom: 0;
       margin-left: 15px;
-      font-family: "GTWalsheimPro-Medium";
+      font-family: "OpenSans-Medium";
       color: #2C2C2C;
   }
 }
 
 .show-result {
   font-size: 24px;
-  font-family: "PROXIMANOVASEMIBOLD";
+  font-family: "OpenSans-Bold";
 }
 select {
-  font-family: "HelveticaNeueLTPro";
-  font-size: 18px;
+  font-family: "OpenSans-Bold";
+  font-size: 16px;
   background-color: #fff;
-  height: 60px;
+  height: 50px;
   border-radius: 7px;
   color: #2C2C2C;
 }
@@ -1353,7 +1353,7 @@ select {
 
 .sub-title {
   font-size: 24px;
-  font-family: "HelveticaNeueLTPro";
+  font-family: "OpenSans-Bold";
   color: #262626;
 }
 
@@ -1390,7 +1390,19 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 .box-content {
   border: 1px solid #B4B4B4;
   padding: 20px 30px;
+  border-radius: 5px;
+  overflow: hidden;
+  h3 {
+    font-size: 21px;
+    font-family: 'OpenSans-Bold';
+    padding-bottom: 20px;
+  }
   h4 {
     color: $blue;
   }
+}
+.filter-icon-gray {
+  background: url('../images/filter-icon-gray.png') no-repeat;
+  width: 35px;
+  height: 31px;
 }

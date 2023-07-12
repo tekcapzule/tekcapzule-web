@@ -42,9 +42,9 @@
 
 .mat-mdc-tab-label,
 .mat-mdc-tab-link {
-  font-family: $cardtitle-font !important;
+  font-family: $primary-font-medium !important;
   color: #575757;
-  font-size: 18px;
+  font-size: 16px;
   height: 60px;
 
   @media only screen and (max-width: 768px) {
@@ -73,8 +73,8 @@ ul {
       white-space: nowrap;
     }
     li {
-      font-family: HelveticaNeueLTPro-medium;
-      font-size: 18px;
+      font-family: OpenSans-medium;
+      font-size: 16px;
       line-height: 33px;
       list-style: none;
       border-radius: 25px;
@@ -114,9 +114,9 @@ ul {
   text-align: start !important;
   justify-content: initial !important;
   margin-right: 87px !important;
-  font-family: HelveticaNeueLTProBoldCondensed !important;
+  font-family: $primary-font-bold !important;
   color: #575757 !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
   height: 60px !important;
 }
 
@@ -136,7 +136,7 @@ ul {
   z-index: 1;
   border-top: 1px solid #ddd;
   .selected-topic-list {
-    font-family: HelveticaNeueLTPro-medium;
+    font-family: OpenSans-medium;
     font-size: 18px;
     display: flex;
     align-items: center;
