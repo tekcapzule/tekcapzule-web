@@ -1,0 +1,37 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/common.scss';
+
+.box-content-img {
+    float: left;
+    margin-right: 70px;
+    border-radius: 10px;
+}
+.research-papers-card {
+    border: 1px solid #AFA1A1;
+    border-radius: 4px;
+    height: 400px;
+    .header-image {
+        height: 128px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        padding: 6px;
+    }
+    .content {
+        .title {
+            font-family: 'OpenSans-Bold';
+        }
+        .description {
+            font-size: 16px;
+        }
+    }
+    .badge {
+        background-color: #FAE4E9;
+        color: #86505C;
+        font-size: 14px;
+        padding: 10px 20px;
+        text-transform: capitalize;
+        font-family: 'OpenSans-Medium';
+        margin: 0 10px 20px 0;
+    }
+   
+}

@@ -71,6 +71,14 @@ const routes: Routes = [
   {
     path: 'prompts',
     loadChildren: () => import('./prompts/prompts.module').then(m => m.PromptsModule)
+  },
+  {
+    path: 'video-library',
+    loadChildren: () => import('./video-library/video-library.module').then(m => m.VideoLibraryModule)
+  },
+  {
+    path: 'research-papers',
+    loadChildren: () => import('./research-papers/research-papers.module').then(m => m.ResearchPapersModule)
   }
 ];
 

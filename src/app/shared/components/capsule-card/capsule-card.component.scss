@@ -104,7 +104,7 @@
     padding: 0 30px;
     .title {
       font-size: 20px;
-      font-family: $cardtitle-font;
+      font-family: $primary-font-medium;
       line-height: 23px;
       min-height: 70px;
       margin-top: 20px;
@@ -119,7 +119,7 @@
       }
     }
     .description {
-      font-family: $primary-font-light;
+      font-family: $primary-font-regular;
       font-size: 14px;
       min-height: 208px !important;
       height: -webkit-fit-content;
@@ -252,7 +252,7 @@
       color: black;
     }
     .key-points-list {
-      font-family: HelveticaNeueLTPro-medium;
+      font-family: OpenSans-medium;
       font-size: 15px;
       color: #5E5E5E;
       padding-inline-start: 18px;

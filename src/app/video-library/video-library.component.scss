@@ -1,0 +1,26 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/common.scss';
+
+.box-content-img {
+    float: left;
+    margin-right: 70px;
+    border-radius: 10px;
+}
+.video-library-card {
+    border: 1px solid #343434;
+    border-radius: 4px;
+    height: 400px;
+    .header-image {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .content {
+        .title {
+            font-family: 'OpenSans-Bold';
+        }
+        .description {
+            font-size: 16px;
+        }
+    }
+   
+}

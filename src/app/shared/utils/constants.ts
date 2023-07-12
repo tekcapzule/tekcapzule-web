@@ -8,7 +8,7 @@ export const Constants = {
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', showOnMobile: true },
     {
       uniqueId: 'My_Feeds',
-      displayName: 'My Feeds',
+      displayName: 'Feeds',
       navUrl: '/capsules',
       children: [
         { uniqueId: 'For_You', displayName: 'For You', navUrl: '/capsules/myfeeds' },
@@ -27,6 +27,8 @@ export const Constants = {
         { uniqueId: 'Weekly_Digest', displayName: 'Weekly Digest', navUrl: '/weekly-digest' },
         { uniqueId: 'Interview_Prep', displayName: 'Interview Prep', navUrl: '/interview-prepartion' },
         { uniqueId: 'Events', displayName: 'Events', navUrl: '/events' },
+        { uniqueId: 'Video_Library', displayName: 'Video Library', navUrl: '/video-library' },
+        { uniqueId: 'Research_Papers', displayName: 'Research papers', navUrl: '/research-papers' },
       ], 
     },
     {
@@ -48,8 +50,8 @@ export const Constants = {
     {uniqueId: 'mentoring', displayName: 'Mentoring', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'},
 
     {uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/prompts'},
-    {uniqueId: 'videoLibrary', displayName: 'Video Library', desc: 'Get your weekly digest from us', navUrl:'/weekly-digest'},
-    {uniqueId: 'researchPapers', displayName: 'Research Papers', desc: 'Get ahead in your AI journey with our Events', navUrl:'/events'},
+    {uniqueId: 'videoLibrary', displayName: 'Video Library', desc: 'Get your weekly digest from us', navUrl:'/video-library'},
+    {uniqueId: 'researchPapers', displayName: 'Research Papers', desc: 'Get ahead in your AI journey with our Events', navUrl:'/research-papers'},
     {uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/courses'},
     {uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/interview-prepartion'},
     {uniqueId: 'insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'}

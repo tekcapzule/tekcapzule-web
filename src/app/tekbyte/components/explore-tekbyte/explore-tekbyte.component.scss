@@ -2,7 +2,7 @@
 @import '../../../../assets/styles/common.scss';
 
 .digest-card {
-  max-height: 210px;
+  min-height: 210px;
   max-width: 395px;
   width: 100%;
   padding: 30px;
@@ -14,16 +14,28 @@
   border: 1px solid #B1B1B1;
   background-color: $white;
   cursor: pointer;
+  &:first-child {
+    border: 1px solid #F7CAC9;
+    background-color: #FFEAEA;
+  }
+  &:nth-child(2) {
+    border: 1px solid #C0D1B8;
+    background-color: #EBFFE2;
+  }
+  &:nth-child(3) {
+    border: 1px solid #96A8C1;
+    background-color: #E2EEFF;
+  }
   .title {
     font-size: 24px;
-    font-family: 'HelveticaNeueLTPro-medium';
+    font-family: 'OpenSans-medium';
     padding-bottom: 10px;
     display: flex;
     align-items: center;
   }
   .description {
-    font-size: 14px;
-    font-family: 'GTWalsheimPro-Regular';
+    font-size: 16px;
+    font-family: 'OpenSans-Regular';
     padding-bottom: 20px;
   }
 }
