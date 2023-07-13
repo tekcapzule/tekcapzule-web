@@ -10,4 +10,4 @@ import { ResearchPapersRoutingModule } from './research-papers-routing.module';
   declarations: [ResearchPapersComponent],
   imports: [CommonModule, SharedModule, MatTabsModule, ResearchPapersRoutingModule],
 })
-export class ResearchPapersModule {}
+export class ResearchPapersModule { }

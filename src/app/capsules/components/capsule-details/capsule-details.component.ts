@@ -49,7 +49,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   ngOnInit(): void {
     this.spinner.show();
     this.onResize();
-    this.capsuleId = this.route.snapshot.paramMap.get('capsuleId');
+    this.capsuleId = this.route.snapshot.paramMap.get('id');
     if (sessionStorage.getItem('com.tekcapsule.resourceURL')) {
       this.capsuleURL =
         sessionStorage.getItem('com.tekcapsule.resourceURL') || 'https://tekcapsule.blog';
@@ -103,7 +103,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   getNavBreadcrumbs(): NavTab | any[] {
     const crumbs: NavTab | any[] = [];
     const queryTitle =
-      sessionStorage.getItem('com.tekcapsule.capsuleTitle') || this.capsuleDetail.title;
+      sessionStorage.getItem('com.tekcapsule.title') || this.capsuleDetail.title;
     const selectedMenu = this.helperService.findSelectedMenu(
       sessionStorage.getItem('com.tekcapsule.pageURL') || this.router.url
     );

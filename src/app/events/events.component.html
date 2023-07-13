@@ -28,7 +28,7 @@
                       class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center">
                       <h2>{{pe.name}}</h2>
                       <div class="venue-details">
-                        <div><span class="date-icon dark"></span>{{pe.schedule.startDate - pe.schedule.endDate}}<span> | </span> {{pe.schedule.startTime - pe.schedule.endTime}}</div>
+                        <div><span class="date-icon dark"></span>{{pe.schedule?.startDate - pe.schedule?.endDate}}<span> | </span> {{pe.schedule.startTime - pe.schedule.endTime}}</div>
                         <div><span class="location-icon dark"></span>{{pe.venue}}</div>
                       </div>
                       <p class="mb-5">

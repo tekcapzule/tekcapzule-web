@@ -11,7 +11,7 @@ export interface IResearchPaperDetail {
   publisher: string;
   publishedOn: string;
   duration: string;
-  researchPaperUrl: string;
+  resourceUrl: string;
   imageUrl: string;
   promotion: IPromotion;
   status: string;

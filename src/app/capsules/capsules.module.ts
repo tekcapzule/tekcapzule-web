@@ -9,7 +9,6 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { CapsulesPageComponent } from './capsules-page.component';
 import { CapsulesRoutingModule } from './capsules-routing.module';
-import { CapsuleDetailsComponent } from './components/capsule-details/capsule-details.component';
 import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-trending.component';
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
@@ -23,8 +22,7 @@ import { EditorsPickComponent } from './components/editors-pick/editors-pick.com
     CapsuleTrendingComponent,
     EditorsPickComponent,
     CreateSuccessComponent,
-    ContributeCapsuleComponent,
-    CapsuleDetailsComponent,
+    ContributeCapsuleComponent
   ],
   imports: [
     ToastModule,
