@@ -1,9 +1,11 @@
-<div id="tekbyte" class="skill-studio-page p-main pb-0">
+<div id="interview-prep" class="skill-studio-page p-main pb-0">
+  <app-spinner></app-spinner>
+
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
       <div class="container">
         <div class="back-link">
-          <a class="url-link" [routerLink]="['/skillstudio']">AI Hub</a>
+          <a class="url-link" [routerLink]="['/ai-hub']">AI Hub</a>
           <span>Interview Prep</span>
         </div>
       </div>
@@ -24,24 +26,12 @@
         <button class="button primary tertiary w-auto px-3">Register</button>
       </div>
 
-    <div class="box-content mb-4">
-      <img src="../../assets/images/interview-prep-1.png" alt="ML Coding Questions" class="box-content-img" />
-        <h3>ML Coding Questions</h3>
-        <p>Machine learning is a vast field with many key concepts to know. Our crash course covers all of the fundamental building blocks you need to dive into real-world machine learning.</p>
-        <a href="https://www.algoexpert.io/" target="_blank" class="link">algoexpert.io</a>
-    </div>
-    <div class="box-content mb-4">
-      <img src="../../assets/images/interview-prep-2.png" alt="Recruiting Profile & Certificate" class="box-content-img" />
-      <h3>Recruiting Profile & Certificate</h3>
-      <p>Machine learning is a vast field with many key concepts to know. Our crash course covers all of the fundamental building blocks you need to dive into real-world machine learning.</p>
-      <a href="https://www.algoexpert.io/" target="_blank" class="link">algoexpert.io</a>
-  </div>
-  <div class="box-content mb-4">
-      <img src="../../assets/images/interview-prep-3.png" alt="ML Interview Preparation" class="box-content-img" />
-      <h3>ML Interview Preparation</h3>
-      <p>Machine learning is a vast field with many key concepts to know. Our crash course covers all of the fundamental building blocks you need to dive into real-world machine learning.</p>
-      <a href="https://www.algoexpert.io/" target="_blank" class="link">algoexpert.io</a>
-</div>
+      <div *ngFor="let interview of filteredInterviewList; let i = index;" class="box-content mb-4">
+        <img [src]="interview.imageUrl" alt="ML Coding Questions" class="box-content-img" />
+        <h3>{{interview.title}}</h3>
+        <p>{{interview.summary}}</p>
+        <a [href]="interview.courseUrl" target="_blank" class="link">{{interview.courseUrl}}</a>
+      </div>
     </div>
   </section>
 

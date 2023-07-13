@@ -19,7 +19,7 @@ export const Constants = {
     },
     { uniqueId: 'Skill_Studio', 
       displayName: 'AI Hub', 
-      navUrl: '/skillstudio',
+      navUrl: '/ai-hub',
       children: [
         { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/tekbyte/explore' },
         { uniqueId: 'Courses', displayName: 'Courses', navUrl: '/courses' },
