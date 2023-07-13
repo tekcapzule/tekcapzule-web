@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule)
   },
   {
-    path: 'skillstudio',
+    path: 'ai-hub',
     loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule)
   },
   {

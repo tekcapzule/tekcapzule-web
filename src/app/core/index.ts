@@ -13,4 +13,6 @@ export { CacheInterceptor } from './interceptors/cache.interceptor';
 export { AppSpinnerService } from './services/app-spinner/app-spinner.service';
 export { MarketPlaceApiService } from './services/market-place-api/market-place-api.service';
 export { CourseApiService } from './services/course-api/course-api.service';
+export { InterviewApiService } from './services/interview-api/interview-api.service';
+export { VideoLibraryApiService } from './services/video-library-api/video-library-api.service';
 export { AuthService, AwsUserInfo } from './services/auth/auth.service';

@@ -3,7 +3,7 @@
     <div class="container-fluid top-navigation">
       <div class="container">
         <div class="back-link">
-          <a class="url-link" [routerLink]="['/skillstudio']">AI Hub</a>
+          <a class="url-link" [routerLink]="['/ai-hub']">AI Hub</a>
           <span>Video Library</span>
         </div>
       </div>
@@ -25,73 +25,25 @@
       </div>
 
       <div class="cards-spacing card-section mb-4 pb-4">
-        <div class="course-card video-library-card carousel-card mx-0">
+        <div *ngFor="let video of filteredVideoList; let i = index" class="course-card video-library-card carousel-card mx-0" (click)="onVideoClick(video)">
           <div class="position-relative">
             <div class="icons okHand"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img"></div>
 
             <div class="video_thumb"><img alt="play icon" class="header-image"
-                src="../../assets/images/video-thumbnail-1.png">
+                [src]="video.imageUrl">
               <div class="play-button"></div>
             </div>
           </div>
           <div class="content">
             <div class="title">
-              ML Coding Questions
+              {{video.title}}
               <p>
-                (Published Date: 10/10/2023)
+                (Published Date: NA)
               </p>
             </div>
             <div class="description">
               <p>
-                Machine learning is a vast field with many key concepts to know. Our crash course covers all of the
-                fundamental building blocks you need to dive into real-world machine learning.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="course-card video-library-card carousel-card mx-0">
-          <div class="position-relative">
-            <div class="icons okHand"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img"></div>
-
-            <div class="video_thumb"><img alt="play icon" class="header-image"
-                src="../../assets/images/video-thumbnail-2.png">
-              <div class="play-button"></div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="title">
-              ML Coding Questions
-              <p>
-                (Published Date: 10/10/2023)
-              </p>
-            </div>
-            <div class="description">
-              <p>
-                Machine learning is a vast field with many key concepts to know. Our crash course covers all of the
-                fundamental building blocks you need to dive into real-world machine learning.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="course-card video-library-card carousel-card mx-0">
-          <div class="position-relative">
-            <div class="icons okHand"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img"></div>
-            <div class="video_thumb"><img alt="play icon" class="header-image"
-                src="../../assets/images/video-thumbnail-3.png">
-              <div class="play-button"></div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="title">
-              ML Coding Questions
-              <p>
-                (Published Date: 10/10/2023)
-              </p>
-            </div>
-            <div class="description">
-              <p>
-                Machine learning is a vast field with many key concepts to know. Our crash course covers all of the
-                fundamental building blocks you need to dive into real-world machine learning.
+                {{video.summary}}
               </p>
             </div>
           </div>
