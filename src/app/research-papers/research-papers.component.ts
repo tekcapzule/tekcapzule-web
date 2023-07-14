@@ -39,7 +39,7 @@ export class ResearchPapersComponent implements OnInit {
       sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
       sessionStorage.setItem('com.tekcapsule.resourceURL', research.resourceUrl);
       sessionStorage.setItem('com.tekcapsule.title', research.title);
-      this.router.navigate(['capsules', research.researchPaperId, 'details']);
+      this.router.navigateByUrl('/ai-hub/' + research.researchPaperId +'/detail?pageId=Research_Papers');
     } else {
       window.open(research.resourceUrl, '_blank');
     }

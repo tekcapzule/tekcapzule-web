@@ -100,6 +100,16 @@ export class HelperService {
     return this.selectedMenu;
   }
 
+  findAIDashboardPage() {
+    const headerMenu = Constants.HeaderMenu;
+    return headerMenu.find(hm => hm.uniqueId === 'Skill_Studio');
+  }
+
+  findAIHubPage(pageId: string) {
+    const tiles = Constants.SkillTiles;
+    return tiles.find(hm => hm.uniqueId === pageId);
+  }
+
   getTileDetails(uniqueId):ITile {
     return Constants.SkillTiles.find(tile=> tile.uniqueId === uniqueId);
   }

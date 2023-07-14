@@ -33,7 +33,7 @@ export class VideoLibraryComponent implements OnInit {
       sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
       sessionStorage.setItem('com.tekcapsule.resourceURL', video.resourceUrl);
       sessionStorage.setItem('com.tekcapsule.title', video.title);
-      this.router.navigate(['capsules', video.videoId, 'details']);
+      this.router.navigateByUrl('/ai-hub/' + video.videoId +'/detail?pageId=Video_Library');
     } else {
       window.open(video.resourceUrl, '_blank');
     }

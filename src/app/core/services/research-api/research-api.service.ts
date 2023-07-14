@@ -29,4 +29,12 @@ export class ResearchApiService {
       }
     );
   }
+  
+  getResearch(code: string): Observable<IResearchPaperDetail> {
+    return this.httpClient.post<IResearchPaperDetail>(`${RESEARCH_API_PATH}/get`, {code}, {
+      params: {
+        cache: 'no',
+      },
+    });
+  }
 }
