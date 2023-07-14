@@ -1,11 +1,6 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 
-.box-content-img {
-    float: left;
-    margin-right: 70px;
-    border-radius: 10px;
-}
 .research-papers-card {
     cursor: pointer;
     border: 1px solid #AFA1A1;
@@ -34,5 +29,4 @@
         font-family: 'OpenSans-Medium';
         margin: 0 10px 20px 0;
     }
-   
 }

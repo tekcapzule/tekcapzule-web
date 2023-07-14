@@ -267,6 +267,9 @@ a.dropdown-toggle.d-flex::after {
   border: 0 none;
   line-height: 5px;
   margin-bottom: 10px;
+  li a {
+    font-family: 'OpenSans-Regular';
+  }
 }
 
 .mobile-nav-toggle {

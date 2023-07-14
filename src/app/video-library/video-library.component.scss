@@ -11,6 +11,9 @@
     border: 1px solid #343434;
     border-radius: 4px;
     height: 400px;
+    .video_thumb {
+        height: 180px;
+    }
     .header-image {
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
@@ -23,5 +26,5 @@
             font-size: 16px;
         }
     }
-   
+
 }

@@ -15,17 +15,22 @@
   </div>
   <section class="py-5">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center pb-4">
-        <div class="search-box mt-0 pl-0 ml-0 col-lg-3">
-          <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
-          <button title="search bar" class="search-btn"></button>
+      <div class="hub-search pb-4">
+        <div class="col-lg-6 d-inline-flex align-items-center pl-0">
+          <div class="search-box mt-0 pl-0 ml-0 mr-1 col-lg-6">
+            <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
+            <button title="search bar" class="search-btn"></button>
+          </div>
+          <div class="filter-icon-gray"></div>
         </div>
-        <div class="filter-icon-gray"></div>
-        <button class="button primary tertiary w-auto px-3">Register</button>
+        <div class="col-lg-6 hub-register pr-0">
+          <button class="button primary tertiary w-auto px-3 mx-0">Register</button>
+        </div>
       </div>
 
       <div class="cards-spacing card-section mb-4 pb-4">
-        <div *ngFor="let research of filteredResearchList; let i = index;" class="research-papers-card carousel-card mx-0" (click)="onOpen(research)">
+        <div *ngFor="let research of filteredResearchList; let i = index;"
+          class="research-papers-card carousel-card mx-0" (click)="onOpen(research)">
           <div class="position-relative">
             <div class="icons okHand"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img">
             </div>
