@@ -35,7 +35,7 @@ const routes: Routes = [
         component: CreateSuccessComponent,
       },
       {
-        path: ':capsuleId/details',
+        path: ':id/details',
         component: CapsuleDetailsComponent,
       },
       {

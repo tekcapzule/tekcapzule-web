@@ -16,6 +16,7 @@ import { CapsuleCardComponent } from './components/capsule-card/capsule-card.com
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CapsuleCardComponent,
     TopicCardComponent,
     CarouselComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CapsuleDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CapsuleCardComponent,
     TopicCardComponent,
     CarouselComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CapsuleDetailsComponent
   ],
   providers: [
     MessageService

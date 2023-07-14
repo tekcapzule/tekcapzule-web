@@ -15,6 +15,7 @@ export class HelperService {
   filterByCapsuleType = '';
   selectedMenu: SelectedMenu;
   topicData: TopicItem[] = [];
+  localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
   private resizeChange$ = new BehaviorSubject<boolean>(this.isMobileResolution);
   private filterByCapsuleType$ = new BehaviorSubject<string>(this.filterByCapsuleType);
 
@@ -101,5 +102,9 @@ export class HelperService {
 
   getTileDetails(uniqueId):ITile {
     return Constants.SkillTiles.find(tile=> tile.uniqueId === uniqueId);
+  }
+  
+  isLocalPublisher(publisher: string) {
+    return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());
   }
 }

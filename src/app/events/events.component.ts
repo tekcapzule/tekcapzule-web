@@ -23,8 +23,10 @@ export class EventsComponent implements OnInit {
     this.spinner.show();
     this.eventsApi.getAllEvents().subscribe(data => {
       data.forEach(item => {
-        item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format('MMM DD');
-        item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
+        if(item.schedule) {
+          item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format('MMM DD');
+          item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
+        }
         if(!this.events[item.region]) {
           this.events[item.region] = [];
         }

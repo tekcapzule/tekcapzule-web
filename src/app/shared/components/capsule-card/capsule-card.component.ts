@@ -121,20 +121,17 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   }
 
   navigateToCapsuleDetailsPage(): void {
-    if (this.isLocalPublisher()) {
+    if (this.helperService.isLocalPublisher(this.capsule.publisher)) {
       this.spinner.show();
       sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
       sessionStorage.setItem('com.tekcapsule.resourceURL', this.capsule.resourceUrl);
-      sessionStorage.setItem('com.tekcapsule.capsuleTitle', this.capsule.title);
+      sessionStorage.setItem('com.tekcapsule.title', this.capsule.title);
       this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
     } else {
       window.open(this.capsule.resourceUrl, '_blank');
     }
   }
 
-  isLocalPublisher() {
-    return this.localPublisher.find(pub => pub === this.capsule.publisher);
-  }
 
   isValidUrl(url: string): boolean {
     return url.startsWith('https://') || url.startsWith('http://');
@@ -255,7 +252,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
   }
 
   onShareClick() {
-    if (this.isLocalPublisher()) {
+    if (this.helperService.isLocalPublisher(this.capsule.publisher)) {
       const shareableUrl = `${window.location.origin}/capsules/${this.capsule.capsuleId}/details`;
       this.clipboard.copy(shareableUrl);
     } else {
