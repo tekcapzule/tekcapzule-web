@@ -8,7 +8,7 @@ export interface IVideoDetail {
   author: string;
   publisher: string;
   duration: string;
-  videoUrl: string;
+  resourceUrl: string;
   imageUrl: string;
   promotion: IVideoPromotion;
   status: string;

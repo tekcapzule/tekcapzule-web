@@ -15,6 +15,7 @@ export class HelperService {
   filterByCapsuleType = '';
   selectedMenu: SelectedMenu;
   topicData: TopicItem[] = [];
+  localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
   private resizeChange$ = new BehaviorSubject<boolean>(this.isMobileResolution);
   private filterByCapsuleType$ = new BehaviorSubject<string>(this.filterByCapsuleType);
 
@@ -85,7 +86,7 @@ export class HelperService {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
     headerMenu.forEach(hm => {
-      if (hm.navUrl && navUrl.includes(hm.navUrl)) {
+      if (hm.navUrl && hm.navUrl.includes(navUrl)) {
         this.selectedMenu = { selectedMenuItem: hm, selectedChildMenuItem: null };
         if (hm.children) {
           hm.children.forEach(cm => {
@@ -99,7 +100,21 @@ export class HelperService {
     return this.selectedMenu;
   }
 
+  findAIDashboardPage() {
+    const headerMenu = Constants.HeaderMenu;
+    return headerMenu.find(hm => hm.uniqueId === 'Skill_Studio');
+  }
+
+  findAIHubPage(pageId: string) {
+    const tiles = Constants.SkillTiles;
+    return tiles.find(hm => hm.uniqueId === pageId);
+  }
+
   getTileDetails(uniqueId):ITile {
     return Constants.SkillTiles.find(tile=> tile.uniqueId === uniqueId);
+  }
+  
+  isLocalPublisher(publisher: string) {
+    return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());
   }
 }

@@ -17,9 +17,10 @@ export const Constants = {
         { uniqueId: 'BROWSE_BYTOPIC', displayName: 'Explore Topic', navUrl: '' },
       ],
     },
-    { uniqueId: 'Skill_Studio', 
+    { 
+      uniqueId: 'Skill_Studio', 
       displayName: 'AI Hub', 
-      navUrl: '/ai-hub',
+      navUrl: '/ai-hub/dashboard',
       children: [
         { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/tekbyte/explore' },
         { uniqueId: 'Courses', displayName: 'Courses', navUrl: '/courses' },
@@ -51,7 +52,7 @@ export const Constants = {
 
     {uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/prompts'},
     {uniqueId: 'videoLibrary', displayName: 'Video Library', desc: 'Get your weekly digest from us', navUrl:'/video-library'},
-    {uniqueId: 'researchPapers', displayName: 'Research Papers', desc: 'Get ahead in your AI journey with our Events', navUrl:'/research-papers'},
+    {uniqueId: 'Research_Papers', displayName: 'Research Papers', desc: 'View the research papers', navUrl:'/research-papers'},
     {uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/courses'},
     {uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/interview-prepartion'},
     {uniqueId: 'insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/mentoring'}

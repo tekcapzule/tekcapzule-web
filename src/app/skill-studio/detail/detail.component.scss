@@ -1,0 +1,21 @@
+.detail-page {
+  margin-top: 70px !important;
+  .back-link {
+    margin: 10px 0 20px 0;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    box-shadow: 0px 15px 10px -20px #111;
+    
+    .url-link {
+      cursor: pointer !important;
+    }
+    .close {
+      margin-left: auto;
+    }
+    .crumb-title {
+      margin-left: 0px;
+    }
+  }
+}
