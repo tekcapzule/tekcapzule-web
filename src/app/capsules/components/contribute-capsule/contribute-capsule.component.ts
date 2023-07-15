@@ -26,7 +26,6 @@ export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private topicApi: TopicApiService,
     private capsuleApi: CapsuleApiService,

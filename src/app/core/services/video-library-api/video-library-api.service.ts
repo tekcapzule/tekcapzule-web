@@ -33,4 +33,13 @@ export class VideoLibraryApiService {
       }
     );
   }
+
+  getVideo(code: string): Observable<IVideoDetail> {
+    return this.httpClient.post<IVideoDetail>(`${VIDEO_API_PATH}/get`, {code}, {
+      params: {
+        cache: 'no',
+      },
+    });
+  }
+
 }

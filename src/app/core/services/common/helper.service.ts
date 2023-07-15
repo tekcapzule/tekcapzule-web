@@ -86,7 +86,7 @@ export class HelperService {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
     headerMenu.forEach(hm => {
-      if (hm.navUrl && navUrl.includes(hm.navUrl)) {
+      if (hm.navUrl && hm.navUrl.includes(navUrl)) {
         this.selectedMenu = { selectedMenuItem: hm, selectedChildMenuItem: null };
         if (hm.children) {
           hm.children.forEach(cm => {
@@ -98,6 +98,16 @@ export class HelperService {
       }
     });
     return this.selectedMenu;
+  }
+
+  findAIDashboardPage() {
+    const headerMenu = Constants.HeaderMenu;
+    return headerMenu.find(hm => hm.uniqueId === 'Skill_Studio');
+  }
+
+  findAIHubPage(pageId: string) {
+    const tiles = Constants.SkillTiles;
+    return tiles.find(hm => hm.uniqueId === pageId);
   }
 
   getTileDetails(uniqueId):ITile {
