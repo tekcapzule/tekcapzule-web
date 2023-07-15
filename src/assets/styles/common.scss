@@ -49,10 +49,10 @@ h1 {
 
 h2 {
   margin-bottom: 15px;
-  font-size: 38px;
+  font-size: 30px;
 }
 h3 {
-  font-size: 28px;
+  font-size: 20px;
   font-family: $primary-font-medium;
 }
 .heading {
@@ -650,7 +650,7 @@ input:-webkit-autofill:active {
 }
 
 .scroller::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
   background-color: #f6f6f6;
   overflow: visible;
 }
@@ -783,7 +783,7 @@ app-spinner {
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
   // height: 200px;
 }
 
@@ -954,6 +954,43 @@ iframe .navbar-container,
   height: 19px;
   // margin-left: 15px !important;
   cursor: pointer;
+}
+.okhand-gray-icon {
+  background: url('../images/hand-gray.svg') no-repeat;
+  width: 18px;
+  height: 22px;
+}
+.okhand-white-icon {
+  background: url('../images/okhand-icon-white.svg') no-repeat;
+  width: 18px;
+  height: 22px;
+  margin-right: 10px;
+}
+.premium-gray-icon {
+  background: url('../images/premium-icon.svg') no-repeat;
+  width: 23px;
+  height: 17px;
+  margin-right: 10px;
+}
+.date-icon {
+  background: url("../../assets/images/date-icon.svg") no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 25px;
+  display: inline-block;
+  &.dark {
+    background: url("../../assets/images/date-icon-dark.svg") no-repeat;
+  }
+}
+.location-icon {
+  background: url("../../assets/images/location-icon.svg") no-repeat;
+  width: 17px;
+  height: 22px;
+  margin-right: 25px;
+  display: inline-block;
+  &.dark {
+    background: url("../../assets/images/location-icon-dark.svg") no-repeat;
+  }
 }
 
 .share-icon {

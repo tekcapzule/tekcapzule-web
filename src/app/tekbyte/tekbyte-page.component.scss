@@ -1,0 +1,57 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/common.scss';
+
+.digest-card {
+    min-height: 210px;
+    max-width: 395px;
+    width: 100%;
+    color: #fff;
+    border-radius: 12px;
+    margin: 0px 40px 40px 0px;
+    display: inline-block;
+    text-align: left;
+    border: 1px solid #A4ACCE;
+    background-color: $white;
+    cursor: pointer;
+    .card-top {
+      padding: 30px;
+      height: 200px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      background: url('../../assets/images/tile_curve.svg') no-repeat;
+      @media only screen and (max-width: 767px) {
+        height: 250px;
+      }
+      &.bg-1 {
+        background-color: #161e45;
+      }
+      &.bg-2 {
+        background-color: #341251;
+      }
+      &.bg-3 {
+        background-color: #521255;
+      }
+    }
+    .card-footer {
+      padding: 15px 30px;
+      height: 60px;
+      color: #2B2B2B;
+      font-family: 'OpenSans-medium';
+    }
+    
+    .title {
+      font-size: 24px;
+      font-family: 'OpenSans-medium';
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .description {
+      font-size: 16px;
+      font-family: 'OpenSans-Regular';
+      padding-bottom: 20px;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+  }
+  

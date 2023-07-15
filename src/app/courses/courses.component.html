@@ -69,7 +69,7 @@
     </section>
   </div>
   <div class="col-lg-12 bg-gray py-5">
-    <section class="container-fluid px-5 space-fill">
+    <section class="container space-fill">
       <div class="row">
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="filter-column">
@@ -106,12 +106,12 @@
         </div>
         <div class="col-lg-9 col-md-8  col-sm-6">
           <div class="row">
-            <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-10">
+            <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-9">
               <input type="text" name="searchTopics"
                 placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0" />
               <button title="search bar" class="search-btn mr-3"></button>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
               <div class="form-group">
                 <select class="form-control" name="sort" formControlName="sort">
                   <option value="">Sort (Newest)</option>
@@ -122,7 +122,7 @@
           <!-- <div class="show-result pb-4">Showing <span>{{filteredCourseList.length}}</span> of <span>{{courseList.length}}</span></div> -->
 
           <div>
-            <div class="cards-spacing card-section mb-4 pb-4">
+            <div class="mb-4 pb-4">
               <div *ngFor="let course of filteredCourseList; let i = index;" class="course-card carousel-card mx-0" (click)="onCourseClick(course)">
                 <div class="position-relative">
                   <div class="icons timer">
@@ -144,11 +144,11 @@
                       {{course.summary}}
                     </p>
                   </div>
-                  <div class="mt-4 d-flex align-items-center justify-content-between">
-                      <div class="pl-0"><span class="okhand-icon pr-4"></span>100</div>
-                      <div class="badge pink mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.publisher}}</div>
-                  </div>
                 </div>
+                <div class="mt-4 d-flex align-items-center justify-content-between px-4">
+                  <div class="pl-0"><span class="okhand-icon pr-4"></span>100</div>
+                  <div class="badge pink mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.publisher}}</div>
+              </div>
               </div>
             </div>
           </div>

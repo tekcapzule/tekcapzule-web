@@ -1,13 +1,88 @@
 @import './../../../../assets/styles/variables.scss';
+@import '../../tekbyte-page.component.scss';
 
 .tekbyte-details-page {
-  font-size: 18px;
+  font-size: 16px;
   &.p-main {
     padding-top: 76px;
     @media only screen and (max-width: 768px) {
       padding-top: 75px;
     }
   }
+  .tekbyte-banner {
+    background-color: #161e45;
+    color: $white;
+    height: 380px;
+    h2 {
+      color: $white;
+      font-family: 'OpenSans-medium';
+      font-size: 34px;
+    }
+    .subscribe {
+      background: $white;
+      border: 2px solid #FFFFFF;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 408px;
+      height: 276px;
+      h3 {
+        font-family: 'OpenSans-Bold';
+      }
+      p {
+        color: #000;
+        font-family: 'OpenSans-medium';
+        font-size: 15px;
+      }
+    }
+  }
+
+  .tekbyte-details {
+    .title-img {
+      background-color: #38414D;
+      border-radius: 11px;
+      &.key-concept-icon {
+        background: url('../../../../assets/images/key-concept-icon.png') no-repeat;
+        width: 40px;
+        height: 48px;
+      }
+      &.application-icon {
+        background: url('../../../../assets/images/application-icon.png') no-repeat;
+        width: 40px;
+        height: 32px;
+      }
+    }
+    // business-modal
+    .business-modal {
+      margin-top: 80px;
+      .card {
+        border: 1px solid #EC0036;
+        border-radius: 20px;
+        padding: 50px 45px;
+        max-width: 375px;
+        height: 366px;
+        margin-right: 50px;
+        margin-bottom: 50px;
+        -webkit-box-shadow: 8px 8px 0px 0px rgba(200,214,227,1);
+        -moz-box-shadow: 8px 8px 0px 0px rgba(200,214,227,1);
+        box-shadow: 8px 8px 0px 0px rgba(200,214,227,1);
+        h2 {
+          position: absolute;
+          top: -20px;
+          text-align: center;
+          background: #fff;
+          padding: 0 40px;
+          left: 30%;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+
+
+  /*~~~~~~~~~~ OLD CSS STYLES~~~~~~~~~~~*/
   
   .skill-studio-page  {
     background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px -175px;
@@ -43,29 +118,29 @@
       }
     }
   }
-  .business-modal {
-    background: #c9224d url('/assets/images/business-bg.svg') no-repeat;
-    color: $white;
-    padding: 50px;
-    margin-top: 80px;
-    border-radius: 30px;
-    background-size: cover;
-    background-position-y: 25px;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 20px;
-      border-top: 20px solid blue;
-      border-top-color: inherit;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-    }
-    h2 {
-      font-size: 28px;
-      color: $white;
-    }
-  }
+  // .business-modal {
+  //   background: #c9224d url('/assets/images/business-bg.svg') no-repeat;
+  //   color: $white;
+  //   padding: 50px;
+  //   margin-top: 80px;
+  //   border-radius: 30px;
+  //   background-size: cover;
+  //   background-position-y: 25px;
+  //   &::after {
+  //     content: '';
+  //     position: absolute;
+  //     top: 100%;
+  //     left: 20px;
+  //     border-top: 20px solid blue;
+  //     border-top-color: inherit;
+  //     border-left: 20px solid transparent;
+  //     border-right: 20px solid transparent;
+  //   }
+  //   h2 {
+  //     font-size: 28px;
+  //     color: $white;
+  //   }
+  // }
   .offer-notify {
     background-color: $blue;
     padding: 0 8px;
@@ -76,47 +151,47 @@
     height: 168px;
   }
   // Key Concepts
-  .key-concepts {
-    padding: 60px 0 25px;
-    .sub-heading {
-      font-size: 32px;
-    }
-    h2 {
-      font-size: 55px;
-      line-height: 45px;
-      text-align: right;
-      span {
-        font-size: 45px;
-      }
-    }
-    .key-points-img {
-      padding-left: 30px;
-      height: auto;
-      min-width: 58px;
-    }
-    .key-points {
-      padding-bottom: 40px;
-      // display: flex;
+  // .key-concepts {
+  //   padding: 60px 0 25px;
+  //   .sub-heading {
+  //     font-size: 32px;
+  //   }
+  //   h2 {
+  //     font-size: 55px;
+  //     line-height: 45px;
+  //     text-align: right;
+  //     span {
+  //       font-size: 45px;
+  //     }
+  //   }
+  //   .key-points-img {
+  //     padding-left: 30px;
+  //     height: auto;
+  //     min-width: 58px;
+  //   }
+  //   .key-points {
+  //     padding-bottom: 40px;
+  //     // display: flex;
 
-      h3 {
-        font-family: $heading-fonts;
-        color: #3c3b3b;
-        font-size: 24px;
-      }
-      .numbers {
-        font-size: 150px;
-        color: #d3d3d3;
-        line-height: 115px;
-        margin-right: 45px;
-        font-family: TungstenBold;
-        min-width: 105px;
-        &:hover {
-          color: #e30045;
-          cursor: pointer;
-        }
-      }
-    }
-  }
+  //     h3 {
+  //       font-family: $heading-fonts;
+  //       color: #3c3b3b;
+  //       font-size: 24px;
+  //     }
+  //     .numbers {
+  //       font-size: 150px;
+  //       color: #d3d3d3;
+  //       line-height: 115px;
+  //       margin-right: 45px;
+  //       font-family: TungstenBold;
+  //       min-width: 105px;
+  //       &:hover {
+  //         color: #e30045;
+  //         cursor: pointer;
+  //       }
+  //     }
+  //   }
+  // }
 
   // Application Section
   .app-bg {
@@ -360,7 +435,7 @@ ul.timeline {
       padding-bottom: 20px;
     }
     .story {
-      font-size: 20px;
+      font-size: 16px;
       color: #727a89;
       line-height: 24px;
     }
