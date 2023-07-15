@@ -1,5 +1,11 @@
-<section class="container-fluid bg-white detail-page">
-  <div *ngIf="isDataAvailable || detail" class="container pt-1">
+<app-spinner></app-spinner>
+  
+<section *ngIf="isDataAvailable" class="container-fluid bg-white detail-page">
+  <div class="card flex justify-content-center gap-2">
+    <p-toast position="top-center" key="tc"></p-toast>
+  </div>
+
+  <div class="container pt-1">
     <div class="back-link pt-0">
       <ng-container *ngFor="let crumb of crumbs">
         <ng-container *ngIf="crumb.navUrl; else simplecrumb">

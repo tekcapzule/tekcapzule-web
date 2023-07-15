@@ -59,11 +59,10 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
     this.route.queryParams.subscribe(params => {
       this.pageId = params.pageId;
       console.log(this.pageId);
-      this.getNavBreadcrumbs();
       if (sessionStorage.getItem('com.tekcapsule.resourceURL')) {
         this.resourceURL = sessionStorage.getItem('com.tekcapsule.resourceURL');
         this.isDataAvailable = true;
-        this.cdr.detectChanges();
+        this.getNavBreadcrumbs();
         this.loadCapsule();
       } else if(this.pageId === 'Video_Library') {
         this.fetchVideoDetails();
@@ -83,6 +82,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
   fetchVideoDetails() {
     const sub = this.videoApi.getVideo(this.detailId).subscribe(data => {
       this.detail = data;
+      this.getNavBreadcrumbs();
       this.isDataAvailable = true;
       this.resourceURL = this.detail.resourceUrl || 'https://tekcapsule.blog';
       this.loadCapsule();
@@ -93,6 +93,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
   fetchResearchDetails() {
     const sub = this.researchApi.getResearch(this.detailId).subscribe(data => {
       this.detail = data;
+      this.getNavBreadcrumbs();
       this.isDataAvailable = true;
       this.resourceURL = this.detail.resourceUrl || 'https://tekcapsule.blog';
       this.loadCapsule();
@@ -101,10 +102,13 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   loadCapsule() {
+    console.log('this.resourceURL', this.resourceURL);
     this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.resourceURL);
     this.cdr.detectChanges();
-    const detailFrame = this.detailFrame.nativeElement as HTMLIFrameElement;
-    detailFrame.addEventListener('load', this.onIframeLoaded.bind(this));
+    if(this.detailFrame) {
+      const detailFrame = this.detailFrame.nativeElement as HTMLIFrameElement;
+      detailFrame.addEventListener('load', this.onIframeLoaded.bind(this));
+    }
   }
 
   onIframeLoaded() {
