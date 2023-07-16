@@ -7,7 +7,7 @@
   max-height: 290px;
   max-width: 395px;
   width: 100%;
-  padding: 20px;
+  padding: 20px 35px;
   color: $white;
   border-radius: 15px;
   margin: 0px 40px 40px 0px;
@@ -17,9 +17,9 @@
     background-color: #6200a4;
   }
   .title {
-    font-size: 26px;
-    font-family: 'OpenSans-Bold';
-    padding-bottom: 10px;
+    font-size: 24px;
+    font-family: 'OpenSans-medium';
+    padding-bottom: 5px;
     display: flex;
     align-items: center;
     .play-btn {
@@ -30,7 +30,7 @@
     }
   }
   .content-top {
-    height: 141px;
+    height: 160px;
     overflow-y: auto;
     margin-bottom: 20px;
   }
@@ -48,4 +48,9 @@
 .error-msg {
   text-align: left;
   color: red !important;
+}
+.weekly-digest-title
+{
+  font-size: 24px !important;
+  font-family: "OpenSans-Bold" !important;
 }
