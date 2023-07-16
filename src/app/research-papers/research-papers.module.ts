@@ -5,9 +5,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '@app/shared';
 import { ResearchPapersComponent } from './research-papers.component';
 import { ResearchPapersRoutingModule } from './research-papers-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ResearchPapersComponent],
-  imports: [CommonModule, SharedModule, MatTabsModule, ResearchPapersRoutingModule],
+  imports: [CommonModule, FormsModule, SharedModule, MatTabsModule, ResearchPapersRoutingModule],
 })
 export class ResearchPapersModule { }

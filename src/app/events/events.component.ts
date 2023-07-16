@@ -26,6 +26,7 @@ export class EventsComponent implements OnInit {
         if(item.schedule) {
           item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format('MMM DD');
           item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
+          console.log('item', item.name, item.schedule.startDate, item.schedule.endDate, item.schedule.startDate, item.schedule.startTime, item.schedule.endTime)
         }
         if(!this.events[item.region]) {
           this.events[item.region] = [];
