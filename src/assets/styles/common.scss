@@ -364,7 +364,7 @@ h4 {
 .back-link {
   margin-bottom: 30px;
   margin-top: -25px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: $primary-font-medium;
 
   a {
@@ -380,7 +380,7 @@ h4 {
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 3px;
+      margin-top: 1px;
       background-size: 12px;
     }
   }
@@ -778,7 +778,7 @@ app-spinner {
   background: #f9f9f9;
 }
 .bg-light-gray {
-  background: #F4F4F4;
+  background: #F7f7f7;
 }
 .bg-light-pink {
   background: #f1dbe1;
@@ -1198,7 +1198,7 @@ iframe .navbar-container,
     position: fixed;
     float: right;
     right: 29%;
-    top: 96px;
+    top: 87px;
     @media only screen and (width: 1440px) {
       right: 19% !important;
     }
@@ -1314,7 +1314,7 @@ iframe .navbar-container,
     .carousel {
        margin-bottom: 0;
       .carousel-inner .carousel-item {
-        height: 360px !important;
+        height: 300px !important;
         @media only screen and (max-width: 768px) { 
           min-height: 560px !important;
         }
@@ -1328,10 +1328,13 @@ iframe .navbar-container,
 }
 .top-navigation {
   background: #F7F7F7;
-  height: 60px;
+  height: 45px;
   margin-top: 26px;
+  box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
+  -webkit-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
+  -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   .back-link {
-    padding: 20px 0;
+    padding: 10px 0;
   }
   @media only screen and (max-width: 768px) { 
     display: none;
