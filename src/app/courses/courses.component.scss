@@ -1,14 +1,19 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
-
+.container {
+    max-width: 1540px;
+}
 .carousel-card
 {
-    max-height: 490px;
+    max-height: 445px;
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     float: left;
     height: auto;
     padding-bottom: 30px;
+    margin-right: 25px !important;
+    border: 1px solid #C4C3C3;
+    box-shadow: 0px 3px 39px #0000000F;
     cursor: pointer;
     &:hover {
         transform: none;
@@ -22,6 +27,14 @@
 }
 .course-card {
     cursor: pointer;
+    .content {
+        height: 220px;
+        overflow-y: auto;
+        .title{
+            font-size: 16px;
+            font-family: 'OpenSans-Bold';
+        }
+    }
 }
 .search-box {
     margin: 0;

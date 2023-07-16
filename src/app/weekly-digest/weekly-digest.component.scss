@@ -7,7 +7,7 @@
   max-height: 290px;
   max-width: 395px;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   color: $white;
   border-radius: 15px;
   margin: 0px 40px 40px 0px;
@@ -28,6 +28,11 @@
       height: 36px;
       margin-right: 10px;
     }
+  }
+  .content-top {
+    height: 141px;
+    overflow-y: auto;
+    margin-bottom: 20px;
   }
   .description {
     font-size: 16px;

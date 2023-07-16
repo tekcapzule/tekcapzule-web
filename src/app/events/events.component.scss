@@ -50,23 +50,3 @@
     font-family: 'OpenSans-medium';
     margin-bottom: 20px;
 }
-.date-icon {
-    background: url("../../assets/images/date-icon.svg") no-repeat;
-    width: 20px;
-    height: 20px;
-    margin-right: 25px;
-    display: inline-block;
-    &.dark {
-      background: url("../../assets/images/date-icon-dark.svg") no-repeat;
-    }
-  }
-  .location-icon {
-    background: url("../../assets/images/location-icon.svg") no-repeat;
-    width: 17px;
-    height: 22px;
-    margin-right: 25px;
-    display: inline-block;
-    &.dark {
-      background: url("../../assets/images/location-icon-dark.svg") no-repeat;
-    }
-  }

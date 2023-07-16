@@ -13,78 +13,76 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-10 px-0 pb-0">
-      <section class="container-fluid skill-studio-page px-0 pt-5 ">
-        <div class="container">
-          <div class="d-flex">
-            <img src="/assets/images/topic-image.png" alt="topic image" class="topics-img" />
-            <div class="pb-4">
-              <div class="d-flex">
-                <h2>{{tekbyteData.title}}</h2>
-                <span class="follow">FOLLOW</span>
-              </div>
-              <p>{{tekbyteData.description}}</p>
-              <ul class="mr-2 list-unstyled">
-                <li>#UX</li>
-                <li>#User-centered design</li>
-                <li>#Interaction design</li>
-                <li>#Usability testing</li>
-                <li>#User research</li>
-              </ul>
-            </div>
+
+  <section class="container-fluid tekbyte-banner px-0 pt-5 ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 mr-5">
+          <h2 class="pb-3">{{tekbyteData.title}}</h2>
+          <p>{{tekbyteData.description}}</p>
+        </div>
+        <div class="col-lg-4 subscribe">
+          <h3>Tekcapsule AI Digest</h3>
+          <p>Connecting you to the latest AI advancements and insights!</p>
+          <div>
+            <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
+              placeholder="Enter Your Email ID" />
+            <button mat-raised-button class="button tertiary mt-3">
+              Subscribe Now
+            </button>
           </div>
-          <!-- Business Modal Section -->
-          <section *ngIf="tekbyteData.goldenCircle" class="container business-modal">
-            <div class="row">
-              <div class="col-lg-4">
-                <h2>Why</h2>
-                <p>
-                  {{tekbyteData.goldenCircle.why}}
-                </p>
-              </div>
-              <div class="col-lg-4">
-                <h2>How</h2>
-                <p>
-                  {{tekbyteData.goldenCircle.how}}
-                </p>
-              </div>
-              <div class="col-lg-4">
-                <h2>What</h2>
-                <p>
-                  {{tekbyteData.goldenCircle.what}}
-                </p>
-              </div>
-            </div>
-          </section>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <div class="row justify-content-end">
+    <div class="col-lg-10 px-0 pb-0 tekbyte-details">
+      <!-- Business Modal Section -->
+      <section *ngIf="tekbyteData.goldenCircle" class="container business-modal pb-5">
+        <div class="row">
+          <div class="col-lg-4 card">
+            <h2>Why</h2>
+            <p>
+              {{tekbyteData.goldenCircle.why}}
+            </p>
+          </div>
+          <div class="col-lg-4 card">
+            <h2>How</h2>
+            <p>
+              {{tekbyteData.goldenCircle.how}}
+            </p>
+          </div>
+          <div class="col-lg-4 card">
+            <h2>What</h2>
+            <p>
+              {{tekbyteData.goldenCircle.what}}
+            </p>
+          </div>
         </div>
       </section>
-
       <!-----Flow Diagram Section----->
-      <!--section class="pt-5 pb-3">
+      <section class="pt-5 pb-5">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h3 class="sub-heading">Flow Diagram</h3>
+            <h2>Flow Diagram</h2>
             <img src="/assets/images/flow-diagram.png" class="img-fluid" alt="flow diagram" />
           </div>
         </div>
-      </section-->
+      </section>
       <!-- Key Concepts Section -->
       <section *ngIf="tekbyteData.keyConcepts" class="key-concepts container">
         <div class="row">
-          <div class="col-lg-1 d-flex">
-            <img src="/assets/images/keypoints-list.png" class="key-points-img" alt="bullet list" />
-          </div>
           <div class="col-lg-11">
-            <h3 class="sub-heading pb-3"><span class="heading-highlight"></span> Key Concepts</h3>
-            <div *ngFor="let kc of tekbyteData.keyConcepts" class="key-points">
+            <h2 class="pb-3"><span class="title-img key-concept-icon"></span> Key Concepts</h2>
+            <div *ngFor="let kc of tekbyteData.keyConcepts" class="pb-5">
               <div>
                 <h3>{{kc.title}}</h3>
                 <p>{{kc.description}}</p>
               </div>
             </div>
-            <h3 class="sub-heading pb-3"><span class="heading-highlight"></span> Applications</h3>
-            <div *ngFor="let app of tekbyteData.applications" class="key-points">
+            <h2 class="pb-3"><span class="title-img application-icon"></span> Applications</h2>
+            <div *ngFor="let app of tekbyteData.applications" class="pb-5">
               <h3>{{app.title}}</h3>
               <p class="description">{{app.description}}</p>
             </div>
@@ -103,7 +101,65 @@
 
         </div>
       </section> -->
+      <!-- Popular Events Section -->
       <div class="container-fluid bg-gray pt-3">
+        <section class="py-3 container">
+          <div class="section-title text-center">
+            <h2>Other Popular Topics Based on Your Interest</h2>
+          </div>
+          <div>
+            <div class="digest-card">
+              <div class="card-top bg-1">
+                <div class="conference-header">
+                  <div class="title">So, You Want to Be a Coder</div>
+                  <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem
+                    accusantium
+                    doloremque laudantium, sdda.</div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex justify-content-between">
+                  <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
+                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
+                </div>
+              </div>
+            </div>
+            <div class="digest-card">
+              <div class="card-top bg-2">
+                <div class="conference-header">
+                  <div class="title">So, You Want to Be a Coder</div>
+                  <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem
+                    accusantium
+                    doloremque laudantium, sdda.</div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex justify-content-between">
+                  <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
+                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
+                </div>
+              </div>
+            </div>
+            <div class="digest-card">
+              <div class="card-top bg-3">
+                <div class="conference-header">
+                  <div class="title">So, You Want to Be a Coder</div>
+                  <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem
+                    accusantium
+                    doloremque laudantium, sdda.</div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex justify-content-between">
+                  <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
+                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="container-fluid pt-3">
         <!-- Capsules Section -->
         <!--section class="container">
           <h2 class="text-center my-5 sub-heading">Few Capsules to get you started!</h2>
@@ -271,7 +327,7 @@
           Story So Far <img class="pl-3" src="/assets/images/story-arrow.svg" />
         </h2>
         <ul class="timeline">
-          <li  *ngFor="let app of tekbyteData.timeline">
+          <li *ngFor="let app of tekbyteData.timeline">
             <div class="year">
               <div class="yr-txt">YEAR</div>
               {{app.title.includes('/') ? app.title.split('/')[2] : app.title}}
@@ -279,7 +335,7 @@
             <p class="story">
               {{app.description}}
             </p>
-          </li>          
+          </li>
         </ul>
       </div>
     </div>
