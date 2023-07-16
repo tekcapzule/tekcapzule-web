@@ -15,6 +15,7 @@ export interface IResearchPaperDetail {
   imageUrl: string;
   promotion: IPromotion;
   status: string;
+  isRecommended?: boolean;
 }
 
 export interface IPromotion {

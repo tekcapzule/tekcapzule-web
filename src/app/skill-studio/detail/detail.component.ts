@@ -118,8 +118,10 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     this.resourceUrl = '';
     this.subrscription.forEach(sub => sub.unsubscribe());
-    const detailFrame = this.detailFrame.nativeElement as HTMLIFrameElement;
-    detailFrame.removeEventListener('load', this.onIframeLoaded.bind(this));
+    if(this.detailFrame) {
+      const detailFrame = this.detailFrame.nativeElement as HTMLIFrameElement;
+      detailFrame.removeEventListener('load', this.onIframeLoaded.bind(this));
+    }
   }
 
   ngAfterViewInit(): void {
