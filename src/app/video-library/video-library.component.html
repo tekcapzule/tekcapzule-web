@@ -20,8 +20,8 @@
       <div class="hub-search pb-4">
         <div class="col-lg-6 d-inline-flex align-items-center pl-0">
           <div class="search-box mt-0 pl-0 ml-0 mr-1 col-lg-6">
-            <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
-            <button title="search bar" class="search-btn"></button>
+            <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
+            <button title="search bar" class="search-btn" (click)="onSearch()"></button>
           </div>
           <div class="filter-icon-gray"></div>
         </div>

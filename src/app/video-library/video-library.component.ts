@@ -13,7 +13,8 @@ import { IVideoDetail } from '@app/shared/models/video-library-item.model';
 export class VideoLibraryComponent implements OnInit {
   videoList: IVideoDetail[] = [];
   filteredVideoList: IVideoDetail[] = [];
-
+  searchText: string;
+  
   constructor(private spinner: AppSpinnerService, 
     private videoService: VideoLibraryApiService,
     private router: Router,
@@ -37,5 +38,23 @@ export class VideoLibraryComponent implements OnInit {
     } else {
       window.open(video.resourceUrl, '_blank');
     }
+  }
+
+  
+  onSearch() {
+    if(this.searchText && this.searchText.trim().length > 0) {
+      this.filteredVideoList = this.videoList.filter(research => this.getIncludesStr(research.title) 
+      || this.getIncludesStr(research.topicCode)
+      || this.getIncludesStr(research.summary)
+      || this.getIncludesStr(research.description));
+    }
+  }
+
+  getIncludesStr(value: string): boolean {
+    if(value) {
+      value = value.toLowerCase();
+      return value.includes(this.searchText.toLowerCase())
+    }
+    return false;
   }
 }

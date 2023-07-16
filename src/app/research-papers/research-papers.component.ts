@@ -16,7 +16,8 @@ import * as moment from 'moment';
 export class ResearchPapersComponent implements OnInit {
   researchList: IResearchPaperDetail[] = [];
   filteredResearchList: IResearchPaperDetail[] = [];
-
+  searchText: string;
+  
   constructor(private spinner: AppSpinnerService,
     private researchApi: ResearchApiService,
     private helperService: HelperService,
@@ -29,7 +30,7 @@ export class ResearchPapersComponent implements OnInit {
       this.researchList.forEach(rl => {
         rl.publishedOn = moment(rl.publishedOn, 'DD/MM/YYYY').fromNow()
       });
-      this.filteredResearchList = this.researchList.slice();
+      this.filteredResearchList = data;
     });
   }
 
@@ -43,5 +44,23 @@ export class ResearchPapersComponent implements OnInit {
     } else {
       window.open(research.resourceUrl, '_blank');
     }
+  }
+
+  onSearch() {
+    if(this.searchText && this.searchText.trim().length > 0) {
+      this.filteredResearchList = this.researchList.filter(research => this.getIncludesStr(research.title) 
+      || this.getIncludesStr(research.topicCode)
+      || this.getIncludesStr(research.summary)
+      || this.getIncludesStr(research.description)
+      || this.getIncludesStr(research.tags.toString()));
+    }
+  }
+
+  getIncludesStr(value: string): boolean {
+    if(value) {
+      value = value.toLowerCase();
+      return value.includes(this.searchText.toLowerCase())
+    }
+    return false;
   }
 }
