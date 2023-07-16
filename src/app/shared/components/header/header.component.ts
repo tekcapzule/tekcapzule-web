@@ -155,6 +155,7 @@ export class HeaderComponent implements OnInit {
       }
       this.router.navigate([this.openedMenuItem.navUrl]);
     }
+    console.log('this.openedMenuItem ',this.openedMenuItem);
   }
 
   onChildMenuClick(menuItem: NavTab): void {
