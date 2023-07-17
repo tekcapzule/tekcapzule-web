@@ -85,8 +85,10 @@ export class HelperService {
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
+    let isMenuItemFound = false;
     headerMenu.forEach(hm => {
       if (hm.navUrl && hm.navUrl.includes(navUrl)) {
+        isMenuItemFound = true;
         this.selectedMenu = { selectedMenuItem: hm, selectedChildMenuItem: null };
         if (hm.children) {
           hm.children.forEach(cm => {
@@ -97,6 +99,16 @@ export class HelperService {
         }
       }
     });
+
+    if(!isMenuItemFound) {
+    const tilesMenu = Constants.SkillTiles;
+      tilesMenu.forEach(hm => {
+        if (hm.navUrl && hm.navUrl.includes(navUrl)) {
+          isMenuItemFound = true;
+          this.selectedMenu = { selectedMenuItem: this.findAIDashboardPage(), selectedChildMenuItem: hm };
+        }
+      });
+    }
     return this.selectedMenu;
   }
 

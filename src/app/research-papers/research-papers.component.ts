@@ -6,6 +6,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { ResearchApiService } from '@app/core/services/research-api/research-api.service';
 import { IResearchPaperDetail } from '@app/shared/models/research-item.model';
 import * as moment from 'moment';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ResearchPapersComponent implements OnInit {
   constructor(private spinner: AppSpinnerService,
     private researchApi: ResearchApiService,
     private helperService: HelperService,
-    private router: Router) {}
+    private router: Router,
+    private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.researchApi.getAllResearchPaper().subscribe(data => {
@@ -62,5 +64,17 @@ export class ResearchPapersComponent implements OnInit {
       return value.includes(this.searchText.toLowerCase())
     }
     return false;
+  }
+
+  onRecommendClick(event, research: IResearchPaperDetail) {
+    event.stopPropagation();
+    this.researchApi.updateResearchRecommendCount(research.researchPaperId).subscribe(data => {
+      research.isRecommended = true;
+      this.messageService.add({
+        key: 'tc',
+        severity: 'success',
+        detail: 'Thank you for the recommendation!',
+      });
+    });
   }
 }

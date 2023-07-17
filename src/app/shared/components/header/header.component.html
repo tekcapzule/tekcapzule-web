@@ -31,22 +31,13 @@
                   <span *ngIf="isMobileResolution && hm.children && selectedMenuItem?.uniqueId === 'My_Feeds'"
                     [ngClass]="{'parent-menu': isMobileResolution && hm.children}" class="caret"></span></a>
 
-                <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === 'My_Feeds'">
+                <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === hm.uniqueId">
                   <ul class="dropdown-menu show">
                     <li *ngFor="let menuItem of hm.children; let i=index">
                       <a href="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{menuItem.displayName}}</a>
                     </li>
                   </ul>
                 </ng-container>
-                <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === 'Skill_Studio'">
-                  <ul class="dropdown-menu show">
-                    <li *ngFor="let menuItem of hm.children; let i=index">
-                      <a href="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{menuItem.displayName}}</a>
-                    </li>
-                  </ul>
-                </ng-container>
-
-                
               </li>
             </ng-container>
           </ul>

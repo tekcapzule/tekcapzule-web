@@ -1,5 +1,8 @@
 <div id="research-paper" class="skill-studio-page p-main pb-0">
-  <router-outlet></router-outlet>
+  <div class="card flex justify-content-center gap-2">
+    <p-toast position="top-center" key="tc"></p-toast>
+  </div>
+  
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
       <div class="container">
@@ -33,7 +36,9 @@
         <div *ngFor="let research of filteredResearchList; let i = index;"
           class="research-papers-card carousel-card mx-0" (click)="onOpen(research)">
           <div class="position-relative">
-            <div class="icons okHand"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img">
+            <div class="icons okHand" *ngIf="!research.isRecommended" (click)="onRecommendClick($event, research)"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img">
+            </div>
+            <div class="icons okHand" *ngIf="research.isRecommended"><img src="/assets/images/okhand-icon-active.svg" alt="okhand icon filled" class="rounded-img">
             </div>
 
             <img alt="play icon" class="header-image" [src]="research.imageUrl">
