@@ -14,7 +14,7 @@
     }
     .content {
         .title {
-            font-family: 'OpenSans-Bold';
+            font-family: $primary-font-bold;
         }
         .description {
             font-size: 16px;
@@ -26,7 +26,7 @@
         font-size: 14px;
         padding: 10px 20px;
         text-transform: capitalize;
-        font-family: 'OpenSans-Medium';
+        font-family: $primary-font-medium;
         margin: 0 10px 20px 0;
     }
 }

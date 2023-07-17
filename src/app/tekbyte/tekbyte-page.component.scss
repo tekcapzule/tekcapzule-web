@@ -32,23 +32,17 @@
         background-color: #521255;
       }
     }
-    .card-footer {
-      padding: 15px 30px;
-      height: 60px;
-      color: #2B2B2B;
-      font-family: 'OpenSans-medium';
-    }
     
     .title {
       font-size: 24px;
-      font-family: 'OpenSans-medium';
+      font-family: $primary-font-medium;
       padding-bottom: 10px;
       display: flex;
       align-items: center;
     }
     .description {
       font-size: 16px;
-      font-family: 'OpenSans-Regular';
+      font-family: $primary-font-regular;
       padding-bottom: 20px;
       max-height: 100px;
       overflow-y: auto;

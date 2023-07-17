@@ -74,7 +74,7 @@ ul {
       white-space: nowrap;
     }
     li {
-      font-family: OpenSans-medium;
+      font-family: $primary-font-medium;
       font-size: 14px;
       line-height: 33px;
       list-style: none;
@@ -131,17 +131,17 @@ ul {
 .tags-section {
   top: 125px;
   position: sticky;
-  height: 75px;
+  height: 55px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.0588235294);
   background: #fbfbfb;
   z-index: 1;
   border-top: 1px solid #ddd;
   .selected-topic-list {
-    font-family: OpenSans-medium;
+    font-family: $primary-font-medium;
     font-size: 18px;
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
     @media only screen and (max-width: 990px) {
       padding: 10px 0 !important;
     }

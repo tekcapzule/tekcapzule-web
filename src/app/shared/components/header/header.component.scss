@@ -153,10 +153,10 @@ a.dropdown-toggle.d-flex::after {
     font-size: 18px!important;
     -moz-osx-font-smoothing: grayscale;   /* Firefox */
     -webkit-font-smoothing: antialiased; /* WebKit  */
-    font-family: OpenSans-Bold;
+    font-family: $primary-font-bold;
     @media (max-width: 992px) {
       padding: 15px 0;
-      font-family: OpenSans-Bold;
+      font-family: $primary-font-bold;
       color: $white;
       font-size: 16px!important;
       -webkit-font-smoothing: antialiased;
@@ -251,11 +251,11 @@ a.dropdown-toggle.d-flex::after {
   text-align: center;
   line-height: 28px;
   .main-nav {
-    font-family: 'OpenSans-Bold';
+    font-family: $primary-font-bold;
     font-size: 24px;
   }
   .sub-nav {
-    font-family: 'OpenSans-Bold';
+    font-family: $primary-font-bold;
     font-size: 18px;
   }
 }
@@ -266,7 +266,7 @@ a.dropdown-toggle.d-flex::after {
   line-height: 5px;
   margin-bottom: 10px;
   li a {
-    font-family: 'OpenSans-Regular';
+    font-family: $primary-font-regular;
   }
 }
 
