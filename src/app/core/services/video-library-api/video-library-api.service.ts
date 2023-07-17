@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiSuccess } from '@app/shared/models';
 import { IVideoDetail } from '@app/shared/models/video-library-item.model';
 
 import { environment } from '@env/environment';
@@ -42,4 +43,9 @@ export class VideoLibraryApiService {
     });
   }
 
+  
+  updateVideoRecommendCount(videoId: string): Observable<ApiSuccess> {
+    return this.httpClient
+      .post<ApiSuccess>(`${VIDEO_API_PATH}/recommend`, { videoId });
+  }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiSuccess } from '@app/shared/models';
 import { IResearchPaperDetail } from '@app/shared/models/research-item.model';
 
 import { environment } from '@env/environment';
@@ -36,5 +37,10 @@ export class ResearchApiService {
         cache: 'no',
       },
     });
+  }
+
+  updateResearchRecommendCount(researchPaperId: string): Observable<ApiSuccess> {
+    return this.httpClient
+      .post<ApiSuccess>(`${RESEARCH_API_PATH}/recommend`, { researchPaperId });
   }
 }

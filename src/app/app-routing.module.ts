@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./capsules/capsules.module').then(m => m.CapsulesModule)
   },
   {
-    path: 'tekbyte',
-    loadChildren: () => import('./tekbyte/tekbyte.module').then(m => m.TekbyteModule)
-  },
-  {
     path: 'community',
     loadChildren: () => import('./community/community.module').then(m => m.CommunityModule)
   },
@@ -36,11 +32,15 @@ const routes: Routes = [
     loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule)
   },
   {
-    path: 'weekly-digest',
+    path: 'ai-hub/tekbyte',
+    loadChildren: () => import('./tekbyte/tekbyte.module').then(m => m.TekbyteModule)
+  },
+  {
+    path: 'ai-hub/weekly-digest',
     loadChildren: () => import('./weekly-digest/weekly-digest.module').then(m => m.WeeklyDigestModule)
   },
   {
-    path: 'events',
+    path: 'ai-hub/events',
     loadChildren: () => import('./events/events.module').then(m => m.EventsModule)
   },
   {
@@ -48,35 +48,35 @@ const routes: Routes = [
     loadChildren: () => import('./market-place/market-place.module').then(m => m.MarketPlaceModule)
   },
   {
-    path: 'interview-prepartion',
+    path: 'ai-hub/interview-prepartion',
     loadChildren: () => import('./interview-prep/interview-prep.module').then(m => m.InterviewPrepModule)
   },
   {
-    path: 'mentoring',
+    path: 'ai-hub/mentoring',
     loadChildren: () => import('./mentoring/mentoring.module').then(m => m.MentoringModule)
   },
   {
-    path: 'courses',
+    path: 'ai-hub/courses',
     loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
   },
   {
-    path: 'product-detail/:code',
+    path: 'ai-hub/product-detail/:code',
     loadChildren: () => import('./market-place/product-detail/product-detail.module').then(m => m.ProductDetailModule)
   },
   {
-    path: 'course-detail/:code',
+    path: 'ai-hub/course-detail/:code',
     loadChildren: () => import('./courses/course-detail/course-detail.module').then(m => m.CourseDetailModule)
   },
   {
-    path: 'prompts',
+    path: 'ai-hub/prompts',
     loadChildren: () => import('./prompts/prompts.module').then(m => m.PromptsModule)
   },
   {
-    path: 'video-library',
+    path: 'ai-hub/video-library',
     loadChildren: () => import('./video-library/video-library.module').then(m => m.VideoLibraryModule)
   },
   {
-    path: 'research-papers',
+    path: 'ai-hub/research-papers',
     loadChildren: () => import('./research-papers/research-papers.module').then(m => m.ResearchPapersModule)
   }
 ];
