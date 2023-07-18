@@ -5,7 +5,7 @@
       <div class="container">
         <div class="back-link">
           <a class="url-link" [routerLink]="['/ai-hub/dashboard']">AI Hub</a>
-          <a class="url-link" [routerLink]="['/courses']">Courses</a>
+          <a class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
           <span>{{courseDetail.title}}</span>
         </div>
       </div>
@@ -13,7 +13,33 @@
   </div>
   <div class="row">
     <div class="col-lg-12 px-0 pb-0">
-      <section class="d-flex skill-studio-bg px-0 py-5">
+      <section class="container-fluid details-banner american-blue-bg px-0 pt-5 ">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 mr-5">
+              <div class="mt-4 d-flex align-items-center">
+              <h2 class="pb-3">{{courseDetail.title}}</h2>
+              <div class="pb-3 ml-3"><span class="okhand-white-icon pr-4"></span>0</div>
+              </div>
+              
+              <h6 class="text-white author">{{courseDetail.author}} (August 16, 2010)</h6>
+             <p>{{courseDetail.summary}}</p> 
+             <button class="button tertiary b-radius">Explore</button>
+            </div>
+            <div class="col-lg-4 subscribe-block">
+              <h3>Highlight of this course:</h3>
+              <ul class="course-highlight">
+                <li>Channel: udemy</li>
+                <li>Duration: 12 hours</li>
+                <li>Delivery More: Online</li>
+                <li>Learning: Self-Paced</li>
+                <li>Instruction Lead: Online</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="d-flex skill-studio-bg px-0 py-5">
         <div>
           <div class="row justify-content-center">
             <div class="col-xl-4 col-lg-6 order-1 order-lg-1 hero-img text-right mr-5">
@@ -33,21 +59,39 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
   </div>
   <!-----Curriculum Section----->
-  <section class="py-5">
-    <div class="container">
-        <h3 class="sub-heading">Curriculum</h3>
-        <p>{{courseDetail.description}}</p>
-    <div *ngFor="let module of courseDetail.modules" class="box-content">
-        <h4>{{module.title}} <span class="link-icon"></span></h4>
-        <p>{{module.description}}</p>
-          <div class="description"><span class="date-icon dark"></span>2 - 3 weeks</div>
+  <div class="container d-flex">
+    <div class="col-lg-8 mr-5">
+      <section class="py-5">
+          <div class="section-title text-left">
+            <h2>Curriculum</h2>
+          </div>
+            <p>{{courseDetail.description}}</p>
+        <div *ngFor="let module of courseDetail.modules" class="box-content">
+            <h4>{{module.title}} <span class="link-icon"></span></h4>
+            <p>{{module.description}}</p>
+              <div class="description"><span class="date-icon dark"></span>2 - 3 weeks</div>
+        </div>
+      </section>
     </div>
+    <div class="pt-5">
+      <div class="col-lg-4 subscribe-block american-blue-bg">
+        <h3 class="text-white">Tekcapsule AI Digest</h3>
+        <p  class="text-white">Connecting you to the latest AI advancements and insights!</p>
+        <div>
+          <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
+            placeholder="Enter Your Email ID" />
+          <button mat-raised-button class="button tertiary mt-3">
+            Subscribe Now
+          </button>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+
   <!-----Related Topics Section----->
   <section class="py-5  bg-gray">
     <div class="container course-tile">
@@ -56,6 +100,7 @@
           <div class="card-section cards-spacing d-flex justify-content-center mb-4 pb-4">
             <div *ngFor="let course of relatedCourseList" class="course-card carousel-card"  (click)="onCourseClick(course)">
               <div class="position-relative">
+                <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">Paid</div>
                 <div class="icons timer">
                   <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
                    >{{course.duration}} mins</span>
@@ -75,11 +120,11 @@
                     {{course.summary}}
                   </p>
                 </div>
-                <div class="mt-4 d-flex align-items-center justify-content-between">
-                    <div class="pl-0"><span class="okhand-icon pr-4"></span>100</div>
-                    <div class="badge pink mb-0">{{course.publisher}}</div>
-                </div>
               </div>
+              <div class="mt-4 d-flex align-items-center justify-content-between px-4 card-footer">
+                <div class="pl-0"><span class="okhand-gray-icon pr-4"></span>100</div>
+                <div class="d-flex pr-2"><span class="publisher-icon"></span>{{course.publisher}}</div>
+            </div>
             </div>
             
           </div>

@@ -6,7 +6,8 @@
   background-image: url("../../assets/images/skill-studio-card-pattern.png");
   background-color: #2e375a;
   cursor: pointer;
-  max-height: 290px;
+  // max-height: 290px;
+  height: 290px;
   max-width: 395px;
   width: 100%;
   padding: 30px;
@@ -34,19 +35,19 @@
   }
   .title {
     font-size: 24px;
-    font-family: "OpenSans-medium";
+    font-family: $primary-font-medium;
     padding-bottom: 5px;
     display: flex;
     align-items: center;
   }
   .description {
     font-size: 16px;
-    font-family: 'OpenSans-Regular';
+    font-family: $primary-font-regular;
     // display: inline-flex;
   }
 }
 .venue-details {
     font-size: 22px;
-    font-family: 'OpenSans-medium';
+    font-family: $primary-font-medium;
     margin-bottom: 20px;
 }

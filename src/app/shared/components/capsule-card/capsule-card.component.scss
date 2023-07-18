@@ -103,12 +103,13 @@
   .card-content {
     padding: 0 30px;
     .title {
-      font-size: 20px;
+      font-size: 18px;
+      padding-bottom: 5px;
       font-family: $primary-font-medium;
       line-height: 23px;
-      min-height: 70px;
+      height: 70px;
       margin-top: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       p {
         font-family: $primary-font-medium;
         font-size: 14px;
@@ -252,7 +253,7 @@
       color: black;
     }
     .key-points-list {
-      font-family: OpenSans-medium;
+      font-family: $primary-font-medium;
       font-size: 15px;
       color: #5E5E5E;
       padding-inline-start: 18px;
