@@ -44,19 +44,13 @@ export class VideoLibraryComponent implements OnInit {
 
   onSearch() {
     if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredVideoList = this.videoList.filter(research => this.getIncludesStr(research.title) 
-      || this.getIncludesStr(research.topicCode)
-      || this.getIncludesStr(research.summary)
-      || this.getIncludesStr(research.description));
+      this.filteredVideoList = this.videoList.filter(research => this.helperService.getIncludesStr(research.title, this.searchText) 
+      || this.helperService.getIncludesStr(research.topicCode, this.searchText)
+      || this.helperService.getIncludesStr(research.summary, this.searchText)
+      || this.helperService.getIncludesStr(research.description, this.searchText));
+    } else {
+      this.filteredVideoList = [...this.videoList];
     }
-  }
-
-  getIncludesStr(value: string): boolean {
-    if(value) {
-      value = value.toLowerCase();
-      return value.includes(this.searchText.toLowerCase())
-    }
-    return false;
   }
 
   onRecommendClick(eve, video: IVideoDetail) {

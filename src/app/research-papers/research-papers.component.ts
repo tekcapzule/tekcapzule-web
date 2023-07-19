@@ -50,20 +50,14 @@ export class ResearchPapersComponent implements OnInit {
 
   onSearch() {
     if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredResearchList = this.researchList.filter(research => this.getIncludesStr(research.title) 
-      || this.getIncludesStr(research.topicCode)
-      || this.getIncludesStr(research.summary)
-      || this.getIncludesStr(research.description)
-      || this.getIncludesStr(research.tags.toString()));
+      this.filteredResearchList = this.researchList.filter(research => this.helperService.getIncludesStr(research.title, this.searchText) 
+      || this.helperService.getIncludesStr(research.topicCode, this.searchText)
+      || this.helperService.getIncludesStr(research.summary, this.searchText)
+      || this.helperService.getIncludesStr(research.description, this.searchText)
+      || this.helperService.getIncludesStr(research.tags.toString(), this.searchText));
+    } else {
+      this.filteredResearchList = [...this.researchList];
     }
-  }
-
-  getIncludesStr(value: string): boolean {
-    if(value) {
-      value = value.toLowerCase();
-      return value.includes(this.searchText.toLowerCase())
-    }
-    return false;
   }
 
   onRecommendClick(event, research: IResearchPaperDetail) {
