@@ -76,29 +76,29 @@
             <div class="filter-heading">Filter</div>
             <div>
             <div class="filter-topic">Price Type</div>
-              <div *ngFor="let category of paymentCategories" class="field-checkbox pb-3">
+              <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
                 <p-checkbox name="payment" [value]="category" (onChange)="onPaymentTypeChange($event, category.key)" [inputId]="category.key"></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
             </div>
             <div class="filter-topic">OS</div>
-              <div *ngFor="let category of osCategories" class="field-checkbox pb-3">
+              <div *ngFor="let category of osCategories" class="field-checkbox pb-2">
               <p-checkbox name="os" [value]="category" [(ngModel)]="selectedOS" [inputId]="category.key"></p-checkbox>
               <label [for]="category.key">{{ category.name }}</label>
           </div>
             <div class="filter-topic">Used</div>
-            <div class="field-checkbox pb-3">
+            <div class="field-checkbox pb-2">
               <p-checkbox value="mostused" inputId="mostused" (change)="onUsedChange($event.value, 'mostused')"></p-checkbox>
               <label for="ny">Most Used</label>
             </div>
             </div>
             <div class="filter-topic">Category</div>
-            <div class="field-checkbox pb-3">
+            <div class="field-checkbox pb-2">
               <p-checkbox></p-checkbox>
               <label for="ny">Category 01</label>
             </div>
 
             <div class="filter-topic">Filter Title 01</div>
-            <div class="field-checkbox pb-3">
+            <div class="field-checkbox pb-2">
               <p-checkbox></p-checkbox>
               <label for="ny">Type 01</label>
             </div>
