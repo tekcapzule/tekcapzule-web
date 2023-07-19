@@ -7,21 +7,21 @@
       <div class="container">
         <div class="back-link">
           <a class="url-link" [routerLink]="['/ai-hub/dashboard']">AI Hub</a>
-          <a class="url-link" [routerLink]="titleUrl">TekByte</a>
+          <a class="url-link" [routerLink]="titleUrl">Tekbyte</a>
           <span>{{tekbyteData.title}}</span>
         </div>
       </div>
     </div>
   </div>
 
-  <section class="container-fluid tekbyte-banner px-0 pt-5 ">
+  <section class="container-fluid details-banner px-0 pt-5 ">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-7 mr-5">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 mr-5 mob-mr-0">
           <h2 class="pb-3">{{tekbyteData.title}}</h2>
           <p>{{tekbyteData.description}}</p>
         </div>
-        <div class="col-lg-4 subscribe">
+        <div class="col-lg-4 subscribe-block">
           <h3>Tekcapsule AI Digest</h3>
           <p>Connecting you to the latest AI advancements and insights!</p>
           <div>
@@ -34,7 +34,6 @@
         </div>
       </div>
     </div>
-
   </section>
   <div class="row justify-content-end">
     <div class="col-lg-10 px-0 pb-0 tekbyte-details">
@@ -299,7 +298,7 @@
           <div class="know-more-sec">
             <div class="close-btn"></div>
             <div class="row">
-              <div class="col-lg-6 d-flex">
+              <div class="col-lg-6 col-sm-12 d-flex high-lights">
                 <div>
                   <img src="/assets/images/knowmore-icon.png" alt="Did you know icon" />
                 </div>
@@ -308,7 +307,7 @@
                   <p>{{tekbyteData.didYouKnow}}</p>
                 </div>
               </div>
-              <div class="col-lg-6 d-flex">
+              <div class="col-lg-6 col-sm-12 d-flex high-lights">
                 <div><img src="/assets/images/knowmore-icon-right.png" alt="Way Forward icon" /></div>
                 <div>
                   <h3>Way Forward</h3>

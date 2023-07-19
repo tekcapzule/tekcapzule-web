@@ -1,7 +1,7 @@
 @import './../../assets/styles/variables.scss';
 
 .capsules-page {
-  background: #e4e4e4;
+  background: #f7f7f7;
   &.p-main {
     padding-top: 75px;
     padding-bottom: 0;
@@ -16,7 +16,7 @@
 .mat-mdc-tab-header {
   box-shadow: 0px 4px 6px #0000000f;
   background: #fbfbfb;
-  height: 65px;
+  height: 50px;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -34,7 +34,7 @@
   box-shadow: 0px 3px 6px #00000003;
 }
 .mat-mdc-tab-label {
-  height: 60px;
+  height: 45px;
   .mat-mdc-tab-label-container {
     max-width: 1400px;
   }
@@ -45,7 +45,7 @@
   font-family: $primary-font-medium !important;
   color: #575757;
   font-size: 16px;
-  height: 60px;
+  height: 45px;
 
   @media only screen and (max-width: 768px) {
     min-width: auto !important;
@@ -53,11 +53,12 @@
   }
 }
 .contribute-btn {
-  margin-top: 10px;
+  margin-top: 3px;
   float: right;
-  font-size: 16px;
-  height: 38px;
+  font-size: 14px;
+  height: 35px;
   padding: 4px 0 0 0;
+  width: 130px;
 }
 h2 {
   font-size: 30px;
@@ -73,8 +74,8 @@ ul {
       white-space: nowrap;
     }
     li {
-      font-family: OpenSans-medium;
-      font-size: 16px;
+      font-family: $primary-font-medium;
+      font-size: 14px;
       line-height: 33px;
       list-style: none;
       border-radius: 25px;
@@ -113,11 +114,11 @@ ul {
   padding: 0 !important;
   text-align: start !important;
   justify-content: initial !important;
-  margin-right: 87px !important;
-  font-family: $primary-font-bold !important;
+  margin-right: 65px !important;
+  font-family: $primary-font-medium !important;
   color: #575757 !important;
   font-size: 16px !important;
-  height: 60px !important;
+  height: 45px !important;
 }
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content, .mdc-tab-indicator__content .mdc-tab-indicator__content--underline {
@@ -128,19 +129,19 @@ ul {
 }
 
 .tags-section {
-  top: 140px;
+  top: 125px;
   position: sticky;
-  height: 75px;
+  height: 55px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.0588235294);
   background: #fbfbfb;
   z-index: 1;
   border-top: 1px solid #ddd;
   .selected-topic-list {
-    font-family: OpenSans-medium;
+    font-family: $primary-font-medium;
     font-size: 18px;
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
     @media only screen and (max-width: 990px) {
       padding: 10px 0 !important;
     }

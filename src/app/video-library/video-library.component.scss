@@ -8,7 +8,7 @@
 }
 .video-library-card {
     cursor: pointer;
-    border: 1px solid #343434;
+    border: 1px solid #c3c2c2;
     border-radius: 4px;
     height: 400px;
     .video_thumb {
@@ -20,7 +20,13 @@
     }
     .content {
         .title {
-            font-family: 'OpenSans-Bold';
+            font-size: 18px;
+            font-family: $primary-font-medium;
+            padding-bottom: 5px;
+            color: #333;
+            p {
+                color: #626262;
+            }
         }
         .description {
             font-size: 16px;

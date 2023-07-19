@@ -32,7 +32,7 @@
 
       <div *ngFor="let interview of filteredInterviewList; let i = index;" class="box-content mb-4">
         <img [src]="interview.imageUrl" alt="ML Coding Questions" class="box-content-img" />
-        <h3>{{interview.title}}</h3>
+        <h3 class="pt-3">{{interview.title}}</h3>
         <p>{{interview.summary}}</p>
         <a [href]="interview.courseUrl" target="_blank" class="link">{{interview.courseUrl}}</a>
       </div>

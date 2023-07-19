@@ -64,41 +64,41 @@
   <div class="col-lg-12 bg-gray py-5">
     <section class="container-fluid px-5 space-fill market-tiles">
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="filter-column">
             <div class="filter-heading">FILTER</div>
             <div>
             <div class="filter-topic">Type</div>
-              <div *ngFor="let category of paymentCategories" class="field-checkbox pb-3">
+              <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
                 <p-checkbox name="payment" [value]="category" (onChange)="onPaymentTypeChange($event, category.key)" [inputId]="category.key"></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
             </div>
             <div class="filter-topic">OS</div>
-              <div *ngFor="let category of osCategories" class="field-checkbox pb-3">
+              <div *ngFor="let category of osCategories" class="field-checkbox pb-2">
               <p-checkbox name="os" [value]="category" [(ngModel)]="selectedOS" [inputId]="category.key"></p-checkbox>
               <label [for]="category.key">{{ category.name }}</label>
           </div>
             <div class="filter-topic">Used</div>
-            <div class="field-checkbox pb-3">
+            <div class="field-checkbox pb-2">
               <p-checkbox value="mostused" inputId="mostused" (change)="onUsedChange($event.value, 'mostused')"></p-checkbox>
               <label for="ny">Most Used</label>
             </div>
             </div>
             <div class="filter-topic">Category</div>
-            <div class="field-checkbox pb-3">
+            <div class="field-checkbox pb-2">
               <p-checkbox></p-checkbox>
               <label for="ny">Category 01</label>
             </div>
 
             <div class="filter-topic">Filter Title 01</div>
-            <div class="field-checkbox pb-3">
+            <div class="field-checkbox pb-2">
               <p-checkbox></p-checkbox>
               <label for="ny">Type 01</label>
             </div>
 
           </div>
         </div>
-        <div class="col-lg-9 col-md-8  col-sm-6">
+        <div class="col-lg-10 col-md-8  col-sm-6">
           <div class="row">
           <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-10">
             <input type="text" name="searchTopics"

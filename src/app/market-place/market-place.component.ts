@@ -66,6 +66,6 @@ export class MarketPlaceComponent implements OnInit {
   }
 
   openProductDetails(product) {
-    this.router.navigateByUrl('/product-detail/' + product.code);
+    this.router.navigateByUrl('ai-hub/product-detail/' + product.code);
   }
 }

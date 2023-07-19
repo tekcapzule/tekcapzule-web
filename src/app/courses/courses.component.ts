@@ -54,7 +54,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onCourseClick(course: ICourseDetail) {
-    this.router.navigateByUrl('/course-detail/'+ course.courseId)
+    this.router.navigateByUrl('ai-hub/course-detail/'+ course.courseId)
   }
 
   onFilterChange(event, key: string, field: string) {

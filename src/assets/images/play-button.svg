@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="59.691" height="59.691" viewBox="0 0 59.691 59.691">
+<svg id="Group_15188" data-name="Group 15188" xmlns="http://www.w3.org/2000/svg" width="58.154" height="59.691" viewBox="0 0 58.154 59.691">
+  <g id="Ellipse_1308" data-name="Ellipse 1308" transform="translate(11.541 11.958)" fill="#fff" stroke="#707070" stroke-width="1">
+    <ellipse cx="17.537" cy="18" rx="17.537" ry="18" stroke="none"/>
+    <ellipse cx="17.537" cy="18" rx="17.037" ry="17.5" fill="none"/>
+  </g>
   <g id="play-button" opacity="0.93">
     <g id="Group_5070" data-name="Group 5070">
-      <path id="Path_30875" data-name="Path 30875" d="M29.845,0A29.845,29.845,0,1,0,59.691,29.845,29.845,29.845,0,0,0,29.845,0ZM21.691,42.826V16.864L44.174,29.845Z" fill="#e60041"/>
+      <path id="Path_30875" data-name="Path 30875" d="M29.077,0C13.018,0,0,13.362,0,29.845S13.018,59.691,29.077,59.691,58.154,46.328,58.154,29.845,45.136,0,29.077,0ZM21.132,42.826V16.864l21.9,12.981Z" fill="#e60041"/>
     </g>
   </g>
 </svg>

@@ -36,7 +36,7 @@ export class ExploreTekbyteComponent implements OnInit {
   }
 
   openTekbyte(tl) {
-    this.router.navigateByUrl('/tekbyte/' + tl.code + '/details');
+    this.router.navigateByUrl('ai-hub/tekbyte/' + tl.code + '/details');
   }
 
   onSearch() {

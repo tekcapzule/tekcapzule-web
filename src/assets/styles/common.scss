@@ -29,13 +29,14 @@ h4,
 h5,
 h6 {
   font-family: $heading-fonts;
-  color: $heading-color;
+  color: #090909;
 }
 h1 {
   margin: 0;
   font-size: 42px;
   line-height: 64px;
   color: #000;
+  font-family: $primary-font-medium;
   @media only screen and (max-width: 767px) {
     line-height: 40px;
     font-size: 25px;
@@ -50,6 +51,7 @@ h1 {
 h2 {
   margin-bottom: 15px;
   font-size: 30px;
+  color: #fff;
 }
 h3 {
   font-size: 20px;
@@ -81,6 +83,7 @@ h4 {
   padding-bottom: 20px;
   h2 {
     font-size: 28px;
+    font-family: $primary-font-medium;
   }
 }
 
@@ -105,6 +108,9 @@ h4 {
     }
   }
   .carousel-inner {
+    background: rgba(19, 15, 37, 0.4);
+    border-radius: 24px;
+    padding: 30px 0;
     .carousel-item {
       position: relative;
       top: 0;
@@ -119,7 +125,7 @@ h4 {
         left: auto;
         right: auto;
         text-align: left;
-        color: #3C3B3B !important;
+        color: #fff !important;
         .hero-text {
           color: #636363;
           margin: 10px 0 56px 0;
@@ -136,7 +142,6 @@ h4 {
 /* Carousel Slider Styles End */
 
 .carousel-card {
-  //width: 405px;
   width: 408px;
   height: 560px;
   box-shadow: 0px 3px 20px #0000000f;
@@ -323,9 +328,9 @@ h4 {
   }
 }
 .content-sub-text {
-  font-size: 24px;
+  font-size: 20px;
   font-family: $primary-font-regular;
-  line-height: 37px;
+  line-height: 30px;
   color: $secondary-color;
   @media only screen and (max-width: 990px) {
     font-size: 18px;
@@ -361,13 +366,13 @@ h4 {
 
 .back-link {
   margin-bottom: 30px;
-  margin-top: -25px;
-  font-size: 16px;
+  // margin-top: -25px;
+  font-size: 14px;
   font-family: $primary-font-medium;
 
   a {
     // position: relative;
-    top: -25px;
+    // top: -25px;
     color: $primary-color !important;
     &:nth-child(2) {
       padding-left: 25px;
@@ -378,7 +383,7 @@ h4 {
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 3px;
+      margin-top: 2px;
       background-size: 12px;
     }
   }
@@ -411,8 +416,8 @@ textarea {
   padding: 10px 20px;
   border-radius: 10px;
   color: #000;
-  font-family: $primary-font-medium;
-  font-size: 16px;
+  font-family: $primary-font-regular;
+  font-size: 14px;
   margin-bottom: 25px;
   width: 100%;
   border: 1px solid #ced4da;
@@ -496,7 +501,7 @@ button {
 Modal Dialogue
 ***************************************/
 .modal.fade .modal-dialog {
-  margin-top: 142px !important;
+  margin-top: 126px !important;
   @media only screen and (max-width: 990px) {
     margin-top: 77px !important;
   }
@@ -535,7 +540,7 @@ Modal Dialogue
 }
 .modal-backdrop {
   opacity: 0.5 !important;
-  top: 142px;
+  top: 126px;
 }
 @media only screen and (max-width: 1199px) {
   .mobileOverlayMenu {
@@ -773,10 +778,10 @@ app-spinner {
 }
 
 .bg-gray {
-  background: #f6f6f6;
+  background: #f9f9f9;
 }
 .bg-light-gray {
-  background: #F4F4F4;
+  background: #F7f7f7;
 }
 .bg-light-pink {
   background: #f1dbe1;
@@ -809,7 +814,7 @@ app-spinner {
   text-align: right;
 }
 label {
-  font-family: OpenSans-Medium;
+  font-family: $primary-font-medium;
   font-size: 16px;
 }
 
@@ -879,7 +884,7 @@ iframe .navbar-container,
 }
 
 .badge {
-  border-radius: 17px;
+  border-radius: 15px;
   padding: 3px 20px;
   width: fit-content;
   font-size: 14px;
@@ -888,19 +893,30 @@ iframe .navbar-container,
   align-items: center;
   display: flex;
   font-weight: normal;
-  font-family: 'OpenSans-Bold';
-  text-transform: uppercase;
+  font-family: $primary-font-bold;
+  color: #1C1C1C;
+  &.new {
+    position: absolute;
+    right: 20px;
+    top: -15px;
+    border: 1px solid #FFFFFF;
+  }
+  // text-transform: uppercase;
   &.category {
       background: #DEDEDE;
   }
   &.free {
-      background: #A4CA80;
+      background: #9ffd08;
   }
   &.paid {
-      background: #FDBCBC;
+      background: #E76B00;
+      color: $white;
   }
   &.premium {
       background: #FFD86F;
+  }
+  &.freemium {
+    background: #FFC62C;
   }
   &.pink {
     background: #E60041;
@@ -964,7 +980,7 @@ iframe .navbar-container,
   background: url('../images/okhand-icon-white.svg') no-repeat;
   width: 18px;
   height: 22px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .premium-gray-icon {
   background: url('../images/premium-icon.svg') no-repeat;
@@ -1048,6 +1064,11 @@ iframe .navbar-container,
   width: 31px;
   height: 32px;
   opacity: 1;
+}
+.publisher-icon {
+  background: url('../images/course-list-icon.svg') no-repeat;
+  width: 20px;
+  height: 20px;
 }
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
@@ -1196,7 +1217,7 @@ iframe .navbar-container,
     position: fixed;
     float: right;
     right: 29%;
-    top: 96px;
+    top: 87px;
     @media only screen and (width: 1440px) {
       right: 19% !important;
     }
@@ -1217,7 +1238,7 @@ iframe .navbar-container,
 .p-overlay {
   position: fixed !important;
   width: 100% !important;
-  top: 142px !important;
+  top: 126px !important;
   display: block !important;
   @media only screen and (max-width: 990px){
     left: 0 !important;
@@ -1237,14 +1258,20 @@ iframe .navbar-container,
   justify-content: center;
 
 .p-multiselect-item {
-  font-family: OpenSans-medium;
-  font-size: 18px;
+  font-family: $primary-font-medium;
+  font-size: 16px;
+  padding: 0.25rem 1.25rem !important;
   &:focus {
     box-shadow: none !important;
   }
 }
 }
-
+.p-checkbox .p-checkbox-box {
+  border: 2px solid #3E3E3E !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 4px !important;
+}
 .p-checkbox .p-checkbox-box.p-highlight {
   border-color: $primary-color !important;
   background: $primary-color !important;
@@ -1298,21 +1325,21 @@ iframe .navbar-container,
   }
   .skill-studio-bg {
     background-repeat: no-repeat;
-    padding: 30px 0 0!important;
-    min-height: 360px;
+    padding: 50px 0 0!important;
+    min-height: 450px;
     
     background-image: url('../../assets/images/pattern-1.svg'),
-      url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
+      url('../../assets/images/pattern-2.svg'), linear-gradient(5deg, rgba(118,23,78,1) 0%, rgba(56,21,113,1) 50%, rgba(27,24,52,1) 90%);
     // background-size: cover;
     // margin-bottom: 70px;
     @media only screen and (max-width: 768px) { 
       background: linear-gradient(to bottom, white, #efd6dd);
-      padding: 25px !important;
+      padding: 70px 25px 25px!important;
     }
     .carousel {
        margin-bottom: 0;
       .carousel-inner .carousel-item {
-        height: 360px !important;
+        height: 300px !important;
         @media only screen and (max-width: 768px) { 
           min-height: 560px !important;
         }
@@ -1325,14 +1352,16 @@ iframe .navbar-container,
   right: 10px;
 }
 .top-navigation {
-  background: #E8E8E8;
-  height: 60px;
-  margin-top: 26px;
+  background: #1b1834;
+  height: 45px;
+  position: fixed;
+  z-index: 11;
+  box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
+  -webkit-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
+  -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   .back-link {
-    padding: 20px 0;
-  }
-  @media only screen and (max-width: 768px) { 
-    display: none;
+    padding: 10px 0;
+    color: #fff;
   }
 }
 .events-banner-img {
@@ -1348,10 +1377,8 @@ iframe .navbar-container,
 /*************Filter Styles**************/
 .filter-column {
   background: $white;
-  border: 1px solid #D0D0D0;
   border-radius: 5px;
-  padding: 40px;
-  font-family: "OpenSans-Bold";
+  font-family: $primary-font-bold;
 
   .filter-heading {
       font-size: 20px;
@@ -1359,7 +1386,8 @@ iframe .navbar-container,
   }
   .filter-topic {
       font-size: 18px;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
+      padding-top: 20px;
   }
 }
 .field-checkbox {
@@ -1367,20 +1395,20 @@ iframe .navbar-container,
   label {
       margin-bottom: 0;
       margin-left: 15px;
-      font-family: "OpenSans-Medium";
+      font-family: $primary-font-regular;
       color: #2C2C2C;
   }
 }
 
 .show-result {
   font-size: 24px;
-  font-family: "OpenSans-Bold";
+  font-family: $primary-font-bold;
 }
 select {
-  font-family: "OpenSans-Bold";
-  font-size: 16px;
+  font-family: $primary-font-regular;
+  font-size: 14px;
   background-color: #fff;
-  height: 50px;
+  // height: 50px;
   border-radius: 7px;
   color: #2C2C2C;
 }
@@ -1390,7 +1418,7 @@ select {
 
 .sub-title {
   font-size: 24px;
-  font-family: "OpenSans-Bold";
+  font-family: $primary-font-bold;
   color: #262626;
 }
 
@@ -1430,12 +1458,13 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   border-radius: 5px;
   overflow: hidden;
   h3 {
-    font-size: 21px;
-    font-family: 'OpenSans-Bold';
-    padding-bottom: 20px;
+    font-size: 18px;
+    font-family: $primary-font-medium;
+    padding-bottom: 5px;
   }
   h4 {
-    color: $blue;
+    color: #0D0D0D;
+    font-size: 20px;
   }
 }
 .filter-icon-gray {
@@ -1451,4 +1480,57 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 
 .hub-register {
   text-align: right;
+}
+
+/**********AI Hub Details page banner***********/
+.details-banner {
+  background: #161e45 url('../images/banner_curve.png') no-repeat;
+  color: $white;
+  height: 460px;
+  padding-top: 75px !important;
+  h2 {
+    color: $white;
+    font-family: $primary-font-medium;
+    font-size: 34px;
+  }
+  .author {
+    font-family: $primary-font-regular;
+    font-size: 20px;
+    padding-bottom: 22px;
+  }
+}
+.subscribe-block {
+  background: $white;
+  border: 2px solid #FFFFFF;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 408px;
+  height: 276px;
+  h3 {
+    font-family: $primary-font-bold;
+    color: #000;
+  }
+  p {
+    color: #000;
+    font-family: $primary-font-medium;
+    font-size: 15px;
+  }
+}
+.american-blue-bg {
+    // background-color: #384060;
+    background: linear-gradient(5deg, rgba(118,23,78,1) 0%, rgba(56,21,113,1) 50%, rgba(27,24,52,1) 90%);
+  .container {
+    background: rgba(19, 15, 37, 0.6);
+    border-radius: 24px;
+    padding: 30px;
+  }
+  }
+.bg-white {
+  background-color: $white;
+}
+.card-footer {
+  padding: 15px 30px;
+  height: 60px;
+  color: #2B2B2B;
+  font-family: $primary-font-medium;
 }

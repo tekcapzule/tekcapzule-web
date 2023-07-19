@@ -1,6 +1,10 @@
 @import '../../../assets/styles/variables.scss';
 @import '../../../assets/styles/common.scss';
+@import '../courses.component.scss';
 
+.container {
+  max-width: 1336px !important;
+}
 .course-img {
     height: 292px;
     margin-right: 90px;
@@ -30,3 +34,14 @@
   .course-card {
     cursor: pointer;
   }
+  .course-highlight {
+    color: $black;
+    li {
+      list-style-image: url('../../../assets/images/course-list-icon.svg');
+      font-family: $primary-font-medium;
+      font-size: 14px;
+      line-height: 40px;
+      padding: 0px 10px;
+    }
+  }
+
