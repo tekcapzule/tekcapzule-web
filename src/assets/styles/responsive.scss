@@ -310,17 +310,48 @@
     }
   }
   // /AI Hub Search container/ 
-.hub-search {
-  display: block !important;
-}
+  .hub-search {
+    display: block !important;
+  }
 
-.hub-register {
-  text-align: center !important;
-  margin-top: 20px;
-}
-.video-library-card {
-  margin-bottom: 20px !important
-}
+  .hub-register {
+    text-align: center !important;
+    margin-top: 20px;
+  }
+  .video-library-card {
+    margin-bottom: 20px !important
+  }
+
+  /*********** Details Page **************/
+    .details-banner {
+      height: auto !important;
+      padding: 15px 0 0 15px !important
+    }
+    .subscribe-block {
+      width: 100%;
+      margin: 15px;
+    }
+    .details-body {
+      display: block !important;
+    }
+    .know-more-sec {
+      border-radius: 20px;
+      padding: 20px !important;
+      text-align: center;
+      img {
+        margin: 0 0 20px 0 !important;
+      }
+      .high-lights {
+        display: block !important;
+      }
+    }
+    .tekbyte-details-page 
+    .tekbyte-details 
+    .business-modal 
+    .card {
+      height: auto !important;
+      max-width: fit-content !important
+    }
 }
 
 

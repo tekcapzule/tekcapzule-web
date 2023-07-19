@@ -49,3 +49,19 @@
         font-family: $primary-font-regular;
     }
 }
+@media only screen and (max-width: 767px) {
+    .carousel-card {
+        padding-bottom: 0px;
+        max-height: fit-content;
+    }
+    .course-card {
+        cursor: pointer;
+        .content {
+            height: auto;
+            .title{
+                height: auto;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
