@@ -19,9 +19,7 @@
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
       background: url('../../assets/images/tile_curve.svg') no-repeat;
-      @media only screen and (max-width: 767px) {
-        height: 250px;
-      }
+     
       &.bg-1 {
         background-color: #161e45;
       }
@@ -49,3 +47,13 @@
     }
   }
   
+  @media only screen and (max-width: 767px) {
+    .digest-card {
+      .card-top {
+        height: auto;
+        .description {
+          max-height: fit-content;
+        }
+      }
+    }
+  }
