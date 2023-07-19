@@ -6,8 +6,8 @@
   //transition: all 0.5s;
   z-index: 997;
   padding: 7px ​0;
-  border-bottom: 1px solid #efefef;
-  background: #fff;
+  border-bottom: 1px solid #161a3c;
+  background: #242145;
   
   .header-align {
     // height: 90px;
@@ -23,7 +23,7 @@
 
   .logo {
     img {
-      margin-right: 35px;
+      // margin-right: 35px;
       margin-top: -10px;
       @media only screen and (max-width: 480px) {
         margin-right: 15px;
@@ -107,6 +107,7 @@ a.dropdown-toggle.d-flex::after {
   display: none;
 }
 .nav-menu {
+
   ul {
     margin: 0;
     padding: 0;
@@ -120,7 +121,8 @@ a.dropdown-toggle.d-flex::after {
       position: relative;
       white-space: nowrap;
       // padding: 10px 40px;
-      padding: 10px 4rem;
+      padding: 10px 2rem;
+
       @media only screen and (max-width: 1500px) {
         // padding: 10px;
         padding: 10px 4rem;
@@ -148,12 +150,13 @@ a.dropdown-toggle.d-flex::after {
   a {
     display: block;
     position: relative;
-    color: #000;
+    color: #a5aacf;
     transition: 0.3s;
-    font-size: 18px!important;
+    font-size: 20px!important;
     -moz-osx-font-smoothing: grayscale;   /* Firefox */
     -webkit-font-smoothing: antialiased; /* WebKit  */
-    font-family: $primary-font-bold;
+    // font-family: $primary-font-bold;
+    font-family: 'TTCommonsRegular';
     @media (max-width: 992px) {
       padding: 15px 0;
       font-family: $primary-font-bold;
