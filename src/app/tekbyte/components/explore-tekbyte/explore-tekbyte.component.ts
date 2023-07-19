@@ -14,6 +14,7 @@ import { HelperService } from './../../../core/services/common/helper.service';
 })
 export class ExploreTekbyteComponent implements OnInit {
   tekbyteList: TekByteItem[] = [];
+  popularTekbyteList: TekByteItem[] = [];
   filteredTekbyteList: TekByteItem[] = [];
   tileDetail: ITile;
   searchText: string;
@@ -28,6 +29,9 @@ export class ExploreTekbyteComponent implements OnInit {
       if(data) {
         this.tekbyteList = data;
         this.filteredTekbyteList = data;
+        if(data.length > 7) {
+          this.randaomTekbyte(data)
+        }
         this.spinner.hide();
       }
     }, err => {
@@ -35,8 +39,18 @@ export class ExploreTekbyteComponent implements OnInit {
     });
   }
 
+  randaomTekbyte(data){
+    const arr = []
+    while(this.popularTekbyteList.length < 5){
+      let randomInt = Math.floor(Math.random() * data.length - 1);
+      if(arr.indexOf(randomInt) === -1) {
+        this.popularTekbyteList.push(data[randomInt])
+      }
+    }
+  }
+
   openTekbyte(tl) {
-    this.router.navigateByUrl('ai-hub/tekbyte/' + tl.code + '/details');
+    this.router.navigateByUrl('/ai-hub/tekbyte/' + tl.code + '/details');
   }
 
   onSearch() {
