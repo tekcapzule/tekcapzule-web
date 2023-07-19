@@ -138,7 +138,6 @@ h4 {
 /* Carousel Slider Styles End */
 
 .carousel-card {
-  //width: 405px;
   width: 408px;
   height: 560px;
   box-shadow: 0px 3px 20px #0000000f;
@@ -363,13 +362,13 @@ h4 {
 
 .back-link {
   margin-bottom: 30px;
-  margin-top: -25px;
+  // margin-top: -25px;
   font-size: 14px;
   font-family: $primary-font-medium;
 
   a {
     // position: relative;
-    top: -25px;
+    // top: -25px;
     color: $primary-color !important;
     &:nth-child(2) {
       padding-left: 25px;
@@ -380,7 +379,7 @@ h4 {
       width: 17px;
       height: 17px;
       position: absolute;
-      margin-top: 1px;
+      margin-top: 2px;
       background-size: 12px;
     }
   }
@@ -1265,6 +1264,9 @@ iframe .navbar-container,
 }
 .p-checkbox .p-checkbox-box {
   border: 2px solid #3E3E3E !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 4px !important;
 }
 .p-checkbox .p-checkbox-box.p-highlight {
   border-color: $primary-color !important;
@@ -1319,7 +1321,7 @@ iframe .navbar-container,
   }
   .skill-studio-bg {
     background-repeat: no-repeat;
-    padding: 30px 0 0!important;
+    padding: 50px 0 0!important;
     min-height: 360px;
     
     background-image: url('../../assets/images/pattern-1.svg'),
@@ -1328,7 +1330,7 @@ iframe .navbar-container,
     // margin-bottom: 70px;
     @media only screen and (max-width: 768px) { 
       background: linear-gradient(to bottom, white, #efd6dd);
-      padding: 25px !important;
+      padding: 70px 25px 25px!important;
     }
     .carousel {
        margin-bottom: 0;
@@ -1348,15 +1350,13 @@ iframe .navbar-container,
 .top-navigation {
   background: #F7F7F7;
   height: 45px;
-  margin-top: 26px;
+  position: fixed;
+  z-index: 11;
   box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   -webkit-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   .back-link {
     padding: 10px 0;
-  }
-  @media only screen and (max-width: 768px) { 
-    display: none;
   }
 }
 .events-banner-img {
@@ -1381,7 +1381,8 @@ iframe .navbar-container,
   }
   .filter-topic {
       font-size: 18px;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
+      padding-top: 20px;
   }
 }
 .field-checkbox {
@@ -1457,7 +1458,8 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
     padding-bottom: 5px;
   }
   h4 {
-    color: $blue;
+    color: #0D0D0D;
+    font-size: 20px;
   }
 }
 .filter-icon-gray {
@@ -1480,6 +1482,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   background: #161e45 url('../images/banner_curve.png') no-repeat;
   color: $white;
   height: 380px;
+  padding-top: 75px !important;
   h2 {
     color: $white;
     font-family: $primary-font-medium;

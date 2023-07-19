@@ -124,7 +124,7 @@
         display: block;
       }
       &:nth-child(2) {
-        margin-left: 0 !important;
+        // margin-left: 0 !important;
       }
     }
   }
@@ -351,6 +351,22 @@
     .card {
       height: auto !important;
       max-width: fit-content !important
+    }
+    .mob-mr-0 {
+      margin-right: 0 !important;
+    }
+    .back-link {
+      margin: 0!important;
+      padding: 10px 0!important;
+    }
+    .digest-card {
+      max-height: fit-content !important;
+      .content-top {
+        height: auto !important;
+      }
+    }
+    .top-navigation {
+      height: auto !important;
     }
 }
 
