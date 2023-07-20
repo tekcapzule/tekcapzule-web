@@ -1231,6 +1231,21 @@ iframe .navbar-container,
     box-shadow: none !important;
   }
 }
+.page-filter {
+  .p-overlay {
+    position: absolute !important;
+    top: 37px !important;
+    width: auto!important;
+    line-height: 30px;
+    z-index: 10 !important;
+  }
+  .p-multiselect-items {
+    display: table-row;
+  }
+  .p-multiselect-items-wrapper {
+    max-height: 400px !important;
+  }
+}
 .p-overlay {
   position: fixed !important;
   width: 100% !important;
@@ -1314,7 +1329,7 @@ iframe .navbar-container,
   font-size: 16px;
 
   &.p-main {
-    padding-top: 75px;
+    padding-top: 74px;
     @media only screen and (max-width: 768px) {
       padding-top: 75px;
     }
