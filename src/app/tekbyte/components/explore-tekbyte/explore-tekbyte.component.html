@@ -75,7 +75,14 @@
         <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0"  [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
         <button title="search bar" class="search-btn" (click)="onSearch()"></button>
       </div>
-      <div class="filter-icon-gray"></div>
+      <div [ngClass]="{'item-selected': selectedTopics.length > 0}" class="page-filter">
+        <p-multiSelect
+          [options]="topics"
+          [filter]="false"
+          (onChange)="onChange($event)"
+          optionLabel="title"
+        ></p-multiSelect>
+      </div>
     </section>
     <section class="py-3 container">
       <div class="section-title text-left">
@@ -157,8 +164,8 @@
         <div *ngFor="let tl of popularTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
           <div class="card-top bg-1">
             <div class="conference-header">
-              <div class="title">{{tl.title}}</div>
-              <div class="description">{{tl.summary}}</div>
+              <div class="title">{{tl?.title}}</div>
+              <div class="description">{{tl?.summary}}</div>
             </div>
           </div>
           <div class="card-footer">

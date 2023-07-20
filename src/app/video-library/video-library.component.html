@@ -26,7 +26,14 @@
             <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
             <button title="search bar" class="search-btn" (click)="onSearch()"></button>
           </div>
-          <div class="filter-icon-gray"></div>
+          <div [ngClass]="{'item-selected': selectedTopics.length > 0}" class="page-filter">
+            <p-multiSelect
+              [options]="topics"
+              [filter]="false"
+              (onChange)="onChange($event)"
+              optionLabel="title"
+            ></p-multiSelect>
+          </div>
         </div>
         <div class="col-lg-6 hub-register pr-0">
           <button class="button primary tertiary w-auto px-3 mx-0">Register</button>

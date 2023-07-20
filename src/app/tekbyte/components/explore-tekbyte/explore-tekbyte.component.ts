@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, TekByteApiService } from '@app/core';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
-import { Constants } from '@app/shared/utils';
 import { ITile } from '@app/skill-studio/models/tile.model';
 import { HelperService } from './../../../core/services/common/helper.service';
+import { TopicItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-explore-tekbyte',
@@ -18,6 +18,8 @@ export class ExploreTekbyteComponent implements OnInit {
   filteredTekbyteList: TekByteItem[] = [];
   tileDetail: ITile;
   searchText: string;
+  topics: TopicItem[] = [];
+  selectedTopics: string[] = [];
 
   constructor(private tekbyteApi: TekByteApiService,
     private spinner: AppSpinnerService, private router: Router,
@@ -25,6 +27,11 @@ export class ExploreTekbyteComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    this.topics = this.helperService.getTopicData();
+    this.getTekbytes();
+  }
+
+  getTekbytes() {
     this.tekbyteApi.getAllTekByte().subscribe(data => {
       if(data) {
         this.tekbyteList = data;
@@ -54,14 +61,26 @@ export class ExploreTekbyteComponent implements OnInit {
   }
 
   onSearch() {
+    let tempList = [...this.tekbyteList];
+    if(this.selectedTopics.length > 0) {
+      tempList = tempList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
+    }
     if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredTekbyteList = this.tekbyteList.filter(tekbyte => 
+      this.filteredTekbyteList = tempList.filter(tekbyte => 
       this.helperService.getIncludesStr(tekbyte.title, this.searchText) 
       || this.helperService.getIncludesStr(tekbyte.topicCode, this.searchText)
       || this.helperService.getIncludesStr(tekbyte.summary, this.searchText)
       || this.helperService.getIncludesStr(tekbyte.description, this.searchText));
     } else {
-      this.filteredTekbyteList = [...this.tekbyteList];
+      this.filteredTekbyteList = tempList;
     }
+  }
+
+  onChange(eve) {
+    this.selectedTopics = [];
+    if(eve.value.length > 0) {
+      eve.value.forEach(topic => this.selectedTopics.push(topic.code));
+    }
+    this.onSearch();
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { AppSpinnerService, VideoLibraryApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { TopicItem } from '@app/shared/models';
 import { IVideoDetail } from '@app/shared/models/video-library-item.model';
 import { MessageService } from 'primeng/api';
 
@@ -15,6 +16,8 @@ export class VideoLibraryComponent implements OnInit {
   videoList: IVideoDetail[] = [];
   filteredVideoList: IVideoDetail[] = [];
   searchText: string;
+  topics: TopicItem[] = [];
+  selectedTopics: string[] = [];
 
   constructor(private spinner: AppSpinnerService, 
     private videoService: VideoLibraryApiService,
@@ -23,11 +26,12 @@ export class VideoLibraryComponent implements OnInit {
     private messageService: MessageService) {}
 
   ngOnInit(): void {
-      this.videoService.getAllVideos().subscribe(data => {
-        this.spinner.hide();
-        this.videoList = data;
-        this.filteredVideoList = data;
-      }); 
+    this.topics = this.helperService.getTopicData();
+    this.videoService.getAllVideos().subscribe(data => {
+      this.spinner.hide();
+      this.videoList = data;
+      this.filteredVideoList = data;
+    });
   }
 
   onVideoClick(video: IVideoDetail) {
@@ -39,17 +43,6 @@ export class VideoLibraryComponent implements OnInit {
       this.router.navigateByUrl('/ai-hub/' + video.videoId +'/detail?pageId=Video_Library');
     } else {
       window.open(video.resourceUrl, '_blank');
-    }
-  }
-
-  onSearch() {
-    if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredVideoList = this.videoList.filter(research => this.helperService.getIncludesStr(research.title, this.searchText) 
-      || this.helperService.getIncludesStr(research.topicCode, this.searchText)
-      || this.helperService.getIncludesStr(research.summary, this.searchText)
-      || this.helperService.getIncludesStr(research.description, this.searchText));
-    } else {
-      this.filteredVideoList = [...this.videoList];
     }
   }
 
@@ -66,4 +59,26 @@ export class VideoLibraryComponent implements OnInit {
     return false;
   }
 
+  onSearch(): void {
+    let tempList = [...this.videoList];
+    if(this.selectedTopics.length > 0) {
+      tempList = tempList.filter(video => this.selectedTopics.includes(video.topicCode));
+    }
+    if(this.searchText && this.searchText.trim().length > 0) {
+      this.filteredVideoList = tempList.filter(research => this.helperService.getIncludesStr(research.title, this.searchText) 
+      || this.helperService.getIncludesStr(research.topicCode, this.searchText)
+      || this.helperService.getIncludesStr(research.summary, this.searchText)
+      || this.helperService.getIncludesStr(research.description, this.searchText));
+    } else {
+      this.filteredVideoList = tempList;
+    }
+  }
+
+  onChange(eve: any): void {
+    this.selectedTopics = [];
+    if(eve.value.length > 0) {
+      eve.value.forEach(topic => this.selectedTopics.push(topic.code));
+    }
+    this.onSearch();
+  }
 }
