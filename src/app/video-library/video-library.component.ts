@@ -6,6 +6,8 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
 import { IVideoDetail } from '@app/shared/models/video-library-item.model';
 import { MessageService } from 'primeng/api';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-video-library',
@@ -30,7 +32,10 @@ export class VideoLibraryComponent implements OnInit {
     this.videoService.getAllVideos().subscribe(data => {
       this.spinner.hide();
       this.videoList = data;
-      this.filteredVideoList = data;
+      this.videoList.forEach(video => {
+        video.publishedOn = video.publishedOn ? moment(video.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
+      });
+      this.filteredVideoList = this.videoList;
     });
   }
 

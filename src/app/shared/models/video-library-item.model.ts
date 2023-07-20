@@ -12,6 +12,7 @@ export interface IVideoDetail {
   imageUrl: string;
   promotion: IVideoPromotion;
   status: string;
+  publishedOn: string;
   isRecommended?: boolean;
 }
 
