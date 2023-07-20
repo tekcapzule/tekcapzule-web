@@ -29,7 +29,7 @@ h4,
 h5,
 h6 {
   font-family: $heading-fonts;
-  color: #090909;
+  color: $heading-color;
 }
 h1 {
   margin: 0;
@@ -51,7 +51,6 @@ h1 {
 h2 {
   margin-bottom: 15px;
   font-size: 30px;
-  color: #fff;
 }
 h3 {
   font-size: 20px;
@@ -108,9 +107,6 @@ h4 {
     }
   }
   .carousel-inner {
-    background: rgba(19, 15, 37, 0.4);
-    border-radius: 24px;
-    padding: 30px 0;
     .carousel-item {
       position: relative;
       top: 0;
@@ -125,7 +121,7 @@ h4 {
         left: auto;
         right: auto;
         text-align: left;
-        color: #fff !important;
+        color: #3C3B3B !important;
         .hero-text {
           color: #636363;
           margin: 10px 0 56px 0;
@@ -1326,10 +1322,10 @@ iframe .navbar-container,
   .skill-studio-bg {
     background-repeat: no-repeat;
     padding: 50px 0 0!important;
-    min-height: 450px;
+    min-height: 360px;
     
     background-image: url('../../assets/images/pattern-1.svg'),
-      url('../../assets/images/pattern-2.svg'), linear-gradient(5deg, rgba(118,23,78,1) 0%, rgba(56,21,113,1) 50%, rgba(27,24,52,1) 90%);
+      url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     // background-size: cover;
     // margin-bottom: 70px;
     @media only screen and (max-width: 768px) { 
@@ -1352,7 +1348,7 @@ iframe .navbar-container,
   right: 10px;
 }
 .top-navigation {
-  background: #1b1834;
+  background: #F7F7F7;
   height: 45px;
   position: fixed;
   z-index: 11;
@@ -1361,7 +1357,6 @@ iframe .navbar-container,
   -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
   .back-link {
     padding: 10px 0;
-    color: #fff;
   }
 }
 .events-banner-img {
@@ -1486,7 +1481,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 .details-banner {
   background: #161e45 url('../images/banner_curve.png') no-repeat;
   color: $white;
-  height: 460px;
+  height: 380px;
   padding-top: 75px !important;
   h2 {
     color: $white;
@@ -1508,7 +1503,6 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   height: 276px;
   h3 {
     font-family: $primary-font-bold;
-    color: #000;
   }
   p {
     color: #000;
@@ -1517,14 +1511,8 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   }
 }
 .american-blue-bg {
-    // background-color: #384060;
-    background: linear-gradient(5deg, rgba(118,23,78,1) 0%, rgba(56,21,113,1) 50%, rgba(27,24,52,1) 90%);
-  .container {
-    background: rgba(19, 15, 37, 0.6);
-    border-radius: 24px;
-    padding: 30px;
-  }
-  }
+    background-color: #384060;
+}
 .bg-white {
   background-color: $white;
 }

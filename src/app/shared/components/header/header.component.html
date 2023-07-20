@@ -11,7 +11,7 @@
         <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
           class="navbar-brand logo">
           <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
-            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo-white.svg" alt="Tekcapsule Logo"/></a>
+            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg" alt="Tekcapsule Logo"/></a>
         </div>
         
         <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
@@ -43,12 +43,6 @@
           </ul>
         </div>
       </nav>
-      <!-- <div class="search-box">
-        <input type="search" name="search" placeholder="What are you looking for?" />
-        <button title="search bar" class="search-btn"></button>
-      </div>
-          <button mat-raised-button class="button primary">Sign up</button>
-          <button mat-stroked-button class="button secondary">Login</button> -->
     </div>
   </div>
 </header>
