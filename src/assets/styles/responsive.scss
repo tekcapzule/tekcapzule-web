@@ -319,7 +319,14 @@
     margin-top: 20px;
   }
   .video-library-card {
-    margin-bottom: 20px !important
+    margin-bottom: 20px !important;
+    height: auto !important;
+    .content {
+      .description {
+        height: auto !important;
+      }
+     }
+
   }
 
   /*********** Details Page **************/
