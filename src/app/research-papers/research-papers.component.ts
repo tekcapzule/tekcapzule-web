@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { ResearchApiService } from '@app/core/services/research-api/research-api.service';
+import { TopicItem } from '@app/shared/models';
 import { IResearchPaperDetail } from '@app/shared/models/research-item.model';
 import * as moment from 'moment';
 import { MessageService } from 'primeng/api';
@@ -18,6 +19,9 @@ export class ResearchPapersComponent implements OnInit {
   researchList: IResearchPaperDetail[] = [];
   filteredResearchList: IResearchPaperDetail[] = [];
   searchText: string;
+  topics: TopicItem[] = [];
+  selectedTopics: string[] = [];
+
   
   constructor(private spinner: AppSpinnerService,
     private researchApi: ResearchApiService,
@@ -26,6 +30,8 @@ export class ResearchPapersComponent implements OnInit {
     private messageService: MessageService) {}
 
   ngOnInit(): void {
+    this.spinner.show();
+    this.topics = this.helperService.getTopicData();
     this.researchApi.getAllResearchPaper().subscribe(data => {
       this.spinner.hide();
       this.researchList = data;
@@ -48,24 +54,6 @@ export class ResearchPapersComponent implements OnInit {
     }
   }
 
-  onSearch() {
-    if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredResearchList = this.researchList.filter(research => this.getIncludesStr(research.title) 
-      || this.getIncludesStr(research.topicCode)
-      || this.getIncludesStr(research.summary)
-      || this.getIncludesStr(research.description)
-      || this.getIncludesStr(research.tags.toString()));
-    }
-  }
-
-  getIncludesStr(value: string): boolean {
-    if(value) {
-      value = value.toLowerCase();
-      return value.includes(this.searchText.toLowerCase())
-    }
-    return false;
-  }
-
   onRecommendClick(event, research: IResearchPaperDetail) {
     event.stopPropagation();
     this.researchApi.updateResearchRecommendCount(research.researchPaperId).subscribe(data => {
@@ -76,5 +64,29 @@ export class ResearchPapersComponent implements OnInit {
         detail: 'Thank you for the recommendation!',
       });
     });
+  }
+
+  onSearch() {
+    let tempList = [...this.researchList];
+    if(this.selectedTopics.length > 0) {
+      tempList = tempList.filter(research => this.selectedTopics.includes(research.topicCode));
+    }
+    if(this.searchText && this.searchText.trim().length > 0) {
+      this.filteredResearchList = tempList.filter(research => this.helperService.getIncludesStr(research.title, this.searchText) 
+      || this.helperService.getIncludesStr(research.topicCode, this.searchText)
+      || this.helperService.getIncludesStr(research.summary, this.searchText)
+      || this.helperService.getIncludesStr(research.description, this.searchText)
+      || this.helperService.getIncludesStr(research.tags.toString(), this.searchText));
+    } else {
+      this.filteredResearchList = tempList;
+    }
+  }
+
+  onChange(eve) {
+    this.selectedTopics = [];
+    if(eve.value.length > 0) {
+      eve.value.forEach((topic: TopicItem) => this.selectedTopics.push(topic.code));
+    }
+    this.onSearch();
   }
 }

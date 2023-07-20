@@ -15,20 +15,20 @@ export class CoursesComponent implements OnInit {
   courseList: ICourseDetail[] = [];
   filteredCourseList: ICourseDetail[] = [];
   topics: TopicItem[] = [];
+  selectedTopic: string[] = [];
   selectedPayments: any[] = [];
-  selectedOS: any[] = [];
+  selectedDeliveryMode: any[] = [];
   paymentCategories: any[] = [
     { name: 'Free', key: 'FREE' },
     { name: 'Freemium', key: 'FREEMIUM' },
     { name: 'Premium', key: 'PREMIUM' },
     { name: 'Paid', key: 'PAID' }
   ];
-  osCategories: any[] = [
-    { name: 'Windows', key: 'Windows' },
-    { name: 'Mac', key: 'Mac' },
-    { name: 'Linux', key: 'linux' }
+  deliveryMode: any[] = [
+    { name: 'Online', key: 'ONLINE' },
+    { name: 'Hybrid', key: 'HYBRID' },
+    { name: 'In Classroom', key: 'IN_CLASSROOM' }
   ];
-
 
   constructor(private spinner: AppSpinnerService,
     private courseApi: CourseApiService,
@@ -49,36 +49,38 @@ export class CoursesComponent implements OnInit {
   }
 
   getTopicName(topicCode: string) {
-    return this.topics.find(topic => topic.code === topicCode);
-  }
-
-  onPaymentTypeChange(event, key: string) {
-    if(event.checked.length && !this.selectedPayments.includes(key)) {
-      this.selectedPayments.push(key);
-    } else if(event.checked.length === 0) {
-      this.selectedPayments = this.selectedPayments.filter(sp => sp !== key);
-    }
-    this.productFilter();
-  }
-
-  productFilter() {
-    if(this.selectedPayments.length > 0) {
-      this.filteredCourseList = this.courseList.filter(p => this.selectedPayments.includes(p.prizingModel));
-    } else {
-      this.filteredCourseList = this.courseList;
-    }
-  }
-
-  onOSChange(value, type) {
-    console.log('sdfdsf', value, type);
-  }
-
-  onUsedChange(value, type) {
-    console.log('sdfdsf', value, type);
+    const topic = this.topics.find(topic => topic.code === topicCode);  
+    return topic? topic.title : '';
   }
 
   onCourseClick(course: ICourseDetail) {
     this.router.navigateByUrl('ai-hub/course-detail/'+ course.courseId)
+  }
+
+  onFilterChange(event, key: string, field: string) {
+    if(event.checked.length ) {
+      this[field].push(key);
+    } else if(event.checked.length === 0) {
+      this[field] = this[field].filter(sp => sp !== key);
+    }
+    this.productFilter();
+  }
+
+  
+  productFilter() {
+    let tempList =  [...this.courseList];
+    if(this.selectedTopic.length > 0 || this.selectedPayments.length > 0 || this.selectedDeliveryMode.length > 0) {
+      if(this.selectedTopic.length) {
+        tempList = tempList.filter(course => this.selectedTopic.includes(course.topicCode))
+      }
+      if(this.selectedPayments.length) {
+        tempList = tempList.filter(course => this.selectedPayments.includes(course.prizingModel));
+      }
+      if(this.selectedDeliveryMode.length > 0) {
+        tempList = tempList.filter(course => this.selectedDeliveryMode.includes(course.deliveryMode));
+      }
+    }
+    this.filteredCourseList = tempList;
   }
 
 }

@@ -129,4 +129,14 @@ export class HelperService {
   isLocalPublisher(publisher: string) {
     return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());
   }
+
+  
+  getIncludesStr(value: string, searchText: string): boolean {
+    if(value) {
+      value = value.toLowerCase();
+      return value.includes(searchText.toLowerCase())
+    }
+    return false;
+  }
+
 }

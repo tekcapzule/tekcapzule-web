@@ -75,32 +75,21 @@
           <div class="filter-column">
             <div class="filter-heading">Filter</div>
             <div>
-            <div class="filter-topic">Price Type</div>
+            <div class="filter-topic">Topic</div>
+              <div *ngFor="let topic of topics" class="field-checkbox pb-2">
+              <p-checkbox name="topic" [value]="topic.code" [(ngModel)]="selectedTopic" [inputId]="topic.code" (onChange)="onFilterChange($event, topic.code, 'selectedTopic')"></p-checkbox>
+              <label [for]="topic.code">{{ topic.title }}</label>
+            </div>
+            <div class="filter-topic">Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
-                <p-checkbox name="payment" [value]="category" (onChange)="onPaymentTypeChange($event, category.key)" [inputId]="category.key"></p-checkbox>
+                <p-checkbox name="payment" [value]="category.key" [inputId]="category.key"  [(ngModel)]="selectedPayments" (onChange)="onFilterChange($event, category.key, 'selectedPayments')"></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
+              </div>
             </div>
-            <div class="filter-topic">OS</div>
-              <div *ngFor="let category of osCategories" class="field-checkbox pb-2">
-              <p-checkbox name="os" [value]="category" [(ngModel)]="selectedOS" [inputId]="category.key"></p-checkbox>
-              <label [for]="category.key">{{ category.name }}</label>
-          </div>
-            <div class="filter-topic">Used</div>
-            <div class="field-checkbox pb-2">
-              <p-checkbox value="mostused" inputId="mostused" (change)="onUsedChange($event.value, 'mostused')"></p-checkbox>
-              <label for="ny">Most Used</label>
-            </div>
-            </div>
-            <div class="filter-topic">Category</div>
-            <div class="field-checkbox pb-2">
-              <p-checkbox></p-checkbox>
-              <label for="ny">Category 01</label>
-            </div>
-
-            <div class="filter-topic">Filter Title 01</div>
-            <div class="field-checkbox pb-2">
-              <p-checkbox></p-checkbox>
-              <label for="ny">Type 01</label>
+            <div class="filter-topic">Delivery Mode</div>
+            <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
+              <p-checkbox name="delivery" [value]="dm.key" [inputId]="dm.key"  [(ngModel)]="selectedDeliveryMode" (onChange)="onFilterChange($event, dm.key, 'selectedDeliveryMode')"></p-checkbox>
+              <label [for]="dm.key">{{ dm.name }}</label>
             </div>
           </div>
         </div>
@@ -125,7 +114,7 @@
             <div class="mb-4 pb-4">
               <div *ngFor="let course of filteredCourseList; let i = index;" class="course-card carousel-card mx-0" (click)="onCourseClick(course)">
                 <div class="position-relative">
-                  <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">Paid</div>
+                  <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.prizingModel}}</div>
                   <div class="icons timer">
                     <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
                       _ngcontent-xwg-c263="">{{course.duration}} mins</span>

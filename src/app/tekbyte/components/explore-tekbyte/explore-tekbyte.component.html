@@ -72,17 +72,24 @@
 
     <section class="container d-flex justify-content-between align-items-center">
       <div class="search-box mt-0 py-4 mb-3 ml-0 col-lg-3 pl-0">
-        <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" />
-        <button title="search bar" class="search-btn"></button>
+        <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0"  [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
+        <button title="search bar" class="search-btn" (click)="onSearch()"></button>
       </div>
-      <div class="filter-icon-gray"></div>
+      <div [ngClass]="{'item-selected': selectedTopics.length > 0}" class="page-filter">
+        <p-multiSelect
+          [options]="topics"
+          [filter]="false"
+          (onChange)="onChange($event)"
+          optionLabel="title"
+        ></p-multiSelect>
+      </div>
     </section>
     <section class="py-3 container">
       <div class="section-title text-left">
         <h2>Featured Topics</h2>
       </div>
       <div>
-        <div *ngFor="let tl of tekbyteList" class="digest-card" (click)="openTekbyte(tl)">
+        <div *ngFor="let tl of filteredTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
           <div class="card-top bg-1">
             <div class="conference-header">
               <div class="title">{{tl.title}}</div>
@@ -103,9 +110,9 @@
 
     <section class="py-3 container">
       <div class="section-title text-left">
-        <h2>Other Popular Topics Based on Your Interest</h2>
+        <h2 style="color: black;">Other Popular Topics Based on Your Interest</h2>
       </div>
-      <div>
+      <!--div>
         <div class="digest-card">
           <div class="card-top bg-1">
           <div class="conference-header">
@@ -150,6 +157,24 @@
               <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
             </div>
             </div>
+        </div>
+      </div-->
+
+      <div>
+        <div *ngFor="let tl of popularTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
+          <div class="card-top bg-1">
+            <div class="conference-header">
+              <div class="title">{{tl?.title}}</div>
+              <div class="description">{{tl?.summary}}</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-between">
+              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
+              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
+            </div>
+          </div>
+         
         </div>
       </div>
     </section>

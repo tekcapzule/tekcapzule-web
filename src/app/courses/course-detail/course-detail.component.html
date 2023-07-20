@@ -102,7 +102,7 @@
           <div class="card-section cards-spacing d-flex justify-content-center mb-4 pb-4">
             <div *ngFor="let course of relatedCourseList" class="course-card carousel-card"  (click)="onCourseClick(course)">
               <div class="position-relative">
-                <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">Paid</div>
+                <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.prizingModel}}</div>
                 <div class="icons timer">
                   <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
                    >{{course.duration}} mins</span>
