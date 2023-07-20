@@ -1537,3 +1537,32 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   color: #2B2B2B;
   font-family: $primary-font-medium;
 }
+
+/************AI Hub Banners****************/
+.aihub-banner {
+  height: 350px;
+  margin-top: 45px;
+  .banner-highlights {
+    font-size: 35px;
+    font-family: $primary-font-medium;
+    span {
+      font-family: $primary-font-bold;
+      color: $primary-color;
+    }
+  }
+  &.tekbyte {
+    background: url('../images/tekbyte-banner.png') no-repeat;
+  }
+  &.events {
+    background: url('../images/events-banner.png') no-repeat;
+  }
+  &.courses {
+    background: url('../images/courses-banner.png') no-repeat;
+  }
+  &.video-library {
+    background: url('../images/video-library-banner.png') no-repeat;
+  }
+  &.research-papers {
+    background: url('../images/research-papers-banner.png') no-repeat;
+  }
+}

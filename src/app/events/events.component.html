@@ -9,45 +9,17 @@
         </div>
       </div>
     </div>
-    <section *ngIf="regions.length" class="container-fluid skill-studio-bg px-0 pt-3">
-      <div id="heroBanner" class="carousel slide" data-ride="carousel">
-        <ul class="carousel-indicators">
-          <li data-target="#heroBanner" data-slide-to="0" class="active"></li>
-          <li data-target="#heroBanner" data-slide-to="1"></li>
-        </ul>
-        <div class="carousel-inner">
-          <div *ngFor="let pe of promotedEvents; let i = index;" class="carousel-item" [ngClass]="{'active': i === 0}">
-            <div class="carousel-caption">
-              <section class="d-flex align-items-center">
-                <div>
-                  <div class="row justify-content-center">
-                    <div class="col-xl-4 col-lg-6 order-1 order-lg-1 hero-img text-right mr-5">
-                      <img [src]="pe.promotion.imageUrl" class="img-fluid events-banner-img" alt="" />
-                    </div>
-                    <div
-                      class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center">
-                      <h2>{{pe.name}}</h2>
-                      <div class="venue-details">
-                        <div *ngIf="pe.schedule"><span class="date-icon dark"></span>{{pe.schedule.startDate}} - {{pe.schedule.endDate}}<span> | </span> {{pe.schedule?.startTime - pe.schedule?.endTime}}</div>
-                        <div><span class="location-icon dark"></span>{{pe.venue}}</div>
-                      </div>
-                      <p class="mb-5">
-                        {{pe.description}}
-                      </p>
-                      <button class="button primary-btn-sm" (click)="onRegister(pe)">Register</button>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
+  </div>
+    <section class="container-fluid aihub-banner events pt-5">
+      <div class="container">
+          <div class="text-right mob-mr-0 mt-5">
+            <div class="banner-highlights text-white">We have Some HANDPICKED <br>events for you</div>
           </div>
-          
-        </div>
       </div>
     </section>
-  </div>
+  
   <div class="col-lg-12 bg-gray py-5">
-    <section *ngFor="let reg of regions; let i = index" class="pt-3 container">
+    <section *ngFor="let reg of regions; let i = index" class="pt-3 container px-0">
       <div class="section-title text-left">
         <h2>{{reg?.replaceAll('_', ' ')}}</h2>
       </div>
@@ -57,8 +29,8 @@
             <div class="title">{{eve.name}}</div>
             <div class="description">{{eve.summary}}</div>
           </div>
-          <div *ngIf="eve.schedule" class="description"><span class="date-icon"></span>{{eve.schedule.startDate}} - {{eve.schedule.endDate}}<span> | </span>{{eve.schedule.startTime}} - {{eve.schedule.endTime}}</div>
-          <div class="description"><span class="location-icon"></span>{{eve.venue}}</div>
+          <div *ngIf="eve.schedule" class="d-flex align-items-center"><span class="date-icon"></span>{{eve.schedule.startDate}} - {{eve.schedule.endDate}}<span> | </span>{{eve.schedule.startTime}} - {{eve.schedule.endTime}}</div>
+          <div class="d-flex align-items-center"><span class="location-icon"></span>{{eve.venue}}</div>
         </div>
       </div>
     </section>
