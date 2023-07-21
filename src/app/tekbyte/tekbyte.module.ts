@@ -14,10 +14,14 @@ import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [TekbytePageComponent, ExploreTekbyteComponent, TekbyteDetailsComponent],
-  imports: [CommonModule, SharedModule, FormsModule,
-    ReactiveFormsModule, MultiSelectModule,
+  imports: [CommonModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MultiSelectModule,
     ToastModule,
-    TekbyteRoutingModule, MatTabsModule],
+    TekbyteRoutingModule,
+    MatTabsModule],
   providers: [MessageService]
 })
 export class TekbyteModule {}

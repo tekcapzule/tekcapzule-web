@@ -2,7 +2,7 @@
 export interface ICourseDetail {
   courseId: string;
   topicCode: string;
-  title: ISchedule;
+  title: string;
   summary: string;
   description: string;
   author: string;
