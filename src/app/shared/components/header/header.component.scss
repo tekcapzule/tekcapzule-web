@@ -119,14 +119,14 @@ a.dropdown-toggle.d-flex::after {
       position: relative;
       white-space: nowrap;
       // padding: 10px 40px;
-      padding: 10px 4rem;
-      @media only screen and (max-width: 1500px) {
-        // padding: 10px;
-        padding: 10px 4rem;
-      }
-      @media only screen and (width: 1536px) {
-        padding: 10px 4rem;
-      }
+      padding: 10px 2rem;
+      // @media only screen and (max-width: 1500px) {
+      //   // padding: 10px;
+      //   padding: 10px 4rem;
+      // }
+      // @media only screen and (width: 1536px) {
+      //   padding: 10px 4rem;
+      // }
       ::after {
         content: '';
         display: none;
@@ -406,5 +406,86 @@ a.dropdown-toggle.d-flex::after {
 
   .navbar-toggler.collapsed ~ .navbar-collapse {
     transition: left 500ms ease-in-out;
+  }
+}
+
+
+/***********Dropdown Menu***********/
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  .dropbtn {
+    background-color: transparent;
+    color: #000;
+    padding: 16px;
+    border: none;
+    font-size: 18px !important;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: OpenSans-Bold;
+    .arrow {
+      border: solid #525252;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 4px;
+      margin-left: 8px;
+      &.down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    }
+  }
+
+}
+.dropdown:hover .dropbtn .arrow .down {
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left: 0;
+  top: 7%;
+  width: 100%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {color: $primary-color;}
+
+.sub-menu-title {
+  border-bottom: 1px solid #0000002B;
+  margin: 50px 0px;
+  padding-bottom: 15px;
+  h2 {
+    font-size: 28px;
+    font-family: OpenSans-Medium;
+  }
+}
+.sub-menu {
+  li {
+    h3 {
+      &:hover {
+        color: $primary-color;
+      }
+    }
+    padding-bottom: 50px;
+    cursor: pointer;
   }
 }

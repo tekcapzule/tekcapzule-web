@@ -1551,18 +1551,23 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
     }
   }
   &.tekbyte {
-    background: url('../images/tekbyte-banner.png') no-repeat;
+    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/tekbyte-banner.png') no-repeat;
+    background-size: contain;
   }
   &.events {
-    background: url('../images/events-banner.png') no-repeat;
+    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/events-banner.png') no-repeat;
+    background-size: contain;
   }
   &.courses {
-    background: url('../images/courses-banner.png') no-repeat;
+    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/courses-banner.png') no-repeat;
+    background-size: contain;
   }
   &.video-library {
-    background: url('../images/video-library-banner.png') no-repeat;
+    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/video-library-banner.png') no-repeat;
+    background-size: contain;
   }
   &.research-papers {
-    background: url('../images/research-papers-banner.png') no-repeat;
+    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/research-papers-banner.png') no-repeat;
+    background-size: contain;
   }
 }
