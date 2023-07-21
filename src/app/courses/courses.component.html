@@ -45,12 +45,12 @@
           <div class="row">
             <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-9">
               <input type="text" name="searchTopics"
-                placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0" />
+                placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0" [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
               <button title="search bar" class="search-btn mr-3"></button>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <select class="form-control" name="sort" formControlName="sort">
+                <select class="form-control" name="sort">
                   <option value="">Sort (Newest)</option>
                 </select>
               </div>
@@ -74,7 +74,7 @@
                   <div class="title">
                     {{course.title}}
                     <p _ngcontent-xwg-c263="">
-                      Summary by {{course.author}} <span _ngcontent-xwg-c263="">(August 16, 2010)</span>
+                      Summary by {{course.author}} <span _ngcontent-xwg-c263="">(NA)</span>
                     </p>
                   </div>
                   <div class="description">
