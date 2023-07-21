@@ -480,6 +480,12 @@ a.dropdown-toggle.d-flex::after {
 }
 .sub-menu {
   li {
+    h3 {
+      &:hover {
+        color: $primary-color;
+      }
+    }
     padding-bottom: 50px;
+    cursor: pointer;
   }
 }
