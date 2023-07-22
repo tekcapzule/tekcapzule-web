@@ -1,16 +1,15 @@
 @import './../../assets/styles/variables.scss';
 
 .home-page {
-  margin-top: 100px;
+  margin-top: 75px;
 }
 /*--------------------------------------------------------------
 # Install Now Section
 --------------------------------------------------------------*/
 
 .install-now {
-  background-image: url('../../assets/images/pattern-1.svg'),
-    url('../../assets/images/pattern-2.svg');
-  background-size: contain;
+  background: url('../../assets/images/mobile_bg.png');
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: #ebebeb;
   .content {
@@ -41,14 +40,13 @@
 
 .subscribe {
   &.section-bg {
-    background: $section-bg;
     padding: 25px;
     @media only screen and (max-width: 990px) {
       padding: 20px;
     }
     .container {
       background: $white;
-      padding: 75px;
+      padding: 30px;
       border-radius: 10px;
       @media only screen and (max-width: 990px) {
         padding: 15px;
@@ -66,15 +64,15 @@
         color: red !important;
       }
       .input-mail {
-        background: #E5E5E5;
+        background: #f7f7f7;
         border: 0 none;
-        padding: 14px;
+        padding: 14px 20px;
         border-radius: 10px;
         width: 100%;
         color: #a1a1a1;
-        font-family: $primary-font-medium;
-        font-size: 20px;
-        height: 65px;
+        font-family: $primary-font-regular;
+        font-size: 14px;
+        height: 50px;
         padding-right: 190px;
         @media only screen and (max-width: 480px) {
           padding-right: 10px;
@@ -99,6 +97,6 @@
 }
 
 .explore-topics-section {
-  background: url('../../assets/images/grid_bg.png') no-repeat;
+  background: url('../../assets/images/brick_bg.png') no-repeat;
   background-size: cover;
 }

@@ -33,9 +33,9 @@ h6 {
 }
 h1 {
   margin: 0;
-  font-size: 42px;
+  font-size: 32px;
   line-height: 64px;
-  color: #000;
+  color: #fff;
   font-family: $primary-font-medium;
   @media only screen and (max-width: 767px) {
     line-height: 40px;
@@ -49,7 +49,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 30px;
 }
 h3 {
@@ -80,8 +80,9 @@ h4 {
 .section-title {
   text-align: center;
   padding-bottom: 20px;
+  margin-bottom: 10px;
   h2 {
-    font-size: 28px;
+    font-size: 26px;
     font-family: $primary-font-medium;
   }
 }
@@ -123,9 +124,9 @@ h4 {
         text-align: left;
         color: #3C3B3B !important;
         .hero-text {
-          color: #636363;
+          color: $white;
           margin: 10px 0 56px 0;
-          font-size: 27px;
+          font-size: 18px;
           font-family: $primary-font-regular;
         }
         .animated {
@@ -240,10 +241,10 @@ h4 {
 --------------------------------------------------------------*/
 .button {
   border-radius: 42px;
-  height: 60px;
-  width: 222px;
+  height: 45px;
+  width: 165px;
   font-family: $primary-font-bold;
-  font-size: 19px;
+  font-size: 14px;
   border: 2px solid $primary-color;
   transition: all 0.35s ease-in-out;
 
@@ -277,7 +278,7 @@ h4 {
     color: $white;
     width: 170px;
     height: 45px;
-    font-size: 16px;
+    font-size: 14px;
   }
   &.primary-btn-sm {
     width: 132px;
@@ -324,7 +325,7 @@ h4 {
   }
 }
 .content-sub-text {
-  font-size: 20px;
+  font-size: 18px;
   font-family: $primary-font-regular;
   line-height: 30px;
   color: $secondary-color;
@@ -334,12 +335,12 @@ h4 {
   }
 }
 .follow-us {
-  margin-top: 38px;
+  margin-top: 25px;
   a {
     color: $primary-color;
-    font-size: 24px;
+    font-size: 20px;
     font-family: $primary-font-medium;
-    padding: 0 20px;
+    padding: 0 10px;
     text-decoration: underline;
     @media only screen and (max-width: 570px) {
       font-size: 16px;
@@ -363,28 +364,30 @@ h4 {
 .back-link {
   margin-bottom: 30px;
   // margin-top: -25px;
-  font-size: 14px;
+  font-size: 12px;
   font-family: $primary-font-medium;
 
   a {
     // position: relative;
     // top: -25px;
-    color: $primary-color !important;
+    color: #C3CBFF !important;
     &:nth-child(2) {
       padding-left: 25px;
     }
     &:after {
       content: '';
       background: url('../images/hamburger-arrow.svg') center right no-repeat;
-      width: 17px;
-      height: 17px;
+      width: 9px;
+      height: 9px;
       position: absolute;
-      margin-top: 2px;
+      margin-top: 4px;
       background-size: 12px;
+      margin-left: 7px;
     }
   }
   span {
     margin-left: 25px;
+    color: #C3CBFF;
   }
 }
 .reset-btn {
@@ -1337,10 +1340,12 @@ iframe .navbar-container,
   .skill-studio-bg {
     background-repeat: no-repeat;
     padding: 50px 0 0!important;
-    min-height: 360px;
+    min-height: 200px;
+    background: url('../../assets/images/skill_studio-banner.svg') no-repeat;
+    background-size: cover;
     
-    background-image: url('../../assets/images/pattern-1.svg'),
-      url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
+    // background-image: url('../../assets/images/pattern-1.svg'),
+    //   url('../../assets/images/pattern-2.svg'), linear-gradient(to bottom, white, #efd6dd);
     // background-size: cover;
     // margin-bottom: 70px;
     @media only screen and (max-width: 768px) { 
@@ -1363,8 +1368,9 @@ iframe .navbar-container,
   right: 10px;
 }
 .top-navigation {
-  background: #F7F7F7;
-  height: 45px;
+  // background: #F7F7F7;
+  background: linear-gradient(270deg, #6C2B67 0%, #202A5F 100%);
+  height: 35px;
   position: fixed;
   z-index: 11;
   box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
@@ -1540,8 +1546,8 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 
 /************AI Hub Banners****************/
 .aihub-banner {
-  height: 350px;
-  margin-top: 45px;
+  height: 300px;
+  margin-top: 35px;
   .banner-highlights {
     font-size: 35px;
     font-family: $primary-font-medium;
@@ -1551,23 +1557,27 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
     }
   }
   &.tekbyte {
-    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/tekbyte-banner.png') no-repeat;
-    background-size: contain;
+    background:  url('../images/tekbyte-banner.png') no-repeat;
+    background-size: cover;
   }
   &.events {
-    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/events-banner.png') no-repeat;
-    background-size: contain;
+    background:  url('../images/events-banner.png') no-repeat;
+    background-size: cover;
   }
   &.courses {
-    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/courses-banner.png') no-repeat;
-    background-size: contain;
+    background:  url('../images/courses-banner.png') no-repeat;
+    background-size: cover;
   }
   &.video-library {
-    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/video-library-banner.png') no-repeat;
-    background-size: contain;
+    background:  url('../images/video-library-banner.png') no-repeat;
+    background-size: cover;
   }
   &.research-papers {
-    background: url('../images/pattern-1.svg'), url('../images/pattern-2.svg'), url('../images/research-papers-banner.png') no-repeat;
-    background-size: contain;
+    background:  url('../images/research-papers-banner.png') no-repeat;
+    background-size: cover;
   }
+}
+
+.card {
+  border: 0 none;
 }
