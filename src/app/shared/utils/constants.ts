@@ -19,7 +19,7 @@ export const Constants = {
     },
     { 
       uniqueId: 'Skill_Studio', 
-      displayName: 'AI Hub', 
+      displayName: 'SkillStudio', 
       navUrl: '/ai-hub/dashboard',
       children: [
         { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/ai-hub/tekbyte/explore' },
@@ -38,9 +38,12 @@ export const Constants = {
       navUrl: 'capsules/contribute',
       showOnMobile: true,
     },
-    { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
-    { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
     { uniqueId: 'Market_Place', displayName: 'Market Place', navUrl: '/market-place' },
+    { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
+    { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
+    { uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
+    // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
+    // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
   ],
   SkillTiles: [
     {uniqueId: 'tekbytes', displayName: 'Tekbytes', desc: 'Get your AI Vocabulary Right', navUrl:'/ai-hub/tekbyte/explore'},

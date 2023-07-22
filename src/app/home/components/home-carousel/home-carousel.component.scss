@@ -7,8 +7,10 @@
   width: 100%;
   // height: 666px;
   background-size: cover;
-  margin-bottom: 40px;
-  background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px 0px;
+  margin-bottom: 60px;
+  // background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px 0px;
+  background: url('../../../../assets/images/home-banner-bg.svg') no-repeat;
+  background-size: cover;
   .container,
   .container-fluid-with-text-over-image {
     position: relative;
@@ -90,7 +92,7 @@
       line-height: normal;
     }
     .hero-text {
-      font-size: 18px !important;
+      font-size: 16px !important;
       margin-bottom: 25px !important;
       line-height: normal;
     }
