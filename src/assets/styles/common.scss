@@ -81,6 +81,7 @@ h4 {
   text-align: center;
   padding-bottom: 20px;
   margin-bottom: 10px;
+  line-height: 26px;
   h2 {
     font-size: 26px;
     font-family: $primary-font-medium;
@@ -326,11 +327,11 @@ h4 {
 }
 .content-sub-text {
   font-size: 18px;
-  font-family: $primary-font-regular;
+  font-family: $primary-font-medium;
   line-height: 30px;
   color: $secondary-color;
   @media only screen and (max-width: 990px) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 26px;
   }
 }
@@ -1329,7 +1330,7 @@ iframe .navbar-container,
 
 /**********AI Hub Common Slider Backrounds***********/
 .skill-studio-page {
-  font-size: 16px;
+  font-size: 14px;
 
   &.p-main {
     padding-top: 74px;
@@ -1392,16 +1393,15 @@ iframe .navbar-container,
 
 /*************Filter Styles**************/
 .filter-column {
-  background: $white;
   border-radius: 5px;
   font-family: $primary-font-bold;
 
   .filter-heading {
-      font-size: 20px;
+      font-size: 18px;
       padding-bottom: 20px;
   }
   .filter-topic {
-      font-size: 18px;
+      font-size: 16px;
       padding-bottom: 10px;
       padding-top: 20px;
   }
@@ -1413,6 +1413,7 @@ iframe .navbar-container,
       margin-left: 15px;
       font-family: $primary-font-regular;
       color: #2C2C2C;
+      font-size: 14px;
   }
 }
 
@@ -1473,14 +1474,17 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   padding: 20px 30px;
   border-radius: 5px;
   overflow: hidden;
+  p {
+    font-size: 14px;
+  }
   h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-family: $primary-font-medium;
     padding-bottom: 5px;
   }
   h4 {
     color: #0D0D0D;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 .filter-icon-gray {
@@ -1549,7 +1553,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   height: 300px;
   margin-top: 35px;
   .banner-highlights {
-    font-size: 35px;
+    font-size: 26px;
     font-family: $primary-font-medium;
     span {
       font-family: $primary-font-bold;
@@ -1580,4 +1584,10 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 
 .card {
   border: 0 none;
+}
+.text-lightpurple {
+  color: #C3CCFF;
+}
+.white-bg {
+  background: $white !important;
 }
