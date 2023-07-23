@@ -4,9 +4,9 @@
 --------------------------------------------------------------*/
 #footer {
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   background-size: cover;
-  font-family: $primary-font-regular;
+  font-family: $primary-font-medium;
   box-shadow: 0 -5px 10px rgb(0 0 0 / 5%);
   background: #222D5D;
   @media only screen and (max-width: 990px) {
@@ -23,6 +23,9 @@
       height: 21px;
     }
     .footer-links {
+      line-height: 25px;
+      color: #979EC1;
+      padding-left: 0;
       @media only screen and (max-width: 767) {
         margin-bottom: 10px;
       }
@@ -30,19 +33,24 @@
         list-style: none;
         padding: 7px 0 0;
         margin: 0;
-        li a {
+        &:first-child li a{
           color: $white;
         }
+        li a {
+          color: #979EC1;
+        }
+      }
+      h6 {
+        color: $white;
+        font-family: $primary-font-medium;
+        font-size: 13px;
+        margin-top: 12px;
       }
     }
     .g-play-img {
       width: 138px;
       height: 42px;
     }
-  }
-  .copyright {
-    font-size: 14px;
-    padding-bottom: 42px;
   }
   .social-links {
     a {
@@ -55,9 +63,15 @@
   height: 42px;
 }
 
-.copyright {
-  font-size: 14px;
-  padding-bottom: 55px;
+.copyright, .copyright a {
+  font-size: 10px;
+  padding: 30px 0;
+  color: #979EC1;
+  font-size: 10px;
+  font-family: $primary-font-medium;
+  a {
+    padding: 0 22px;
+  }
 }
 .social-links {
   a {
