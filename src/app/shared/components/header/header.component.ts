@@ -159,6 +159,10 @@ export class HeaderComponent implements OnInit {
     console.log('this.openedMenuItem ',this.openedMenuItem);
   }
 
+  onMouseOver(menuItem) {
+    
+  }
+
   onChildMenuClick(menuItem: NavTab): void {
     if (!this.isMobileResolution) {
       this.router.navigate([menuItem.navUrl]);
