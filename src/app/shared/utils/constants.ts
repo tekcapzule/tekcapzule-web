@@ -10,6 +10,7 @@ export const Constants = {
       uniqueId: 'My_Feeds',
       displayName: 'Feeds',
       navUrl: '/capsules',
+      viewType: 'MOBILE',
       children: [
         { uniqueId: 'For_You', displayName: 'For You', navUrl: '/capsules/myfeeds' },
         { uniqueId: 'Trending', displayName: 'Trending', navUrl: '/capsules/trending' },
@@ -21,15 +22,16 @@ export const Constants = {
       uniqueId: 'Skill_Studio', 
       displayName: 'SkillStudio', 
       navUrl: '/ai-hub/dashboard',
+      viewType: 'ALL',
       children: [
-        { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/ai-hub/tekbyte/explore' },
-        { uniqueId: 'Courses', displayName: 'Courses', navUrl: '/ai-hub/courses' },
-        { uniqueId: 'Mentoring', displayName: 'Mentoring', navUrl: '/ai-hub/mentoring' },
-        { uniqueId: 'Weekly_Digest', displayName: 'Weekly Digest', navUrl: '/ai-hub/weekly-digest' },
-        { uniqueId: 'Interview_Prep', displayName: 'Interview Prep', navUrl: '/ai-hub/interview-prepartion' },
-        { uniqueId: 'Events', displayName: 'Events', navUrl: '/ai-hub/events' },
-        { uniqueId: 'Video_Library', displayName: 'Video Library', navUrl: '/ai-hub/video-library' },
-        { uniqueId: 'Research_Papers', displayName: 'Research papers', navUrl: '/ai-hub/research-papers' },
+        { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/ai-hub/tekbyte/explore', desc: 'Get your AI Vocabulary Right' },
+        { uniqueId: 'Courses', displayName: 'Courses', navUrl: '/ai-hub/courses', desc: 'Get ahead in your AI journey with our cutting edge courses' },
+        { uniqueId: 'Interview_Prep', displayName: 'Interview Prep', navUrl: '/ai-hub/interview-prepartion', desc: 'Go ahead and prepare for your interview' },
+        { uniqueId: 'Mentoring', displayName: 'Mentoring', navUrl: '/ai-hub/mentoring', desc: 'Mentoring is our top priority for the people need mentor' },
+        { uniqueId: 'Research_Papers', displayName: 'Research papers', navUrl: '/ai-hub/research-papers', desc: 'View the research papers' },
+        { uniqueId: 'Video_Library', displayName: 'Video Library', navUrl: '/ai-hub/video-library', desc: 'View our latest videos' },
+        { uniqueId: 'Weekly_Digest', displayName: 'Weekly Digest', navUrl: '/ai-hub/weekly-digest', desc: 'Get your weekly digest from us' },
+        { uniqueId: 'Events', displayName: 'Events', navUrl: '/ai-hub/events', desc: 'Get ahead in your AI journey with our Events' }
       ], 
     },
     {

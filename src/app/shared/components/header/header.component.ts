@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
   headerMenu: NavTab[] = Constants.HeaderMenu;
   selectedMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
+  math = Math;
 
   constructor(
     private renderer: Renderer2,
@@ -139,7 +140,7 @@ export class HeaderComponent implements OnInit {
 
   onMenuClick(navTab: NavTab): void {
     this.selectedMenuItem = navTab;
-    if (!this.isMobileResolution) {
+    if (!this.isMobileResolution && navTab.viewType !== 'ALL') {
       this.router.navigate([navTab.navUrl]);
       return;
     }
