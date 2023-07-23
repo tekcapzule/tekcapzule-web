@@ -71,6 +71,9 @@
   font-family: $primary-font-medium;
   a {
     padding: 0 22px;
+    &:hover {
+      color: $primary-color;
+    }
   }
 }
 .social-links {

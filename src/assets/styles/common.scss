@@ -1283,8 +1283,8 @@ iframe .navbar-container,
 }
 .p-checkbox .p-checkbox-box {
   border: 2px solid #3E3E3E !important;
-  width: 20px !important;
-  height: 20px !important;
+  width: 18px !important;
+  height: 18px !important;
   border-radius: 4px !important;
 }
 .p-checkbox .p-checkbox-box.p-highlight {
@@ -1410,7 +1410,7 @@ iframe .navbar-container,
   display: flex;
   label {
       margin-bottom: 0;
-      margin-left: 15px;
+      margin-left: 10px;
       font-family: $primary-font-regular;
       color: #2C2C2C;
       font-size: 14px;
@@ -1511,11 +1511,11 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   h2 {
     color: $white;
     font-family: $primary-font-medium;
-    font-size: 34px;
+    font-size: 26px;
   }
   .author {
     font-family: $primary-font-regular;
-    font-size: 20px;
+    font-size: 18px;
     padding-bottom: 22px;
   }
 }
@@ -1536,7 +1536,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   }
 }
 .american-blue-bg {
-    background-color: #384060;
+    background-color: #202a5f;
 }
 .bg-white {
   background-color: $white;
@@ -1590,4 +1590,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 }
 .white-bg {
   background: $white !important;
+}
+.linear-bg {
+  background: linear-gradient(315deg, #672b66 0%, #202a5f 100%);
 }
