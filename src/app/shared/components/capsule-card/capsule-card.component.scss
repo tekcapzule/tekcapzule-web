@@ -2,8 +2,8 @@
 
 /* Capsule Card Styles - Start */
 .capsule-card-container {
-  width: 408px;
-  height: 560px;
+  width: 332px;
+  height: 508px;
   background-color: transparent !important;
   border: none !important;
   cursor: pointer;
@@ -26,14 +26,14 @@
   will-change: transform;
   .card-head {
     position: relative;
-    height: 180px;
+    height: 150px;
     .icons {
       text-align: center;
       cursor: pointer;
       position: absolute;
       background: #fcfafa;
       border-radius: 20px;
-      margin: 20px 25px;
+      margin: 10px;
       padding: 5px 7px 7px;
       height: 35px;
       width: 35px;
@@ -71,7 +71,7 @@
       }
     }
     .header-image {
-      height: 180px;
+      height: 140px;
       width: 100%;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
@@ -81,8 +81,8 @@
       position: absolute;
       top: calc(50% - 35px);
       left: calc(50% - 29px);
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       transition: background-color 0.5s ease;
       background-repeat: no-repeat;
       background-image: url("../../../../assets/images/play-button.svg");
@@ -103,7 +103,7 @@
   .card-content {
     padding: 0 30px;
     .title {
-      font-size: 18px;
+      font-size: 16px;
       padding-bottom: 5px;
       font-family: $primary-font-medium;
       line-height: 23px;
@@ -112,7 +112,7 @@
       margin-bottom: 12px;
       p {
         font-family: $primary-font-medium;
-        font-size: 14px;
+        font-size: 12px;
         span {
           font-family: $primary-font-regular;
           color: #9b9b9b;
@@ -121,8 +121,8 @@
     }
     .description {
       font-family: $primary-font-regular;
-      font-size: 14px;
-      min-height: 208px !important;
+      font-size: 12px;
+      min-height: 190px !important;
       height: -webkit-fit-content;
       @media only screen and (min-device-width: 375px)and (max-device-width: 414px) {
         min-height: 222px !important;
@@ -245,7 +245,7 @@
     border: 1px solid #DBDBDB;
     padding: 20px;
     background: #f9f9f9;
-    height: 299px;
+    height: 230px;
     overflow-y: scroll;
     .flip-title {
       font-family: $heading-fonts;
@@ -254,7 +254,7 @@
     }
     .key-points-list {
       font-family: $primary-font-medium;
-      font-size: 15px;
+      font-size: 12px;
       color: #5E5E5E;
       padding-inline-start: 18px;
       li {

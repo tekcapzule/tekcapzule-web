@@ -1,13 +1,13 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 .container {
-    max-width: 1540px;
+    // max-width: 1540px;
 }
 .carousel-card
 {
     max-height: 445px;
     width: 100%;
-    max-width: 392px;
+    max-width: 333px;
     float: left;
     height: auto;
     padding-bottom: 30px;
@@ -31,7 +31,7 @@
         height: 200px;
         overflow-y: auto;
         .title{
-            font-size: 18px;
+            font-size: 16px;
             padding-bottom: 5px;
             font-family: OpenSans-Medium;
             line-height: 23px;
