@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { AppSpinnerService, EventApiService } from '@app/core';
+import { IEventItem } from '@app/shared/models';
+import { HelperService } from '@app/core/services/common/helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -13,7 +16,10 @@ export class EventsComponent implements OnInit {
   promotedEvents: any[] = [];
   pastPopularEvent: any[] = [];
 
-  constructor(private spinner: AppSpinnerService, private eventsApi: EventApiService) {}
+  constructor(private spinner: AppSpinnerService,
+    private eventsApi: EventApiService,
+    private helperService: HelperService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.getAllEvents();
@@ -26,7 +32,6 @@ export class EventsComponent implements OnInit {
         if(item.schedule) {
           item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format('MMM DD');
           item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
-          console.log('item', item.name, item.schedule.startDate, item.schedule.endDate, item.schedule.startDate, item.schedule.startTime, item.schedule.endTime)
         }
         if(!this.events[item.region]) {
           this.events[item.region] = [];
@@ -50,7 +55,11 @@ export class EventsComponent implements OnInit {
     window.open(eve.registrationUrl, '_blank');
   }
 
-  onPastEvents(eve) {
-    window.open(eve.eventRecordingUrl, '_blank');
+  onPastEvents(eve: IEventItem) {
+      this.spinner.show();
+      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapsule.resourceURL', eve.eventRecordingUrl);
+      sessionStorage.setItem('com.tekcapsule.title', eve.name);
+      this.router.navigateByUrl('/ai-hub/' + eve.code +'/detail?pageId=Events_Page');
   }
 }
