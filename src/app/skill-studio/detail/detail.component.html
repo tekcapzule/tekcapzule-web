@@ -8,13 +8,12 @@
   <div class="container pt-1">
     <div class="back-link pt-0">
       <ng-container *ngFor="let crumb of crumbs">
-        <ng-container *ngIf="crumb.navUrl; else simplecrumb">
+        <ng-container *ngIf="crumb?.navUrl; else simplecrumb">
           <a
             class="url-link"
             *ngIf="!isMobileResolution"
             (click)="navigateToCapsulePage(crumb.navUrl)"
-            >{{ crumb.displayName }}</a
-          >
+            >{{ crumb.displayName }}</a>
         </ng-container>
         <ng-template #simplecrumb>
           <span [ngClass]="{ 'crumb-title': isMobileResolution }">{{ crumb.displayName }}</span>
