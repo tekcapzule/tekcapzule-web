@@ -105,57 +105,23 @@
         </div>
       </section> -->
       <!-- Popular Events Section -->
-      <div class="container-fluid bg-gray pt-3">
+      <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
         <section class="py-3 container">
           <div class="section-title text-center">
             <h2>Other Popular Topics Based on Your Interest</h2>
           </div>
           <div>
-            <div class="digest-card">
+            <div *ngFor="let tl of popularTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
               <div class="card-top bg-1">
                 <div class="conference-header">
-                  <div class="title">So, You Want to Be a Coder</div>
-                  <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem
-                    accusantium
-                    doloremque laudantium, sdda.</div>
+                  <div class="title">{{tl?.title}}</div>
+                  <div class="description">{{tl?.summary}}</div>
                 </div>
               </div>
               <div class="card-footer">
                 <div class="d-flex justify-content-between">
-                  <div class="d-flex align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
-                </div>
-              </div>
-            </div>
-            <div class="digest-card">
-              <div class="card-top bg-2">
-                <div class="conference-header">
-                  <div class="title">So, You Want to Be a Coder</div>
-                  <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem
-                    accusantium
-                    doloremque laudantium, sdda.</div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="d-flex justify-content-between">
-                  <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
-                </div>
-              </div>
-            </div>
-            <div class="digest-card">
-              <div class="card-top bg-3">
-                <div class="conference-header">
-                  <div class="title">So, You Want to Be a Coder</div>
-                  <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem
-                    accusantium
-                    doloremque laudantium, sdda.</div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="d-flex justify-content-between">
-                  <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
+                  <div class="d-flex align-items-center"><span class="okhand-gray-icon pr-4"></span>{{tl.recommendations}}</div>
+                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>{{tl.prizingModel}}</div>
                 </div>
               </div>
             </div>
@@ -163,140 +129,7 @@
         </section>
       </div>
       <div class="container-fluid pt-3">
-        <!-- Capsules Section -->
-        <!--section class="container">
-          <h2 class="text-center my-5 sub-heading">Few Capsules to get you started!</h2>
-          <div class="card-section d-flex justify-content-center mb-4 pb-4">
-            <img src="/assets/images/previous-arrow.svg" alt="previous arrow" />
-            <div class="carousel-card">
-              <div class="position-relative">
-                <div class="icons bookmark">
-                  <img src="/assets/images/bookmark-icon.svg" class="rounded-img" alt="bookmark icon" />
-                </div>
-                <div class="icons okHand">
-                  <img src="/assets/images/okhand-icon.svg" class="rounded-img" alt="okhand icon" />
-                </div>
-                <div class="icons timer">
-                  <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                    _ngcontent-xwg-c263="">20
-                    mins</span>
-                </div>
-                <div class="icons labelRed"><span _ngcontent-xwg-c263="">#CLOUD</span></div>
-                <img src="/assets/images/card-3.png" alt="card 3" class="header-image" />
-              </div>
-              <div class="content">
-                <div class="title">
-                  Machine Learning Essentials
-                  <p _ngcontent-xwg-c263="">
-                    Summary by AWS <span _ngcontent-xwg-c263="">(August 16, 2010)</span>
-                  </p>
-                </div>
-                <div class="description">
-                  <p _ngcontent-xwg-c263="">
-                    Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                    doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
-                    ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo.
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-                    quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni
-                    dolores eos qui ratione voluptatem sequi.
-                  </p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <img src="/assets/images/article-icon.svg" class="float-left" alt="article icon" />
-                  <div class="float-right">
-                    <img src="/assets/images/flip-icon.svg" class="mr-4" alt="flip icon" /><img
-                      src="/assets/images/share-icon.png" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="position-relative">
-                <div class="icons bookmark">
-                  <img src="/assets/images/bookmark-icon.svg" class="rounded-img" alt="bookmark icon" />
-                </div>
-                <div class="icons okHand">
-                  <img src="/assets/images/okhand-icon.svg" class="rounded-img" alt="okhand icon" />
-                </div>
-                <div class="icons timer">
-                  <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                    _ngcontent-xwg-c263="">20
-                    mins</span>
-                </div>
-                <div class="icons labelRed"><span _ngcontent-xwg-c263="">#CLOUD</span></div>
-                <img src="/assets/images/card-2.png" alt="card 2" class="header-image" />
-              </div>
-              <div class="content">
-                <div class="title">
-                  An Introduction to Microservices Architecture
-                  <p _ngcontent-xwg-c263="">
-                    Summary by Linjith Kunnan <span _ngcontent-xwg-c263="">(August 16, 2010)</span>
-                  </p>
-                </div>
-                <div class="description">
-                  <p _ngcontent-xwg-c263="">
-                    Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                    doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
-                    ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo.
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-                    quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni
-                    dolores eos qui ratione voluptatem sequi.
-                  </p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <img src="/assets/images/book-icon.svg" class="float-left book-icon" alt="book icon" />
-                  <div class="float-right">
-                    <img src="/assets/images/flip-icon.svg" class="mr-4" alt="flip icon" /><img
-                      src="/assets/images/share-icon.png" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="position-relative">
-                <div class="icons bookmark">
-                  <img src="/assets/images/bookmark-icon.svg" class="rounded-img" alt="bookmark icon" />
-                </div>
-                <div class="icons okHand">
-                  <img src="/assets/images/okhand-icon.svg" class="rounded-img" alt="okhand icon" />
-                </div>
-                <div class="icons timer">
-                  <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                    _ngcontent-xwg-c263="">20
-                    mins</span>
-                </div>
-                <div class="icons labelRed"><span _ngcontent-xwg-c263="">#CLOUD</span></div>
-                <img src="/assets/images/card-1.png" alt="card 1" class="header-image" />
-              </div>
-              <div class="content">
-                <div class="title">
-                  Confident Coding: Master the Fundamentals of Code and Supercharge Your Career
-                  <p _ngcontent-xwg-c263="">
-                    Summary by Rob Percival <span _ngcontent-xwg-c263="">(August 16, 2010)</span>
-                  </p>
-                </div>
-                <div class="description">
-                  <p _ngcontent-xwg-c263="">
-                    Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-                    doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae
-                    ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo.
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                    ratione voluptatem sequi.
-                  </p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <img src="/assets/images/video-icon.svg" class="float-left" alt="video icon" />
-                  <div class="float-right">
-                    <img src="/assets/images/flip-icon.svg" class="mr-4" alt="flip icon" /><img
-                      src="/assets/images/share-icon.png" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <img src="/assets/images/next-arrow.svg" alt="next arrow" />
-          </div>
-        </section-->
-
+        
         <!-- Know More Section -->
         <section class="container">
           <div class="know-more-sec">

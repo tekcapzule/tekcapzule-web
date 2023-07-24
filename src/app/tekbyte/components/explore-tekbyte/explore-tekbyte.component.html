@@ -57,58 +57,11 @@
     </section>
     <!-- Popular Events Section -->
 
-    <section class="py-3 container">
+    <section *ngIf="popularTekbyteList.length" class="py-3 container">
       <div class="section-title text-left">
         <h2 style="color: black;">Other Popular Topics Based on Your Interest</h2>
       </div>
-      <!--div>
-        <div class="digest-card">
-          <div class="card-top bg-1">
-          <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
-            </div>
-            </div>
-            <div class="card-footer">
-            <div class="d-flex justify-content-between">
-              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
-            </div>
-            </div>
-        </div>
-        <div class="digest-card">
-          <div class="card-top bg-2">
-          <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
-            </div>
-            </div>
-            <div class="card-footer">
-            <div class="d-flex justify-content-between">
-              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
-            </div>
-            </div>
-        </div>
-        <div class="digest-card">
-          <div class="card-top bg-3">
-          <div class="conference-header">
-            <div class="title">So, You Want to Be a Coder</div>
-            <div class="description">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
-              doloremque laudantium, sdda.</div>
-            </div>
-            </div>
-            <div class="card-footer">
-            <div class="d-flex justify-content-between">
-              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
-            </div>
-            </div>
-        </div>
-      </div-->
-
+      
       <div>
         <div *ngFor="let tl of popularTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
           <div class="card-top bg-1">
@@ -119,8 +72,8 @@
           </div>
           <div class="card-footer">
             <div class="d-flex justify-content-between">
-              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>225</div>
-              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>Premium</div>
+              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>{{tl.recommendations}}</div>
+              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>{{tl.prizingModel}}</div>
             </div>
           </div>
          

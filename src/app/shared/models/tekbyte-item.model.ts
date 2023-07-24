@@ -2,7 +2,7 @@ import { TopicCategoryItem } from "./topic-item.model";
 
 export interface TekByteItem {
   title: string;
-  code: string;
+  tekByteId: string;
   topicCode: string;
   summary: string;
   category: TopicCategoryItem
