@@ -23,6 +23,7 @@ export const Constants = {
       displayName: 'SkillStudio', 
       navUrl: '/ai-hub/dashboard',
       viewType: 'ALL',
+      
       children: [
         { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/ai-hub/tekbyte/explore', desc: 'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding.' },
         { uniqueId: 'Courses', displayName: 'Courses', navUrl: '/ai-hub/courses', desc: 'Chart your AI learning path with hand-picked, industry-leading courses.' },
