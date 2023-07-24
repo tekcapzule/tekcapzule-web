@@ -59,7 +59,7 @@ export class EventsComponent implements OnInit {
       this.spinner.show();
       sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
       sessionStorage.setItem('com.tekcapsule.resourceURL', eve.eventRecordingUrl);
-      sessionStorage.setItem('com.tekcapsule.title', eve.name);
+      sessionStorage.setItem('com.tekcapsule.title', eve.title);
       this.router.navigateByUrl('/ai-hub/' + eve.code +'/detail?pageId=Events_Page');
   }
 }
