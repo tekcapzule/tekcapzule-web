@@ -446,7 +446,7 @@
     padding-bottom: 15px;
     width: 75%;
     height: 100%;
-    background: $primary-color;
+    background: #212C5E;
   }
 
   .navbar-collapse.collapsing {
@@ -572,7 +572,8 @@
 
     padding-bottom: 30px;
     cursor: pointer;
-
+    text-wrap: wrap;
+    line-height: 20px;
     .icon {
       display: flex;
       float: left;
