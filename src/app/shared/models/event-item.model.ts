@@ -9,6 +9,7 @@ export interface IEventItem {
   imageUrl: string;
   description: string;
   registrationUrl: string;
+  resourceUrl: string;
   eventRecordingUrl: string;
   promotion: IPromotion;
   pastPopularEvent: boolean;
