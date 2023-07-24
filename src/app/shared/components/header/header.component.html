@@ -80,7 +80,7 @@
           </ul>
         </div>
       </nav>
-      <div class="d-flex">
+      <div class="d-flex" *ngIf="!isMobileResolution">
         <div class="global-search-box mr-3">
           <input type="text"
             placeholder="What are you looking for?" class="mb-0"/>

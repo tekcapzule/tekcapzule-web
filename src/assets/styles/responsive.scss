@@ -144,6 +144,7 @@
   #header .header-align {
     height: 75px !important;
     padding: 0;
+    display: inline-block !important;
   }
   .navbar-toggler-icon {
     width: 25px;
@@ -187,8 +188,11 @@
   }
   .capsule-filter {
     z-index: 999 !important;
-    right: 7% !important;
-    top: 24px !important;
+    right: 5% !important;
+    top: 30px !important;
+  }
+  .navbar {
+    padding: 1rem 0 !important;
   }
 
   .p-multiselect-panel {
@@ -287,7 +291,8 @@
   .banner-text {
     text-align: center !important;
   }
-  .carousel-card .content .title {
+  .carousel-card 
+  .content .title {
     min-height: inherit !important;
     margin-bottom: 20px;
   }
@@ -300,9 +305,7 @@
     }
   }
 
-  .footer-links {
-    width: 100% !important;
-  }
+  
   .hero-img {
     text-align: center;
     display: initial !important;
@@ -326,6 +329,8 @@
   .video-library-card, .research-papers-card {
     margin-bottom: 20px !important;
     height: auto !important;
+    width: auto !important;
+    margin: 10px 20px !important;
     .content {
       .description {
         height: auto !important;
@@ -379,6 +384,24 @@
     }
     .top-navigation {
       height: auto !important;
+    }
+    .footer-links {
+      margin: 0 0 24px;
+      max-width: 50%;
+      width: 100%;
+      padding: 0;
+  
+    }
+    .social-links {
+      display: flex;
+      padding: 0;
+    }
+    .copyright {
+      justify-content: center !important;
+      line-height: 30px;
+      a {
+        padding: 0 15px !important;
+      }
     }
 }
 
