@@ -61,7 +61,10 @@ export const Constants = {
     {uniqueId: 'Research_Papers', displayName: 'Research Papers', desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape', navUrl:'/ai-hub/research-papers'},
     {uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/ai-hub/courses'},
     {uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/ai-hub/interview-prepartion'},
-    {uniqueId: 'insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
+    {uniqueId: 'Insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
+  ],
+  FooterItems: [
+    'My_Feeds', 'Skill_Studio', 'Market_Place', 'Insights'
   ]
 };
 
