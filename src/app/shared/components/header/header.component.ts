@@ -59,11 +59,11 @@ export class HeaderComponent implements OnInit {
   menuClickOutsideEvent() {
     window.addEventListener('click', (e) => {
       if (this.navbarNav.nativeElement.classList.contains('show')) {
-        if(!e.target['classList'].contains('navbar-toggler') && !e.target['classList'].contains('nav-item')) {
+        if(!e.target['classList'].contains('navbar-toggler') && !e.target['classList'].contains('nav-item') && !e.target['classList'].contains('sub-menu-element')) {
           e.preventDefault();
           e.stopPropagation();
         }
-        if(!e.target['classList'].contains('parent-menu')) {
+        if(!e.target['classList'].contains('parent-menu') && !e.target['classList'].contains('sub-menu') && !e.target['classList'].contains('sub-menu-element')) {
           this.closeMenu();
         }
       }
@@ -151,21 +151,18 @@ export class HeaderComponent implements OnInit {
       this.openedMenuItem = null;
     } else {
       this.openedMenuItem = navTab;
+      this.navbarNav.nativeElement.classList.add('show');
+
       if (!this.openedMenuItem.children) {
         this.closeMenu();
       }
       this.router.navigate([this.openedMenuItem.navUrl]);
     }
-    console.log('this.openedMenuItem ',this.openedMenuItem);
   }
 
 
   onChildMenuClick(menuItem: NavTab): void {
-    if (!this.isMobileResolution) {
-      this.openedMenuItem = null;
-    } else {
-      this.closeMenu();
-    }
+    this.closeMenu();
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);
@@ -183,9 +180,13 @@ export class HeaderComponent implements OnInit {
   }
 
   closeMenu() {
-    console.log('came');
-    let inputElement: HTMLElement = this.collapseBtn.nativeElement as HTMLElement;
-    inputElement.click();
-    this.cdr.detectChanges();
+    if(!this.isMobileResolution) {
+      this.navbarNav.nativeElement.classList.remove('show');
+      this.openedMenuItem = null;
+    } else {
+      let inputElement: HTMLElement = this.collapseBtn.nativeElement as HTMLElement;
+      inputElement.click();
+      this.cdr.detectChanges();
+    }
   }
 }

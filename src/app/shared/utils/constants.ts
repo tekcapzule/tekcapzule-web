@@ -32,7 +32,7 @@ export const Constants = {
         { uniqueId: 'Research_Papers', displayName: 'Research papers', navUrl: '/ai-hub/research-papers', desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape.' },
         { uniqueId: 'Video_Library', displayName: 'Video Library', navUrl: '/ai-hub/video-library', desc: 'Gain practical AI insights through our selection of informative videos.' },
         { uniqueId: 'Weekly_Digest', displayName: 'Weekly Digest', navUrl: '/ai-hub/weekly-digest', desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts.' },
-        { uniqueId: 'Events', displayName: 'Events', navUrl: '/ai-hub/events', desc: 'AI without borders. We curate a list of global AI events, enabling you to learn from the world’s leading experts.' }
+        { uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events', desc: 'AI without borders. We curate a list of global AI events, enabling you to learn from the world’s leading experts.' }
       ], 
     },
     {
