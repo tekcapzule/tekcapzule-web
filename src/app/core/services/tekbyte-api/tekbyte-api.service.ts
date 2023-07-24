@@ -81,7 +81,7 @@ export class TekByteApiService {
 
     if (allTekByteCache) {
       const allTekByte = allTekByteCache.body as TekByteItem[];
-      allTekByte.find(tekbyte => tekbyte.code === code).status = 'INACTIVE';
+      allTekByte.find(tekbyte => tekbyte.tekByteId === code).status = 'INACTIVE';
       cacheManager.setItem(TEKBYTE_ALLTEKBYTE_CACHE_KEY, {
         body: allTekByte,
         expiry: allTekByteCache.expiry,

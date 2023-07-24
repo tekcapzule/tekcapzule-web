@@ -20,7 +20,9 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   tekbyteData: TekByteItem;
   titleUrl: string[];
   subscriberFormGroup: FormGroup;
-  
+  tekbyteList: TekByteItem[] = [];
+  popularTekbyteList: TekByteItem[] = [];  
+
   constructor(
     private spinner: AppSpinnerService,
     private route: ActivatedRoute,
@@ -43,14 +45,31 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   }
 
   getTekbyteDetaills(tekbyteCode: string) {
-    this.tekbyteApi.getTekByte(tekbyteCode).subscribe(data => {
-      this.tekbyteData = data;
-      this.spinner.hide();
+    this.tekbyteApi.getAllTekByte().subscribe(data => {
+      if(data) {
+        this.tekbyteList = data;
+        if(data.length > 5) {
+          this.randaomTekbyte(); 
+        }
+        this.tekbyteData = this.tekbyteList.find(tek => tek.tekByteId === tekbyteCode);
+        this.spinner.hide();
+      }
     }, err => {
       console.log(err);
       this.spinner.hide();
     });
   }
+
+  randaomTekbyte(){
+    const arr = []
+    while(this.popularTekbyteList.length < 3){
+      let randomInt = Math.floor(Math.random() * this.tekbyteList.length - 1);
+      if(arr.indexOf(randomInt) === -1) {
+        this.popularTekbyteList.push(this.tekbyteList[randomInt])
+      }
+    }
+  }
+
 
   ngOnDestroy(): void {
   }
