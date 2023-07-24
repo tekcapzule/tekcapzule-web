@@ -64,4 +64,8 @@ export class WeeklyDigestComponent implements OnInit {
       this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
   }
+
+  openDigest(dig) {
+    
+  }
 }
