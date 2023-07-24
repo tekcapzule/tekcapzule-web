@@ -159,16 +159,13 @@ export class HeaderComponent implements OnInit {
     console.log('this.openedMenuItem ',this.openedMenuItem);
   }
 
-  onMouseOver(menuItem) {
-    
-  }
 
   onChildMenuClick(menuItem: NavTab): void {
     if (!this.isMobileResolution) {
-      this.router.navigate([menuItem.navUrl]);
-      return;
+      this.openedMenuItem = null;
+    } else {
+      this.closeMenu();
     }
-    this.closeMenu();
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);
@@ -186,6 +183,7 @@ export class HeaderComponent implements OnInit {
   }
 
   closeMenu() {
+    console.log('came');
     let inputElement: HTMLElement = this.collapseBtn.nativeElement as HTMLElement;
     inputElement.click();
     this.cdr.detectChanges();

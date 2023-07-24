@@ -481,7 +481,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: OpenSans-Bold;
-    &:hover {
+    &.menu-open {
       .arrow {
         border: solid $white;
         border-width: 0 2px 2px 0;
@@ -505,7 +505,7 @@
       &.down {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
-        &:hover {
+        &.menu-open {
           transform: rotate(225deg) translateY(-50%);
           transition: transform .2s;
         }
@@ -515,13 +515,12 @@
 
 }
 
-.dropdown:hover .dropbtn .arrow .down {
+.dropdown.menu-open .dropbtn .arrow .down {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
 
 .dropdown-content {
-  display: none;
   position: fixed;
   background-color: #fff;
   min-width: 160px;
@@ -538,16 +537,12 @@
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
 }
 
 .dropdown-content a:hover {
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
 .dropdown:hover .dropbtn {
   color: $white;

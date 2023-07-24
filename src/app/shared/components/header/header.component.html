@@ -27,7 +27,7 @@
               <li [ngClass]="{'dropdown': (hm.viewType || isMobileResolution) && hm.children, 'active': selectedMenuItem?.uniqueId === hm.uniqueId}"
                 *ngIf="hm.showOnMobile ? isMobileResolution : true">
                 <div *ngIf="!isMobileResolution" class="dropdown">
-                  <button class="dropbtn" (click)="onMenuClick(hm)">{{hm.displayName}}  <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down"></i></button>
+                  <button class="dropbtn" (click)="onMenuClick(hm)">{{hm.displayName}}  <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down" [ngClass]="{'menu-open': openedMenuItem?.uniqueId === hm.uniqueId}"></i></button>
                 </div>
                 <a href="Javascript:void(0)" class="nav-item pe-none" *ngIf="isMobileResolution"
                 [ngClass]="{'parent-menu': isMobileResolution && hm.children}" (click)="onMenuClick(hm)">{{hm.displayName}}
@@ -43,7 +43,7 @@
                   </ul>
                 </ng-container>
 
-                <ng-cotainer *ngIf="(hm.viewType === 'ALL' && !isMobileResolution)">
+                <ng-cotainer *ngIf="(hm.viewType === 'ALL' && !isMobileResolution) && openedMenuItem?.uniqueId === hm.uniqueId">
                   <div class="">
                     <div class="dropdown-content container">
                       <div class="px-5">
