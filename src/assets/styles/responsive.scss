@@ -127,6 +127,11 @@
         // margin-left: 0 !important;
       }
     }
+    a {
+      &::after{
+        margin-top: 6px;
+      }
+    }
   }
   .mission-page, .community-page {
   .tech-learning {
