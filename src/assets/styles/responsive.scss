@@ -5,10 +5,10 @@
   }
   .section-title h2,
   h2 {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
   h3 {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
   .signin {
     height: 560px !important;
@@ -125,6 +125,11 @@
       }
       &:nth-child(2) {
         // margin-left: 0 !important;
+      }
+    }
+    a {
+      &::after{
+        margin-top: 6px;
       }
     }
   }
@@ -430,7 +435,7 @@
     left: 4% !important;
   }
   .capsule-filter {
-    right: 21% !important;
+    right: 30% !important;
   }
   .carousel-card {
     height: 440px;

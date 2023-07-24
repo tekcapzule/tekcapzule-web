@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="22" viewBox="0 0 25 22">
   <g id="Group_6322" data-name="Group 6322" transform="translate(-26 -25)">
-    <rect id="Rectangle_5" data-name="Rectangle 5" width="25" height="4" transform="translate(26 25)" fill="#d42443"/>
-    <rect id="Rectangle_6" data-name="Rectangle 6" width="25" height="4" transform="translate(26 34)" fill="#d42443"/>
-    <rect id="Rectangle_7" data-name="Rectangle 7" width="25" height="4" transform="translate(26 43)" fill="#d42443"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="25" height="4" transform="translate(26 25)" fill="#fff"/>
+    <rect id="Rectangle_6" data-name="Rectangle 6" width="25" height="4" transform="translate(26 34)" fill="#fff"/>
+    <rect id="Rectangle_7" data-name="Rectangle 7" width="25" height="4" transform="translate(26 43)" fill="#fff"/>
   </g>
 </svg>

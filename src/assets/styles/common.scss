@@ -83,7 +83,7 @@ h4 {
   margin-bottom: 10px;
   line-height: 26px;
   h2 {
-    font-size: 26px;
+    font-size: 24px;
     font-family: $primary-font-medium;
   }
 }
@@ -140,7 +140,7 @@ h4 {
 /* Carousel Slider Styles End */
 
 .carousel-card {
-  width: 408px;
+  width: 333px;
   height: 560px;
   box-shadow: 0px 3px 20px #0000000f;
   border-radius: 20px;
@@ -179,7 +179,7 @@ h4 {
       background: $primary-color;
       border-radius: 0px;
       color: $white;
-      margin: 10px 10px;
+      margin: 10px;
       font-size: 12px;
       height: auto;
       padding: 2px 7px;
@@ -196,7 +196,7 @@ h4 {
     }
   }
   .header-image {
-    height: 180px;
+    height: 150px;
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -206,6 +206,7 @@ h4 {
     background: none;
     border: 0 none;
     padding: 10px 0 30px;
+    font-size: 12px;
     img {
       cursor: pointer;
     }
@@ -213,14 +214,14 @@ h4 {
   .content {
     padding: 0 30px;
     .title {
-      font-size: 20px;
+      font-size: 16px;
       font-family: $primary-font-medium;
       line-height: 23px;
       min-height: 70px;
       margin-top: 20px;
       p {
         font-family: $primary-font-medium;
-        font-size: 14px;
+        font-size: 12px;
         span {
           font-family: $primary-font-regular;
           color: #9b9b9b;
@@ -229,7 +230,7 @@ h4 {
     }
     .description {
       font-family: $primary-font-regular;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 }
@@ -285,7 +286,7 @@ h4 {
     width: 132px;
     height: 32px;
     border-radius: 18px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: $primary-font-medium;
     color: $white;
     border: 1px solid $primary-color;
@@ -313,7 +314,7 @@ h4 {
     max-width: 170px;
     height: 32px;
     border-radius: 18px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: $primary-font-medium;
     color: $primary-color;
     border: 1px solid $primary-color;
@@ -378,8 +379,8 @@ h4 {
     &:after {
       content: '';
       background: url('../images/hamburger-arrow.svg') center right no-repeat;
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 12px;
       position: absolute;
       margin-top: 4px;
       background-size: 12px;
@@ -879,7 +880,7 @@ iframe .navbar-container,
 
 .carousel {
   .container {
-    max-width: 1470px;
+    // max-width: 1470px;
   }
 }
 
@@ -887,7 +888,7 @@ iframe .navbar-container,
   border-radius: 15px;
   padding: 3px 20px;
   width: fit-content;
-  font-size: 14px;
+  font-size: 12px;
   // margin-bottom: 12px;
   height: 30px;
   align-items: center;
@@ -929,7 +930,7 @@ iframe .navbar-container,
 .badge-danger {
   background: linear-gradient(90deg, rgba(244, 201, 133, 1) 0%, rgba(245, 61, 109, 1) 100%);
   font-family: OpenSans-Light;
-  font-size: 14px;
+  font-size: 12px;
   position: absolute;
   top: -20px;
   left: 72px;
@@ -1060,9 +1061,9 @@ iframe .navbar-container,
   height: 19px;
 }
 .close-icon {
-  background: url('../images/iframe-close-icon.png') no-repeat;
+  background: url('../images/close-icon-new.svg') no-repeat;
   width: 31px;
-  height: 32px;
+  height: 22px;
   opacity: 1;
 }
 .publisher-icon {
@@ -1077,6 +1078,7 @@ iframe .navbar-container,
 }
 .mat-mdc-tab-link-container {
   padding-top: 5px !important;
+  background: linear-gradient(270deg, #6C2B67 0%, #202A5F 100%);
 }
 
 .tags {
@@ -1216,8 +1218,8 @@ iframe .navbar-container,
   z-index: 2;
     position: fixed;
     float: right;
-    right: 29%;
-    top: 87px;
+    right: 27%;
+    top: 93px;
     @media only screen and (width: 1440px) {
       right: 19% !important;
     }
@@ -1225,7 +1227,7 @@ iframe .navbar-container,
 .p-multiselect {
   border: 0 none !important;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  background: url("../../assets/images/filter-icon.svg") no-repeat !important;
+  background: url("../../assets/images/filter.svg") no-repeat !important;
   height: 30px;
   width: 35px;
   .p-multiselect-trigger, .p-multiselect-label, .p-multiselect-header {
@@ -1283,8 +1285,8 @@ iframe .navbar-container,
 }
 .p-checkbox .p-checkbox-box {
   border: 2px solid #3E3E3E !important;
-  width: 20px !important;
-  height: 20px !important;
+  width: 18px !important;
+  height: 18px !important;
   border-radius: 4px !important;
 }
 .p-checkbox .p-checkbox-box.p-highlight {
@@ -1305,7 +1307,7 @@ iframe .navbar-container,
   background: none !important;
 }
 .down-arrow {
-  width: 25px;
+  width: 20px;
 }
 .follow {
   margin: 14px 0 0 20px;
@@ -1342,7 +1344,7 @@ iframe .navbar-container,
     background-repeat: no-repeat;
     padding: 50px 0 0!important;
     min-height: 200px;
-    background: url('../../assets/images/skill_studio-banner.svg') no-repeat;
+    background: url('../../assets/images/skill_studio-banner.png') no-repeat;
     background-size: cover;
     
     // background-image: url('../../assets/images/pattern-1.svg'),
@@ -1350,7 +1352,7 @@ iframe .navbar-container,
     // background-size: cover;
     // margin-bottom: 70px;
     @media only screen and (max-width: 768px) { 
-      background: linear-gradient(to bottom, white, #efd6dd);
+      // background: linear-gradient(to bottom, white, #efd6dd);
       padding: 70px 25px 25px!important;
     }
     .carousel {
@@ -1410,7 +1412,7 @@ iframe .navbar-container,
   display: flex;
   label {
       margin-bottom: 0;
-      margin-left: 15px;
+      margin-left: 10px;
       font-family: $primary-font-regular;
       color: #2C2C2C;
       font-size: 14px;
@@ -1444,8 +1446,8 @@ select {
   position: absolute;
   top: calc(50% - 35px);
   left: calc(50% - 29px);
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   transition: background-color 0.5s ease;
   background-repeat: no-repeat;
   background-image: url("../../assets/images/play-button.svg");
@@ -1511,11 +1513,11 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   h2 {
     color: $white;
     font-family: $primary-font-medium;
-    font-size: 34px;
+    font-size: 26px;
   }
   .author {
     font-family: $primary-font-regular;
-    font-size: 20px;
+    font-size: 18px;
     padding-bottom: 22px;
   }
 }
@@ -1536,7 +1538,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   }
 }
 .american-blue-bg {
-    background-color: #384060;
+    background-color: #202a5f;
 }
 .bg-white {
   background-color: $white;
@@ -1590,4 +1592,19 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
 }
 .white-bg {
   background: $white !important;
+}
+.linear-bg {
+  background: linear-gradient(315deg, #672b66 0%, #202a5f 100%);
+}
+.inner {
+  margin: 0 auto;
+  max-width: 1040px;
+  width: 100%;
+}
+.disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  &:hover {
+    background: none !important;
+  }
 }

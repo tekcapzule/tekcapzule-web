@@ -1,10 +1,10 @@
 <app-spinner></app-spinner>
   
-<section *ngIf="isDataAvailable" class="container-fluid bg-white detail-page">
+<section *ngIf="isDataAvailable" class="container-fluid bg-white detail-page px-0">
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-
+<div class="container-fluid linear-bg">
   <div class="container pt-1">
     <div class="back-link pt-0">
       <ng-container *ngFor="let crumb of crumbs">
@@ -22,6 +22,7 @@
       <button type="button" class="close close-icon" (click)="onIFrameClose()"></button>
     </div>
   </div>
+</div>
   <div class="container">
     <iframe #detailFrame
       [src]="resourceUrl"

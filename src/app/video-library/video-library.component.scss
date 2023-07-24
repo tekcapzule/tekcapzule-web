@@ -10,9 +10,9 @@
     cursor: pointer;
     border: 1px solid #c3c2c2;
     border-radius: 4px;
-    height: 495px;
+    height: 400px;
     .video_thumb {
-        height: 180px;
+        height: 150px;
     }
     .header-image {
         border-top-left-radius: 0px;
@@ -20,7 +20,7 @@
     }
     .content {
         .title {
-            font-size: 18px;
+            font-size: 16px;
             font-family: $primary-font-medium;
             padding-bottom: 5px;
             color: #333;
@@ -29,7 +29,7 @@
             }
         }
         .description {
-            font-size: 14px;
+            font-size: 12px;
             overflow-y: auto;
             height: 190px;
         }
