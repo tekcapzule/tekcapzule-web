@@ -2,12 +2,13 @@
   <div class="col-lg-12 px-0">
     <section class="container-fluid skill-studio-bg  px-0 pt-3">
       <div id="heroBanner" class="carousel slide container" data-ride="carousel">
-        <div class="section-title">
+        <div class="inner section-title">
           <h2 class="text-white pb-2">Skill Studio</h2>
           <p class="text-white">
-            As machines become increasingly capable, tasks considered to require “intelligence” are often removed from
-            the definition of AI, a phenomenon known as the AI effect. For instance, optical character recognition is
-            frequently excluded from things considered to be AI, having become a routine technology.[2]
+            With Skillstudio, AI is at your command, delivering a consolidated array of AI-related events, newsletters,
+            advanced educational offerings, and algorithm-driven mentorship. Enhance your AI path with influential
+            academic papers, enlightening video content, and focused interview tools. <br>By decoding complex AI vocabulary,
+            we transform complicated AI principles into engaging and easy-to-understand concepts.
           </p>
         </div>
         <!-- <ul class="carousel-indicators">
@@ -73,7 +74,7 @@
       <div class="skill-card" *ngFor="let tile of tileList; let i=index">
         <div class="topics-card" [ngClass]="tile.uniqueId + ' tile-bg-' + (i+1)" (click)="navigatePage(tile.navUrl)">
           <div class="topic-title">{{tile.displayName}}</div>
-          <div class="topic-icon"  [ngClass]="tile.uniqueId + ' icon-' + (i+1)"></div>
+          <div class="topic-icon" [ngClass]="tile.uniqueId + ' icon-' + (i+1)"></div>
           <p>{{tile.desc}}</p>
         </div>
       </div>
