@@ -15,6 +15,7 @@ export interface ICourseDetail {
   learningMode: string;
   imageUrl: string;
   promotion: ICoursePromotion;
+  recommendations: number;
   status: string;
 }
 
