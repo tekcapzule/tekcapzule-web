@@ -156,7 +156,9 @@ export class HeaderComponent implements OnInit {
       if (!this.openedMenuItem.children) {
         this.closeMenu();
       }
-      this.router.navigate([this.openedMenuItem.navUrl]);
+      if(navTab.uniqueId !== "Skill_Studio") {
+        this.router.navigate([this.openedMenuItem.navUrl]);
+      }
     }
   }
 
