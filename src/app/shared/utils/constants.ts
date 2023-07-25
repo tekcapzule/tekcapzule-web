@@ -43,7 +43,7 @@ export const Constants = {
     },
     { uniqueId: 'Market_Place', displayName: 'Market Place', navUrl: '/market-place' },
     // { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
-    // { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
+    { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
     // { uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
     // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
