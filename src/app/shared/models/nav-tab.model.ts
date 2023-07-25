@@ -7,6 +7,7 @@ export interface NavTab {
   isHidden?: boolean;
   showOnMobile?: boolean;
   desc?: string;
+  isPageReady?: boolean;
   viewType?: string;
 }
 
