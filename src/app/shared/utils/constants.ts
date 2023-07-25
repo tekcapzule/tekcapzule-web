@@ -28,7 +28,7 @@ export const Constants = {
         { uniqueId: 'Tekbyte', displayName: 'Tekbyte', navUrl: '/ai-hub/tekbyte/explore', desc: 'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding.' },
         { uniqueId: 'Courses', displayName: 'Courses', navUrl: '/ai-hub/courses', desc: 'Chart your AI learning path with hand-picked, industry-leading courses.' },
         { uniqueId: 'Interview_Prep', displayName: 'Interview Prep', navUrl: '/ai-hub/interview-prepartion', desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.' },
-        { uniqueId: 'Mentoring', displayName: 'Mentoring', navUrl: '/ai-hub/mentoring', desc: 'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs.' },
+        { uniqueId: 'Mentoring', displayName: 'Mentoring', isPageReady: false, navUrl: '/ai-hub/mentoring', desc: 'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs.' },
         { uniqueId: 'Research_Papers', displayName: 'Research papers', navUrl: '/ai-hub/research-papers', desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape.' },
         { uniqueId: 'Video_Library', displayName: 'Video Library', navUrl: '/ai-hub/video-library', desc: 'Gain practical AI insights through our selection of informative videos.' },
         { uniqueId: 'Weekly_Digest', displayName: 'Weekly Digest', navUrl: '/ai-hub/weekly-digest', desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts.' },
@@ -54,7 +54,7 @@ export const Constants = {
     {uniqueId: 'events', displayName: 'Events', desc: 'AI without borders. We curate a list of global AI events, enabling you to learn from the world’s leading experts', navUrl:'/ai-hub/events'},
     {uniqueId: 'courses', displayName: 'Courses', desc: 'Chart your AI learning path with hand-picked, industry-leading courses', navUrl:'/ai-hub/courses'},
     {uniqueId: 'interviewPrep', displayName: 'Interview Prep', desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials', navUrl:'/ai-hub/interview-prepartion'},
-    {uniqueId: 'mentoring', displayName: 'Mentoring', desc: 'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs', navUrl:'/ai-hub/mentoring'},
+    {uniqueId: 'mentoring', displayName: 'Mentoring', isPageReady: false, desc: 'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs', navUrl:'/ai-hub/mentoring'},
 
     {uniqueId: 'Video_Library', displayName: 'Video Library', desc: 'Gain practical AI insights through our selection of informative videos', navUrl:'/ai-hub/video-library'},
     {uniqueId: 'Research_Papers', displayName: 'Research Papers', desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape', navUrl:'/ai-hub/research-papers'},
