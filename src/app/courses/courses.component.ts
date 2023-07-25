@@ -6,6 +6,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { shuffleArray } from '@app/shared/utils';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-courses',
@@ -45,6 +46,11 @@ export class CoursesComponent implements OnInit {
       this.topics = shuffleArray(topics, 5);      
     });
     this.courseApi.getAllCourse().subscribe(data => {
+      data.forEach(course => {
+        const topic = this.topics.find(t => t.code === course.topicCode);
+        course.topicName =  topic ? topic.title : '';
+        course.publishedOn = course.publishedOn ? moment(course.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
+      });
       this.courseList = data;
       this.filteredCourseList = data;
       this.spinner.hide();
@@ -95,7 +101,7 @@ export class CoursesComponent implements OnInit {
     }
     if(this.searchText && this.searchText.trim().length > 0) {
       this.filteredCourseList = this.filteredCourseList.filter(course => this.helperService.getIncludesStr(course.title, this.searchText) 
-      || this.helperService.getIncludesStr(course.topicCode, this.searchText)
+      || this.helperService.getIncludesStr(course.topicName, this.searchText)
       || this.helperService.getIncludesStr(course.summary, this.searchText)
       || this.helperService.getIncludesStr(course.description, this.searchText));
     }

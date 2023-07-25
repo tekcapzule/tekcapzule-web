@@ -14,6 +14,7 @@ export interface IVideoDetail {
   status: string;
   publishedOn: string;
   isRecommended?: boolean;
+  topicName?: string;
 }
 
 export interface IVideoPromotion {
