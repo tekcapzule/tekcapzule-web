@@ -1614,3 +1614,13 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
     background: none !important;
   }
 }
+.coming-soon {
+  background: url('../images/comingsoon.png') no-repeat;
+  width: 100px;
+  height: 97px;
+  display: inline-flex;
+  position: absolute;
+  background-size: 100px;
+  margin-top: -20px;
+  margin-left: 98px!important;
+}
