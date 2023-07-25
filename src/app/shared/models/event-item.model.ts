@@ -3,12 +3,13 @@ export interface IEventItem {
   code: string;
   eventDate: string;
   schedule: ISchedule;
-  name: string;
+  title: string;
   venue: string;
   summary: string;
   imageUrl: string;
   description: string;
   registrationUrl: string;
+  resourceUrl: string;
   eventRecordingUrl: string;
   promotion: IPromotion;
   pastPopularEvent: boolean;

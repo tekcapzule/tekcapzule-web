@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AppSpinnerService, DigestApiService, SubscriptionApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -22,7 +23,8 @@ export class WeeklyDigestComponent implements OnInit {
 
   constructor(private spinner: AppSpinnerService, private digestApiService: DigestApiService,
     private subscriptionApi: SubscriptionApiService, private fb: FormBuilder,
-    private messageService: MessageService, private helperService: HelperService) {}
+    private messageService: MessageService, private helperService: HelperService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -63,5 +65,14 @@ export class WeeklyDigestComponent implements OnInit {
     } else {
       this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
+  }
+
+  openDigest(dig) {
+    console.log('dig.resourceUrl',dig.resourceURL);
+    this.spinner.show();
+    sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+    sessionStorage.setItem('com.tekcapsule.resourceURL', dig.resourceUrl);
+    sessionStorage.setItem('com.tekcapsule.title', dig.title);
+    this.router.navigateByUrl('/ai-hub/' + dig.code +'/detail?pageId=Weekly_Digest');    
   }
 }

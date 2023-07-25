@@ -2,6 +2,7 @@
 @import '../../assets/styles/common.scss';
 
 .digest-card {
+  cursor: pointer;
   background-image: url("../../assets/images/skill-studio-card-pattern.png");
   background-color: #2e375a;
   max-height: 290px;
