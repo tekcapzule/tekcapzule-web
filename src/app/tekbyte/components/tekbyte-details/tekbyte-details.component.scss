@@ -2,7 +2,7 @@
 @import '../../tekbyte-page.component.scss';
 
 .tekbyte-details-page {
-  font-size: 16px;
+  font-size: 14px;
   &.p-main {
     padding-top: 74px;
     @media only screen and (max-width: 768px) {
@@ -31,9 +31,9 @@
       .card {
         border: 1px solid #EC0036;
         border-radius: 20px;
-        padding: 50px 45px;
-        max-width: 375px;
-        height: 366px;
+        padding: 30px 25px;
+        max-width: 323px;
+        max-height: 366px;
         margin-right: 50px;
         margin-bottom: 50px;
         -webkit-box-shadow: 8px 8px 0px 0px rgba(200,214,227,1);
@@ -44,8 +44,9 @@
           top: -20px;
           text-align: center;
           background: #fff;
-          padding: 0 40px;
-          left: 30%;
+          padding: 0 20px;
+          left: 33%;
+          font-size: 24px;
         }
         &:last-child {
           margin-right: 0;
@@ -350,8 +351,8 @@
   h2 {
     color: #111111;
     font-family: 'TungstenSemiBold';
-    font-size: 40px;
-    height: 90px;
+    font-size: 36px;
+    height: 70px;
     box-shadow: 0px 3px 6px #00000029;
     line-height: 2;
     .arrow {
@@ -402,14 +403,14 @@ ul.timeline {
       top: -32px;
     }
     .year {
-      font-size: 40px;
+      font-size: 32px;
       color: #e30d45;
       font-family: 'TungstenSemiBold';
       line-height: 0px;
       padding-bottom: 20px;
     }
     .story {
-      font-size: 16px;
+      font-size: 14px;
       color: #727a89;
       line-height: 24px;
     }

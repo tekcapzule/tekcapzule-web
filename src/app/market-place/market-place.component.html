@@ -115,7 +115,7 @@
         </div>
           <!-- <div class="show-result">Showing <span>{{filteredProducts.length}}</span> of <span>{{products.length}}</span></div> -->
           
-          <div class="cards-spacing">
+          <div class="card-wrapper">
             <div *ngFor="let product of products; let i = index;" class="appstore-tile" (click)="openProductDetails(product)">
               <div class="app-logo">
                 <img [src]="product.imageUrl" alt="" />

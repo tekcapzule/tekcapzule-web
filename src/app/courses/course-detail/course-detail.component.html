@@ -99,7 +99,7 @@
         <h2>Courses you may be interested in!</h2>
       </div>
         <div class="d-flex flex-wrap">
-          <div class="card-section cards-spacing d-flex justify-content-center mb-4 pb-4">
+          <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
             <div *ngFor="let course of relatedCourseList" class="course-card carousel-card"  (click)="onCourseClick(course)">
               <div class="position-relative">
                 <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.prizingModel}}</div>

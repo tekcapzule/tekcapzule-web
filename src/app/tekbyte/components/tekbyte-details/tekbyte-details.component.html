@@ -42,7 +42,7 @@
   <div class="row justify-content-end">
     <div class="col-lg-10 px-0 pb-0 tekbyte-details">
       <!-- Business Modal Section -->
-      <section *ngIf="tekbyteData.goldenCircle" class="container business-modal pb-5">
+      <section *ngIf="tekbyteData.goldenCircle" class="inner business-modal pb-5">
         <div class="row">
           <div class="col-lg-4 card">
             <h2>Why</h2>
@@ -65,7 +65,7 @@
         </div>
       </section>
       <!-----Flow Diagram Section----->
-      <section class="pt-5 pb-5">
+      <section class="pb-5">
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2>Flow Diagram</h2>
@@ -74,7 +74,7 @@
         </div>
       </section>
       <!-- Key Concepts Section -->
-      <section *ngIf="tekbyteData.keyConcepts" class="key-concepts container">
+      <section *ngIf="tekbyteData.keyConcepts" class="key-concepts inner">
         <div class="row">
           <div class="col-lg-11">
             <h2 class="pb-3"><span class="title-img key-concept-icon"></span> Key Concepts</h2>
@@ -106,7 +106,7 @@
       </section> -->
       <!-- Popular Events Section -->
       <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
-        <section class="py-3 container">
+        <section class="py-3 inner">
           <div class="section-title text-center">
             <h2>Other Popular Topics Based on Your Interest</h2>
           </div>
@@ -131,7 +131,7 @@
       <div class="container-fluid pt-3">
         
         <!-- Know More Section -->
-        <section class="container">
+        <section class="inner">
           <div class="know-more-sec">
             <div class="close-btn"></div>
             <div class="row">
