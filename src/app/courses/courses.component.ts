@@ -45,9 +45,9 @@ export class CoursesComponent implements OnInit {
       this.topics = shuffleArray(topics, 5);      
     });
     this.courseApi.getAllCourse().subscribe(data => {
-      this.spinner.hide();
       this.courseList = data;
       this.filteredCourseList = data;
+      this.spinner.hide();
     });
   }
 
