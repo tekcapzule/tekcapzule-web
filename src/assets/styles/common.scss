@@ -1584,6 +1584,10 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
     background:  url('../images/video-library-banner.png') no-repeat;
     background-size: cover;
   }
+  &.interview-prep {
+    background:  url('../images/interview-banner.png') no-repeat;
+    background-size: cover;
+  }
   &.research-papers {
     background:  url('../images/research-papers-banner.png') no-repeat;
     background-size: cover;
@@ -1623,4 +1627,10 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   background-size: 100px;
   margin-top: -20px;
   margin-left: 98px!important;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
 }

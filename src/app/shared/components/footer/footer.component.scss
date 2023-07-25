@@ -38,6 +38,9 @@
         }
         li a {
           color: #979EC1;
+          &:hover, &.active {
+            color: $primary-color;
+          }
         }
       }
       h6 {
