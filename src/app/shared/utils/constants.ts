@@ -43,7 +43,7 @@ export const Constants = {
     },
     { uniqueId: 'Market_Place', displayName: 'Market Place', navUrl: '/market-place' },
     // { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
-    { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
+    // { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
     // { uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
     // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
@@ -56,15 +56,15 @@ export const Constants = {
     {uniqueId: 'interviewPrep', displayName: 'Interview Prep', desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials', navUrl:'/ai-hub/interview-prepartion'},
     {uniqueId: 'mentoring', displayName: 'Mentoring', desc: 'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs', navUrl:'/ai-hub/mentoring'},
 
-    {uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/ai-hub/prompts'},
     {uniqueId: 'Video_Library', displayName: 'Video Library', desc: 'Gain practical AI insights through our selection of informative videos', navUrl:'/ai-hub/video-library'},
     {uniqueId: 'Research_Papers', displayName: 'Research Papers', desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape', navUrl:'/ai-hub/research-papers'},
-    {uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/ai-hub/courses'},
-    {uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/ai-hub/interview-prepartion'},
-    {uniqueId: 'Insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
+    //{uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/ai-hub/prompts'},
+    //{uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/ai-hub/courses'},
+    //{uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/ai-hub/interview-prepartion'},
+    //{uniqueId: 'Insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
   ],
   FooterItems: [
-    'My_Feeds', 'Skill_Studio', 'Market_Place', 'Insights'
+    'My_Feeds', 'Skill_Studio', 'Market_Place'
   ]
 };
 
