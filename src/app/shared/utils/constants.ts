@@ -42,8 +42,8 @@ export const Constants = {
       showOnMobile: true,
     },
     { uniqueId: 'Market_Place', displayName: 'Market Place', navUrl: '/market-place' },
+    { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
     // { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
-    // { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
     // { uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
     // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
@@ -64,7 +64,7 @@ export const Constants = {
     //{uniqueId: 'Insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
   ],
   FooterItems: [
-    'My_Feeds', 'Skill_Studio', 'Market_Place'
+    'My_Feeds', 'Skill_Studio', 'Market_Place', 'Insights'
   ]
 };
 
