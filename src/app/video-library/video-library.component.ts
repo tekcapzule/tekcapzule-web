@@ -33,6 +33,8 @@ export class VideoLibraryComponent implements OnInit {
       this.spinner.hide();
       this.videoList = data;
       this.videoList.forEach(video => {
+        const topic = this.topics.find(t => t.code === video.topicCode);
+        video.topicName = topic ? topic.title : '';
         video.publishedOn = video.publishedOn ? moment(video.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
       });
       this.filteredVideoList = this.videoList;
@@ -70,10 +72,11 @@ export class VideoLibraryComponent implements OnInit {
       tempList = tempList.filter(video => this.selectedTopics.includes(video.topicCode));
     }
     if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredVideoList = tempList.filter(research => this.helperService.getIncludesStr(research.title, this.searchText) 
-      || this.helperService.getIncludesStr(research.topicCode, this.searchText)
-      || this.helperService.getIncludesStr(research.summary, this.searchText)
-      || this.helperService.getIncludesStr(research.description, this.searchText));
+      this.filteredVideoList = tempList.filter(video => 
+        this.helperService.getIncludesStr(video.title, this.searchText) 
+        || this.helperService.getIncludesStr(video.topicName, this.searchText)
+        || this.helperService.getIncludesStr(video.summary, this.searchText)
+        || this.helperService.getIncludesStr(video.description, this.searchText));
     } else {
       this.filteredVideoList = tempList;
     }

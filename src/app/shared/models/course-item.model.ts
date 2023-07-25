@@ -17,6 +17,8 @@ export interface ICourseDetail {
   promotion: ICoursePromotion;
   recommendations: number;
   status: string;
+  publishedOn: string;
+  topicName?: string;
 }
 
 export interface ICoursePromotion {
