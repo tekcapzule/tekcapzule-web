@@ -162,7 +162,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
   onChildMenuClick(menuItem: NavTab): void {
     this.closeMenu();
     if (menuItem.navUrl) {
@@ -190,5 +189,9 @@ export class HeaderComponent implements OnInit {
       inputElement.click();
       this.cdr.detectChanges();
     }
+  }
+
+  openBlog(eve) {
+    window.open('https://tekcapsule.blog/', '_blank');
   }
 }
