@@ -55,7 +55,7 @@
           <div>
             <div *ngFor="let dig of digest[category.id]; let i = index;" class="digest-card"
               [ngClass]="category.bgColor" (click)="openDigest(dig)">
-              <div class="title"><span *ngIf="category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>
+              <div class="title"><span *ngIf="dig.category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>
               <div class="content-top">
               <div class="description">Author: {{dig.author}}</div>
               <div class="description">{{dig.summary}}</div>

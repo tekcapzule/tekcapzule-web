@@ -23,7 +23,7 @@
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
-          <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
+          <img src="/assets/images/reset.png" alt="reset icon" class="pr-3 pt-1" />
         </button>
         <button
           mat-stroked-button
@@ -46,9 +46,9 @@
   </div>
   <div class="container-fluid tags-section" *ngIf="!canHideFilterAndTags()">
     <div class="inner">
-      <div class="selected-topic-list">
-        <span class="mr-4 tag-title d-none">Your Tags:</span>
-        <ul class="topics-list pb-0 mb-0">
+      <div class="selected-topic-list pt-4">
+        <span class="mr-4 tag-title">Your Tags:</span>
+        <ul class="topics-list feeds-topics pb-0 mb-0">
           <ng-container *ngFor="let item of currentSelectedTopic">
             <li class="active mb-0"><span>#</span>{{ item.topic.title }}</li>
           </ng-container>
@@ -82,6 +82,7 @@
                   placeholder="What are you looking for?"
                   [(ngModel)]="searchInputValue"
                   (input)="searchInputChanged($event.target.value)"
+                  autocomplete="off"
                 />
                 <button title="search bar" class="search-btn" *ngIf="!searchInputValue"></button>
               </div>

@@ -28,12 +28,13 @@
     }
   }
   .formuser-icon {
-    background: url(../../../../assets/images/form-man.png) no-repeat;
+    background: url(../../../../assets/images/form-woman.png) no-repeat;
     width: 293px;
     height: 579px;
     position: absolute;
-    left: 12%;
-    top: 16rem;
+    right: 8%;
+    top: 21.4rem;
+    background-size: 100%;
     @media only screen and (max-width: 990px) { 
       display: none;
     }

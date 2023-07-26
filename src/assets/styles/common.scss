@@ -396,7 +396,7 @@ h4 {
   border: 0 none;
   background: transparent;
   img {
-    height: 34px;
+    height: 26px;
     &:hover {
       -webkit-animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
       animation: refresh 1s cubic-bezier(0.36, 0.07, 0.57, 0.99) infinite;
@@ -1101,6 +1101,10 @@ iframe .navbar-container,
 .capsule-top {
   padding-top: 45px;
 }
+.feed-cards {
+  position: relative;
+  top: -175px;
+}
 
 .capsule-min-height {
   min-height: calc(100vh - 306px);
@@ -1223,6 +1227,11 @@ iframe .navbar-container,
     @media only screen and (width: 1440px) {
       right: 19% !important;
     }
+    .p-multiselect {
+      background: url("../../assets/images/filter.svg") no-repeat !important;
+  height: 30px;
+  width: 35px;
+    }
 }
 .p-multiselect {
   border: 0 none !important;
@@ -1281,7 +1290,7 @@ iframe .navbar-container,
 
 .p-multiselect-item {
   font-family: $primary-font-medium;
-  font-size: 16px;
+  font-size: 14px;
   padding: 0.25rem 1.25rem !important;
   &:focus {
     box-shadow: none !important;
@@ -1633,4 +1642,8 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;
+}
+.tag-title {
+  font-size: 14px;
+  color: $white;
 }

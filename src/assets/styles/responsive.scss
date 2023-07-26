@@ -444,7 +444,7 @@
 
 @media only screen and (width: 1440px) {
   .contribute-page .formuser-icon {
-    left: 0 !important;
+    right: 0 !important;
   }
   // .capsule-filter {
   //   right: 28%;
@@ -452,10 +452,10 @@
 }
 @media only screen and (width: 1536px) {
   .contribute-page .formuser-icon {
-    left: 4% !important;
+    right: 8% !important;
   }
   .capsule-filter {
-    right: 30% !important;
+    right: 28% !important;
   }
   .carousel-card {
     height: 440px;
