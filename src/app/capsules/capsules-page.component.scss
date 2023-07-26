@@ -73,6 +73,19 @@ ul {
       overflow-x: scroll;
       white-space: nowrap;
     }
+    &.feeds-topics {
+      li{
+      background-color: none;
+      border: 1px solid #A7389F;
+      &.active {
+        background-color: $white;
+        color: #4F2965;
+        span {
+          color: #4F2965;
+        }
+      }
+    }
+    }
     li {
       font-family: $primary-font-medium;
       font-size: 13px;
@@ -84,6 +97,7 @@ ul {
       border: 1px solid #f9bbce;
       padding: 0 15px;
       float: left;
+      
       cursor: pointer;
       span {
         color: $primary-color;
@@ -129,13 +143,16 @@ ul {
 }
 
 .tags-section {
-  top: 124px;
-  position: sticky;
-  height: 55px;
+  margin-top: 49px;
+  // position: sticky;
+  height: 200px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.0588235294);
   background: #fbfbfb;
   z-index: 1;
   border-top: 1px solid #ddd;
+  background: url('../../assets/images/feed-banner-bg.png') no-repeat;
+  background-size: 100%;
+  z-index: 0;
   .selected-topic-list {
     font-family: $primary-font-medium;
     font-size: 18px;

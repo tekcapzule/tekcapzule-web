@@ -43,7 +43,7 @@
       <div>
         <div *ngFor="let eve of pastPopularEvent; let j = index;" class="digest-card night-rider" (click)="onPastEvents(eve)">
           <div class="conference-header">
-            <div class="title">{{eve.title}}</div>
+            <div class="title"><span class="play-btn"></span>{{eve.title}}</div>
             <div class="description">{{eve.summary}}</div>
           </div>
           <div class="description"><span class="date-icon"></span>{{eve.schedule.startDate}} - {{eve.schedule.endDate}}<span> | </span>{{eve.schedule.startTime}} - {{eve.schedule.endTime}}</div>
