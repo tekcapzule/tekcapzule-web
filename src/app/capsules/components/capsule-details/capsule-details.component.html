@@ -1,9 +1,8 @@
 <app-spinner></app-spinner>
-<section *ngIf="isDataAvailable || capsuleDetail" class="container-fluid bg-white capsule-details">
+<section class="container-fluid linear-bg capsule-details">
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-
   <div class="container pt-1">
     <div class="back-link pt-0">
       <ng-container *ngFor="let crumb of getNavBreadcrumbs()">
@@ -25,6 +24,8 @@
       <button type="button" class="close close-icon" (click)="onIFrameClose()"></button>
     </div>
   </div>
+</section>
+<section  *ngIf="isDataAvailable || capsuleDetail" >
   <div class="container">
     <iframe #capsuleFrame
       [src]="resourceUrl"
