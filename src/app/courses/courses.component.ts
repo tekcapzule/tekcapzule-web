@@ -66,12 +66,8 @@ export class CoursesComponent implements OnInit {
     this.router.navigateByUrl('ai-hub/course-detail/'+ course.courseId)
   }
 
-  onFilterChange(event, key: string, field: string) {
-    if(event.checked.length ) {
-      this[field].push(key);
-    } else if(event.checked.length === 0) {
-      this[field] = this[field].filter(sp => sp !== key);
-    }
+  onFilterChange(event, key: string) {
+    // console.log('event.checked',event.checked, key, field, this.selectedPayments, this.selectedDeliveryMode);
     this.productFilter();
   }
 

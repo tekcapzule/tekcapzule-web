@@ -77,6 +77,12 @@
               </li>
                 
             </ng-container>
+            <li>
+              <div *ngIf="!isMobileResolution" class="dropdown">
+                <button class="dropbtn" (click)="openBlog($event)">Blog</button>
+              </div>
+              <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none" *ngIf="isMobileResolution">Blog</a>
+            </li>
           </ul>
         </div>
       </nav>
