@@ -26,18 +26,18 @@
             <div>
             <div class="filter-topic">Topic</div>
               <div *ngFor="let topic of topics" class="field-checkbox pb-2">
-              <p-checkbox name="topic" [value]="topic.code" [(ngModel)]="selectedTopic" [inputId]="topic.code" (onChange)="onFilterChange($event, topic.code, 'selectedTopic')"></p-checkbox>
+              <p-checkbox name="topic" [value]="topic.code" [(ngModel)]="selectedTopic" [inputId]="topic.code" (onChange)="onFilterChange($event, topic.code)"></p-checkbox>
               <label [for]="topic.code">{{ topic.title }}</label>
             </div>
             <div class="filter-topic">Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
-                <p-checkbox name="payment" [value]="category.key" [inputId]="category.key"  [(ngModel)]="selectedPayments" (onChange)="onFilterChange($event, category.key, 'selectedPayments')"></p-checkbox>
+                <p-checkbox name="payment" [value]="category.key" [inputId]="category.key"  [(ngModel)]="selectedPayments" (onChange)="onFilterChange($event, category.key)"></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
               </div>
             </div>
             <div class="filter-topic">Delivery Mode</div>
             <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
-              <p-checkbox name="delivery" [value]="dm.key" [inputId]="dm.key"  [(ngModel)]="selectedDeliveryMode" (onChange)="onFilterChange($event, dm.key, 'selectedDeliveryMode')"></p-checkbox>
+              <p-checkbox name="delivery" [value]="dm.key" [inputId]="dm.key"  [(ngModel)]="selectedDeliveryMode" (onChange)="onFilterChange($event, dm.key)"></p-checkbox>
               <label [for]="dm.key">{{ dm.name }}</label>
             </div>
           </div>
