@@ -41,7 +41,7 @@
         <img [src]="interview.imageUrl" alt="ML Coding Questions" class="box-content-img" />
         <h3 class="pt-3">{{interview.title}}</h3>
         <p>{{interview.summary}}</p>
-        <a [href]="interview.courseUrl" target="_blank" class="link">{{interview.courseUrl}}</a>
+        <a href="Javascript:void(0)" class="link" (click)="openInterviewPrepLink(interview)">{{interview.resourceUrl}}</a>
       </div>
     </div>
   </section>

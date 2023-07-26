@@ -8,7 +8,7 @@ export interface IInterviewDetail {
   author: string;
   publisher: string;
   duration: string;
-  courseUrl: string;
+  resourceUrl: string;
   prizingModel: string;
   imageUrl: string;
   promotion: IInterviewPromotion;

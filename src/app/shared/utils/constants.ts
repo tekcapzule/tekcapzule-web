@@ -53,7 +53,7 @@ export const Constants = {
     {uniqueId: 'Weekly_Digest', displayName: 'Weekly Digest', desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts', navUrl:'/ai-hub/weekly-digest'},
     {uniqueId: 'events', displayName: 'Events', desc: 'AI without borders. We curate a list of global AI events, enabling you to learn from the world’s leading experts', navUrl:'/ai-hub/events'},
     {uniqueId: 'courses', displayName: 'Courses', desc: 'Chart your AI learning path with hand-picked, industry-leading courses', navUrl:'/ai-hub/courses'},
-    {uniqueId: 'interviewPrep', displayName: 'Interview Prep', desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials', navUrl:'/ai-hub/interview-prepartion'},
+    {uniqueId: 'Interview_Prep', displayName: 'Interview Prep', desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials', navUrl:'/ai-hub/interview-prepartion'},
     {uniqueId: 'mentoring', displayName: 'Mentoring', isPageReady: false, desc: 'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs', navUrl:'/ai-hub/mentoring'},
 
     {uniqueId: 'Video_Library', displayName: 'Video Library', desc: 'Gain practical AI insights through our selection of informative videos', navUrl:'/ai-hub/video-library'},

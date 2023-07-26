@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -20,7 +21,8 @@ export class InterviewPrepComponent implements OnInit {
 
   constructor(private spinner: AppSpinnerService,
     private interviewApi: InterviewApiService,
-    private helperService: HelperService) {}
+    private helperService: HelperService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -54,5 +56,17 @@ export class InterviewPrepComponent implements OnInit {
       eve.value.forEach(topic => this.selectedTopics.push(topic.code));
     }
     this.onSearch();
+  }
+
+  openInterviewPrepLink(intPrep: IInterviewDetail) {
+    if (this.helperService.isLocalPublisher(intPrep.publisher)) {
+      this.spinner.show();
+      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapsule.resourceURL', intPrep.resourceUrl);
+      sessionStorage.setItem('com.tekcapsule.title', intPrep.title);
+      this.router.navigateByUrl('/ai-hub/' + intPrep.courseId +'/detail?pageId=Interview_Prep');
+    } else {
+      window.open(intPrep.resourceUrl, '_blank');
+    }
   }
 }
