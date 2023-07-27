@@ -23,7 +23,7 @@
       height: 34px;
       border: 1px solid #5966AD;
       border-radius: 25px;
-      font-size: 12px;
+      font-size: 14px;
       background: transparent;
       color: #fff !important;
     }
@@ -56,7 +56,7 @@
     &.secondary {
       width: 93px;
       height: 34px;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     &.primary.respIconBtn {
@@ -241,7 +241,7 @@
   padding: 6px 25px 8px 25px;
   white-space: nowrap;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid rgba(255, 255, 255, 0.5);
 
@@ -296,7 +296,7 @@
 
   .main-nav {
     font-family: $primary-font-bold;
-    font-size: 20px;
+    font-size: 22px;
     color: #C3CCFF;
   }
 
@@ -325,7 +325,7 @@
   z-index: 9998;
   border: 0;
   background: none;
-  font-size: 24px;
+  font-size: 26px;
   transition: all 0.4s;
   outline: none !important;
   line-height: 1;
@@ -477,13 +477,13 @@
 
   .dropbtn {
     background-color: transparent;
-    color: #C3CCFF;
+    color: #929CD6;
     padding: 16px;
     border: none;
-    font-size: 13px !important;
+    font-size: 16px !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: OpenSans-Bold;
+    font-family: $primary-font-medium;
     &.menu-open {
       .arrow {
         border: solid $white;
@@ -555,27 +555,32 @@
   margin: 50px 0px 25px;
 
   h2 {
-    font-size: 22px;
-    font-family: OpenSans-Medium;
+    font-size: 24px;
+    font-family: $primary-font-medium;
   }
 }
 
 .sub-menu {
   li {
+    
+    margin-bottom: 30px;
+    padding: 10px;
+    cursor: pointer;
+    text-wrap: wrap;
+    line-height: 20px;
     &:hover {
+      background-color: #F4F7FA;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px #0000000f;
       h3 {
         color: $primary-color;
       }
     }
     h3 {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 0;
     }
 
-    padding-bottom: 30px;
-    cursor: pointer;
-    text-wrap: wrap;
-    line-height: 20px;
     .icon {
       display: flex;
       float: left;
@@ -641,7 +646,7 @@
   }
 
   span {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 .navbar-brand {

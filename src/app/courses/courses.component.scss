@@ -31,9 +31,9 @@
         height: 200px;
         overflow-y: auto;
         .title{
-            font-size: 16px;
+            font-size: 18px;
             padding-bottom: 5px;
-            font-family: OpenSans-Medium;
+            font-family: $primary-font-medium;
             line-height: 23px;
             height: 70px;
             margin-top: 20px;
@@ -44,7 +44,7 @@
 .search-box {
     margin: 0;
     input {
-        font-size: 14px;
+        font-size: 16px;
         font-family: $primary-font-regular;
     }
 }

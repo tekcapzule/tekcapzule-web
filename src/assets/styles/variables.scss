@@ -6,29 +6,43 @@ $heading-color: #090909;
 $section-bg: #f8f8f8;
 $blue: #1D4C9E;
 $grey: #484848;
+$primary-color-new: #ec0085;
 
 /************* Fonts URL *************/
 
 /************* Updated Design Fonts *************/
-$primary-font-regular: OpenSans-Regular;
-$primary-font-regular-url: '../fonts/OpenSans-Regular.ttf';
+$primary-font-regular: TTCommons-Regular;
+$primary-font-regular-url: '../fonts/TT Commons Regular.otf';
 
-$primary-font-light: OpenSans-Light;
-$primary-font-light-url: '../fonts/OpenSans-Light.ttf';
+$primary-font-bold: TTCommons-Bold;
+$primary-font-bold-url: '../fonts/TT Commons Bold.otf';
 
-$primary-font-bold: OpenSans-Bold;
-$primary-font-bold-url: '../fonts/OpenSans-Bold.ttf';
+$primary-font-medium: TTCommons-Medium;
+$primary-font-medium-url: '../fonts/TT Commons Medium.otf';
 
-$primary-font-medium: OpenSans-Medium;
-$primary-font-medium-url: '../fonts/OpenSans-SemiBold.ttf';
-
-$primary-font-black: OpenSans-ExtraBold;
-$primary-font-black-url: '../fonts/OpenSans-ExtraBold.ttf';
+$primary-font-black: TTCommons-DemiBold;
+$primary-font-black-url: '../fonts/TT Commons DemiBold.otf';
 
 
+// $primary-font-regular: OpenSans-Regular;
+// $primary-font-regular-url: '../fonts/OpenSans-Regular.ttf';
 
-$heading-fonts: OpenSans-Bold;
-$heading-fonts-url: '../fonts/OpenSans-Bold.ttf';
+// $primary-font-light: OpenSans-Light;
+// $primary-font-light-url: '../fonts/OpenSans-Light.ttf';
+
+// $primary-font-bold: OpenSans-Bold;
+// $primary-font-bold-url: '../fonts/OpenSans-Bold.ttf';
+
+// $primary-font-medium: OpenSans-Medium;
+// $primary-font-medium-url: '../fonts/OpenSans-SemiBold.ttf';
+
+// $primary-font-black: OpenSans-ExtraBold;
+// $primary-font-black-url: '../fonts/OpenSans-ExtraBold.ttf';
+
+
+
+// $heading-fonts: OpenSans-Bold;
+// $heading-fonts-url: '../fonts/OpenSans-Bold.ttf';
 
 // $primary-font-regular: GTWalsheimPro-Regular;
 // $primary-font-regular-url: '../fonts/GTWalsheimPro-Regular.ttf';
@@ -97,20 +111,20 @@ $subheading-font-url: '../fonts/Proxima-Nova-Semibold.ttf';
 # Font Family
 ---------------------------------------------------------------*/
 
-@font-face {
-  font-family: $heading-fonts;
-  src: url($heading-fonts-url);
-}
+// @font-face {
+//   font-family: $heading-fonts;
+//   src: url($heading-fonts-url);
+// }
 
 @font-face {
   font-family: $primary-font-regular;
   src: url($primary-font-regular-url);
 }
 
-@font-face {
-  font-family: $primary-font-light;
-  src: url($primary-font-light-url);
-}
+// @font-face {
+//   font-family: $primary-font-light;
+//   src: url($primary-font-light-url);
+// }
 
 @font-face {
   font-family: $primary-font-bold;
