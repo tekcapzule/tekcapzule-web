@@ -2,38 +2,105 @@
 
 .home-page {
   margin-top: 75px;
-}
-/*--------------------------------------------------------------
-# Install Now Section
---------------------------------------------------------------*/
 
-.install-now {
-  background: url('../../assets/images/mobile_bg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #ebebeb;
-  .content {
-    margin-top: 100px;
-    @media only screen and (max-width: 990px) {
-      margin: 30px auto;
-      text-align: center;
-    }
+  h2 {
+    font-size: 30px;
+    font-family: $primary-font-bold;
   }
-  .gplay-img {
-    max-width: 353px;
-    height: 108px;
-    margin-bottom: 50px;
-    display: block;
+  h3 {
+    font-size: 24px;
+    font-family: $primary-font-medium;
+  }
+  h4 {
+    font-size: 20px;
+    font-family: $primary-font-black;
+    padding-bottom: 10px;
+  }
+  .content-sub-text {
+    font-size: 18px;
+    font-family: $primary-font-regular;
+  }
+  .home-banner {
+    background: url('../../assets/images/home/home-banner-bg.svg');
+    height: 700px;
     width: 100%;
-    @media only screen and (max-width: 990px) {
-      margin: 20px auto;
-      max-width: 230px;
-      height: auto;
+  }
+
+  button {
+    &.primary-btn {
+      background-color: $primary-color-new;
+      color: $white;
+      margin-right: 15px;
+
+      &:hover {
+        background: $white;
+        border: 2px solid $primary-color-new;
+        color: $primary-color-new;
+      }
     }
   }
-}
 
+  /**********Key Feature*********/
+  .key-feature {
+    height: 226px;
+    background: url('../../assets/images/home/key-feature-bg.svg') no-repeat;
+    padding: 40px 160px;
+    position: relative;
+    top: -150px;
+  }
 
+    /**********SkillStudio*********/
+    .skillstudio {
+      .skillstudio-icon {
+        padding-bottom: 10px;
+        max-height: 60px;
+        max-width: 90px;
+      }
+      .topics {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+
+        p {
+          font-size: 15px;
+        }
+      }
+
+    }
+    title {
+      font-size: 22px;
+      font-family: $primary-font-black;
+    }
+
+    /*************Feeds***********/
+    .feeds-container {
+      color: $white;
+      background: url('../../assets/images/home/feeds-bg.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #ebebeb;
+      .content {
+        margin-top: 100px;
+        @media only screen and (max-width: 990px) {
+          margin: 30px auto;
+          text-align: center;
+        }
+      }
+    }
+  /***********Insights**********/
+  .insight-container {
+    background: #212C5E;
+    padding: 50px 0 0;
+  }
+
+  /*************Mobile App*********************/
+
+  .mobile-app {
+    background: url('../../assets/images/home/mobile-app-bg.svg') no-repeat;
+    height: 116px;
+    width: auto;
+    background-size: cover;
+  }
 /*--------------------------------------------------------------
 # subscribe Section
 --------------------------------------------------------------*/
@@ -45,9 +112,10 @@
       padding: 20px;
     }
     .container {
-      background: $white;
+      background: url('../../assets/images/home/subscribe-bg.svg') no-repeat;
       padding: 30px;
       border-radius: 10px;
+      background-size: contain;
       @media only screen and (max-width: 990px) {
         padding: 15px;
       }
@@ -71,7 +139,7 @@
         width: 100%;
         color: #a1a1a1;
         font-family: $primary-font-regular;
-        font-size: 14px;
+        font-size: 16px;
         height: 50px;
         padding-right: 190px;
         @media only screen and (max-width: 480px) {
@@ -82,21 +150,25 @@
       }
       button {
         position: absolute;
-        right: 10px;
+        right: 5px;
+        background-color: #212C5E;
+        border: 1px solid #212C5E;
         @media only screen and (max-width: 480px) {
           position: relative;
           right: auto;
         }
       }
+      .newsletter-girl {
+        background: url('../../assets/images/home/suscribe-girl.png') no-repeat;
+        height: 521px;
+        width: 378px;
+        position: relative;
+        top: -111px
+      }
     }
   }
 }
-
-.card-section {
-  flex-wrap: wrap;
+.inner {
+  max-width: 1220px;
 }
-
-.explore-topics-section {
-  background: url('../../assets/images/brick_bg.png') no-repeat;
-  background-size: cover;
 }

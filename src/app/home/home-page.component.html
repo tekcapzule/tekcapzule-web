@@ -1,131 +1,196 @@
-<!-- ======= Hero Banner Section ======= -->
 <div class="home-page">
   <app-spinner></app-spinner>
-  <app-home-carousel (subscribeClicked)="subscribeSection.nativeElement.focus()"></app-home-carousel>
-  <!-- ======= Intro Section ======= -->
-  <section id="intro" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Stay ahead of the curve with our insightful and engaging tech capsules!</h2>
-        <p class="content-sub-text">
-          Stay ahead of the rapidly evolving AI landscape! Our engaging tech capsules will help you excel at every phase
-          of your AI Journey.
-        </p>
+  <!-- ======= Hero Banner Section ======= -->
+  <section class="home-banner">
+    <div class="container-fluid text-center pt-5">
+      <h1>Create a Bond between <br>Human and Artificial Intelligence</h1>
+      <h3 class="text-white pb-3">Fall in love with tech with our unique tech capsules. Get your daily dose now!</h3>
+      <div class="d-block text-center">
+        <button class="button primary-btn">Watch Demo </button>
+      </div>
+      <img src="../../assets/images/home/home-banner.png" alt="" class="img-fluid" />
+    </div>
+  </section>
+
+  <!-- ======= Key Feature Section ======= -->
+  <section>
+    <div class="inner key-feature">
+      <div class="">
+        <h2 class="text-white">Key Features</h2>
+        <p class="content-sub-text text-white">Fall in love with tech with our unique tech capsules. Get your daily dose
+          now!</p>
       </div>
     </div>
   </section>
-  <section class="carousel">
-    <div class="container">
-      <p-carousel [value]="capsules" [numVisible]="3" [numScroll]="3" [circular]="false"
-        [responsiveOptions]="responsiveOptions">
-        <ng-template let-capsule pTemplate="item">
-          <app-capsule-card [selectedCasuleId]="selectedCasuleId" [capsule]="capsule" class="item mr-4"
-            (cardOpened)="onCardOpened($event)"></app-capsule-card>
-        </ng-template>
-      </p-carousel>
-    </div>
-  </section>
-  <!-- End Intro Section-->
-  <!-- ======= Explore Topics Section ======= -->
-  <div class="card flex justify-content-center gap-2">
-    <p-toast position="top-center" key="tc"></p-toast>
-  </div>
-  <section id="exploretopics" class="explore-topics-section">
-    <div class="container section-title">
-      <h2 class="text-center pt-5">Empower your AI journey with our mentoring!</h2>
-      <div class="section-title">
-        <p class="content-sub-text">
-          Take your AI journey to new heights with our mentoring, covering the AI developments in latest and greatest in
-          tech, <br>including Machine Learning, Natural Language Processing, Computer Vision, IoT, Blockchain, Quantum
-          Computing, Cloud and more...
-        </p>
+  <!-- ======= SkillStudio Section ======= -->
+  <section>
+    <div class="inner skillstudio pb-5">
+      <div class="text-center pb-5">
+        <h2>SkillStudio</h2>
+        <h3>Fall in love with tech with our unique tech capsules.</h3>
+      </div>
+      <div class="topics">
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-1.svg" alt="" />
+          <h4>Tekbytes</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-2.svg" alt="" />
+          <h4>Course</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-3.svg" alt="" />
+          <h4>Interview Prep</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-4.svg" alt="" />
+          <h4>Mentoring</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-5.svg" alt="" />
+          <h4>Tekbytes</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-6.svg" alt="" />
+          <h4>Course</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-7.svg" alt="" />
+          <h4>Interview Prep</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
+        <div class="col-lg-3">
+          <img class="skillstudio-icon" src="../../assets/images/home/skillstudio-icon-8.svg" alt="" />
+          <h4>Mentoring</h4>
+          <p>Fall in love with tech with our unique tech capsules. Get your daily dose now!</p>
+        </div>
       </div>
     </div>
-    <div class="container pb-5">
+  </section>
+
+  <!-- ======= Feeds Section ======= -->
+  <section class="feeds-container pt-5">
+    <div class="inner">
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <img src="/assets/images/explore-topic-banner.png" class="img-fluid" alt="explore topic" />
+        <div class="col-lg-6 order-2 order-lg-1 text-right pr-5">
+          <img src="assets/images/home/feeds-mobile.svg" class="img-fluid" alt="mobile app" />
         </div>
-        <div class="banner-text col-lg-6 col-md-6 col-sm-12">
-          <h1 class="text-dark">
-            <span>SkillStudio</span>
-            <br />
-            Your AI-powered Tech Mentor!
-          </h1>
-          <button mat-raised-button class="col-xl-4 col-lg-6 order-1 order-lg-2 button primary">
-            Launching Soon!
-          </button>
+        <div class="col-lg-4 pt-lg-0 order-1 order-lg-2">
+          <h2 class="text-white">Feeds</h2>
+          <h3 class="text-white">Stay update to date with AI</h3>
+          <p class="content-sub-text text-white">
+            Fall in love with tech with our unique tech capsules. Get your daily dose now! Fall in love with tech with
+            our unique tech capsules. Get your daily dose now!
+          </p>
         </div>
       </div>
     </div>
-    <!--
-    <p-carousel [value]="topics" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
-      <ng-template let-topic pTemplate="item">
-        <app-topic-card [topic]="topic" class="item mr-4"></app-topic-card>
-      </ng-template>
-    </p-carousel>
--->
   </section>
-  <!-- End xplore Topics Section-->
-
-
-  <!-- ======= App Install Section ======= -->
-  <section id="app-install" class="install-now">
-    <div class="container">
+  <!-- ======= Market Place Section ======= -->
+  <section class="pt-5">
+    <div class="inner">
       <div class="row">
         <div class="col-lg-6 order-2 order-lg-1">
-          <img src="../../assets/images/mobile-app.png" class="img-fluid" alt="mobile app" />
+          <img src="assets/images/home/market-place-img.svg" class="img-fluid" alt="mobile app" />
         </div>
-        <div class="col-lg-6 pt-4 pt-lg-0 content order-1 order-lg-2">
-          <div class="section-title text-left">
-          <h2>Take Capsules on the go...</h2>
-        </div>
+        <div class="col-lg-4 pt-lg-0 order-1 order-lg-2">
+          <h2>Market Place</h2>
+          <h3>All in one place</h3>
           <p class="content-sub-text">
-            Stay informed with our android mobile app.<br />
-            Never miss a tech update again!
+            Fall in love with tech with our unique tech capsules. Get your daily dose now! Fall in love with tech with
+            our unique tech capsules. Get your daily dose now!
           </p>
-          <img src="/assets/images/get-g-play.png" class="img-fluid gplay-img" alt="google play" />
-          <button mat-raised-button class="button primary">Launching Soon</button>
+          <button class="button primary-btn">Check it out </button>
+
         </div>
       </div>
     </div>
   </section>
-  <!-- End App Install Section -->
 
-  <!-- ======= subscribe Section ======= -->
-  <section tabindex="1" #subscribe id="subscribe" class="subscribe section-bg">
+  <!-- ======= Mobile App Section ======= -->
+  <section class="container-fluid mobile-app">
     <div class="container">
-      <div class="section-title pb-0">
-        <h2>Get inspired by our vibrant tech community!</h2>
-        <p class="content-sub-text">We will never spam you. That is our promise!</p>
-        <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
-          <div class="d-flex align-items-center justify-content-center subscibeSection-row position-relative" [ngClass]="{
-            'error-text':
-            subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
-          }">
-            <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
-              placeholder="Enter Your Email ID" />
-            <button mat-raised-button class="button tertiary" (click)="onSubscribe()">
-              Subscribe Now
-            </button>
-          </div>
-          <span class="error-msg" *ngIf="
-            subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
-            ">Please enter valid email</span>
-        </div>
+      <div class="d-flex align-items-center">
 
-        <div class="follow-us">
-          <span class="content-sub-text">Join us on</span>
-          <a href="https://twitter.com/tekcapsule" target="__blank" aria-label="Twitter"><img
-              src="/assets/images/twitter.svg" alt="twitter icon" />#TekCapsule</a>
-          <!-- <span class="divider"> &nbsp;|&nbsp;</span>
-          <a href="https://www.meetup.com/tekcapsule/" target="__blank"
-            ><img src="/assets/images/meet.png"  alt="meet icon"/>TekCapsule</a
-          > -->
-        </div>
+        <!-- <img src="../../assets/images/home/mobile-app.png" alt="" class="img-fluid" /> -->
+        <div class="col-lg-4 py-4">
+        <p class="text-white">Download our mobile app</p>
+        <h3 class="text-white">Take Capsules on the go…</h3>
+      </div>
+        <a target="_blank" href="https://twitter.com/tekcapsule" aria-label="Play Store"><img
+            src="/assets/images/play-store.svg" alt="Play Store icon" class="pr-4" /></a>
+        <a target="_blank" href="https://www.linkedin.com/company/tekcapsule/" aria-label="App Store"><img
+            src="/assets/images/app-store.svg" alt="App Store icon" /></a>
       </div>
     </div>
   </section>
-  <!-- End subscribe Section-->
+
+  <!-- ======= Insights Section ======= -->
+  <section class="container-fluid insight-container">
+    <div class="inner">
+      <div class="row">
+        <div class="col-lg-6 order-2 order-lg-1">
+          <img src="assets/images/home/insights-img.png" class="img-fluid" alt="mobile app" />
+        </div>
+        <div class="col-lg-4  pt-lg-0 order-1 order-lg-2">
+          <h2 class="text-white">Insights</h2>
+          <h3 class="text-white">All in one place</h3>
+          <p class="content-sub-text text-white">
+            Fall in love with tech with our unique tech capsules. Get your daily dose now! Fall in love with tech with
+            our unique tech capsules. Get your daily dose now!
+          </p>
+          <button class="button primary-btn">Explore</button>
+
+        </div>
+      </div>
+      <!-- ======= Subscribe Section ======= -->
+      <section tabindex="1" #subscribe id="subscribe" class="subscribe section-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="section-title pb-0 pt-5">
+                <h1 class="text-white">Signup for our weekly <br>AI Newsletter</h1>
+                <p class="content-sub-text text-white">We will never spam you. That is our promise!</p>
+                <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
+                  <div class="d-flex align-items-center justify-content-center subscibeSection-row position-relative"
+                    [ngClass]="{
+                'error-text':
+                subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
+              }">
+                    <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
+                      placeholder="Enter Your Email ID" />
+                    <button mat-raised-button class="button tertiary" (click)="onSubscribe()">
+                      Subscribe Now
+                    </button>
+                  </div>
+                  <span class="error-msg" *ngIf="
+                subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid
+                ">Please enter valid email</span>
+                </div>
+
+                <div class="follow-us">
+                  <span class="content-sub-text">Join us on</span>
+                  <a href="https://twitter.com/tekcapsule" target="__blank" aria-label="Twitter"><img
+                      src="/assets/images/twitter.svg" alt="twitter icon" />#TekCapsule</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="newsletter-girl"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </section>
+
 
 </div>

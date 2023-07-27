@@ -28,19 +28,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $heading-fonts;
+  font-family: $primary-font-bold;
   color: $heading-color;
 }
 h1 {
-  margin: 0;
-  font-size: 32px;
-  line-height: 64px;
+  font-size: 40px;
+  line-height: 45px;
+  padding-bottom: 15px;
   color: #fff;
-  font-family: $primary-font-medium;
+  font-family: $primary-font-bold;
   @media only screen and (max-width: 767px) {
-    line-height: 40px;
+    line-height: 20px;
     font-size: 25px;
-    padding-bottom: 20px;
   }
   span {
     color: $primary-color;
@@ -50,7 +49,7 @@ h1 {
 
 h2 {
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 26px;
 }
 h3 {
   font-size: 20px;
@@ -58,20 +57,20 @@ h3 {
 }
 .heading {
   font-size: 50px;
-  font-family: $heading-fonts;
+  font-family: $primary-font-bold;
 }
 .sub-heading {
   font-size: 35px;
-  font-family: $heading-fonts;
+  font-family: $primary-font-bold;
   color: #070707;
 }
 h4 {
-  font-size: 24px;
-  font-family: $heading-fonts;
+  font-size: 26px;
+  font-family: $primary-font-bold;
 }
 .banner-heading {
   font-size: 36px;
-  font-family: $heading-fonts;
+  font-family: $primary-font-bold;
 }
 
 /*--------------------------------------------------------------
@@ -83,7 +82,7 @@ h4 {
   margin-bottom: 10px;
   line-height: 26px;
   h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-family: $primary-font-medium;
   }
 }
@@ -180,7 +179,7 @@ h4 {
       border-radius: 0px;
       color: $white;
       margin: 10px;
-      font-size: 12px;
+      font-size: 14px;
       height: auto;
       padding: 2px 7px;
     }
@@ -206,7 +205,7 @@ h4 {
     background: none;
     border: 0 none;
     padding: 10px 0 30px;
-    font-size: 12px;
+    font-size: 14px;
     img {
       cursor: pointer;
     }
@@ -221,7 +220,7 @@ h4 {
       margin-top: 20px;
       p {
         font-family: $primary-font-medium;
-        font-size: 12px;
+        font-size: 14px;
         span {
           font-family: $primary-font-regular;
           color: #9b9b9b;
@@ -230,7 +229,7 @@ h4 {
     }
     .description {
       font-family: $primary-font-regular;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }
@@ -246,7 +245,7 @@ h4 {
   height: 45px;
   width: 165px;
   font-family: $primary-font-bold;
-  font-size: 14px;
+  font-size: 16px;
   border: 2px solid $primary-color;
   transition: all 0.35s ease-in-out;
 
@@ -280,13 +279,13 @@ h4 {
     color: $white;
     width: 170px;
     height: 45px;
-    font-size: 14px;
+    font-size: 16px;
   }
   &.primary-btn-sm {
     width: 132px;
     height: 32px;
     border-radius: 18px;
-    font-size: 12px;
+    font-size: 14px;
     font-family: $primary-font-medium;
     color: $white;
     border: 1px solid $primary-color;
@@ -314,7 +313,7 @@ h4 {
     max-width: 170px;
     height: 32px;
     border-radius: 18px;
-    font-size: 12px;
+    font-size: 14px;
     font-family: $primary-font-medium;
     color: $primary-color;
     border: 1px solid $primary-color;
@@ -340,7 +339,7 @@ h4 {
   margin-top: 25px;
   a {
     color: $primary-color;
-    font-size: 20px;
+    font-size: 22px;
     font-family: $primary-font-medium;
     padding: 0 10px;
     text-decoration: underline;
@@ -366,7 +365,7 @@ h4 {
 .back-link {
   margin-bottom: 30px;
   // margin-top: -25px;
-  font-size: 12px;
+  font-size: 14px;
   font-family: $primary-font-medium;
 
   a {
@@ -418,7 +417,7 @@ textarea {
   border-radius: 10px;
   color: #000;
   font-family: $primary-font-regular;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 25px;
   width: 100%;
   border: 1px solid #ced4da;
@@ -468,7 +467,7 @@ Search Box
   position: relative;
   input[type='search'] {
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #a1a1a1;
     min-width: 280px;
     height: 46px;
@@ -597,7 +596,7 @@ Carousel Topics & Community Page
       .carousel-caption {
         color: #444444;
         p {
-          font-size: 14px;
+          font-size: 16px;
           line-height: 22px;
         }
       }
@@ -828,12 +827,12 @@ iframe .navbar-container,
 
 .topic-details {
   .title {
-    font-size: 20px;
+    font-size: 22px;
     font-family: $primary-font-medium;
     line-height: 23px;
     p {
       font-family: $primary-font-medium;
-      font-size: 14px;
+      font-size: 16px;
       display: inline-block;
       span {
         font-family: $primary-font-regular;
@@ -888,7 +887,7 @@ iframe .navbar-container,
   border-radius: 15px;
   padding: 3px 20px;
   width: fit-content;
-  font-size: 12px;
+  font-size: 14px;
   // margin-bottom: 12px;
   height: 30px;
   align-items: center;
@@ -930,7 +929,7 @@ iframe .navbar-container,
 .badge-danger {
   background: linear-gradient(90deg, rgba(244, 201, 133, 1) 0%, rgba(245, 61, 109, 1) 100%);
   font-family: OpenSans-Light;
-  font-size: 12px;
+  font-size: 14px;
   position: absolute;
   top: -20px;
   left: 72px;
@@ -1156,7 +1155,7 @@ iframe .navbar-container,
     }
   }
   .pi-check:before {
-    font-size: 20px;
+    font-size: 22px;
     top: -3px !important;
     position: relative;
     @media only screen and (max-width: 990px) {
@@ -1164,7 +1163,7 @@ iframe .navbar-container,
     }
   }
   .pi-times:before {
-    font-size: 20px;
+    font-size: 22px;
     color: #000;
     right: 5px !important;
     position: absolute !important;
@@ -1290,7 +1289,7 @@ iframe .navbar-container,
 
 .p-multiselect-item {
   font-family: $primary-font-medium;
-  font-size: 14px;
+  font-size: 16px;
   padding: 0.25rem 1.25rem !important;
   &:focus {
     box-shadow: none !important;
@@ -1346,7 +1345,7 @@ iframe .navbar-container,
 
 /**********AI Hub Common Slider Backrounds***********/
 .skill-studio-page {
-  font-size: 14px;
+  font-size: 16px;
 
   &.p-main {
     padding-top: 74px;
@@ -1429,17 +1428,17 @@ iframe .navbar-container,
       margin-left: 10px;
       font-family: $primary-font-regular;
       color: #2C2C2C;
-      font-size: 14px;
+      font-size: 16px;
   }
 }
 
 .show-result {
-  font-size: 24px;
+  font-size: 26px;
   font-family: $primary-font-bold;
 }
 select {
   font-family: $primary-font-regular;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #fff;
   // height: 50px;
   border-radius: 7px;
@@ -1450,7 +1449,7 @@ select {
 }
 
 .sub-title {
-  font-size: 24px;
+  font-size: 26px;
   font-family: $primary-font-bold;
   color: #262626;
 }
@@ -1492,10 +1491,10 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   border-radius: 5px;
   overflow: hidden;
   p {
-    font-size: 14px;
+    font-size: 16px;
   }
   h3 {
-    font-size: 16px;
+    font-size: 20px;
     font-family: $primary-font-medium;
     padding-bottom: 5px;
   }
@@ -1528,7 +1527,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   h2 {
     color: $white;
     font-family: $primary-font-medium;
-    font-size: 24px;
+    font-size: 30px;
   }
   .author {
     font-family: $primary-font-regular;
@@ -1570,7 +1569,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   height: 300px;
   margin-top: 35px;
   .banner-highlights {
-    font-size: 26px;
+    font-size: 28px;
     font-family: $primary-font-medium;
     span {
       font-family: $primary-font-bold;
@@ -1644,6 +1643,6 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   column-gap: 20px;
 }
 .tag-title {
-  font-size: 14px;
+  font-size: 16px;
   color: $white;
 }

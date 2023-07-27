@@ -3,31 +3,39 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-        <img src="/assets/images/logo.svg" class="footer-logo" alt="footer logo" />
-      </div>
-      <div class="row">
         <div class="col-lg-2 col-md-3 footer-links">
           <ul>
             <li *ngFor="let menuItem of menuItems;"><a [routerLink]="menuItem.navUrl">{{menuItem.displayName}}</a></li>
+            <li>
+              <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none">Blog</a>
+            </li>
           </ul>
+
         </div>
         <div class="col-lg-2 col-md-3 footer-links">
           <h6>Community</h6>
           <ul class="text-lightpurple">
-            <li><a routerLink="#">About Us</a></li>
-            <li><a routerLink="#">Careers</a></li>
-            <li><a routerLink="#">Newsroom</a></li>
-            <li><a routerLink="#">Resources</a></li>
+            <li><a routerLink="#">Our Community</a></li>
+            <li><a routerLink="#">Open Source</a></li>
+            <li><a routerLink="#">Events</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-3 footer-links">
-          <h6>About Us</h6>
+          <h6>Company</h6>
           <ul class="text-lightpurple">
             <li><a routerLink="#">About Us</a></li>
-            <li><a routerLink="#">Careers</a></li>
-            <li><a routerLink="#">Newsroom</a></li>
-            <li><a routerLink="#">Resources</a></li>
+            <li><a routerLink="#">Contact Us</a></li>
           </ul>
+        </div>
+        <div class="col-lg-4 col-md-3 pt-3">
+          <div class="social-links">
+            <a target="_blank" href="https://twitter.com/tekcapsule" aria-label="Play Store"
+              ><img src="/assets/images/play-store.svg" alt="Play Store icon" 
+            /></a>
+            <a target="_blank" href="https://www.linkedin.com/company/tekcapsule/" aria-label="App Store"
+              ><img src="/assets/images/app-store.svg" alt="App Store icon"
+            /></a>
+          </div>
         </div>
         <div class="col-lg-2 col-md-3 footer-links">
           <h6>Follow Us</h6>
@@ -43,19 +51,9 @@
             /></a>
           </div>
         </div>
-        <div class="col-lg-4 col-md-3 pt-3">
-          <div class="social-links">
-            <a target="_blank" href="https://twitter.com/tekcapsule" aria-label="Play Store"
-              ><img src="/assets/images/play-store.svg" alt="Play Store icon" 
-            /></a>
-            <a target="_blank" href="https://www.linkedin.com/company/tekcapsule/" aria-label="App Store"
-              ><img src="/assets/images/app-store.svg" alt="App Store icon"
-            /></a>
-          </div>
-        </div>
       </div>
       <div class="row d-flex justify-content-between copyright">
-        <div>Copyright &copy; 2023 InByte. All rights reserved.</div>
+        <div> <img src="/assets/images/logo.svg" class="footer-logo pr-3" alt="footer logo" /> Copyright &copy; 2023 InByte. All rights reserved.</div>
         <div>
           <a routerLink="/legaldocs/privacypolicy">Privacy Policy</a>
           <a routerLink="/legaldocs/termsofservice">Terms of Service</a>

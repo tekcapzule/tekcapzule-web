@@ -2,7 +2,7 @@
 @import '../../tekbyte-page.component.scss';
 
 .tekbyte-details-page {
-  font-size: 14px;
+  font-size: 16px;
   &.p-main {
     padding-top: 74px;
     @media only screen and (max-width: 768px) {
@@ -46,7 +46,7 @@
           background: #fff;
           padding: 0 20px;
           left: 33%;
-          font-size: 24px;
+          font-size: 26px;
         }
         &:last-child {
           margin-right: 0;
@@ -149,9 +149,9 @@
   //     // display: flex;
 
   //     h3 {
-  //       font-family: $heading-fonts;
+  //       font-family: $primary-font-bold;
   //       color: #3c3b3b;
-  //       font-size: 24px;
+  //       font-size: 26px;
   //     }
   //     .numbers {
   //       font-size: 150px;
@@ -194,11 +194,11 @@
       padding: 30px 80px;
       position: relative;
       &.topic-name {
-        font-size: 24px;
-        font-family: $heading-fonts;
+        font-size: 26px;
+        font-family: $primary-font-bold;
       }
       span {
-        font-size: 20px;
+        font-size: 22px;
         font-family: $primary-font-regular;
         line-height: 30px;
         padding-top: 20px;
@@ -291,11 +291,11 @@
     counter-increment: section;
     position: relative;
     &.topic-name {
-      font-size: 24px;
-      font-family: $heading-fonts;
+      font-size: 26px;
+      font-family: $primary-font-bold;
     }
     span {
-      font-size: 20px;
+      font-size: 22px;
       font-family: $primary-font-regular;
       line-height: 30px;
       padding-top: 20px;
@@ -396,7 +396,7 @@ ul.timeline {
       display: none;
     }
     .yr-txt {
-      font-size: 20px;
+      font-size: 22px;
       color: $blue;
       font-family: 'TungstenSemiBold';
       position: relative;
@@ -410,7 +410,7 @@ ul.timeline {
       padding-bottom: 20px;
     }
     .story {
-      font-size: 14px;
+      font-size: 16px;
       color: #727a89;
       line-height: 24px;
     }
