@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CourseApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-course-detail',
@@ -15,7 +16,8 @@ export class CourseDetailComponent implements OnInit {
   courseList: ICourseDetail[] = [];
   relatedCourseList: ICourseDetail[] = [];
   titleUrl: string[];
-
+  responsiveOptions: any[] = Constants.ResponsiveOptions;
+  
   constructor(private spinner: AppSpinnerService,
     private courseApi: CourseApiService,
     private route: ActivatedRoute,
@@ -33,10 +35,11 @@ export class CourseDetailComponent implements OnInit {
 
   getAllCourses(code: string) {
     this.courseApi.getAllCourse().subscribe(data => {
+      data.forEach(c => {
+        c.topicName = this.helperService.getTopicName(c.topicCode)
+      });
       this.courseDetail = data.find(c => c.courseId === code);
       this.relatedCourseList = data.filter(c => c.topicCode === this.courseDetail.topicCode && c.courseId !== this.courseDetail.courseId);
-      console.log('this.courseDetail', this.courseDetail);
-      //this.courseList = data.filter(pd => pd.category === this.product.category);
       this.spinner.hide();
     }, err => {
       this.spinner.hide();
@@ -45,9 +48,5 @@ export class CourseDetailComponent implements OnInit {
 
   onExplore() {
     //window.open(this.product.productDemo.videoUrl, '_blank');
-  }
-
-  onCourseClick(course: ICourseDetail) {
-    this.router.navigateByUrl('/course-detail/'+ course.courseId)
   }
 }

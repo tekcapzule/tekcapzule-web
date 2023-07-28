@@ -39,27 +39,7 @@
           </div>
         </div>
       </section>
-      <!-- <section class="d-flex skill-studio-bg px-0 py-5">
-        <div>
-          <div class="row justify-content-center">
-            <div class="col-xl-4 col-lg-6 order-1 order-lg-1 hero-img text-right mr-5">
-              <img [src]="courseDetail.imageUrl" alt="topic image" class="course-img" />
-            </div>
-            <div
-              class="col-xl-4 col-lg-6 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center">
-              <h2>{{courseDetail.title}}</h2>
-              <h6>{{courseDetail.author}} (August 16, 2010)</h6>
-              <p class="mb-3">
-                {{courseDetail.summary}}
-              </p>
-              <div class="mt-4 d-flex align-items-center">
-                <div class="pl-0 mr-3"><span class="okhand-icon pr-4"></span>0</div>
-                <div class="badge premium mb-0">{{courseDetail.publisher}}</div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
+      
     </div>
   </div>
   <!-----Curriculum Section----->
@@ -93,42 +73,19 @@
   </div>
 
   <!-----Related Topics Section----->
-  <section class="py-5  bg-gray">
+  <section *ngIf="relatedCourseList.length" class="py-5  bg-gray">
     <div class="container course-tile">
       <div class="section-title">
         <h2>Courses you may be interested in!</h2>
       </div>
         <div class="d-flex flex-wrap">
           <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
-            <div *ngFor="let course of relatedCourseList" class="course-card carousel-card"  (click)="onCourseClick(course)">
-              <div class="position-relative">
-                <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.prizingModel}}</div>
-                <div class="icons timer">
-                  <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                   >{{course.duration}} mins</span>
-                </div>
-                <div class="icons labelRed"><span>#{{course.topicCode}}</span></div>
-                <img [src]="course.imageUrl" alt="card 3" class="header-image" />
-              </div>
-              <div class="content">
-                <div class="title">
-                  {{course.title}}
-                  <p>
-                    Summary by {{course.author}} <span>(August 16, 2010)</span>
-                  </p>
-                </div>
-                <div class="description">
-                  <p>
-                    {{course.summary}}
-                  </p>
-                </div>
-              </div>
-              <div class="mt-4 d-flex align-items-center justify-content-between px-4 card-footer">
-                <div class="d-flex pl-0"><span class="okhand-gray-icon pr-4"></span>100</div>
-                <div class="d-flex pr-2"><span class="publisher-icon"></span>{{course.publisher}}</div>
-            </div>
-            </div>
-            
+            <p-carousel [value]="relatedCourseList" [numVisible]="3" [numScroll]="3" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+              <ng-template let-course pTemplate="item">
+                <app-course-card [course]="course"></app-course-card>
+              </ng-template>
+            </p-carousel>
           </div>
         </div>
       </div>

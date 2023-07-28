@@ -47,19 +47,13 @@ export class CoursesComponent implements OnInit {
     });
     this.courseApi.getAllCourse().subscribe(data => {
       data.forEach(course => {
-        const topic = this.topics.find(t => t.code === course.topicCode);
-        course.topicName =  topic ? topic.title : '';
+        course.topicName =  this.helperService.getTopicName(course.topicCode);
         course.publishedOn = course.publishedOn ? moment(course.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
       });
       this.courseList = data;
       this.filteredCourseList = data;
       this.spinner.hide();
     });
-  }
-
-  getTopicName(topicCode: string) {
-    const topic = this.topics.find(topic => topic.code === topicCode);  
-    return topic? topic.title : '';
   }
 
   onCourseClick(course: ICourseDetail) {

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, MarketPlaceApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { IProduct } from '@app/shared/models/market.model';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,7 +15,8 @@ export class ProductDetailComponent implements OnInit {
   product: IProduct;
   productList: IProduct[] = [];
   titleUrl: string[];
-
+  responsiveOptions: any[] = Constants.ResponsiveOptions;
+  
   constructor(private spinner: AppSpinnerService,
     private marketService: MarketPlaceApiService,
     private route: ActivatedRoute,

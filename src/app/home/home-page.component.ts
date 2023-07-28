@@ -13,7 +13,7 @@ import {
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
-import { shuffleArray } from '@app/shared/utils';
+import { Constants, shuffleArray } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
 import { Carousel } from 'primeng/carousel';
 
@@ -30,23 +30,7 @@ export class HomePageComponent implements OnInit {
   subscriberFormGroup: FormGroup;
   selectedCasuleId: string;
   @ViewChild('subscribe') subscribeSection: ElementRef;
-  responsiveOptions: any[] = [
-    {
-        breakpoint: '1199px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '991px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1
-    }
-  ];
+  responsiveOptions: any[] = Constants.ResponsiveOptions;
   constructor(
     private router: Router,
     private capsuleApi: CapsuleApiService,

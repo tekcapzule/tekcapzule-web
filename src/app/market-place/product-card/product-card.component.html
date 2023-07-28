@@ -1,0 +1,12 @@
+<div class="appstore-tile" (click)="openProductDetails()">
+  <div class="app-logo">
+    <img [src]="product.imageUrl" alt="" />
+  </div>
+  <div class="title">{{product.title}}</div>
+  <div class="badge category">{{product.category}}</div>
+  <p class="description">{{product.summary}}</p>
+  <div class="mt-3 d-flex align-items-center justify-content-between">
+    <div class="pl-0"><span class="okhand-icon pr-4"></span>{{product.recommendations}}</div>
+    <div class="badge free">{{product.prizingModel}}</div>
+  </div>
+</div>

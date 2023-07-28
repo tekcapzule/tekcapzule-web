@@ -139,4 +139,8 @@ export class HelperService {
     return false;
   }
 
+  getTopicName(topicCode: string) {
+    const topic = this.topicData.find(topic => topic.code === topicCode);  
+    return topic ? topic.title : '';
+  }
 }
