@@ -24,6 +24,7 @@
     background: url('../../assets/images/home/home-banner-bg.svg');
     height: 700px;
     width: 100%;
+    margin-bottom: 120px;
   }
 
   button {
@@ -45,8 +46,42 @@
     height: 226px;
     background: url('../../assets/images/home/key-feature-bg.svg') no-repeat;
     padding: 40px 160px;
-    position: relative;
-    top: -150px;
+    display: flex;
+    .key-feature-tile {
+      margin-right: 45px;
+      margin-bottom: 20px;
+      label {
+        color: $white;
+      }
+      .key-points {
+        box-shadow: 5px 5px 2px #00000036;
+        border: 1px solid #6876BF;
+        border-radius: 20px;
+        width: 113px;
+        height: 98px;
+        background: linear-gradient(180deg, #2A3780 0%, #202A5F 100%);
+        padding: 28px;
+        
+        .key-icon-1 {
+          background: url('../../assets/images/home/key-feature-icon-1.svg') no-repeat;
+          width: 58px;
+          height: 42px;
+          display: inline-block;
+        }
+        .key-icon-2 {
+          background: url('../../assets/images/home/key-feature-icon-2.svg') no-repeat;
+          width: 51px;
+          height: 50px;
+          display: inline-block;
+        }
+        .key-icon-3 {
+          background: url('../../assets/images/home/key-feature-icon-3.svg') no-repeat;
+          width: 58px;
+          height: 42px;
+          display: inline-block;
+        }
+      }
+    }
   }
 
     /**********SkillStudio*********/
@@ -60,7 +95,9 @@
         display: flex;
         flex-wrap: wrap;
         text-align: left;
-
+        div {
+          margin-bottom: 25px;
+        }
         p {
           font-size: 15px;
         }
@@ -90,7 +127,7 @@
   /***********Insights**********/
   .insight-container {
     background: #212C5E;
-    padding: 50px 0 0;
+    padding: 50px 0 50px;
   }
 
   /*************Mobile App*********************/
@@ -100,6 +137,16 @@
     height: 116px;
     width: auto;
     background-size: cover;
+    .app-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app-img {
+      position: inherit;
+    margin-top: -80px;
+    margin-right: 50px;
+    }
   }
 /*--------------------------------------------------------------
 # subscribe Section
@@ -109,13 +156,16 @@
   &.section-bg {
     padding: 25px;
     @media only screen and (max-width: 990px) {
-      padding: 20px;
+      padding: 0px;
     }
     .container {
-      background: url('../../assets/images/home/subscribe-bg.svg') no-repeat;
+      // background: url('../../assets/images/home/subscribe-bg.svg') no-repeat;
+      background: linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
+
       padding: 30px;
-      border-radius: 10px;
-      background-size: contain;
+      border-radius: 40px;
+      height: 423px;
+      // background-size: contain;
       @media only screen and (max-width: 990px) {
         padding: 15px;
       }
@@ -129,7 +179,7 @@
       }
       .error-msg {
         text-align: left;
-        color: red !important;
+        color: $white !important;
       }
       .input-mail {
         background: #f7f7f7;
@@ -159,11 +209,14 @@
         }
       }
       .newsletter-girl {
-        background: url('../../assets/images/home/suscribe-girl.png') no-repeat;
+        img {
+           // background: url('../../assets/images/home/suscribe-girl.png') no-repeat;
         height: 521px;
         width: 378px;
-        position: relative;
-        top: -111px
+        position: absolute;
+        top: -125px
+        }
+       
       }
     }
   }
@@ -171,4 +224,68 @@
 .inner {
   max-width: 1220px;
 }
+}
+
+/*************Responsive**********/
+@media only screen and (max-width: 990px) {
+  .inner {
+    padding: 0 20px;
+  }
+  .mobile-app{
+    background: #EC0085;
+    text-align: center;
+    height: auto !important;
+    padding: 0 0 20px;
+    height: auto;
+    .app-content {
+      display: block !important;
+      line-height: 0;
+    }
+  }
+  .subscribe {
+    &.section-bg {
+      .container {
+        height: auto !important;
+        border-radius: 20px !important;
+        .newsletter-girl 
+        {
+          justify-content: center;
+          display: flex;
+          img{
+            position: inherit !important;
+            top: auto !important;
+            width: 80% !important;
+            height: auto !important;
+          }
+        }
+        
+      }
+    }
+  }
+  .topics {
+    text-align: center !important;
+    div {
+      margin-bottom: 20px;
+    }
+  }
+  .key-feature {
+    height: auto !important;
+    background: #202A5F !important;
+    padding: 20px !important;
+    display: inline-block !important;
+    border-radius: 25px;
+    margin: 0 20px;
+    width: 90%;
+    .key-feature-tile  {
+      margin-right: 20px !important;
+    }
+  }
+  .mob-key-feature {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .home-page .home-banner{
+    height: auto !important;
+    margin-bottom: 50px;
+  }
 }

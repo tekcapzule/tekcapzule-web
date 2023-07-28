@@ -14,13 +14,16 @@
     .title-img {
       background-color: #38414D;
       border-radius: 11px;
+      padding: 33px;
+        display: inline-block;
+        margin-right: 10px;
       &.key-concept-icon {
-        background: url('../../../../assets/images/key-concept-icon.png') no-repeat;
+        background: #38414D url('../../../../assets/images/key-concept-icon.png') 50% 50% no-repeat;
         width: 40px;
         height: 48px;
       }
       &.application-icon {
-        background: url('../../../../assets/images/application-icon.png') no-repeat;
+        background: #38414D url('../../../../assets/images/application-icon.png') 50% 50% no-repeat;
         width: 40px;
         height: 32px;
       }
