@@ -18,6 +18,8 @@ export interface TekByteItem {
   currentTrends: CurrentTrendItem;
   challenges: ChallengeItem;
   timeline: TimelineItem;
+  recommendations: number;
+  prizingModel: string;
 }
 export interface GoldenCircleItem {
   why: string;

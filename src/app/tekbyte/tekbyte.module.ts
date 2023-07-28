@@ -11,17 +11,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { TekbyteCardComponent } from './components/tekbyte-card/tekbyte-card.component';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
-  declarations: [TekbytePageComponent, ExploreTekbyteComponent, TekbyteDetailsComponent],
-  imports: [CommonModule,
+  declarations: [
+    TekbytePageComponent,
+    ExploreTekbyteComponent,
+    TekbyteDetailsComponent,
+    TekbyteCardComponent
+  ],
+  imports: [
+    CommonModule,
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
     MultiSelectModule,
     ToastModule,
     TekbyteRoutingModule,
-    MatTabsModule],
+    MatTabsModule,
+    CarouselModule
+  ],
   providers: [MessageService]
 })
 export class TekbyteModule {}

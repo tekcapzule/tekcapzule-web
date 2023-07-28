@@ -15,7 +15,24 @@ export class CourseDetailComponent implements OnInit {
   courseList: ICourseDetail[] = [];
   relatedCourseList: ICourseDetail[] = [];
   titleUrl: string[];
-
+  responsiveOptions: any[] = [
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '991px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1
+    }
+  ];
+  
   constructor(private spinner: AppSpinnerService,
     private courseApi: CourseApiService,
     private route: ActivatedRoute,
@@ -33,10 +50,11 @@ export class CourseDetailComponent implements OnInit {
 
   getAllCourses(code: string) {
     this.courseApi.getAllCourse().subscribe(data => {
+      data.forEach(c => {
+        c.topicName = this.helperService.getTopicName(c.topicCode)
+      });
       this.courseDetail = data.find(c => c.courseId === code);
       this.relatedCourseList = data.filter(c => c.topicCode === this.courseDetail.topicCode && c.courseId !== this.courseDetail.courseId);
-      console.log('this.courseDetail', this.courseDetail);
-      //this.courseList = data.filter(pd => pd.category === this.product.category);
       this.spinner.hide();
     }, err => {
       this.spinner.hide();

@@ -17,6 +17,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
+import { CourseCardComponent } from '@app/courses/course-card/course-card.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-detail
     TopicCardComponent,
     CarouselComponent,
     SpinnerComponent,
-    CapsuleDetailsComponent
+    CapsuleDetailsComponent,
+    CourseCardComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-detail
     TopicCardComponent,
     CarouselComponent,
     SpinnerComponent,
-    CapsuleDetailsComponent
+    CapsuleDetailsComponent,
+    CourseCardComponent
   ],
   providers: [
     MessageService

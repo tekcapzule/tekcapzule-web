@@ -105,29 +105,6 @@
         </div>
       </section> -->
       <!-- Popular Events Section -->
-      <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
-        <section class="py-3 inner">
-          <div class="section-title text-center">
-            <h2>Other Popular Topics Based on Your Interest</h2>
-          </div>
-          <div>
-            <div *ngFor="let tl of popularTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
-              <div class="card-top bg-1">
-                <div class="conference-header">
-                  <div class="title">{{tl?.title}}</div>
-                  <div class="description">{{tl?.summary}}</div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex align-items-center"><span class="okhand-gray-icon pr-4"></span>{{tl.recommendations}}</div>
-                  <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>{{tl.prizingModel}}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
       <div class="container-fluid pt-3">
         
         <!-- Know More Section -->
@@ -155,6 +132,23 @@
           </div>
         </section>
       </div>
+
+      <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
+        <section class="py-3 inner">
+          <div class="section-title text-center">
+            <h2>Other Popular Topics Based on Your Interest</h2>
+          </div>
+          <div>
+            <p-carousel [value]="popularTekbyteList" [numVisible]="3" [numScroll]="3" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+              <ng-template let-tekbyte pTemplate="item">
+                <app-tekbyte-card [tekbyte]="tekbyte"></app-tekbyte-card>
+              </ng-template>
+            </p-carousel>
+          </div>
+        </section>
+      </div>
+      
     </div>
     <!-- Stay So Far Scection -->
     <div *ngIf="tekbyteData.timeline" class="col-lg-2 px-0">

@@ -61,34 +61,9 @@
 
           <div>
             <div class="mb-4 pb-4">
-              <div *ngFor="let course of filteredCourseList; let i = index;" class="course-card carousel-card mx-0" (click)="onCourseClick(course)">
-                <div class="position-relative">
-                  <div class="badge new mb-0" [ngClass]="course.prizingModel.toLowerCase()">{{course.prizingModel}}</div>
-                  <div class="icons timer">
-                    <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-                      _ngcontent-xwg-c263="">{{course.duration}} mins</span>
-                  </div>
-                  <div class="icons labelRed"><span _ngcontent-xwg-c263="">#{{getTopicName(course.topicCode)}}</span></div>
-                  <img [src]="course.imageUrl" alt="card 3" class="header-image" />
-                </div>
-                <div class="content">
-                  <div class="title">
-                    {{course.title}}
-                    <p _ngcontent-xwg-c263="">
-                      Summary by {{course.author}} <span _ngcontent-xwg-c263="">({{course.publishedOn}})</span>
-                    </p>
-                  </div>
-                  <div class="description">
-                    <p _ngcontent-xwg-c263="">
-                      {{course.summary}}
-                    </p>
-                  </div>
-                </div>
-                <div class="mt-4 d-flex align-items-center justify-content-between px-4 card-footer">
-                  <div class="pl-0 d-flex"><span class="okhand-gray-icon pr-4"></span>{{course.recommendations}}</div>
-                  <div class="d-flex pr-2"><span class="publisher-icon"></span>{{course.publisher}}</div>
-              </div>
-              </div>
+              <ng-container *ngFor="let course of filteredCourseList; let i = index;">
+                <app-course-card [course]="course"></app-course-card>
+              </ng-container>
             </div>
           </div>
         </div>
