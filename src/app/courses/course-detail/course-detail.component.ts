@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CourseApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-course-detail',
@@ -15,23 +16,7 @@ export class CourseDetailComponent implements OnInit {
   courseList: ICourseDetail[] = [];
   relatedCourseList: ICourseDetail[] = [];
   titleUrl: string[];
-  responsiveOptions: any[] = [
-    {
-        breakpoint: '1199px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '991px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1
-    }
-  ];
+  responsiveOptions: any[] = Constants.ResponsiveOptions;
   
   constructor(private spinner: AppSpinnerService,
     private courseApi: CourseApiService,
@@ -63,9 +48,5 @@ export class CourseDetailComponent implements OnInit {
 
   onExplore() {
     //window.open(this.product.productDemo.videoUrl, '_blank');
-  }
-
-  onCourseClick(course: ICourseDetail) {
-    this.router.navigateByUrl('/course-detail/'+ course.courseId)
   }
 }

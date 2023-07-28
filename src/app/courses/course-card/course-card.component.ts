@@ -14,6 +14,6 @@ export class CourseCardComponent {
   constructor(private router: Router) {}
 
   onCourseClick(course: ICourseDetail) {
-    this.router.navigateByUrl('/course-detail/'+ course.courseId)
+    this.router.navigateByUrl('/ai-hub/course-detail/'+ course.courseId)
   }
 }

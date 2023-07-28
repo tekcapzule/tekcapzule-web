@@ -116,20 +116,9 @@
           <!-- <div class="show-result">Showing <span>{{filteredProducts.length}}</span> of <span>{{products.length}}</span></div> -->
           
           <div class="card-wrapper">
-            <div *ngFor="let product of products; let i = index;" class="appstore-tile" (click)="openProductDetails(product)">
-              <div class="app-logo">
-                <img [src]="product.imageUrl" alt="" />
-              </div>
-              <div class="title">{{product.title}}</div>
-              <div class="badge category">{{product.category}}</div>
-              <p class="description">{{product.summary}}</p>
-              <div class="mt-3 d-flex align-items-center justify-content-between">
-                <div class="pl-0"><span class="okhand-icon pr-4"></span>{{product.recommendations}}</div>
-                <div class="badge free">FREE</div>
-              </div>
-            </div>
-
-
+            <ng-container *ngFor="let product of products; let i = index;" >
+              <app-product-card [product]="product"></app-product-card>
+            </ng-container>
           </div>
         </div>
       </div>

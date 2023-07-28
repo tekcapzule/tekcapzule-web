@@ -10,6 +10,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { ITile } from '@app/skill-studio/models/tile.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-tekbyte-details',
@@ -21,7 +22,9 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   titleUrl: string[];
   subscriberFormGroup: FormGroup;
   tekbyteList: TekByteItem[] = [];
-  popularTekbyteList: TekByteItem[] = [];  
+  popularTekbyteList: TekByteItem[] = [];
+  responsiveOptions: any[] = Constants.ResponsiveOptions;
+  
 
   constructor(
     private spinner: AppSpinnerService,

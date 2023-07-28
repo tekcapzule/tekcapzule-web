@@ -6,9 +6,17 @@ import { SharedModule } from '@app/shared';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ProductDetailComponent } from './product-detail.component';
 import { ProductDetailRoutingModule } from './product-detail-routing.module';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [ProductDetailComponent],
-  imports: [CommonModule, SharedModule, MatTabsModule, ProductDetailRoutingModule, CheckboxModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    MatTabsModule,
+    ProductDetailRoutingModule,
+    CheckboxModule,
+    CarouselModule
+  ],
 })
 export class ProductDetailModule {}

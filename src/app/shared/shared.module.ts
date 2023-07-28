@@ -18,6 +18,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
 import { CourseCardComponent } from '@app/courses/course-card/course-card.component';
+import { ProductCardComponent } from '@app/market-place/product-card/product-card.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CourseCardComponent } from '@app/courses/course-card/course-card.compon
     CarouselComponent,
     SpinnerComponent,
     CapsuleDetailsComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    ProductCardComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { CourseCardComponent } from '@app/courses/course-card/course-card.compon
     CarouselComponent,
     SpinnerComponent,
     CapsuleDetailsComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    ProductCardComponent
   ],
   providers: [
     MessageService

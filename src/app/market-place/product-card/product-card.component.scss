@@ -1,0 +1,15 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/common.scss';
+@import '../market-place.component.scss';
+
+.play-button {
+    top: calc(50% - 0px);
+}
+.video-icon {
+    background: url("../../../assets/images/video-icon.png") no-repeat;
+    width: 41px;
+    height: 22px;
+}
+h2 {
+    font-size: 26px;
+}
