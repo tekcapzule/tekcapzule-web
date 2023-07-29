@@ -5,7 +5,7 @@
   }
   .section-title h2,
   h2 {
-    font-size: 20px !important;
+    font-size: 24px !important;
   }
   h3 {
     font-size: 16px !important;
@@ -19,8 +19,9 @@
   .create-capsule-page {
     .card-section {
       margin: 0 10px;
-      padding-top: 5rem !important;
+      padding-top: 2rem !important;
       margin-bottom: 0px !important;
+      justify-content: center !important;
       .carousel-card {
         margin-bottom: 20px;
         padding-bottom: 20px;
@@ -199,18 +200,19 @@
     max-height: 500px !important;
   }
   .tags-section {
-    top: 75px !important;
-    height: 55px!important;
-    position: absolute !important;
-    width: 100%;
-    padding: 0;
-    margin-left: -12px;
+    height: auto!important;
+    padding: 0 20px;
+    background: linear-gradient(270deg,#6C2B67 0%,#202A5F 100%) !important;
+    margin-top: 0 !important;
     .selected-topic-list {
         display: block !important;
     }
     ul.topics-list li {
       // margin-bottom: 13px !important;
     }
+  }
+  .feed-cards {
+    position: inherit !important;
   }
   .pi-times-circle:before {
     font-size: 25px;
@@ -408,7 +410,8 @@
 
 .capsule-card-container {
   width: 333px !important;
-  height: 585px !important;
+  height: 540px !important;
+  margin-right: 0 !important;
 }
 .home-page {
   .capsule-card-container {
