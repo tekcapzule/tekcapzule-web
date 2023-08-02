@@ -10,8 +10,9 @@
   </div>
   <section class="container-fluid contribute-bg">
     <div class="container">
-      <div class="contribute-form-bg" [formGroup]="contributeFormGroup">
-        <div class="text-center pb-2 section-title">
+      <div class="contribute-form-bg d-flex" [formGroup]="contributeFormGroup">
+        <div class="col-lg-6">
+        <div class="text-center pb-0 section-title">
           <h2 *ngIf="!helperService.getMobileResolution()" class="text-white">Contribute</h2>
           <p  class="text-white">There's lots of information all over the internet in different ways. We want to gather all the tech
             knowledge in one place,
@@ -27,8 +28,6 @@
                 contributeFormGroup.get('title').touched && contributeFormGroup.get('title').invalid
               ">Please enter capsule title.</span>
         </div>
-
-
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group" [ngClass]="{
@@ -124,7 +123,11 @@
           <button class="button primary" (click)="onSubmit()">Submit</button>
         </div>
       </div>
-      <div class="formuser-icon"></div>
+      <div class="col-lg-6">
+        <div class="formuser-icon"></div>
+      </div>
+      </div>
+      
     </div>
   </section>
 </div>

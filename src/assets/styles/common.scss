@@ -32,9 +32,8 @@ h6 {
   color: $heading-color;
 }
 h1 {
-  font-size: 40px;
+  font-size: 34px;
   line-height: 45px;
-  padding-bottom: 15px;
   color: #fff;
   font-family: $primary-font-bold;
   @media only screen and (max-width: 767px) {
@@ -1348,7 +1347,7 @@ iframe .navbar-container,
   font-size: 16px;
 
   &.p-main {
-    padding-top: 74px;
+    padding-top: 118px;
     @media only screen and (max-width: 768px) {
       padding-top: 75px;
     }
@@ -1523,7 +1522,7 @@ animation-timing-function: cubic-bezier(.65,0,.34,1);
   background: #161e45 url('../images/banner_curve.png') no-repeat;
   color: $white;
   height: 380px;
-  padding-top: 75px !important;
+  padding-top: 118px !important;
   h2 {
     color: $white;
     font-family: $primary-font-medium;
