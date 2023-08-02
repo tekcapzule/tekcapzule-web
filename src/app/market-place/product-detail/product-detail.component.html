@@ -4,12 +4,12 @@
     <div class="container-fluid top-navigation">
       <div class="container">
         <div class="back-link">
-          <a class="url-link" [routerLink]="['/market-place']">MarketPlace</a>
-          <span *ngIf="product">{{product.title}}</span>
+          <a class="url-link" [routerLink]="['/market-place']">Marketplace</a>
+          <span *ngIf="product">{{ product.title }}</span>
         </div>
       </div>
     </div>
-    <section *ngIf="product" class="container-fluid white-bg skill-studio-bg  px-0">
+    <section *ngIf="product" class="container-fluid white-bg skill-studio-bg px-0">
       <div id="heroBanner" class="carousel slide inner" data-ride="carousel">
         <div class="carousel-inner pb-4">
           <div class="carousel-item active">
@@ -21,51 +21,55 @@
                       <img [src]="product.imageUrl" class="img-fluid b-radius" alt="" />
                     </div>
                     <div
-                      class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center banner-content">
+                      class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center banner-content"
+                    >
                       <div class="d-flex align-items-center">
-                        <h2>{{product.title}}</h2>
+                        <h2>{{ product.title }}</h2>
                         <span> | </span>
                         <div><span class="okhand-icon pr-4"></span>100</div>
                       </div>
 
                       <p class="mb-3">
-                        {{product.description}}
+                        {{ product.description }}
                       </p>
                       <div class="d-flex">
-                      <span class="badge paid mr-2">paid</span>
-                      <span class="badge paid mr-2">tag 01</span>
-                      <span class="badge paid">tag 02</span>
-                    </div>
-                      <button class="button tertiary b-radius mt-4" (click)="onExplore()">Check Now</button>
+                        <span class="badge paid mr-2">paid</span>
+                        <span class="badge paid mr-2">tag 01</span>
+                        <span class="badge paid">tag 02</span>
+                      </div>
+                      <button class="button tertiary b-radius mt-4" (click)="onExplore()">
+                        Check Now
+                      </button>
                     </div>
                   </div>
                 </div>
               </section>
             </div>
           </div>
-
         </div>
       </div>
     </section>
   </div>
   <div class="bg-light-gray">
     <section class="py-5 inner">
-
-      <div class="row justify-content-between">          
-
+      <div class="row justify-content-between">
         <div class="col-lg-5">
-          <div class="sub-title d-flex pb-4 align-items-center"><span class="video-icon mr-3"></span>Watch Product Demo</div>
+          <div class="sub-title d-flex pb-4 align-items-center">
+            <span class="video-icon mr-3"></span>Watch Product Demo
+          </div>
 
           <div class="video_thumb">
-            <img src="../../../assets/images/video-1.png"  alt="play icon" class="img-fluid"/>
+            <img src="../../../assets/images/video-1.png" alt="play icon" class="img-fluid" />
             <div class="play-button"></div>
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="sub-title d-flex pb-4 align-items-center"><span class="video-icon mr-3"></span>Watch User Guide</div>
+          <div class="sub-title d-flex pb-4 align-items-center">
+            <span class="video-icon mr-3"></span>Watch User Guide
+          </div>
 
           <div class="video_thumb">
-            <img src="../../../assets/images/video-2.png"  alt="play icon" class="img-fluid" />
+            <img src="../../../assets/images/video-2.png" alt="play icon" class="img-fluid" />
             <div class="play-button"></div>
           </div>
         </div>
@@ -78,16 +82,18 @@
         <h2>Similar Product from this Category</h2>
       </div>
       <div class="card-wrapper">
-        <p-carousel [value]="productList" [numVisible]="3" [numScroll]="3" [circular]="false"
-            [responsiveOptions]="responsiveOptions">
-              <ng-template let-product pTemplate="item">
-                <app-product-card [product]="product"></app-product-card>
-              </ng-template>
-            </p-carousel>
-
-        
+        <p-carousel
+          [value]="productList"
+          [numVisible]="3"
+          [numScroll]="3"
+          [circular]="false"
+          [responsiveOptions]="responsiveOptions"
+        >
+          <ng-template let-product pTemplate="item">
+            <app-product-card [product]="product"></app-product-card>
+          </ng-template>
+        </p-carousel>
       </div>
-
     </section>
   </div>
 </div>
