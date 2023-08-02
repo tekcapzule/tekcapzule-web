@@ -1,100 +1,127 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-  <div class="container-fluid">
-    <div class="container header-align">
-      <!-- Responsive Menu -->
-      <nav class="navbar navbar-expand-lg">
-        <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
-          class="navbar-brand logo">
-          <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
-            routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg" alt="Tekcapsule Logo"/></a>
-        </div>
-        
-        <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-          <div class="main-nav">{{selectedMenuItem?.displayName}}</div>
-          <div *ngIf="selectedChildMenuItem" class="sub-nav">{{selectedChildMenuItem?.displayName}}</div>
-        </div>
-        <div class="menu-hide">&nbsp;</div>
+<div class="fixed-top">
+  <div class="top-main-header">
+    <div class="container d-flex justify-content-end pr-4">
+      <ul>
+        <li><a>About Us</a></li>
+        <li><a>Community</a></li>
+        <li>
+          <div *ngIf="!isMobileResolution" class="dropdown">
+            <button class="dropbtn" (click)="openBlog($event)">Blog</button>
+          </div>
+          <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none"
+            *ngIf="isMobileResolution">Blog</a>
+        </li>
+      </ul>
+      <button mat-raised-button class="button signin-btn disabled" disabled="true">Sign In</button>
+    </div>
+  </div>
+  <header id="header">
+    <div class="container-fluid">
+      <div class="container header-align">
+        <!-- Responsive Menu -->
+        <nav class="navbar navbar-expand-lg">
+          <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div *ngIf="!isMobileResolution  || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')"
+            class="navbar-brand logo">
+            <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
+              routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
+                alt="Tekcapsule Logo" /></a>
+          </div>
 
-        <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+          <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+            <div class="main-nav">{{selectedMenuItem?.displayName}}</div>
+            <div *ngIf="selectedChildMenuItem" class="sub-nav">{{selectedChildMenuItem?.displayName}}</div>
+          </div>
+          <div class="menu-hide">&nbsp;</div>
 
-          <ul class="navbar-nav">
-            <ng-container *ngFor="let hm of headerMenu; let i=index">
-              <li [ngClass]="{'dropdown': (hm.viewType || isMobileResolution) && hm.children, 'active': selectedMenuItem?.uniqueId === hm.uniqueId}"
-                *ngIf="hm.showOnMobile ? isMobileResolution : true">
-                <div *ngIf="!isMobileResolution" class="dropdown">
-                  <button class="dropbtn" (click)="onMenuClick(hm)">{{hm.displayName}}  <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down" [ngClass]="{'menu-open': openedMenuItem?.uniqueId === hm.uniqueId}"></i></button>
-                </div>
-                <a href="Javascript:void(0)" class="nav-item pe-none" *ngIf="isMobileResolution"
-                [ngClass]="{'parent-menu': isMobileResolution && hm.children}" (click)="onMenuClick(hm)">{{hm.displayName}}
-                  <span *ngIf="isMobileResolution && hm.children || hm.viewType === 'ALL'"
-                    [ngClass]="{'parent-menu': ((isMobileResolution || hm.viewType === 'ALL') && hm.children)}" class="caret"></span></a>
+          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+
+            <ul class="navbar-nav">
+              <ng-container *ngFor="let hm of headerMenu; let i=index">
+                <li
+                  [ngClass]="{'dropdown': (hm.viewType || isMobileResolution) && hm.children, 'active': selectedMenuItem?.uniqueId === hm.uniqueId}"
+                  *ngIf="hm.showOnMobile ? isMobileResolution : true">
+                  <div *ngIf="!isMobileResolution" class="dropdown">
+                    <button class="dropbtn" (click)="onMenuClick(hm)">{{hm.displayName}} <i
+                        *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down"
+                        [ngClass]="{'menu-open': openedMenuItem?.uniqueId === hm.uniqueId}"></i></button>
+                  </div>
+                  <a href="Javascript:void(0)" class="nav-item pe-none" *ngIf="isMobileResolution"
+                    [ngClass]="{'parent-menu': isMobileResolution && hm.children}"
+                    (click)="onMenuClick(hm)">{{hm.displayName}}
+                    <span *ngIf="isMobileResolution && hm.children || hm.viewType === 'ALL'"
+                      [ngClass]="{'parent-menu': ((isMobileResolution || hm.viewType === 'ALL') && hm.children)}"
+                      class="caret"></span></a>
 
 
-                <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === hm.uniqueId">
-                  <ul class="dropdown-menu show">
-                    <li *ngFor="let menuItem of hm.children; let i=index">
-                      <a href="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{menuItem.displayName}}</a>
-                    </li>
-                  </ul>
-                </ng-container>
+                  <ng-container *ngIf="isMobileResolution && hm.children && openedMenuItem?.uniqueId === hm.uniqueId">
+                    <ul class="dropdown-menu show">
+                      <li *ngFor="let menuItem of hm.children; let i=index">
+                        <a href="Javascript:void(0)" class="nav-item"
+                          (click)="onChildMenuClick(menuItem)">{{menuItem.displayName}}</a>
+                      </li>
+                    </ul>
+                  </ng-container>
 
-                <ng-cotainer *ngIf="(hm.viewType === 'ALL' && !isMobileResolution) && openedMenuItem?.uniqueId === hm.uniqueId">
-                  <div class="sub-menu">
-                    <div class="sub-menu dropdown-content container">
-                      <div class="sub-menu px-5">
-                        <div class="sub-menu-element sub-menu-title text-left">
-                          <h2 class="sub-menu-element">SkillStudio</h2>
-                        </div>
-                      <div class="d-flex">
-                        <div class="col-lg-6 pl-0">
-                          <ul class="sub-menu pr-5">
-                            <li class="sub-menu-element nav-item" *ngFor="let sm of hm.children | slice:0:math.ceil(hm.children.length/2)" (click)="onChildMenuClick(sm)">
-                              <div class="sub-menu-element icon"><span class="sub-menu-element" [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span></div>
-                              <h3 class="sub-menu-element">{{sm.displayName}}</h3>
-                              <span class="sub-menu-element">{{sm.desc}}</span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-lg-6">
-                          <ul class="sub-menu pr-5">
-                            <li class="sub-menu-element nav-item" *ngFor="let sm of hm.children | slice:math.ceil(hm.children.length/2):hm.children.length" (click)="onChildMenuClick(sm)">
-                              <div class="sub-menu-element icon"><span  [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span></div>
-                              <h3 class="sub-menu-element">{{sm.displayName}}</h3>
-                              <span class="sub-menu-element">{{sm.desc}}</span>
-                            </li>
-                          </ul>
+                  <ng-cotainer
+                    *ngIf="(hm.viewType === 'ALL' && !isMobileResolution) && openedMenuItem?.uniqueId === hm.uniqueId">
+                    <div class="sub-menu">
+                      <div class="sub-menu dropdown-content container">
+                        <div class="sub-menu px-5">
+                          <div class="sub-menu-element sub-menu-title text-left">
+                            <h2 class="sub-menu-element">SkillStudio</h2>
+                          </div>
+                          <div class="d-flex">
+                            <div class="col-lg-6 pl-0">
+                              <ul class="sub-menu pr-5">
+                                <li class="sub-menu-element nav-item"
+                                  *ngFor="let sm of hm.children | slice:0:math.ceil(hm.children.length/2)"
+                                  (click)="onChildMenuClick(sm)">
+                                  <div class="sub-menu-element icon"><span class="sub-menu-element"
+                                      [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span></div>
+                                  <h3 class="sub-menu-element">{{sm.displayName}}</h3>
+                                  <span class="sub-menu-element">{{sm.desc}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="col-lg-6">
+                              <ul class="sub-menu pr-5">
+                                <li class="sub-menu-element nav-item"
+                                  *ngFor="let sm of hm.children | slice:math.ceil(hm.children.length/2):hm.children.length"
+                                  (click)="onChildMenuClick(sm)">
+                                  <div class="sub-menu-element icon"><span
+                                      [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span></div>
+                                  <h3 class="sub-menu-element">{{sm.displayName}}</h3>
+                                  <span class="sub-menu-element">{{sm.desc}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                </ng-cotainer>
-              </li>
-                
-            </ng-container>
-            <li>
-              <div *ngIf="!isMobileResolution" class="dropdown">
-                <button class="dropbtn" (click)="openBlog($event)">Blog</button>
-              </div>
-              <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none" *ngIf="isMobileResolution">Blog</a>
-            </li>
-          </ul>
+                  </ng-cotainer>
+                </li>
+
+              </ng-container>
+
+            </ul>
+          </div>
+        </nav>
+        <div class="d-flex" *ngIf="!isMobileResolution">
+          <div class="global-search-box mr-3">
+            <input type="text" placeholder="What are you looking for?" class="mb-0" />
+            <!-- <button title="search bar" class="search-btn mr-3"></button> -->
+          </div>
+          <button mat-raised-button class="button primary disabled" disabled="true">Subscribe</button>
+
         </div>
-      </nav>
-      <div class="d-flex" *ngIf="!isMobileResolution">
-        <div class="global-search-box mr-3">
-          <input type="text"
-            placeholder="What are you looking for?" class="mb-0"/>
-          <!-- <button title="search bar" class="search-btn mr-3"></button> -->
-        </div>
-        <button mat-raised-button class="button primary disabled" disabled="true">Sign In</button>
       </div>
     </div>
-  </div>
-</header>
+  </header>
+</div>
 <!-- End Header -->

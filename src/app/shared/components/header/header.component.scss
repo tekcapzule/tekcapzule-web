@@ -6,7 +6,7 @@
 #header {
   //transition: all 0.5s;
   z-index: 997;
-  padding: 7px ​0;
+  margin-top: 43px;
   background: #212C5E;
 
   .header-align {
@@ -652,4 +652,47 @@
 .navbar-brand {
   margin-right: 0 !important;
   padding-top: 0 !important;
+}
+.top-main-header {
+  background: #19224A;
+  height: 43px;
+  float: left;
+  width: 100%;
+  display: flex;
+  ul {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    li {
+      list-style: none;
+      padding: 0 28px;
+      a {
+        color: #A6AACF;
+        cursor: pointer;
+        // font-family: $primary-font-medium;
+        // font-size: 12px;
+        &:hover {
+          color: #fff;
+          &::after {
+            border-bottom: 4px solid #FF00C8;
+          }
+        }
+      }
+    }
+  }
+}
+.signin-btn {
+  background: #FF00C4;
+  border: 1pc solid #FF00C4;
+  border-radius: 18px;
+  color: #fff;
+  font-size: 12px;
+  width: auto;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  padding: 0;
+  cursor: not-allowed;
 }

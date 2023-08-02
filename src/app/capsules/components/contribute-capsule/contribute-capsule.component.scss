@@ -5,8 +5,8 @@
     height: 50rem;
     background-size: cover;
     .container {
-      max-width: 950px;
-      padding-top: 1rem;
+      max-width: 1250px;
+      padding-top: 4rem;
       p {
         font-size: 16px;
       }
@@ -14,26 +14,28 @@
   }
   .contribute-form-bg {
     // background: url(../../../../assets/images/contribute-form-bg.svg) no-repeat;
-    // background: linear-gradient(180deg,white 0%,#efd6dd 100%) no-repeat 0px 0px;
-    // border-radius: 47px;
+    background: linear-gradient(270deg, #352584 0%,#8a1f83 100%) no-repeat 0px 0px;
+    border-radius: 20px;
     // border: 2px solid #ecb3c3;
-    padding: 60px 125px;
+    padding: 35px 30px 60px 75px;
+    display: flex;
     // height: 52rem;
     // background-size: 920px 870px;
     background-size: 100%;
     @media only screen and (max-width: 990px) { 
       // background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px 0px;
       padding: 50px 0px;
+      display: block;
       // border-radius: 20px;
     }
   }
   .formuser-icon {
     background: url(../../../../assets/images/form-woman.png) no-repeat;
-    width: 293px;
-    height: 579px;
+    width: 435px;
+    height: 488px;
     position: absolute;
-    right: 8%;
-    top: 21.4rem;
+    right: 0 !important;
+    top: 10.3rem;
     background-size: 100%;
     @media only screen and (max-width: 990px) { 
       display: none;
