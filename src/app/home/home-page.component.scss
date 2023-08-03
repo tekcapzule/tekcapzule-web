@@ -31,14 +31,14 @@
 
   button {
     &.primary-btn {
-      background-color: $primary-color-new;
+      background-color: $primary-color;
       color: $white;
       margin-right: 15px;
 
       &:hover {
         background: $white;
-        border: 2px solid $primary-color-new;
-        color: $primary-color-new;
+        border: 2px solid $primary-color;
+        color: $primary-color;
       }
     }
   }
@@ -114,21 +114,6 @@
       font-family: $primary-font-black;
     }
 
-    /*************Feeds***********/
-    .feeds-container {
-      color: $white;
-      background: url('../../assets/images/home/feeds-bg.svg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-color: #ebebeb;
-      .content {
-        margin-top: 100px;
-        @media only screen and (max-width: 990px) {
-          margin: 30px auto;
-          text-align: center;
-        }
-      }
-    }
   /***********Insights**********/
   .insight-container {
     background: #212C5E;
@@ -165,7 +150,7 @@
     }
     .container {
       // background: url('../../assets/images/home/subscribe-bg.svg') no-repeat;
-      background: url('../../assets/images/home/pattern.svg') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
+      background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
 
       padding: 30px;
       border-radius: 40px;

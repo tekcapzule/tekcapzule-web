@@ -1,116 +1,54 @@
 <!-- ======= Community Section ======= -->
 
-<div id="community" class="community-page p-main">
+<div id="community" class="community-page">
   <app-spinner></app-spinner>
-  <div class="container-fluid community-desc">
-    <div class="container">
-      <section class="d-flex align-items-center">
-        <div class="row justify-content-center">
-          <div class="part-1">
-            <div class="row justify-content-center">
-              <div
-                class="col-xl-4 col-lg-6 pt-3 mr-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center"
-              >
-                <h2 class="pb-4">Together we go far....</h2>
-                <div>
-                  <p>
-                    We believe in the power of community. While we focus on building the right tools
-                    and process to crowd source, you help us help fellow technologists by
-                    contributing AI capsules. Let’s shape our future together!
-                  </p>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 order-2 order-lg-2 d-flex justify-content-center">
-                <img src="/assets/images/community-power.svg" class="animated pt-4 img-fluid" alt="community power" />
-              </div>
-            </div>
-          </div>
-          <div class="part-2">
-            <div class="row justify-content-center">
-              <div
-                class="col-xl-5 col-lg-6 pt-3 mr-3 pt-lg-0 order-1 order-lg-2 d-flex flex-column justify-content-center"
-              >
-                <h2 class="pb-4">
-                  What it takes to build a crowd <br />
-                  sourced tech repository
-                </h2>
-                <div>
-                  <p>
-                    Information is everywhere and in different shapes and forms. We are looking to
-                    aggregate tech information at internet scale with the help of passionate
-                    technologist like you.
-                  </p>
-                  <a id="cubic" routerLink="/capsules/contribute">
-                    <button class="button primary-btn-sm">CONTRIBUTE</button>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="tech-repo col-xl-5 col-lg-6 order-2 order-lg-1 d-flex justify-content-center"
-              >
-                <div class="inline-points">
-                  <ul>
-                    <li><span>Help us identify AI resources from variety of sources</span></li>
-                    <li>
-                      <span>We create capsules with quality summary on resource collected</span>
-                    </li>
-                    <li><span>We help deliver the capsule to those in need</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="part-3 container">
-            <div class="row justify-content-center">
-              <div
-                class="col-xl-6 col-lg-6 pt-3 mr-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center"
-              >
-                <h2 class="pb-4">Yes, we are open-source</h2>
-                <div>
-                  <p>
-                    Help us build a platform you love to use<br />
-                    We welcome your code contributions!
-                  </p>
-                  <a target="_blank" href="https://github.com/tekcapsule">
-                    <button class="button primary-btn-sm">
-                      <span class="git-icon"></span>GitHub
-                    </button>
-                  </a>
-                  <!-- <span class="pl-2 link">GitHub.com/TekCapsule</span> -->
-                </div>
-              </div>
-              <div class="col-xl-5 col-lg-6 order-2 order-lg-2 d-flex justify-content-center">
-                <img src="/assets/images/open-source.svg" class="animated pt-4 img-fluid" alt="open source" />
-              </div>
-            </div>
-          </div>
-          <div class="part-4 pb-5 mb-5">
-            <div class="row justify-content-center">
-              <div
-                class="col-xl-5 col-lg-6 pt-3 mr-3 pt-lg-0 order-1 order-lg-2 d-flex flex-column justify-content-center"
-              >
-                <h2 class="pb-4">Participate in our <br />community events</h2>
-                <div>
-                  <p>
-                    Community events are the best avenue to connect with fellow technologists. Our
-                    events are tailored to inspire, to bring out the best in you! Register for our
-                    next community event!
-                  </p>
-                  <a target="_blank" href="https://www.meetup.com/tekcapsule/">
-                    <button class="button primary-btn-sm">Coming Soon</button>
-                  </a>
-    
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 order-2 order-lg-1 d-flex justify-content-center mr-5">
-                <img src="/assets/images/community-events.svg" class="animated pt-4 img-fluid" alt="community events" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End -->
+   <!-- ======= Hero Banner Section ======= -->
+   <section class="community-banner">
+    <div class="container-fluid text-center pt-5">
+      <h1>Together we go far....</h1>
+      <h3 class="text-white pb-3 content-sub-text">We believe in the power of community. While we focus on building the right tools and<br> process to crowd source. You help us help fellow technologists by creating capsules. Let’s shape our future together!</h3>
+      <img src="../../assets/images/community/community-banner.png" alt="" class="img-fluid" />
     </div>
-  </div>
+   
+  </section>
+
+  <!-- ======= SkillStudio Section ======= -->
+  <section>
+    <div class="inner skillstudio pb-5">
+      <div class="text-center pb-5">
+        <h2>What it takes to build a crowd sourced tech repository?</h2>
+        <h3>Information is everywhere and in different shapes and forms. We are looking to aggregate tech information at internet scale with the help of passionate technologist like you.</h3>
+        <img src="../../assets/images/community/community-img.png" alt="" class="pt-5" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Feeds Section ======= -->
+  <section class="feeds-container pt-5">
+    <div class="inner">
+      <div class="row">
+        <div class="col-lg-4 pt-lg-0 order-1 order-lg-1">
+          <h2 class="text-white">Yes, we are open-source</h2>
+          <h3 class="text-white">Help us build a platform you love to use
+            We welcome your code contributions!</h3>
+            <button class="button primary-btn  mt-5">GitHub Link</button>
+        </div>
+        <div class="col-lg-6 order-2 order-lg-2 text-right pl-5">
+          <img src="assets/images/home/feeds-mobile.svg" class="img-fluid" alt="Feeds Image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner skillstudio pb-5 pt-5">
+      <div class="text-center pb-5">
+        <h2>Participate in our community events</h2>
+        <h3>Community events are the best avenue to connect with fellow technologists. Our events are tailored to inspire, so you bring the best in you! Register for our next community event!</h3>
+      <div>
+        <img src="../../assets/images/community/community-people.png" alt="" class="pt-5" />
+      </div>
+      </div>
+    </div>
+  </section>
 </div>

@@ -1,6 +1,15 @@
 @import './../../assets/styles/variables.scss';
 
 .community-page {
+
+  .community-banner {
+    background: url('../../assets/images/community/community-banner-bg.png');
+    height: 655px;
+    width: 100%;
+    margin-bottom: 50px;
+    background-size: cover;
+    margin-top: 118px;
+  }
   .hero-slider {
     height: 390px;
     background-attachment: fixed;

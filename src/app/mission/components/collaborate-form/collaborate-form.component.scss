@@ -13,16 +13,19 @@
     background-color: #cccccc !important;
     color: #666666 !important;
   }
+
   &.section-bg {
-    .container {
-      background: $section-bg;
-      padding: 50px 150px;
-      border-radius: 27px;
+      background: url('../../../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
+      padding: 50px 90px;
+      border-top-right-radius: 27px;
+      border-top-left-radius: 27px;
       @media only screen and (max-width: 990px) {
         padding: 50px 20px;
       }
-    }
   }
+}
+.inner {
+  max-width: 1150px;
 }
 
 input, textarea, select {
@@ -30,10 +33,10 @@ input, textarea, select {
 }
 .error-text {
   input, textarea, select {
-    border-color: red;
+    border-color: $white;
   }
   .error-msg {
-    color: red !important;
+    color: $white !important;
   }
 }
 .form-field {
