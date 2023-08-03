@@ -696,3 +696,63 @@
   padding: 0;
   cursor: not-allowed;
 }
+
+
+/* Glabal Search */
+.header-search-box {
+  background: transparent;
+  height: 42px;
+  border-radius: 50px;
+  border: 2px solid #5966AD;
+}
+
+/* input */
+.search-input {
+  outline: none;
+  border: none;
+  background: none;
+  width: 0;
+  padding: 0;
+  color: #fff;
+  float: left;
+  font-size: 14px;
+  transition: .3s;
+  line-height: 40px;
+}
+
+.search-input::placeholder {
+  color: #5966AD;
+}
+
+/* icon */
+.search-btn {
+  color: #fff;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background: #5966AD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+  width: 240px;
+  padding: 0 15px;
+}
+
+.header-search-box:hover > .search-input {
+  width: 240px;
+  padding: 0 15px;
+}
+
+.header-search-box:hover > .search-btn,
+.search-input:focus + .search-btn,
+.search-input:not(:placeholder-shown) + .search-btn {
+  background: #fff;
+  color: #5966AD;
+}
