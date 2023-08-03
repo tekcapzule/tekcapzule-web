@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@app/core';
+import { AuthenticatorService } from '@aws-amplify/ui-angular';
 import { Auth } from 'aws-amplify';
 
 @Component({
@@ -12,7 +13,7 @@ import { Auth } from 'aws-amplify';
 export class SigninComponent implements OnInit {
   errorMessage = '';
   
-  constructor(private zone: NgZone, private auth: AuthService) {}
+  constructor(private zone: NgZone, private auth: AuthService, public authenticator: AuthenticatorService) {}
 
   ngOnInit(): void {
     Auth.currentAuthenticatedUser().then(data=> {

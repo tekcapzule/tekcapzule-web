@@ -6,12 +6,12 @@ const awsmobile = {
     "aws_content_delivery_bucket": "tekcapsuleweb-dev",
     "aws_content_delivery_bucket_region": "us-east-1",
     "aws_content_delivery_url": "https://dmiglhq5u9z5m.cloudfront.net",
-    "aws_cognito_identity_pool_id": "us-east-1:056a5c1b-ee67-4a81-9dfb-06d3d906669a",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_ez0UV2bJA",
-    "aws_user_pools_web_client_id": "7ei29kdsqfc8lopbesvcs1v08n",
+    "aws_user_pools_id": "us-east-1_JOHxTrcti",
+    "aws_user_pools_web_client_id": "3alea5j8k2ipvt30506ikdv11u",
+    "aws_user_pool_client_secret":"1bg27scb7fpa62giutpsi3e831ge56ih7banelt14i9or8ok53j8",
     "oauth": {
-        "domain": "tekcapsuleweb6edfc117-6edfc117-dev.auth.us-east-1.amazoncognito.com",
+        "domain": "https://tekcapsule.auth.us-east-1.amazoncognito.com",
         "scope": [
             "phone",
             "email",

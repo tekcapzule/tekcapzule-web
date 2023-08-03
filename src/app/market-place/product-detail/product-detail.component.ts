@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
   getAllProducts(code: string) {
     this.marketService.getAllProducts().subscribe(data => {
       this.product = data.find(pd => pd.code === code);
-      this.productList = data.filter(pd => pd.category === this.product.category);
+      this.productList = data.filter(pd => pd.category === this.product.category && pd.code !== this.product.code);
       this.spinner.hide();
     }, err => {
       this.spinner.hide();

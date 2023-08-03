@@ -50,7 +50,7 @@ export class AuthService {
   private signInErrorChange$ = new BehaviorSubject<string>('');
 
   constructor(
-    private amplify: AuthenticatorService,
+    public authenticator: AuthenticatorService,
     private userApi: UserApiService,
     private router: Router
   ) {

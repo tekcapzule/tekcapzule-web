@@ -194,4 +194,11 @@ export class HeaderComponent implements OnInit {
   openBlog(eve) {
     window.open('https://tekcapsule.blog/', '_blank');
   }
+
+  onSingIn() {
+    this.router.navigateByUrl('/auth/signin');
+  }
+  onSingOut() {
+    this.auth.signOutUser();
+  }
 }
