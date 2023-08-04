@@ -19,7 +19,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
 import { CourseCardComponent } from '@app/courses/course-card/course-card.component';
 import { ProductCardComponent } from '@app/market-place/product-card/product-card.component';
-
+import { CapsuleSkeletonComponent } from './components/capsule-skeleton/capsule-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { ProductCardComponent } from '@app/market-place/product-card/product-car
     SpinnerComponent,
     CapsuleDetailsComponent,
     CourseCardComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CapsuleSkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +43,7 @@ import { ProductCardComponent } from '@app/market-place/product-card/product-car
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    ToastModule
+    ToastModule,
   ],
   exports: [
     HeaderComponent,
@@ -54,11 +55,10 @@ import { ProductCardComponent } from '@app/market-place/product-card/product-car
     SpinnerComponent,
     CapsuleDetailsComponent,
     CourseCardComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CapsuleSkeletonComponent,
   ],
-  providers: [
-    MessageService
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
+  providers: [MessageService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class SharedModule {}

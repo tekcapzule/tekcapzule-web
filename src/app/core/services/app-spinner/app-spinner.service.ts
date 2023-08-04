@@ -26,4 +26,8 @@ export class AppSpinnerService {
   public onSpinnerChange$(): Observable<boolean> {
     return this.spinnerChange$.asObservable();
   }
+
+  public get isLoading(): boolean {
+    return this.showSpinner;
+  }
 }
