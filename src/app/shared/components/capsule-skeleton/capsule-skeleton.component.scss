@@ -1,6 +1,5 @@
 @import './../../../../assets/styles/variables.scss';
 
-/* Capsule Card Styles - Start */
 .capsule-card-container {
   width: 332px;
   height: 508px;
@@ -9,63 +8,56 @@
   margin-right: 20px;
 }
 
-.capsule-card {
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 3px 20px #0000000f;
-  border-radius: 20px;
-  margin: 0 20px;
-  transition: 1s;
-  background: #fff;
-  margin-bottom: 40px;
-  border: 1px solid #cbcbcb;
-  transform: translateZ(0);
-  will-change: transform;
+.capsule-skeleton {
+  .capsule-card {
+    width: 100%;
+    height: 100%;
+    background: $white;
+    box-shadow: 0px 3px 20px #0000000f;
+    border-radius: 20px !important;
+    margin: 0 20px;
+    margin-bottom: 40px;
+    border: 1px solid #cbcbcb;
+  }
   .card-image {
-    position: relative;
-    height: 150px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    height: 140px;
+    margin: 10px;
+    border-radius: 10px !important;
+    margin-bottom: 16px;
   }
   .card-content {
-    padding: 0 30px;
+    padding: 0 20px 20px 20px;
     .title {
-      font-size: 16px;
-      padding-bottom: 5px;
-      font-family: $primary-font-medium;
-      line-height: 23px;
-      height: 70px;
-      margin-top: 20px;
-      margin-bottom: 12px;
-      &.loading {
-        border-radius: 3px;
-      }
+      height: 16px;
+      margin-bottom: 8px;
+    }
+    .author {
+      height: 16px;
+      width: 60%;
+      margin-bottom: 30px;
     }
     .description {
-      font-family: $primary-font-regular;
-      font-size: 14px;
-      min-height: 190px !important;
-      height: -webkit-fit-content;
-      &.loading {
-        border-radius: 3px;
-      }
+      height: 16px;
+      margin-bottom: 10px;
     }
     .card-footer {
+      border: none;
       background: none;
-      border: 0 none;
-      padding-left: 0;
-      padding-right: 0;
-      align-items: center;
-      .action-btns {
+      height: 40px;
+      margin-top: 50px;
+      display: flex;
+      padding: 5px 0;
+      justify-content: space-between;
+      .action-btn {
+        width: 30px;
         height: 30px;
-        &.loading {
-          border-radius: 3px;
-        }
+        border-radius: 50% !important;
       }
     }
   }
   .loading {
     background-color: $skeleton-grey;
+    border-radius: 3px;
     background: linear-gradient(
         100deg,
         rgba(255, 255, 255, 0) 40%,
