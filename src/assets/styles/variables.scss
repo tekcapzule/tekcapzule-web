@@ -1,12 +1,13 @@
-$primary-color: #EC0085;
+$primary-color: #ec0085;
 $secondary-color: #434343;
 $black: #000;
 $white: #fff;
 $heading-color: #090909;
 $section-bg: #f8f8f8;
-$blue: #1D4C9E;
+$blue: #1d4c9e;
 $grey: #484848;
-
+// $skeleton-grey: #ededed;
+$skeleton-grey: #dddbdd;
 
 /************* Fonts URL *************/
 
@@ -23,7 +24,6 @@ $primary-font-medium-url: '../fonts/TT Commons Medium.otf';
 $primary-font-black: TTCommons-DemiBold;
 $primary-font-black-url: '../fonts/TT Commons DemiBold.otf';
 
-
 // $primary-font-regular: OpenSans-Regular;
 // $primary-font-regular-url: '../fonts/OpenSans-Regular.ttf';
 
@@ -38,8 +38,6 @@ $primary-font-black-url: '../fonts/TT Commons DemiBold.otf';
 
 // $primary-font-black: OpenSans-ExtraBold;
 // $primary-font-black-url: '../fonts/OpenSans-ExtraBold.ttf';
-
-
 
 // $heading-fonts: OpenSans-Bold;
 // $heading-fonts-url: '../fonts/OpenSans-Bold.ttf';
@@ -64,7 +62,6 @@ $cardtitle-font-url: '../fonts/HelveticaNeueLTPro-BdCn.otf';
 
 $subheading-font: PROXIMANOVASEMIBOLD;
 $subheading-font-url: '../fonts/Proxima-Nova-Semibold.ttf';
-
 
 @font-face {
   font-family: HelveticaNeueLTPro;
@@ -102,10 +99,6 @@ $subheading-font-url: '../fonts/Proxima-Nova-Semibold.ttf';
   font-family: HelveticaNeueLTPro-regular;
   src: url('../fonts/Helvetica Neue LT Pro 57 Condensed.otf');
 }
-
-
-
-
 
 /*--------------------------------------------------------------
 # Font Family

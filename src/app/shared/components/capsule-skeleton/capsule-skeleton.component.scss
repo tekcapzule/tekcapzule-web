@@ -65,19 +65,19 @@
     }
   }
   .loading {
-    background-color: #ededed;
+    background-color: $skeleton-grey;
     background: linear-gradient(
         100deg,
         rgba(255, 255, 255, 0) 40%,
         rgba(255, 255, 255, 0.5) 50%,
         rgba(255, 255, 255, 0) 60%
       )
-      #ededed;
+      $skeleton-grey;
     background-size: 200% 100%;
     background-position-x: 180%;
-    animation: 1s skeletonloading ease-in-out infinite;
+    animation: 1s shimmer ease-in-out infinite;
   }
-  @keyframes skeletonloading {
+  @keyframes shimmer {
     to {
       background-position-x: -20%;
     }
