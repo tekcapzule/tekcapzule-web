@@ -7,9 +7,10 @@ import { CoursesComponent } from './courses.component';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CourseSkeletonComponent } from './course-skeleton/course-skeleton.component';
 
 @NgModule({
-  declarations: [CoursesComponent],
+  declarations: [CoursesComponent, CourseSkeletonComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -17,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatTabsModule,
     CoursesRoutingModule,
-    CheckboxModule
+    CheckboxModule,
   ],
 })
 export class CoursesModule {}

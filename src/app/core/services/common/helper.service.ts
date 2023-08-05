@@ -100,12 +100,15 @@ export class HelperService {
       }
     });
 
-    if(!isMenuItemFound) {
-    const tilesMenu = Constants.SkillTiles;
+    if (!isMenuItemFound) {
+      const tilesMenu = Constants.SkillTiles;
       tilesMenu.forEach(hm => {
         if (hm.navUrl && hm.navUrl.includes(navUrl)) {
           isMenuItemFound = true;
-          this.selectedMenu = { selectedMenuItem: this.findAIDashboardPage(), selectedChildMenuItem: hm };
+          this.selectedMenu = {
+            selectedMenuItem: this.findAIDashboardPage(),
+            selectedChildMenuItem: hm,
+          };
         }
       });
     }
@@ -122,25 +125,24 @@ export class HelperService {
     return tiles.find(hm => hm.uniqueId === pageId);
   }
 
-  getTileDetails(uniqueId):ITile {
-    return Constants.SkillTiles.find(tile=> tile.uniqueId === uniqueId);
+  getTileDetails(uniqueId): ITile {
+    return Constants.SkillTiles.find(tile => tile.uniqueId === uniqueId);
   }
-  
+
   isLocalPublisher(publisher: string) {
     return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());
   }
 
-  
   getIncludesStr(value: string, searchText: string): boolean {
-    if(value) {
+    if (value) {
       value = value.toLowerCase();
-      return value.includes(searchText.toLowerCase())
+      return value.includes(searchText.toLowerCase());
     }
     return false;
   }
 
   getTopicName(topicCode: string) {
-    const topic = this.topicData.find(topic => topic.code === topicCode);  
+    const topic = this.topicData.find(topic => topic.code === topicCode);
     return topic ? topic.title : '';
   }
 }

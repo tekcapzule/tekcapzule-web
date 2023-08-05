@@ -1,5 +1,4 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
-  <app-spinner></app-spinner>
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
       <div class="container">
@@ -12,9 +11,12 @@
   </div>
   <section class="container-fluid aihub-banner courses pt-5">
     <div class="container">
-        <div class="text-right mob-mr-0 mt-5">
-          <div class="banner-highlights text-white">Chart your AI learning path with hand-picked,<br> industry-leading courses</div>
+      <div class="text-right mob-mr-0 mt-5">
+        <div class="banner-highlights text-white">
+          Chart your AI learning path with hand-picked,<br />
+          industry-leading courses
         </div>
+      </div>
     </div>
   </section>
   <div class="col-lg-12 bg-white py-5">
@@ -24,29 +26,54 @@
           <div class="filter-column">
             <div class="filter-heading">Filter</div>
             <div>
-            <div class="filter-topic">Topic</div>
+              <div class="filter-topic">Topic</div>
               <div *ngFor="let topic of topics" class="field-checkbox pb-2">
-              <p-checkbox name="topic" [value]="topic.code" [(ngModel)]="selectedTopic" [inputId]="topic.code" (onChange)="onFilterChange($event, topic.code)"></p-checkbox>
-              <label [for]="topic.code">{{ topic.title }}</label>
-            </div>
-            <div class="filter-topic">Type</div>
+                <p-checkbox
+                  name="topic"
+                  [value]="topic.code"
+                  [(ngModel)]="selectedTopic"
+                  [inputId]="topic.code"
+                  (onChange)="onFilterChange($event, topic.code)"
+                ></p-checkbox>
+                <label [for]="topic.code">{{ topic.title }}</label>
+              </div>
+              <div class="filter-topic">Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
-                <p-checkbox name="payment" [value]="category.key" [inputId]="category.key"  [(ngModel)]="selectedPayments" (onChange)="onFilterChange($event, category.key)"></p-checkbox>
+                <p-checkbox
+                  name="payment"
+                  [value]="category.key"
+                  [inputId]="category.key"
+                  [(ngModel)]="selectedPayments"
+                  (onChange)="onFilterChange($event, category.key)"
+                ></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
               </div>
             </div>
             <div class="filter-topic">Delivery Mode</div>
             <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
-              <p-checkbox name="delivery" [value]="dm.key" [inputId]="dm.key"  [(ngModel)]="selectedDeliveryMode" (onChange)="onFilterChange($event, dm.key)"></p-checkbox>
+              <p-checkbox
+                name="delivery"
+                [value]="dm.key"
+                [inputId]="dm.key"
+                [(ngModel)]="selectedDeliveryMode"
+                (onChange)="onFilterChange($event, dm.key)"
+              ></p-checkbox>
               <label [for]="dm.key">{{ dm.name }}</label>
             </div>
           </div>
         </div>
-        <div class="col-lg-10 col-md-8  col-sm-6">
+        <div class="col-lg-10 col-md-8 col-sm-6">
           <div class="row">
             <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-9">
-              <input type="text" name="searchTopics"
-                placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0" [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
+              <input
+                type="text"
+                name="searchTopics"
+                placeholder="All you need in one place: software, tool, hardware, products etc.."
+                class="mb-0"
+                [(ngModel)]="searchText"
+                (keyup.enter)="onSearch()"
+                (blur)="onSearch()"
+              />
               <button title="search bar" class="search-btn mr-3"></button>
             </div>
             <div class="col-lg-3">
@@ -59,17 +86,20 @@
           </div>
           <!-- <div class="show-result pb-4">Showing <span>{{filteredCourseList.length}}</span> of <span>{{courseList.length}}</span></div> -->
 
-          <div>
-            <div class="mb-4 pb-4">
-              <ng-container *ngFor="let course of filteredCourseList; let i = index;">
+          <div class="course-card-skeleton-wrapper">
+            <div class="mb-4 pb-4" *ngIf="!spinner.isLoading">
+              <ng-container *ngFor="let course of filteredCourseList; let i = index">
                 <app-course-card [course]="course"></app-course-card>
+              </ng-container>
+            </div>
+            <div *ngIf="spinner.isLoading">
+              <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+                <app-course-skeleton></app-course-skeleton>
               </ng-container>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
-
 </div>

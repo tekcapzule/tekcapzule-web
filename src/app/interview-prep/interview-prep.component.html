@@ -1,5 +1,5 @@
 <div id="interview-prep" class="skill-studio-page p-main pb-0">
-  <app-spinner></app-spinner>
+  <!-- <app-spinner></app-spinner> -->
 
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
@@ -11,43 +11,65 @@
       </div>
     </div>
   </div>
-    <section class="container-fluid aihub-banner interview-prep pt-5">
-      <div class="inner">
-          <div class="col-lg-7 mob-mr-0 mt-5">
-            <div class="banner-highlights text-black">Ace AI interviews! <br>Your <span>one-stop shop</span> for <span>top-tier</span> interview preparation materials.</div>
-          </div>
-      </div>
-    </section>
-  
-  <section class="py-5">
+  <section class="container-fluid aihub-banner interview-prep pt-5">
     <div class="inner">
-      <div class="hub-search pb-4">
-        <div class="col-lg-6 d-inline-flex align-items-center pl-0">
-        <div class="search-box mt-0 pl-0 ml-0 mr-1 col-lg-6">
-          <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0"  [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
-          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+      <div class="col-lg-7 mob-mr-0 mt-5">
+        <div class="banner-highlights text-black">
+          Ace AI interviews! <br />Your <span>one-stop shop</span> for
+          <span>top-tier</span> interview preparation materials.
         </div>
-        <div [ngClass]="{'item-selected': selectedTopics.length > 0}" class="page-filter">
-          <p-multiSelect
-            [options]="topics"
-            [filter]="false"
-            (onChange)="onChange($event)"
-            optionLabel="title"
-          ></p-multiSelect>
-        </div>
-      </div>
-      <div class="col-lg-6 hub-register pr-0">
-        <button class="button primary tertiary w-auto px-3 mx-0">Register</button>
-      </div>
-      </div>
-
-      <div *ngFor="let interview of filteredInterviewList; let i = index;" class="box-content mb-4">
-        <img [src]="interview.imageUrl" alt="ML Coding Questions" class="box-content-img" />
-        <h3 class="pt-3">{{interview.title}}</h3>
-        <p>{{interview.summary}}</p>
-        <a [href]="interview.courseUrl" target="_blank" class="link">{{interview.courseUrl}}</a>
       </div>
     </div>
   </section>
 
+  <section class="py-5">
+    <div class="inner">
+      <div class="hub-search pb-4">
+        <div class="col-lg-6 d-inline-flex align-items-center pl-0">
+          <div class="search-box mt-0 pl-0 ml-0 mr-1 col-lg-6">
+            <input
+              type="text"
+              name="searchTopics"
+              placeholder="Search Topics"
+              class="mb-0"
+              [(ngModel)]="searchText"
+              (keyup.enter)="onSearch()"
+              (blur)="onSearch()"
+            />
+            <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+          </div>
+          <div [ngClass]="{ 'item-selected': selectedTopics.length > 0 }" class="page-filter">
+            <p-multiSelect
+              [options]="topics"
+              [filter]="false"
+              (onChange)="onChange($event)"
+              optionLabel="title"
+            ></p-multiSelect>
+          </div>
+        </div>
+        <div class="col-lg-6 hub-register pr-0">
+          <button class="button primary tertiary w-auto px-3 mx-0">Register</button>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!spinner.isLoading">
+        <div
+          *ngFor="let interview of filteredInterviewList; let i = index"
+          class="box-content mb-4"
+        >
+          <img [src]="interview.imageUrl" alt="ML Coding Questions" class="box-content-img" />
+          <h3 class="pt-3">{{ interview.title }}</h3>
+          <p>{{ interview.summary }}</p>
+          <a [href]="interview.courseUrl" target="_blank" class="link">{{ interview.courseUrl }}</a>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="spinner.isLoading">
+        <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="box-content mb-4 interview-skeleton">
+          <div class="box-content-img loading"></div>
+          <div class="title loading"></div>
+          <div class="summary loading"></div>
+        </div>
+      </ng-container>
+    </div>
+  </section>
 </div>

@@ -22,7 +22,7 @@ export class EditorsPickComponent implements OnInit {
 
   constructor(
     private capsuleApi: CapsuleApiService,
-    private spinner: AppSpinnerService,
+    public spinner: AppSpinnerService,
     private eventChannel: EventChannelService,
     private helperService: HelperService
   ) {
@@ -63,7 +63,7 @@ export class EditorsPickComponent implements OnInit {
   }
 
   filterByCapsuleType() {
-    if(this.selectedCapsuleType) {
+    if (this.selectedCapsuleType) {
       this.filteredCapsule = this.capsules.filter(capsule => {
         return this.selectedCapsuleType.includes(capsule.type);
       });
@@ -72,18 +72,21 @@ export class EditorsPickComponent implements OnInit {
     }
   }
 
-
   fetchEditorsPickCapsules(refreshCache?: boolean): void {
     this.spinner.show();
-    this.capsuleApi.getEditorsPickCapsules(refreshCache).pipe(
-      finalize(() => {
-        this.spinner.hide();
-      })).subscribe(capsules => {
-      this.capsules = capsules;
-      this.filterByCapsuleType();
-    });
+    this.capsuleApi
+      .getEditorsPickCapsules(refreshCache)
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(capsules => {
+        this.capsules = capsules;
+        this.filterByCapsuleType();
+      });
   }
-  
+
   onCardOpened(capsuleId: string): void {
     this.selectedCapsuleId = capsuleId;
   }
