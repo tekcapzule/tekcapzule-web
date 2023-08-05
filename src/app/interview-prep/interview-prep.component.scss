@@ -1,18 +1,49 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 .box-content {
-    padding: 15px 20px;
+  padding: 15px 20px;
+  transition: all 0.3s ease 0s;
+  .box-content-img {
+    float: left;
+    margin-right: 50px;
+    border-radius: 10px;
+    width: 260px;
+    height: 150px;
+  }
+  &:hover {
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.3s ease 0s;
-    .box-content-img {
-        float: left;
-        margin-right: 50px;
-        border-radius: 10px;
-        width: 260px;
-        height: 150px;
+  }
+}
+.interview-skeleton {
+  .title.loading {
+    height: 40px;
+    margin-left: 270px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  .summary.loading {
+    height: 100px;
+    margin-left: 270px;
+    border-radius: 3px;
+  }
+  .loading {
+    background-color: $skeleton-grey;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      $skeleton-grey;
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s shimmer ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: -20%;
     }
-    &:hover {
-        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-        transition: all 0.3s ease 0s;
-    }
+  }
 }
