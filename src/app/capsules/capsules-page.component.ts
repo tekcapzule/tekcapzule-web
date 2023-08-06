@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, takeUntil } from 'rxjs/operators';
+import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { Subject, forkJoin } from 'rxjs';
 
 import {
@@ -255,14 +255,20 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     forkJoin([
       this.capsuleApi.getTrendingCapsules(true),
       this.capsuleApi.getEditorsPickCapsules(true),
-    ]).subscribe(() => {
-      this.spinner.hide();
+    ])
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(() => {
+        this.spinner.hide();
 
-      this.eventChannel.publish({
-        event: ChannelEvent.LoadDataForActiveCapsuleTab,
-        data: { refreshCache: true },
+        this.eventChannel.publish({
+          event: ChannelEvent.LoadDataForActiveCapsuleTab,
+          data: { refreshCache: true },
+        });
       });
-    });
   }
 
   doLoadFeedsForSelectedTopics(): void {
