@@ -1,3 +1,28 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/common.scss';
+
 .faq-page {
   margin-top: 118px;
+  .search-box input {
+    border: 1px solid #A6A8D1;
+    border-radius: 30px !important;
+    font-size: 14px;
+    color: #A6A8D1;
+  }
+  .qa-col{
+    font-size: 16px;
+    border-bottom: 1px solid #C4C4C4;
+    margin-bottom: 20px;
+    margin-left: 41px;
+    color: #101010;
+    .question {
+      font-family: $primary-font-black;
+    }
+    .ans {
+      font-family: $primary-font-regular;
+      color: #191919;
+    }
+  }
 }
+
+
