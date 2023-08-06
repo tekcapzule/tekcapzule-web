@@ -3,22 +3,43 @@
 @import '../courses.component.scss';
 
 .course-skeleton {
-  .header-image.loading {
+  .header-image {
     height: 140px;
+    margin: 10px;
+    width: 312px;
+    border-radius: 10px;
   }
   .content {
     overflow: hidden;
-    padding: 0 24px;
+    padding: 20px 24px 0 24px;
+    .title {
+      margin: 0;
+      height: 16px !important;
+      margin-bottom: 10px;
+      min-height: 16px;
+      width: 90%;
+    }
+    .author {
+      height: 16px;
+      margin-bottom: 30px;
+      width: 60%;
+    }
+    .description {
+      height: 16px;
+      margin-bottom: 10px;
+    }
   }
-  .title.loading {
-    height: 40px;
+  .card-footer {
+    .action-btn {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
   }
+  .title.loading,
+  .author.loading,
   .description.loading {
-    height: 120px;
-  }
-  .footer-icons.loading {
-    height: 40px;
-    width: 100%;
+    border-radius: 3px;
   }
   .loading {
     background-color: $skeleton-grey;
