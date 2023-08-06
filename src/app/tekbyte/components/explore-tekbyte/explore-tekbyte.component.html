@@ -47,23 +47,20 @@
         <h2>Featured Topics</h2>
       </div>
       <div *ngIf="!spinner.isLoading">
-        <ng-container *ngFor="let tl of filteredTekbyteList">
-          <app-tekbyte-card [tekbyte]="tl"></app-tekbyte-card>
+        <ng-container *ngIf="filteredTekbyteList.length > 0; else noDataFound">
+          <app-tekbyte-card
+            *ngFor="let tl of filteredTekbyteList"
+            [tekbyte]="tl"
+          ></app-tekbyte-card>
         </ng-container>
+        <ng-template #noDataFound>
+          <h2 class="text-center">Sorry, data not found.</h2>
+        </ng-template>
       </div>
       <div *ngIf="spinner.isLoading">
         <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
           <app-tekbyte-skeleton></app-tekbyte-skeleton>
         </ng-container>
-        <!-- <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton>
-        <app-tekbyte-skeleton></app-tekbyte-skeleton> -->
       </div>
     </section>
 
