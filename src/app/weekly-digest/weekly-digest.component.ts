@@ -17,62 +17,88 @@ export class WeeklyDigestComponent implements OnInit {
   categories: string[] = [];
   subscriberFormGroup: FormGroup;
   categoryDetail = [
-    { id: 'PODCAST', displayName: 'Podcast', bgColor:'', url: '/digest/podcast?id='},
-    { id: 'NEWS_LETTER', displayName: 'News Letter', bgColor:'indigo-purple',  url: '/digest/newsletter?id='}
+    { id: 'PODCAST', displayName: 'Podcast', bgColor: '', url: '/digest/podcast?id=' },
+    {
+      id: 'NEWS_LETTER',
+      displayName: 'News Letter',
+      bgColor: 'indigo-purple',
+      url: '/digest/newsletter?id=',
+    },
   ];
 
-  constructor(private spinner: AppSpinnerService, private digestApiService: DigestApiService,
-    private subscriptionApi: SubscriptionApiService, private fb: FormBuilder,
-    private messageService: MessageService, private helperService: HelperService,
-    private router: Router) {}
+  constructor(
+    public spinner: AppSpinnerService,
+    private digestApiService: DigestApiService,
+    private subscriptionApi: SubscriptionApiService,
+    private fb: FormBuilder,
+    private messageService: MessageService,
+    private helperService: HelperService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
     this.subscriberFormGroup = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
+      emailId: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
     });
     this.getWeeklyDigest();
   }
 
   getWeeklyDigest() {
-    this.digestApiService.getAllDigest().subscribe(data => {
-      data.forEach(item => {
-        if(!this.digest[item.category]) {
-          this.digest[item.category] = [];
-        }
-        this.digest[item.category].push(item);
-      });;
-      this.categories = Object.keys(this.digest).sort();
-      this.spinner.hide();
-    }, err => {
-      this.spinner.hide();
-    })
+    this.digestApiService.getAllDigest().subscribe(
+      data => {
+        data.forEach(item => {
+          if (!this.digest[item.category]) {
+            this.digest[item.category] = [];
+          }
+          this.digest[item.category].push(item);
+        });
+        this.categories = Object.keys(this.digest).sort();
+        this.spinner.hide();
+      },
+      err => {
+        this.spinner.hide();
+      }
+    );
   }
 
-  
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
-    if(this.subscriberFormGroup.valid) {
+    if (this.subscriberFormGroup.valid) {
       this.spinner.show();
-      this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(data => {
-        this.messageService.add({ key: 'tc', severity: 'success', detail: 'Thank you for subscribing!' });
-        this.subscriberFormGroup.reset();
-        this.spinner.hide();
-      }, error => {
-        this.messageService.add(this.helperService.getInternalErrorMessage());
-        this.spinner.hide();
-      });
+      this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(
+        data => {
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            detail: 'Thank you for subscribing!',
+          });
+          this.subscriberFormGroup.reset();
+          this.spinner.hide();
+        },
+        error => {
+          this.messageService.add(this.helperService.getInternalErrorMessage());
+          this.spinner.hide();
+        }
+      );
     } else {
       this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
   }
 
   openDigest(dig) {
-    console.log('dig.resourceUrl',dig.resourceURL);
+    console.log('dig.resourceUrl', dig.resourceURL);
     this.spinner.show();
     sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
     sessionStorage.setItem('com.tekcapsule.resourceURL', dig.resourceUrl);
     sessionStorage.setItem('com.tekcapsule.title', dig.title);
-    this.router.navigateByUrl('/ai-hub/' + dig.code +'/detail?pageId=Weekly_Digest');    
+    this.router.navigateByUrl('/ai-hub/' + dig.code + '/detail?pageId=Weekly_Digest');
   }
 }
