@@ -142,3 +142,88 @@
           }
     }
 }
+
+
+/*******~ New Theme Skill Studio Page~********/
+.skill-studio-page {
+    .pattern-1{
+        background: url('../../../assets/images/pattern-new-1.png') no-repeat -64px 158px, url('../../../assets/images/pattern-new-2.png') no-repeat right top;
+    }
+}
+.title {
+    background: url('../../../assets/images/skillstudio/title-bg.png') no-repeat;
+    width: 258px;
+    height: 85px;   
+    color: $white;
+    font-family: $primary-font-bold;
+    font-size: 32px;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-image {
+    background: url('../../../assets/images/skillstudio/skill-studio-girl.png') no-repeat;
+    width: 322px;
+    height: 423px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+    top: 90px
+}
+.skill-card-new {
+    list-style: none;
+    h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    li {
+        width: 440px;
+        border: 1px solid #C6C6C6;
+        border-radius: 20px;
+        padding: 20px 30px;
+        background: $white;
+        .icon {
+            height: 9vh;
+            flex-direction: column-reverse;
+        }
+        &:nth-child(1) {
+            animation: zoom-in-zoom-out 1s ease-out 1;
+        }
+        &:nth-child(2) {
+            margin-left: -101px;
+            animation: zoom-in-zoom-out 2s ease-out 1;
+        }
+        &:nth-child(3) {
+            margin-left: 70px;
+            animation: zoom-in-zoom-out 3s ease-out 1;
+        }
+        &.nav-item.research
+        {
+            margin-left: 62px;
+            margin-top: -96px;
+        }
+        &.nav-item.video
+        {
+            margin-left: 125px;
+        }
+        &.nav-item.digest
+        {
+            margin-left: 62px;
+        }
+    }
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.2, 1.2);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }

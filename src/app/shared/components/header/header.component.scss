@@ -1,4 +1,5 @@
 @import '../../.././../assets/styles/variables.scss';
+@import '../../../../assets/styles/common.scss';
 
 /*--------------------------------------------------------------
 # Header
@@ -560,95 +561,6 @@
   }
 }
 
-.sub-menu {
-  li {
-    
-    margin-bottom: 30px;
-    padding: 10px;
-    cursor: pointer;
-    text-wrap: wrap;
-    line-height: 20px;
-    &:hover {
-      background-color: #F4F7FA;
-      border-radius: 8px;
-      box-shadow: 0px 4px 6px #0000000f;
-      h3 {
-        color: $primary-color;
-      }
-    }
-    h3 {
-      font-size: 16px;
-      margin-bottom: 0;
-    }
-
-    .icon {
-      display: flex;
-      float: left;
-      margin-right: 0px;
-      width: 55px;
-      .tekbyte-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-1.svg') no-repeat;
-        width: 50px;
-        height: 41px;
-        background-size: 65%;
-      }
-
-      .courses-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-2.svg') no-repeat;
-        width: 45px;
-        height: 45px;
-        background-size: 65%;
-      }
-
-      .interview_prep-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-3.svg') no-repeat;
-        width: 45px;
-        height: 67px;
-        background-size: 65%;
-      }
-
-      .mentoring-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-4.svg') no-repeat;
-        width: 59px;
-        height: 49px;
-        background-size: 65%;
-      }
-
-      .research_papers-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-5.svg') no-repeat;
-        width: 44px;
-        height: 42px;
-        background-size: 65%;
-      }
-
-      .video_library-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-6.svg') no-repeat;
-        width: 67px;
-        height: 39px;
-        background-size: 65%;
-      }
-
-      .weekly_digest-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-7.svg') no-repeat;
-        width: 47px;
-        height: 46px;
-        background-size: 65%;
-      }
-
-      .events-menu-icon {
-        background: url('../../../../assets/images/skillstudio_submenu_icon-8.svg') no-repeat;
-        width: 52px;
-        height: 46px;
-        background-size: 65%;
-      }
-    }
-
-  }
-
-  span {
-    font-size: 14px;
-  }
-}
 .navbar-brand {
   margin-right: 0 !important;
   padding-top: 0 !important;
