@@ -1,0 +1,51 @@
+@import '../../../../assets/styles/variables.scss';
+@import '../../../../assets/styles/common.scss';
+@import '../../tekbyte-page.component.scss';
+
+.tekbyte-skeleton {
+  .title {
+    height: 16px;
+    width: 90%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  .author {
+    height: 16px;
+    width: 60%;
+    border-radius: 3px;
+    margin-bottom: 26px;
+  }
+  .description {
+    height: 16px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+    padding-bottom: 0;
+  }
+  .card-footer {
+    border: none;
+    background: none;
+    .action-btn {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
+  }
+  .loading {
+    background-color: $skeleton-grey;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      $skeleton-grey;
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s shimmer ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: -20%;
+    }
+  }
+}

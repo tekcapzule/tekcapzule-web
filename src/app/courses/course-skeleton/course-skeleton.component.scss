@@ -1,0 +1,62 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/common.scss';
+@import '../courses.component.scss';
+
+.course-skeleton {
+  .header-image {
+    height: 140px;
+    margin: 10px;
+    width: 312px;
+    border-radius: 10px;
+  }
+  .content {
+    overflow: hidden;
+    padding: 20px 24px 0 24px;
+    .title {
+      margin: 0;
+      height: 16px !important;
+      margin-bottom: 10px;
+      min-height: 16px;
+      width: 90%;
+    }
+    .author {
+      height: 16px;
+      margin-bottom: 30px;
+      width: 60%;
+    }
+    .description {
+      height: 16px;
+      margin-bottom: 10px;
+    }
+  }
+  .card-footer {
+    .action-btn {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
+  }
+  .title.loading,
+  .author.loading,
+  .description.loading {
+    border-radius: 3px;
+  }
+  .loading {
+    background-color: $skeleton-grey;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      $skeleton-grey;
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s shimmer ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: -20%;
+    }
+  }
+}

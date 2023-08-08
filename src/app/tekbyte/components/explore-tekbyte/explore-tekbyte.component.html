@@ -1,5 +1,4 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
-  <app-spinner></app-spinner>
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
       <div class="container">
@@ -12,19 +11,29 @@
   </div>
   <section class="container-fluid aihub-banner tekbyte pt-5">
     <div class="container">
-        <div class="col-lg-5 mob-mr-0 mt-5">
-          <div class="banner-highlights">Boost your AI lexicon effortlessly!<br> <span>Simplified explanations</span> for complex AI terms to improve your understanding</div>
+      <div class="col-lg-5 mob-mr-0 mt-5">
+        <div class="banner-highlights">
+          Boost your AI lexicon effortlessly!<br />
+          <span>Simplified explanations</span> for complex AI terms to improve your understanding
         </div>
+      </div>
     </div>
   </section>
   <div class="col-lg-12 bg-light-gray pb-5">
-
     <section class="container d-flex align-items-center">
       <div class="search-box mt-0 py-4 mb-3 ml-0 col-lg-3 pl-0">
-        <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0"  [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
+        <input
+          type="text"
+          name="searchTopics"
+          placeholder="Search Topics"
+          class="mb-0"
+          [(ngModel)]="searchText"
+          (keyup.enter)="onSearch()"
+          (blur)="onSearch()"
+        />
         <button title="search bar" class="search-btn" (click)="onSearch()"></button>
       </div>
-      <div [ngClass]="{'item-selected': selectedTopics.length > 0}" class="page-filter">
+      <div [ngClass]="{ 'item-selected': selectedTopics.length > 0 }" class="page-filter">
         <p-multiSelect
           [options]="topics"
           [filter]="false"
@@ -37,38 +46,33 @@
       <div class="section-title text-left">
         <h2>Featured Topics</h2>
       </div>
-      <div>
-        <ng-container *ngFor="let tl of filteredTekbyteList">
-          <app-tekbyte-card [tekbyte]="tl"></app-tekbyte-card>
+      <div *ngIf="!spinner.isLoading">
+        <ng-container *ngIf="filteredTekbyteList.length > 0; else noDataFound">
+          <app-tekbyte-card
+            *ngFor="let tl of filteredTekbyteList"
+            [tekbyte]="tl"
+          ></app-tekbyte-card>
         </ng-container>
-        
+        <ng-template #noDataFound>
+          <h2 class="text-center">Sorry, data not found.</h2>
+        </ng-template>
+      </div>
+      <div *ngIf="spinner.isLoading">
+        <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+          <app-tekbyte-skeleton></app-tekbyte-skeleton>
+        </ng-container>
       </div>
     </section>
-    <!-- Popular Events Section -->
 
     <section *ngIf="popularTekbyteList.length" class="py-3 container">
       <div class="section-title text-left">
-        <h2 style="color: black;">Other Popular Topics Based on Your Interest</h2>
+        <h2 style="color: black">Other Popular Topics Based on Your Interest</h2>
       </div>
-      
-      <div>
-        <div *ngFor="let tl of popularTekbyteList" class="digest-card" (click)="openTekbyte(tl)">
-          <div class="card-top bg-1">
-            <div class="conference-header">
-              <div class="title">{{tl?.title}}</div>
-              <div class="description">{{tl?.summary}}</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="d-flex justify-content-between">
-              <div class="align-items-center"><span class="okhand-gray-icon pr-4"></span>{{tl.recommendations}}</div>
-              <div class="d-flex align-items-center"><span class="premium-gray-icon"></span>{{tl.prizingModel}}</div>
-            </div>
-          </div>
-         
-        </div>
+      <div class="popular-tekbytes-wrapper">
+        <ng-container *ngFor="let tl of popularTekbyteList">
+          <app-tekbyte-card [tekbyte]="tl"></app-tekbyte-card>
+        </ng-container>
       </div>
     </section>
-
   </div>
 </div>

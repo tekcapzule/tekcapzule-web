@@ -12,25 +12,30 @@
         <div class="back-link">
           <a class="url-link" [routerLink]="['/ai-hub/dashboard']">SkillStudio</a>
           <a class="url-link" [routerLink]="titleUrl">Tekbyte</a>
-          <span>{{tekbyteData.title}}</span>
+          <span>{{ tekbyteData.title }}</span>
         </div>
       </div>
     </div>
   </div>
 
-  <section class="container-fluid details-banner px-0 pt-5 ">
+  <section class="container-fluid details-banner px-0 pt-5">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-lg-7 mr-5 mob-mr-0">
-          <h2 class="pb-3">{{tekbyteData.title}}</h2>
-          <p>{{tekbyteData.description}}</p>
+          <h2 class="pb-3">{{ tekbyteData.title }}</h2>
+          <p>{{ tekbyteData.description }}</p>
         </div>
         <div class="col-lg-4 subscribe-block">
           <h3>Tekcapsule AI Digest</h3>
           <p>Connecting you to the latest AI advancements and insights!</p>
           <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
-            <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
-              placeholder="Enter Your Email ID" />
+            <input
+              type="email"
+              name="email id"
+              formControlName="emailId"
+              class="input-mail mb-0"
+              placeholder="Enter Your Email ID"
+            />
             <button mat-raised-button class="button tertiary mt-3" (click)="onSubscribe()">
               Subscribe Now
             </button>
@@ -47,19 +52,19 @@
           <div class="col-lg-4 card">
             <h2>Why</h2>
             <p>
-              {{tekbyteData.goldenCircle.why}}
+              {{ tekbyteData.goldenCircle.why }}
             </p>
           </div>
           <div class="col-lg-4 card">
             <h2>How</h2>
             <p>
-              {{tekbyteData.goldenCircle.how}}
+              {{ tekbyteData.goldenCircle.how }}
             </p>
           </div>
           <div class="col-lg-4 card">
             <h2>What</h2>
             <p>
-              {{tekbyteData.goldenCircle.what}}
+              {{ tekbyteData.goldenCircle.what }}
             </p>
           </div>
         </div>
@@ -80,14 +85,14 @@
             <h2 class="pb-3"><span class="title-img key-concept-icon"></span> Key Concepts</h2>
             <div *ngFor="let kc of tekbyteData.keyConcepts" class="pb-5">
               <div>
-                <h3>{{kc.title}}</h3>
-                <p>{{kc.description}}</p>
+                <h3>{{ kc.title }}</h3>
+                <p>{{ kc.description }}</p>
               </div>
             </div>
             <h2 class="pb-3"><span class="title-img application-icon"></span> Applications</h2>
             <div *ngFor="let app of tekbyteData.applications" class="pb-5">
-              <h3>{{app.title}}</h3>
-              <p class="description">{{app.description}}</p>
+              <h3>{{ app.title }}</h3>
+              <p class="description">{{ app.description }}</p>
             </div>
           </div>
         </div>
@@ -106,7 +111,6 @@
       </section> -->
       <!-- Popular Events Section -->
       <div class="container-fluid pt-3">
-        
         <!-- Know More Section -->
         <section class="inner">
           <div class="know-more-sec">
@@ -118,14 +122,16 @@
                 </div>
                 <div>
                   <h3>Did you know?</h3>
-                  <p>{{tekbyteData.didYouKnow}}</p>
+                  <p>{{ tekbyteData.didYouKnow }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 d-flex high-lights">
-                <div><img src="/assets/images/knowmore-icon-right.png" alt="Way Forward icon" /></div>
+                <div>
+                  <img src="/assets/images/knowmore-icon-right.png" alt="Way Forward icon" />
+                </div>
                 <div>
                   <h3>Way Forward</h3>
-                  <p>{{tekbyteData.wayForward}}</p>
+                  <p>{{ tekbyteData.wayForward }}</p>
                 </div>
               </div>
             </div>
@@ -139,8 +145,13 @@
             <h2>Other Popular Topics Based on Your Interest</h2>
           </div>
           <div>
-            <p-carousel [value]="popularTekbyteList" [numVisible]="3" [numScroll]="3" [circular]="false"
-            [responsiveOptions]="responsiveOptions">
+            <p-carousel
+              [value]="popularTekbyteList"
+              [numVisible]="3"
+              [numScroll]="3"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+            >
               <ng-template let-tekbyte pTemplate="item">
                 <app-tekbyte-card [tekbyte]="tekbyte"></app-tekbyte-card>
               </ng-template>
@@ -148,7 +159,6 @@
           </div>
         </section>
       </div>
-      
     </div>
     <!-- Stay So Far Scection -->
     <div *ngIf="tekbyteData.timeline" class="col-lg-2 px-0">
@@ -160,10 +170,10 @@
           <li *ngFor="let app of tekbyteData.timeline">
             <div class="year">
               <div class="yr-txt">YEAR</div>
-              {{app.title.includes('/') ? app.title.split('/')[2] : app.title}}
+              {{ app.title.includes('/') ? app.title.split('/')[2] : app.title }}
             </div>
             <p class="story">
-              {{app.description}}
+              {{ app.description }}
             </p>
           </li>
         </ul>

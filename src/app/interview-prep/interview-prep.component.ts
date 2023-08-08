@@ -18,9 +18,11 @@ export class InterviewPrepComponent implements OnInit {
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
 
-  constructor(private spinner: AppSpinnerService,
+  constructor(
+    public spinner: AppSpinnerService,
     private interviewApi: InterviewApiService,
-    private helperService: HelperService) {}
+    private helperService: HelperService
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -34,15 +36,17 @@ export class InterviewPrepComponent implements OnInit {
 
   onSearch() {
     let tempList = [...this.interviewList];
-    if(this.selectedTopics.length > 0) {
+    if (this.selectedTopics.length > 0) {
       tempList = tempList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
     }
-    if(this.searchText && this.searchText.trim().length > 0) {
-      this.filteredInterviewList = tempList.filter(intreview => 
-      this.helperService.getIncludesStr(intreview.title, this.searchText) 
-      || this.helperService.getIncludesStr(intreview.topicCode, this.searchText)
-      || this.helperService.getIncludesStr(intreview.summary, this.searchText)
-      || this.helperService.getIncludesStr(intreview.description, this.searchText));
+    if (this.searchText && this.searchText.trim().length > 0) {
+      this.filteredInterviewList = tempList.filter(
+        intreview =>
+          this.helperService.getIncludesStr(intreview.title, this.searchText) ||
+          this.helperService.getIncludesStr(intreview.topicCode, this.searchText) ||
+          this.helperService.getIncludesStr(intreview.summary, this.searchText) ||
+          this.helperService.getIncludesStr(intreview.description, this.searchText)
+      );
     } else {
       this.filteredInterviewList = tempList;
     }
@@ -50,7 +54,7 @@ export class InterviewPrepComponent implements OnInit {
 
   onChange(eve) {
     this.selectedTopics = [];
-    if(eve.value.length > 0) {
+    if (eve.value.length > 0) {
       eve.value.forEach(topic => this.selectedTopics.push(topic.code));
     }
     this.onSearch();

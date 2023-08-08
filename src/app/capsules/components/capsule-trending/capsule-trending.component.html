@@ -1,14 +1,28 @@
-<section class="d-flex align-items-center feed-cards">
+<section class="d-flex align-items-center feed-cards" *ngIf="!spinner.isLoading">
   <div class="inner px-0 capsule-top capsule-min-height">
     <div class="row card-section col-card d-flex justify-content-start mb-4 pb-4 pt-5">
-      <ng-container *ngFor="let capsule of filteredCapsule">
+      <ng-container *ngIf="filteredCapsule.length > 0; else noDataFound">
         <app-capsule-card
+          *ngFor="let capsule of filteredCapsule"
           [selectedCasuleId]="selectedCasuleId"
           [capsule]="capsule"
           class="mb-4"
           (cardOpened)="onCardOpened($event)"
         ></app-capsule-card>
       </ng-container>
+      <ng-template #noDataFound>
+        <div class="text-center col-12">
+          <h1>Sorry, data not found.</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
+
+<section class="d-flex align-items-center feed-cards" *ngIf="spinner.isLoading">
+  <div class="inner px-0 capsule-top capsule-min-height">
+    <div class="row card-section col-card d-flex justify-content-start mb-4 pb-4 pt-5">
+      <app-capsule-skeleton *ngFor="let i of [1, 2, 3, 4, 5, 6]"></app-capsule-skeleton>
     </div>
   </div>
 </section>
