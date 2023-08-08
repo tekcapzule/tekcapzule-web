@@ -55,7 +55,7 @@
         color: #000;
         display: initial;
         span {
-          color: #e30045;
+          color: #EC0085;
         }
       }
     }
@@ -65,5 +65,14 @@
     // height: 168px;
     width: 100%;
     background-size: cover;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .community-banner, .feeds-container, .top-community {
+    height: auto !important;
+  }
+  .community-page .contributors {
+    flex-wrap: wrap;
+    padding-bottom: 20px;
   }
 }

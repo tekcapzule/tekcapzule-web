@@ -115,11 +115,11 @@ h4 {
   .carousel-indicators li {
     background-color: #fff;
     height: 7px;
-    border: 1px solid #e30045;
+    border: 1px solid #EC0085;
     border-radius: 5px;
 
     &.active {
-      background-color: #e30045;
+      background-color: #EC0085;
     }
   }
 
@@ -944,7 +944,7 @@ app-spinner {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e30045 !important;
+  background: #EC0085 !important;
 }
 
 .banner-text {
@@ -987,7 +987,7 @@ iframe .navbar-container,
 .p-carousel .p-carousel-indicators .p-carousel-indicator {
   background-color: #fff;
   height: 7px;
-  border: 1px solid #e30045;
+  border: 1px solid #EC0085;
   border-radius: 5px;
 }
 
@@ -996,7 +996,7 @@ iframe .navbar-container,
 }
 
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: #e30045 !important;
+  background-color: #EC0085 !important;
   border-radius: 5px;
   height: 6px;
 }
@@ -1319,17 +1319,17 @@ iframe .navbar-container,
     border-radius: 40px !important;
     color: #fff !important;
     padding: 0px 6px !important;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .p-toast-message-content .p-toast-message-text {
     font-family: $subheading-font;
-    font-size: 18px;
+    font-size: 14px;
     color: #151515 !important;
 
     @media only screen and (max-width: 990px) {
-      font-size: 15px;
+      font-size: 12px;
     }
 
     .p-toast-detail {
@@ -1338,8 +1338,8 @@ iframe .navbar-container,
   }
 
   .pi-check:before {
-    font-size: 22px;
-    top: -3px !important;
+    font-size: 14px;
+    top: -10px !important;
     position: relative;
 
     @media only screen and (max-width: 990px) {
@@ -1348,7 +1348,7 @@ iframe .navbar-container,
   }
 
   .pi-times:before {
-    font-size: 22px;
+    font-size: 18px;
     color: #000;
     right: 5px !important;
     position: absolute !important;
@@ -1569,10 +1569,6 @@ iframe .navbar-container,
 
   &.p-main {
     padding-top: 118px;
-
-    @media only screen and (max-width: 768px) {
-      padding-top: 75px;
-    }
   }
 
   .skill-studio-bg {
@@ -1943,6 +1939,9 @@ select {
     font-weight: bold;
     top: -5px;
     position: relative;
+    @media only screen and (max-width: 990px) {
+      top: 0px;
+    }
 }
 
 .p-accordion .p-accordion-header .p-accordion-header-link {
@@ -1964,6 +1963,9 @@ select {
 
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 0 !important;
+  @media only screen and (max-width: 990px) {
+    margin-right: 20px !important;
+  }
 }
 .p-accordion .p-accordion-header .p-accordion-header-link, .p-accordion .p-accordion-content {
   padding: 0 !important;
@@ -2004,37 +2006,22 @@ select {
       width: 55px;
       .tekbyte-menu-icon {
         background: url('../../assets/images/skillstudio_submenu_icon-1.svg') no-repeat;
-<<<<<<< HEAD
         width: 48px;
         height: 44px;
-=======
-        width: 50px;
-        height: 41px;
->>>>>>> 771245e72c87bdafd166361040dd4ddb0783c998
         background-size: 65%;
       }
 
       .courses-menu-icon {
         background: url('../../assets/images/skillstudio_submenu_icon-2.svg') no-repeat;
-<<<<<<< HEAD
         width: 49px;
         height: 49px;
-=======
-        width: 45px;
-        height: 45px;
->>>>>>> 771245e72c87bdafd166361040dd4ddb0783c998
         background-size: 65%;
       }
 
       .interview_prep-menu-icon {
         background: url('../../assets/images/skillstudio_submenu_icon-3.svg') no-repeat;
-<<<<<<< HEAD
         width: 48px;
         height: 71px;
-=======
-        width: 45px;
-        height: 67px;
->>>>>>> 771245e72c87bdafd166361040dd4ddb0783c998
         background-size: 65%;
       }
 
@@ -2047,25 +2034,15 @@ select {
 
       .research_papers-menu-icon {
         background: url('../../assets/images/skillstudio_submenu_icon-5.svg') no-repeat;
-<<<<<<< HEAD
         width: 47px;
         height: 49px;
-=======
-        width: 44px;
-        height: 42px;
->>>>>>> 771245e72c87bdafd166361040dd4ddb0783c998
         background-size: 65%;
       }
 
       .video_library-menu-icon {
         background: url('../../assets/images/skillstudio_submenu_icon-6.svg') no-repeat;
-<<<<<<< HEAD
         width: 69px;
         height: 41px;
-=======
-        width: 67px;
-        height: 39px;
->>>>>>> 771245e72c87bdafd166361040dd4ddb0783c998
         background-size: 65%;
       }
 
@@ -2078,13 +2055,8 @@ select {
 
       .events-menu-icon {
         background: url('../../assets/images/skillstudio_submenu_icon-8.svg') no-repeat;
-<<<<<<< HEAD
         width: 48px;
         height: 47px;
-=======
-        width: 52px;
-        height: 46px;
->>>>>>> 771245e72c87bdafd166361040dd4ddb0783c998
         background-size: 65%;
       }
     }
