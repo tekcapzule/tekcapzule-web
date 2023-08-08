@@ -1,35 +1,93 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 
-
 .research-papers-card {
-    cursor: pointer;
-    border: 1px solid #AFA1A1;
-    border-radius: 4px;
-    height: 495px;
-    .header-image {
-        height: 128px;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        padding: 6px;
+  cursor: pointer;
+  border: 1px solid #afa1a1;
+  border-radius: 4px;
+  height: 495px;
+  .header-image {
+    height: 128px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 6px;
+  }
+  .content {
+    .title {
+      font-family: $primary-font-bold;
     }
-    .content {
-        .title {
-            font-family: $primary-font-bold;
-        }
-        .description {
-            font-size: 14px;
-            overflow-y: auto;
-            height: 190px;
-        }
+    .description {
+      font-size: 14px;
+      overflow-y: auto;
+      height: 190px;
+    }
+  }
+  .badge {
+    background-color: #fae4e9;
+    color: #86505c;
+    font-size: 14px;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    font-family: $primary-font-medium;
+    margin: 0 10px 20px 0;
+  }
+}
+
+.research-paper-skeleton {
+  .header {
+    padding: 6px;
+    border-bottom: 1px solid #f3f3f3;
+    .image {
+      height: 130px;
+      border-radius: 2px;
+    }
+  }
+  .content {
+    .title {
+      height: 16px;
+      min-height: 16px;
+      width: 90%;
+      margin-bottom: 10px;
+    }
+    .author {
+      height: 16px;
+      width: 60%;
     }
     .badge {
-        background-color: #FAE4E9;
-        color: #86505C;
-        font-size: 14px;
-        padding: 10px 20px;
-        text-transform: capitalize;
-        font-family: $primary-font-medium;
-        margin: 0 10px 20px 0;
+      height: 34px;
+      &.badge1 {
+        width: 80px;
+      }
+      &.badge2 {
+        width: 140px;
+      }
     }
+    .description {
+      height: 16px;
+      margin-bottom: 10px;
+    }
+  }
+  .title.loading,
+  .author.loading,
+  .description.loading {
+    border-radius: 3px;
+  }
+  .loading {
+    background-color: $skeleton-grey;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      $skeleton-grey;
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s shimmer ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: -20%;
+    }
+  }
 }
