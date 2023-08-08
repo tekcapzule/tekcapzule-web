@@ -47,13 +47,14 @@
   .key-feature {
     height: 226px;
     background: url('../../assets/images/home/key-feature-bg.svg') no-repeat;
-    padding: 40px 160px;
+    padding: 40px;
     display: flex;
     margin-top: -72px;
     z-index: 0;
     position: relative;
+
     .key-feature-tile {
-      margin-right: 45px;
+      margin-right: 35px;
       margin-bottom: 20px;
       label {
         color: $white;
@@ -264,6 +265,7 @@
     border-radius: 25px;
     margin: 0 20px;
     width: 90%;
+    margin-top: -35px !important;
     .key-feature-tile  {
       margin-right: 20px !important;
     }
