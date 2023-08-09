@@ -1,9 +1,8 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 
-
 .digest-card {
-  background-image: url("../../assets/images/skill-studio-card-pattern.png");
+  background-image: url('../../assets/images/skill-studio-card-pattern.png');
   background-color: #2e375a;
   cursor: pointer;
   // max-height: 290px;
@@ -17,16 +16,16 @@
   display: inline-grid;
   text-align: left;
   &.razzmatazz {
-    background-color: #E30070;
+    background-color: #e30070;
   }
   &.purple-heart {
-    background-color: #4936D6;
+    background-color: #4936d6;
   }
   &.indigo-purple {
     background-color: #6200a4;
   }
   &.night-rider {
-    background-color: #2E2E2E;
+    background-color: #2e2e2e;
   }
   .conference-header {
     border-left: 7px solid #fff;
@@ -40,7 +39,7 @@
     display: flex;
     align-items: center;
     .play-btn {
-      background: url("../../assets/images/play-button.png") no-repeat;
+      background: url('../../assets/images/play-button.png') no-repeat;
       width: 25px;
       height: 25px;
       margin-right: 10px;
@@ -53,7 +52,47 @@
   }
 }
 .venue-details {
-    font-size: 24px;
-    font-family: $primary-font-medium;
+  font-size: 24px;
+  font-family: $primary-font-medium;
+  margin-bottom: 20px;
+}
+
+.section-title.skeleton-loader {
+  h2 {
+    height: 30px;
+    width: 40%;
+    border-radius: 4px;
+  }
+}
+.event-skeleton {
+  background: #fff !important;
+  &.digest-default {
+    border: 1px solid #2e375a;
+  }
+  .conference-header {
+    height: 150px;
+    border-left: 8px solid $skeleton-grey;
+  }
+  .title {
+    height: 30px;
     margin-bottom: 20px;
+  }
+  .description {
+    height: 16px;
+    margin-bottom: 10px;
+  }
+  .bottom {
+    .event-icon {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
+    .event-date {
+      height: 20px;
+      width: 70%;
+    }
+  }
+  .loading {
+    border-radius: 3px;
+  }
 }
