@@ -4,11 +4,11 @@
   <app-spinner></app-spinner>
   <!-- ======= Hero Banner Section ======= -->
   <section class="community-banner">
-        <div class="inner d-flex justify-content-center pt-5">
-          <div class="col-lg-4 text-right pr-5">
+        <div class="inner row justify-content-center pt-5">
+          <div class="col-xl-3 col-lg-6 order-1 order-lg-1 banner-img">
             <img src="../../assets/images/community/community-banner.png" alt="" class="img-fluid" />
           </div>
-            <div class="col-lg-5">
+            <div class="col-xl-5 col-lg-5 col-sm-12 pt-3 pt-lg-0 order-2 order-lg-2 d-flex flex-column justify-content-center banner-content">
             <h1>Together we go far....</h1>
             <h3 class="text-white pb-3 content-sub-text">We believe in the power of community. While we focus on building
               the right tools and<br> process to crowd source. You help us help fellow technologists by creating capsules.
@@ -21,6 +21,15 @@
       <h2 class="text-white">Our top community contributors</h2>
       <h3 class="text-white">We believe in the power of community. While we focus on building the right</h3>
       <div class="contributors">
+        <!-- <div class="card">
+          <p-carousel [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+              <ng-template let-product pTemplate="item">
+                        <div class="contributors-bg reward-1"></div>
+                        <p>John Smith</p>
+                        <div class="points"><span>3</span> cdt</div>
+              </ng-template>
+          </p-carousel>
+      </div> -->
         <div class="column">
           <div class="contributors-bg reward-1"></div>
           <p>John Smith</p>

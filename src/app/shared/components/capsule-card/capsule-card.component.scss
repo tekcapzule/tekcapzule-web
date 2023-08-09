@@ -165,7 +165,7 @@
     &:hover {
       background: $primary-color;
       color: $white;
-      // box-shadow: 0 0 0px 0 #e30045 inset, 0 0 10px 1px #e30045!important;
+      // box-shadow: 0 0 0px 0 #EC0085 inset, 0 0 10px 1px #EC0085!important;
       .flip-icon {
         background: url('../../../../assets/images/flip-icon-hover.svg') no-repeat;
       }
@@ -250,7 +250,7 @@
     border: 1px solid #dbdbdb;
     padding: 20px;
     background: #f9f9f9;
-    height: 230px;
+    height: 250px;
     overflow-y: scroll;
     .flip-title {
       font-family: $primary-font-bold;
