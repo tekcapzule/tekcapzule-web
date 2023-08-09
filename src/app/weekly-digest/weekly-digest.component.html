@@ -98,7 +98,10 @@
           </div>
 
           <div *ngIf="spinner.isLoading">
-            <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="digest-card digest-skeleton">
+            <div
+              *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+              class="digest-card digest-skeleton skeleton-loader"
+            >
               <div class="title loading"></div>
               <div class="author loading"></div>
               <div class="description loading"></div>

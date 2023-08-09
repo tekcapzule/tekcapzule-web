@@ -114,11 +114,11 @@ h4 {
   .carousel-indicators li {
     background-color: #fff;
     height: 7px;
-    border: 1px solid #EC0085;
+    border: 1px solid #ec0085;
     border-radius: 5px;
 
     &.active {
-      background-color: #EC0085;
+      background-color: #ec0085;
     }
   }
 
@@ -941,7 +941,7 @@ app-spinner {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #EC0085 !important;
+  background: #ec0085 !important;
 }
 
 .banner-text {
@@ -984,7 +984,7 @@ iframe .navbar-container,
 .p-carousel .p-carousel-indicators .p-carousel-indicator {
   background-color: #fff;
   height: 7px;
-  border: 1px solid #EC0085;
+  border: 1px solid #ec0085;
   border-radius: 5px;
 }
 
@@ -993,7 +993,7 @@ iframe .navbar-container,
 }
 
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: #EC0085 !important;
+  background-color: #ec0085 !important;
   border-radius: 5px;
   height: 6px;
 }
@@ -1928,14 +1928,14 @@ select {
 /*****Accordian Styles*********/
 .pi-chevron-down:before,
 .pi-chevron-right:before {
-    color: #EC0085;
-    font-size: 15px;
-    font-weight: bold;
-    top: -5px;
-    position: relative;
-    @media only screen and (max-width: 990px) {
-      top: 0px;
-    }
+  color: #ec0085;
+  font-size: 15px;
+  font-weight: bold;
+  top: -5px;
+  position: relative;
+  @media only screen and (max-width: 990px) {
+    top: 0px;
+  }
 }
 
 .p-accordion .p-accordion-header .p-accordion-header-link {
@@ -2058,5 +2058,29 @@ select {
 
   span {
     font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Skeleton Loader Styles
+--------------------------------------------------------------*/
+.skeleton-loader {
+  .loading {
+    background-color: $skeleton-grey;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      $skeleton-grey;
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s shimmer ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: -20%;
+    }
   }
 }

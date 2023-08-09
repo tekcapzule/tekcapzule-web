@@ -64,7 +64,10 @@
         </div>
       </ng-container>
       <ng-container *ngIf="spinner.isLoading">
-        <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="box-content mb-4 interview-skeleton">
+        <div
+          *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+          class="box-content mb-4 interview-skeleton skeleton-loader"
+        >
           <div class="box-content-img loading"></div>
           <div class="title loading"></div>
           <div class="summary loading"></div>
