@@ -1,0 +1,30 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/common.scss';
+@import '../market-place.component.scss';
+
+.product-skeleton {
+  .title {
+    height: 26px;
+    width: 60%;
+    border-radius: 3px;
+  }
+  .category {
+    width: 70px;
+    height: 38px;
+    border-radius: 20px;
+  }
+  .description {
+    height: 16px;
+    border-radius: 3px;
+  }
+  .hand {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+  }
+  .free {
+    width: 100px;
+    height: 38px;
+    border-radius: 20px;
+  }
+}

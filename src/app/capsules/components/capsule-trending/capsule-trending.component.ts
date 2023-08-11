@@ -77,11 +77,7 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
 
     this.capsuleApi
       .getTrendingCapsules(refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();

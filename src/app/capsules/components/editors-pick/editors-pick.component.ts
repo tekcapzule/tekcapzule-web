@@ -76,11 +76,7 @@ export class EditorsPickComponent implements OnInit {
     this.spinner.show();
     this.capsuleApi
       .getEditorsPickCapsules(refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();
