@@ -37,6 +37,10 @@ const routes: Routes = [
       import('./subscription/subscription.module').then(m => m.SubscriptionModule),
   },
   {
+    path: 'insights',
+    loadChildren: () => import('./insights/insights.module').then(m => m.InsightsModule),
+  },
+  {
     path: 'ai-hub',
     loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule),
   },

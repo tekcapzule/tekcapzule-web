@@ -110,6 +110,28 @@
         </div>
       </section> -->
       <!-- Popular Events Section -->
+      
+      <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
+        <section class="py-3 inner">
+          <div class="section-title text-center">
+            <h2>Other Popular Topics Based on Your Interest</h2>
+          </div>
+          <div>
+            <p-carousel
+              [value]="popularTekbyteList"
+              [numVisible]="3"
+              [numScroll]="3"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showNavigators]="false"
+            >
+              <ng-template let-tekbyte pTemplate="item">
+                <app-tekbyte-card [tekbyte]="tekbyte"></app-tekbyte-card>
+              </ng-template>
+            </p-carousel>
+          </div>
+        </section>
+      </div>
       <div class="container-fluid pt-3">
         <!-- Know More Section -->
         <section class="inner">
@@ -135,27 +157,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-
-      <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
-        <section class="py-3 inner">
-          <div class="section-title text-center">
-            <h2>Other Popular Topics Based on Your Interest</h2>
-          </div>
-          <div>
-            <p-carousel
-              [value]="popularTekbyteList"
-              [numVisible]="3"
-              [numScroll]="3"
-              [circular]="false"
-              [responsiveOptions]="responsiveOptions"
-            >
-              <ng-template let-tekbyte pTemplate="item">
-                <app-tekbyte-card [tekbyte]="tekbyte"></app-tekbyte-card>
-              </ng-template>
-            </p-carousel>
           </div>
         </section>
       </div>

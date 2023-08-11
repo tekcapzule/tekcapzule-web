@@ -2,6 +2,10 @@
 @import '../../../assets/styles/common.scss';
 @import '../market-place.component.scss';
 
+.product-detail {
+    padding: 50px 0 0 !important;
+}
+
 .play-button {
   top: calc(50% - 0px);
 }

@@ -920,6 +920,12 @@ app-spinner {
 .bg-light-pink {
   background: #f1dbe1;
 }
+.bg-light-blue {
+  background: #E2E8F7 !important;
+  color: #627C8E !important;
+  border: 1px solid #E2E8F7 !important;
+  margin-right: 20px;
+}
 
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
@@ -1614,7 +1620,7 @@ iframe .navbar-container,
   -moz-box-shadow: 0 0px 5px rgb(57 63 72 / 30%);
 
   .back-link {
-    padding: 10px 0;
+    padding: 7px 0;
   }
 }
 
@@ -1865,6 +1871,9 @@ select {
 .linear-bg {
   background: linear-gradient(315deg, #672b66 0%, #202a5f 100%);
 }
+.linear-bg-banner {
+  background: linear-gradient(315deg, #202a5f 0%, #672b66 100%);
+}
 
 .inner {
   margin: 0 auto;
@@ -1927,7 +1936,7 @@ select {
 
 /*****Accordian Styles*********/
 .pi-chevron-down:before,
-.pi-chevron-right:before {
+.pi-chevron-right:before, .pi-chevron-left:before {
   color: #ec0085;
   font-size: 15px;
   font-weight: bold;
