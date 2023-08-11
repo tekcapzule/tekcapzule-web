@@ -98,11 +98,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
     this.capsuleApi
       .getMyFeedCapsules(subscribedTopics, refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();

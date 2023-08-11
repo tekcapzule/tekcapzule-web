@@ -256,11 +256,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       this.capsuleApi.getTrendingCapsules(true),
       this.capsuleApi.getEditorsPickCapsules(true),
     ])
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(() => {
         this.spinner.hide();
 
