@@ -32,6 +32,11 @@ const routes: Routes = [
     loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule),
   },
   {
+    path: 'subscribe',
+    loadChildren: () =>
+      import('./subscription/subscription.module').then(m => m.SubscriptionModule),
+  },
+  {
     path: 'ai-hub',
     loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule),
   },
