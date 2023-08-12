@@ -1,236 +1,288 @@
 <div class="subscription-page">
-    <div class="linear-bg-banner subscription-banner">
-        <section class="inner pt-5">
-            <h1>Take the learning to the next level</h1>
-            <h3 class="text-white pb-3 content-sub-text">Choose the one that works best for you!</h3>
-            <div class="switch-wrapper">
-                <input id="monthly" type="radio" name="switch" checked>
-                <input id="yearly" type="radio" name="switch">
-                <label for="monthly">Monthly</label>
-                <label for="yearly">Yearly</label>
-                <span class="highlighter"></span>
-            </div>
-            <div class="wrapper">
-                <div class="box">
-                    <h1>Free</h1>
-                    <div class="fontawesome-truck"></div>
-                    <p class="px-2 mb-0">
-                        Upskill your team with our core library.
-                        <br />
-                        <strong>
-                            0.00<sup>$</sup>
-                        </strong>
-                    </p>
-                    <div class="button secondary-btn">Signup</div>
-                    <p class="text-left pt-4"><b>What you get?</b></p>
-                    <ul class="features">
-                        <li>Limited core library of 2,500 courses</li>
-                        <li>Limited Analytics</li>
-                        <li>Skill and Role assessments</li>
-                        <li>Curated learning paths and channels</li>
-                    </ul>
-                </div>
-                <div class="box sheild active">
-                    <h1 class="pt-4">Standard</h1>
-                    <div class="fontawesome-plane"></div>
-                    <p class="px-2 mb-0">
-                        Access basic reporting and user analytics for teams
-                        <br />
-                        <strong>
-                            5.00<sup>$</sup>
-                        </strong>
-                    </p>
-                    <div class="button tertiary b-radius">Signup</div>
-                    <p class="text-left pt-4"><b>What you enjoy?</b></p>
-                    <ul class="features">
-                        <li>Limited core library of 2,500 courses</li>
-                        <li>Limited Analytics</li>
-                        <li>Skill and Role assessments</li>
-                        <li>Curated learning paths and channels</li>
-                        <li>Certification exam prep for industry-leading certifications</li>
-                    </ul>
-                </div>
-                <div class="box bag">
-                    <h1>Professional</h1>
-                    <div class="fontawesome-fighter-jet"></div>
-                    <p class="px-2 mb-0">
-                        Access basic reporting and user analytics for teams
-                        <br />
-                        <strong>
-                            10.00<sup>$</sup>
-                        </strong>
-                    </p>
-                    <div class="button tertiary b-radius" (click)="showDialog()">Contact Sales</div>
-                    <p class="text-left pt-4"><b>What you enjoy?</b></p>
-                    <ul class="features">
-                        <li>Limited core library of 2,500 courses</li>
-                        <li>Limited Analytics</li>
-                        <li>Skill and Role assessments</li>
-                        <li>Curated learning paths and channels</li>
-                    </ul>
-                </div>
-            </div>
-
-        </section>
-    </div>
-
+  <div class="linear-bg-banner subscription-banner">
     <section class="inner pt-5">
-        <div class="row">
-            <div class="col-lg-5">
-                <h1 style="color: #1E274F;">Frequently <br>asked Questions</h1>
-                <img src="../../assets/images/faq.png" alt="" class="img-fluid" />
-            </div>
-            <div class="col-lg-7">
-                <div class="search-box mx-0">
-                    <input type="search" name="search" placeholder="What are you looking for?" autocomplete="off" />
-                    <button title="search bar" class="search-btn"></button>
-                </div>
-
-                <div class="card flex justify-content-center">
-                    <p-accordion [activeIndex]="0">
-                        <p-accordionTab header="Subscription and Billing">
-                            <div class="qa-col">
-                                <p class="question">How can I subscribe to the TekCapsule training platform?</p>
-                                <p class="ans">You can subscribe by creating an account on our website or app. Once
-                                    you're logged in, click on "Subscribe Now" to select your preferred subscription
-                                    plan and follow the prompts to complete the payment.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">What payment methods do you accept?</p>
-                                <p class="ans">We accept all major credit cards, PayPal, and select digital wallets. The
-                                    availability of certain payment methods may vary by country.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Is my payment information secure?</p>
-                                <p class="ans">Absolutely. We use state-of-the-art encryption technology to ensure your
-                                    personal information and payment details are always safe.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">How do I cancel my subscription?</p>
-                                <p class="ans">To cancel your subscription, log in to your account, navigate to the "My
-                                    Account" section, select "Manage Subscription" and then choose "Cancel
-                                    Subscription". Please note that cancellations must be made at least 48 hours before
-                                    your next billing cycle to avoid being charged.</p>
-                            </div>
-                        </p-accordionTab>
-                        <p-accordionTab header="Course Content and Access">
-                            <div class="qa-col">
-                                <p class="question">What types of AI training courses do you offer?</p>
-                                <p class="ans">We offer a wide range of courses covering all areas of AI such as machine
-                                    learning, deep learning, natural language processing, computer vision, and more.
-                                    These courses cater to various proficiency levels from beginners to advanced
-                                    learners.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">How often is the course content updated?</p>
-                                <p class="ans">We strive to keep our course content as relevant and updated as possible.
-                                    Generally, we review and update our courses every quarter.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Will I lose access to course material if my subscription ends?</p>
-                                <p class="ans">After your subscription ends, you will lose access to the course
-                                    materials. However, if you renew your subscription, you'll regain access.</p>
-                            </div>
-                        </p-accordionTab>
-                        <p-accordionTab header="Technical Support">
-                            <div class="qa-col">
-                                <p class="question">What should I do if I'm having trouble accessing the platform?</p>
-                                <p class="ans">First, try refreshing your page or restarting your device. If the problem
-                                    persists, please contact our technical support team at <a
-                                        href="mailto:contact@tekcapsule.com">contact@tekcapsule.com</a>, providing as
-                                    much detail about the issue as possible.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Is there any system requirement to use the platform?</p>
-                                <p class="ans">Our platform can be accessed via web browsers like Chrome, Firefox,
-                                    Safari, and Edge on both desktop and mobile devices. For optimal performance, we
-                                    recommend using the latest browser versions.</p>
-                            </div>
-                        </p-accordionTab>
-                        <p-accordionTab header="Learning Experience">
-                            <div class="qa-col">
-                                <p class="question">How interactive are the courses?</p>
-                                <p class="ans">Our courses are designed to be highly interactive, with a mix of videos,
-                                    quizzes, projects, and peer-reviewed assignments. Plus, you have the opportunity to
-                                    participate in discussion forums and live webinars.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Is there a completion certificate for the courses?</p>
-                                <p class="ans">Yes, upon completing a course and passing all required assessments, you
-                                    will receive a certificate that you can share on your LinkedIn profile or with
-                                    potential employers.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Can I pace my own learning?</p>
-                                <p class="ans">Absolutely! Our courses are designed with flexibility in mind. You can
-                                    learn at your own pace and on your own schedule.</p>
-                            </div>
-                        </p-accordionTab>
-                        <p-accordionTab header="Course Navigation and Usage">
-                            <div class="qa-col">
-                                <p class="question">How can I track my course progress?</p>
-                                <p class="ans">Your course progress is tracked automatically on the platform. You can
-                                    see it on your dashboard under the "My Courses" tab. It shows you the percentage of
-                                    course material you've completed so far.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Can I take multiple courses at the same time?</p>
-                                <p class="ans">Yes, you can enroll in and take as many courses as you like at the same
-                                    time. Our platform allows for multi-course enrollment to accommodate varied learning
-                                    interests.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Can I preview a course before subscribing?</p>
-                                <p class="ans">We provide a preview of each course which includes an overview, course
-                                    syllabus, and introductory video. However, to access the complete course materials,
-                                    you will need to subscribe.</p>
-                            </div>
-                        </p-accordionTab>
-                        <p-accordionTab header="Account Management">
-                            <div class="qa-col">
-                                <p class="question">How can I change my account details?</p>
-                                <p class="ans">To change your account details, simply log in and navigate to "My
-                                    Account". Here you can update your name, email address, password, and other account
-                                    information.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">I forgot my password. What should I do?</p>
-                                <p class="ans">If you've forgotten your password, go to the login page and click on
-                                    "Forgot Password". You will be prompted to enter your email address. Once submitted,
-                                    you will receive an email with instructions on how to reset your password.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">How can I delete my account?</p>
-                                <p class="ans">To delete your account, please contact our support team at <a
-                                        href="maito:contact@tekcapsule.com">contact@tekcapsule.com</a>. Note that
-                                    deleting your account will permanently erase your account details, course progress,
-                                    and any certificates earned.</p>
-                            </div>
-                        </p-accordionTab>
-                        <p-accordionTab header="Community and Networking">
-                            <div class="qa-col">
-                                <p class="question">Are there opportunities for networking and collaboration?</p>
-                                <p class="ans">Definitely! We have a community forum where you can engage in
-                                    discussions, share ideas, and collaborate with other learners. We also host regular
-                                    webinars and Q&A sessions with industry experts.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">How can I report inappropriate behavior in the community forums?</p>
-                                <p class="ans">If you encounter any inappropriate behavior or content in the forums,
-                                    please report it using the "Report" button located on each post, or contact our
-                                    support team. We take these reports very seriously and aim to maintain a respectful
-                                    and inclusive learning environment.</p>
-                            </div>
-                            <div class="qa-col">
-                                <p class="question">Can I communicate with instructors or mentors?</p>
-                                <p class="ans">Yes, our platform includes a feature for direct communication with
-                                    instructors or mentors. You can ask questions, request feedback, or discuss
-                                    course-related topics.</p>
-                            </div>
-                        </p-accordionTab>
-                    </p-accordion>
-                </div>
-            </div>
+      <h1>Take the learning to the next level</h1>
+      <h3 class="text-white pb-3 content-sub-text">Choose the one that works best for you!</h3>
+      <div class="switch-wrapper">
+        <input id="monthly" type="radio" name="switch" checked />
+        <input id="yearly" type="radio" name="switch" />
+        <label for="monthly">Monthly</label>
+        <label for="yearly">Yearly</label>
+        <span class="highlighter"></span>
+      </div>
+      <div class="wrapper">
+        <div class="box">
+          <h1>Free</h1>
+          <div class="fontawesome-truck"></div>
+          <p class="px-2 mb-0">
+            Upskill your team with our core library.
+            <br />
+            <strong> 0.00<sup>$</sup> </strong>
+          </p>
+          <div class="button secondary-btn">Signup</div>
+          <p class="text-left pt-4"><b>What you get?</b></p>
+          <ul class="features">
+            <li>Limited core library of 2,500 courses</li>
+            <li>Limited Analytics</li>
+            <li>Skill and Role assessments</li>
+            <li>Curated learning paths and channels</li>
+          </ul>
         </div>
+        <div class="box sheild active">
+          <h1 class="pt-4">Standard</h1>
+          <div class="fontawesome-plane"></div>
+          <p class="px-2 mb-0">
+            Access basic reporting and user analytics for teams
+            <br />
+            <strong> 5.00<sup>$</sup> </strong>
+          </p>
+          <div class="button tertiary b-radius">Signup</div>
+          <p class="text-left pt-4"><b>What you enjoy?</b></p>
+          <ul class="features">
+            <li>Limited core library of 2,500 courses</li>
+            <li>Limited Analytics</li>
+            <li>Skill and Role assessments</li>
+            <li>Curated learning paths and channels</li>
+            <li>Certification exam prep for industry-leading certifications</li>
+          </ul>
+        </div>
+        <div class="box bag">
+          <h1>Professional</h1>
+          <div class="fontawesome-fighter-jet"></div>
+          <p class="px-2 mb-0">
+            Access basic reporting and user analytics for teams
+            <br />
+            <strong> 10.00<sup>$</sup> </strong>
+          </p>
+          <div class="button tertiary b-radius" (click)="showContactSalesDialog()">
+            Contact Sales
+          </div>
+          <p class="text-left pt-4"><b>What you enjoy?</b></p>
+          <ul class="features">
+            <li>Limited core library of 2,500 courses</li>
+            <li>Limited Analytics</li>
+            <li>Skill and Role assessments</li>
+            <li>Curated learning paths and channels</li>
+          </ul>
+        </div>
+      </div>
     </section>
+  </div>
+
+  <section class="inner pt-5">
+    <div class="row">
+      <div class="col-lg-5">
+        <h1 style="color: #1e274f">Frequently <br />asked Questions</h1>
+        <img src="../../assets/images/faq.png" alt="" class="img-fluid" />
+      </div>
+      <div class="col-lg-7">
+        <div class="search-box mx-0">
+          <input
+            type="search"
+            name="search"
+            placeholder="What are you looking for?"
+            autocomplete="off"
+          />
+          <button title="search bar" class="search-btn"></button>
+        </div>
+
+        <div class="card flex justify-content-center">
+          <p-accordion [activeIndex]="0">
+            <p-accordionTab header="Subscription and Billing">
+              <div class="qa-col">
+                <p class="question">How can I subscribe to the TekCapsule training platform?</p>
+                <p class="ans">
+                  You can subscribe by creating an account on our website or app. Once you're logged
+                  in, click on "Subscribe Now" to select your preferred subscription plan and follow
+                  the prompts to complete the payment.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">What payment methods do you accept?</p>
+                <p class="ans">
+                  We accept all major credit cards, PayPal, and select digital wallets. The
+                  availability of certain payment methods may vary by country.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Is my payment information secure?</p>
+                <p class="ans">
+                  Absolutely. We use state-of-the-art encryption technology to ensure your personal
+                  information and payment details are always safe.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">How do I cancel my subscription?</p>
+                <p class="ans">
+                  To cancel your subscription, log in to your account, navigate to the "My Account"
+                  section, select "Manage Subscription" and then choose "Cancel Subscription".
+                  Please note that cancellations must be made at least 48 hours before your next
+                  billing cycle to avoid being charged.
+                </p>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Course Content and Access">
+              <div class="qa-col">
+                <p class="question">What types of AI training courses do you offer?</p>
+                <p class="ans">
+                  We offer a wide range of courses covering all areas of AI such as machine
+                  learning, deep learning, natural language processing, computer vision, and more.
+                  These courses cater to various proficiency levels from beginners to advanced
+                  learners.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">How often is the course content updated?</p>
+                <p class="ans">
+                  We strive to keep our course content as relevant and updated as possible.
+                  Generally, we review and update our courses every quarter.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">
+                  Will I lose access to course material if my subscription ends?
+                </p>
+                <p class="ans">
+                  After your subscription ends, you will lose access to the course materials.
+                  However, if you renew your subscription, you'll regain access.
+                </p>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Technical Support">
+              <div class="qa-col">
+                <p class="question">
+                  What should I do if I'm having trouble accessing the platform?
+                </p>
+                <p class="ans">
+                  First, try refreshing your page or restarting your device. If the problem
+                  persists, please contact our technical support team at
+                  <a href="mailto:contact@tekcapsule.com">contact@tekcapsule.com</a>, providing as
+                  much detail about the issue as possible.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Is there any system requirement to use the platform?</p>
+                <p class="ans">
+                  Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and
+                  Edge on both desktop and mobile devices. For optimal performance, we recommend
+                  using the latest browser versions.
+                </p>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Learning Experience">
+              <div class="qa-col">
+                <p class="question">How interactive are the courses?</p>
+                <p class="ans">
+                  Our courses are designed to be highly interactive, with a mix of videos, quizzes,
+                  projects, and peer-reviewed assignments. Plus, you have the opportunity to
+                  participate in discussion forums and live webinars.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Is there a completion certificate for the courses?</p>
+                <p class="ans">
+                  Yes, upon completing a course and passing all required assessments, you will
+                  receive a certificate that you can share on your LinkedIn profile or with
+                  potential employers.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Can I pace my own learning?</p>
+                <p class="ans">
+                  Absolutely! Our courses are designed with flexibility in mind. You can learn at
+                  your own pace and on your own schedule.
+                </p>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Course Navigation and Usage">
+              <div class="qa-col">
+                <p class="question">How can I track my course progress?</p>
+                <p class="ans">
+                  Your course progress is tracked automatically on the platform. You can see it on
+                  your dashboard under the "My Courses" tab. It shows you the percentage of course
+                  material you've completed so far.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Can I take multiple courses at the same time?</p>
+                <p class="ans">
+                  Yes, you can enroll in and take as many courses as you like at the same time. Our
+                  platform allows for multi-course enrollment to accommodate varied learning
+                  interests.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Can I preview a course before subscribing?</p>
+                <p class="ans">
+                  We provide a preview of each course which includes an overview, course syllabus,
+                  and introductory video. However, to access the complete course materials, you will
+                  need to subscribe.
+                </p>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Account Management">
+              <div class="qa-col">
+                <p class="question">How can I change my account details?</p>
+                <p class="ans">
+                  To change your account details, simply log in and navigate to "My Account". Here
+                  you can update your name, email address, password, and other account information.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">I forgot my password. What should I do?</p>
+                <p class="ans">
+                  If you've forgotten your password, go to the login page and click on "Forgot
+                  Password". You will be prompted to enter your email address. Once submitted, you
+                  will receive an email with instructions on how to reset your password.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">How can I delete my account?</p>
+                <p class="ans">
+                  To delete your account, please contact our support team at
+                  <a href="maito:contact@tekcapsule.com">contact@tekcapsule.com</a>. Note that
+                  deleting your account will permanently erase your account details, course
+                  progress, and any certificates earned.
+                </p>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Community and Networking">
+              <div class="qa-col">
+                <p class="question">Are there opportunities for networking and collaboration?</p>
+                <p class="ans">
+                  Definitely! We have a community forum where you can engage in discussions, share
+                  ideas, and collaborate with other learners. We also host regular webinars and Q&A
+                  sessions with industry experts.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">
+                  How can I report inappropriate behavior in the community forums?
+                </p>
+                <p class="ans">
+                  If you encounter any inappropriate behavior or content in the forums, please
+                  report it using the "Report" button located on each post, or contact our support
+                  team. We take these reports very seriously and aim to maintain a respectful and
+                  inclusive learning environment.
+                </p>
+              </div>
+              <div class="qa-col">
+                <p class="question">Can I communicate with instructors or mentors?</p>
+                <p class="ans">
+                  Yes, our platform includes a feature for direct communication with instructors or
+                  mentors. You can ask questions, request feedback, or discuss course-related
+                  topics.
+                </p>
+              </div>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
+<app-contact-sales
+  [isDialogVisible]="isContactSalesDialogShown"
+  (dialogClosed)="hideContactSalesDialog()"
+></app-contact-sales>

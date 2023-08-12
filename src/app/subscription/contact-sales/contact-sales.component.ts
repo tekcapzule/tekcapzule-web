@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-contact-sales',
   templateUrl: './contact-sales.component.html',
-  styleUrls: ['./contact-sales.component.scss']
+  styleUrls: ['./contact-sales.component.scss'],
 })
 export class ContactSalesComponent {
-  visible: boolean = false;
+  @Input() isDialogVisible = false;
+  @Output() dialogClosed = new EventEmitter();
 
-  showDialog() {
-      this.visible = true;
+  onDialogClosed() {
+    this.dialogClosed.emit();
   }
 }

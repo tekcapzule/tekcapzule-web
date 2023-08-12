@@ -8,15 +8,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [
-    SubscriptionPageComponent,
-    ContactSalesComponent
-  ],
-  imports: [
-    CommonModule,
-    SubscriptionRoutingModule,
-    AccordionModule,
-    DialogModule
-  ]
+  declarations: [SubscriptionPageComponent, ContactSalesComponent],
+  imports: [CommonModule, SubscriptionRoutingModule, AccordionModule, DialogModule],
 })
-export class SubscriptionModule { }
+export class SubscriptionModule {}
