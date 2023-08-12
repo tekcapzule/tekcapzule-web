@@ -41,6 +41,10 @@ const routes: Routes = [
     loadChildren: () => import('./insights/insights.module').then(m => m.InsightsModule),
   },
   {
+    path: 'llm-hub',
+    loadChildren: () => import('./llm-hub/llm-hub.module').then(m => m.LlmHubModule),
+  },
+  {
     path: 'ai-hub',
     loadChildren: () => import('./skill-studio/skill-studio.module').then(m => m.SkillStudioModule),
   },
