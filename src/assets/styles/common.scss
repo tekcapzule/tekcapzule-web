@@ -1304,6 +1304,8 @@ iframe .navbar-container,
   -moz-box-shadow: 0px 0px 16px 0px rgb(129 129 129) !important;
   box-shadow: 0px 0px 16px 0px rgb(129 129 129) !important;
   border-radius: 30px !important;
+  background: $white;
+
 
   &.p-toast-message-success,
   &.p-toast-message-error {
@@ -2092,4 +2094,36 @@ select {
       background-position-x: -20%;
     }
   }
+}
+
+/*************Dialog**************/
+.p-dialog {
+    background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
+    padding: 30px;
+    border-radius: 20px !important;
+    min-height: 423px;
+    width: 930px !important;
+    input, textarea {
+      border-radius: 4px !important;
+    }
+    .p-dialog-header, .p-dialog-content {
+      background: none !important;
+      color: $white;
+    }
+    .p-dialog-header{
+      position: absolute;
+      right: 0;
+      top: 0;
+      .p-dialog-header-icon {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        color: #4B1900 !important;
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+    .p-dialog-content {
+      padding: 0 40px !important;
+    }
 }
