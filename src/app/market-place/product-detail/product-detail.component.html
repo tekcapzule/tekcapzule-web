@@ -13,7 +13,7 @@
       <section class="align-items-center">
         <div>
           <div class="row justify-content-center">
-            <div class="col-xl-4 col-lg-6 order-1 order-lg-1 hero-img text-right mr-5">
+            <div class="col-xl-3 col-lg-6 order-1 order-lg-1 hero-img text-right mr-5">
               <img [src]="product.imageUrl" class="img-fluid b-radius" alt="" />
             </div>
             <div
@@ -55,7 +55,21 @@
       <div class="section-title text-center pb-2">
         <h2>Demo & Related Video</h2>
       </div>
-      <div class="row justify-content-between">
+      <div class="card-wrapper">
+        <p-carousel
+          [value]="productList"
+          [numVisible]="3"
+          [numScroll]="3"
+          [circular]="false"
+          [showNavigators]="false"
+          [responsiveOptions]="responsiveOptions"
+        >
+          <ng-template let-product pTemplate="item">
+            <app-product-card [product]="product"></app-product-card>
+          </ng-template>
+        </p-carousel>
+      </div>
+      <!-- <div class="row justify-content-between">
         <div class="col-lg-5">
           <div class="sub-title d-flex pb-4 align-items-center">
             <span class="video-icon mr-3"></span>Watch Product Demo
@@ -76,7 +90,7 @@
             <div class="play-button"></div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
   </div>
   <div *ngIf="productList.length" class="col-lg-12 bg-gray pb-5">
