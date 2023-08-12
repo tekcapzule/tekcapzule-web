@@ -108,11 +108,7 @@ export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
           author: formValue.author,
           description: formValue.description,
         })
-        .pipe(
-          finalize(() => {
-            this.spinner.hide();
-          })
-        )
+        .pipe(finalize(() => this.spinner.hide()))
         .subscribe(() => {
           this.router.navigate(['capsules', 'congratz']);
         });

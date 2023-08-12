@@ -1,9 +1,8 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
-  <app-spinner></app-spinner>
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-  
+
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
       <div class="container">
@@ -14,28 +13,49 @@
       </div>
     </div>
     <section class="container-fluid px-0">
-
       <div class="container text-center pt-5">
-
         <div class="section-title mb-0 mt-3">
           <h2>Tekcapsule AI Digest</h2>
-          <p class="content-sub-text font-weight-bold">Connecting you to the latest AI advancements and insights!</p>
+          <p class="content-sub-text font-weight-bold">
+            Connecting you to the latest AI advancements and insights!
+          </p>
           <img src="../../assets/images/news-letter.svg" alt="News Letter" class="pb-3" />
-          <p class="content-sub-text">Unlock the power of artificial intelligence with our weekly newsletter. Discover
-            the latest AI News, trends, <br>and innovations, handpicked for you. Subscribe now and level up your AI
-            knowledge.</p>
+          <p class="content-sub-text">
+            Unlock the power of artificial intelligence with our weekly newsletter. Discover the
+            latest AI News, trends, <br />and innovations, handpicked for you. Subscribe now and
+            level up your AI knowledge.
+          </p>
           <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
             <div
               class="mx-auto col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-center subscibeSection-row position-relative"
-              [ngClass]="{ 'error-text': subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid}">
-              <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
-                placeholder="Enter Your Email ID" />
-              <button mat-raised-button class="button tertiary subscribe-btn" (click)="onSubscribe()">
+              [ngClass]="{
+                'error-text':
+                  subscriberFormGroup.get('emailId').touched &&
+                  subscriberFormGroup.get('emailId').invalid
+              }"
+            >
+              <input
+                type="email"
+                name="email id"
+                formControlName="emailId"
+                class="input-mail mb-0"
+                placeholder="Enter Your Email ID"
+              />
+              <button
+                mat-raised-button
+                class="button tertiary subscribe-btn"
+                (click)="onSubscribe()"
+              >
                 Subscribe Now
               </button>
             </div>
-            <span class="error-msg"
-              *ngIf="subscriberFormGroup.get('emailId').touched && subscriberFormGroup.get('emailId').invalid">
+            <span
+              class="error-msg"
+              *ngIf="
+                subscriberFormGroup.get('emailId').touched &&
+                subscriberFormGroup.get('emailId').invalid
+              "
+            >
               Please enter valid email
             </span>
           </div>
@@ -48,28 +68,56 @@
           <h2>Other Popular AI Newsletters you may be interested in!</h2>
         </div>
 
-        <div *ngFor="let category of categoryDetail; let i = index;" class="container">
+        <div *ngFor="let category of categoryDetail; let i = index" class="container">
           <div class="section-title text-left">
-            <h2 class="weekly-digest-title">{{category.displayName | titlecase}}</h2>
+            <h2 class="weekly-digest-title">{{ category.displayName | titlecase }}</h2>
           </div>
-          <div>
-            <div *ngFor="let dig of digest[category.id]; let i = index;" class="digest-card"
-              [ngClass]="category.bgColor" (click)="openDigest(dig)">
-              <div class="title"><span *ngIf="dig.category === 'PODCAST'" class="play-btn"></span>{{dig.title}}</div>
+          <div *ngIf="!spinner.isLoading">
+            <div
+              *ngFor="let dig of digest[category.id]; let i = index"
+              class="digest-card"
+              [ngClass]="category.bgColor"
+              (click)="openDigest(dig)"
+            >
+              <div class="title">
+                <span *ngIf="dig.category === 'PODCAST'" class="play-btn"></span>{{ dig.title }}
+              </div>
               <div class="content-top">
-              <div class="description">Author: {{dig.author}}</div>
-              <div class="description">{{dig.summary}}</div>
+                <div class="description">Author: {{ dig.author }}</div>
+                <div class="description">{{ dig.summary }}</div>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center"><span class="okhand-white-icon"></span>{{dig.recommendations}}</div>
-                <div class="d-flex align-items-center"><span class="date-icon"></span>{{dig.schedule}}</div>
+                <div class="d-flex align-items-center">
+                  <span class="okhand-white-icon"></span>{{ dig.recommendations }}
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="date-icon"></span>{{ dig.schedule }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="spinner.isLoading">
+            <div
+              *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+              class="digest-card digest-skeleton skeleton-loader"
+            >
+              <div class="title loading"></div>
+              <div class="author loading"></div>
+              <div class="description loading"></div>
+              <div class="description loading"></div>
+              <div class="description loading"></div>
+              <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="action-btn loading"></div>
+                <div class="d-flex">
+                  <div class="action-btn loading"></div>
+                  <div class="action-btn loading ml-2"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
-
 </div>

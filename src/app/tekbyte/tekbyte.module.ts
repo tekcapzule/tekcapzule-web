@@ -13,13 +13,15 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { TekbyteCardComponent } from './components/tekbyte-card/tekbyte-card.component';
 import { CarouselModule } from 'primeng/carousel';
+import { TekbyteSkeletonComponent } from './components/tekbyte-skeleton/tekbyte-skeleton.component';
 
 @NgModule({
   declarations: [
     TekbytePageComponent,
     ExploreTekbyteComponent,
     TekbyteDetailsComponent,
-    TekbyteCardComponent
+    TekbyteCardComponent,
+    TekbyteSkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -30,8 +32,8 @@ import { CarouselModule } from 'primeng/carousel';
     ToastModule,
     TekbyteRoutingModule,
     MatTabsModule,
-    CarouselModule
+    CarouselModule,
   ],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class TekbyteModule {}

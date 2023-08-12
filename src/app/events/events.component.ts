@@ -12,14 +12,16 @@ import { Router } from '@angular/router';
 })
 export class EventsComponent implements OnInit {
   events: any = {};
-  regions: string[] = []; 
+  regions: string[] = [];
   promotedEvents: any[] = [];
   pastPopularEvent: any[] = [];
 
-  constructor(private spinner: AppSpinnerService,
+  constructor(
+    public spinner: AppSpinnerService,
     private eventsApi: EventApiService,
     private helperService: HelperService,
-    private router: Router) {}
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getAllEvents();
@@ -27,28 +29,33 @@ export class EventsComponent implements OnInit {
 
   getAllEvents() {
     this.spinner.show();
-    this.eventsApi.getAllEvents().subscribe(data => {
-      data.forEach(item => {
-        if(item.schedule) {
-          item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format('MMM DD');
-          item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
-        }
-        if(!this.events[item.region]) {
-          this.events[item.region] = [];
-        }
-        if(item.promotion) {
-          this.promotedEvents.push(item);
-        }
-        if(item.pastPopularEvent) {
-          this.pastPopularEvent.push(item);
-        }
-        this.events[item.region].push(item);
-      });
-      this.regions = Object.keys(this.events);
-      this.spinner.hide();
-    }, err => {
-      this.spinner.hide();
-    })
+    this.eventsApi.getAllEvents().subscribe(
+      data => {
+        data.forEach(item => {
+          if (item.schedule) {
+            item.schedule.startDate = moment(item.schedule.startDate, 'DD/MM/YYYY').format(
+              'MMM DD'
+            );
+            item.schedule.endDate = moment(item.schedule.endDate, 'DD/MM/YYYY').format('MMM DD');
+          }
+          if (!this.events[item.region]) {
+            this.events[item.region] = [];
+          }
+          if (item.promotion) {
+            this.promotedEvents.push(item);
+          }
+          if (item.pastPopularEvent) {
+            this.pastPopularEvent.push(item);
+          }
+          this.events[item.region].push(item);
+        });
+        this.regions = Object.keys(this.events);
+        this.spinner.hide();
+      },
+      err => {
+        this.spinner.hide();
+      }
+    );
   }
 
   onRegister(eve) {
@@ -56,11 +63,11 @@ export class EventsComponent implements OnInit {
   }
 
   onPastEvents(eve: IEventItem) {
-      this.spinner.show();
-      console.log('eve.eventRecordingUrl',eve.eventRecordingUrl);
-      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapsule.resourceURL', eve.resourceUrl);
-      sessionStorage.setItem('com.tekcapsule.title', eve.title);
-      this.router.navigateByUrl('/ai-hub/' + eve.code +'/detail?pageId=events');
+    this.spinner.show();
+    console.log('eve.eventRecordingUrl', eve.eventRecordingUrl);
+    sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+    sessionStorage.setItem('com.tekcapsule.resourceURL', eve.resourceUrl);
+    sessionStorage.setItem('com.tekcapsule.title', eve.title);
+    this.router.navigateByUrl('/ai-hub/' + eve.code + '/detail?pageId=events');
   }
 }

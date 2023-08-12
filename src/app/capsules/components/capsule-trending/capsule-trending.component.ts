@@ -15,14 +15,14 @@ import { Carousel } from 'primeng/carousel';
 export class CapsuleTrendingComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   capsules: CapsuleItem[] = [];
-  selectedCapsuleId:string;
+  selectedCapsuleId: string;
   filteredCapsule = [];
   selectedCapsuleType: string;
   subrscription: Subscription[] = [];
 
   constructor(
     private capsuleApi: CapsuleApiService,
-    private spinner: AppSpinnerService,
+    public spinner: AppSpinnerService,
     private eventChannel: EventChannelService,
     private helperService: HelperService
   ) {
@@ -63,7 +63,7 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
   }
 
   filterByCapsuleType() {
-    if(this.selectedCapsuleType) {
+    if (this.selectedCapsuleType) {
       this.filteredCapsule = this.capsules.filter(capsule => {
         return this.selectedCapsuleType.includes(capsule.type);
       });
@@ -77,17 +77,13 @@ export class CapsuleTrendingComponent implements OnInit, OnDestroy {
 
     this.capsuleApi
       .getTrendingCapsules(refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();
       });
   }
-  
+
   onCardOpened(capsuleId: string): void {
     this.selectedCapsuleId = capsuleId;
   }

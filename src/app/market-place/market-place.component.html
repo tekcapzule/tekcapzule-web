@@ -1,8 +1,6 @@
 <div id="market-place" class="skill-studio-page p-main pb-0">
-  <app-spinner></app-spinner>
-
   <div class="col-lg-12 px-0">
-    <section class="container-fluid white-bg skill-studio-bg  px-0 pt-3">
+    <section class="container-fluid marketplace-bg">
       <div id="heroBanner" class="carousel slide container" data-ride="carousel">
         <ul class="carousel-indicators">
           <li data-target="#heroBanner" data-slide-to="0" class="active"></li>
@@ -13,20 +11,20 @@
             <div class="carousel-caption">
               <section class="d-flex align-items-center">
                 <div>
-                  <div class="row justify-content-center">
+                  <div class="row justify-content-center pt-3">
                     <div
                       class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center banner-content">
 
-                      <h3>MEET HOCOOS</h3>
-                      <h2>YOUR AI WEBSITE BUILDER</h2>
-                      <p class="mb-5">
+                      <h3 class="text-white">MEET HOCOOS</h3>
+                      <h2 class="text-white">YOUR AI WEBSITE BUILDER</h2>
+                      <p class="mb-4 text-white">
                         Our AI website builder creates business ready websites in minutes, complete with useful text,
                         design, & images. Just answer 8 quick questions and your free website is ready to go!
                       </p>
-                      <button class="button tertiary b-radius">Know More</button>
+                      <button class="button primary-btn-sm ">Know More</button>
                     </div>
                     <div class="col-xl-3 col-lg-6 order-1 order-lg-2 banner-img">
-                      <img src="/assets/images/marketplace-banner.png" class="img-fluid animated" alt="" />
+                      <img src="/assets/images/marketplace/marketplace-banner-1.png" class="img-fluid animated" alt="" />
                     </div>
                   </div>
                 </div>
@@ -37,20 +35,20 @@
             <div class="carousel-caption">
               <section class="d-flex align-items-center">
                 <div>
-                  <div class="row justify-content-center">
+                  <div class="row justify-content-center pt-3">
                     <div
                       class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center banner-content">
 
-                      <h3>MEET HOCOOS</h3>
-                      <h2>YOUR AI WEBSITE BUILDER</h2>
-                      <p class="mb-5">
+                      <h3 class="text-white">MEET HOCOOS</h3>
+                      <h2 class="text-white">YOUR AI WEBSITE BUILDER</h2>
+                      <p class="mb-4 text-white">
                         Our AI website builder creates business ready websites in minutes, complete with useful text,
                         design, & images. Just answer 8 quick questions and your free website is ready to go!
                       </p>
-                      <button class="button tertiary b-radius">Know More</button>
+                      <button class="button primary-btn-sm">Know More</button>
                     </div>
                     <div class="col-xl-3 col-lg-6 order-1 order-lg-2 banner-img">
-                      <img src="/assets/images/marketplace-banner.png" class="img-fluid animated" alt="" />
+                      <img src="/assets/images/marketplace/marketplace-banner-1.png" class="img-fluid animated" alt="" />
                     </div>
                   </div>
                 </div>
@@ -68,21 +66,35 @@
           <div class="filter-column">
             <div class="filter-heading">FILTER</div>
             <div>
-            <div class="filter-topic">Type</div>
+              <div class="filter-topic">Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
-                <p-checkbox name="payment" [value]="category" (onChange)="onPaymentTypeChange($event, category.key)" [inputId]="category.key"></p-checkbox>
+                <p-checkbox
+                  name="payment"
+                  [value]="category"
+                  (onChange)="onPaymentTypeChange($event, category.key)"
+                  [inputId]="category.key"
+                ></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
-            </div>
-            <div class="filter-topic">OS</div>
+              </div>
+              <div class="filter-topic">OS</div>
               <div *ngFor="let category of osCategories" class="field-checkbox pb-2">
-              <p-checkbox name="os" [value]="category" [(ngModel)]="selectedOS" [inputId]="category.key"></p-checkbox>
-              <label [for]="category.key">{{ category.name }}</label>
-          </div>
-            <div class="filter-topic">Used</div>
-            <div class="field-checkbox pb-2">
-              <p-checkbox value="mostused" inputId="mostused" (change)="onUsedChange($event.value, 'mostused')"></p-checkbox>
-              <label for="ny">Most Used</label>
-            </div>
+                <p-checkbox
+                  name="os"
+                  [value]="category"
+                  [(ngModel)]="selectedOS"
+                  [inputId]="category.key"
+                ></p-checkbox>
+                <label [for]="category.key">{{ category.name }}</label>
+              </div>
+              <div class="filter-topic">Used</div>
+              <div class="field-checkbox pb-2">
+                <p-checkbox
+                  value="mostused"
+                  inputId="mostused"
+                  (change)="onUsedChange($event.value, 'mostused')"
+                ></p-checkbox>
+                <label for="ny">Most Used</label>
+              </div>
             </div>
             <div class="filter-topic">Category</div>
             <div class="field-checkbox pb-2">
@@ -95,32 +107,36 @@
               <p-checkbox></p-checkbox>
               <label for="ny">Type 01</label>
             </div>
-
           </div>
         </div>
-        <div class="col-lg-10 col-md-8  col-sm-6">
+        <div class="col-lg-10 col-md-8 col-sm-6">
           <div class="row">
-          <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-10">
+          <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-9">
             <input type="text" name="searchTopics"
               placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0" />
             <button title="search bar" class="search-btn mr-3"></button>
           </div>
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <div class="form-group">
               <select class="form-control" name="sort" formControlName="sort">
                 <option value="">Sort (Newest)</option>
               </select>
             </div>
           </div>
-        </div>
           <!-- <div class="show-result">Showing <span>{{filteredProducts.length}}</span> of <span>{{products.length}}</span></div> -->
-          
-          <div class="card-wrapper">
-            <ng-container *ngFor="let product of products; let i = index;" >
+
+          <div class="card-wrapper" *ngIf="!spinner.isLoading">
+            <ng-container *ngFor="let product of products; let i = index">
               <app-product-card [product]="product"></app-product-card>
             </ng-container>
           </div>
+          <div class="card-wrapper" *ngIf="spinner.isLoading">
+            <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6]">
+              <app-product-skeleton></app-product-skeleton>
+            </ng-container>
+          </div>
         </div>
+      </div>
       </div>
     </section>
   </div>

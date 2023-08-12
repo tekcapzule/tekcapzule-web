@@ -1,69 +1,68 @@
 <app-spinner></app-spinner>
-<section *ngIf="feedbackFormGroup" class="contact-form section-bg pb-0">
-  <div [formGroup]="feedbackFormGroup" class="container">
-    <div class="section-title pb-0">
-      <h2>We love to collaborate!</h2>
-      <span class="content-sub-text pb-4">We are excited to hear from you, please drop a note!</span>
-    </div>
-    <div class="row mt-5">
-      <div class="col-6 form-field "
-        [ngClass]="{'error-text': feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid}">
-        <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" />
+<section *ngIf="feedbackFormGroup" class="inner contact-form section-bg pb-0">
+  <div class="row">
+    <div class="col-lg-7">
+      <div [formGroup]="feedbackFormGroup" class="container">
+        <div class="section-title pb-0">
+          <h1>We love to collaborate!</h1>
+          <span class="content-sub-text pb-4 text-white">We are excited to hear from you, please drop a note!</span>
+        </div>
+        <div class="row mt-5">
+          <div class="col-6 form-field "
+            [ngClass]="{'error-text': feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid}">
+            <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" />
 
-        <span class="error-msg" *ngIf="
+            <span class="error-msg" *ngIf="
             feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid
             ">Please enter first name</span>
-      </div>
-      <div class="col-6 form-field "
-        [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
-        <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
-        <span class="error-msg" *ngIf="
+          </div>
+          <div class="col-6 form-field "
+            [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
+            <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
+            <span class="error-msg" *ngIf="
             feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid
             ">Please enter last name</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 form-field "
-        [ngClass]="{'error-text': feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid}">
-        <input type="email" name="email" placeholder="Email Address *" formControlName="emailId" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 form-field "
+            [ngClass]="{'error-text': feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid}">
+            <input type="email" name="email" placeholder="Email Address *" formControlName="emailId" />
 
-        <span class="error-msg" *ngIf="
+            <span class="error-msg" *ngIf="
     feedbackFormGroup.get('emailId').touched && feedbackFormGroup.get('emailId').invalid
     ">Please enter valid email</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 form-field "
-        [ngClass]="{'error-text': feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 form-field "
+            [ngClass]="{'error-text': feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid}">
 
-        <input type="text" name="subject" placeholder="Subject *" formControlName="subject" />
+            <input type="text" name="subject" placeholder="Subject *" formControlName="subject" />
 
-        <span class="error-msg" *ngIf="
+            <span class="error-msg" *ngIf="
     feedbackFormGroup.get('subject').touched && feedbackFormGroup.get('subject').invalid
     ">Please enter subject</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 form-field "
-        [ngClass]="{'error-text': feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 form-field "
+            [ngClass]="{'error-text': feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid}">
 
-        <textarea name="description" rows="4" formControlName="description" placeholder="Description *">
+            <textarea name="description" rows="3" formControlName="description" placeholder="Description *">
         </textarea>
-    <span
-    class="error-msg"
-    *ngIf="
+            <span class="error-msg" *ngIf="
     feedbackFormGroup.get('description').touched && feedbackFormGroup.get('description').invalid
-    "
-    >Please enter description</span>
-    
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <button mat-raised-button class="button primary tertiary" (click)="onCollabFormSubmit()">
-        Submit
-      </button>
-    </div>
-    <!--div *ngIf="isColabFormSubmitted">
+    ">Please enter description</span>
+
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button mat-raised-button class="button btn-bg primary" (click)="onCollabFormSubmit()">
+            Submit
+          </button>
+        </div>
+        <!--div *ngIf="isColabFormSubmitted">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         We’re so happy to hear from you! Thank you for your valuable feedback.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -71,5 +70,13 @@
         </button>
       </div>
     </div-->
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="newsletter-girl"><img src="../../assets/images/about/aboutus-call.png" alt="Contact Form"></div>
+    </div>
   </div>
 </section>
+<div class="inner">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15554.678104937957!2d77.6328922!3d12.9289492!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1460d1af3721%3A0x7547770171fb3d5!2sWeWork!5e0!3m2!1sen!2sin!4v1691000983376!5m2!1sen!2sin" width="100%" height="370" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>

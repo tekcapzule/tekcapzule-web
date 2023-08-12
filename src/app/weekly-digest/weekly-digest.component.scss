@@ -3,7 +3,7 @@
 
 .digest-card {
   cursor: pointer;
-  background-image: url("../../assets/images/skill-studio-card-pattern.png");
+  background-image: url('../../assets/images/skill-studio-card-pattern.png');
   background-color: #2e375a;
   max-height: 290px;
   max-width: 395px;
@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     .play-btn {
-      background: url("../../assets/images/play-button.png") no-repeat;
+      background: url('../../assets/images/play-button.png') no-repeat;
       width: 25px;
       height: 25px;
       margin-right: 10px;
@@ -45,13 +45,41 @@
   }
 }
 
-
 .error-msg {
   text-align: left;
   color: red !important;
 }
-.weekly-digest-title
-{
+.weekly-digest-title {
   font-size: 24px !important;
   font-family: $primary-font-bold !important;
+}
+
+.digest-skeleton.digest-card {
+  background: #fff;
+  border: 1px solid #a4acce;
+  .title {
+    height: 20px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+  .author {
+    height: 16px;
+    margin-bottom: 30px;
+    width: 60%;
+  }
+  .description {
+    height: 16px;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .action-btn {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+  .title.loading,
+  .author.loading,
+  .description.loading {
+    border-radius: 3px;
+  }
 }

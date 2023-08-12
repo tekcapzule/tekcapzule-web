@@ -30,7 +30,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     private auth: AuthService,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
-    private spinner: AppSpinnerService,
+    public spinner: AppSpinnerService,
     private eventChannel: EventChannelService,
     private helperService: HelperService
   ) {
@@ -72,7 +72,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   filterByCapsuleType() {
-    if(this.selectedCapsuleType) {
+    if (this.selectedCapsuleType) {
       this.filteredCapsule = this.capsules.filter(capsule => {
         return this.selectedCapsuleType.includes(capsule.type);
       });
@@ -98,11 +98,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
     this.capsuleApi
       .getMyFeedCapsules(subscribedTopics, refreshCache)
-      .pipe(
-        finalize(() => {
-          this.spinner.hide();
-        })
-      )
+      .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();

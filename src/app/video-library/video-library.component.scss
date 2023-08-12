@@ -2,37 +2,65 @@
 @import '../../assets/styles/common.scss';
 
 .box-content-img {
-    float: left;
-    margin-right: 70px;
-    border-radius: 10px;
+  float: left;
+  margin-right: 70px;
+  border-radius: 10px;
 }
 .video-library-card {
-    cursor: pointer;
-    border: 1px solid #c3c2c2;
-    border-radius: 4px;
-    height: 400px;
-    .video_thumb {
-        height: 150px;
+  cursor: pointer;
+  border: 1px solid #c3c2c2;
+  border-radius: 4px;
+  height: 400px;
+  .video_thumb {
+    height: 150px;
+  }
+  .header-image {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  .content {
+    .title {
+      font-size: 18px;
+      font-family: $primary-font-medium;
+      padding-bottom: 5px;
+      color: #333;
+      p {
+        color: #626262;
+      }
     }
-    .header-image {
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
+    .description {
+      font-size: 14px;
+      overflow-y: auto;
+      height: 190px;
     }
-    .content {
-        .title {
-            font-size: 18px;
-            font-family: $primary-font-medium;
-            padding-bottom: 5px;
-            color: #333;
-            p {
-                color: #626262;
-            }
-        }
-        .description {
-            font-size: 14px;
-            overflow-y: auto;
-            height: 190px;
-        }
-    }
+  }
+}
 
+.video-skeleton {
+  .image {
+    height: 150px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  .content {
+    .title {
+      height: 20px;
+      min-height: 20px;
+      margin-bottom: 10px;
+    }
+    .author {
+      height: 16px;
+      width: 70%;
+      margin-bottom: 30px;
+    }
+    .description {
+      height: 16px;
+      margin-bottom: 10px;
+    }
+    .title.loading,
+    .author.loading,
+    .description.loading {
+      border-radius: 2px;
+    }
+  }
 }

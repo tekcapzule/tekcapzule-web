@@ -2,7 +2,7 @@
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-  
+
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
       <div class="container">
@@ -13,23 +13,34 @@
       </div>
     </div>
   </div>
-    <section class="container-fluid aihub-banner research-papers pt-5">
-      <div class="inner">
-          <div class="col-lg-7 mob-mr-0 mt-5">
-            <div class="banner-highlights text-white">Explore the best in AI research. <br>Access groundbreaking papers that shape the AI landscape.</div>
-          </div>
+  <section class="container-fluid aihub-banner research-papers pt-5">
+    <div class="inner">
+      <div class="col-lg-7 mob-mr-0 mt-5">
+        <div class="banner-highlights text-white">
+          Explore the best in AI research. <br />Access groundbreaking papers that shape the AI
+          landscape.
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
   <section class="py-5">
     <div class="inner">
       <div class="hub-search pb-4">
         <div class="col-lg-6 d-inline-flex align-items-center pl-0">
           <div class="search-box mt-0 pl-0 ml-0 mr-1 col-lg-6">
-            <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0" [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()"/>
+            <input
+              type="text"
+              name="searchTopics"
+              placeholder="Search Topics"
+              class="mb-0"
+              [(ngModel)]="searchText"
+              (keyup.enter)="onSearch()"
+              (blur)="onSearch()"
+            />
             <button title="search bar" class="search-btn" (click)="onSearch()"></button>
           </div>
-          <div [ngClass]="{'item-selected': selectedTopics.length > 0}" class="page-filter">
+          <div [ngClass]="{ 'item-selected': selectedTopics.length > 0 }" class="page-filter">
             <p-multiSelect
               [options]="topics"
               [filter]="false"
@@ -43,38 +54,75 @@
         </div>
       </div>
 
-      <div class="card-wrapper card-section mb-4 pb-4">
-        <div *ngFor="let research of filteredResearchList; let i = index;"
-          class="research-papers-card carousel-card mx-0" (click)="onOpen(research)">
+      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="!spinner.isLoading">
+        <div
+          *ngFor="let research of filteredResearchList; let i = index"
+          class="research-papers-card carousel-card mx-0"
+          (click)="onOpen(research)"
+        >
           <div class="position-relative">
-            <div class="icons okHand" *ngIf="!research.isRecommended" (click)="onRecommendClick($event, research)"><img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img">
+            <div
+              class="icons okHand"
+              *ngIf="!research.isRecommended"
+              (click)="onRecommendClick($event, research)"
+            >
+              <img src="/assets/images/okhand-icon.svg" alt="okhand icon" class="rounded-img" />
             </div>
-            <div class="icons okHand" *ngIf="research.isRecommended"><img src="/assets/images/okhand-icon-active.svg" alt="okhand icon filled" class="rounded-img">
+            <div class="icons okHand" *ngIf="research.isRecommended">
+              <img
+                src="/assets/images/okhand-icon-active.svg"
+                alt="okhand icon filled"
+                class="rounded-img"
+              />
             </div>
 
-            <img alt="play icon" class="header-image" [src]="research.imageUrl">
-
+            <img alt="play icon" class="header-image" [src]="research.imageUrl" />
           </div>
           <div class="content">
             <div class="title">
-              {{research.title}}
-              <p *ngFor="let author of research.authors; let i = index;">
-                {{author}} <span *ngIf="i === research.authors.length - 1">({{research.publishedOn}})</span>
+              {{ research.title }}
+              <p *ngFor="let author of research.authors; let i = index">
+                {{ author }}
+                <span *ngIf="i === research.authors.length - 1">({{ research.publishedOn }})</span>
               </p>
             </div>
             <div class="d-flex">
-              <span *ngFor="let tag of research.tags; let i = index;" class="badge">{{tag}}</span>
+              <span *ngFor="let tag of research.tags; let i = index" class="badge">{{ tag }}</span>
               <span class="badge">machine learning</span>
             </div>
             <div class="description">
               <p>
-                {{research.summary}}
+                {{ research.summary }}
               </p>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="spinner.isLoading">
+        <div
+          *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+          class="research-papers-card carousel-card mx-0 research-paper-skeleton skeleton-loader"
+        >
+          <div class="header">
+            <div class="image loading"></div>
+          </div>
+          <div class="content">
+            <div class="title loading"></div>
+            <div class="author loading"></div>
+            <div class="d-flex mt-4 mb-2">
+              <div class="badge badge1 loading"></div>
+              <div class="badge badge2 loading"></div>
+            </div>
+            <div class="description loading"></div>
+            <div class="description loading"></div>
+            <div class="description loading"></div>
+            <div class="description loading"></div>
+            <div class="description loading"></div>
+            <div class="description loading"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
 </div>

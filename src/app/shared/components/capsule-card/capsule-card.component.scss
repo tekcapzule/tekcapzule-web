@@ -38,11 +38,11 @@
       padding: 5px 7px 7px;
       height: 35px;
       width: 35px;
-      &::before{
+      &::before {
         transition-duration: 0.5s;
         box-shadow: inset 0 0 0 1px $primary-color;
       }
-      &:hover::before{
+      &:hover::before {
         box-shadow: inset 0 0 0 $primary-color;
       }
       &.bookmark {
@@ -86,21 +86,21 @@
       height: 40px;
       transition: background-color 0.5s ease;
       background-repeat: no-repeat;
-      background-image: url("../../../../assets/images/play-button.svg");
+      background-image: url('../../../../assets/images/play-button.svg');
       transition: 0.3s;
-      &:hover{
+      &:hover {
         -webkit-transition: background-position 200ms ease-in-out;
         -moz-transition: background-position 200ms ease-in-out;
         transition: background-position 200ms ease-in-out;
-        background-image: url("../../../../assets/images/play-button-hover.svg");
+        background-image: url('../../../../assets/images/play-button-hover.svg');
         // animation: pulse-border 1500ms ease-out infinite;
         animation-name: pulse-border;
-    animation-duration: 1500ms;
-    animation-delay: ease-out;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(.65,0,.34,1);
+        animation-duration: 1500ms;
+        animation-delay: ease-out;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
       }
-  }
+    }
   }
   .card-content {
     padding: 0 30px;
@@ -126,9 +126,13 @@
       font-size: 14px;
       min-height: 190px !important;
       height: -webkit-fit-content;
-      @media only screen and (min-device-width: 375px)and (max-device-width: 414px) {
+      @media only screen and (min-device-width: 375px) and (max-device-width: 414px) {
         min-height: 222px !important;
       }
+      /* Added to fix description overflow */
+      max-height: 190px;
+      overflow: hidden;
+      // overflow-y: auto; // uncomment to show scroll for description
     }
     .card-footer {
       background: none;
@@ -153,7 +157,7 @@
     }
   }
   .button.secondary-btn-sm {
-    width: auto!important;
+    width: auto !important;
     display: flex;
     height: 25px;
     padding: 2px 10px;
@@ -161,29 +165,28 @@
     &:hover {
       background: $primary-color;
       color: $white;
-      // box-shadow: 0 0 0px 0 #e30045 inset, 0 0 10px 1px #e30045!important;
+      // box-shadow: 0 0 0px 0 #EC0085 inset, 0 0 10px 1px #EC0085!important;
       .flip-icon {
-        background: url("../../../../assets/images/flip-icon-hover.svg") no-repeat;
+        background: url('../../../../assets/images/flip-icon-hover.svg') no-repeat;
       }
       .share-icon {
         background: url('../../../../assets/images/share-icon-hover.svg') no-repeat;
       }
     }
     .flip-icon {
-      background: url("../../../../assets/images/flip-icon.svg") no-repeat;
+      background: url('../../../../assets/images/flip-icon.svg') no-repeat;
       width: 15px;
       height: 13px;
       margin: 4px 0px 4px 6px;
     }
   }
-  
 }
 
 @keyframes pulse-border {
   from {
     opacity: 1;
   }
-  
+
   to {
     opacity: 0;
   }
@@ -198,7 +201,7 @@
   .description {
     min-height: 380px;
   }
-  @media not all and (min-resolution:.001dpcm) { 
+  @media not all and (min-resolution: 0.001dpcm) {
     .description {
       min-height: 350px;
     }
@@ -244,10 +247,10 @@
     }
   }
   .key-points {
-    border: 1px solid #DBDBDB;
+    border: 1px solid #dbdbdb;
     padding: 20px;
     background: #f9f9f9;
-    height: 230px;
+    height: 250px;
     overflow-y: scroll;
     .flip-title {
       font-family: $primary-font-bold;
@@ -257,7 +260,7 @@
     .key-points-list {
       font-family: $primary-font-medium;
       font-size: 14px;
-      color: #5E5E5E;
+      color: #5e5e5e;
       padding-inline-start: 18px;
       li {
         padding-bottom: 10px;
@@ -279,7 +282,7 @@
   height: 100%;
   position: relative;
   // transition: transform 1s;
-  
+
   .card-front,
   .card-back {
     width: 100%;

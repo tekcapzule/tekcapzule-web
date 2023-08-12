@@ -45,14 +45,7 @@ export const Constants = {
           desc:
             'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.',
         },
-        {
-          uniqueId: 'Mentoring',
-          displayName: 'Mentoring',
-          isPageReady: false,
-          navUrl: '/ai-hub/mentoring',
-          desc:
-            'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs.',
-        },
+        
         {
           uniqueId: 'Research_Papers',
           displayName: 'Research papers',
@@ -73,14 +66,14 @@ export const Constants = {
           desc:
             'Get the best of AI with our curated list of leading weekly newsletters and podcasts.',
         },
-        {
-          uniqueId: 'events',
-          displayName: 'Events',
-          navUrl: '/ai-hub/events',
-          desc:
-            'AI without borders. We curate a list of global AI events, enabling you to learn from the world’s leading experts.',
-        },
+        
       ],
+    },
+    {
+      uniqueId: 'Mentoring',
+      displayName: 'Mentoring',
+      isPageReady: false,
+      navUrl: '/ai-hub/mentoring',
     },
     {
       uniqueId: 'Contribute',
@@ -89,7 +82,13 @@ export const Constants = {
       showOnMobile: true,
     },
     { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place' },
+    { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
     { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
+    {
+      uniqueId: 'events',
+      displayName: 'Events',
+      navUrl: '/ai-hub/events',
+    },
     // { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
     // { uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },

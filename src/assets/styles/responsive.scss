@@ -176,7 +176,7 @@
     text-align: center !important;
   }
   .flip-card .key-points {
-    height: 317px !important;
+    height: 282px !important;
   }
   .modal.show .modal-dialog {
     margin-top: 77px!important;
@@ -233,8 +233,11 @@
   .tekbyte-details .business-modal .card {
     max-width: 100%;
     margin: 0px 20px 50px !important
+    }
   }
-}
+  .inner {
+    padding: 0 20px;
+  }
 }
 @media only screen and (width: 1024px) {
   .col-card {
