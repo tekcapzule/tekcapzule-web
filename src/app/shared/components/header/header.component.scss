@@ -613,7 +613,7 @@
 /* Glabal Search */
 .header-search-box {
   background: transparent;
-  height: 42px;
+  height: 37px;
   border-radius: 50px;
   border: 2px solid #5966AD;
 }
@@ -629,7 +629,7 @@
   float: left;
   font-size: 14px;
   transition: .3s;
-  line-height: 40px;
+  line-height: 35px;
 }
 
 .search-input::placeholder {
@@ -640,8 +640,8 @@
 .search-btn {
   color: #fff;
   float: right;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50px;
   background: #5966AD;
   display: flex;

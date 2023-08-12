@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SubscriptionRoutingModule } from './subscription-routing.module';
 import { SubscriptionPageComponent } from './subscription-page.component';
 import { ContactSalesComponent } from './contact-sales/contact-sales.component';
-
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { ContactSalesComponent } from './contact-sales/contact-sales.component';
   ],
   imports: [
     CommonModule,
-    SubscriptionRoutingModule
+    SubscriptionRoutingModule,
+    AccordionModule
   ]
 })
 export class SubscriptionModule { }

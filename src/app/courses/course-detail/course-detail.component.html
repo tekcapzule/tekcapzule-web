@@ -81,7 +81,8 @@
         <div class="d-flex flex-wrap">
           <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
             <p-carousel [value]="relatedCourseList" [numVisible]="3" [numScroll]="3" [circular]="false"
-            [responsiveOptions]="responsiveOptions">
+            [responsiveOptions]="responsiveOptions"
+            >
               <ng-template let-course pTemplate="item">
                 <app-course-card [course]="course"></app-course-card>
               </ng-template>
