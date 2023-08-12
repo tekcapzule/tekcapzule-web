@@ -5,6 +5,7 @@ import { SubscriptionRoutingModule } from './subscription-routing.module';
 import { SubscriptionPageComponent } from './subscription-page.component';
 import { ContactSalesComponent } from './contact-sales/contact-sales.component';
 import { AccordionModule } from 'primeng/accordion';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AccordionModule } from 'primeng/accordion';
   imports: [
     CommonModule,
     SubscriptionRoutingModule,
-    AccordionModule
+    AccordionModule,
+    DialogModule
   ]
 })
 export class SubscriptionModule { }
