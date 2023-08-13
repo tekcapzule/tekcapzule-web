@@ -117,7 +117,6 @@ export class HeaderComponent implements OnInit {
     if (value.length > 0) {
       this.searchedTopics = this.topics.filter(
         topic => topic.title.toLowerCase().includes(value.toLowerCase())
-        // || topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
       );
 
       if (this.searchedTopics.length > 0) {
