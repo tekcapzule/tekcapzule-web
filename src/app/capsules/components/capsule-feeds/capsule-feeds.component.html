@@ -1,4 +1,81 @@
-<section class="d-flex align-items-center feed-cards" *ngIf="!spinner.isLoading">
+<section class="d-flex align-items-center inner" *ngIf="!spinner.isLoading">
+  <div class="feeds-blog-container">
+    <div class="bookmarks-container">
+      <h6>Recent Bookmarks</h6>
+      <ul class="bookmarks">
+        <li>The Rise of Artificial Intelligence</li>
+        <li>An Introduction to Microservices</li>
+        <li>Machine Learning Essentials</li>
+        <li>Machine Learning Essentials</li>
+        <li>Confident Coding: Master the lesson</li>
+      </ul>
+    </div>
+    <div>
+      <div class="main-container">
+        <div class="share-block">
+          <div class="profile-pic"></div>
+          <div class="share-textbox">
+            <input type="text" placeholder="Start Sharing..." />
+          </div>
+        </div>
+        <div class="share-icons">
+          <button class="share-btn video"><span>Video</span></button>
+          <button class="share-btn books"><span>Books</span></button>
+          <button class="share-btn course"><span>Course</span></button>
+          <button class="share-btn article"><span>Article</span></button>
+          <button class="share-btn jobs"><span>Jobs</span></button>
+          <button class="share-btn events"><span>Events</span></button>
+          <button class="share-btn news"><span>News</span></button>
+        </div>
+      </div>
+      <div class="main-container">
+        <div class="share-block">
+          <div class="profile-pic"></div>
+          <div class="w-100">
+            <div class="d-flex justify-content-between">
+              <h6>The Rise of Artificial Intelligence</h6>
+              <div class="d-flex align-items-center"><b>Article</b> <span class="article-gray-icon ml-2"></span></div>
+            </div>
+            <p class="grey-color">The Rise of Artificial Intelligence <span>(1 week ago)</span> | <span>Posted: John</span></p>
+          </div>
+        </div>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda
+          sdftotam rem aperiam, eaque ipsa <span>see more…</span></p>
+        <img src="../../../../assets/images/feeds/feeds-img-1.png" alt="" class="img-fluid feeds-img" />
+        <p>120 recommended</p>
+        <div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+              <span class="recommend-gray-icon pr-4"></span>Recommend
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="share-gray-icon pr-4"></span>Share
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="comment-gray-icon pr-4"></span>Comment
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="bookmark-gray-icon pr-4"></span>Bookmark
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subscribe-container">
+      <h6>Subscribe to our Newsletter</h6>
+      <p>Connecting you to the latest AI advancements and insights!</p>
+      <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
+        <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
+          placeholder="Enter Your Email ID" />
+        <button mat-raised-button class="button tertiary mt-3" (click)="onSubscribe()">
+          Subscribe Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- <section class="d-flex align-items-center feed-cards" *ngIf="!spinner.isLoading">
   <div class="inner px-0 capsule-top capsule-min-height">
     <div class="row card-section col-card d-flex justify-content-start mb-4 pb-4 pt-5">
       <ng-container *ngIf="filteredCapsule.length > 0; else noDataFound">
@@ -12,7 +89,7 @@
       </ng-container>
       <ng-template #noDataFound>
         <div class="text-center col-12">
-          <h1>Sorry, data not found.</h1>
+          <h1>Sorry, data not founds.</h1>
         </div>
       </ng-template>
     </div>
@@ -25,4 +102,4 @@
       <app-capsule-skeleton *ngFor="let i of [1, 2, 3, 4, 5, 6]"></app-capsule-skeleton>
     </div>
   </div>
-</section>
+</section> -->
