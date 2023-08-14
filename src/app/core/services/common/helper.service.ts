@@ -85,6 +85,9 @@ export class HelperService {
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
+    if(navUrl === '/') {
+      return this.selectedMenu;
+    }
     let isMenuItemFound = false;
     headerMenu.forEach(hm => {
       if (hm.navUrl && hm.navUrl.includes(navUrl)) {
