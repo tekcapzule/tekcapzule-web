@@ -14,6 +14,7 @@ import { Constants } from '@app/shared/utils';
 export class ProductDetailComponent implements OnInit {
   product: IProduct;
   productList: IProduct[] = [];
+  titleUrl: string[];
   responsiveOptions: any[] = Constants.ResponsiveOptions;
   
   constructor(private spinner: AppSpinnerService,
@@ -25,6 +26,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    this.titleUrl = [this.helperService.findPage('Market_Place').navUrl];
     this.route.params.subscribe(params => {
       this.getAllProducts(params['code']);
     });
