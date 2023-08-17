@@ -11,7 +11,7 @@ import { Constants } from '@app/shared/utils';
 export class AIDashboardComponent implements OnInit {
 
   tileList: ITile[] = Constants.SkillTiles;
-  
+  tileSplit = Math.ceil(this.tileList.length / 2);
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
