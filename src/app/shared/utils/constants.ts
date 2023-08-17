@@ -69,12 +69,12 @@ export const Constants = {
         
       ],
     },
-    {
-      uniqueId: 'Mentoring',
-      displayName: 'Mentoring',
-      isPageReady: false,
-      navUrl: '/ai-hub/mentoring',
-    },
+    // {
+    //   uniqueId: 'Mentoring',
+    //   displayName: 'Mentoring',
+    //   isPageReady: false,
+    //   navUrl: '/ai-hub/mentoring',
+    // },
     {
       uniqueId: 'Contribute',
       displayName: 'Contribute',
