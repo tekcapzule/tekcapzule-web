@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService, ChannelEvent, EventChannelService } from './core';
+import { AuthService, ChannelEvent, EventChannelService, UserApiService } from './core';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
 
   constructor(private eventChannel: EventChannelService,
-    public authService: AuthService,
+    public authService: AuthService, private userService: UserApiService
     private router: Router) {
     window.scroll(0, 0);
     //Amplify.configure(awsExports);
@@ -90,6 +90,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.footerStatus();
     this.loggedInStatus();
+    this.userService.exchangeToken().subscribe(token => {
+      console.log('Exchange token', token);
+    })
   }
 
   ngOnDestroy(): void {

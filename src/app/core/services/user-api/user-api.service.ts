@@ -91,4 +91,11 @@ export class UserApiService {
   deleteTekUserInfoCache(): void {
     cacheManager.removeItem(USER_INFO_CACHE_KEY);
   }
+
+  
+  exchangeToken(): Observable<any> {
+    return this.httpClient.post<any>('https://tekcapsuledev.auth.us-east-1.amazoncognito.com/oauth2/token', { grant_type: 'authorization_code', 
+      client_id: '7amnm03r23p36h7ne5soen1387', code: '3438cf49-d7d7-4f0a-9d01-4f8a3f1a4136', 'redirect_uri':'https://dev.tekcapsule.com/', client_secret: 'gulpli9ibralfmdjk2itbc1jtmhrlm9k2r5s244u9t8dtm6a6l2' });
+  }
+
 }
