@@ -1185,6 +1185,33 @@ iframe .navbar-container,
   margin: 4px 0px 4px 6px;
   cursor: pointer;
 }
+.share-gray-icon {
+  background: url('../images/feeds/share-icon.svg') no-repeat;
+  width: 15px;
+  height: 14px;
+}
+
+.comment-gray-icon {
+  background: url('../images/feeds/comment-icon.svg') no-repeat;
+  width: 15px;
+  height: 14px;
+}
+.bookmark-gray-icon {
+  background: url('../images/feeds/bookmark-icon.svg') no-repeat;
+  width: 15px;
+  height: 15px;
+}
+.recommend-gray-icon {
+  background: url('../images/feeds/recommend-icon.svg') no-repeat;
+  width: 15px;
+  height: 15px;
+}
+.article-gray-icon {
+  background: url('../images/feeds/article-icon.svg') no-repeat;
+  width: 15px;
+  height: 15px;
+}
+
 
 .icon-type {
   width: auto !important;
@@ -1801,6 +1828,9 @@ select {
 
 .bg-white {
   background-color: $white;
+}
+.grey-color {
+  color: #656565;
 }
 
 .card-footer {

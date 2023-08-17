@@ -89,31 +89,17 @@ export const Constants = {
       displayName: 'Events',
       navUrl: '/ai-hub/events',
     },
-    // { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
-    // { uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
+    //{ uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
     // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
   ],
   SkillTiles: [
     {
-      uniqueId: 'tekbytes',
+      uniqueId: 'tekbyte',
       displayName: 'Tekbytes',
       desc:
         'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding',
       navUrl: '/ai-hub/tekbyte/explore',
-    },
-    {
-      uniqueId: 'Weekly_Digest',
-      displayName: 'Weekly Digest',
-      desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts',
-      navUrl: '/ai-hub/weekly-digest',
-    },
-    {
-      uniqueId: 'events',
-      displayName: 'Events',
-      desc:
-        'AI without borders. We curate a list of global AI events, enabling you to learn from the world’s leading experts',
-      navUrl: '/ai-hub/events',
     },
     {
       uniqueId: 'courses',
@@ -122,32 +108,28 @@ export const Constants = {
       navUrl: '/ai-hub/courses',
     },
     {
-      uniqueId: 'interviewPrep',
+      uniqueId: 'interview_prep',
       displayName: 'Interview Prep',
       desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials',
       navUrl: '/ai-hub/interview-prepartion',
     },
     {
-      uniqueId: 'mentoring',
-      displayName: 'Mentoring',
-      isPageReady: false,
-      desc:
-        'Master AI effortlessly. Unleash the power of AI powered mentorship, customized to your learning needs',
-      navUrl: '/ai-hub/mentoring',
-    },
-
-    {
-      uniqueId: 'Video_Library',
+      uniqueId: 'video_library',
       displayName: 'Video Library',
       desc: 'Gain practical AI insights through our selection of informative videos',
       navUrl: '/ai-hub/video-library',
     },
     {
-      uniqueId: 'Research_Papers',
+      uniqueId: 'research_papers',
       displayName: 'Research Papers',
-      desc:
-        'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape',
+      desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape',
       navUrl: '/ai-hub/research-papers',
+    },
+    {
+      uniqueId: 'weekly_digest',
+      displayName: 'Weekly Digest',
+      desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts',
+      navUrl: '/ai-hub/weekly-digest',
     },
     //{uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/ai-hub/prompts'},
     //{uniqueId: 'largeLanguageModel', displayName: 'Large Language Model (LLM)', desc: 'Get ahead in your AI journey with our cutting edge courses', navUrl:'/ai-hub/courses'},

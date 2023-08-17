@@ -52,7 +52,7 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
         ],
       ],
     });
-    this.titleUrl = [this.helperService.getTileDetails('tekbytes').navUrl];
+    this.titleUrl = [this.helperService.getTileDetails('tekbyte').navUrl];
     this.spinner.show();
     this.route.params.subscribe(params => {
       this.getTekbyteDetaills(params['code']);

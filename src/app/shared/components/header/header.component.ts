@@ -93,7 +93,8 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
-        if (!this.selectedMenuItem || !this.helperService.getSelectedMenu()) {
+        //console.log(' -------->> ', ev, ev.url);
+        if (!this.selectedMenuItem || !this.helperService.getSelectedMenu() || !this.selectedMenuItem.navUrl.includes(ev.url)) {
           const selectedMenu = this.helperService.findSelectedMenu(ev.url);
           this.selectedMenuItem = selectedMenu.selectedMenuItem;
           this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
@@ -116,7 +117,6 @@ export class HeaderComponent implements OnInit {
     if (value.length > 0) {
       this.searchedTopics = this.topics.filter(
         topic => topic.title.toLowerCase().includes(value.toLowerCase())
-        // || topic.aliases.map(a => a.toLowerCase()).includes(value.toLowerCase())
       );
 
       if (this.searchedTopics.length > 0) {
