@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
 
   constructor(private eventChannel: EventChannelService,
-    public authService: AuthService, private userService: UserApiService
+    public authService: AuthService, private userService: UserApiService,
     private router: Router) {
     window.scroll(0, 0);
     //Amplify.configure(awsExports);
