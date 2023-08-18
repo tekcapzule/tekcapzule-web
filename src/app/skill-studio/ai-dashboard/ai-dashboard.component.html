@@ -7,7 +7,7 @@
       <section>
         <div class="center-image"></div>
         <div class="row pb-5">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <ul class="sub-menu pr-5 skill-card-new">
               <li class="nav-item" *ngFor="let tile of tileList | slice:0:tileSplit; let i = index" (click)="navigatePage(tile.navUrl)">
                 <div class="icon"><span [ngClass]="tile.uniqueId + '-menu-icon'" [ng-reflect-ng-class]="tile.uniqueId + '-menu-icon'"></span></div>
@@ -26,7 +26,6 @@
           </div>
 
         </div>
-
       </section>
     </div>
   </div>

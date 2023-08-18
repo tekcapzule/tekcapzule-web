@@ -1598,7 +1598,7 @@ iframe .navbar-container,
   font-size: 16px;
 
   &.p-main {
-    padding-top: 118px;
+    padding-top: 108px;
   }
 
   .skill-studio-bg {
@@ -2122,4 +2122,9 @@ select {
       background-position-x: -20%;
     }
   }
+}
+
+.image-position {
+  position: absolute;
+  z-index: 1;
 }
