@@ -26,7 +26,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.titleUrl = [this.helperService.getTileDetails('tekbytes').navUrl];
+    this.titleUrl = [this.helperService.findPage('Market_Place').navUrl];
     this.route.params.subscribe(params => {
       this.getAllProducts(params['code']);
     });

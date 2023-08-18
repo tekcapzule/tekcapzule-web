@@ -133,7 +133,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
   getNavBreadcrumbs() {
     this.crumbs = [];
     const queryTitle = sessionStorage.getItem('com.tekcapsule.title') || this.detail.title;
-    const dashboardPage = this.helperService.findAIDashboardPage();
+    const dashboardPage = this.helperService.findPage('Skill_Studio');
     this.crumbs.push(dashboardPage);
     const selectePage = this.helperService.findAIHubPage(this.pageId);
     this.crumbs.push(selectePage);
