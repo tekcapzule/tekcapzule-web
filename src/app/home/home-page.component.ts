@@ -91,4 +91,12 @@ export class HomePageComponent implements OnInit {
   onCardOpened(capsuleId) {
     this.selectedCasuleId = capsuleId;
   }
+
+  navigatePage(pageId: string) {
+    const page = this.helperService.findPage(pageId);
+    if(page) {
+      this.router.navigateByUrl(page.navUrl);
+    }
+  }
+  
 }
