@@ -19,14 +19,6 @@ const routes: Routes = [
         component: CapsuleFeedsComponent,
       },
       {
-        path: 'trending',
-        component: CapsuleTrendingComponent,
-      },
-      {
-        path: 'editorspick',
-        component: EditorsPickComponent,
-      },
-      {
         path: 'contribute',
         component: ContributeCapsuleComponent,
       },
