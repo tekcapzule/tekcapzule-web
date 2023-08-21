@@ -9,22 +9,7 @@ import { DialogModule } from 'primeng/dialog';
 import {DialogService} from 'primeng/dynamicdialog';
 
 @NgModule({
-  declarations: [
-    SubscriptionPageComponent,
-    ContactSalesComponent,
-    ContactSalesComponent
-  ],
-  imports: [
-    CommonModule,
-    SubscriptionRoutingModule,
-    AccordionModule,
-    DialogModule
-  ],
-  exports: [
-    ContactSalesComponent
-  ],
-  providers: [
-    DialogService
-  ]
+  declarations: [SubscriptionPageComponent, ContactSalesComponent],
+  imports: [CommonModule, SubscriptionRoutingModule, AccordionModule, DialogModule],
 })
-export class SubscriptionModule { }
+export class SubscriptionModule {}

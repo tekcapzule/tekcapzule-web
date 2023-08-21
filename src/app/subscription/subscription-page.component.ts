@@ -5,16 +5,16 @@ import { ContactSalesComponent } from './contact-sales/contact-sales.component';
 @Component({
   selector: 'app-subscription-page',
   templateUrl: './subscription-page.component.html',
-  styleUrls: ['./subscription-page.component.scss']
+  styleUrls: ['./subscription-page.component.scss'],
 })
 export class SubscriptionPageComponent {
-  
-  constructor(public dialogService: DialogService) {}
+  isContactSalesDialogShown = false;
 
-  showDialog() {
-    const ref = this.dialogService.open(ContactSalesComponent, {
-      header: 'Header',
-      width: '70%'
-    });
+  showContactSalesDialog() {
+    this.isContactSalesDialogShown = true;
+  }
+
+  hideContactSalesDialog() {
+    this.isContactSalesDialogShown = false;
   }
 }
