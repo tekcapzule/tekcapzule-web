@@ -85,6 +85,9 @@ export class HelperService {
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
+    if(navUrl === '/') {
+      return this.selectedMenu;
+    }
     let isMenuItemFound = false;
     headerMenu.forEach(hm => {
       if (hm.navUrl && hm.navUrl.includes(navUrl)) {
@@ -106,7 +109,7 @@ export class HelperService {
         if (hm.navUrl && hm.navUrl.includes(navUrl)) {
           isMenuItemFound = true;
           this.selectedMenu = {
-            selectedMenuItem: this.findAIDashboardPage(),
+            selectedMenuItem: this.findPage('Skill_Studio'),
             selectedChildMenuItem: hm,
           };
         }
@@ -115,9 +118,9 @@ export class HelperService {
     return this.selectedMenu;
   }
 
-  findAIDashboardPage() {
+  findPage(pageId: string) {
     const headerMenu = Constants.HeaderMenu;
-    return headerMenu.find(hm => hm.uniqueId === 'Skill_Studio');
+    return headerMenu.find(hm => hm.uniqueId === pageId);
   }
 
   findAIHubPage(pageId: string) {

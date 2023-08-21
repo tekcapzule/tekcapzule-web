@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppSpinnerService } from '@app/core';
 
@@ -8,8 +9,13 @@ import { AppSpinnerService } from '@app/core';
   styleUrls: ['./mentoring.component.scss'],
 })
 export class MentoringComponent implements OnInit {
-  constructor(private spinner: AppSpinnerService) {}
+  constructor(private spinner: AppSpinnerService,
+    private router: Router) {}
 
   ngOnInit(): void {
+  }
+
+  navigateToSkilStudio(): void {
+    this.router.navigateByUrl('/ai-hub/dashboard');
   }
 }

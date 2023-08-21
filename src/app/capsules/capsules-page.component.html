@@ -2,9 +2,16 @@
   <div class="flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-
-  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel">
-    <div class="inner d-flex">
+<div class="profile-section">
+  <div class="inner">
+    <div><img src="../../assets/images/feeds/profile-img.svg" alt="" class="mr-2">Welcome Sasikumar P</div>
+    <div><span class="small pr-2">Available Credit Score</span> 05</div>
+    <div><span class="small pr-2">Last Post</span> Aug 15, 2022</div>
+    <div><span class="small pr-2">Last Post</span> Aug 15, 2022</div>
+  </div>
+</div>
+  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel" class="d-none">
+    <div class="inner d-flex d-none">
       <ng-container>
         <a
           *ngFor="let navTab of navTabs"
@@ -23,7 +30,7 @@
       </a>
       <div class="w-75 pr-0 d-flex justify-content-end">
         <button class="reset-btn" (click)="onHardRefreshCapsules()">
-          <img src="/assets/images/reset.png" alt="reset icon" class="pr-3 pt-1" />
+          <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
         </button>
         <button
           mat-stroked-button
@@ -35,31 +42,40 @@
       </div>
     </div>
   </nav>
-  <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
-    <p-multiSelect
-      [options]="capsuleTypes"
-      [filter]="false"
-      (onChange)="onChange($event)"
-      optionLabel="displayName"
-      class="feeds-filter"
-    ></p-multiSelect>
-  </div>
-  <div class="container-fluid tags-section" *ngIf="!canHideFilterAndTags()">
-    <div class="inner">
-      <div class="selected-topic-list pt-4">
-        <span class="mr-4 tag-title">Your Tags:</span>
-        <ul class="topics-list feeds-topics pb-0 mb-0">
+ 
+  <div class="container-fluid feeds-bg" *ngIf="!canHideFilterAndTags()">
+    <div class="inner d-flex">
+      <div class="selected-topic-list pt-4 w-100">
+        <!-- <span class="mr-4 tag-title">Your Tags:</span> -->
+        <ul class="topics-list feeds-topics pb-0 mb-0 float-left">
           <ng-container *ngFor="let item of currentSelectedTopic">
             <li class="active mb-0"><span>#</span>{{ item.topic.title }}</li>
           </ng-container>
         </ul>
+        <div class="float-right">
+            <button class="filter-btn">
+              <!-- <img src="../../assets/images/filter.svg" alt="reset icon" class="pr-3" /> -->
+               <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
+                <p-multiSelect
+                  [options]="capsuleTypes"
+                  [filter]="false"
+                  (onChange)="onChange($event)"
+                  optionLabel="displayName"
+                  class="feeds-filter"
+                ></p-multiSelect>
+              </div>
+              Filter</button>
+            <button class="reset-btn">
+              <img src="../../assets/images/reset.svg" alt="reset icon" class="pr-3" />
+            </button>
+          </div>
       </div>
     </div>
   </div>
 
-  <mat-tab-nav-panel #tabPanel>
-    <router-outlet></router-outlet>
-  </mat-tab-nav-panel>
+  <div>
+    <app-capsule-feeds></app-capsule-feeds>
+  </div>
   <!-- Modal -->
   <div
     class="modal fade in mobileOverlayMenu"

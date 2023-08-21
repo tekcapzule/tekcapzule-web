@@ -202,7 +202,7 @@
   // .weekly_digest-menu-icon,
   // .weekly_digest-menu-icon,
   // .events-menu-icon {
-  //     background-size: 100%;
+  //     background-size: 80%;
   // }
   li {
     width: 440px;
@@ -210,23 +210,26 @@
     border-radius: 20px;
     padding: 20px 30px;
     background: $white;
+    display: flex;
+    align-items: center;
     .icon {
       // height: 72px;
       // margin-right: 10px;
       // align-items: center;
-      height: 9vh;
-      flex-direction: column-reverse;
+      // height: 9vh;
+      // flex-direction: column-reverse;
     }
     .tekbyte-menu-icon,
     .courses-menu-icon,
-    .interview_prep-menu-icon,
+    .interviewPrep-menu-icon,
     .mentoring-menu-icon,
     .research_papers-menu-icon,
     .video_library-menu-icon,
     .weekly_digest-menu-icon,
     .weekly_digest-menu-icon,
-    .events-menu-icon {
-        background-size: 100%;
+    .events-menu-icon,
+    .interview_prep-menu-icon {
+        background-size: 80%;
     }
     li {
         width: 440px;
@@ -234,50 +237,43 @@
         border-radius: 20px;
         padding: 20px 30px;
         background: $white;
+        display: flex;
         .icon {
             height: 72px;
             margin-right: 10px;
             align-items: center;
         }
-        &:nth-child(1) {
-            animation: zoom-in-zoom-out 1s ease-out 1;
-        }
-        &:nth-child(2) {
-            margin-left: -101px;
-            animation: zoom-in-zoom-out 2s ease-out 1;
-        }
-        &:nth-child(3) {
-            margin-left: 70px;
-            animation: zoom-in-zoom-out 3s ease-out 1;
-        }
-        &.nav-item.research
-        {
-            margin-left: 62px;
-            margin-top: -96px;
-        }
-        &.nav-item.video
-        {
-            margin-left: 125px;
-        }
-        &.nav-item.digest
-        {
-            margin-left: 62px;
-        }
+        
     }
-    &:nth-child(3) {
+    &:nth-child(1) {
+      animation: zoom-in-zoom-out 1s ease-out 1;
+      margin-left: -25px;
+  }
+  &:nth-child(2) {
+      margin-left: -101px;
+      animation: zoom-in-zoom-out 2s ease-out 1;
+  }
+  &:nth-child(3) {
       margin-left: 70px;
       animation: zoom-in-zoom-out 3s ease-out 1;
-    }
-    &.nav-item.research {
-      margin-left: 62px;
-      margin-top: -96px;
-    }
-    &.nav-item.video {
-      margin-left: 125px;
-    }
-    &.nav-item.digest {
-      margin-left: 62px;
-    }
+  }
+  }
+}
+.skill-card-new.right-side li{
+  display: flex;
+  align-items: center;
+  .icon {
+    margin-right: 10px;
+  }
+  &:nth-child(1) {
+    margin-left: 62px;
+    margin-top: -96px;
+  }
+  &:nth-child(2) {
+    margin-left: 115px;
+  }
+  &:nth-child(3) {
+    margin-left: 62px;
   }
 }
 

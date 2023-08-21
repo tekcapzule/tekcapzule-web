@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { CapsuleCardComponent } from './components/capsule-card/capsule-card.component';
+import { FeedsCardComponent } from './components/feeds-card/feeds-card.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -34,6 +35,7 @@ import { CapsuleSkeletonComponent } from './components/capsule-skeleton/capsule-
     CourseCardComponent,
     ProductCardComponent,
     CapsuleSkeletonComponent,
+    FeedsCardComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +59,7 @@ import { CapsuleSkeletonComponent } from './components/capsule-skeleton/capsule-
     CourseCardComponent,
     ProductCardComponent,
     CapsuleSkeletonComponent,
+    FeedsCardComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
