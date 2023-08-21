@@ -20,28 +20,27 @@
     </div>
   </section>
   <div class="col-lg-12 bg-light-gray pb-5">
-    <section class="container d-flex align-items-center">
-      <div class="search-box mt-0 py-4 mb-3 ml-0 col-lg-3 pl-0">
-        <input
-          type="text"
-          name="searchTopics"
-          placeholder="Search Topics"
-          class="mb-0"
-          [(ngModel)]="searchText"
-          (keyup.enter)="onSearch()"
-          (blur)="onSearch()"
-        />
-        <button title="search bar" class="search-btn" (click)="onSearch()"></button>
-      </div>
-      <div [ngClass]="{ 'item-selected': selectedTopics.length > 0 }" class="page-filter">
-        <p-multiSelect
-          [options]="topics"
-          [filter]="false"
-          (onChange)="onChange($event)"
-          optionLabel="title"
-        ></p-multiSelect>
-      </div>
-    </section>
+      
+      <section class="container d-flex align-items-center justify-content-between">
+        <div>
+          <button class="button bg-light-blue primary-btn-sm">Artificial Intelligence</button>
+          <button class="button bg-light-blue primary-btn-sm">Web 3.0</button>
+          <button class="button bg-light-blue primary-btn-sm">Metaverse</button>
+        </div>
+        <div class="search-box col-lg-3 pl-0">
+          <input
+            type="text"
+            name="searchTopics"
+            placeholder="Search Topics"
+            class="mb-0"
+            [(ngModel)]="searchText"
+            (keyup.enter)="onSearch()"
+            (blur)="onSearch()"
+          />
+          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+        </div>
+      </section>
+   
     <section class="py-3 container">
       <div class="section-title text-left">
         <h2>Featured Topics</h2>

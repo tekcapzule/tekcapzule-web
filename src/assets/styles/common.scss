@@ -337,7 +337,7 @@ h4 {
   }
 
   &.primary-btn-sm {
-    width: 132px;
+    width: fit-content;
     height: 32px;
     border-radius: 18px;
     font-size: 14px;
@@ -345,7 +345,7 @@ h4 {
     color: $white;
     border: 1px solid $primary-color;
     background: $primary-color;
-    padding: 6px 10px;
+    padding: 6px 20px;
 
     &:hover {
       background: $white;
@@ -921,9 +921,9 @@ app-spinner {
   background: #f1dbe1;
 }
 .bg-light-blue {
-  background: #E2E8F7 !important;
-  color: #627C8E !important;
-  border: 1px solid #E2E8F7 !important;
+  background: #DEDEEF !important;
+  color: #4B4E67 !important;
+  border: 1px solid #CDCFEA !important;
   margin-right: 20px;
 }
 
