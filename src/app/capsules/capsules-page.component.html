@@ -42,16 +42,8 @@
       </div>
     </div>
   </nav>
-  <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
-    <p-multiSelect
-      [options]="capsuleTypes"
-      [filter]="false"
-      (onChange)="onChange($event)"
-      optionLabel="displayName"
-      class="feeds-filter"
-    ></p-multiSelect>
-  </div>
-  <div class="container-fluid linear-bg" *ngIf="!canHideFilterAndTags()">
+ 
+  <div class="container-fluid feeds-bg" *ngIf="!canHideFilterAndTags()">
     <div class="inner d-flex">
       <div class="selected-topic-list pt-4 w-100">
         <!-- <span class="mr-4 tag-title">Your Tags:</span> -->
@@ -62,7 +54,16 @@
         </ul>
         <div class="float-right">
             <button class="filter-btn">
-              <img src="../../assets/images/filter.svg" alt="reset icon" class="pr-3" />
+              <!-- <img src="../../assets/images/filter.svg" alt="reset icon" class="pr-3" /> -->
+               <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
+                <p-multiSelect
+                  [options]="capsuleTypes"
+                  [filter]="false"
+                  (onChange)="onChange($event)"
+                  optionLabel="displayName"
+                  class="feeds-filter"
+                ></p-multiSelect>
+              </div>
               Filter</button>
             <button class="reset-btn">
               <img src="../../assets/images/reset.svg" alt="reset icon" class="pr-3" />

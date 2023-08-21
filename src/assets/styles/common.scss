@@ -1440,11 +1440,12 @@ iframe .navbar-container,
 }
 
 .capsule-filter {
-  z-index: 2;
-  position: fixed;
-  float: right;
-  right: 27%;
-  top: 93px;
+  display: inline-flex;
+  // z-index: 2;
+  // position: fixed;
+  // float: right;
+  // right: 27%;
+  // top: 93px;
 
   @media only screen and (width: 1440px) {
     right: 19% !important;
@@ -1452,8 +1453,10 @@ iframe .navbar-container,
 
   .p-multiselect {
     background: url('../../assets/images/filter.svg') no-repeat !important;
-    height: 30px;
-    width: 35px;
+    height: 18px;
+    width: 21px;
+    top: 4px;
+    margin-right: 8px;
   }
 }
 
@@ -1502,7 +1505,7 @@ iframe .navbar-container,
 .p-overlay {
   position: fixed !important;
   width: 100% !important;
-  top: 126px !important;
+  top: 244px !important;
   display: block !important;
 
   @media only screen and (max-width: 990px) {
