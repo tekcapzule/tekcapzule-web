@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact-sales.component.scss']
 })
 export class ContactSalesComponent {
-  visible: boolean = false;
+  visible: boolean = true;
 
   showDialog() {
       this.visible = true;
