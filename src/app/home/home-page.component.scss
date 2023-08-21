@@ -56,18 +56,35 @@
     .key-feature-tile {
       margin-right: 70px;
       margin-bottom: 20px;
+      &:hover {
+        label {
+          color: #EC0085;
+          transform: translateY(-10px);
+        }
+      }
       label {
+        transition: transform 250ms;
         color: $white;
       }
       .key-points {
         cursor: pointer;
         box-shadow: 5px 5px 2px #00000036;
-        border: 1px solid #6876BF;
+        border: 2px solid #6876BF;
         border-radius: 20px;
         width: 113px;
         height: 98px;
         background: linear-gradient(180deg, #2A3780 0%, #202A5F 100%);
         padding: 28px;
+        cursor: pointer;
+        transition: transform 250ms;
+        &:hover {
+          -webkit-box-shadow: -2px 1px 19px -4px rgb(75 0 42);
+          -moz-box-shadow: -2px 1px 19px -4px rgb(75 0 42);
+          box-shadow: -2px 1px 19px -4px rgb(75 0 42);
+          box-shadow: -2px 1px 19px -4px rgb(75 0 42);
+          border: 2px solid #ec0085;
+          transform: translateY(-10px);
+        }
         
         .key-icon-1 {
           background: url('../../assets/images/home/key-feature-icon-1.svg') no-repeat;

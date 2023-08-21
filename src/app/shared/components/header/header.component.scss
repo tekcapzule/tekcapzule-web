@@ -41,7 +41,7 @@
 
   .logo {
     img {
-      margin-right: 20px;
+      margin-right: 35px;
 
       @media only screen and (max-width: 480px) {
         margin-right: 15px;
@@ -149,8 +149,40 @@
     >li {
       position: relative;
       white-space: nowrap;
-      // padding: 10px 40px;
-      padding: 10px;
+      padding-left: 15px;
+      min-width: 75px!important;
+      margin-right: 25px;
+      width: fit-content !important;
+      &:first-child {
+        background: url('../../../../assets/images/home/home-menu-icon.svg') no-repeat;
+        width: 20px;
+        height: 20px;
+      }
+      &:nth-child(2) {
+        background: url('../../../../assets/images/home/skillstudio-menu-icon.svg') no-repeat;
+        width: 20px;
+        height: 20px;
+      }
+      &:nth-child(3) {
+        background: url('../../../../assets/images/home/marketplace-menu-icon.svg') no-repeat;
+        width: 23px;
+        height: 20px;
+      }
+      &:nth-child(4) {
+        background: url('../../../../assets/images/home/llmhub-menu-icon.svg') no-repeat;
+        width: 26px;
+        height: 20px;
+      }
+      &:nth-child(5) {
+        background: url('../../../../assets/images/home/insights-menu-icon.svg') no-repeat;
+        width: 20px;
+        height: 20px;
+      }
+      &:nth-child(6) {
+        background: url('../../../../assets/images/home/events-menu-icon.svg') no-repeat;
+        width: 20px;
+        height: 20px;
+      }
       &.active {
         .dropdown .dropbtn{
         color: $white;
@@ -479,7 +511,7 @@
   .dropbtn {
     background-color: transparent;
     color: #929CD6;
-    padding: 16px;
+    padding: 0 16px;
     border: none;
     font-size: 16px !important;
     -moz-osx-font-smoothing: grayscale;
@@ -532,7 +564,7 @@
   margin: 0 auto;
   border-radius: 0 0px 16px 16px;
   left: -242px;
-  margin-top: 5px;
+  margin-top: 19px;
   max-width: 1300px;
 }
 
