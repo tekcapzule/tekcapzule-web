@@ -10,39 +10,7 @@
     <div><span class="small pr-2">Last Post</span> Aug 15, 2022</div>
   </div>
 </div>
-  <nav mat-tab-nav-bar *ngIf="!canHideNavTabs()" [tabPanel]="tabPanel" class="d-none">
-    <div class="inner d-flex d-none">
-      <ng-container>
-        <a
-          *ngFor="let navTab of navTabs"
-          mat-tab-link
-          (click)="setActiveTab(navTab)"
-          [active]="isActiveTab(navTab)"
-          [routerLink]="[navTab.navUrl]"
-        >
-          <span>{{ navTab.displayName }}</span>
-        </a>
-      </ng-container>
-
-      <a mat-tab-link data-toggle="modal" data-target="#browseByTopicModal">
-        <span style="width: 100px">Explore Topic</span>
-        <img src="/assets/images/down-arrow.svg" class="pl-2 down-arrow" alt="down arrow" />
-      </a>
-      <div class="w-75 pr-0 d-flex justify-content-end">
-        <button class="reset-btn" (click)="onHardRefreshCapsules()">
-          <img src="/assets/images/reset.svg" alt="reset icon" class="pr-3 pt-1" />
-        </button>
-        <button
-          mat-stroked-button
-          class="button primary-outline contribute-btn"
-          (click)="navigateToContributePage()"
-        >
-          Contribute
-        </button>
-      </div>
-    </div>
-  </nav>
- 
+  
   <div class="container-fluid feeds-bg" *ngIf="!canHideFilterAndTags()">
     <div class="inner d-flex">
       <div class="selected-topic-list pt-4 w-100">

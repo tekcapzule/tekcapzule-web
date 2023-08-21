@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ContactSalesComponent } from './contact-sales/contact-sales.component';
 
 @Component({
   selector: 'app-subscription-page',
