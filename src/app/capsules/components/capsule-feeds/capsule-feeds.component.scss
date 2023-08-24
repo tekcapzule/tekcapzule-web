@@ -8,10 +8,7 @@
     column-gap: 15px;
     margin:  30px 0px;
     background: $white;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    padding: 25px;
-    margin-top: -60px;
+
     .bookmarks-container, .main-container, .subscribe-container {
         padding: 15px;
         border: 1.5px solid #DEDEDE;
@@ -46,7 +43,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 58%;
     }
     .profile-pic {
         background: url('../../../../assets/images/feeds/profile-pic.svg') no-repeat;
@@ -65,9 +61,16 @@
         width: 240px;
     }
 }
+.share-container {
+    padding: 20px 15px 15px;
+    margin-top: -175px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background: #fff;
+}
 .share-block {
-    width: 40%;
     margin-right: 20px;
+    display: flex;
     
     .share-textbox 
     input {
@@ -81,11 +84,12 @@
     cursor: pointer;
     font-family: $primary-font-black;
     color: #7B7B7B;
+    padding-bottom: 15px;
     &:hover {
         color: $black;
     }
     span {
-        padding-left: 25px;
+        padding-left: 20px;
     }
         &.video {
             background: url('../../../../assets/images/feeds/video.svg') no-repeat 0px 8px;
@@ -103,9 +107,9 @@
             background: url('../../../../assets/images/feeds/jobs.svg') no-repeat 0px 8px;
         }
         &.events {
-            background: url('../../../../assets/images/feeds/events.svg') no-repeat 0px 8px;
+            background: url('../../../../assets/images/feeds/events.svg') no-repeat 0px 6px;
         }
         &.news {
-            background: url('../../../../assets/images/feeds/news.svg') no-repeat 0px 8px;
+            background: url('../../../../assets/images/feeds/news.svg') no-repeat 0px 6px;
         }
     }

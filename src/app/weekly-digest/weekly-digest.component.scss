@@ -15,7 +15,7 @@
   display: inline-grid;
   text-align: left;
   &.indigo-purple {
-    background-color: #6200a4;
+    background-color: #3d234e;
   }
   .title {
     font-size: 22px;
@@ -31,14 +31,18 @@
     }
   }
   .content-top {
-    height: 160px;
-    overflow-y: auto;
-    margin-bottom: 20px;
+    height: 113px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #6b6b6b;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow-y: hidden;
   }
   .description {
     font-size: 16px;
     font-family: $primary-font-regular;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   .calendar-text {
     text-transform: capitalize;
@@ -49,10 +53,7 @@
   text-align: left;
   color: red !important;
 }
-.weekly-digest-title {
-  font-size: 24px !important;
-  font-family: $primary-font-bold !important;
-}
+
 
 .digest-skeleton.digest-card {
   background: #fff;
@@ -82,4 +83,8 @@
   .description.loading {
     border-radius: 3px;
   }
+}
+.weekly-digest-banner {
+  background: url('../../assets/images/weekly-banner-bg.svg') 112px 20px no-repeat;
+  border-bottom: 1px solid #D6D6D6;
 }

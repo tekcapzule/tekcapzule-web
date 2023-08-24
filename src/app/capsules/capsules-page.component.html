@@ -2,15 +2,6 @@
   <div class="flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-<div class="profile-section">
-  <div class="inner">
-    <div><img src="../../assets/images/feeds/profile-img.svg" alt="" class="mr-2">Welcome Sasikumar P</div>
-    <div><span class="small pr-2">Available Credit Score</span> 05</div>
-    <div><span class="small pr-2">Last Post</span> Aug 15, 2022</div>
-    <div><span class="small pr-2">Last Post</span> Aug 15, 2022</div>
-  </div>
-</div>
-  
   <div class="container-fluid feeds-bg" *ngIf="!canHideFilterAndTags()">
     <div class="inner d-flex">
       <div class="selected-topic-list pt-4 w-100">
@@ -33,8 +24,9 @@
                 ></p-multiSelect>
               </div>
               Filter</button>
-            <button class="reset-btn">
-              <img src="../../assets/images/reset.svg" alt="reset icon" class="pr-3" />
+            <button class="filter-btn">
+              <img src="../../assets/images/reset.svg" alt="reset icon" class="pr-1" />
+              Refresh
             </button>
           </div>
       </div>

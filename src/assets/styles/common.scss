@@ -20,6 +20,9 @@ a {
     text-decoration: underline;
   }
 }
+.underline {
+  text-decoration: underline;
+}
 
 a:hover {
   color: $primary-color;
@@ -95,7 +98,7 @@ h4 {
 
   h2 {
     font-size: 20px;
-    font-family: $primary-font-medium;
+    font-family: $primary-font-bold;
   }
 }
 
@@ -338,7 +341,7 @@ h4 {
 
   &.primary-btn-sm {
     width: fit-content;
-    height: 32px;
+    height: 35px;
     border-radius: 18px;
     font-size: 14px;
     font-family: $primary-font-medium;
@@ -580,6 +583,20 @@ button {
     right: 20px;
   }
 }
+.search-rounded {
+  .input-search-rounded {
+    height: 35px;
+    border-radius: 30px !important;
+    font-size: 14px;
+    font-family: TTCommons-Medium;
+    border: 1px solid #CDCFEA;
+  }
+.search-btn {
+  height: 36px;
+  right: 25px;
+}
+}
+
 
 /**************************************
 Modal Dialogue
@@ -1101,6 +1118,12 @@ iframe .navbar-container,
   width: 34px;
   height: 28px;
   cursor: pointer;
+}
+.attension-icon {
+  background: url('../images/attension-icon.svg') no-repeat;
+  width: 17px;
+  height: 13px;
+  display: inline-flex;
 }
 
 .event-icon {
@@ -1638,7 +1661,9 @@ iframe .navbar-container,
 
 .subscribe-btn {
   position: absolute;
-  right: 10px;
+  right: 14px;
+  background-color: #212C5E !important;
+  border: 1px solid #212C5E;
 }
 
 .top-navigation {
@@ -1866,7 +1891,7 @@ select {
   }
 
   &.events {
-    background: url('../images/events-banner.png') no-repeat;
+    background:url('../images/events/events-banner-bg.png') no-repeat, url('../images/events/events-banner.png') no-repeat, ;
     background-size: cover;
   }
 
@@ -1954,7 +1979,7 @@ select {
 /*************Feeds***********/
 .feeds-container {
   color: $white;
-  background: url('../../assets/images/home/feeds-bg.svg');
+  background: url('../../assets/images/home/home-feeds-bg.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ebebeb;
