@@ -43,7 +43,10 @@
       font-family: $primary-font-regular;
       padding-bottom: 20px;
       max-height: 100px;
-      overflow-y: auto;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow-y: hidden;
     }
   }
   
