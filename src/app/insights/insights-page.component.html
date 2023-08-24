@@ -10,50 +10,15 @@
     <div class="heading">
       <h2>News & Feeds</h2>
     </div>
-    <div class="pb-5">
-      <h3>ML Coding Questions</h3>
-      <p>Machine learning is a vast field with many key concepts to know. Our crash course covers all of the fundamental
-        building blocks you need to dive into real-world machine learning. Machine learning is a vast field with many
-        key concepts to know. Our crash course covers all of the fundamental building blocks you need to dive into
-        real-world machine learning.</p>
+    <div *ngFor="let insights of insightsList; let i = index" class="pb-5">
+      <h3>{{insights.title}}</h3>
+      <p>{{insights.description}}</p>
         <div class="d-flex">
           <button class="button bg-light-blue primary-btn-sm">Industry News</button>
-
           <button class="button bg-light-blue primary-btn-sm">Regulatroy News</button>
-
           <button class="button bg-light-blue primary-btn-sm">LLM Update</button>
-
         </div>
     </div>
-    <div class="pb-5">
-      <h3>ML Coding Questions</h3>
-      <p>Machine learning is a vast field with many key concepts to know. Our crash course covers all of the fundamental
-        building blocks you need to dive into real-world machine learning. Machine learning is a vast field with many
-        key concepts to know. Our crash course covers all of the fundamental building blocks you need to dive into
-        real-world machine learning.</p>
-        <div class="d-flex">
-          <button class="button bg-light-blue primary-btn-sm">Industry News</button>
-
-          <button class="button bg-light-blue primary-btn-sm">Regulatroy News</button>
-
-          <button class="button bg-light-blue primary-btn-sm">LLM Update</button>
-
-        </div>
-    </div>
-    <div class="pb-5">
-      <h3>ML Coding Questions</h3>
-      <p>Machine learning is a vast field with many key concepts to know. Our crash course covers all of the fundamental
-        building blocks you need to dive into real-world machine learning. Machine learning is a vast field with many
-        key concepts to know. Our crash course covers all of the fundamental building blocks you need to dive into
-        real-world machine learning.</p>
-        <div class="d-flex">
-          <button class="button bg-light-blue primary-btn-sm">Industry News</button>
-
-          <button class="button bg-light-blue primary-btn-sm">Regulatroy News</button>
-
-          <button class="button bg-light-blue primary-btn-sm">LLM Update</button>
-
-        </div>
-    </div>
+    
   </section>
 </div>
