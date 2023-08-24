@@ -16,6 +16,7 @@ export const environment = {
   subscriptionApiGateway: 'jianrwq924',
   topicApiGateway: 'ydfobf5vfd',
   tekByteApiGateway: '8aor8j6icj',
+  insightsApiGateway: 'xmq2n39cqe',
   marketplaceApiGateway: '2qdikhxbob',
   userApiGateway: 'x5jyub91a3',
   digestApiGateway: '7vrqxopm10',

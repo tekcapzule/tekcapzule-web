@@ -6,6 +6,7 @@ export { FeedbackApiService } from './services/feedback-api/feedback-api.service
 export { SubscriptionApiService } from './services/subscription-api/subscription-api.service';
 export { TopicApiService } from './services/topic-api/topic-api.service';
 export { TekByteApiService } from './services/tekbyte-api/tekbyte-api.service';
+export { InsightsApiService } from './services/insights-api/insights-api.service';
 export { DigestApiService } from './services/digest-api/digest-api.service';
 export { UserApiService } from './services/user-api/user-api.service';
 export { ApiInterceptor } from './interceptors/api.interceptor';
