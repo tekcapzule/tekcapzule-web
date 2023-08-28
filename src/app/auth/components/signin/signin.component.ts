@@ -11,20 +11,19 @@ import { Auth } from 'aws-amplify';
 })
 export class SigninComponent implements OnInit {
   errorMessage = '';
-  
+
   constructor(private zone: NgZone, private auth: AuthService) {}
 
   ngOnInit(): void {
-    Auth.currentAuthenticatedUser().then(data=> {
-      Auth.signOut();
-    }).catch(() => {
-
-    });
-    this.auth.onSignInErrorChange().subscribe(message => {
-      this.zone.run(() => {
-        this.errorMessage = message;
-      });
-    });
+    Auth.currentAuthenticatedUser()
+      .then(data => {
+        Auth.signOut();
+      })
+      .catch(() => {});
+    // this.auth.onSignInErrorChange().subscribe(message => {
+    //   this.zone.run(() => {
+    //     this.errorMessage = message;
+    //   });
+    // });
   }
-
 }

@@ -17,3 +17,4 @@ export { CourseApiService } from './services/course-api/course-api.service';
 export { InterviewApiService } from './services/interview-api/interview-api.service';
 export { VideoLibraryApiService } from './services/video-library-api/video-library-api.service';
 export { AuthService, AwsUserInfo } from './services/auth/auth.service';
+export { AuthStateService } from './services/app-state/auth-state.service';

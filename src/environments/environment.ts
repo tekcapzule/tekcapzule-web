@@ -20,8 +20,14 @@ export const environment = {
   marketplaceApiGateway: '2qdikhxbob',
   userApiGateway: 'x5jyub91a3',
   digestApiGateway: '7vrqxopm10',
-  awsRegion: 'execute-api.us-east-1',
-  apiEndpointTemplate: 'https://{{api-gateway}}.{{aws-region}}.amazonaws.com/dev',
+  awsRegion: 'us-east-1',
+  apiEndpointTemplate: 'https://{{api-gateway}}.execute-api.{{aws-region}}.amazonaws.com/dev',
+  awsCognitoConfigs: {
+    clientId: '32afdup2cl1jg2fv9idfd8l4hn',
+    clientSecret: 'g3esl8ns46kukru0gu2f6sc2tf6n84ltu79pq8e5hdklagvum0v',
+    redirectUri: 'http://localhost:4200',
+    domain: 'https://tekcapsuledev-local.auth.us-east-1.amazoncognito.com',
+  },
 };
 
 /*

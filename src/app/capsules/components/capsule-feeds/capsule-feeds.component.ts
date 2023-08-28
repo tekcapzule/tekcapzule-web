@@ -4,12 +4,12 @@ import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   AppSpinnerService,
-  AuthService,
+  AuthStateService,
   CapsuleApiService,
   ChannelEvent,
   EventChannelService,
   UserApiService,
-  SubscriptionApiService
+  SubscriptionApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { Constants } from '@app/shared/utils';
@@ -30,7 +30,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   subrscription: Subscription[] = [];
   subscriberFormGroup: FormGroup;
   constructor(
-    private auth: AuthService,
+    private auth: AuthStateService,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     public spinner: AppSpinnerService,
@@ -38,7 +38,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     private helperService: HelperService,
     private messageService: MessageService,
     private fb: FormBuilder,
-    private subscriptionApi: SubscriptionApiService,
+    private subscriptionApi: SubscriptionApiService
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel

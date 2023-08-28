@@ -6,7 +6,7 @@ import {
   CapsuleApiService,
   SubscriptionApiService,
   UserApiService,
-  AuthService,
+  AuthStateService,
   TopicApiService,
   AppSpinnerService,
 } from '@app/core';
@@ -35,7 +35,7 @@ export class HomePageComponent implements OnInit {
     private router: Router,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
-    private auth: AuthService,
+    private auth: AuthStateService,
     private subscriptionApi: SubscriptionApiService,
     private topicApi: TopicApiService,
     private fb: FormBuilder,
@@ -48,8 +48,15 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriberFormGroup = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
-    })
+      emailId: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
+    });
     if (this.auth.isUserLoggedIn()) {
       this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().username).subscribe();
     }
@@ -59,26 +66,31 @@ export class HomePageComponent implements OnInit {
     });
 
     this.topicApi.getAllTopics().subscribe(topics => {
-      this.topics = shuffleArray(topics, 5);      
+      this.topics = shuffleArray(topics, 5);
     });
 
     this.capsuleApi.getTrendingCapsules().subscribe();
   }
 
-
-
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
-    if(this.subscriberFormGroup.valid) {
+    if (this.subscriberFormGroup.valid) {
       this.spinner.show();
-      this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(data => {
-        this.messageService.add({ key: 'tc', severity: 'success', detail: 'Thank you for subscribing!' });
-        this.subscriberFormGroup.reset();
-        this.spinner.hide();
-      }, error => {
-        this.messageService.add(this.helperService.getInternalErrorMessage());
-        this.spinner.hide();
-      });
+      this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(
+        data => {
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            detail: 'Thank you for subscribing!',
+          });
+          this.subscriberFormGroup.reset();
+          this.spinner.hide();
+        },
+        error => {
+          this.messageService.add(this.helperService.getInternalErrorMessage());
+          this.spinner.hide();
+        }
+      );
     } else {
       this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
@@ -94,9 +106,8 @@ export class HomePageComponent implements OnInit {
 
   navigatePage(pageId: string) {
     const page = this.helperService.findPage(pageId);
-    if(page) {
+    if (page) {
       this.router.navigateByUrl(page.navUrl);
     }
   }
-  
 }

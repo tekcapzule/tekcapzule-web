@@ -65,7 +65,7 @@ export class FeedsCardComponent implements OnInit {
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
-  
+
   ngOnDestroy(): void {
     this.subrscription.forEach((sub: Subscription) => sub.unsubscribe());
   }
@@ -75,7 +75,6 @@ export class FeedsCardComponent implements OnInit {
     });
     this.subrscription.push(sub);
   }
-
 
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
@@ -111,7 +110,6 @@ export class FeedsCardComponent implements OnInit {
       window.open(this.capsule.resourceUrl, '_blank');
     }
   }
-
 
   isValidUrl(url: string): boolean {
     return url.startsWith('https://') || url.startsWith('http://');

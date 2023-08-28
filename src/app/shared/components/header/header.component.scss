@@ -8,7 +8,7 @@
   //transition: all 0.5s;
   z-index: 997;
   margin-top: 43px;
-  background: #212C5E;
+  background: #212c5e;
 
   .header-align {
     // height: 90px;
@@ -22,7 +22,7 @@
     input {
       width: 293px;
       height: 34px;
-      border: 1px solid #5966AD;
+      border: 1px solid #5966ad;
       border-radius: 25px;
       font-size: 14px;
       background: transparent;
@@ -143,14 +143,14 @@
     list-style: none;
   }
 
-  >ul {
+  > ul {
     display: flex;
 
-    >li {
+    > li {
       position: relative;
       white-space: nowrap;
       padding-left: 15px;
-      min-width: 75px!important;
+      min-width: 75px !important;
       margin-right: 25px;
       width: fit-content !important;
       &:first-child {
@@ -184,9 +184,9 @@
         height: 20px;
       }
       &.active {
-        .dropdown .dropbtn{
-        color: $white;
-      }
+        .dropdown .dropbtn {
+          color: $white;
+        }
       }
 
       // @media only screen and (max-width: 1500px) {
@@ -208,7 +208,6 @@
           margin-top: 10px;
           margin-left: 5px;
         }
-
       }
     }
   }
@@ -216,7 +215,7 @@
   a {
     display: block;
     position: relative;
-    color: #C3CCFF;
+    color: #c3ccff;
     transition: 0.3s;
     font-size: 13px !important;
     -moz-osx-font-smoothing: grayscale;
@@ -239,7 +238,7 @@
     }
   }
 
-  >ul>li>a:before {
+  > ul > li > a:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -252,15 +251,15 @@
     transition: all 0.3s ease-in-out 0s;
   }
 
-  li:hover>a:before,
-  .active>a:before {
+  li:hover > a:before,
+  .active > a:before {
     visibility: visible;
     width: 100%;
   }
 
   a:hover,
-  .active>a,
-  li:hover>a {
+  .active > a,
+  li:hover > a {
     color: $primary-color;
   }
 }
@@ -308,13 +307,13 @@
     width: 42px;
   }
 
-  .nav-menu>ul>li.dropdown a::after {
+  .nav-menu > ul > li.dropdown a::after {
     display: inline-block;
     width: 0;
     height: 0;
     margin-left: 0.255em;
     vertical-align: 0.255em;
-    content: "";
+    content: '';
     border-top: 0.3em solid;
     border-right: 0.3em solid transparent;
     border-bottom: 0;
@@ -330,7 +329,7 @@
   .main-nav {
     font-family: $primary-font-bold;
     font-size: 22px;
-    color: #C3CCFF;
+    color: #c3ccff;
   }
 
   .sub-nav {
@@ -405,8 +404,8 @@
     }
   }
 
-  .active>a,
-  li:hover>a {
+  .active > a,
+  li:hover > a {
     color: #5846f9;
     text-decoration: none;
   }
@@ -440,7 +439,7 @@
 
 .navbar {
   padding: 0.5rem 0 !important;
-  @media only screen and (max-width: 767px) { 
+  @media only screen and (max-width: 767px) {
     padding: 1rem 0 !important;
   }
 }
@@ -468,7 +467,7 @@
     background: url('../../../../assets/images/mobile-menu-close.svg') 5px 3px no-repeat;
   }
 
-  .nav-menu>ul>li {
+  .nav-menu > ul > li {
     padding: 0 10px !important;
     border-bottom: 1px solid #fff;
   }
@@ -482,7 +481,7 @@
     padding-bottom: 15px;
     width: 75%;
     height: 100%;
-    background: #212C5E;
+    background: #212c5e;
   }
 
   .navbar-collapse.collapsing {
@@ -495,14 +494,12 @@
     transition: left 300ms ease-in-out;
   }
 
-  .navbar-toggler.collapsed~.navbar-collapse {
+  .navbar-toggler.collapsed ~ .navbar-collapse {
     transition: left 500ms ease-in-out;
   }
 }
 
-
 /***********Dropdown Menu***********/
-
 
 .dropdown {
   position: relative;
@@ -510,7 +507,7 @@
 
   .dropbtn {
     background-color: transparent;
-    color: #929CD6;
+    color: #929cd6;
     padding: 0 16px;
     border: none;
     font-size: 16px !important;
@@ -526,7 +523,7 @@
         margin-left: 6px;
         &.down {
           transform: rotate(225deg) translateY(-50%);
-          transition: transform .2s;
+          transition: transform 0.2s;
         }
       }
     }
@@ -543,12 +540,11 @@
         -webkit-transform: rotate(45deg);
         &.menu-open {
           transform: rotate(225deg) translateY(-50%);
-          transition: transform .2s;
+          transition: transform 0.2s;
         }
       }
     }
   }
-
 }
 
 .dropdown.menu-open .dropbtn .arrow .down {
@@ -578,13 +574,12 @@
   background-color: #ddd;
 }
 
-
 .dropdown:hover .dropbtn {
   color: $white;
 }
 
 .sub-menu-title {
-  border-bottom: 1px solid #0000002B;
+  border-bottom: 1px solid #0000002b;
   margin: 25px 0px;
 
   h2 {
@@ -598,7 +593,7 @@
   padding-top: 0 !important;
 }
 .top-main-header {
-  background: #19224A;
+  background: #19224a;
   height: 43px;
   float: left;
   width: 100%;
@@ -612,14 +607,14 @@
       list-style: none;
       padding: 0 28px;
       a {
-        color: #A6AACF;
+        color: #a6aacf;
         cursor: pointer;
         // font-family: $primary-font-medium;
         // font-size: 12px;
         &:hover {
           color: #fff;
           &::after {
-            border-bottom: 4px solid #FF00C8;
+            border-bottom: 4px solid #ff00c8;
           }
         }
       }
@@ -627,8 +622,8 @@
   }
 }
 .signin-btn {
-  background: #FF00C4;
-  border: 1pc solid #FF00C4;
+  background: #ff00c4;
+  border: 1pc solid #ff00c4;
   border-radius: 18px;
   color: #fff;
   font-size: 12px;
@@ -638,16 +633,14 @@
   align-items: center;
   margin-top: 5px;
   padding: 0;
-  cursor: not-allowed;
 }
-
 
 /* Glabal Search */
 .header-search-box {
   background: transparent;
   height: 37px;
   border-radius: 50px;
-  border: 2px solid #5966AD;
+  border: 2px solid #5966ad;
 }
 
 /* input */
@@ -660,12 +653,12 @@
   color: #fff;
   float: left;
   font-size: 14px;
-  transition: .3s;
+  transition: 0.3s;
   line-height: 35px;
 }
 
 .search-input::placeholder {
-  color: #5966AD;
+  color: #5966ad;
 }
 
 /* icon */
@@ -675,12 +668,12 @@
   width: 35px;
   height: 35px;
   border-radius: 50px;
-  background: #5966AD;
+  background: #5966ad;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .search-input:focus,
@@ -698,5 +691,5 @@
 .search-input:focus + .search-btn,
 .search-input:not(:placeholder-shown) + .search-btn {
   background: #fff;
-  color: #5966AD;
+  color: #5966ad;
 }

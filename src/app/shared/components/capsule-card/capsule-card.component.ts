@@ -1,5 +1,13 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
@@ -66,7 +74,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
-  
+
   ngOnDestroy(): void {
     this.subrscription.forEach((sub: Subscription) => sub.unsubscribe());
   }
@@ -131,7 +139,6 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
       window.open(this.capsule.resourceUrl, '_blank');
     }
   }
-
 
   isValidUrl(url: string): boolean {
     return url.startsWith('https://') || url.startsWith('http://');

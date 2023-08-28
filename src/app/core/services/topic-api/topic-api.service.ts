@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { TopicItem, TekUserInfo } from '@app/shared/models';
 import { cacheManager, Constants } from '@app/shared/utils';
-import { AuthService } from '@app/core/services/auth/auth.service';
-import { UserApiService } from '@app/core/services/user-api/user-api.service';
+import { AuthStateService, UserApiService } from '@app/core';
 
 const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`
   .replace('{{api-gateway}}', environment.topicApiGateway)
@@ -23,7 +22,7 @@ export class TopicApiService {
 
   constructor(
     private httpClient: HttpClient,
-    private auth: AuthService,
+    private auth: AuthStateService,
     private userApi: UserApiService
   ) {
     this.userInfo = this.userApi.getTekUserInfoCache();
