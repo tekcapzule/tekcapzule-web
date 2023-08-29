@@ -1,115 +1,114 @@
 @import './../../../../assets/styles/variables.scss';
 .inner {
-    max-width: 1110px;
+  max-width: 1110px;
 }
 
 .feeds-blog-container {
-    // display: flex;
-    column-gap: 15px;
-    margin:  30px 0px;
-    background: $white;
+  // display: flex;
+  column-gap: 15px;
+  margin: 30px 0px;
+  background: $white;
 
-    .bookmarks-container, .main-container, .subscribe-container {
-        padding: 15px;
-        border: 1.5px solid #DEDEDE;
-        border-radius: 2px;
+  .bookmarks-container,
+  .main-container,
+  .subscribe-container {
+    padding: 15px;
+    border: 1.5px solid #dedede;
+    border-radius: 2px;
+  }
+  .bookmarks-container {
+    width: 240px;
+    .bookmarks {
+      margin-block-start: 0;
+      text-align: left;
+      padding-inline-start: 0;
+      li {
+        list-style: none;
+        font-size: 16px;
+        line-height: 22px;
+        padding-bottom: 15px;
+        background: url('../../../../assets/images/feeds/bookmark-icon-feed.svg') no-repeat 0px 5px;
+        padding-left: 25px;
+        color: #5c5c5c;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
-    .bookmarks-container {
-        width: 240px;
-        .bookmarks {
-            margin-block-start: 0;
-            text-align: left;
-            padding-inline-start: 0;
-            li {
-                list-style: none;
-                font-size: 16px;
-                line-height: 22px;
-                padding-bottom: 15px;
-                background: url('../../../../assets/images/feeds/bookmark-icon.svg') no-repeat 0px 5px;
-                padding-left: 25px;
-                color: #5C5C5C;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-        }
-    }
-    .main-container {
-        width: 530px;
-        margin-bottom: 15px;
+  }
+  .main-container {
+    width: 530px;
+    margin-bottom: 15px;
+  }
+  .share-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .profile-pic {
+    background: url('../../../../assets/images/feeds/profile-pic.svg') no-repeat;
+    height: 51px;
+    width: 73px;
+    background-size: 100%;
+  }
 
-    }
-    .share-icons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .profile-pic {
-        background: url('../../../../assets/images/feeds/profile-pic.svg') no-repeat;
-        height: 51px;
-        width: 73px;
-        background-size: 100%;
-    }
-    
-
-    .feeds-img {
-        width: 100%;
-        height: 250px;
-        margin-bottom: 20px;
-    }
-    .subscribe-container {
-        width: 240px;
-    }
+  .feeds-img {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+  .subscribe-container {
+    width: 240px;
+  }
 }
 .share-container {
-    padding: 20px 15px 15px;
-    margin-top: -175px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    background: #fff;
+  padding: 20px 15px 15px;
+  margin-top: -175px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: #fff;
 }
 .share-block {
-    margin-right: 20px;
-    display: flex;
-    
-    .share-textbox 
-    input {
-        border: 1px solid #CBCBCB;
-        border-radius: 35px !important;
-        margin-bottom: 0;
-    }
+  margin-right: 20px;
+  display: flex;
+
+  .share-textbox input {
+    border: 1px solid #cbcbcb;
+    border-radius: 35px !important;
+    margin-bottom: 0;
+  }
 }
 .share-btn {
-    border: none;
-    cursor: pointer;
-    font-family: $primary-font-black;
-    color: #7B7B7B;
-    padding-bottom: 15px;
-    &:hover {
-        color: $black;
-    }
-    span {
-        padding-left: 20px;
-    }
-        &.video {
-            background: url('../../../../assets/images/feeds/video.svg') no-repeat 0px 8px;
-        }
-        &.books {
-            background: url('../../../../assets/images/feeds/books.svg') no-repeat 0px 8px;
-        }
-        &.course {
-            background: url('../../../../assets/images/feeds/course.svg') no-repeat 0px 8px;
-        }
-        &.article {
-            background: url('../../../../assets/images/feeds/article.svg') no-repeat 0px 8px;
-        }
-        &.jobs {
-            background: url('../../../../assets/images/feeds/jobs.svg') no-repeat 0px 8px;
-        }
-        &.events {
-            background: url('../../../../assets/images/feeds/events.svg') no-repeat 0px 6px;
-        }
-        &.news {
-            background: url('../../../../assets/images/feeds/news.svg') no-repeat 0px 6px;
-        }
-    }
+  border: none;
+  cursor: pointer;
+  font-family: $primary-font-black;
+  color: #7b7b7b;
+  padding-bottom: 15px;
+  &:hover {
+    color: $black;
+  }
+  span {
+    padding-left: 20px;
+  }
+  &.video {
+    background: url('../../../../assets/images/feeds/video.svg') no-repeat 0px 8px;
+  }
+  &.books {
+    background: url('../../../../assets/images/feeds/books.svg') no-repeat 0px 8px;
+  }
+  &.course {
+    background: url('../../../../assets/images/feeds/course.svg') no-repeat 0px 8px;
+  }
+  &.article {
+    background: url('../../../../assets/images/feeds/article.svg') no-repeat 0px 8px;
+  }
+  &.jobs {
+    background: url('../../../../assets/images/feeds/jobs.svg') no-repeat 0px 8px;
+  }
+  &.events {
+    background: url('../../../../assets/images/feeds/events.svg') no-repeat 0px 6px;
+  }
+  &.news {
+    background: url('../../../../assets/images/feeds/news.svg') no-repeat 0px 6px;
+  }
+}

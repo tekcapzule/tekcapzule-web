@@ -19,7 +19,22 @@
           >
         </li>
       </ul>
-      <button mat-raised-button class="button signin-btn disabled" disabled="true">Sign In</button>
+      <button
+        *ngIf="!(isLoggedIn$ | async)"
+        mat-raised-button
+        class="button signin-btn"
+        (click)="signInUser()"
+      >
+        Sign In
+      </button>
+      <button
+        *ngIf="isLoggedIn$ | async"
+        mat-raised-button
+        class="button signin-btn"
+        (click)="signOutUser()"
+      >
+        Sign Out
+      </button>
     </div>
   </div>
   <header id="header">

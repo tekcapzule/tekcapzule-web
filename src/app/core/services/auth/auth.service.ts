@@ -1,168 +1,168 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
-import { Amplify, Auth, I18n } from 'aws-amplify';
-import { Hub } from 'aws-amplify';
+import { environment } from '@env/environment';
+import { AuthStateService } from '../app-state/auth-state.service';
 
-import { Constants } from '@app/shared/utils';
-import { UserApiService } from '@app/core/services/user-api/user-api.service';
-import { TekUserInfoImpl } from '@app/shared/models';
-import { AuthenticatorService } from '@aws-amplify/ui-angular';
-import { Router } from '@angular/router';
+const AWS_COGNITO_OAUTH_ID_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.id.token';
+const AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.access.token';
+const AWS_COGNITO_OAUTH_REFRESH_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.refresh.token';
+const AWS_COGNITO_OAUTH_TOKEN_EXPIRY_KEY = 'com.tekcapulse.aws.cognito.oauth.token.expiry';
+const AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY =
+  'com.tekcapulse.aws.cognito.oauth.signedin.user.info';
 
-const idx = (p, o) => p.reduce((xs, x) => (xs && xs[x] ? xs[x] : null), o);
+export interface OAuthTokenInfo {
+  id_token: string;
+  access_token: string;
+  refresh_token: string;
+  expires_in: number;
+  token_type: string;
+}
 
 export interface AwsUserInfo {
+  sub: string;
   username: string;
-  attributes: {
-    email: string;
-    email_verified: boolean;
-    phone_number: string;
-    phone_number_verified: boolean;
-    sub: string;
-  };
-  signInUserSession: {
-    accessToken: {
-      jwtToken: string;
-      payload: {
-        'cognito:groups': string[];
-      };
-    };
-    idToken: {
-      jwtToken: string;
-      payload: {
-        'cognito:groups': string[];
-      };
-    };
-    refreshToken: {
-      token: string;
-    };
-  };
+  email: string;
+  email_verified: string;
+  phone_number: string;
+  phone_number_verified: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isLoggedIn = false;
-  private awsUserInfo: AwsUserInfo = null;
-  private loggedInStatusChange$ = new BehaviorSubject<boolean>(this.isLoggedIn);
-  private signInErrorChange$ = new BehaviorSubject<string>('');
+  private usedCodeGrandFlowUrls: { [key: string]: boolean } = {};
 
-  constructor(
-    private amplify: AuthenticatorService,
-    private userApi: UserApiService,
-    private router: Router
-  ) {
-    this.authenticateUser();
-    Hub.listen('auth', data => {
-      const { payload } = data;
-      this.authEventChanged(payload.event, payload.data);
-    });
+  constructor(private httpClient: HttpClient, private authState: AuthStateService) {
+    this.handleAwsCognitoCodeGrandFlow();
   }
 
-  private authEventChanged(authEvent: string, authData: any): void {
-    //console.log('authEventChanged --->> ', authEvent, authData);
-    if (authEvent === 'signIn') {
-      this.authenticateUser();
-      this.router.navigate(['/']);
-    } else if (authEvent === 'signOut') {
-      this.invalidateUser();
-    } else if (authEvent === 'signIn_failure') {
-      this.handleSignInFailure(authData);
-    }
+  private getAwsCognitoLoginApi(): string {
+    const loginApi = new URL(`${environment.awsCognitoConfigs.domain}/login`);
+    loginApi.searchParams.append('response_type', 'code');
+    loginApi.searchParams.append('client_id', environment.awsCognitoConfigs.clientId);
+    loginApi.searchParams.append('redirect_uri', environment.awsCognitoConfigs.redirectUri);
+    return loginApi.toString();
   }
 
-  private handleSignInFailure(data: any): void {
-    this.signInErrorChange$.next(data.message || 'Signin failed');
+  private getAwsCognitoLogoutApi(): string {
+    const logoutApi = new URL(`${environment.awsCognitoConfigs.domain}/logout`);
+    logoutApi.searchParams.append('client_id', environment.awsCognitoConfigs.clientId);
+    logoutApi.searchParams.append('logout_uri', environment.awsCognitoConfigs.redirectUri);
+    return logoutApi.toString();
   }
 
-  private createUserIfDoesNotExist(user: AwsUserInfo): void {
-    if (!this.userApi.isTekUserInfoCacheExists()) {
-      const newUserInfo = new TekUserInfoImpl(
-        user.username,
-        user.attributes.email,
-        user.attributes.phone_number
-      );
-
-      this.userApi.updateTekUserInfoCache(newUserInfo);
-      this.userApi.createTekUserInfo(newUserInfo).subscribe();
-      // this.userApi
-      //   .getTekUserInfo(user.username, true)
-      //   .pipe(catchError(() => this.userApi.createTekUserInfo(newUserInfo)))
-      //   .subscribe();
-    }
-    // else {
-    //   this.userApi.getTekUserInfo(user.username, true).subscribe();
-    // }
-  }
-
-  private invalidateUser(): void {
-    this.awsUserInfo = null;
-    this.isLoggedIn = false;
-    this.loggedInStatusChange$.next(this.isLoggedIn);
-    this.signInErrorChange$.next('');
-    this.userApi.deleteTekUserInfoCache();
-  }
-
-  private authenticateUser(): void {
-    Auth.currentAuthenticatedUser()
-      .then((user: any) => {
-        this.awsUserInfo = user;
-        this.isLoggedIn = true;
-        this.loggedInStatusChange$.next(this.isLoggedIn);
-        this.signInErrorChange$.next('');
-        this.createUserIfDoesNotExist(user);
-        if (this.router.url.includes('auth')) {
-          this.router.navigate(['/']);
-        }
-      })
-      .catch(error => {
-        //console.log('error --- ', error);
-        this.invalidateUser();
-      });
-  }
-
-  private getUserGroups(): string[] {
-    return (
-      idx(['signInUserSession', 'idToken', 'payload', 'cognito:groups'], this.awsUserInfo) || []
-    );
-  }
-
-  public onLoggedInStatusChange(): Observable<boolean> {
-    return this.loggedInStatusChange$.asObservable();
-  }
-
-  public onSignInErrorChange(): Observable<string> {
-    return this.signInErrorChange$.asObservable();
-  }
-
-  public getAwsUserInfo(): AwsUserInfo {
-    return this.awsUserInfo;
-  }
-
-  public isUserLoggedIn(): boolean {
-    return this.isLoggedIn;
+  public signInUser(): void {
+    window.location.assign(this.getAwsCognitoLoginApi());
   }
 
   public signOutUser(): void {
-    Auth.signOut()
-      .then(data => {
-        this.routeToSingIn();
+    window.location.assign(this.getAwsCognitoLogoutApi());
+    this.clearAwsCognitoOAuthLocalStorage();
+  }
+
+  public getAwsUserInfo(): AwsUserInfo {
+    return this.authState.getAwsUserInfo();
+  }
+
+  public isUserLoggedIn(): boolean {
+    return this.authState.isUserLoggedIn();
+  }
+
+  private getStoredUserInfo(): string | null {
+    return window.localStorage.getItem(AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY);
+  }
+
+  private getStoredAccessToken(): string | null {
+    return window.localStorage.getItem(AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY);
+  }
+
+  private handleAwsCognitoCodeGrandFlow(): void {
+    if (window.location) {
+      const url = new URL(window.location.href);
+      const code = url.searchParams.get('code');
+
+      if (this.usedCodeGrandFlowUrls[url.toString()]) {
+        return;
+      }
+
+      if (code) {
+        this.usedCodeGrandFlowUrls[url.toString()] = true;
+        this.fetchAwsCognitoOAuthToken(code);
+      } else {
+        const userInfo = this.getStoredUserInfo();
+        const accessToken = this.getStoredAccessToken();
+
+        if (userInfo && accessToken) {
+          this.authState.setUserLoggedIn(true);
+          this.authState.setAccessToken(accessToken);
+          this.authState.setAwsUserInfo(JSON.parse(userInfo));
+        }
+      }
+    }
+  }
+
+  private fetchAwsCognitoOAuthToken(code: string): void {
+    const tokenApi = new URL(`${environment.awsCognitoConfigs.domain}/oauth2/token`);
+    const authHeaderEncoded = btoa(
+      `${environment.awsCognitoConfigs.clientId}:${environment.awsCognitoConfigs.clientSecret}`
+    );
+    const httHeaders = new HttpHeaders()
+      .set('Authorization', `Basic ${authHeaderEncoded}`)
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+
+    const httpParams = new HttpParams()
+      .set('code', code)
+      .set('grant_type', 'authorization_code')
+      .set('client_id', environment.awsCognitoConfigs.clientId)
+      .set('redirect_uri', environment.awsCognitoConfigs.redirectUri);
+
+    this.httpClient
+      .post<OAuthTokenInfo>(tokenApi.toString(), httpParams.toString(), {
+        headers: httHeaders,
       })
-      .catch(error => {
-        //console.log('signOutUser error ------', error);
-        this.routeToSingIn();
+      .subscribe(data => {
+        this.fetchAwsCognitoOAuthUserInfo(data);
+        this.saveAwsCognitoOAuthTokensIntoLocalStorage(data);
+      });
+
+    if (window.history) {
+      window.history.replaceState({}, null, environment.awsCognitoConfigs.redirectUri);
+    }
+  }
+
+  private fetchAwsCognitoOAuthUserInfo(resp: OAuthTokenInfo): void {
+    const userApi = new URL(`${environment.awsCognitoConfigs.domain}/oauth2/userInfo`);
+
+    this.httpClient
+      .get<AwsUserInfo>(userApi.toString(), {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${resp.access_token}`),
+      })
+      .subscribe(user => {
+        this.authState.setUserLoggedIn(true);
+        this.authState.setAwsUserInfo(user);
+        this.authState.setAccessToken(resp.access_token);
+        this.saveAwsCognitoOAuthUserIntoLocalStorage(user);
       });
   }
 
-  public isAdminUser(): boolean {
-    return this.getUserGroups().includes(Constants.AdminUserGroup);
+  private saveAwsCognitoOAuthTokensIntoLocalStorage(data: OAuthTokenInfo): void {
+    window.localStorage.setItem(AWS_COGNITO_OAUTH_ID_TOKEN_KEY, data.id_token);
+    window.localStorage.setItem(AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY, data.access_token);
+    window.localStorage.setItem(AWS_COGNITO_OAUTH_REFRESH_TOKEN_KEY, data.refresh_token);
+    window.localStorage.setItem(AWS_COGNITO_OAUTH_TOKEN_EXPIRY_KEY, data.expires_in.toString());
   }
 
-  private routeToSingIn() {
-    if (!this.router.url.includes('auth')) {
-      this.router.navigate(['auth/signin']);
-    }
+  private saveAwsCognitoOAuthUserIntoLocalStorage(user: AwsUserInfo): void {
+    window.localStorage.setItem(AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY, JSON.stringify(user));
+  }
+
+  private clearAwsCognitoOAuthLocalStorage(): void {
+    window.localStorage.removeItem(AWS_COGNITO_OAUTH_ID_TOKEN_KEY);
+    window.localStorage.removeItem(AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY);
+    window.localStorage.removeItem(AWS_COGNITO_OAUTH_REFRESH_TOKEN_KEY);
+    window.localStorage.removeItem(AWS_COGNITO_OAUTH_TOKEN_EXPIRY_KEY);
+    window.localStorage.removeItem(AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY);
   }
 }

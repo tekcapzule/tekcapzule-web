@@ -13,7 +13,7 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 import {
   AuthService,
-  AwsUserInfo,
+  AuthStateService,
   ChannelEvent,
   EventChannelService,
   TopicApiService,
@@ -21,6 +21,7 @@ import {
 import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -31,8 +32,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild(MatMenuTrigger) globalSearchTrigger: MatMenuTrigger;
   @ViewChild('collapseBtn') collapseBtn: ElementRef;
   @ViewChild('navbarNav') navbarNav: ElementRef;
-  isLoggedIn = false;
-  userDetails: AwsUserInfo = null;
+  isLoggedIn$ = this.authState.isLoggedIn$;
   searchInputValue = '';
   topics: TopicItem[] = [];
   searchedTopics: TopicItem[] = [];
@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private auth: AuthService,
+    private authState: AuthStateService,
     private zone: NgZone,
     private router: Router,
     private topicApi: TopicApiService,
@@ -57,28 +58,34 @@ export class HeaderComponent implements OnInit {
   }
 
   menuClickOutsideEvent() {
-    window.addEventListener('click', (e) => {
-      if (this.navbarNav.nativeElement.classList.contains('show')) {
-        if(!e.target['classList'].contains('navbar-toggler') && !e.target['classList'].contains('nav-item') && !e.target['classList'].contains('sub-menu-element')) {
-          e.preventDefault();
-          e.stopPropagation();
+    window.addEventListener(
+      'click',
+      e => {
+        if (this.navbarNav.nativeElement.classList.contains('show')) {
+          if (
+            !e.target['classList'].contains('navbar-toggler') &&
+            !e.target['classList'].contains('nav-item') &&
+            !e.target['classList'].contains('sub-menu-element')
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          if (
+            !e.target['classList'].contains('parent-menu') &&
+            !e.target['classList'].contains('sub-menu') &&
+            !e.target['classList'].contains('sub-menu-element')
+          ) {
+            this.closeMenu();
+          }
         }
-        if(!e.target['classList'].contains('parent-menu') && !e.target['classList'].contains('sub-menu') && !e.target['classList'].contains('sub-menu-element')) {
-          this.closeMenu();
-        }
-      }
-    }, true);
+      },
+      true
+    );
   }
 
   ngOnInit(): void {
     this.onResize();
     this.scrollToTop();
-    this.auth.onLoggedInStatusChange().subscribe(isLoggedIn => {
-      this.zone.run(() => {
-        this.isLoggedIn = isLoggedIn;
-        this.userDetails = this.auth.getAwsUserInfo();
-      });
-    });
     this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
       this.helperService.setTopicData(data);
@@ -94,13 +101,21 @@ export class HeaderComponent implements OnInit {
       if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
         //console.log(' -------->> ', ev, ev.url);
-        if (!this.selectedMenuItem || !this.helperService.getSelectedMenu() || !this.selectedMenuItem.navUrl.includes(ev.url)) {
+        if (
+          !this.selectedMenuItem ||
+          !this.helperService.getSelectedMenu() ||
+          !this.selectedMenuItem.navUrl.includes(ev.url)
+        ) {
           const selectedMenu = this.helperService.findSelectedMenu(ev.url);
           this.selectedMenuItem = selectedMenu.selectedMenuItem;
           this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
         }
       }
     });
+  }
+
+  signInUser(): void {
+    this.auth.signInUser();
   }
 
   signOutUser(): void {
@@ -115,8 +130,8 @@ export class HeaderComponent implements OnInit {
 
   searchInputChanged(value: string): void {
     if (value.length > 0) {
-      this.searchedTopics = this.topics.filter(
-        topic => topic.title.toLowerCase().includes(value.toLowerCase())
+      this.searchedTopics = this.topics.filter(topic =>
+        topic.title.toLowerCase().includes(value.toLowerCase())
       );
 
       if (this.searchedTopics.length > 0) {
@@ -156,7 +171,7 @@ export class HeaderComponent implements OnInit {
       if (!this.openedMenuItem.children) {
         this.closeMenu();
       }
-      if(navTab.uniqueId !== "Skill_Studio") {
+      if (navTab.uniqueId !== 'Skill_Studio') {
         this.router.navigate([this.openedMenuItem.navUrl]);
       }
     }
@@ -181,7 +196,7 @@ export class HeaderComponent implements OnInit {
   }
 
   closeMenu() {
-    if(!this.isMobileResolution) {
+    if (!this.isMobileResolution) {
       this.navbarNav.nativeElement.classList.remove('show');
       this.openedMenuItem = null;
     } else {

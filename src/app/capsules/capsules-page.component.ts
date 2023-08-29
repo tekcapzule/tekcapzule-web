@@ -8,9 +8,9 @@ import {
   ChannelEvent,
   TopicApiService,
   UserApiService,
-  AuthService,
   CapsuleApiService,
   AppSpinnerService,
+  AuthStateService,
 } from '@app/core';
 import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
@@ -49,7 +49,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private eventChannel: EventChannelService,
-    private auth: AuthService,
+    private auth: AuthStateService,
     private topicApi: TopicApiService,
     private userApi: UserApiService,
     private capsuleApi: CapsuleApiService,
