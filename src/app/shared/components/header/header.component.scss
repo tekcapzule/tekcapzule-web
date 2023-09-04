@@ -153,35 +153,37 @@
       min-width: 75px !important;
       margin-right: 25px;
       width: fit-content !important;
+      display: flex;
+      align-items: center;
       &:first-child {
         background: url('../../../../assets/images/home/home-menu-icon.svg') no-repeat;
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
       }
       &:nth-child(2) {
         background: url('../../../../assets/images/home/skillstudio-menu-icon.svg') no-repeat;
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 16px;
       }
       &:nth-child(3) {
         background: url('../../../../assets/images/home/marketplace-menu-icon.svg') no-repeat;
-        width: 23px;
-        height: 20px;
+        width: 19px;
+        height: 15px;
       }
       &:nth-child(4) {
         background: url('../../../../assets/images/home/llmhub-menu-icon.svg') no-repeat;
-        width: 26px;
-        height: 20px;
+        width: 19px;
+        height: 16px;
       }
       &:nth-child(5) {
         background: url('../../../../assets/images/home/insights-menu-icon.svg') no-repeat;
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
       }
       &:nth-child(6) {
         background: url('../../../../assets/images/home/events-menu-icon.svg') no-repeat;
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 16px;
       }
       &.active {
         .dropdown .dropbtn {
@@ -521,6 +523,7 @@
         display: inline-block;
         padding: 3px;
         margin-left: 6px;
+        margin-bottom: 2px;
         &.down {
           transform: rotate(225deg) translateY(-50%);
           transition: transform 0.2s;
@@ -534,7 +537,7 @@
       display: inline-block;
       padding: 3px;
       margin-left: 6px;
-
+      margin-bottom: 2px;
       &.down {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
@@ -560,7 +563,7 @@
   margin: 0 auto;
   border-radius: 0 0px 16px 16px;
   left: -280px;
-  margin-top: 19px;
+  margin-top: 32px;
   max-width: 1300px;
 }
 

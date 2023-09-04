@@ -34,10 +34,11 @@
   }
   .title {
     font-size: 22px;
-    font-family: $primary-font-medium;
+    font-family: $primary-font-black;
     padding-bottom: 5px;
     display: flex;
     align-items: center;
+    line-height: 26px;
     .play-btn {
       background: url('../../assets/images/play-button.png') no-repeat;
       width: 25px;

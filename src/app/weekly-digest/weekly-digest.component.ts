@@ -21,7 +21,7 @@ export class WeeklyDigestComponent implements OnInit {
     {
       id: 'NEWS_LETTER',
       displayName: 'News Letter',
-      bgColor: 'indigo-purple',
+      // bgColor: 'indigo-purple',
       url: '/digest/newsletter?id=',
     },
   ];

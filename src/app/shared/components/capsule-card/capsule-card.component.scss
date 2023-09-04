@@ -87,7 +87,7 @@
       transition: background-color 0.5s ease;
       background-repeat: no-repeat;
       background-image: url('../../../../assets/images/play-button.svg');
-      transition: 0.3s;
+      transition: all 0.35s ease-in-out;
       &:hover {
         -webkit-transition: background-position 200ms ease-in-out;
         -moz-transition: background-position 200ms ease-in-out;
@@ -99,6 +99,7 @@
         animation-delay: ease-out;
         animation-iteration-count: infinite;
         animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+        transition: all 0.35s ease-out;
       }
     }
   }

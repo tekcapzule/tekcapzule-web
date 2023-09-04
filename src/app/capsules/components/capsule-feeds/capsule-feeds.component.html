@@ -29,15 +29,14 @@
             <!-- <button class="share-btn books"><span>Books</span></button>
             <button class="share-btn jobs"><span>Jobs</span></button> -->
           </div>
-          <p>* You know you can earn credit by sharing post. <a href="#" class="underline">Start earning edits!</a></p>
+          <p class="grey-color">* You know you can earn credit by sharing post. <a href="#" class="underline">Start earning edits!</a></p>
         </div>
         <div class="main-container">
           <div class="d-flex">
             <div class="profile-pic"></div>
             <div class="w-100">
               <div class="d-flex justify-content-between">
-                <h6>The Rise of Artificial Intelligence</h6>
-                <div class="d-flex align-items-center"><b>Article</b> <span class="article-gray-icon ml-2"></span></div>
+                <h5>Sasikumar P</h5>
               </div>
               <p class="grey-color">The Rise of Artificial Intelligence <span>(1 week ago)</span> | <span>Posted:
                   John</span></p>
@@ -45,9 +44,62 @@
           </div>
           <p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium,
             sdda
-            sdftotam rem aperiam, eaque ipsa <span>see more…</span></p>
+            sdftotam rem aperiam, eaque ipsa <span class="grey-color">see more…</span></p>
+         <div class="position-relative">
           <img src="../../../../assets/images/feeds/feeds-img-1.png" alt="" class="img-fluid feeds-img" />
-          <p>120 recommended</p>
+          <div class="icons timer"><img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img"><span>20 mins</span></div>
+          <div class="icons labelRed"><span>#AI/ML</span></div>
+          <div class="short-desc">
+            <p>The IT Ops Sessions: The Effect of ChatGPT and AI on the World of IT</p>
+          </div>
+        </div>
+          <div class="d-flex justify-content-between">
+          <p class="grey-color">120 recommended</p>
+          <div class="d-flex align-items-center grey-color">Article <span class="article-gray-icon ml-2"></span></div>
+          </div>
+          <div>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex align-items-center">
+                <span class="recommend-gray-icon pr-4"></span>Recommend
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="share-gray-icon pr-4"></span>Share
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="comment-gray-icon pr-4"></span>Comment
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="bookmark-gray-icon pr-4"></span>Bookmark
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-container">
+          <div class="d-flex">
+            <div class="profile-pic"></div>
+            <div class="w-100">
+              <div class="d-flex justify-content-between">
+                <h5>Sasikumar P</h5>
+              </div>
+              <p class="grey-color">The Rise of Artificial Intelligence <span>(1 week ago)</span> | <span>Posted:
+                  John</span></p>
+            </div>
+          </div>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium,
+            sdda
+            sdftotam rem aperiam, eaque ipsa <span class="grey-color">see more…</span></p>
+         <div class="position-relative">
+          <img src="../../../../assets/images/feeds/feeds-img-1.png" alt="" class="img-fluid feeds-img" />
+          <div class="icons timer"><img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img"><span>20 mins</span></div>
+          <div class="icons labelRed"><span>#AI/ML</span></div>
+          <div class="short-desc">
+            <p>The IT Ops Sessions: The Effect of ChatGPT and AI on the World of IT</p>
+          </div>
+        </div>
+          <div class="d-flex justify-content-between">
+          <p class="grey-color">120 recommended</p>
+          <div class="d-flex align-items-center grey-color">Article <span class="article-gray-icon ml-2"></span></div>
+          </div>
           <div>
             <div class="d-flex justify-content-between">
               <div class="d-flex align-items-center">
@@ -72,7 +124,7 @@
         <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
           <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
             placeholder="Enter Your Email ID" />
-          <button mat-raised-button class="button tertiary mt-3" (click)="onSubscribe()">
+          <button mat-raised-button class="button tertiary-outline mt-3" (click)="onSubscribe()">
             Subscribe Now
           </button>
         </div>

@@ -8,30 +8,41 @@
 }
 .video-library-card {
   cursor: pointer;
-  border: 1px solid #c3c2c2;
-  border-radius: 4px;
-  height: 400px;
+  border: 1px solid #bbc3e0;
+  border-radius: 5px;
+  height: 375px;
   .video_thumb {
-    height: 150px;
+    height: 125px;
   }
   .header-image {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 125px;
   }
   .content {
     .title {
-      font-size: 18px;
-      font-family: $primary-font-medium;
+      font-size: 16px;
+      font-family: $primary-font-black;
       padding-bottom: 5px;
       color: #333;
       p {
         color: #626262;
+        font-size: 13px;
+        margin-bottom: 10px;
       }
     }
     .description {
       font-size: 14px;
-      overflow-y: auto;
-      height: 190px;
+      max-height: 100px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow-y: hidden;
+      margin-bottom: 10px;
+    }
+    .pills {
+      background: #D9E9F7;
+      color: #556779;
     }
   }
 }

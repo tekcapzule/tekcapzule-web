@@ -98,7 +98,7 @@ h4 {
 
   h2 {
     font-size: 20px;
-    font-family: $primary-font-bold;
+    font-family: $primary-font-black;
   }
 }
 
@@ -185,47 +185,6 @@ h4 {
     }
   }
 
-  .icons {
-    text-align: center;
-    cursor: pointer;
-    position: absolute;
-    background: #fcfafa;
-    border-radius: 20px;
-    margin: 20px 25px;
-    padding: 5px 7px 7px;
-    height: 35px;
-    width: 35px;
-
-    &.bookmark {
-      right: 0;
-    }
-
-    &.labelRed,
-    &.timer {
-      bottom: 20px;
-      width: auto;
-      background: $primary-color;
-      border-radius: 0px;
-      color: $white;
-      margin: 10px;
-      font-size: 14px;
-      height: auto;
-      padding: 2px 7px;
-    }
-
-    &.timer {
-      right: 0;
-      background: #00000090;
-      border: 1px solid $white;
-      border-radius: 2px;
-
-      span {
-        margin-left: 5px;
-        vertical-align: middle;
-      }
-    }
-  }
-
   .header-image {
     height: 150px;
     width: 100%;
@@ -252,7 +211,7 @@ h4 {
       font-size: 16px;
       font-family: $primary-font-medium;
       line-height: 23px;
-      min-height: 70px;
+      min-height: 60px;
       margin-top: 20px;
 
       p {
@@ -272,7 +231,46 @@ h4 {
     }
   }
 }
+.icons {
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  background: #fcfafa;
+  border-radius: 20px;
+  margin: 20px 25px;
+  padding: 5px 7px 7px;
+  height: 35px;
+  width: 35px;
 
+  &.bookmark {
+    right: 0;
+  }
+
+  &.labelRed,
+  &.timer {
+    top: 0px;
+    width: auto;
+    background: #E30045;
+    border-radius: 0px;
+    color: $white;
+    margin: 10px 0;
+    font-size: 14px;
+    height: auto;
+    padding: 2px 7px;
+  }
+
+  &.timer {
+    right: 0;
+    background: #00000096;
+    border-radius: 12px;
+    padding: 2px 12px;
+
+    span {
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+  }
+}
 .content-bg {
   background: #f3f3f3;
 }
@@ -335,20 +333,35 @@ h4 {
     background-color: $primary-color;
     color: $white;
     width: 170px;
-    height: 45px;
+    height: 35px;
     font-size: 16px;
+  }
+  &.tertiary-outline {
+    border-radius: 42px;
+    height: 35px;
+    width: 165px;
+    font-family: $primary-font-black;
+    font-size: 16px;
+    border: 1px solid #1E2663;
+    transition: all 0.35s ease-in-out; 
+    background: transparent;
+    color: #1E2663;
+    &:hover {
+      background: #1E2663;
+      color: #fff;
+    }
   }
 
   &.primary-btn-sm {
     width: fit-content;
-    height: 35px;
+    height: 30px;
     border-radius: 18px;
     font-size: 14px;
     font-family: $primary-font-medium;
     color: $white;
     border: 1px solid $primary-color;
     background: $primary-color;
-    padding: 6px 20px;
+    padding: 0px 20px;
 
     &:hover {
       background: $white;
@@ -492,7 +505,7 @@ textarea {
   background: #fff;
   border: 0 none;
   padding: 10px 20px;
-  border-radius: 10px !important;
+  border-radius: 5px !important;
   color: #000;
   font-family: $primary-font-regular;
   font-size: 16px;
@@ -925,6 +938,10 @@ app-spinner {
   }
 }
 
+.bg-white {
+  background-color: $white;
+}
+
 .bg-gray {
   background: #f9f9f9;
 }
@@ -937,12 +954,15 @@ app-spinner {
   background: #f1dbe1;
 }
 .bg-light-blue {
-  background: #dedeef !important;
-  color: #4b4e67 !important;
-  border: 1px solid #cdcfea !important;
+  background: #EBEBFF !important;
+  color: #365796 !important;
+  border: 1px solid #AAADD8 !important;
   margin-right: 20px;
 }
-
+.bg-navy-blue 
+{
+  background-color: #160158 !important;
+}
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
   width: 7px;
@@ -1158,8 +1178,8 @@ iframe .navbar-container,
 
 .okhand-gray-icon {
   background: url('../images/hand-gray.svg') no-repeat;
-  width: 18px;
-  height: 22px;
+  width: 11px;
+  height: 15px;
 }
 
 .okhand-white-icon {
@@ -1171,16 +1191,16 @@ iframe .navbar-container,
 
 .premium-gray-icon {
   background: url('../images/premium-icon.svg') no-repeat;
-  width: 23px;
-  height: 17px;
+  width: 17px;
+  height: 13px;
   margin-right: 10px;
 }
 
 .date-icon {
-  background: url('../../assets/images/date-icon.svg') no-repeat;
-  width: 20px;
-  height: 20px;
-  margin-right: 25px;
+  background: url('../../assets/images/date-icon-gray.svg') no-repeat;
+  width: 12px;
+  height: 13px;
+  margin-right: 10px;
   display: inline-block;
 
   &.dark {
@@ -1624,6 +1644,7 @@ iframe .navbar-container,
 
   &.p-main {
     padding-top: 108px;
+    background: #FAFAFA;
   }
 
   .skill-studio-bg {
@@ -1658,7 +1679,7 @@ iframe .navbar-container,
 
 .subscribe-btn {
   position: absolute;
-  right: 14px;
+  right: 5px;
   background-color: #212c5e !important;
   border: 1px solid #212c5e;
 }
@@ -1751,7 +1772,7 @@ select {
   transition: background-color 0.5s ease;
   background-repeat: no-repeat;
   background-image: url('../../assets/images/play-button.svg');
-  transition: 0.3s;
+  transition: all 0.35s ease-in-out;
 
   &:hover {
     -webkit-transition: background-position 200ms ease-in-out;
@@ -1764,6 +1785,7 @@ select {
     animation-delay: ease-out;
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+    transition: all 0.35s ease-out;
   }
 }
 
@@ -1774,10 +1796,14 @@ select {
 }
 
 .box-content {
-  border: 1px solid #b4b4b4;
-  padding: 20px 30px;
-  border-radius: 5px;
+  // border: 1px solid #b4b4b4;
+  // padding: 20px 30px;
+  // border-radius: 5px;
   overflow: hidden;
+  border-bottom: 1px solid #bbc3e0;
+  // padding: 20px 0;
+  padding-top: 0;
+  padding-bottom: 20px;
 
   p {
     font-size: 16px;
@@ -1831,15 +1857,14 @@ select {
 }
 
 .subscribe-block {
-  background: $white;
-  border: 2px solid #ffffff;
+  background: #2F13346F;
   border-radius: 16px;
-  padding: 30px;
+  padding: 20px 30px;
   max-width: 408px;
   height: 276px;
 
   h3 {
-    font-family: $primary-font-bold;
+    font-family: $primary-font-medium;
   }
 
   p {
@@ -1853,18 +1878,18 @@ select {
   background-color: #202a5f;
 }
 
-.bg-white {
-  background-color: $white;
-}
 .grey-color {
   color: #656565;
 }
 
 .card-footer {
-  padding: 15px 30px;
-  height: 60px;
+  padding: 10px 30px;
+  height: 45px;
   color: #2b2b2b;
   font-family: $primary-font-medium;
+  background-color: transparent !important;
+  border-top: 1px solid #bbc3e0;
+  font-size: 13px;
 }
 
 /************AI Hub Banners****************/
@@ -1878,12 +1903,12 @@ select {
 
     span {
       font-family: $primary-font-bold;
-      color: $primary-color;
+      color: #ff50dd;
     }
   }
 
   &.tekbyte {
-    background: url('../images/tekbyte-banner.png') no-repeat;
+    background:  url('../images/skillstudio/tekbyte-banner-bg-pattern.svg') no-repeat, url('../images/skillstudio/tekbyte-banner-bg.svg') no-repeat;
     background-size: cover;
   }
 
@@ -1894,7 +1919,7 @@ select {
   }
 
   &.courses {
-    background: url('../images/courses-banner.png') no-repeat;
+    background: url('../images/events/events-banner-bg.png') no-repeat, url('../images/courses-banner.png') no-repeat;
     background-size: cover;
   }
 
@@ -1931,6 +1956,9 @@ select {
 }
 .linear-bg-banner {
   background: linear-gradient(315deg, #202a5f 0%, #672b66 100%);
+}
+.linear-newbg-banner {
+  background: transparent linear-gradient(258deg, #421F90 0%, #4C3176 53%, #C61B9F 100%) 0% 0% no-repeat;
 }
 
 .inner {
@@ -2190,4 +2218,23 @@ select {
 .image-position {
   position: absolute;
   z-index: 1;
+}
+
+.pills {
+  background-color: #838BAD;
+  border-radius: 20px;
+  padding: 0px 10px;
+  height: fit-content;
+  color: #fff;
+  font-family: $primary-font-regular;
+  font-size: 12px;
+  margin-right: 10px;
+}
+.recommend {
+  font-size: 13px;
+  font-family: $primary-font-medium;
+  .count {
+    font-family: $primary-font-regular;
+    color: #626262;
+  }
 }

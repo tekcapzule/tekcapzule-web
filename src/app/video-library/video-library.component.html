@@ -22,33 +22,18 @@
       </div>
     </div>
   </section>
-  <section class="py-5">
+  <section>
     <div class="inner">
-      <div class="hub-search pb-4">
-        <div class="col-lg-6 d-inline-flex align-items-center pl-0">
-          <div class="search-box mt-0 pl-0 ml-0 mr-1 col-lg-6">
-            <input
-              type="text"
-              name="searchTopics"
-              placeholder="Search Topics"
-              class="mb-0"
-              [(ngModel)]="searchText"
-              (keyup.enter)="onSearch()"
-              (blur)="onSearch()"
-            />
-            <button title="search bar" class="search-btn" (click)="onSearch()"></button>
-          </div>
-          <div [ngClass]="{ 'item-selected': selectedTopics.length > 0 }" class="page-filter">
-            <p-multiSelect
-              [options]="topics"
-              [filter]="false"
-              (onChange)="onChange($event)"
-              optionLabel="title"
-            ></p-multiSelect>
-          </div>
+      <div class="container d-flex align-items-center justify-content-between py-4 px-0">
+        <div>
+          <button class="button bg-light-blue primary-btn-sm">Artificial Intelligence</button>
+          <button class="button bg-light-blue primary-btn-sm white-bg">Web 3.0</button>
+          <button class="button bg-light-blue primary-btn-sm white-bg">Metaverse</button>
         </div>
-        <div class="col-lg-6 hub-register pr-0">
-          <button class="button primary tertiary w-auto px-3 mx-0">Register</button>
+        <div class="search-rounded col-lg-3 pl-0">
+          <input type="text" name="searchTopics" placeholder="Search Topics" class="mb-0 input-search-rounded"
+            [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()" />
+          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
         </div>
       </div>
 
@@ -59,7 +44,7 @@
           (click)="onVideoClick(video)"
         >
           <div class="position-relative">
-            <div
+            <!-- <div
               class="icons okHand"
               *ngIf="!video.isRecommended"
               (click)="onRecommendClick($event, video)"
@@ -72,7 +57,8 @@
                 alt="okhand icon filled"
                 class="rounded-img"
               />
-            </div>
+            </div> -->
+            <div class="icons labelRed"><span>#Cloud</span></div>
 
             <div class="video_thumb">
               <img alt="play icon" class="header-image" [src]="video.imageUrl" />
@@ -82,13 +68,19 @@
           <div class="content">
             <div class="title">
               <div class="pb-1">{{ video.title }}</div>
-              <p>Published Date: {{ video.publishedOn }}</p>
+              <p>Linjith Kunnon | Published Date: {{ video.publishedOn }}</p>
             </div>
             <div class="description">
               <p>
                 {{ video.summary }}
               </p>
             </div>
+            <div class="d-flex">
+              <span class="pills">AI</span>
+              <span class="pills">Web 3.0</span>
+              <span class="pills">Metaverse</span>
+            </div>
+            <div class="recommend pt-3"><span class="okhand-gray-icon pr-4"></span>Recommend <span class="count">(120)</span></div>
           </div>
         </div>
       </div>
