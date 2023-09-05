@@ -4,25 +4,28 @@
 .digest-card {
   cursor: pointer;
   background-image: url('../../assets/images/skill-studio-card-pattern.png');
-  background-color: #2e375a;
+  // background-color: #2e375a;
   max-height: 290px;
   max-width: 395px;
   width: 100%;
-  padding: 20px 35px;
+  padding: 20px 25px;
   color: $white;
   border-radius: 15px;
   margin: 0px 40px 40px 0px;
   display: inline-grid;
   text-align: left;
+  color: #1C1C1C;
+  border: 1px solid #bbc3e0;
   &.indigo-purple {
     background-color: #3d234e;
   }
   .title {
     font-size: 22px;
-    font-family: $primary-font-medium;
+    font-family: $primary-font-black;
     padding-bottom: 5px;
     display: flex;
     align-items: center;
+    line-height: 26px;
     .play-btn {
       background: url('../../assets/images/play-button.png') no-repeat;
       width: 25px;
@@ -33,7 +36,7 @@
   .content-top {
     height: 113px;
     margin-bottom: 10px;
-    border-bottom: 1px solid #6b6b6b;
+    border-bottom: 1px solid #bbc3e0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
@@ -85,6 +88,7 @@
   }
 }
 .weekly-digest-banner {
-  background: url('../../assets/images/weekly-banner-bg.svg') 112px 20px no-repeat;
-  border-bottom: 1px solid #D6D6D6;
+  background: url('../../assets/images/weekly-banner-bg.svg') 112px 65px no-repeat, transparent linear-gradient(260deg, #421F90 0%, #4C3176 53%, #C61B9F 100%) 0% 0% no-repeat padding-box;
+  height: 360px;
+  padding-top: 60px;
 }

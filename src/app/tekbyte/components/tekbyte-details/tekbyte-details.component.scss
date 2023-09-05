@@ -12,27 +12,24 @@
   
   .tekbyte-details {
     .title-img {
-      background-color: #38414D;
-      border-radius: 11px;
-      padding: 33px;
         display: inline-block;
         margin-right: 10px;
       &.key-concept-icon {
-        background: #38414D url('../../../../assets/images/key-concept-icon.png') 50% 50% no-repeat;
-        width: 40px;
-        height: 48px;
+        background: url('../../../../assets/images/key-concept-icon.svg') no-repeat;
+        width: 23px;
+        height: 25px;
       }
       &.application-icon {
-        background: #38414D url('../../../../assets/images/application-icon.png') 50% 50% no-repeat;
-        width: 40px;
-        height: 32px;
+        background: url('../../../../assets/images/application-icon.svg') no-repeat;
+        width: 25px;
+        height: 20px;
       }
     }
     // business-modal
     .business-modal {
       margin-top: 80px;
       .card {
-        border: 1px solid #EC0036;
+        border: 1px solid #FF00C8;
         border-radius: 20px;
         padding: 30px 25px;
         max-width: 323px;
@@ -50,6 +47,7 @@
           padding: 0 20px;
           left: 33%;
           font-size: 26px;
+          font-family: $primary-font-black;
         }
         &:last-child {
           margin-right: 0;

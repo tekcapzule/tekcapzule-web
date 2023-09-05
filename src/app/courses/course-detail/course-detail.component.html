@@ -13,58 +13,61 @@
   </div>
   <div class="row">
     <div class="col-lg-12 px-0 pb-0">
-      <section class="container-fluid details-banner linear-bg px-0 pt-5 ">
-        <div class="container">
+      <section class="container-fluid details-banner linear-newbg-banner px-0 pt-5 ">
+        <div class="inner">
           <div class="row justify-content-between">
             <div class="col-lg-8 mr-5 mob-mr-0">
-              <div class="mt-4 d-flex align-items-center">
-              <h2 class="pb-3">{{courseDetail.title}}</h2>
-              <div class="pb-3 ml-3 d-flex"><span class="okhand-white-icon pr-4"></span>0</div>
+              <div class="d-flex align-items-center">
+                <h2>{{courseDetail.title}}</h2>
+                <span class="pills ml-3 bg-navy-blue">Metaverse</span>
               </div>
-              
               <h6 class="text-white author">{{courseDetail.author}} (August 16, 2010)</h6>
-             <p>{{courseDetail.summary}}</p> 
-             <button class="button tertiary b-radius">Explore</button>
+              <p>{{courseDetail.summary}}</p>
+              <div class="d-flex">
+                <div class="recommend pt-3"><span class="okhand-gray-icon pr-4"></span>Recommend <span
+                    class="count">(120)</span></div>
+
+              </div>
             </div>
             <div class="col-lg-3 subscribe-block">
-              <h3>Highlight of this course:</h3>
+              <h3 class="text-white">Highlight of this course:</h3>
               <ul class="course-highlight">
                 <li>Channel: udemy</li>
                 <li>Duration: 12 hours</li>
                 <li>Delivery More: Online</li>
                 <li>Learning: Self-Paced</li>
-                <li>Instruction Lead: Online</li>
               </ul>
+              <button class="button tertiary b-radius">Explore</button>
             </div>
           </div>
         </div>
       </section>
-      
+
     </div>
   </div>
   <!-----Curriculum Section----->
-  <div class="container d-flex details-body px-0">
-    <div class="col-lg-8 col-sm-12 mr-5">
+  <div class="inner d-flex details-body px-0">
+    <div class="col-lg-8 col-sm-12 mr-5 px-0">
       <section class="py-5">
-          <div class="pb-3 text-left">
-            <h2>Curriculum</h2>
-          </div>
-            <p class="pb-3">{{courseDetail.description}}</p>
+        <div class="pb-3 text-left">
+          <h2>Curriculum</h2>
+        </div>
+        <p class="pb-3">{{courseDetail.description}}</p>
         <div *ngFor="let module of courseDetail.modules" class="box-content">
-            <h4>{{module.title}} <span class="link-icon"></span></h4>
-            <p>{{module.description}}</p>
-              <div class="description d-flex align-items-center"><span class="date-icon dark"></span>2 - 3 weeks</div>
+          <h4>{{module.title}} <span class="link-icon"></span></h4>
+          <p>{{module.description}}</p>
+          <div class="description d-flex align-items-center"><span class="date-icon dark"></span>2 - 3 weeks</div>
         </div>
       </section>
     </div>
     <div class="pt-5">
-      <div class="col-lg-4 col-sm-12 subscribe-block american-blue-bg">
-        <h3 class="text-white">Tekcapsule AI Digest</h3>
-        <p  class="text-white">Connecting you to the latest AI advancements and insights!</p>
+      <div class="col-lg-4 col-sm-12 subscribe-block bg-white">
+        <h6>The Edge - Subscribe to our Newsletter</h6>
+        <p>Connecting you to the latest AI advancements and insights!</p>
         <div>
           <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
             placeholder="Enter Your Email ID" />
-          <button mat-raised-button class="button tertiary mt-3">
+          <button mat-raised-button class="button tertiary-outline mt-3">
             Subscribe Now
           </button>
         </div>
@@ -73,22 +76,21 @@
   </div>
 
   <!-----Related Topics Section----->
-  <section *ngIf="relatedCourseList.length" class="py-5  bg-gray">
+  <section *ngIf="relatedCourseList.length" class="bg-gray">
     <div class="container course-tile">
       <div class="section-title">
         <h2>Courses you may be interested in!</h2>
       </div>
-        <div class="d-flex flex-wrap">
-          <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
-            <p-carousel [value]="relatedCourseList" [numVisible]="3" [numScroll]="3" [circular]="false"
-            [responsiveOptions]="responsiveOptions"
-            >
-              <ng-template let-course pTemplate="item">
-                <app-course-card [course]="course"></app-course-card>
-              </ng-template>
-            </p-carousel>
-          </div>
+      <div class="d-flex flex-wrap">
+        <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
+          <p-carousel [value]="relatedCourseList" [numVisible]="3" [numScroll]="3" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-course pTemplate="item">
+              <app-course-card [course]="course"></app-course-card>
+            </ng-template>
+          </p-carousel>
         </div>
       </div>
+    </div>
   </section>
 </div>

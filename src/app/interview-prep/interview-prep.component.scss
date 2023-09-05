@@ -1,7 +1,7 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
 .box-content {
-  padding: 15px 20px;
+  // padding: 15px 20px;
   transition: all 0.3s ease 0s;
   .box-content-img {
     float: left;
@@ -9,12 +9,13 @@
     border-radius: 10px;
     width: 260px;
     height: 150px;
+    &:hover {
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      transition: all 0.3s ease 0s;
+    }
   }
-  &:hover {
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    transition: all 0.3s ease 0s;
-  }
+  
 }
 .interview-skeleton {
   .title {

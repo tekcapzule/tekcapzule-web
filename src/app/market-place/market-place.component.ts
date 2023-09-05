@@ -16,9 +16,9 @@ export class MarketPlaceComponent implements OnInit {
   selectedPayments: any[] = [];
   selectedOS: any[] = [];
   paymentCategories: any[] = [
-    { name: 'Free', key: 'FREE' },
-    { name: 'Premium', key: 'PREMIUM' },
-    { name: 'Paid', key: 'PAID' },
+    { name: 'Free', key: 'Free' },
+    { name: 'Premium', key: 'Premium' },
+    { name: 'Paid', key: 'Standard' },
   ];
 
   osCategories: any[] = [

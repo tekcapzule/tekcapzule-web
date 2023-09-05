@@ -21,10 +21,10 @@ export class CoursesComponent implements OnInit {
   selectedPayments: any[] = [];
   selectedDeliveryMode: any[] = [];
   paymentCategories: any[] = [
-    { name: 'Free', key: 'FREE' },
-    { name: 'Freemium', key: 'FREEMIUM' },
-    { name: 'Premium', key: 'PREMIUM' },
-    { name: 'Paid', key: 'PAID' },
+    { name: 'Free', key: 'Free' },
+    { name: 'Freemium', key: 'Freemium' },
+    { name: 'Premium', key: 'Premium' },
+    { name: 'Paid', key: 'Standard' },
   ];
   deliveryMode: any[] = [
     { name: 'Online', key: 'ONLINE' },
