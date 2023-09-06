@@ -5,7 +5,13 @@
   cursor: pointer;
   border: 1px solid #afa1a1;
   border-radius: 4px;
-  height: 495px;
+  height: 375px;
+  .bookmark-icon-animated {
+    top: 18px;
+    position: absolute;
+    float: right;
+    right: 12px;
+  }
   .header-image {
     height: 128px;
     border-top-left-radius: 0px;
@@ -13,13 +19,21 @@
     padding: 6px;
   }
   .content {
+    .pills {
+      background: #D9E9F7;
+      color: #556779;
+    }
     .title {
       font-family: $primary-font-bold;
     }
     .description {
       font-size: 14px;
-      overflow-y: auto;
-      height: 190px;
+      max-height: 100px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow-y: hidden;
+    margin-bottom: 10px;
     }
   }
   .badge {

@@ -3,18 +3,22 @@
 
 .digest-card {
   background-image: url('../../assets/images/skill-studio-card-pattern.png');
-  background-color: #2e375a;
+  // background-color: #2e375a;
   cursor: pointer;
   // max-height: 290px;
-  height: 290px;
+  max-height: 230px;
   max-width: 395px;
   width: 100%;
-  padding: 30px;
-  color: $white;
+  padding: 15px 25px;
+  color: #1C1C1C;
   border-radius: 15px;
   margin: 0px 40px 40px 0px;
-  display: inline-grid;
+  // display: inline-grid;
   text-align: left;
+  border: 1px solid #bbc3e0;
+  background-repeat: no-repeat;
+  background-size: contain;
+
   &.razzmatazz {
     background-color: #e30070;
   }
@@ -49,7 +53,13 @@
   .description {
     font-size: 16px;
     font-family: $primary-font-regular;
-    // display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow-y: hidden;
+    min-height: 80px;
+    display: -webkit-box;
+    border-bottom: 1px solid #bbc3e0;
+    margin-bottom: 10px;
   }
 }
 .venue-details {

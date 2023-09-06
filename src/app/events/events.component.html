@@ -39,24 +39,22 @@
         <div class="pb-3 text-left">
           <h2>{{ reg?.replaceAll('_', ' ') | titlecase }}</h2>
         </div>
-        <div>
+        <div class="d-flex">
           <div
             *ngFor="let eve of events[reg]; let j = index"
             class="digest-card"
             (click)="onRegister(eve)"
-            [ngClass]="{
-              razzmatazz: reg === 'EUROPE',
-              'purple-heart': reg === 'MIDDLE_EAST_AFRICA',
-              'indigo-purple': reg === 'ASIA_ASIAPACIFIC'
-            }"
           >
             <div class="conference-header">
-              <div class="title">{{ eve.title }}</div>
+              <div class="d-flex justify-content-between align-items-center">
+              <div class="title">{{ eve.title }}<br>2023</div>
+              <span class="pills mr-0">Metaverse</span>
+            </div>
               <div class="description">{{ eve.summary }}</div>
             </div>
             <div *ngIf="eve.schedule" class="d-flex align-items-center">
               <span class="date-icon"></span>{{ eve.schedule.startDate }} - {{ eve.schedule.endDate
-              }}<span> | </span>{{ eve.schedule.startTime }} - {{ eve.schedule.endTime }}
+              }}<span class="px-3"> | </span>{{ eve.schedule.startTime }} - {{ eve.schedule.endTime }}
             </div>
             <div class="d-flex align-items-center">
               <span class="location-icon"></span>{{ eve.venue }}
@@ -70,21 +68,24 @@
         <div class="pb-3 text-left">
           <h2>Popular Past Events</h2>
         </div>
-        <div>
+        <div class="d-flex">
           <div
             *ngFor="let eve of pastPopularEvent; let j = index"
-            class="digest-card night-rider"
+            class="digest-card"
             (click)="onPastEvents(eve)"
           >
             <div class="conference-header">
-              <div class="title"><span class="play-btn"></span>{{ eve.title }}</div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="title">{{ eve.title }}<br>2023</div>
+                <span class="pills mr-0">Metaverse</span>
+              </div>
               <div class="description">{{ eve.summary }}</div>
             </div>
-            <div class="description">
+            <!-- <div class="d-flex align-items-center">
               <span class="date-icon"></span>{{ eve.schedule.startDate }} - {{ eve.schedule.endDate
               }}<span> | </span>{{ eve.schedule.startTime }} - {{ eve.schedule.endTime }}
             </div>
-            <div class="description"><span class="location-icon"></span>{{ eve.venue }}</div>
+            <div class="d-flex align-items-center"><span class="location-icon"></span>{{ eve.venue }}</div> -->
           </div>
         </div>
       </section>

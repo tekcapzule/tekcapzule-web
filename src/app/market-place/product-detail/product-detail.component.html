@@ -20,17 +20,23 @@
               class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center banner-content"
             >
               <div class="d-flex align-items-center">
-                <h2 class="text-white pr-4">{{ product.title }}</h2>
-                <div><span class="okhand-icon pr-4"></span>100</div>
+                <h2 class="text-white">{{ product.title }}</h2>
+                <span class="pills ml-3 bg-navy-blue">Metaverse</span>
               </div>
 
               <p class="mb-3">
                 {{ product.description }}
               </p>
-              <div class="d-flex">
-                <span class="badge paid mr-2">paid</span>
-                <span class="badge paid mr-2">tag 01</span>
-                <span class="badge paid">tag 02</span>
+              <div class="d-flex align-items-center">
+                <div class="recommend font-16 d-flex mr-4"><span class="okhand-white-icon pr-3"></span>Recommend
+                  <span class="count text-white pl-2">(120)</span>
+                </div>
+                <div class="d-flex mr-4 align-items-center">
+                  <span class="bookmark-icon-white mr-2"></span>Bookmark
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="free-icon mr-2"></span>Free
+                </div>
               </div>
               <button class="button primary-btn-sm mt-4" (click)="onExplore()">
                 Check Now

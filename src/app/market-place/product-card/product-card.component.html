@@ -2,13 +2,20 @@
   <div class="app-logo">
     <img [src]="product.imageUrl" alt="" />
   </div>
+  <div class="position-relative">
+    <div class="bookmark-icon-animated"></div>
+  </div>
   <div class="content">
     <div class="title">{{ product.title }}</div>
     <p class="description">{{ product.summary }}</p>
-    <div class="badge category">{{ product.category }}</div>
-    <div class="mt-3 d-flex align-items-center justify-content-between">
-      <div class="pl-0"><span class="okhand-icon pr-4"></span>{{ product.recommendations }}</div>
-      <div class="badge free">{{ product.prizingModel }}</div>
+    <div class="pills">{{ product.category }}</div>
+    <div class="d-flex justify-content-between market-card-footer">
+      <div class="d-flex align-items-center">
+        <span class="okhand-gray-icon pr-4"></span>Recommend ({{ product?.recommendations }})
+      </div>
+      <div class="d-flex align-items-center">
+        <span class="premium-gray-icon"></span>{{ product?.prizingModel }}
+      </div>
     </div>
   </div>
 </div>
