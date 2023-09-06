@@ -45,7 +45,8 @@
           (click)="onOpen(research)"
         >
           <div class="position-relative">
-            <div
+              <div class="bookmark-icon-animated"></div>
+            <!-- <div
               class="icons okHand"
               *ngIf="!research.isRecommended"
               (click)="onRecommendClick($event, research)"
@@ -58,27 +59,31 @@
                 alt="okhand icon filled"
                 class="rounded-img"
               />
-            </div>
+            </div> -->
 
-            <img alt="play icon" class="header-image" [src]="research.imageUrl" />
+            <img alt="" class="header-image" [src]="research.imageUrl" />
           </div>
           <div class="content">
             <div class="title">
               {{ research.title }}
               <p *ngFor="let author of research.authors; let i = index">
                 {{ author }}
-                <span *ngIf="i === research.authors.length - 1">({{ research.publishedOn }})</span>
+                <span class="px-1"> | </span> <span *ngIf="i === research.authors.length - 1">{{ research.publishedOn }}</span>
               </p>
             </div>
-            <div class="d-flex">
-              <span *ngFor="let tag of research.tags; let i = index" class="badge">{{ tag }}</span>
-              <span class="badge">machine learning</span>
-            </div>
+            
+
             <div class="description">
               <p>
                 {{ research.summary }}
               </p>
             </div>
+            <div class="d-flex">
+              <span *ngFor="let tag of research.tags; let i = index" class="pills">{{ tag }}</span>
+              <span class="pills">Web 3.0</span>
+              <span class="pills">Metaverse</span>
+            </div>
+            <div class="recommend pt-3 d-flex align-items-center"><span class="okhand-gray-icon pr-4"></span>Recommend <span class="count">(120)</span></div>
           </div>
         </div>
       </div>

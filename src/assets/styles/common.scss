@@ -63,7 +63,7 @@ h2 {
 
 h3 {
   font-size: 20px;
-  font-family: $primary-font-medium;
+  font-family: $primary-font-black;
 }
 
 .heading {
@@ -117,11 +117,10 @@ h4 {
   .carousel-indicators li {
     background-color: #fff;
     height: 7px;
-    border: 1px solid #ec0085;
-    border-radius: 5px;
+    border: 1px solid #202A5F;
 
     &.active {
-      background-color: #ec0085;
+      background-color: #202A5F;
     }
   }
 
@@ -492,6 +491,15 @@ h4 {
     }
   }
 }
+.filter-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #A7389F;
+  padding: 0 15px;
+  border-radius: 25px;
+  line-height: 33px;
+  margin-right: 10px;
+}
 
 /*****************************************
 <!--Form Styles -->
@@ -752,6 +760,12 @@ status colors
 
 .text-muted {
   color: #9c9c9c !important;
+}
+.text-dark-gray {
+  color: #5D5D5D;
+}
+.text-blue {
+  color: #3059B4 !important;
 }
 
 /***************************
@@ -1026,8 +1040,7 @@ iframe .navbar-container,
 .p-carousel .p-carousel-indicators .p-carousel-indicator {
   background-color: #fff;
   height: 7px;
-  border: 1px solid #ec0085;
-  border-radius: 5px;
+  border: 1px solid #2E365B;
 }
 
 .p-carousel .p-carousel-indicators .p-carousel-indicator button {
@@ -1035,8 +1048,7 @@ iframe .navbar-container,
 }
 
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: #ec0085 !important;
-  border-radius: 5px;
+  background-color: #2E365B !important;
   height: 6px;
 }
 
@@ -1119,6 +1131,7 @@ iframe .navbar-container,
   }
 }
 
+// ICONS CSS
 .badge-danger {
   background: linear-gradient(90deg, rgba(244, 201, 133, 1) 0%, rgba(245, 61, 109, 1) 100%);
   font-family: OpenSans-Light;
@@ -1184,8 +1197,8 @@ iframe .navbar-container,
 
 .okhand-white-icon {
   background: url('../images/okhand-icon-white.svg') no-repeat;
-  width: 18px;
-  height: 22px;
+  width: 12px;
+  height: 16px;
   margin-right: 5px;
 }
 
@@ -1211,8 +1224,8 @@ iframe .navbar-container,
 .location-icon {
   background: url('../../assets/images/location-icon.svg') no-repeat;
   width: 17px;
-  height: 22px;
-  margin-right: 25px;
+  height: 14px;
+  margin-right: 6px;
   display: inline-block;
 
   &.dark {
@@ -1242,6 +1255,11 @@ iframe .navbar-container,
   background: url('../images/feeds/bookmark-icon-feed.svg') no-repeat;
   width: 15px;
   height: 15px;
+}
+.bookmark-icon-white {
+  background: url('../images/bookmark-icon-white.svg') no-repeat;
+  width: 10px;
+  height: 14px;
 }
 .recommend-gray-icon {
   background: url('../images/feeds/recommend-icon.svg') no-repeat;
@@ -1310,6 +1328,11 @@ iframe .navbar-container,
   background: url('../images/course-list-icon.svg') no-repeat;
   width: 20px;
   height: 20px;
+}
+.free-icon {
+  background: url('../images/free-icon.svg') no-repeat;
+  width: 18px;
+  height: 17px;
 }
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
@@ -2229,12 +2252,32 @@ select {
   font-family: $primary-font-regular;
   font-size: 12px;
   margin-right: 10px;
+  width: fit-content;
 }
 .recommend {
   font-size: 13px;
   font-family: $primary-font-medium;
+  display: flex;
   .count {
     font-family: $primary-font-regular;
     color: #626262;
+    padding-left: 10px;
   }
+}
+.bookmark-icon-animated {
+  background: #f6f6f6 url(../../assets/images/skillstudio/bookmark.svg) 10px 8px no-repeat;
+  width: 10px;
+  height: 14px;
+  padding: 15px 16px;
+  border-radius: 50px;
+  margin-top: -5px;
+  transition: all 0.35s ease-in-out;
+  &:hover {
+    background: #DEDEDEC7 url(../../assets/images/skillstudio/bookmark-hover.svg) 10px 8px no-repeat;
+    border-radius: 50px;
+    padding: 15px 16px;
+  }
+}
+.font-16 {
+  font-size: 16px;
 }

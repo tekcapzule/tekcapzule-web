@@ -17,8 +17,10 @@
     background: $white;
     border-radius: 7px;
     width: 297px;
-    min-height: 340px;
-    border: 1px solid #BCBCBC;
+    min-height: 315px;
+    box-shadow: 0px 10px 20px #5A5A5A2F;
+    border: 1px solid #F0F3FF;
+    border-radius: 7px;
     margin-bottom: 30px;
     // display: table-cell;
     cursor: pointer;
@@ -49,6 +51,11 @@
             font-size: 15px;
             font-family: $primary-font-regular;
             color: #444444;
+            min-height: 90px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow-y: hidden;
         }
     }
 }
