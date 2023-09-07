@@ -5,6 +5,11 @@
         _ngcontent-xwg-c263="">{{course.duration}} mins</span>
     </div>
     <div class="icons labelRed"><span _ngcontent-xwg-c263="">#{{course.topicName}}</span></div>
+    <div class="icons publisher">
+      <img src="/assets/images/course-list-icon.svg" alt="publisher icon" /><span
+        _ngcontent-xwg-c263="">{{course.publisher}}</span>
+    </div>
+    <div class="icons bookmark-icon-animated"></div>
     <img [src]="course.imageUrl" alt="card 3" class="header-image" />
   </div>
   <div class="content">
@@ -20,8 +25,10 @@
       </p>
     </div>
   </div>
-  <div class="mt-4 d-flex align-items-center justify-content-between px-4 card-footer">
+  <div class="mt-2 d-flex align-items-center justify-content-between px-4 card-footer">
     <div class="recommend pl-0 d-flex"><span class="okhand-gray-icon pr-3"></span> Recommend <span class="count"> ({{course.recommendations}})</span></div>
-    <div class="d-flex pr-2"><span class="publisher-icon"></span>{{course.publisher}}</div>
+    <div class="d-flex align-items-center">
+      <span class="free-icon mr-2"></span>Free
+    </div>
 </div>
 </div>
