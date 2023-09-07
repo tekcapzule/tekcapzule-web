@@ -187,8 +187,8 @@ h4 {
   .header-image {
     height: 150px;
     width: 100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     border-bottom: 1px solid #f3f3f3;
   }
 
@@ -204,7 +204,7 @@ h4 {
   }
 
   .content {
-    padding: 0 30px;
+    padding: 0 20px;
 
     .title {
       font-size: 16px;
@@ -227,6 +227,11 @@ h4 {
     .description {
       font-family: $primary-font-regular;
       font-size: 14px;
+      max-height: 80px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow-y: hidden;
     }
   }
 }
@@ -234,12 +239,10 @@ h4 {
   text-align: center;
   cursor: pointer;
   position: absolute;
-  background: #fcfafa;
-  border-radius: 20px;
-  margin: 20px 25px;
-  padding: 5px 7px 7px;
-  height: 35px;
-  width: 35px;
+  color: $white;
+  font-size: 13px;
+  font-family: $primary-font-medium;
+  width: fit-content;
 
   &.bookmark {
     right: 0;
@@ -247,21 +250,30 @@ h4 {
 
   &.labelRed,
   &.timer {
-    top: 0px;
+    bottom: 0px;
     width: auto;
     background: #E30045;
     border-radius: 0px;
     color: $white;
-    margin: 10px 0;
+    margin: 10px 0 1px;
     font-size: 14px;
     height: auto;
     padding: 2px 7px;
   }
+  &.publisher,  &.bookmark-icon-animated{
+    top:10px;
+  }
+  &.bookmark-icon-animated{
+    right: 10px;
+    top:15px;
+  }
+  &.publisher {
+    left: 0;
+  }
 
-  &.timer {
+  &.timer, &.publisher {
     right: 0;
-    background: #00000096;
-    border-radius: 12px;
+    background: #00000065;
     padding: 2px 12px;
 
     span {
@@ -1334,6 +1346,11 @@ iframe .navbar-container,
   width: 18px;
   height: 17px;
 }
+.freeium-icon {
+  background: url('../images/freemium.svg') no-repeat;
+  width: 14px;
+  height: 14px;
+}
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
   color: $primary-color !important;
@@ -2268,14 +2285,14 @@ select {
   background: #f6f6f6 url(../../assets/images/skillstudio/bookmark.svg) 10px 8px no-repeat;
   width: 10px;
   height: 14px;
-  padding: 15px 16px;
+  padding: 15px;
   border-radius: 50px;
   margin-top: -5px;
   transition: all 0.35s ease-in-out;
   &:hover {
     background: #DEDEDEC7 url(../../assets/images/skillstudio/bookmark-hover.svg) 10px 8px no-repeat;
     border-radius: 50px;
-    padding: 15px 16px;
+    padding: 15px;
   }
 }
 .font-16 {
