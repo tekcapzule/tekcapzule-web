@@ -57,6 +57,15 @@
     color: #262626;
     margin-bottom: 0;
   }
+  .icons {
+    &.labelRed, &.timer{
+    top: 0;
+    height: fit-content;
+  }
+  &.timer {
+    border-radius: 12px;
+  }
+}
 
   .feeds-img {
     width: 100%;

@@ -1346,6 +1346,11 @@ iframe .navbar-container,
   width: 18px;
   height: 17px;
 }
+.freeium-icon {
+  background: url('../images/freemium.svg') no-repeat;
+  width: 14px;
+  height: 14px;
+}
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
   color: $primary-color !important;
