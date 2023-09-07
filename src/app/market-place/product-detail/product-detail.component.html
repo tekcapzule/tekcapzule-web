@@ -61,7 +61,8 @@
       <div class="section-title text-center pb-2">
         <h2>Demo & Related Video</h2>
       </div>
-      <div class="card-wrapper">
+
+      <!-- <div class="card-wrapper">
         <p-carousel
           [value]="productList"
           [numVisible]="3"
@@ -74,32 +75,30 @@
             <app-product-card [product]="product"></app-product-card>
           </ng-template>
         </p-carousel>
-      </div>
-      <!-- <div class="row justify-content-between">
-        <div class="col-lg-5">
-          <div class="sub-title d-flex pb-4 align-items-center">
-            <span class="video-icon mr-3"></span>Watch Product Demo
-          </div>
-
-          <div class="video_thumb">
-            <img src="../../../assets/images/video-1.png" alt="play icon" class="img-fluid" />
-            <div class="play-button"></div>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="sub-title d-flex pb-4 align-items-center">
-            <span class="video-icon mr-3"></span>Watch User Guide
-          </div>
-
-          <div class="video_thumb">
-            <img src="../../../assets/images/video-2.png" alt="play icon" class="img-fluid" />
-            <div class="play-button"></div>
-          </div>
-        </div>
       </div> -->
+      <div class="row justify-content-between">
+        <div class="col-lg-4">
+          <div class="video_thumb">
+            <img src="../../../assets/images/video-thumbnail-1.png" alt="play icon" class="img-fluid" />
+            <div class="play-button"></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="video_thumb">
+            <img src="../../../assets/images/video-thumbnail-2.png" alt="play icon" class="img-fluid" />
+            <div class="play-button"></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="video_thumb">
+            <img src="../../../assets/images/video-thumbnail-3.png" alt="play icon" class="img-fluid" />
+            <div class="play-button"></div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
-  <div *ngIf="productList.length" class="col-lg-12 bg-gray pb-5">
+  <div *ngIf="productList.length" class="col-lg-12 bg-gray pb-5 pt-4">
     <section class="pt-3 inner">
       <div class="section-title text-center pb-2">
         <h2>Similar Product from this Category</h2>

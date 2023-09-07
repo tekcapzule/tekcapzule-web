@@ -60,7 +60,9 @@
         </div>
         <p class="pb-3">{{courseDetail.description}}</p>
         <div *ngFor="let module of courseDetail.modules" class="box-content">
-          <h4 class="text-blue">{{module.title}} <span class="link-icon"></span></h4>
+          <h4 class="text-blue">{{module.title}} 
+            <!-- <span class="link-icon"></span> -->
+          </h4>
           <p>{{module.description}}</p>
           <div class="d-flex align-items-center text-dark-gray"><span class="date-icon dark"></span>2 - 3 weeks</div>
         </div>
