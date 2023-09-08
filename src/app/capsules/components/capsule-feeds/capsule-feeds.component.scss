@@ -94,6 +94,12 @@
     border: 1px solid #cbcbcb;
     border-radius: 35px !important;
     margin-bottom: 0;
+    cursor: pointer;
+    text-align: left;
+    &:hover {
+      background: #00000014;
+      border: 1px solid #cbcbcb;
+    }
   }
 }
 .share-btn {
