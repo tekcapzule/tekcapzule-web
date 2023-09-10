@@ -16,7 +16,7 @@
     <div class="title">
       {{course.title}}
       <p _ngcontent-xwg-c263="">
-        Summary by {{course.author}} <span> | </span> <span _ngcontent-xwg-c263="">{{course.publishedOn}}</span>
+        {{course.author}} <span> | </span> <span _ngcontent-xwg-c263="">{{course.publishedOn}}</span>
       </p>
     </div>
     <div class="description">
@@ -26,9 +26,11 @@
     </div>
   </div>
   <div class="mt-2 d-flex align-items-center justify-content-between px-4 card-footer">
-    <div class="recommend pl-0 d-flex"><span class="okhand-gray-icon pr-3"></span> Recommend <span class="count"> ({{course.recommendations}})</span></div>
+    <div class="recommend"><span class="okhand-gray-icon"></span>Recommend <span
+      class="count">({{ course.recommendations }})</span>
+  </div>
     <div class="d-flex align-items-center">
       <span class="free-icon mr-2"></span>Free
     </div>
-</div>
+  </div>
 </div>

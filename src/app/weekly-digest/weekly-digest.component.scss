@@ -11,20 +11,19 @@
   padding: 20px 25px;
   color: $white;
   border-radius: 15px;
-  margin: 0px 40px 40px 0px;
+  margin: 0px 40px 25px 0px;
   display: inline-grid;
   text-align: left;
   color: #1C1C1C;
-  border: 1px solid #bbc3e0;
+  border: 1px solid #F0F3FF;
   background-repeat: no-repeat;
   background-size: contain;
   &.indigo-purple {
     background-color: #3d234e;
   }
   .title {
-    font-size: 22px;
+    font-size: 18px;
     font-family: $primary-font-black;
-    padding-bottom: 5px;
     display: flex;
     align-items: center;
     line-height: 26px;
@@ -38,7 +37,7 @@
   .content-top {
     height: 113px;
     margin-bottom: 10px;
-    border-bottom: 1px solid #bbc3e0;
+    border-bottom: 1px solid #F0F3FF;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;

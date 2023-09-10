@@ -8,11 +8,11 @@
         <!-- <span class="mr-4 tag-title">Your Tags:</span> -->
         <ul class="topics-list feeds-topics pb-0 mb-0 float-left">
           <ng-container *ngFor="let item of currentSelectedTopic">
-            <li class="active mb-0"><span>#</span>{{ item.topic.title }}</li>
+            <li class="active mb-0">{{ item.topic.title }}</li>
           </ng-container>
         </ul>
         <div class="float-right">
-            <button class="filter-btn">
+            <button class="filter-btn btn-border">
               <!-- <img src="../../assets/images/filter.svg" alt="reset icon" class="pr-3" /> -->
                <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
                 <p-multiSelect
@@ -24,7 +24,7 @@
                 ></p-multiSelect>
               </div>
               Filter</button>
-            <button class="filter-btn">
+            <button class="filter-btn btn-border">
               <img src="../../assets/images/reset.svg" alt="reset icon" class="pr-1" />
               Refresh
             </button>

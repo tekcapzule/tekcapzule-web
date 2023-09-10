@@ -510,7 +510,7 @@
   .dropbtn {
     background-color: transparent;
     color: #929cd6;
-    padding: 0 16px;
+    padding: 0 16px 0 10px;
     border: none;
     font-size: 16px !important;
     -moz-osx-font-smoothing: grayscale;
@@ -608,7 +608,7 @@
     margin-bottom: 0;
     li {
       list-style: none;
-      padding: 0 28px;
+      padding: 0 20px;
       a {
         color: #a6aacf;
         cursor: pointer;
@@ -671,7 +671,7 @@
   width: 35px;
   height: 35px;
   border-radius: 50px;
-  background: #5966ad;
+  // background: #5966ad;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -693,6 +693,6 @@
 .header-search-box:hover > .search-btn,
 .search-input:focus + .search-btn,
 .search-input:not(:placeholder-shown) + .search-btn {
-  background: #fff;
+  // background: #fff;
   color: #5966ad;
 }

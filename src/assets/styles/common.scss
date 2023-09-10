@@ -163,12 +163,12 @@ h4 {
 .carousel-card {
   width: 333px;
   height: 560px;
-  box-shadow: 0px 3px 20px #0000000f;
+  // box-shadow: 0px 3px 20px #0000000f;
   border-radius: 20px;
   margin: 0 20px;
   transition: 0.3s;
   background: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 
   // cursor: pointer;
   @media only screen and (max-width: 768px) {
@@ -176,7 +176,7 @@ h4 {
   }
 
   &:hover {
-    transform: scale(1.08);
+    // transform: scale(1.08);
     box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
 
     @media only screen and (max-width: 768px) {
@@ -240,7 +240,7 @@ h4 {
   cursor: pointer;
   position: absolute;
   color: $white;
-  font-size: 13px;
+  font-size: 12px;
   font-family: $primary-font-medium;
   width: fit-content;
 
@@ -255,8 +255,8 @@ h4 {
     background: #E30045;
     border-radius: 0px;
     color: $white;
-    margin: 10px 0 1px;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 12px;
     height: auto;
     padding: 2px 7px;
   }
@@ -412,6 +412,23 @@ h4 {
     }
   }
 }
+.filters-btn {
+  color: #4B4E67 !important;
+  margin-right: 20px;
+  height: 30px;
+  border: 1px solid #AAADD8;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 13px;
+  font-family: $primary-font-medium;
+  padding: 0 20px;
+  transition: all 0.35s ease-in-out;
+  &:hover, &.active {
+    background: #EBEBFF;
+    border: 1px solid #EBEBFF;
+    color: #365796 !important;
+  }
+}
 
 .content-sub-text {
   font-size: 18px;
@@ -506,11 +523,22 @@ h4 {
 .filter-btn {
   background-color: transparent;
   color: #fff;
-  border: 1px solid #A7389F;
+  border: 1px solid #fff;
   padding: 0 15px;
   border-radius: 25px;
-  line-height: 33px;
+  line-height: 28px;
   margin-right: 10px;
+  cursor: pointer;
+  height: 30px;
+  font-family: $primary-font-medium;
+  font-size: 13px;
+  transition: all 0.35s ease-in-out;
+  &.btn-border {
+    border: 1px solid #A7389F;
+  }
+  &:hover {
+    background-color: #A7389F ;
+  }
 }
 
 /*****************************************
@@ -618,15 +646,15 @@ button {
 }
 .search-rounded {
   .input-search-rounded {
-    height: 35px;
+    height: 30px;
     border-radius: 30px !important;
     font-size: 14px;
     font-family: TTCommons-Medium;
     border: 1px solid #cdcfea;
   }
   .search-btn {
-    height: 36px;
-    right: 25px;
+    height: 33px;
+    right: 30px;
   }
 }
 
@@ -981,13 +1009,13 @@ app-spinner {
 }
 .bg-light-blue {
   background: #EBEBFF !important;
-  color: #365796 !important;
+  color: #4B4E67 !important;
   border: 1px solid #AAADD8 !important;
   margin-right: 20px;
 }
 .bg-navy-blue 
 {
-  background-color: #160158 !important;
+  background-color: #202A5F !important;
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
@@ -1203,33 +1231,40 @@ iframe .navbar-container,
 
 .okhand-gray-icon {
   background: url('../images/hand-gray.svg') no-repeat;
-  width: 11px;
+  width: 12px;
   height: 15px;
+  margin-right: 7px;
 }
 
 .okhand-white-icon {
   background: url('../images/okhand-icon-white.svg') no-repeat;
   width: 12px;
   height: 16px;
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 .premium-gray-icon {
   background: url('../images/premium-icon.svg') no-repeat;
   width: 17px;
   height: 13px;
-  margin-right: 10px;
+  margin-right: 6px;
 }
 
 .date-icon {
   background: url('../../assets/images/date-icon-gray.svg') no-repeat;
   width: 12px;
   height: 13px;
-  margin-right: 10px;
+  margin-right: 5px;
   display: inline-block;
 
   &.dark {
     background: url('../../assets/images/date-icon-dark.svg') no-repeat;
+  }
+  &.light {
+    background: url("../../assets/images/date-icon-new.svg") no-repeat;
+    width: 19px;
+    height: 19px;
+    margin-left: 10px;
   }
 }
 
@@ -1345,11 +1380,13 @@ iframe .navbar-container,
   background: url('../images/free-icon.svg') no-repeat;
   width: 18px;
   height: 17px;
+  margin-right: 6px;
 }
 .freeium-icon {
   background: url('../images/freemium.svg') no-repeat;
   width: 14px;
   height: 14px;
+  margin-right: 6px;
 }
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
@@ -1535,10 +1572,10 @@ iframe .navbar-container,
 
   .p-multiselect {
     background: url('../../assets/images/filter.svg') no-repeat !important;
-    height: 18px;
-    width: 21px;
-    top: 4px;
+    height: 11px;
+    width: 12px;
     margin-right: 8px;
+    border-radius: 0 !important;
   }
 }
 
@@ -1684,7 +1721,7 @@ iframe .navbar-container,
 
   &.p-main {
     padding-top: 108px;
-    background: #FAFAFA;
+    background: #fff;
   }
 
   .skill-studio-bg {
@@ -1762,7 +1799,6 @@ iframe .navbar-container,
   .filter-topic {
     font-size: 16px;
     padding-bottom: 10px;
-    padding-top: 20px;
   }
 }
 
@@ -1840,7 +1876,7 @@ select {
   // padding: 20px 30px;
   // border-radius: 5px;
   overflow: hidden;
-  border-bottom: 1px solid #bbc3e0;
+  border-bottom: 1px solid #F0F3FF;
   // padding: 20px 0;
   padding-top: 0;
   padding-bottom: 20px;
@@ -1928,7 +1964,7 @@ select {
   color: #2b2b2b;
   font-family: $primary-font-medium;
   background-color: transparent !important;
-  border-top: 1px solid #bbc3e0;
+  border-top: 1px solid #F0F3FF;
   font-size: 13px;
 }
 
@@ -2261,9 +2297,9 @@ select {
 }
 
 .pills {
-  background-color: #838BAD;
-  border-radius: 20px;
-  padding: 0px 10px;
+  background-color: #8993C1;
+  border-radius: 10px;
+  padding: 1px 10px;
   height: fit-content;
   color: #fff;
   font-family: $primary-font-regular;
@@ -2275,10 +2311,11 @@ select {
   font-size: 13px;
   font-family: $primary-font-medium;
   display: flex;
+  align-items: center;
   .count {
     font-family: $primary-font-regular;
     color: #626262;
-    padding-left: 10px;
+    padding-left: 5px;
   }
 }
 .bookmark-icon-animated {
@@ -2290,11 +2327,21 @@ select {
   margin-top: -5px;
   transition: all 0.35s ease-in-out;
   &:hover {
-    background: #DEDEDEC7 url(../../assets/images/skillstudio/bookmark-hover.svg) 10px 8px no-repeat;
+    background: #dce4ea url('../../assets/images/skillstudio/bookmark.svg') 10px 8px no-repeat;
+    // background: #DEDEDEC7 url(../../assets/images/skillstudio/bookmark-hover.svg) 10px 8px no-repeat;
     border-radius: 50px;
     padding: 15px;
   }
 }
 .font-16 {
   font-size: 16px;
+}
+.more {
+  height: 17px;
+  border-radius: 12px;
+  background: #DEDEDE;
+  color: #000 !important;
+  font-size: 11px;
+  padding: 2px 5px;
+
 }

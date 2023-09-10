@@ -57,6 +57,10 @@
             -webkit-line-clamp: 4;
             overflow-y: hidden;
         }
+        .pills {
+            background: #D9E9F7;
+            color: #556779;
+        }
     }
 }
 .search-box {
@@ -65,7 +69,4 @@
         font-size: 16px;
         font-family: $primary-font-regular;
     }
-}
-.market-tiles {
-    // max-width: 1470px;
 }
