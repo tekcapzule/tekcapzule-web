@@ -1850,6 +1850,7 @@ select {
   background-repeat: no-repeat;
   background-image: url('../../assets/images/play-button.svg');
   transition: all 0.35s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     -webkit-transition: background-position 200ms ease-in-out;
@@ -1883,7 +1884,7 @@ select {
   // padding: 20px 30px;
   // border-radius: 5px;
   overflow: hidden;
-  border-bottom: 1px solid #F0F3FF;
+  border-bottom: 1px solid #E8EDFF;
   // padding: 20px 0;
   padding-top: 0;
   padding-bottom: 20px;
@@ -1923,8 +1924,10 @@ select {
 .details-banner {
   background: #161e45 url('../images/banner_curve.png') no-repeat;
   color: $white;
-  height: 380px;
+  min-height: 380px;
   padding-top: 70px !important;
+  height: auto;
+  padding-bottom: 30px;
 
   h2 {
     color: $white;
@@ -1945,7 +1948,7 @@ select {
   padding: 20px 30px;
   max-width: 408px;
   height: 276px;
-  border: 1px solid #F0F3FF;
+  border: 1px solid #E8EDFF;
 
   h3 {
     font-family: $primary-font-medium;
@@ -1972,7 +1975,7 @@ select {
   color: #555453;
   font-family: $primary-font-medium;
   background-color: transparent !important;
-  border-top: 1px solid #F0F3FF;
+  border-top: 1px solid #E8EDFF;
   font-size: 13px;
 }
 
