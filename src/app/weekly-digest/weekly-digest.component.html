@@ -17,8 +17,8 @@
         <div
         class="col-xl-4 col-lg-4 col-sm-12 order-1 order-lg-1 mr-5 d-flex flex-column justify-content-center banner-content">
         <h1>The Edge</h1>
-        <h3 class="text-white">Tekkapsule’s Emerging Technology Newsletter</h3>
-        <p class="text-white ">Unlock the power of artificial intelligence with our weekly newsletter. Discover the latest AI News, trends, and innovations, handpicked for you. Subscribe now and level up your AI knowledge.</p>
+        <h2 class="text-white">Tekkapsule’s Emerging Technology Newsletter</h2>
+        <p class="text-white banner-description">Unlock the power of artificial intelligence with our weekly newsletter. Discover the latest AI News, trends, and innovations, handpicked for you. Subscribe now and level up your AI knowledge.</p>
         <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
           <div
             class="mx-auto d-flex align-items-center justify-content-center subscibeSection-row position-relative"
@@ -29,7 +29,7 @@
             }">
             <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
               placeholder="Enter Your Email ID" />
-            <button mat-raised-button class="button tertiary subscribe-btn" (click)="onSubscribe()">
+            <button mat-raised-button class="button tertiary subscribe-btn bg-red" (click)="onSubscribe()">
               Subscribe Now
             </button>
           </div>
@@ -46,7 +46,7 @@
         </div>
       </div>
     </section>
-    <section class="py-4">
+    <section class="py-5">
       <div class="col-lg-12">
         <div class="section-title">
           <h2>Other Popular AI Newsletters you may be interested in!</h2>
@@ -57,7 +57,7 @@
             <h3 class="weekly-digest-title">{{ category.displayName | titlecase }}</h3>
           </div>
           <div *ngIf="!spinner.isLoading">
-            <div *ngFor="let dig of digest[category.id]; let i = index" class="digest-card" [ngClass]="category.bgColor"
+            <div *ngFor="let dig of digest[category.id]; let i = index" class="digest-card position-relative" [ngClass]="category.bgColor"
               (click)="openDigest(dig)">
               <div class="d-flex justify-content-between align-items-top">
                 <div class="title">
@@ -80,6 +80,7 @@
                   class="count">{{ dig.schedule }}</span>
                 </div>
               </div>
+              <div *ngIf="dig.category === 'PODCAST'" class="play-button play-icon"></div>
             </div>
           </div>
 

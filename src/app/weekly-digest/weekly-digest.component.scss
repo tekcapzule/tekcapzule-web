@@ -27,12 +27,7 @@
     display: flex;
     align-items: center;
     line-height: 26px;
-    .play-btn {
-      background: url('../../assets/images/play-button.png') no-repeat;
-      width: 25px;
-      height: 25px;
-      margin-right: 10px;
-    }
+
   }
   .content-top {
     height: 113px;
@@ -53,11 +48,18 @@
   }
 }
 
+h2 {
+  font-family: $primary-font-medium;
+}
 .error-msg {
   text-align: left;
   color: red !important;
 }
-
+.banner-description {
+  font-size: 18px;
+  font-family: $primary-font-regular;
+  line-height: 22px;
+}
 
 .digest-skeleton.digest-card {
   background: #fff;
@@ -92,4 +94,8 @@
   background: url('../../assets/images/weekly-banner-bg.svg') 112px 65px no-repeat, transparent linear-gradient(260deg, #421F90 0%, #4C3176 53%, #C61B9F 100%) 0% 0% no-repeat padding-box;
   height: 360px;
   padding-top: 60px;
+}
+.subscribe-btn {
+  background-color: #E7245F !important;
+  border: 1px solid #E7245F;
 }

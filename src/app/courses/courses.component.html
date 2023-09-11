@@ -37,7 +37,7 @@
                 ></p-checkbox>
                 <label [for]="topic.code">{{ topic.title }}</label>
               </div>
-              <div class="filter-topic">Type</div>
+              <div class="filter-topic mt-4">Price Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
                 <p-checkbox
                   name="payment"
@@ -49,7 +49,7 @@
                 <label [for]="category.key">{{ category.name }}</label>
               </div>
             </div>
-            <div class="filter-topic">Delivery Mode</div>
+            <div class="filter-topic mt-4">Delivery Mode</div>
             <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
               <p-checkbox
                 name="delivery"

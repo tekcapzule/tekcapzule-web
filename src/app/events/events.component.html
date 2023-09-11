@@ -72,7 +72,7 @@
         <div class="d-flex">
           <div
             *ngFor="let eve of pastPopularEvent; let j = index"
-            class="digest-card"
+            class="digest-card position-relative"
             (click)="onPastEvents(eve)"
           >
             <div class="conference-header">
@@ -80,13 +80,9 @@
                 <div class="title">{{ eve.title }}<br>2023</div>
                 <span class="pills mr-0 mt-2">Metaverse</span>
               </div>
-              <div class="description">{{ eve.summary }}</div>
+              <div class="description border-0 small">{{ eve.summary }}</div>
             </div>
-            <!-- <div class="d-flex align-items-center">
-              <span class="date-icon"></span>{{ eve.schedule.startDate }} - {{ eve.schedule.endDate
-              }}<span> | </span>{{ eve.schedule.startTime }} - {{ eve.schedule.endTime }}
-            </div>
-            <div class="d-flex align-items-center"><span class="location-icon"></span>{{ eve.venue }}</div> -->
+           <div class="play-button play-icon"></div>
           </div>
         </div>
       </section>

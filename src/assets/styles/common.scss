@@ -1382,7 +1382,7 @@ iframe .navbar-container,
   height: 17px;
   margin-right: 6px;
 }
-.freeium-icon {
+.freemium-icon {
   background: url('../images/freemium.svg') no-repeat;
   width: 14px;
   height: 14px;
@@ -1811,6 +1811,7 @@ iframe .navbar-container,
     font-family: $primary-font-regular;
     color: #2c2c2c;
     font-size: 16px;
+    line-height: 18px;
   }
 }
 
@@ -1862,6 +1863,12 @@ select {
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
     transition: all 0.35s ease-out;
+  }
+  &.play-icon {
+    background-image: url('../../assets/images/play-icon-new.svg');
+    &:hover {
+      background-image: url('../../assets/images/play-button.svg');
+    }
   }
 }
 
@@ -1938,6 +1945,7 @@ select {
   padding: 20px 30px;
   max-width: 408px;
   height: 276px;
+  border: 1px solid #F0F3FF;
 
   h3 {
     font-family: $primary-font-medium;
@@ -1961,7 +1969,7 @@ select {
 .card-footer {
   padding: 10px 30px;
   height: 45px;
-  color: #2b2b2b;
+  color: #555453;
   font-family: $primary-font-medium;
   background-color: transparent !important;
   border-top: 1px solid #F0F3FF;
@@ -2343,5 +2351,7 @@ select {
   color: #000 !important;
   font-size: 11px;
   padding: 2px 5px;
-
+}
+.border-radius-none{
+  border-radius: 0;
 }
