@@ -115,7 +115,7 @@ ul {
     li {
       font-family: $primary-font-medium;
       font-size: 13px;
-      line-height: 33px;
+      line-height: 28px;
       list-style: none;
       border-radius: 25px;
       margin-right: 10px;
@@ -123,6 +123,7 @@ ul {
       border: 1px solid #f9bbce;
       padding: 0 15px;
       float: left;
+      height: 30px;
       
       cursor: pointer;
       span {

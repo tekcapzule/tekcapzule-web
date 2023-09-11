@@ -17,13 +17,12 @@ export class WeeklyDigestComponent implements OnInit {
   categories: string[] = [];
   subscriberFormGroup: FormGroup;
   categoryDetail = [
-    { id: 'PODCAST', displayName: 'Podcast', bgColor: '', url: '/digest/podcast?id=' },
     {
       id: 'NEWS_LETTER',
       displayName: 'News Letter',
-      // bgColor: 'indigo-purple',
       url: '/digest/newsletter?id=',
     },
+    { id: 'PODCAST', displayName: 'Podcast', bgColor: '', url: '/digest/podcast?id=' },
   ];
 
   constructor(

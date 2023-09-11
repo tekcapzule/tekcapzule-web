@@ -54,16 +54,16 @@
     
         <div *ngFor="let category of categoryDetail; let i = index" class="container">
           <div class=" pb-3 text-left">
-            <h2 class="weekly-digest-title">{{ category.displayName | titlecase }}</h2>
+            <h3 class="weekly-digest-title">{{ category.displayName | titlecase }}</h3>
           </div>
           <div *ngIf="!spinner.isLoading">
             <div *ngFor="let dig of digest[category.id]; let i = index" class="digest-card" [ngClass]="category.bgColor"
               (click)="openDigest(dig)">
-              <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-top">
                 <div class="title">
                   <span *ngIf="dig.category === 'PODCAST'"></span>{{ dig.title }}
                 </div>
-                <span class="pills mr-0">Metaverse</span>
+                <span class="pills mr-0 mt-2">Metaverse</span>
               </div>
               <div class="content-top">
                 <div class="description"> Author: {{ dig.author }}</div>
@@ -71,12 +71,13 @@
               </div>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                  <div class="recommend d-flex align-items-center"><span class="okhand-gray-icon pr-4"></span>Recommend <span
+                  <div class="recommend"><span class="okhand-gray-icon"></span>Recommend <span
                       class="count">({{ dig.recommendations }})</span>
                   </div>
                 </div>
-                <div class="d-flex align-items-center">
-                  <span class="date-icon"></span>{{ dig.schedule }}
+                <div class="recommend">
+                  <span class="date-icon"></span><span
+                  class="count">{{ dig.schedule }}</span>
                 </div>
               </div>
             </div>

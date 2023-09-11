@@ -5,17 +5,16 @@
   background-image: url('../../assets/images/skill-studio-card-pattern.png');
   // background-color: #2e375a;
   cursor: pointer;
-  // max-height: 290px;
-  max-height: 230px;
+  max-height: 260px;
   max-width: 395px;
   width: 100%;
   padding: 15px 25px;
   color: #1C1C1C;
   border-radius: 15px;
-  margin: 0px 40px 40px 0px;
+  margin: 0px 40px 25px 0px;
   // display: inline-grid;
   text-align: left;
-  border: 1px solid #bbc3e0;
+  border: 1px solid #F0F3FF;
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -36,10 +35,12 @@
     // padding-left: 20px;
     // margin-bottom: 20px;
   }
+  .date-icon {
+    margin-right: 10px;
+  }
   .title {
-    font-size: 22px;
+    font-size: 18px;
     font-family: $primary-font-black;
-    padding-bottom: 5px;
     display: flex;
     align-items: center;
     line-height: 26px;
@@ -58,8 +59,9 @@
     overflow-y: hidden;
     min-height: 80px;
     display: -webkit-box;
-    border-bottom: 1px solid #bbc3e0;
+    border-bottom: 1px solid #F0F3FF;
     margin-bottom: 10px;
+    margin-top: 15px;
   }
 }
 .venue-details {
@@ -108,4 +110,5 @@
   .loading {
     border-radius: 3px;
   }
+ 
 }

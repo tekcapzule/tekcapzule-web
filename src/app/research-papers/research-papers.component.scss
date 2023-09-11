@@ -3,9 +3,9 @@
 
 .research-papers-card {
   cursor: pointer;
-  border: 1px solid #afa1a1;
+  border: 1px solid #F0F3FF;
   border-radius: 4px;
-  height: 375px;
+  height: 340px;
   .bookmark-icon-animated {
     top: 18px;
     position: absolute;
@@ -13,10 +13,10 @@
     right: 12px;
   }
   .header-image {
-    height: 128px;
+    height: 94px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    padding: 6px;
+    // padding: 6px;
   }
   .content {
     .pills {
@@ -25,10 +25,15 @@
     }
     .title {
       font-family: $primary-font-bold;
+      p {
+        color: #777777;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
     }
     .description {
       font-size: 14px;
-      max-height: 100px;
+      min-height: 85px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;

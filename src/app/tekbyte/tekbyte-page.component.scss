@@ -7,10 +7,10 @@
     width: 100%;
     color: #1A1A1A;
     border-radius: 12px;
-    margin: 0px 40px 40px 0px;
+    margin: 0px 40px 25px 0px;
     display: inline-block;
     text-align: left;
-    border: 1px solid #bbc3e0;
+    border: 1px solid #F0F3FF;
     background-color: $white;
     cursor: pointer;
     .card-top {
@@ -32,7 +32,7 @@
     }
     
     .title {
-      font-size: 22px;
+      font-size: 18px;
       font-family: $primary-font-black;
       padding-bottom: 10px;
       display: flex;

@@ -10,9 +10,9 @@
     <p class="description">{{ product.summary }}</p>
     <div class="pills">{{ product.category }}</div>
     <div class="d-flex justify-content-between market-card-footer">
-      <div class="d-flex align-items-center">
-        <span class="okhand-gray-icon pr-4"></span>Recommend ({{ product?.recommendations }})
-      </div>
+      <div class="recommend"><span class="okhand-gray-icon"></span>Recommend <span
+        class="count">({{ product?.recommendations }})</span>
+    </div>
       <div class="d-flex align-items-center">
         <span class="premium-gray-icon"></span>{{ product?.prizingModel }}
       </div>

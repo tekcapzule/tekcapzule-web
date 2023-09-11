@@ -3,9 +3,9 @@
     <section class="inner">
       <div class="d-flex align-items-center justify-content-between py-4 px-0">
         <div>
-          <button class="button bg-light-blue primary-btn-sm">Artificial Intelligence</button>
-          <button class="button bg-light-blue primary-btn-sm white-bg">Web 3.0</button>
-          <button class="button bg-light-blue primary-btn-sm white-bg">Metaverse</button>
+          <button class="filters-btn active">Artificial Intelligence</button>
+          <button class="filters-btn">Web 3.0</button>
+          <button class="filters-btn">Metaverse</button>
         </div>
         <div class="float-right">
           <button class="filter-btn">
@@ -21,16 +21,28 @@
   </div>
 
   <section class="inner insights-content">
-    <div class="heading">
+    <div class="d-flex justify-content-between">
       <h2>News & Feeds</h2>
+      <div class="search-rounded col-lg-3 pl-0">
+        <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded" />
+        <button title="search bar" class="search-btn"></button>
+      </div>
     </div>
-    <div *ngFor="let insights of insightsList; let i = index" class="pb-5">
-      <h3>{{insights.title}}</h3>
+    <div *ngFor="let insights of insightsList; let i = index" class="border-line">
+      <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <h3>{{insights.title}}</h3>
+        <span class="pills pink ml-3">Artificial Intelligence</span>
+        <span class="pills yellow ml-3">Metaverse</span>
+        <span class="pills sky-blue ml-3">Web 3.0</span>
+      </div>
+      <div class="date">January, 11, 2023 <span class="pl-3 date-icon light"></span></div>
+      </div>
       <p>{{insights.description}}</p>
         <div class="d-flex">
-          <button class="button bg-light-blue primary-btn-sm">Industry News</button>
-          <button class="button bg-light-blue primary-btn-sm">Regulatroy News</button>
-          <button class="button bg-light-blue primary-btn-sm">LLM Update</button>
+          <div class="pills">Industry News</div>
+          <div class="pills">Regulatroy News</div>
+          <div class="pills">LLM Update</div>
         </div>
     </div>
     

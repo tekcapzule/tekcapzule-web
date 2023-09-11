@@ -17,7 +17,7 @@
 .date-icon {
     width: 25px;
     height: 25px;
-    margin-right: 10px;
+    margin-right: 5px;
     display: inline-block;
     &.dark {
       background: url("../../../assets/images/date-icon-black.png") no-repeat;
@@ -36,13 +36,13 @@
   }
   .box-content {
     padding: 20px;
-    border: 1px solid #bbc3e0;
+    border: 1px solid #F0F3FF;
   }
   .course-highlight {
     color: $white;
     li {
       list-style-image: url('../../../assets/images/course-list-icon.svg');
-      font-family: $primary-font-medium;
+      font-family: $primary-font-regular;
       font-size: 16px;
       line-height: 40px;
       padding: 0px 10px;

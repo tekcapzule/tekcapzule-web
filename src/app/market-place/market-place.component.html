@@ -66,7 +66,7 @@
           <div class="filter-column">
             <div class="filter-heading">FILTER</div>
             <div>
-              <div class="filter-topic">Type</div>
+              <div class="filter-topic">Price Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
                 <p-checkbox
                   name="payment"
@@ -76,7 +76,7 @@
                 ></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
               </div>
-              <div class="filter-topic">OS</div>
+              <div class="filter-topic">OS Type</div>
               <div *ngFor="let category of osCategories" class="field-checkbox pb-2">
                 <p-checkbox
                   name="os"
@@ -96,7 +96,7 @@
                 <label for="ny">Most Used</label>
               </div>
             </div>
-            <div class="filter-topic">Category</div>
+            <div class="filter-topic">Category Type</div>
             <div class="field-checkbox pb-2">
               <p-checkbox></p-checkbox>
               <label for="ny">Category 01</label>
@@ -111,7 +111,7 @@
         </div>
         <div class="col-lg-10 col-md-8 col-sm-6">
           <div class="row">
-          <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-9">
+          <div class="search-box mt-0 pb-4 pl-0 ml-0 col-lg-9">
             <input type="text" name="searchTopics"
               placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0" />
             <button title="search bar" class="search-btn mr-3"></button>

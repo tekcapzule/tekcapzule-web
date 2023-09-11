@@ -3,6 +3,10 @@
 .box-content {
   // padding: 15px 20px;
   transition: all 0.3s ease 0s;
+  h3 {
+    font-family: $primary-font-black;
+    color: #1F1F1F;
+  }
   .box-content-img {
     float: left;
     margin-right: 50px;
