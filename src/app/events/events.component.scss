@@ -44,12 +44,7 @@
     display: flex;
     align-items: center;
     line-height: 26px;
-    .play-btn {
-      background: url('../../assets/images/play-button.png') no-repeat;
-      width: 25px;
-      height: 25px;
-      margin-right: 10px;
-    }
+
   }
   .description {
     font-size: 16px;
@@ -62,6 +57,9 @@
     border-bottom: 1px solid #F0F3FF;
     margin-bottom: 10px;
     margin-top: 15px;
+    &.small {
+      min-height: auto;
+    }
   }
 }
 .venue-details {
