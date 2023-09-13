@@ -1,0 +1,4 @@
+<div>
+  <button *ngFor="let fi of filterOptions; let i = index" class="filters-btn" [ngClass]="{'active': selectedFilters.includes(fi.key)}" (click)="onFilterChange(fi.key)">{{fi.text}}</button>
+  
+</div>

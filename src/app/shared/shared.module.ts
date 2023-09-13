@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     CourseCardComponent,
     ProductCardComponent,
     CapsuleSkeletonComponent,
-    FeedsCardComponent
+    FeedsCardComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     CourseCardComponent,
     ProductCardComponent,
     CapsuleSkeletonComponent,
-    FeedsCardComponent
+    FeedsCardComponent,
+    FilterComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
