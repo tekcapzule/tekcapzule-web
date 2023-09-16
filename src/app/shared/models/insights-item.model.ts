@@ -6,4 +6,5 @@ export interface InsightsItem {
   tags: string[];
   publishedOn: string;
   status: string;
+  topicName?: string;
 }
