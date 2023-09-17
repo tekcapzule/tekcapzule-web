@@ -37,13 +37,11 @@ export class LineChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('LineChartComponent:ngOnInit');
     this.setup();
     this.updateGraphData();
   }
 
   private setup(): void {
-    console.log('LineChartComponent:setup');
     this.chartData.data = this.weatherData.observations;
     this.chartData.locationName = this.weatherData.locationName.toLocaleUpperCase(); 
     this.buildSvg();
@@ -53,7 +51,6 @@ export class LineChartComponent implements OnInit {
    * Configures the SVG element
    */
   private buildSvg(): void {
-    console.log('LineChartComponent:buildSvg');
     this.host = d3.select(this.htmlElement);
     let svgElement: any = this.htmlElement.getElementsByClassName('svg-chart')[0];
     
@@ -81,7 +78,6 @@ export class LineChartComponent implements OnInit {
    * @param obsData
    */
   public updateGraphData(): void {
-    console.log('LineChartComponent:updateGraphData');
     // Iterate to the next set of available data
     this.activeField++;
     if (this.activeField >= this.dataFields.length){
@@ -211,7 +207,7 @@ export class LineChartComponent implements OnInit {
       .datum(this.data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
+      .attr("stroke-width", 2)
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
       .attr("d", this.line);

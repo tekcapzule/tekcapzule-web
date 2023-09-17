@@ -26,9 +26,7 @@ export class InsightsPageComponent implements OnInit{
     this.insightsApi.getAllInsights().subscribe(data => {
       data.forEach(insight => {
         insight.topicName = this.helperService.getTopicName(insight.topic);
-        insight.publishedOn = insight.publishedOn
-        ? moment(insight.publishedOn, 'YYYY-MM-DD').fromNow()
-        : 'NA';
+        insight.publishedOn = insight.publishedOn ? moment(insight.publishedOn, 'YYYY-MM-DD').fromNow() : 'NA';
       });
       this.insightsList = data;
     });
