@@ -20,23 +20,24 @@
     </section>
   </div>
 
+  <app-line-chart></app-line-chart>
+
   <section class="inner insights-content">
     <div class="d-flex justify-content-between">
       <h2>News & Feeds</h2>
       <div class="search-rounded col-lg-3 pl-0">
-        <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded" />
-        <button title="search bar" class="search-btn"></button>
+        <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
+            [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()" />
+          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
       </div>
     </div>
     <div *ngFor="let insights of insightsList; let i = index" class="border-line">
       <div class="d-flex justify-content-between">
       <div class="d-flex">
         <h3>{{insights.title}}</h3>
-        <span class="pills pink ml-3">Artificial Intelligence</span>
-        <span class="pills yellow ml-3">Metaverse</span>
-        <span class="pills sky-blue ml-3">Web 3.0</span>
+        <span class="pills ml-3" [ngClass]="{'pink':insights.topic === 'AI', 'blue':insights.topic === 'AI', 'yellow':insights.topic === 'MTV'}">{{insights.topicName}}</span>
       </div>
-      <div class="date">January, 11, 2023 <span class="pl-3 date-icon light"></span></div>
+      <div class="date">{{insights.publishedOn}}<span class="pl-3 date-icon light"></span></div>
       </div>
       <p>{{insights.description}}</p>
         <div class="d-flex">

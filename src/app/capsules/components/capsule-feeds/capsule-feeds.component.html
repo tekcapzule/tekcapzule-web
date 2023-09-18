@@ -61,7 +61,7 @@
           <div>
             <div class="d-flex justify-content-between">
               <div class="d-flex align-items-center">
-                <span class="recommend-gray-icon pr-4"></span>Recommend
+                <span class="recommend-gray-icon pr-4"></span>Recommend --------------
               </div>
               <div class="d-flex align-items-center">
                 <span class="share-gray-icon pr-4"></span>Share
@@ -75,7 +75,10 @@
             </div>
           </div>
         </div>
-        <div class="main-container">
+        <div *ngFor="let capsule of filteredCapsule;">
+          <app-feeds-card [capsule]="capsule"></app-feeds-card>
+        </div>
+        <!--div-- class="main-container">
           <div class="d-flex">
             <div class="profile-pic"></div>
             <div class="w-100">
@@ -118,7 +121,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </!--div-->
       </div>
       <div class="subscribe-container">
         <h6>Subscribe to our Newsletter</h6>

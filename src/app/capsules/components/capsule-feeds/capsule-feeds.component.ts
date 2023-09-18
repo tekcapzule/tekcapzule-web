@@ -95,6 +95,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     } else {
       this.filteredCapsule = this.capsules;
     }
+    console.log('this.filteredCapsule', this.filteredCapsule);
   }
 
   /**
@@ -114,6 +115,14 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
     this.capsuleApi
       .getMyFeedCapsules(subscribedTopics, refreshCache)
+      .pipe(finalize(() => this.spinner.hide()))
+      .subscribe(capsules => {
+        this.capsules = capsules;
+        this.filterByCapsuleType();
+      });
+
+    this.capsuleApi
+      .getEditorsPickCapsules(refreshCache)
       .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
         this.capsules = capsules;
