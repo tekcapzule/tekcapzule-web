@@ -1,17 +1,10 @@
 <div class="chart-card">
   <div>
-   <label>Data Displayed:</label> {{dataFields[activeField]}}
-
-  </div>
-  <div>
-
-    <button (click)="updateGraphData()">Change Chart Data</button>
+  <button (click)="updateGraphData()">Change Chart Data</button>
   </div>
   <div>
 
     <br />
-    <svg class="svg-chart" id="{{chartData.locationName}}">
-
-    </svg>
+    <svg class="svg-chart" id="{{chartData.locationName}}"></svg>
   </div>
 </div>
