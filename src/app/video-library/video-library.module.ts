@@ -11,6 +11,13 @@ import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [VideoLibraryComponent],
-  imports: [CommonModule, FormsModule, SharedModule, MultiSelectModule, ToastModule, MatTabsModule, VideoLibraryRoutingModule],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    SharedModule,
+    MultiSelectModule,
+    ToastModule,
+    MatTabsModule,
+    VideoLibraryRoutingModule],
 })
 export class VideoLibraryModule {}
