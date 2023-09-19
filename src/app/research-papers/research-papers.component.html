@@ -39,7 +39,7 @@
           class="research-papers-card carousel-card mx-0" (click)="onOpen(research)">
           <div class="position-relative">
             <div class="bookmark-icon-animated"></div>
-            <div class="icons labelRed"><span _ngcontent-xwg-c263="">#Cloud</span></div>
+            <div class="icons labelRed"><span _ngcontent-xwg-c263="">#{{research.topicCode}}</span></div>
             <!-- <div
               class="icons okHand"
               *ngIf="!research.isRecommended"
@@ -61,7 +61,7 @@
             <div class="title">
               {{ research.title }}
               <p *ngFor="let author of research.authors; let i = index">
-                {{ author }} <span class="more"> + 5 more</span>
+                {{ author }} <span *ngIf="research.authors.length > 1" class="more"> + {{research.authors.length - 1}} more</span>
                 <span class="px-1"> | </span> <span *ngIf="i === research.authors.length - 1">{{ research.publishedOn
                   }}</span>
               </p>
@@ -75,11 +75,9 @@
             </div>
             <div class="d-flex pb-3">
               <span *ngFor="let tag of research.tags; let i = index" class="pills">{{ tag }}</span>
-              <span class="pills">Web 3.0</span>
-              <span class="pills">Metaverse</span>
             </div>
             <div class="recommend"><span class="okhand-gray-icon"></span>Recommend <span
-                class="count">(120)</span>
+                class="count">({{ research.recommendations }})</span>
             </div>
           </div>
         </div>
