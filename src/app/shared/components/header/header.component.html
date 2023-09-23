@@ -1,6 +1,6 @@
 <!-- ======= Header ======= -->
 <div class="fixed-top">
-  <div class="top-main-header">
+  <div class="top-main-header" *ngIf="!isMobileResolution">
     <div class="container d-flex justify-content-end pr-4">
       <ul>
         <li><a routerLink="/mission">About Us</a></li>
@@ -10,29 +10,14 @@
           <div *ngIf="!isMobileResolution" class="dropdown">
             <button class="dropbtn" (click)="openBlog($event)">Blog</button>
           </div>
-          <a
-            href="https://tekcapsule.blog/"
-            target="_blank"
-            class="nav-item pe-none"
-            *ngIf="isMobileResolution"
-            >Blog</a
-          >
+          <a routerLink="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none"
+            *ngIf="isMobileResolution">Blog</a>
         </li>
       </ul>
-      <button
-        *ngIf="!(isLoggedIn$ | async)"
-        mat-raised-button
-        class="button signin-btn"
-        (click)="signInUser()"
-      >
+      <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
         Sign In
       </button>
-      <button
-        *ngIf="isLoggedIn$ | async"
-        mat-raised-button
-        class="button signin-btn"
-        (click)="signOutUser()"
-      >
+      <button *ngIf="isLoggedIn$ | async" mat-raised-button class="button signin-btn" (click)="signOutUser()">
         Sign Out
       </button>
     </div>
@@ -42,38 +27,19 @@
       <div class="container header-align">
         <!-- Responsive Menu -->
         <nav class="navbar navbar-expand-lg">
-          <button
-            #collapseBtn
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div
-            *ngIf="
+          <div *ngIf="
               !isMobileResolution || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')
-            "
-            class="navbar-brand logo"
-          >
-            <a
-              href="javascript:void(0)"
-              data-toggle="collapse"
-              data-target=".navbar-collapse.show"
-              routerLinkActive="active"
-              (click)="onMenuClick(headerMenu[0])"
-              ><img src="/assets/images/logo.svg" alt="Tekcapsule Logo"
-            /></a>
+            " class="navbar-brand logo">
+            <a routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
+              routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
+                alt="Tekcapsule Logo" /></a>
           </div>
 
-          <div
-            class="page-name"
-            *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'"
-          >
+          <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
             <div class="main-nav">{{ selectedMenuItem?.displayName }}</div>
             <div *ngIf="selectedChildMenuItem" class="sub-nav">
               {{ selectedChildMenuItem?.displayName }}
@@ -81,33 +47,22 @@
           </div>
           <div class="menu-hide">&nbsp;</div>
 
-          <div
-            #navbarNav
-            id="navbarNav"
-            class="collapse navbar-collapse nav-menu"
-            (click)="onStopClick($event)"
-          >
-            <ul class="navbar-nav">
+          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+            <ul class="navbar-nav" *ngIf="!isMobileResolution">
               <ng-container *ngFor="let hm of headerMenu; let i = index">
-                <li
-                  [ngClass]="{
+                <li [ngClass]="{
                     dropdown: (hm.viewType || isMobileResolution) && hm.children,
                     active: selectedMenuItem?.uniqueId === hm.uniqueId
-                  }"
-                  *ngIf="hm.showOnMobile ? isMobileResolution : true"
-                >
+                  }" *ngIf="hm.showOnMobile ? isMobileResolution : true">
                   <div *ngIf="!isMobileResolution" class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
-                      <i
-                        *ngIf="hm.viewType === 'ALL' && hm.children"
-                        class="arrow down"
-                        [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"
-                      ></i>
+                      <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down"
+                        [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"></i>
                     </button>
                   </div>
-                  <a
-                    href="Javascript:void(0)"
+                  <!-- <a
+                    routerLink="Javascript:void(0)"
                     class="nav-item pe-none"
                     *ngIf="isMobileResolution"
                     [ngClass]="{ 'parent-menu': isMobileResolution && hm.children }"
@@ -120,32 +75,24 @@
                       }"
                       class="caret"
                     ></span
-                  ></a>
+                  ></a> -->
 
-                  <ng-container
-                    *ngIf="
+                  <ng-container *ngIf="
                       isMobileResolution && hm.children && openedMenuItem?.uniqueId === hm.uniqueId
-                    "
-                  >
+                    ">
                     <ul class="dropdown-menu show">
                       <li *ngFor="let menuItem of hm.children; let i = index">
-                        <a
-                          href="Javascript:void(0)"
-                          class="nav-item"
-                          (click)="onChildMenuClick(menuItem)"
-                          >{{ menuItem.displayName }}</a
-                        >
+                        <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{
+                          menuItem.displayName }}</a>
                       </li>
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer
-                    *ngIf="
+                  <ng-cotainer *ngIf="
                       hm.viewType === 'ALL' &&
                       !isMobileResolution &&
                       openedMenuItem?.uniqueId === hm.uniqueId
-                    "
-                  >
+                    ">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5">
@@ -155,19 +102,13 @@
                           <div class="d-flex">
                             <div class="col-lg-6 pl-0">
                               <ul class="sub-menu pr-5">
-                                <li
-                                  class="sub-menu-element nav-item"
-                                  *ngFor="
+                                <li class="sub-menu-element nav-item" *ngFor="
                                     let sm of hm.children
                                       | slice: 0:math.ceil(hm.children.length / 2)
-                                  "
-                                  (click)="onChildMenuClick(sm)"
-                                >
+                                  " (click)="onChildMenuClick(sm)">
                                   <div class="sub-menu-element icon">
-                                    <span
-                                      class="sub-menu-element"
-                                      [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"
-                                    ></span>
+                                    <span class="sub-menu-element"
+                                      [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span>
                                   </div>
                                   <h3 class="sub-menu-element">{{ sm.displayName }}</h3>
                                   <span class="sub-menu-element">{{ sm.desc }}</span>
@@ -176,18 +117,12 @@
                             </div>
                             <div class="col-lg-6">
                               <ul class="sub-menu pr-5">
-                                <li
-                                  class="sub-menu-element nav-item"
-                                  *ngFor="
+                                <li class="sub-menu-element nav-item" *ngFor="
                                     let sm of hm.children
                                       | slice: math.ceil(hm.children.length / 2):hm.children.length
-                                  "
-                                  (click)="onChildMenuClick(sm)"
-                                >
+                                  " (click)="onChildMenuClick(sm)">
                                   <div class="sub-menu-element icon">
-                                    <span
-                                      [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"
-                                    ></span>
+                                    <span [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span>
                                   </div>
                                   <h3 class="sub-menu-element">{{ sm.displayName }}</h3>
                                   <span class="sub-menu-element">{{ sm.desc }}</span>
@@ -202,12 +137,48 @@
                 </li>
               </ng-container>
             </ul>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" *ngIf="isMobileResolution">
+              <ul>
+                <li><a routerLink="/mission">Home</a>
+                  <ul class="mobile-submenu">
+                    <li><a routerLink="/" class="mobile-menu-skill"><span>SkillStudio</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-feeds"><span>Feeds</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-llm"><span>LLM-Hub</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-events"><span>Events</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-marketplace"><span>MarketPlace</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-insights"><span>Insights</span></a></li>
+                  </ul>
+                </li>
+                
+
+                <li><a routerLink="/">Skill Studio</a>
+                  <ul class="mobile-submenu">
+                    <li><a routerLink="/" class="mobile-menu-course"><span>Courses</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-tekbyte"><span>Tekbytes</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-weekly-digest"><span>Weekly Digest</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-interview"><span>Interview Prep</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-video"><span>Video Library</span></a></li>
+                    <li><a routerLink="/" class="mobile-menu-research"><span>Research Papers</span></a></li>
+                  </ul></li>
+                <li><a routerLink="/">Why TekCapsule</a></li>
+                <li><a routerLink="/">About us</a></li>
+                <li><a routerLink="/">Community</a></li>
+                <li><a routerLink="/">FAQ</a></li>
+                <li>
+                  <a routerLink="https://tekcapsule.blog/" target="_blank">Blog</a>
+                </li>
+
+              </ul>
+            </div>
           </div>
         </nav>
+
+
         <div class="d-flex" *ngIf="!isMobileResolution">
           <div class="header-search-box mr-3">
             <input type="text" class="search-input" placeholder="Start Looking For Something!" />
-            <a class="search-btn" href="#">
+            <a class="search-btn" routerLink="#">
               <img src="../../../../assets/images/search-icon.svg" alt="Search" />
             </a>
           </div>

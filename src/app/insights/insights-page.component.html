@@ -1,7 +1,7 @@
 <div class="insights-page">
   <div class="linear-bg-banner insights-banner">
     <section class="inner">
-      <div class="d-flex align-items-center justify-content-between py-4 px-0">
+      <div class="d-flex align-items-center justify-content-between py-4 px-0" *ngIf="!isMobileResolution">
         <div>
           <button class="filters-btn active">Artificial Intelligence</button>
           <button class="filters-btn">Web 3.0</button>
@@ -15,17 +15,18 @@
         </div>
       </div>
       <div class="graph">
-        <img src="../../assets/images/insights/insight-chart.png" alt="" width="1109" height="415" />
+        <app-line-chart></app-line-chart>
+        <!-- <img src="../../assets/images/insights/insight-chart.png" alt="" width="1109" height="415" /> -->
       </div>
     </section>
   </div>
 
-  <app-line-chart></app-line-chart>
+  
 
   <section class="inner insights-content">
     <div class="d-flex justify-content-between">
       <h2>News & Feeds</h2>
-      <div class="search-rounded col-lg-3 pl-0">
+      <div class="search-rounded col-lg-3 pl-0" *ngIf="!isMobileResolution">
         <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
             [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()" />
           <button title="search bar" class="search-btn" (click)="onSearch()"></button>

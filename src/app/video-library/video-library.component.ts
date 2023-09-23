@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AppSpinnerService, VideoLibraryApiService } from '@app/core';
@@ -19,6 +19,7 @@ export class VideoLibraryComponent implements OnInit {
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
+  isMobileResolution: boolean;
 
   constructor(
     public spinner: AppSpinnerService,
@@ -70,6 +71,11 @@ export class VideoLibraryComponent implements OnInit {
     return false;
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+  }
   onSearch(): void {
     let tempList = [...this.videoList];
     if (this.selectedTopics.length > 0) {

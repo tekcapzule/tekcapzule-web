@@ -21,7 +21,7 @@
     font-family: $primary-font-regular;
   }
   .home-banner {
-    background: url('../../assets/images/home/home-banner-bg.svg');
+    background: url('../../assets/images/ball-wed.svg'), url('../../assets/images/home/home-banner-bg.svg') no-repeat;
     height: 700px;
     width: 100%;
     margin-bottom: 140px;

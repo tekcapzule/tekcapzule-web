@@ -149,7 +149,7 @@
   }
   .navbar-toggler-icon {
     width: 25px;
-    height: 30px;
+    height: 34px;
   }
   .contribute-page {
     .contribute-bg {
@@ -231,7 +231,17 @@
     }
   }
   .inner {
-    padding: 0 20px;
+    padding: 20px 20px 0 !important;
+  }
+  .home-banner {
+    margin-top: 75px !important;
+  }
+  .skill-studio-page.p-main {
+    padding-top: 75px !important;
+  }
+  .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 @media only screen and (width: 1024px) {
@@ -288,6 +298,22 @@
   .banner-text {
     text-align: center !important;
   }
+  .description {
+    display: block !important;
+    max-height: fit-content !important;
+  }
+  .w-50 {
+    width: 100%  !important;
+  }
+  .sm-view {
+    display: block !important;
+    .hub-tiles {
+      width: 100%;
+    }
+  }
+  .card-wrapper {
+    padding-bottom: 0 !important;
+  }
   .carousel-card 
   .content .title {
     min-height: inherit !important;
@@ -301,6 +327,14 @@
       padding-bottom: 30px !important;
     }
   }
+  //  .carousel-card {
+  //   .content {
+  //     .description {
+  //       display: block !important;
+  //       max-height: fit-content !important;
+  //     }
+  //   }
+  //  }
 
   
   .hero-img {
@@ -327,13 +361,12 @@
     margin-bottom: 20px !important;
     height: auto !important;
     width: auto !important;
-    margin: 10px 20px !important;
+    margin: 10px 0px !important;
     .content {
       .description {
         height: auto !important;
       }
      }
-
   }
 
   /*********** Details Page **************/
@@ -362,7 +395,7 @@
     .tekbyte-details-page 
     .tekbyte-details 
     .business-modal 
-    .card {
+    .card, .llm-hub-bg {
       height: auto !important;
       max-width: fit-content !important
     }
@@ -375,6 +408,8 @@
     }
     .digest-card {
       max-height: fit-content !important;
+      margin-right: 0!important;
+
       .content-top {
         height: auto !important;
       }
@@ -480,3 +515,7 @@
 }
 
 /**************Skil Studio Responsive End****************/
+
+/*********************Mobile Menu Start***********************/
+
+/*********************Mobile Menu End***********************/

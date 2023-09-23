@@ -36,3 +36,15 @@
     border-radius: 3px;
   }
 }
+
+
+@media only screen and (max-width: 767px) { 
+  .box-content {
+    display: block !important;
+    .box-content-img {
+      float: none;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}
