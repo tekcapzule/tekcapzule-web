@@ -10,7 +10,8 @@ import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [WeeklyDigestComponent],
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     SharedModule,
     ReactiveFormsModule,
     FormsModule,

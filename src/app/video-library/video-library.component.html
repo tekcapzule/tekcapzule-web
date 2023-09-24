@@ -25,11 +25,7 @@
   <section>
     <div class="inner">
       <div class="container d-flex align-items-center justify-content-between py-4 px-0">
-        <div>
-          <button class="filters-btn active">Artificial Intelligence</button>
-          <button class="filters-btn">Web 3.0</button>
-          <button class="filters-btn">Metaverse</button>
-        </div>
+        <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
         <div class="search-rounded col-lg-3 pl-0 mr-4">
           <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
             [(ngModel)]="searchText" (keyup.enter)="onSearch()" (blur)="onSearch()" />
