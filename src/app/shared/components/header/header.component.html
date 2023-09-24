@@ -142,25 +142,20 @@
               <ul>
                 <li><a routerLink="/mission">Home</a>
                   <ul class="mobile-submenu">
-                    <li><a routerLink="/" class="mobile-menu-skill"><span>SkillStudio</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-feeds"><span>Feeds</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-llm"><span>LLM-Hub</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-events"><span>Events</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-marketplace"><span>MarketPlace</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-insights"><span>Insights</span></a></li>
+                    <li *ngFor="let hm of headerMenu; let i = index">
+                      <a [routerLink]="hm.navUrl" class="mobile-menu-skill"><span>{{hm.displayName}}</span></a>
+                    </li>
                   </ul>
                 </li>
                 
 
                 <li><a routerLink="/">Skill Studio</a>
                   <ul class="mobile-submenu">
-                    <li><a routerLink="/" class="mobile-menu-course"><span>Courses</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-tekbyte"><span>Tekbytes</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-weekly-digest"><span>Weekly Digest</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-interview"><span>Interview Prep</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-video"><span>Video Library</span></a></li>
-                    <li><a routerLink="/" class="mobile-menu-research"><span>Research Papers</span></a></li>
-                  </ul></li>
+                    <li *ngFor="let sm of skillStudioMenu; let i = index">
+                      <a [routerLink]="sm.navUrl" class="mobile-menu-course"><span>{{sm.displayName}}</span></a>
+                    </li>
+                  </ul>
+                </li>
                 <li><a routerLink="/">Why TekCapsule</a></li>
                 <li><a routerLink="/">About us</a></li>
                 <li><a routerLink="/">Community</a></li>
