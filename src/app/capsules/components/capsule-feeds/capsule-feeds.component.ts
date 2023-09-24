@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -29,6 +29,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   selectedCapsuleType: string;
   subrscription: Subscription[] = [];
   subscriberFormGroup: FormGroup;
+  isMobileResolution: boolean;
   constructor(
     private auth: AuthStateService,
     private capsuleApi: CapsuleApiService,
@@ -97,7 +98,11 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     }
     console.log('this.filteredCapsule', this.filteredCapsule);
   }
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+  }
   /**
    * Fetch my feed capsules based on user subscribed topics, if user logged in.
    * Otherwise load my feed capsules for default topics like AI, CLD and SWD.

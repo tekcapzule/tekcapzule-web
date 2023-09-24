@@ -71,3 +71,10 @@
         font-family: $primary-font-regular;
     }
 }
+
+@media only screen and (max-width: 990px) {
+    .marketplace-bg {
+        height: auto;
+        background-size: cover;
+    }
+}
