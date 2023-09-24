@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit {
   isMobileResolution: boolean;
   openedMenuItem: NavTab;
   headerMenu: NavTab[] = Constants.HeaderMenu;
+  skillStudioMenu: NavTab[] = [];
   selectedMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
   math = Math;
@@ -54,6 +55,7 @@ export class HeaderComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private helperService: HelperService
   ) {
+    this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
     this.menuClickOutsideEvent();
   }
 

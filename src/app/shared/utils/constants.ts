@@ -6,24 +6,8 @@ export const Constants = {
   DefaultSubscriptionTopics: ['NLP', 'MLR', 'CVS'],
   HeaderMenu: [
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', showOnMobile: true },
-    {
-      uniqueId: 'My_Feeds',
-      displayName: 'Home',
-      navUrl: '/capsules',
-      viewType: 'MOBILE',
-      /*children: [
-        { uniqueId: 'For_You', displayName: 'For You', navUrl: '/capsules/myfeeds' },
-        { uniqueId: 'Trending', displayName: 'Trending', navUrl: '/capsules/trending' },
-        { uniqueId: 'Editor_Pick', displayName: 'Editor Pick', navUrl: '/capsules/editorspick' },
-        { uniqueId: 'BROWSE_BYTOPIC', displayName: 'Explore Topic', navUrl: '' },
-      ],*/
-    },
-    {
-      uniqueId: 'Skill_Studio',
-      displayName: 'SkillStudio',
-      navUrl: '/ai-hub/dashboard',
-      viewType: 'ALL',
-
+    { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/capsules', viewType: 'MOBILE' },
+    { uniqueId: 'Skill_Studio', displayName: 'SkillStudio', navUrl: '/ai-hub/dashboard', viewType: 'ALL',
       children: [
         {
           uniqueId: 'Tekbyte',
@@ -44,8 +28,7 @@ export const Constants = {
           navUrl: '/ai-hub/interview-prepartion',
           desc:
             'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.',
-        },
-        
+        },        
         {
           uniqueId: 'Research_Papers',
           displayName: 'Research papers',
@@ -65,30 +48,15 @@ export const Constants = {
           navUrl: '/ai-hub/weekly-digest',
           desc:
             'Get the best of AI with our curated list of leading weekly newsletters and podcasts.',
-        },
-        
+        }        
       ],
     },
-    // {
-    //   uniqueId: 'Mentoring',
-    //   displayName: 'Mentoring',
-    //   isPageReady: false,
-    //   navUrl: '/ai-hub/mentoring',
-    // },
-    {
-      uniqueId: 'Contribute',
-      displayName: 'Contribute',
-      navUrl: 'capsules/contribute',
-      showOnMobile: true,
-    },
+    { uniqueId: 'Contribute', displayName: 'Contribute', navUrl: 'capsules/contribute', showOnMobile: true },
     { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place' },
-    //{ uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
     { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
-    {
-      uniqueId: 'events',
-      displayName: 'Events',
-      navUrl: '/ai-hub/events',
-    },
+    { uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events' },
+    //{ uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
+    // { uniqueId: 'Mentoring', displayName: 'Mentoring', isPageReady: false, navUrl: '/ai-hub/mentoring' },
     //{ uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
     // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },

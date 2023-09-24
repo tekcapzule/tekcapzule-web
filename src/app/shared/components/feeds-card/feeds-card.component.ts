@@ -153,10 +153,6 @@ export class FeedsCardComponent implements OnInit {
   }
 
   onCapsuleBookmark(): void {
-    if (!this.auth.isUserLoggedIn()) {
-      return;
-    }
-
     this.userApi
       .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
       .pipe(
@@ -186,10 +182,6 @@ export class FeedsCardComponent implements OnInit {
   }
 
   onCapsuleBookmarkRemove(): void {
-    if (!this.auth.isUserLoggedIn()) {
-      return;
-    }
-
     this.userApi
       .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
       .subscribe(data => {
