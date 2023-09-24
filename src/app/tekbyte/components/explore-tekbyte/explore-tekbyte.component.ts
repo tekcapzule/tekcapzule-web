@@ -35,7 +35,7 @@ export class ExploreTekbyteComponent implements OnInit {
     this.getTekbytes();
     this.onResize();
   }
-  
+
   getTekbytes() {
     this.tekbyteApi.getAllTekByte().subscribe(
       data => {
@@ -67,7 +67,7 @@ export class ExploreTekbyteComponent implements OnInit {
   openTekbyte(tl) {
     this.router.navigateByUrl('/ai-hub/tekbyte/' + tl.tekByteId + '/details');
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
@@ -99,9 +99,8 @@ export class ExploreTekbyteComponent implements OnInit {
     this.onSearch();
   }
 
-  
   filterUpdate(topics) {
     this.selectedTopics = topics;
-    this.onSearch();    
+    this.onSearch();
   }
 }

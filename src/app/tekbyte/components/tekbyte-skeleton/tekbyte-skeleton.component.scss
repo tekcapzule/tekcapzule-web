@@ -4,16 +4,9 @@
 
 .tekbyte-skeleton {
   .title {
-    height: 16px;
-    width: 90%;
+    height: 20px;
     border-radius: 3px;
-    margin-bottom: 10px;
-  }
-  .author {
-    height: 16px;
-    width: 60%;
-    border-radius: 3px;
-    margin-bottom: 26px;
+    margin-bottom: 30px;
   }
   .description {
     height: 16px;
@@ -22,11 +15,11 @@
     padding-bottom: 0;
   }
   .card-footer {
-    border: none;
     background: none;
+    padding: 6px 24px;
     .action-btn {
-      height: 30px;
-      width: 30px;
+      height: 32px;
+      width: 32px;
       border-radius: 50%;
     }
   }

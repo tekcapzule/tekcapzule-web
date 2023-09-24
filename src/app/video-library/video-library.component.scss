@@ -8,7 +8,7 @@
 }
 .video-library-card {
   cursor: pointer;
-  border: 1px solid #E8EDFF;
+  border: 1px solid #e8edff;
   border-radius: 5px;
   height: 375px;
   .video_thumb {
@@ -41,15 +41,16 @@
       margin-bottom: 10px;
     }
     .pills {
-      background: #D9E9F7;
+      background: #d9e9f7;
       color: #556779;
     }
   }
 }
 
 .video-skeleton {
+  height: 360px;
   .image {
-    height: 150px;
+    height: 120px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
@@ -64,13 +65,24 @@
       width: 70%;
       margin-bottom: 30px;
     }
-    .description {
+    .skeleton-description {
       height: 16px;
       margin-bottom: 10px;
     }
+    .badge {
+      height: 26px;
+      background-color: $skeleton-grey;
+      &.badge1 {
+        width: 60px;
+        margin-right: 10px;
+      }
+      &.badge2 {
+        width: 80px;
+      }
+    }
     .title.loading,
     .author.loading,
-    .description.loading {
+    .skeleton-description.loading {
       border-radius: 2px;
     }
   }

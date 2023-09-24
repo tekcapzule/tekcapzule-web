@@ -4,31 +4,27 @@
 
 .product-skeleton {
   .title {
-    height: 26px;
+    height: 20px;
     width: 60%;
     border-radius: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
-  .description {
+  .skeleton-description {
     height: 16px;
     border-radius: 3px;
     margin-bottom: 10px;
   }
-  .category {
-    width: 60px;
-    height: 38px;
-    border-radius: 20px;
-    margin-top: 20px;
-  }
-  .hand {
-    width: 38px;
-    height: 38px;
+  .badge-hand {
+    width: 32px;
+    height: 32px;
+    background-color: #dddbdd;
     border-radius: 50%;
     margin-left: 20px;
   }
-  .free {
-    width: 80px;
-    height: 38px;
+  .badge-free {
+    width: 60px;
+    height: 30px;
+    background-color: #dddbdd;
     border-radius: 20px;
     margin-right: 20px;
   }
