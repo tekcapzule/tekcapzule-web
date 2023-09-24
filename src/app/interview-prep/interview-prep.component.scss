@@ -5,7 +5,7 @@
   transition: all 0.3s ease 0s;
   h3 {
     font-family: $primary-font-black;
-    color: #1F1F1F;
+    color: #1f1f1f;
   }
   .box-content-img {
     float: left;
@@ -19,26 +19,31 @@
       transition: all 0.3s ease 0s;
     }
   }
-  
 }
 .interview-skeleton {
+  .content-image {
+    margin-right: 30px;
+    border-radius: 10px;
+    width: 230px;
+    height: 125px;
+    float: left;
+  }
   .title {
-    height: 24px;
+    height: 20px;
     width: 60%;
     margin-left: 270px;
     border-radius: 3px;
     margin-bottom: 20px;
   }
   .summary {
-    height: 20px;
+    height: 16px;
     margin-left: 270px;
     margin-bottom: 10px;
     border-radius: 3px;
   }
 }
 
-
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) {
   .box-content {
     display: block !important;
     .box-content-img {

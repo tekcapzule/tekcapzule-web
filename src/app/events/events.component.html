@@ -1,19 +1,24 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
   <section class="container-fluid aihub-banner events pt-5">
     <div class="container">
-          <div class="row mt-5">
-          <div class="col-lg-6">
-          </div>
-          <div class="col-lg-3">
-          <h2 class="text-white">AI without borders</h2> 
-          <h3 class="text-white">We curate a list of global AI events, enabling you to learn from the world’s leading experts</h3>
-          </div>
+      <div class="row mt-5">
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+          <h2 class="text-white">AI without borders</h2>
+          <h3 class="text-white">
+            We curate a list of global AI events, enabling you to learn from the world’s leading
+            experts
+          </h3>
         </div>
+      </div>
     </div>
   </section>
 
   <div class="col-lg-12 mt-4">
-    <div class="container d-flex align-items-center justify-content-between pb-3" *ngIf="!isMobileResolution">
+    <div
+      class="container d-flex align-items-center justify-content-between pb-3"
+      *ngIf="!isMobileResolution"
+    >
       <div>
         <button class="filters-btn active">Americas</button>
         <button class="filters-btn">Europe</button>
@@ -21,12 +26,17 @@
         <button class="filters-btn">Asia & Asia Pacific</button>
       </div>
       <div class="search-rounded col-lg-3 pl-0 mr-4">
-        <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded" />
+        <input
+          type="text"
+          name="searchTopics"
+          placeholder="Search"
+          class="mb-0 input-search-rounded"
+        />
         <button title="search bar" class="search-btn"></button>
       </div>
     </div>
     <ng-container *ngIf="!spinner.isLoading">
-      <section *ngFor="let reg of regions; let i = index" class="pt-3 container ">
+      <section *ngFor="let reg of regions; let i = index" class="pt-3 container">
         <!-- <div class="pb-3 text-left">
           <h2>{{ reg?.replaceAll('_', ' ') | titlecase }}</h2>
         </div> -->
@@ -38,14 +48,15 @@
           >
             <div class="conference-header">
               <div class="d-flex justify-content-between align-items-top">
-              <div class="title">{{ eve.title }}<br>2023</div>
-              <span class="pills mr-0 mt-2">Metaverse</span>
-            </div>
+                <div class="title">{{ eve.title }}<br />2023</div>
+                <span class="pills mr-0 mt-2">Metaverse</span>
+              </div>
               <div class="description">{{ eve.summary }}</div>
             </div>
             <div *ngIf="eve.schedule" class="d-flex align-items-center">
               <span class="date-icon"></span>{{ eve.schedule.startDate }} - {{ eve.schedule.endDate
-              }}<span class="px-3"> | </span>{{ eve.schedule.startTime }} - {{ eve.schedule.endTime }}
+              }}<span class="px-3"> | </span>{{ eve.schedule.startTime }} -
+              {{ eve.schedule.endTime }}
             </div>
             <div class="d-flex align-items-top">
               <span class="location-icon mt-2"></span>{{ eve.venue }}
@@ -67,33 +78,30 @@
           >
             <div class="conference-header">
               <div class="d-flex justify-content-between align-items-top">
-                <div class="title">{{ eve.title }}<br>2023</div>
+                <div class="title">{{ eve.title }}<br />2023</div>
                 <span class="pills mr-0 mt-2">Metaverse</span>
               </div>
               <div class="description border-0 small">{{ eve.summary }}</div>
             </div>
-           <div class="play-button play-icon"></div>
+            <div class="play-button play-icon"></div>
           </div>
         </div>
       </section>
     </ng-container>
     <ng-container *ngIf="spinner.isLoading">
-      <section class="pt-3 container " *ngFor="let i of [1, 2, 3]">
-        <div class="pb-3 text-left skeleton-loader">
+      <section class="pt-3 container" *ngFor="let i of [1, 2, 3]">
+        <!-- <div class="pb-3 text-left skeleton-loader">
           <h2 class="loading"></h2>
-        </div>
-        <div>
-          <div
-            *ngFor="let j of [1, 2, 3]"
-            class="digest-card event-skeleton skeleton-loader digest-default"
-          >
+        </div> -->
+        <div class="d-flex sm-view">
+          <div *ngFor="let j of [1, 2, 3]" class="digest-card event-skeleton skeleton-loader">
             <div class="conference-header">
-              <div class="title loading"></div>
-              <div class="description loading"></div>
-              <div class="description loading"></div>
-              <div class="description loading"></div>
+              <div class="title-1 loading"></div>
+              <div class="title-2 loading"></div>
+              <div class="skeleton-description loading"></div>
+              <div class="skeleton-description loading"></div>
             </div>
-            <div class="d-flex align-items-center bottom mb-3">
+            <div class="d-flex align-items-center bottom mb-2 mt-2">
               <div class="event-icon mr-4 loading"></div>
               <div class="event-date loading"></div>
             </div>

@@ -5,13 +5,12 @@
 .course-skeleton {
   .header-image {
     height: 140px;
-    margin: 10px;
-    width: 312px;
-    border-radius: 10px;
+    width: 331px;
   }
   .content {
     overflow: hidden;
     padding: 20px 24px 0 24px;
+    height: 160px;
     .title {
       margin: 0;
       height: 16px !important;
@@ -21,7 +20,7 @@
     }
     .author {
       height: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 26px;
       width: 60%;
     }
     .description {

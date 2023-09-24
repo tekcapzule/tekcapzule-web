@@ -9,12 +9,12 @@
   max-width: 395px;
   width: 100%;
   padding: 15px 25px;
-  color: #1C1C1C;
+  color: #1c1c1c;
   border-radius: 15px;
   margin: 0px 40px 25px 0px;
   // display: inline-grid;
   text-align: left;
-  border: 1px solid #E8EDFF;
+  border: 1px solid #e8edff;
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -44,7 +44,6 @@
     display: flex;
     align-items: center;
     line-height: 26px;
-
   }
   .description {
     font-size: 16px;
@@ -54,7 +53,7 @@
     overflow-y: hidden;
     min-height: 80px;
     display: -webkit-box;
-    border-bottom: 1px solid #E8EDFF;
+    border-bottom: 1px solid #e8edff;
     margin-bottom: 10px;
     margin-top: 15px;
     &.small {
@@ -77,36 +76,35 @@
 }
 .event-skeleton {
   background: #fff !important;
-  &.digest-default {
-    border: 1px solid #2e375a;
-  }
   .conference-header {
-    // height: 150px;
-    // border-left: 8px solid $skeleton-grey;
+    border-bottom: 1px solid #e8edff;
   }
-  .title {
-    height: 30px;
-    width: 80%;
+  .title-1 {
+    height: 20px;
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  .title-2 {
+    height: 20px;
+    width: 40%;
     margin-bottom: 20px;
   }
-  .description {
+  .skeleton-description {
     height: 16px;
-    // width: 90%;
     margin-bottom: 10px;
   }
   .bottom {
     .event-icon {
-      height: 30px;
-      width: 30px;
+      height: 24px;
+      width: 24px;
       border-radius: 50%;
     }
     .event-date {
-      height: 20px;
-      width: 70%;
+      height: 16px;
+      width: 80%;
     }
   }
   .loading {
-    border-radius: 3px;
+    border-radius: 2px;
   }
- 
 }
