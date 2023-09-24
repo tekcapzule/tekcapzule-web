@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, TekByteApiService } from '@app/core';
@@ -20,6 +20,7 @@ export class ExploreTekbyteComponent implements OnInit {
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
+  isMobileResolution: boolean;
 
   constructor(
     private tekbyteApi: TekByteApiService,
@@ -32,8 +33,9 @@ export class ExploreTekbyteComponent implements OnInit {
     this.spinner.show();
     this.topics = this.helperService.getTopicData();
     this.getTekbytes();
+    this.onResize();
   }
-
+  
   getTekbytes() {
     this.tekbyteApi.getAllTekByte().subscribe(
       data => {
@@ -65,7 +67,12 @@ export class ExploreTekbyteComponent implements OnInit {
   openTekbyte(tl) {
     this.router.navigateByUrl('/ai-hub/tekbyte/' + tl.tekByteId + '/details');
   }
-
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+  }
   onSearch() {
     let tempList = [...this.tekbyteList];
     if (this.selectedTopics.length > 0) {

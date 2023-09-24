@@ -15,7 +15,7 @@
   </div>
   <section class="container-fluid aihub-banner video-library pt-5">
     <div class="inner">
-      <div class="text-right mob-mr-0 mt-5">
+      <div class="text-right mob-mr-0 mt-lg-5 mt-sm-0">
         <div class="banner-highlights text-white">
           Gain practical AI insights through <br />our selection of informative videos
         </div>
@@ -24,7 +24,7 @@
   </section>
   <section>
     <div class="inner">
-      <div class="container d-flex align-items-center justify-content-between py-4 px-0">
+      <div class="container d-flex align-items-center justify-content-between py-4 px-0" *ngIf="!isMobileResolution">
         <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
         <div class="search-rounded col-lg-3 pl-0 mr-4">
           <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"

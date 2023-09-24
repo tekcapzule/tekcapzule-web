@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { AppSpinnerService, EventApiService } from '@app/core';
 import { IEventItem } from '@app/shared/models';
@@ -15,6 +15,7 @@ export class EventsComponent implements OnInit {
   regions: string[] = [];
   promotedEvents: any[] = [];
   pastPopularEvent: any[] = [];
+  isMobileResolution: boolean;
 
   constructor(
     public spinner: AppSpinnerService,
@@ -60,6 +61,12 @@ export class EventsComponent implements OnInit {
 
   onRegister(eve) {
     window.open(eve.registrationUrl, '_blank');
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
   }
 
   onPastEvents(eve: IEventItem) {

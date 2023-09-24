@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -17,6 +17,7 @@ export class InterviewPrepComponent implements OnInit {
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
+  isMobileResolution: boolean;
 
   constructor(
     public spinner: AppSpinnerService,
@@ -33,7 +34,11 @@ export class InterviewPrepComponent implements OnInit {
       this.filteredInterviewList = data;
     });
   }
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+  }
   onSearch() {
     let tempList = [...this.interviewList];
     if (this.selectedTopics.length > 0) {
