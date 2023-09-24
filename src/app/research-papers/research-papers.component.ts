@@ -99,4 +99,9 @@ export class ResearchPapersComponent implements OnInit {
     }
     this.onSearch();
   }
+  
+  filterUpdate(topics) {
+    this.selectedTopics = topics;
+    this.onSearch();    
+  }
 }

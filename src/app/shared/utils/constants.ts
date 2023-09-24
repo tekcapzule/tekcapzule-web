@@ -8,15 +8,15 @@ export const Constants = {
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', showOnMobile: true },
     {
       uniqueId: 'My_Feeds',
-      displayName: 'Feeds',
+      displayName: 'Home',
       navUrl: '/capsules',
       viewType: 'MOBILE',
-      children: [
+      /*children: [
         { uniqueId: 'For_You', displayName: 'For You', navUrl: '/capsules/myfeeds' },
         { uniqueId: 'Trending', displayName: 'Trending', navUrl: '/capsules/trending' },
         { uniqueId: 'Editor_Pick', displayName: 'Editor Pick', navUrl: '/capsules/editorspick' },
         { uniqueId: 'BROWSE_BYTOPIC', displayName: 'Explore Topic', navUrl: '' },
-      ],
+      ],*/
     },
     {
       uniqueId: 'Skill_Studio',
@@ -82,7 +82,7 @@ export const Constants = {
       showOnMobile: true,
     },
     { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place' },
-    { uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
+    //{ uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
     { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
     {
       uniqueId: 'events',

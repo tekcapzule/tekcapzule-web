@@ -6,8 +6,8 @@
       <div class="d-flex justify-content-between">
         <h5>{{capsule.author}}</h5>
       </div>
-      <p class="grey-color">{{capsule.title}}<span>({{dateAgoStr}})</span> | <span>Posted:
-        {{capsule.publisher}}</span></p>
+      <p class="grey-color">{{capsule.title | titlecase}}<span> ({{dateAgoStr}})</span> | <span>Posted:
+        {{capsule.publisher | titlecase}}</span></p>
     </div>
   </div>
   <p>{{capsule.description}} <span class="grey-color">see more…</span></p>
