@@ -2586,17 +2586,21 @@ select {
     color: #fff;
     font-size: 17px;
     margin-left: -16px;
-    width: 530px;
+    max-width: 530px;
     font-family: $primary-font-medium;
+    line-height: 22px;
  }
  .web-url {
   font-size: 11px;
   color: #838383;
   margin-left: -15px;
-  width: 528px;
+  max-width: 528px;
   padding: 0px 16px 5px;
   margin-top: -18px;
   background-color: #FAFAFA;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   a {
     color: #838383;
     text-decoration: none;

@@ -40,10 +40,10 @@
           </div>
 
           <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-            <div class="main-nav">{{ selectedMenuItem?.displayName }}</div>
-            <div *ngIf="selectedChildMenuItem" class="sub-nav">
+            <div class="main-nav">{{ selectedChildMenuItem?.displayName }}</div>
+            <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
               {{ selectedChildMenuItem?.displayName }}
-            </div>
+            </div> -->
           </div>
           <div class="menu-hide">&nbsp;</div>
 

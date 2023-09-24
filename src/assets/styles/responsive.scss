@@ -243,6 +243,19 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  .feeds-blog-container .feeds-img {
+    min-width: auto !important;
+    height: auto !important;
+  }
+  .feeds-blog-container .feeds-img, .web-url, .short-desc {
+    margin-left: 0 !important;
+  }
+  .short-desc {
+    padding: 5px 10px 0 !important;
+    p {
+      margin-bottom: 5px !important;
+    }
+  }
 }
 @media only screen and (width: 1024px) {
   .col-card {
@@ -302,7 +315,32 @@
     display: block !important;
     max-height: fit-content !important;
   }
-  .w-50 {
+  .weekly-digest-banner {
+    height: auto !important;
+  }
+  .video_thumb {
+    margin-bottom: 20px;
+  }
+  .prod-mob {
+    padding: 0;
+    margin-right: 0 !important;
+    text-align: center !important;
+  }
+
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .row-mobile {
+    display: block !important;
+  }
+  .mob-hide {
+    display: none !important;
+  }
+  .appstore-tile {
+    width: 100% !important;
+  }
+  .w-50, .feeds-blog-container .main-container {
     width: 100%  !important;
   }
   .sm-view {
@@ -376,7 +414,7 @@
     }
     .subscribe-block {
       width: 100%;
-      margin: 15px;
+      margin: 0 !important;
     }
     .details-body {
       display: block !important;

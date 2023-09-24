@@ -26,7 +26,7 @@
             <span class="pills ml-3 bg-navy-blue">{{tekbyteData.topicCode}}</span>
           </div>
           <p>{{tekbyteData.summary}}</p>
-          <div class="d-flex align-items-center pt-3">
+          <div class="d-flex align-items-center py-3">
             <div class="recommend font-16 d-flex mr-4"><span class="okhand-white-icon pr-3"></span>Recommend
               <span class="count text-white pl-2">({{tekbyteData.recommendations}})</span>
             </div>
@@ -39,11 +39,11 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="know-more-sec text-center">
+          <div class="know-more-sec text-center mr-5">
             <h3>Did you know?</h3>
           </div>
           <div class="banner-highlight d-flex">
-            <img src="/assets/images/knowmore-icon.png" alt="Did you know icon" class="img-fluid" />
+            <img src="/assets/images/knowmore-icon.png" alt="Did you know icon" class="img-fluid w-75 h-75" />
             <p class="text-black">A good user interface can raise website conversion rates by up to 200%</p>
           </div>
         </div>
@@ -51,7 +51,7 @@
     </div>
   </section>
 
-  <div class="row justify-content-end">
+  <div class="row justify-content-end row-mobile">
     <div class="col-lg-10 px-0 pb-0 tekbyte-details">
       <!-- Business Modal Section -->
       <section *ngIf="tekbyteData.goldenCircle" class="inner business-modal">
