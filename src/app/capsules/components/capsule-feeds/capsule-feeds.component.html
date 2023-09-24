@@ -1,7 +1,7 @@
 <section class="align-items-center inner" *ngIf="!spinner.isLoading">
   <div class="feeds-blog-container">
-    <div class="d-flex justify-content-between">
-      <div class="bookmarks-container" *ngIf="!isMobileResolution">
+    <div class="d-flex justify-content-between row-mobile">
+      <div class="bookmarks-container mob-hide">
         <h6>Recent Bookmarks</h6>
         <ul class="bookmarks">
           <li>The Rise of Artificial Intelligence</li>
@@ -13,7 +13,7 @@
         <p class="text-bold"><a href="#" class="underline">See all</a></p>
       </div>
       <div>
-        <div class="share-container" *ngIf="!isMobileResolution">
+        <div class="share-container mob-hide">
           <div class="share-block">
             <div class="profile-pic"></div>
             <div class="share-textbox w-100 pb-3">
@@ -34,7 +34,7 @@
         </div>
         
       </div>
-      <div class="subscribe-container" *ngIf="!isMobileResolution">
+      <div class="subscribe-container mob-hide">
         <h6>Subscribe to our Newsletter</h6>
         <p>Connecting you to the latest AI advancements and insights!</p>
         <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">

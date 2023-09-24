@@ -38,6 +38,7 @@
   .date-icon {
     margin-right: 10px;
   }
+
   .title {
     font-size: 18px;
     font-family: $primary-font-black;
@@ -106,5 +107,27 @@
   }
   .loading {
     border-radius: 2px;
+  }
+}
+.skill-studio-page.p-main {
+  padding-top: 73px;
+}
+.aihub-banner {
+  margin-top: 0 !important;
+  h3 {
+    font-family: $primary-font-regular;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .aihub-banner.events {
+    background: url('../../assets/images/events/events-banner-bg.png') no-repeat, url('../../assets/images/events/events-banner.png') -245px 0px no-repeat;
+    background-size: cover;
+    height: 315px !important;
+    background-blend-mode: color-burn;
+  }
+  .aihub-banner {
+    h3 {
+      font-size: 18px !important;
+    }
   }
 }

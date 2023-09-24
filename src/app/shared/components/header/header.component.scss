@@ -332,9 +332,9 @@
   line-height: 28px;
 
   .main-nav {
-    font-family: $primary-font-bold;
-    font-size: 22px;
-    color: #c3ccff;
+    font-family: $primary-font-medium;
+    font-size: 24px;
+    color: #fff;
   }
 
   .sub-nav {
@@ -459,12 +459,13 @@
     @media only screen and (max-width: 480px) {
       .navbar {
         padding: 8px 0;
+        justify-content: flex-start;
       }
     }
   }
 
   .navbar-toggler {
-    margin-right: 20px;
+    margin-right: 10px;
     padding: 0.25rem 0.5rem;
     background: url('../../../../assets/images/mobile-menu-icon.svg') 10px 10px no-repeat;
   }
@@ -737,6 +738,9 @@
         span {
           padding-top: 20px;
           line-height: 18px;
+        }
+        &.mobile-menu-interview {
+          background-size: 27%;
         }
       }
     }
