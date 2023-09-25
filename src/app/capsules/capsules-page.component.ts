@@ -252,19 +252,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   onHardRefreshCapsules(): void {
     this.spinner.show();
 
-    forkJoin([
-      this.capsuleApi.getTrendingCapsules(true),
-      this.capsuleApi.getEditorsPickCapsules(true),
-    ])
-      .pipe(finalize(() => this.spinner.hide()))
-      .subscribe(() => {
-        this.spinner.hide();
-
-        this.eventChannel.publish({
-          event: ChannelEvent.LoadDataForActiveCapsuleTab,
-          data: { refreshCache: true },
-        });
-      });
+    this.eventChannel.publish({
+      event: ChannelEvent.LoadDataForActiveCapsuleTab,
+      data: { topics: this.selectedTopics, refreshCache: true }
+    });
   }
 
   doLoadFeedsForSelectedTopics(): void {
