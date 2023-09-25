@@ -51,10 +51,10 @@
             <ul class="navbar-nav" *ngIf="!isMobileResolution">
               <ng-container *ngFor="let hm of headerMenu; let i = index">
                 <li [ngClass]="{
-                    dropdown: (hm.viewType || isMobileResolution) && hm.children,
+                    dropdown: hm.viewType && hm.children,
                     active: selectedMenuItem?.uniqueId === hm.uniqueId
                   }" *ngIf="hm.showOnMobile ? isMobileResolution : true">
-                  <div *ngIf="!isMobileResolution" class="dropdown">
+                  <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
                       <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down"
@@ -62,9 +62,7 @@
                     </button>
                   </div>
                   
-                  <ng-container *ngIf="
-                      isMobileResolution && hm.children && openedMenuItem?.uniqueId === hm.uniqueId
-                    ">
+                  <ng-container *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId">
                     <ul class="dropdown-menu show">
                       <li *ngFor="let menuItem of hm.children; let i = index">
                         <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{
@@ -73,11 +71,7 @@
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer *ngIf="
-                      hm.viewType === 'ALL' &&
-                      !isMobileResolution &&
-                      openedMenuItem?.uniqueId === hm.uniqueId
-                    ">
+                  <ng-cotainer *ngIf="hm.viewType === 'ALL' && openedMenuItem?.uniqueId === hm.uniqueId">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5">
