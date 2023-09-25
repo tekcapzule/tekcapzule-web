@@ -125,14 +125,6 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
         this.capsules = capsules;
         this.filterByCapsuleType();
       });
-
-    this.capsuleApi
-      .getEditorsPickCapsules(refreshCache)
-      .pipe(finalize(() => this.spinner.hide()))
-      .subscribe(capsules => {
-        this.capsules = capsules;
-        this.filterByCapsuleType();
-      });
   }
 
   onCardOpened(capsuleId: string): void {

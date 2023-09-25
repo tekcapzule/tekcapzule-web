@@ -21,8 +21,8 @@
   <div class="web-url"><a href={{capsule.resourceUrl}} target="_blank">{{capsule.resourceUrl}}</a></div>
 </div>
   <div class="d-flex justify-content-between">
-  <p class="grey-color">{{ capsule.recommendations }}  recommended</p>
-  <div class="d-flex align-items-center grey-color">{{capsule.type | titlecase}} <span class="article-gray-icon ml-2"></span></div>
+  <p class="grey-color cursor-default">{{ capsule.recommendations }}  recommended</p>
+  <div class="d-flex align-items-center grey-color cursor-default">{{capsule.type | titlecase}} <span class="article-gray-icon ml-2"></span></div>
   </div>
   <div>
     <div class="d-flex justify-content-between">
@@ -35,7 +35,7 @@
       <div class="d-flex align-items-center icon-click">
         <span class="comment-gray-icon pr-4"></span>Comment
       </div>
-      <div class="d-flex align-items-center icon-click" (click)="onCapsuleBookmark()">
+      <div class="d-flex align-items-center" [ngClass]="{'disabled': disableBookmark(), 'icon-click': !disableBookmark()}" (click)="onCapsuleBookmark()">
         <span class="bookmark-gray-icon pr-4"></span>Bookmark
       </div>
     </div>
