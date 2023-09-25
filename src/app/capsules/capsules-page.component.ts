@@ -45,6 +45,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   selectedCapsuleTypes: any[] = [];
   selectedTopics: string[] = [];
   currentSelectedTopic: BrowseByTopic[] = [];
+  isFilterVisible: boolean = false;
 
   constructor(
     private router: Router,
@@ -100,6 +101,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
       data.capsuleType.forEach(type => {
         this.capsuleTypes.push({ code: type, name: type, displayName: toUpperCamelCase(type) });
       });
+      this.capsuleTypes.push({ code: 'VIDEO', name: 'VIDEO', displayName: toUpperCamelCase('VIDEO') });
+      this.capsuleTypes.push({ code: 'ARTICLE', name: 'ARTICLE', displayName: toUpperCamelCase('ARTICLE') });
+      this.capsuleTypes.push({ code: 'NEWS', name: 'NEWS', displayName: toUpperCamelCase('NEWS') });
+      this.capsuleTypes.push({ code: 'PAPER', name: 'PAPER', displayName: toUpperCamelCase('PAPER') });
     });
   }
 
@@ -201,6 +206,10 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   canHideFilterAndTags(): boolean {
     return this.activeTab === Constants.None;
+  }
+
+  showFilterOption() {
+    this.isFilterVisible = !this.isFilterVisible;
   }
 
   /**

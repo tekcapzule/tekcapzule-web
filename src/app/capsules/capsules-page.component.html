@@ -12,9 +12,9 @@
           </ng-container>
         </ul>
         <div class="float-right">
-            <button class="filter-btn btn-border">
+            <button class="filter-btn btn-border" (click)="showFilterOption()">
               <!-- <img src="../../assets/images/filter.svg" alt="reset icon" class="pr-3" /> -->
-               <div class="capsule-filter" *ngIf="!canHideFilterAndTags()">
+               <div class="capsule-filter" *ngIf="isFilterVisible">
                 <p-multiSelect
                   [options]="capsuleTypes"
                   [filter]="false"
