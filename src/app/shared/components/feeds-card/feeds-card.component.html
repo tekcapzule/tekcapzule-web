@@ -32,7 +32,7 @@
       <div class="d-flex align-items-center icon-click" (click)="onShareClick()">
         <span class="share-gray-icon pr-4"></span>Share
       </div>
-      <div class="d-flex align-items-center icon-click">
+      <div class="d-flex align-items-center disabled">
         <span class="comment-gray-icon pr-4"></span>Comment
       </div>
       <div class="d-flex align-items-center" [ngClass]="{'disabled': disableBookmark(), 'icon-click': !disableBookmark()}" (click)="onCapsuleBookmark()">
@@ -41,35 +41,3 @@
     </div>
   </div>
 </div>
-
-<!--div class="main-container" *ngIf="capsule">
-  <div class="share-block">
-    <div class="profile-pic"></div>
-    <div class="w-100">
-      <div class="d-flex justify-content-between">
-        <h6>{{capsule.title}}</h6>
-        <div class="d-flex align-items-center"><b>{{capsule.type | titlecase}}</b> <span [ngClass]="capsule.type.toLowerCase() + '-gray-icon ml-2'"></span></div>
-      </div>
-      <p class="grey-color">{{ capsule.title }} <span>({{ dateAgoStr }})</span> | <span>Posted: {{ capsu.author }}</span></p>
-    </div>
-  </div>
-  <p>{{ capsule.description }} <span>see more…</span></p>
-  <img src="../../../../assets/images/feeds/feeds-img-1.png" alt="" class="img-fluid feeds-img" />
-  <p>{{ capsule.recommendations }} recommended</p>
-  <div>
-    <div class="d-flex justify-content-between">
-      <div class="d-flex align-items-center icon-click" (click)="onCapsuleRecommend()">
-        <span class="recommend-gray-icon pr-4"></span>Recommend
-      </div>
-      <div class="d-flex align-items-center icon-click" (click)="onShareClick()">
-        <span class="share-gray-icon pr-4" ></span>Share
-      </div>
-      <div class="d-flex align-items-center icon-click">
-        <span class="comment-gray-icon pr-4"></span>Comment
-      </div>
-      <div class="d-flex align-items-center icon-click" (click)="onCapsuleBookmark()">
-        <span class="bookmark-gray-icon pr-4"></span>Bookmark
-      </div>
-    </div>
-  </div>
-</!--div-->
