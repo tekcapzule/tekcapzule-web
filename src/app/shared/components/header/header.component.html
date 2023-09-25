@@ -7,7 +7,7 @@
         <li><a routerLink="/community">Community</a></li>
         <li><a routerLink="/faq">FAQ</a></li>
         <li>
-          <div *ngIf="!isMobileResolution" class="dropdown">
+          <div class="dropdown">
             <button class="dropbtn" (click)="openBlog($event)">Blog</button>
           </div>
           <a routerLink="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none"
@@ -51,35 +51,18 @@
             <ul class="navbar-nav" *ngIf="!isMobileResolution">
               <ng-container *ngFor="let hm of headerMenu; let i = index">
                 <li [ngClass]="{
-                    dropdown: (hm.viewType || isMobileResolution) && hm.children,
+                    dropdown: hm.viewType && hm.children,
                     active: selectedMenuItem?.uniqueId === hm.uniqueId
                   }" *ngIf="hm.showOnMobile ? isMobileResolution : true">
-                  <div *ngIf="!isMobileResolution" class="dropdown">
+                  <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
                       <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down"
                         [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"></i>
                     </button>
                   </div>
-                  <!-- <a
-                    routerLink="Javascript:void(0)"
-                    class="nav-item pe-none"
-                    *ngIf="isMobileResolution"
-                    [ngClass]="{ 'parent-menu': isMobileResolution && hm.children }"
-                    (click)="onMenuClick(hm)"
-                    >{{ hm.displayName }}
-                    <span
-                      *ngIf="(isMobileResolution && hm.children) || hm.viewType === 'ALL'"
-                      [ngClass]="{
-                        'parent-menu': (isMobileResolution || hm.viewType === 'ALL') && hm.children
-                      }"
-                      class="caret"
-                    ></span
-                  ></a> -->
-
-                  <ng-container *ngIf="
-                      isMobileResolution && hm.children && openedMenuItem?.uniqueId === hm.uniqueId
-                    ">
+                  
+                  <ng-container *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId">
                     <ul class="dropdown-menu show">
                       <li *ngFor="let menuItem of hm.children; let i = index">
                         <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{
@@ -88,11 +71,7 @@
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer *ngIf="
-                      hm.viewType === 'ALL' &&
-                      !isMobileResolution &&
-                      openedMenuItem?.uniqueId === hm.uniqueId
-                    ">
+                  <ng-cotainer *ngIf="hm.viewType === 'ALL' && openedMenuItem?.uniqueId === hm.uniqueId">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5">
@@ -139,11 +118,11 @@
             </ul>
             <!-- Mobile Menu -->
             <div class="mobile-menu" *ngIf="isMobileResolution">
-              <ul>
+              <ul >
                 <li><a routerLink="/mission">Home</a>
                   <ul class="mobile-submenu">
-                    <li *ngFor="let hm of headerMenu; let i = index">
-                      <a [routerLink]="hm.navUrl" class="mobile-menu-skill"><span>{{hm.displayName}}</span></a>
+                    <li class="sub-menu-element" *ngFor="let hm of headerMenu; let i = index" (click)="onMenuClick(hm)">
+                      <a routerLink="Javascript:void(0)" class="sub-menu-element mobile-menu-skill"><span class="sub-menu-element">{{hm.displayName}}</span></a>
                     </li>
                   </ul>
                 </li>
@@ -151,15 +130,15 @@
 
                 <li><a routerLink="/">Skill Studio</a>
                   <ul class="mobile-submenu">
-                    <li *ngFor="let sm of skillStudioMenu; let i = index">
-                      <a [routerLink]="sm.navUrl" class="mobile-menu-course"><span>{{sm.displayName}}</span></a>
+                    <li class="sub-menu-element" *ngFor="let sm of skillStudioMenu; let i = index" (click)="onChildMenuClick(sm)">
+                      <a  routerLink="Javascript:void(0)" class="sub-menu-element mobile-menu-course"><span class="sub-menu-element">{{sm.displayName}}</span></a>
                     </li>
                   </ul>
                 </li>
                 <li><a routerLink="/">Why TekCapsule</a></li>
-                <li><a routerLink="/">About us</a></li>
-                <li><a routerLink="/">Community</a></li>
-                <li><a routerLink="/">FAQ</a></li>
+                <li><a routerLink="/mission">About us</a></li>
+                <li><a routerLink="/community">Community</a></li>
+                <li><a routerLink="/faq">FAQ</a></li>
                 <li>
                   <a routerLink="https://tekcapsule.blog/" target="_blank">Blog</a>
                 </li>
