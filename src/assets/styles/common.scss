@@ -1998,7 +1998,8 @@ select {
 .details-banner {
   background: #161e45 url('../images/banner_curve.png') no-repeat;
   color: $white;
-  min-height: 380px;
+  // min-height: 380px;
+  min-height: 150px;
   padding-top: 70px !important;
   height: auto;
   padding-bottom: 30px;

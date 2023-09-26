@@ -477,8 +477,12 @@ ul.timeline {
 @media only screen and (max-width: 992px) {
   .story-bg {
     border: 0 none;
-    text-align: right;
+    text-align: left;
     padding: 0 30px;
+    h2 {
+      height: auto !important;
+      box-shadow: none;
+    }
   }
   ul.timeline {
     list-style: none;
@@ -488,9 +492,7 @@ ul.timeline {
     display: flex;
     gap: 20px;
     // background: url("../../../../assets/images/mobile-timeline.png") 0px 5px no-repeat;
-    background-image: url('../../../../assets/images/mobile-timeline.png'); 
-    background-repeat: repeat-x; 
-    background-attachment: scroll;
+    background: url('../../../../assets/images/mobile-timeline.png') repeat-x scroll; 
     top: 0;
     &:before {
       display: none;
