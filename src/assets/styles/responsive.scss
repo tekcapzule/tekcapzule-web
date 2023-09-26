@@ -315,6 +315,13 @@
     display: block !important;
     max-height: fit-content !important;
   }
+  .subscribe-btn {
+    position: relative !important;
+    margin-top: 10px;
+  }
+  .subscibeSection-row {
+    flex-wrap: wrap;
+  }
   .weekly-digest-banner {
     height: auto !important;
   }

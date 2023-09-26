@@ -2613,3 +2613,33 @@ select {
 .svg-chart {
   color: #fff !important;
 }
+
+/*****************Header icons******************/
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  width: 82%;
+  align-items: center;
+}
+.mobile-header-icons {
+  column-gap: 20px;
+  display: flex;
+}
+
+.header-search-icon {
+  background: url('../images/mobile/mobile-search.svg') no-repeat;
+  width: 20px;
+  height: 20px; 
+}
+.header-sort-icon {
+  background: url('../images/mobile/mobile-sort.svg') no-repeat;
+  width: 24px;
+  height: 21px;
+}
+.header-filter-icon {
+  background: url('../images/mobile/mobile-filter.svg') no-repeat;
+  width: 25px;
+  height: 23px; 
+}
+
+

@@ -17,7 +17,7 @@
           <div class="share-block">
             <div class="profile-pic"></div>
             <div class="share-textbox w-100 pb-3">
-              <input type="button" value="Start Sharing..." />
+              <input type="button" value="Start Sharing..." (click)="showPostDialog()" />
             </div>
           </div>
           <div class="share-icons">
@@ -49,3 +49,7 @@
   </div>
 
 </section>
+<app-share-post
+  [isDialogVisible]="isSharePostDialogShown"
+  (dialogClosed)="hideSharePostDialog()"
+></app-share-post>

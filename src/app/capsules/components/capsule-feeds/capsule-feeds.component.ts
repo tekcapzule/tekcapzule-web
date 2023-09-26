@@ -22,6 +22,7 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./capsule-feeds.component.scss'],
 })
 export class CapsuleFeedsComponent implements OnInit, OnDestroy {
+  isSharePostDialogShown = false;
   destroy$ = new Subject<boolean>();
   capsules = [];
   filteredCapsule = [];
@@ -160,5 +161,12 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     } else {
       this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
+  }
+  showSharePostDialog() {
+    this.isSharePostDialogShown = true;
+  }
+
+  hideSharePostDialog() {
+    this.isSharePostDialogShown = false;
   }
 }
