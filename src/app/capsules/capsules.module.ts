@@ -14,6 +14,7 @@ import { CapsuleTrendingComponent } from './components/capsule-trending/capsule-
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { EditorsPickComponent } from './components/editors-pick/editors-pick.component';
+import { SharePostComponent } from './components/capsule-feeds/share-post/share-post.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditorsPickComponent } from './components/editors-pick/editors-pick.com
     CapsuleTrendingComponent,
     EditorsPickComponent,
     CreateSuccessComponent,
-    ContributeCapsuleComponent
+    ContributeCapsuleComponent,
+    SharePostComponent
   ],
   imports: [
     ToastModule,

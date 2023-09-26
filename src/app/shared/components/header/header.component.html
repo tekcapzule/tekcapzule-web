@@ -38,14 +38,19 @@
               routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                 alt="Tekcapsule Logo" /></a>
           </div>
-
+          <div class="mobile-header">
           <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
             <div class="main-nav">{{ selectedChildMenuItem?.displayName }}</div>
             <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
               {{ selectedChildMenuItem?.displayName }}
             </div> -->
           </div>
-          <div class="menu-hide">&nbsp;</div>
+          <div class="mobile-header-icons" *ngIf="isMobileResolution">
+            <div class="header-search-icon"></div>
+            <div class="header-sort-icon"></div>
+            <div class="header-filter-icon"></div>
+          </div>
+        </div>
 
           <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
             <ul class="navbar-nav" *ngIf="!isMobileResolution">
