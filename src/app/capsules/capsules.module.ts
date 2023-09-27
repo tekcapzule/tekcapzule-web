@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { DialogModule } from 'primeng/dialog';
 
 import { SharedModule } from '@app/shared';
 import { MessageService } from 'primeng/api';
@@ -24,7 +25,7 @@ import { SharePostComponent } from './components/capsule-feeds/share-post/share-
     EditorsPickComponent,
     CreateSuccessComponent,
     ContributeCapsuleComponent,
-    SharePostComponent
+    SharePostComponent,
   ],
   imports: [
     ToastModule,
@@ -33,11 +34,10 @@ import { SharePostComponent } from './components/capsule-feeds/share-post/share-
     ReactiveFormsModule,
     MatTabsModule,
     MultiSelectModule,
+    DialogModule,
     SharedModule,
-    CapsulesRoutingModule
+    CapsulesRoutingModule,
   ],
-  providers: [
-    MessageService
-  ]
+  providers: [MessageService],
 })
 export class CapsulesModule {}
