@@ -17,7 +17,7 @@
           <div class="share-block">
             <div class="profile-pic"></div>
             <div class="share-textbox w-100 pb-3">
-              <input type="button" value="Start Sharing..." (click)="showPostDialog()" />
+              <input type="button" value="Start Sharing..." (click)="showSharePostDialog()" />
             </div>
           </div>
           <div class="share-icons">
@@ -27,19 +27,26 @@
             <button class="share-btn events"><span>Events</span></button>
             <button class="share-btn video"><span>Video</span></button>
           </div>
-          <p class="grey-color">* You know you can earn credit by sharing post. <a href="#" class="underline">Start earning credits!</a></p>
+          <p class="grey-color">
+            * You know you can earn credit by sharing post.
+            <a href="#" class="underline">Start earning credits!</a>
+          </p>
         </div>
-        <div *ngFor="let capsule of filteredCapsule;">
+        <div *ngFor="let capsule of filteredCapsule">
           <app-feeds-card [capsule]="capsule"></app-feeds-card>
         </div>
-        
       </div>
       <div class="subscribe-container mob-hide">
         <h6>Subscribe to our Newsletter</h6>
         <p>Connecting you to the latest AI advancements and insights!</p>
         <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
-          <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
-            placeholder="Enter Your Email ID" />
+          <input
+            type="email"
+            name="email id"
+            formControlName="emailId"
+            class="input-mail mb-0"
+            placeholder="Enter Your Email ID"
+          />
           <button mat-raised-button class="button tertiary-outline mt-3" (click)="onSubscribe()">
             Subscribe Now
           </button>
@@ -47,7 +54,6 @@
       </div>
     </div>
   </div>
-
 </section>
 <app-share-post
   [isDialogVisible]="isSharePostDialogShown"

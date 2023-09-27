@@ -154,6 +154,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
       this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
     }
   }
+
   showSharePostDialog() {
     this.isSharePostDialogShown = true;
   }

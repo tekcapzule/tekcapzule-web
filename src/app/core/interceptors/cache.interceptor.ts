@@ -24,6 +24,11 @@ export class CacheInterceptor implements HttpInterceptor {
     const refresh = request.params.get('refresh') === 'yes' ? true : false;
     const cacheKey = request.params.get('ckey') || 'com.tekcapsule.unknown';
 
+    // Removing cache releated request params, as it is used only for response caching purpose.
+    request = request.clone({
+      params: request.params.delete('cache').delete('refresh').delete('ckey'),
+    });
+
     if (cache) {
       if (refresh) {
         return this.cacheApiResponse(request, next, cacheKey, API_CACHE_EXPIRY_HOURS);
@@ -65,7 +70,6 @@ export class CacheInterceptor implements HttpInterceptor {
         if (httpEvent instanceof HttpResponse) {
           const current = new Date();
           current.setHours(current.getHours() + expiry);
-
           cacheManager.setItem(cacheKey, {
             body: httpEvent.body,
             expiry: current.getTime(),
