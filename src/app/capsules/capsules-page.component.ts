@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { Subject, forkJoin } from 'rxjs';
@@ -16,6 +16,7 @@ import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { toUpperCamelCase } from '@app/shared/utils/common-utils';
+import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 
 declare const jQuery: any;
 
@@ -42,7 +43,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   currentSelectedTopic: BrowseByTopic[] = [];
   isFilterVisible: boolean = false;
   isTopicsLoaded: boolean = false;
-
+  @ViewChild('feedsComp') feedsComp: CapsuleFeedsComponent;
   constructor(
     private router: Router,
     private eventChannel: EventChannelService,
@@ -217,12 +218,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   onHardRefreshCapsules(): void {
-    this.spinner.show();
-
-    this.eventChannel.publish({
-      event: ChannelEvent.LoadDataForActiveCapsuleTab,
-      data: { topics: this.selectedTopics, refreshCache: true }
-    });
+    this.feedsComp.fetchMyFeedCapsules(true);
   }
 
   doLoadFeedsForSelectedTopics(): void {

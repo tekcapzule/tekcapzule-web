@@ -32,7 +32,7 @@ export class TopicApiService {
     return TOPIC_API_PATH;
   }
 
-  getAllTopics(refreshCache?: boolean): Observable<TopicItem[]> {
+  getAllTopics(refreshCache: boolean = false): Observable<TopicItem[]> {
     return this.httpClient.post<TopicItem[]>(
       `${TOPIC_API_PATH}/getAll`,
       {},
