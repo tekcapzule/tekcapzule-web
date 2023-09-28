@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -31,6 +31,8 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   subrscription: Subscription[] = [];
   subscriberFormGroup: FormGroup;
   isMobileResolution: boolean;
+  @Input() selectedTopics = [];
+
   constructor(
     private auth: AuthStateService,
     private capsuleApi: CapsuleApiService,
@@ -43,18 +45,6 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     private subscriptionApi: SubscriptionApiService
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
-    this.eventChannel
-      .getChannel()
-      .pipe(
-        filter(out => out.event === ChannelEvent.LoadDataForActiveCapsuleTab),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(event => {
-        const refresh = event?.data?.refreshCache ? true : false;
-        const topics = event?.data?.topics ?? null;
-        this.fetchMyFeedCapsules(topics, refresh);
-      });
-
     this.eventChannel.publish({
       event: ChannelEvent.SetActiveFeedsTab,
       data: { tabUrl: 'myfeeds' },
@@ -62,7 +52,8 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.fetchMyFeedCapsules(null, false);
+    console.log('this.selectedTopics', this.selectedTopics);
+    this.fetchMyFeedCapsules(this.auth.isUserLoggedIn() ? null : this.selectedTopics, false);
     this.subscribeFilterType();
     this.subscriberFormGroup = this.fb.group({
       emailId: [
@@ -99,11 +90,13 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     }
     console.log('this.filteredCapsule', this.filteredCapsule);
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
   }
+
   /**
    * Fetch my feed capsules based on user subscribed topics, if user logged in.
    * Otherwise load my feed capsules for default topics like AI, CLD and SWD.
@@ -131,6 +124,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   onCardOpened(capsuleId: string): void {
     this.selectedCapsuleId = capsuleId;
   }
+  
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
     if (this.subscriberFormGroup.valid) {
