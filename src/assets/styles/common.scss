@@ -1323,6 +1323,16 @@ iframe .navbar-container,
   height: 13px;
   margin-right: 6px;
 }
+.link-icon {
+  background: url("../images/link-icon.svg") no-repeat;
+  height: 14px;
+  width: 14px;
+  display: inline-flex;
+  top: 36px;
+  position: relative;
+  left: 6px;
+  right: 10px;
+}
 
 .date-icon {
   background: url('../../assets/images/date-icon-gray.svg') no-repeat;
