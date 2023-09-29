@@ -7,6 +7,7 @@ import { tap } from 'rxjs/operators';
 import {
   AppSpinnerService,
   AuthService,
+  AuthStateService,
   AwsUserInfo,
   CapsuleApiService,
   UserApiService,
@@ -52,7 +53,7 @@ export class FeedsCardComponent implements OnInit {
     private router: Router,
     private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
-    private auth: AuthService,
+    private auth: AuthStateService,
     private spinner: AppSpinnerService,
     private messageService: MessageService,
     private clipboard: Clipboard,

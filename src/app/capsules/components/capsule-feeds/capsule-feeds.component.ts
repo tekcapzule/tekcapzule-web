@@ -84,39 +84,22 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
   getAllTopics(): void {
     this.topicApi.getAllTopics().subscribe(topics => {
-      this.setBrowseByTopics(topics);
+      this.setSelectedTopics(topics);
       this.fetchMyFeedCapsules();
     });
   }
 
-  setBrowseByTopics(topics: TopicItem[]): void {
+  setSelectedTopics(topics: TopicItem[]): void {
     if (topics && topics.length > 0) {
-      const filteredTopics = topics
-        .filter(topic => topic.title !== '' && topic.code !== '')
-        .map<BrowseByTopic>(topic => {
-          const isSubscribed = this.isTopicSubscribed(topic.code);
-          if (this.auth.isUserLoggedIn()) {
-            if (isSubscribed) {
-              this.selectedTopics.push(topic.code);
-            }
-          } else {
-            this.selectedTopics.push(topic.code);
-          }
-          return { topic, isSubscribed };
-        });
+      topics.forEach(topic  => {
+        if (this.auth.isUserLoggedIn() && this.userInfo?.subscribedTopics) {
+          this.selectedTopics.push(topic.code);
+        } else {
+          this.selectedTopics.push(topic.code);
+        }
+      });
     }
   }
-
-  isTopicSubscribed(topicCode: string): boolean {
-    if (this.auth.isUserLoggedIn()) {
-      return this.userInfo?.subscribedTopics?.length > 0
-        ? this.userInfo.subscribedTopics.includes(topicCode)
-        : false;
-    } else {
-      return Constants.DefaultSubscriptionTopics.includes(topicCode);
-    }
-  }
-
 
   ngOnDestroy(): void {
     this.destroy$.next(true);

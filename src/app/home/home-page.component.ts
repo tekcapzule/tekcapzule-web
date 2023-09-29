@@ -61,15 +61,9 @@ export class HomePageComponent implements OnInit {
       this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().username).subscribe();
     }
 
-    this.capsuleApi.getEditorsPickCapsules().subscribe(capsules => {
-      this.capsules = shuffleArray(capsules, 10);
-    });
-
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = shuffleArray(topics, 5);
     });
-
-    this.capsuleApi.getTrendingCapsules().subscribe();
   }
 
   onSubscribe(): void {
