@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,11 +10,14 @@ import {
   EventChannelService,
   UserApiService,
   SubscriptionApiService,
+  TopicApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { Constants } from '@app/shared/utils';
 import { Carousel } from 'primeng/carousel';
 import { MessageService } from 'primeng/api';
+import { TekUserInfo, TopicItem } from '@app/shared/models';
+import { BrowseByTopic } from '@app/capsules/capsules-page.component';
 
 @Component({
   selector: 'app-capsule-feeds',
@@ -31,6 +34,9 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   subrscription: Subscription[] = [];
   subscriberFormGroup: FormGroup;
   isMobileResolution: boolean;
+  selectedTopics = [];
+  userInfo: TekUserInfo = null;
+
   constructor(
     private auth: AuthStateService,
     private capsuleApi: CapsuleApiService,
@@ -40,21 +46,10 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     private helperService: HelperService,
     private messageService: MessageService,
     private fb: FormBuilder,
-    private subscriptionApi: SubscriptionApiService
+    private subscriptionApi: SubscriptionApiService,
+    private topicApi: TopicApiService
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
-    this.eventChannel
-      .getChannel()
-      .pipe(
-        filter(out => out.event === ChannelEvent.LoadDataForActiveCapsuleTab),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(event => {
-        const refresh = event?.data?.refreshCache ? true : false;
-        const topics = event?.data?.topics ?? null;
-        this.fetchMyFeedCapsules(topics, refresh);
-      });
-
     this.eventChannel.publish({
       event: ChannelEvent.SetActiveFeedsTab,
       data: { tabUrl: 'myfeeds' },
@@ -62,7 +57,9 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.fetchMyFeedCapsules(null, false);
+    console.log('this.selectedTopics', this.selectedTopics);
+    this.fetchUserInfo();
+    this.getAllTopics()
     this.subscribeFilterType();
     this.subscriberFormGroup = this.fb.group({
       emailId: [
@@ -74,6 +71,34 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
         ],
       ],
     });
+  }
+
+  fetchUserInfo(refreshCache?: boolean): void {
+    if (this.auth.isUserLoggedIn()) {
+      this.userApi
+        .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
+        .subscribe(userInfo => (this.userInfo = userInfo));
+    }
+  }
+
+
+  getAllTopics(): void {
+    this.topicApi.getAllTopics().subscribe(topics => {
+      this.setSelectedTopics(topics);
+      this.fetchMyFeedCapsules();
+    });
+  }
+
+  setSelectedTopics(topics: TopicItem[]): void {
+    if (topics && topics.length > 0) {
+      topics.forEach(topic  => {
+        if (this.auth.isUserLoggedIn() && this.userInfo?.subscribedTopics) {
+          this.selectedTopics.push(topic.code);
+        } else {
+          this.selectedTopics.push(topic.code);
+        }
+      });
+    }
   }
 
   ngOnDestroy(): void {
@@ -99,23 +124,21 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     }
     console.log('this.filteredCapsule', this.filteredCapsule);
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
   }
+
   /**
    * Fetch my feed capsules based on user subscribed topics, if user logged in.
    * Otherwise load my feed capsules for default topics like AI, CLD and SWD.
    */
-  fetchMyFeedCapsules(topics: string[], refreshCache?: boolean): void {
+  fetchMyFeedCapsules(refreshCache: boolean = false): void {
     const userInfo = this.userApi.getTekUserInfoCache();
 
-    const subscribedTopics = topics
-      ? topics
-      : this.auth.isUserLoggedIn() && userInfo?.subscribedTopics?.length > 0
-      ? userInfo.subscribedTopics
-      : Constants.DefaultSubscriptionTopics;
+    const subscribedTopics = this.selectedTopics;
 
     this.spinner.show();
 
@@ -131,6 +154,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   onCardOpened(capsuleId: string): void {
     this.selectedCapsuleId = capsuleId;
   }
+  
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
     if (this.subscriberFormGroup.valid) {

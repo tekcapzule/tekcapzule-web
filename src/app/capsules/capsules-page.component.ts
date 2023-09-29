@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter, finalize, takeUntil } from 'rxjs/operators';
 import { Subject, forkJoin } from 'rxjs';
@@ -16,6 +16,7 @@ import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { toUpperCamelCase } from '@app/shared/utils/common-utils';
+import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 
 declare const jQuery: any;
 
@@ -36,17 +37,13 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   browseByTopics: BrowseByTopic[] = [];
   filteredBrowseByTopics: BrowseByTopic[] = [];
-  navTabs: NavTab[] = [
-    { uniqueId: 'myFeeds', navUrl: 'myfeeds', displayName: 'For You' },
-    { uniqueId: 'trending', navUrl: 'trending', displayName: 'Trending' },
-    { uniqueId: 'editorsPick', navUrl: 'editorspick', displayName: 'Editors Pick' },
-  ];
   capsuleTypes: any[] = [];
   selectedCapsuleTypes: any[] = [];
   selectedTopics: string[] = [];
   currentSelectedTopic: BrowseByTopic[] = [];
   isFilterVisible: boolean = false;
-
+  isTopicsLoaded: boolean = false;
+  @ViewChild('feedsComp') feedsComp: CapsuleFeedsComponent;
   constructor(
     private router: Router,
     private eventChannel: EventChannelService,
@@ -62,37 +59,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     this.fetchUserInfo();
     this.getAllTopics(false);
     this.getMetadata();
-    this.eventChannel
-      .getChannel()
-      .pipe(
-        filter(
-          out =>
-            out.event === ChannelEvent.SetActiveFeedsTab ||
-            out.event === ChannelEvent.SetActiveTrendingTab ||
-            out.event == ChannelEvent.SetActiveEditorsTab
-        ),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(event => {
-        const tabUrl = event?.data?.tabUrl ?? 'myfeeds';
-
-        if (tabUrl != 'myfeeds') {
-          this.navigateToCapsulePageByUrl(tabUrl, false);
-        } else {
-          this.navigateToActiveFeedsPage(null, false);
-        }
-      });
-
-    this.eventChannel
-      .getChannel()
-      .pipe(
-        filter(out => out.event === ChannelEvent.HideCapsuleNavTabs),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(() => {
-        this.deActivateTabs();
-      });
-
     this.subscribeBrowseByTopicEvent();
   }
 
@@ -147,17 +113,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  navigateToActiveFeedsPage(topics: string[], refreshCache?: boolean): void {
-    const activeNavTab = this.navTabs[0];
-    this.activeTab = activeNavTab.uniqueId;
-
-    this.router.navigate(['capsules', activeNavTab.navUrl]).then(() => {
-      this.eventChannel.publish({
-        event: ChannelEvent.LoadDataForActiveCapsuleTab,
-        data: { topics, refreshCache },
-      });
-    });
-  }
 
   navigateToCapsulePageByUrl(tabUrl: string, refreshCache?: boolean): void {
     this.activeTab = tabUrl === 'trending' ? 'trending' : 'editorsPick';
@@ -176,13 +131,17 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
         .filter(topic => topic.title !== '' && topic.code !== '')
         .map<BrowseByTopic>(topic => {
           const isSubscribed = this.isTopicSubscribed(topic.code);
-          if (isSubscribed) {
-            this.currentSelectedTopic.push({ topic, isSubscribed });
+          if (this.auth.isUserLoggedIn()) {
+            if (isSubscribed) {
+              this.currentSelectedTopic.push({ topic, isSubscribed });
+              this.selectedTopics.push(topic.code);
+            }
+          } else {
             this.selectedTopics.push(topic.code);
           }
           return { topic, isSubscribed };
         });
-
+      this.isTopicsLoaded = true;
       this.browseByTopics = filteredTopics;
       this.filteredBrowseByTopics = filteredTopics;
     }
@@ -259,12 +218,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   onHardRefreshCapsules(): void {
-    this.spinner.show();
-
-    this.eventChannel.publish({
-      event: ChannelEvent.LoadDataForActiveCapsuleTab,
-      data: { topics: this.selectedTopics, refreshCache: true }
-    });
+    this.feedsComp.fetchMyFeedCapsules(true);
   }
 
   doLoadFeedsForSelectedTopics(): void {
@@ -295,7 +249,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
     // navigate to feeds and load data for selected topics.
     this.hideBroweByTopicModal();
-    this.navigateToActiveFeedsPage(this.selectedTopics, true);
   }
 
   navigateToContributePage(): void {
