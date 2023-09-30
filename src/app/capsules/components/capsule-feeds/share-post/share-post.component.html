@@ -1,11 +1,36 @@
-<p-dialog
-  [(visible)]="isDialogVisible"
-  [breakpoints]="{ '960px': '75vw' }"
-  [style]="{ width: '50vw' }"
-  [modal]="true"
-  [draggable]="false"
-  [resizable]="false"
-  (onHide)="onDialogClosed()"
->
-  <div>Share Post Dialog</div>
+<p-dialog [(visible)]="isDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '46vw', background: '#fff'}" [modal]="true" [draggable]="false" [resizable]="false"
+  (onHide)="onDialogClosed()">
+  <div class="feeds-blog-container">
+    <div class="share-container">
+
+      <div class="d-flex align-items-center mb-4">
+        <div class="profile-pic"></div>
+        <div class="w-100">
+          <div class="d-flex justify-content-between">
+            <h5>Sasikumar P</h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <textarea class="user-post" placeholder="Start typing…"></textarea>
+        <div class="input-container">
+          <span class="link-icon"></span>
+            <input type="text" class="" placeholder="past the link here…">
+        </div>
+        <div class="pb-4">
+          <button class="filters-btn">Artificial Intelligence</button><button class="filters-btn">Web
+            3.0</button><button class="filters-btn">Metaverse</button>
+        </div>
+        <div class="share-icons">
+          <button class="share-btn news"><span>News</span></button>
+          <button class="share-btn article"><span>Article</span></button>
+          <button class="share-btn course"><span>Course</span></button>
+          <button class="share-btn events"><span>Events</span></button>
+          <button class="share-btn video"><span>Video</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </p-dialog>
