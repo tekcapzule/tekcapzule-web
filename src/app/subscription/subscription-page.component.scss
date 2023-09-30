@@ -152,3 +152,24 @@
     background: #FFEDF5;
     transition: transform 0.25s ease-in-out;
   }
+
+  @media only screen and (max-width: 767px) and (min-width: 360px) {
+    .subscription-page {
+      margin-top: 75px;
+    }
+    .wrapper 
+    {
+    display: block;
+    .box {
+      width: 100%;
+      &.active {
+        transform: none;
+        margin: 20px 0;
+      }
+    }
+  }
+    .subscription-page .subscription-banner
+    {
+      height: auto;
+    }
+  }

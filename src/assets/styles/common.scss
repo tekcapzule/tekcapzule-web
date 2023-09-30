@@ -132,7 +132,7 @@ h4 {
       width: 100%;
 
       @media only screen and (max-width: 990px) {
-        height: 500px;
+        height: 500px !important;
       }
 
       .carousel-caption {
@@ -1323,7 +1323,7 @@ iframe .navbar-container,
   height: 13px;
   margin-right: 6px;
 }
-.link-icon {
+.post-link-icon {
   background: url("../images/link-icon.svg") no-repeat;
   height: 14px;
   width: 14px;
@@ -1553,6 +1553,9 @@ iframe .navbar-container,
     padding: 0px 6px !important;
     width: 1.5rem;
     height: 1.5rem;
+  }
+  .p-toast-message-content {
+    padding: 0.5rem 1rem !important;
   }
 
   .p-toast-message-content .p-toast-message-text {

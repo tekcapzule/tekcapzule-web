@@ -237,7 +237,7 @@
     margin-top: 75px !important;
   }
   .skill-studio-page.p-main {
-    padding-top: 75px !important;
+    padding-top: 118px !important;
   }
   .container {
     padding-left: 0 !important;
@@ -307,7 +307,17 @@
       height: 337px !important;
     }
 }
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) and (min-width: 360px) { 
+  .mob-carousel {
+    margin: 0 auto;
+    display: block !important;
+    .p-carousel-items-container {
+      display: block !important;
+    }
+    .p-carousel-indicators.p-reset {
+      display: none;
+    }
+  }
   .banner-text {
     text-align: center !important;
   }
