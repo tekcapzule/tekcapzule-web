@@ -1,25 +1,27 @@
 <!-- ======= Header ======= -->
 <div class="fixed-top">
-  <div class="top-main-header" *ngIf="!isMobileResolution">
+  <div class="top-main-header">
     <div class="container d-flex justify-content-end pr-4">
       <ul>
         <li><a routerLink="/mission">About Us</a></li>
         <li><a routerLink="/community">Community</a></li>
         <li><a routerLink="/faq">FAQ</a></li>
         <li>
-          <div class="dropdown">
+          <div class="dropdown"  *ngIf="!isMobileResolution">
             <button class="dropbtn" (click)="openBlog($event)">Blog</button>
           </div>
           <a routerLink="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none"
             *ngIf="isMobileResolution">Blog</a>
         </li>
       </ul>
+      <div  *ngIf="!isMobileResolution">
       <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
         Sign In
       </button>
       <button *ngIf="isLoggedIn$ | async" mat-raised-button class="button signin-btn" (click)="signOutUser()">
         Sign Out
       </button>
+    </div>
     </div>
   </div>
   <header id="header">
