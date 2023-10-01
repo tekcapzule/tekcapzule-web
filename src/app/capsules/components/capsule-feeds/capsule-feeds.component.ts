@@ -57,7 +57,6 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('this.selectedTopics', this.selectedTopics);
     this.fetchUserInfo();
     this.getAllTopics()
     this.subscribeFilterType();
@@ -122,7 +121,6 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     } else {
       this.filteredCapsule = this.capsules;
     }
-    console.log('this.filteredCapsule', this.filteredCapsule);
   }
 
   @HostListener('window:resize', ['$event'])

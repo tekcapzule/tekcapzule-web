@@ -9,6 +9,8 @@ export interface NavTab {
   desc?: string;
   isPageReady?: boolean;
   viewType?: string;
+  disablePreLogin?: boolean;
+  displayOnLogin?: boolean;
 }
 
 export interface SelectedMenu {
