@@ -103,7 +103,6 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
         window.scrollTo(0, 0);
-        //console.log(' -------->> ', ev, ev.url);
         if (
           !this.selectedMenuItem ||
           !this.helperService.getSelectedMenu() ||
@@ -157,7 +156,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuClick(navTab: NavTab): void {
-    if(navTab.disablePreLogin) {
+    if(navTab.disablePreLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
       return;
     }
@@ -193,7 +192,7 @@ export class HeaderComponent implements OnInit {
 
   onChildMenuClick(menuItem: NavTab): void {
     this.closeMenu();
-    if(menuItem.disablePreLogin) {
+    if(menuItem.disablePreLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
       return;
     }

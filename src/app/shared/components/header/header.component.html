@@ -125,17 +125,18 @@
               <ul >
                 <li><a routerLink="/mission">Home</a>
                   <ul class="mobile-submenu">
-                    <li class="sub-menu-element" *ngFor="let hm of headerMenu; let i = index" (click)="onMenuClick(hm)">
-                      <a routerLink="Javascript:void(0)" class="sub-menu-element mobile-menu-skill"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                    </li>
+                    <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
+                      <li class="sub-menu-element" *ngIf="!hm.displayOnLogin || (hm.displayOnLogin && authState.isUserLoggedIn())" (click)="onMenuClick(hm)">
+                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                      </li>
+                    </ng-cotainer>
                   </ul>
                 </li>
                 
-
                 <li><a routerLink="/">Skill Studio</a>
                   <ul class="mobile-submenu">
                     <li class="sub-menu-element" *ngFor="let sm of skillStudioMenu; let i = index" (click)="onChildMenuClick(sm)">
-                      <a  routerLink="Javascript:void(0)" class="sub-menu-element mobile-menu-course"><span class="sub-menu-element">{{sm.displayName}}</span></a>
+                      <a href="Javascript:void(0)"  [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{sm.displayName}}</span></a>
                     </li>
                   </ul>
                 </li>
