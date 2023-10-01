@@ -60,6 +60,8 @@ export class AuthService {
   public signOutUser(): void {
     window.location.assign(this.getAwsCognitoLogoutApi());
     this.clearAwsCognitoOAuthLocalStorage();
+    this.authState.setUserLoggedIn(false);
+    this.authState.setAwsUserInfo(null);
   }
 
   public getAwsUserInfo(): AwsUserInfo {

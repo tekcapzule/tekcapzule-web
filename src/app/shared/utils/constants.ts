@@ -5,34 +5,38 @@ export const Constants = {
   DefaultApiCacheExpiryHours: 12,
   DefaultSubscriptionTopics: ['NLP', 'MLR', 'CVS'],
   HeaderMenu: [
-    { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', showOnMobile: true },
-    { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/capsules', viewType: 'MOBILE' },
-    { uniqueId: 'Skill_Studio', displayName: 'SkillStudio', navUrl: '/ai-hub/dashboard', viewType: 'ALL',
+    { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', showOnMobile: true, displayOnLogin: false},
+    { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/capsules', viewType: 'MOBILE', displayOnLogin: true },
+    { uniqueId: 'Skill_Studio', displayName: 'SkillStudio', navUrl: '/ai-hub/dashboard', viewType: 'ALL', disablePreLogin: false,
       children: [
         {
           uniqueId: 'Tekbyte',
           displayName: 'Tekbyte',
           navUrl: '/ai-hub/tekbyte/explore',
+          disablePreLogin: true,
           desc:
-            'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding.',
+          'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding.',
         },
         {
           uniqueId: 'Courses',
           displayName: 'Courses',
           navUrl: '/ai-hub/courses',
+          disablePreLogin: true,
           desc: 'Chart your AI learning path with hand-picked, industry-leading courses.',
         },
         {
           uniqueId: 'Interview_Prep',
           displayName: 'Interview Prep',
           navUrl: '/ai-hub/interview-prepartion',
+          disablePreLogin: true,
           desc:
-            'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.',
+          'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.',
         },        
         {
           uniqueId: 'Research_Papers',
           displayName: 'Research papers',
           navUrl: '/ai-hub/research-papers',
+          disablePreLogin: true,
           desc:
             'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape.',
         },
@@ -40,26 +44,28 @@ export const Constants = {
           uniqueId: 'Video_Library',
           displayName: 'Video Library',
           navUrl: '/ai-hub/video-library',
+          disablePreLogin: true,
           desc: 'Gain practical AI insights through our selection of informative videos.',
         },
         {
           uniqueId: 'Weekly_Digest',
           displayName: 'Weekly Digest',
           navUrl: '/ai-hub/weekly-digest',
+          disablePreLogin: true,
           desc:
             'Get the best of AI with our curated list of leading weekly newsletters and podcasts.',
         }        
       ],
     },
-    { uniqueId: 'Contribute', displayName: 'Contribute', navUrl: 'capsules/contribute', showOnMobile: true },
-    { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place' },
-    { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights' },
-    { uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events' },
-    //{ uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub' },
-    // { uniqueId: 'Mentoring', displayName: 'Mentoring', isPageReady: false, navUrl: '/ai-hub/mentoring' },
-    //{ uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs' },
-    // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community' },
-    // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission' },
+    { uniqueId: 'Contribute', displayName: 'Contribute', navUrl: 'capsules/contribute', showOnMobile: true, disablePreLogin: true },
+    { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place', disablePreLogin: true},
+    { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights', disablePreLogin: true },
+    { uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events', disablePreLogin: true },
+    //{ uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub', disablePreLogin: true },
+    // { uniqueId: 'Mentoring', displayName: 'Mentoring', isPageReady: false, navUrl: '/ai-hub/mentoring', disablePreLogin: true },
+    //{ uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs', disablePreLogin: true },
+    // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community', disablePreLogin: true },
+    // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission', disablePreLogin: true },
   ],
   SkillTiles: [
     {

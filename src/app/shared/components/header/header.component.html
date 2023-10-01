@@ -53,23 +53,20 @@
             <div class="header-filter-icon"></div>
           </div>
         </div>
-
-          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
-            <ul class="navbar-nav" *ngIf="!isMobileResolution">
-              <ng-container *ngFor="let hm of headerMenu; let i = index">
-                <li [ngClass]="{
-                    dropdown: hm.viewType && hm.children,
-                    active: selectedMenuItem?.uniqueId === hm.uniqueId
-                  }" *ngIf="hm.showOnMobile ? isMobileResolution : true">
+        <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+          <ul class="navbar-nav" *ngIf="!isMobileResolution">
+            <ng-container *ngFor="let hm of headerMenu; let i = index">
+                <li [ngClass]="{ dropdown: hm.viewType && hm.children, active: selectedMenuItem?.uniqueId === hm.uniqueId}" 
+                  *ngIf="(hm.showOnMobile ? isMobileResolution : true) && (!hm.displayOnLogin || (hm.displayOnLogin && authState.isUserLoggedIn()))">
                   <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
-                      <i *ngIf="hm.viewType === 'ALL' && hm.children" class="arrow down"
+                      <i *ngIf="hm.viewType === 'ALL' && hm.children && !authState.isUserLoggedIn()" class="arrow down"
                         [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"></i>
                     </button>
                   </div>
                   
-                  <ng-container *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId">
+                  <ng-container *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <ul class="dropdown-menu show">
                       <li *ngFor="let menuItem of hm.children; let i = index">
                         <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{
@@ -78,7 +75,7 @@
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer *ngIf="hm.viewType === 'ALL' && openedMenuItem?.uniqueId === hm.uniqueId">
+                  <ng-cotainer *ngIf="hm.viewType === 'ALL' && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5">
@@ -176,3 +173,10 @@
   </header>
 </div>
 <!-- End Header -->
+
+
+
+<app-login-required
+  [isDialogVisible]="isLoginRequiredDialogShown"
+  (dialogClosed)="hideLoginRequiredDialog()"
+></app-login-required>

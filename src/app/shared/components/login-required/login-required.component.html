@@ -1,0 +1,15 @@
+<p-dialog
+  [(visible)]="isDialogVisible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '25vw' }"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onDialogClosed()"
+>
+  <div>Login Requires</div>
+
+  <div class="text-center">
+    <button class="button secondary bg-white primary-color mr-5" (click)="onLoginClick()">Login</button>
+  </div>
+</p-dialog>

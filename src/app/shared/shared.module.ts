@@ -22,6 +22,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { LoginRequiredComponent } from './components/login-required/login-required.component';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { FilterComponent } from './components/filter/filter.component';
     ProductCardComponent,
     CapsuleSkeletonComponent,
     FeedsCardComponent,
-    FilterComponent
+    FilterComponent,
+    LoginRequiredComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +51,7 @@ import { FilterComponent } from './components/filter/filter.component';
     MatSortModule,
     MatMenuModule,
     ToastModule,
+    DialogModule
   ],
   exports: [
     HeaderComponent,
@@ -62,7 +66,8 @@ import { FilterComponent } from './components/filter/filter.component';
     ProductCardComponent,
     CapsuleSkeletonComponent,
     FeedsCardComponent,
-    FilterComponent
+    FilterComponent,
+    LoginRequiredComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

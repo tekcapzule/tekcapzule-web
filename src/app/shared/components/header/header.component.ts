@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
   selectedMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
   math = Math;
+  isLoginRequiredDialogShown: boolean = false;
 
   constructor(
     private renderer: Renderer2,
@@ -56,7 +57,7 @@ export class HeaderComponent implements OnInit {
     private helperService: HelperService
   ) {
     this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
-    this.menuClickOutsideEvent();
+    //this.menuClickOutsideEvent();
   }
 
   menuClickOutsideEvent() {
@@ -156,9 +157,17 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuClick(navTab: NavTab): void {
+    if(navTab.disablePreLogin) {
+      this.showLoginRequiredDialog();
+      return;
+    }
     this.selectedMenuItem = navTab;
     if (!this.isMobileResolution && navTab.viewType !== 'ALL') {
-      this.router.navigate([navTab.navUrl]);
+      if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
+        this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
+      }else {
+        this.router.navigate([navTab.navUrl]);
+      }
       return;
     }
     if (!this.selectedMenuItem.children) {
@@ -173,7 +182,10 @@ export class HeaderComponent implements OnInit {
       if (!this.openedMenuItem.children) {
         this.closeMenu();
       }
-      if (navTab.uniqueId !== 'Skill_Studio') {
+      
+      if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
+        this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
+      } else if (navTab.uniqueId !== 'Skill_Studio' || this.authState.isUserLoggedIn()) {
         this.router.navigate([this.openedMenuItem.navUrl]);
       }
     }
@@ -181,6 +193,10 @@ export class HeaderComponent implements OnInit {
 
   onChildMenuClick(menuItem: NavTab): void {
     this.closeMenu();
+    if(menuItem.disablePreLogin) {
+      this.showLoginRequiredDialog();
+      return;
+    }
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);
@@ -210,5 +226,14 @@ export class HeaderComponent implements OnInit {
 
   openBlog(eve) {
     window.open('https://tekcapsule.blog/', '_blank');
+  }
+
+  
+  showLoginRequiredDialog() {
+    this.isLoginRequiredDialogShown = true;
+  }
+
+  hideLoginRequiredDialog() {
+    this.isLoginRequiredDialogShown = false;
   }
 }
