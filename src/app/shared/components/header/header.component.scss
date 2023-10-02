@@ -738,7 +738,7 @@
         color: #A6AACF;
         height: 40px;
         display: flex;
-        @each $menu-item in skill_studio, my_feeds, llm, events, market_place, insights, courses, tekbyte, weekly_digest, interview_prep, video_library, research_papers {
+        @each $menu-item in home, skill_studio, my_feeds, llm, events, market_place, insights, courses, tekbyte, weekly_digest, interview_prep, video_library, research_papers {
           &.mobile-menu-#{$menu-item} {
             background: url('../../../../assets/images/mobile/mobile-menu-#{$menu-item}.svg') top center no-repeat;
           }

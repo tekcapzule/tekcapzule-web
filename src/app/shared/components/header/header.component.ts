@@ -156,7 +156,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuClick(navTab: NavTab): void {
-    if(navTab.disablePreLogin && !this.authState.isUserLoggedIn()) {
+    if(navTab.enablePostLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
       return;
     }
@@ -192,7 +192,7 @@ export class HeaderComponent implements OnInit {
 
   onChildMenuClick(menuItem: NavTab): void {
     this.closeMenu();
-    if(menuItem.disablePreLogin && !this.authState.isUserLoggedIn()) {
+    if(menuItem.enablePostLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
       return;
     }
