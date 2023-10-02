@@ -56,12 +56,12 @@
         <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
           <ul class="navbar-nav" *ngIf="!isMobileResolution">
             <ng-container *ngFor="let hm of headerMenu; let i = index">
-                <li [ngClass]="{ dropdown: hm.viewType && hm.children, active: selectedMenuItem?.uniqueId === hm.uniqueId}" 
-                  *ngIf="(hm.showOnMobile ? isMobileResolution : true) && (!hm.displayOnLogin || (hm.displayOnLogin && authState.isUserLoggedIn()))">
+                <li [ngClass]="{ dropdown: hm.children, active: selectedMenuItem?.uniqueId === hm.uniqueId}" 
+                  *ngIf="hm.available === 'ALL' || (hm.available === 'PRELOGIN' && !authState.isUserLoggedIn()) || (hm.available === 'POSTLOGIN' && authState.isUserLoggedIn())">
                   <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
-                      <i *ngIf="hm.viewType === 'ALL' && hm.children && !authState.isUserLoggedIn()" class="arrow down"
+                      <i *ngIf="hm.children && !authState.isUserLoggedIn()" class="arrow down"
                         [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"></i>
                     </button>
                   </div>
@@ -75,7 +75,7 @@
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer *ngIf="hm.viewType === 'ALL' && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
+                  <ng-cotainer *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5">
@@ -126,9 +126,16 @@
                 <li><a routerLink="/mission">Home</a>
                   <ul class="mobile-submenu">
                     <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
-                      <li class="sub-menu-element" *ngIf="!hm.displayOnLogin || (hm.displayOnLogin && authState.isUserLoggedIn())" (click)="onMenuClick(hm)">
+                      <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'PRELOGIN' && !authState.isUserLoggedIn(); elseBlock" (click)="onMenuClick(hm)">
                         <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
                       </li>
+                      <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()" (click)="onMenuClick(hm)">
+                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                      </li>
+                      <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'ALL'" (click)="onMenuClick(hm)">
+                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                      </li>
+                      
                     </ng-cotainer>
                   </ul>
                 </li>
