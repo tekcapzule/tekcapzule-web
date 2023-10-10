@@ -108,7 +108,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
-        .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
+        .getTekUserInfo(this.auth.getAwsUserInfo().email, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -241,7 +241,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
       // update user subscription to backend
       this.userApi
-        .followTopic(this.auth.getAwsUserInfo().username, this.selectedTopics)
+        .followTopic(this.auth.getAwsUserInfo().email, this.selectedTopics)
         .subscribe(() => {
           this.fetchUserInfo(true);
         });

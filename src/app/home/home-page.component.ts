@@ -58,7 +58,7 @@ export class HomePageComponent implements OnInit {
       ],
     });
     if (this.auth.isUserLoggedIn()) {
-      this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().username).subscribe();
+      this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().email).subscribe();
     }
 
     this.topicApi.getAllTopics().subscribe(topics => {

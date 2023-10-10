@@ -82,7 +82,7 @@ export class FeedsCardComponent implements OnInit {
       this.awsUserInfo = this.auth.getAwsUserInfo();
 
       this.userApi
-        .getTekUserInfo(this.awsUserInfo.username, refreshCache)
+        .getTekUserInfo(this.awsUserInfo.email, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }

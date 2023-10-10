@@ -98,7 +98,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
       this.awsUserInfo = this.auth.getAwsUserInfo();
 
       this.userApi
-        .getTekUserInfo(this.awsUserInfo.username, refreshCache)
+        .getTekUserInfo(this.awsUserInfo.email, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
@@ -187,7 +187,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
     }
 
     this.userApi
-      .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
+      .bookmarCapsule(this.awsUserInfo.email, this.capsule.capsuleId)
       .pipe(
         tap(() => {
           this.capsuleApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe(data => {

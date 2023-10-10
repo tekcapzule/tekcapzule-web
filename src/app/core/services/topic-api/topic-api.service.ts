@@ -105,7 +105,7 @@ export class TopicApiService {
   updateUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
       this.userApi
-        .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
+        .getTekUserInfo(this.auth.getAwsUserInfo().email, refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }

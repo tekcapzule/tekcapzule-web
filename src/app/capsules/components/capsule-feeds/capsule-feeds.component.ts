@@ -36,6 +36,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   isMobileResolution: boolean;
   selectedTopics = [];
   userInfo: TekUserInfo = null;
+  isShowAllBookmarks = false;
 
   constructor(
     private auth: AuthStateService,
@@ -74,9 +75,11 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
-      this.userApi
-        .getTekUserInfo(this.auth.getAwsUserInfo().username, refreshCache)
-        .subscribe(userInfo => (this.userInfo = userInfo));
+      this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().email, refreshCache)
+        .subscribe(userInfo => {
+          this.userInfo = userInfo;
+          console.log('bookmarks -- ', this.userInfo.bookmarks);
+        });
     }
   }
 
@@ -187,5 +190,9 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
   hideSharePostDialog() {
     this.isSharePostDialogShown = false;
+  }
+
+  showAllbookmarks() {
+    this.isShowAllBookmarks = !this.isShowAllBookmarks;
   }
 }
