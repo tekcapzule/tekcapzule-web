@@ -1,28 +1,39 @@
-
 <div class="main-container">
   <div class="d-flex">
     <div class="profile-pic"></div>
     <div class="w-100">
-      <div class="d-flex justify-content-between ">
-        <h5>{{capsule.author}}</h5>
+      <div class="d-flex justify-content-between">
+        <h5>{{ capsule.author }}</h5>
       </div>
-      <p class="grey-color">{{capsule.title | titlecase}}<span> ({{dateAgoStr}})</span> | <span>Posted:
-        {{capsule.publisher | titlecase}}</span></p>
+      <p class="grey-color">
+        {{ capsule.title | titlecase }}<span> ({{ dateAgoStr }})</span> |
+        <span>Posted: {{ capsule.publisher | titlecase }}</span>
+      </p>
     </div>
   </div>
-  <p>{{capsule.description}} <span class="grey-color">see more…</span></p>
- <div class="position-relative">
-  <img [src]="capsule.imageUrl" alt="" class="img-fluid feeds-img w-100" />
-  <div class="icons timer"><img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img"><span>{{capsule.duration}}</span></div>
-  <div class="icons labelRed"><span>{{capsule.topicCode}}</span></div>
-  <div class="short-desc">
-    <p>The IT Ops Sessions: The Effect of ChatGPT and AI on the World of IT</p>
+  <p>{{ capsule.description }} <span class="grey-color">see more…</span></p>
+  <div class="position-relative">
+    <img [src]="capsule.imageUrl" alt="" class="img-fluid feeds-img w-100" />
+    <div class="icons timer">
+      <img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img" /><span>{{
+        capsule.duration
+      }}</span>
+    </div>
+    <div class="icons labelRed">
+      <span>{{ capsule.topicCode }}</span>
+    </div>
+    <div class="short-desc">
+      <p>The IT Ops Sessions: The Effect of ChatGPT and AI on the World of IT</p>
+    </div>
+    <div class="web-url">
+      <a href="{{ capsule.resourceUrl }}" target="_blank">{{ capsule.resourceUrl }}</a>
+    </div>
   </div>
-  <div class="web-url"><a href={{capsule.resourceUrl}} target="_blank">{{capsule.resourceUrl}}</a></div>
-</div>
   <div class="d-flex justify-content-between">
-  <p class="grey-color cursor-default">{{ capsule.recommendations }}  recommended</p>
-  <div class="d-flex align-items-center grey-color cursor-default">{{capsule.type | titlecase}} <span class="article-gray-icon ml-2"></span></div>
+    <p class="grey-color cursor-default">{{ capsule.recommendations }} recommended</p>
+    <div class="d-flex align-items-center grey-color cursor-default">
+      {{ capsule.type | titlecase }} <span class="article-gray-icon ml-2"></span>
+    </div>
   </div>
   <div>
     <div class="d-flex justify-content-between">
@@ -35,7 +46,11 @@
       <div class="d-flex align-items-center disabled">
         <span class="comment-gray-icon pr-4"></span>Comment
       </div>
-      <div class="d-flex align-items-center" [ngClass]="{'disabled': disableBookmark(), 'icon-click': !disableBookmark()}" (click)="onCapsuleBookmark()">
+      <div
+        class="d-flex align-items-center"
+        [ngClass]="{ disabled: disableBookmark(), 'icon-click': !disableBookmark() }"
+        (click)="onCapsuleBookmark()"
+      >
         <span class="bookmark-gray-icon pr-4"></span>Bookmark
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
-import { filter, finalize, takeUntil } from 'rxjs/operators';
+import { noop, Subject, Subscription } from 'rxjs';
+import { catchError, filter, finalize, takeUntil } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   AppSpinnerService,
@@ -58,7 +58,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchUserInfo();
-    this.getAllTopics()
+    this.getAllTopics();
     this.subscribeFilterType();
     this.subscriberFormGroup = this.fb.group({
       emailId: [
@@ -80,17 +80,23 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
     }
   }
 
-
   getAllTopics(): void {
-    this.topicApi.getAllTopics().subscribe(topics => {
-      this.setSelectedTopics(topics);
-      this.fetchMyFeedCapsules();
-    });
+    this.spinner.show();
+
+    this.topicApi.getAllTopics().subscribe(
+      topics => {
+        this.setSelectedTopics(topics);
+        this.fetchMyFeedCapsules();
+      },
+      () => {
+        this.spinner.hide();
+      }
+    );
   }
 
   setSelectedTopics(topics: TopicItem[]): void {
     if (topics && topics.length > 0) {
-      topics.forEach(topic  => {
+      topics.forEach(topic => {
         if (this.auth.isUserLoggedIn() && this.userInfo?.subscribedTopics) {
           this.selectedTopics.push(topic.code);
         } else {
@@ -135,9 +141,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
    */
   fetchMyFeedCapsules(refreshCache: boolean = false): void {
     const userInfo = this.userApi.getTekUserInfoCache();
-
     const subscribedTopics = this.selectedTopics;
-
     this.spinner.show();
 
     this.capsuleApi
@@ -152,7 +156,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   onCardOpened(capsuleId: string): void {
     this.selectedCapsuleId = capsuleId;
   }
-  
+
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
     if (this.subscriberFormGroup.valid) {

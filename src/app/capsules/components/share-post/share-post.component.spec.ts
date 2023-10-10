@@ -8,9 +8,8 @@ describe('SharePostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SharePostComponent ]
-    })
-    .compileComponents();
+      declarations: [SharePostComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SharePostComponent);
     component = fixture.componentInstance;

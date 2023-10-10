@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 
 import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
 import { CourseCardComponent } from '@app/courses/course-card/course-card.component';
@@ -23,7 +24,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
-import { DialogModule } from 'primeng/dialog';
+import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DialogModule } from 'primeng/dialog';
     CapsuleSkeletonComponent,
     FeedsCardComponent,
     FilterComponent,
-    LoginRequiredComponent
+    LoginRequiredComponent,
+    FeedsSkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,7 @@ import { DialogModule } from 'primeng/dialog';
     MatSortModule,
     MatMenuModule,
     ToastModule,
-    DialogModule
+    DialogModule,
   ],
   exports: [
     HeaderComponent,
@@ -67,7 +69,8 @@ import { DialogModule } from 'primeng/dialog';
     CapsuleSkeletonComponent,
     FeedsCardComponent,
     FilterComponent,
-    LoginRequiredComponent
+    LoginRequiredComponent,
+    FeedsSkeletonComponent,
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

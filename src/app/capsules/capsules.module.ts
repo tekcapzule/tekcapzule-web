@@ -13,7 +13,7 @@ import { CapsulesRoutingModule } from './capsules-routing.module';
 import { CapsuleFeedsComponent } from './components/capsule-feeds/capsule-feeds.component';
 import { ContributeCapsuleComponent } from './components/contribute-capsule/contribute-capsule.component';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
-import { SharePostComponent } from './components/capsule-feeds/share-post/share-post.component';
+import { SharePostComponent } from './components/share-post/share-post.component';
 
 @NgModule({
   declarations: [

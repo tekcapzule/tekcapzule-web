@@ -1,9 +1,14 @@
-<p-dialog [(visible)]="isDialogVisible" [breakpoints]="{ '960px': '75vw' }"
-  [style]="{ width: '46vw', background: '#fff'}" [modal]="true" [draggable]="false" [resizable]="false"
-  (onHide)="onDialogClosed()">
+<p-dialog
+  [(visible)]="isDialogVisible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '46vw', background: '#fff' }"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onDialogClosed()"
+>
   <div class="feeds-blog-container">
     <div class="share-container">
-
       <div class="d-flex align-items-center mb-4">
         <div class="profile-pic"></div>
         <div class="w-100">
@@ -16,11 +21,12 @@
         <textarea class="user-post" placeholder="Start typing…"></textarea>
         <div class="input-container">
           <span class="post-link-icon ml-2"></span>
-            <input type="text" class="pl-5" placeholder="Post the link here…">
+          <input type="text" class="pl-5" placeholder="Post the link here…" />
         </div>
         <div class="pb-4">
-          <button class="filters-btn">Artificial Intelligence</button><button class="filters-btn">Web
-            3.0</button><button class="filters-btn">Metaverse</button>
+          <button class="filters-btn">Artificial Intelligence</button
+          ><button class="filters-btn">Web 3.0</button
+          ><button class="filters-btn">Metaverse</button>
         </div>
         <div class="share-icons">
           <button class="share-btn news"><span>News</span></button>
@@ -30,7 +36,6 @@
           <button class="share-btn video"><span>Video</span></button>
         </div>
       </div>
-
     </div>
   </div>
 </p-dialog>

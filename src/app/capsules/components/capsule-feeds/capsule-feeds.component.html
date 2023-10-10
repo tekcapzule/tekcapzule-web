@@ -1,4 +1,4 @@
-<section class="align-items-center inner" *ngIf="!spinner.isLoading">
+<section class="align-items-center inner">
   <div class="feeds-blog-container">
     <div class="d-flex justify-content-between row-mobile">
       <div class="bookmarks-container mob-hide">
@@ -32,9 +32,16 @@
             <a href="#" class="underline">Start earning credits!</a>
           </p>
         </div>
-        <div *ngFor="let capsule of filteredCapsule">
-          <app-feeds-card [capsule]="capsule"></app-feeds-card>
-        </div>
+        <ng-container *ngIf="!spinner.isLoading">
+          <div *ngFor="let capsule of filteredCapsule">
+            <app-feeds-card [capsule]="capsule"></app-feeds-card>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="spinner.isLoading">
+          <div *ngFor="let i of [1, 2]">
+            <app-feeds-skeleton></app-feeds-skeleton>
+          </div>
+        </ng-container>
       </div>
       <div class="subscribe-container mob-hide">
         <h6>Subscribe to our Newsletter</h6>
