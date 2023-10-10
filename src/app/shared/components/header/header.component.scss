@@ -627,7 +627,7 @@
         cursor: pointer;
         // font-family: $primary-font-medium;
         // font-size: 12px;
-        &:hover {
+        &:hover, &.active {
           color: #fff;
           &::after {
             border-bottom: 4px solid #ff00c8;
@@ -656,7 +656,10 @@
   background: transparent;
   height: 37px;
   border-radius: 50px;
+  border: 2px solid transparent;
+ &:hover {
   border: 2px solid #5966ad;
+ }
 }
 
 /* input */
