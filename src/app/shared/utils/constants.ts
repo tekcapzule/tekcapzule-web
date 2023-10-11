@@ -4,6 +4,11 @@ export const Constants = {
   AdminUserGroup: 'admin_users_group',
   DefaultApiCacheExpiryHours: 12,
   DefaultSubscriptionTopics: ['NLP', 'MLR', 'CVS'],
+  TopMenu: [
+    { uniqueId: 'Mission', displayName: 'About Us', navUrl: '/mission'},
+    { uniqueId: 'Community', displayName: 'Community', navUrl: '/community'},
+    { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'},
+  ],
   HeaderMenu: [
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', available: 'PRELOGIN'},
     { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/capsules', viewType: 'MOBILE', available: 'POSTLOGIN' },

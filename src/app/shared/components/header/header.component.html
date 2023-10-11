@@ -3,9 +3,7 @@
   <div class="top-main-header">
     <div class="container d-flex justify-content-end pr-4">
       <ul>
-        <li><a routerLink="/mission">About Us</a></li>
-        <li><a routerLink="/community">Community</a></li>
-        <li><a routerLink="/faq">FAQ</a></li>
+        <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}" href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
         <li>
           <div class="dropdown"  *ngIf="!isMobileResolution">
             <button class="dropbtn" (click)="openBlog($event)">Blog</button>
@@ -49,7 +47,7 @@
               {{ selectedChildMenuItem?.displayName }}
             </div> -->
           </div>
-          <div class="mobile-header-icons" *ngIf="isMobileResolution">
+          <div class="mobile-header-icons" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
             <div class="header-search-icon"></div>
             <div class="header-sort-icon"></div>
             <div class="header-filter-icon"></div>
