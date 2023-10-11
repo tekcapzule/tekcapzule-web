@@ -28,6 +28,7 @@
     <div class="container-fluid">
       <div class="container header-align">
         <!-- Responsive Menu -->
+        
         <nav class="navbar navbar-expand-lg">
           <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,8 +41,9 @@
               routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                 alt="Tekcapsule Logo" /></a>
           </div>
-          <div class="mobile-header">
-          <div class="page-name" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+          
+          <div class="mobile-header"  *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+            <div class="page-name">
             <div class="main-nav">{{ selectedChildMenuItem?.displayName }}</div>
             <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
               {{ selectedChildMenuItem?.displayName }}
@@ -122,6 +124,16 @@
             </ul>
             <!-- Mobile Menu -->
             <div class="mobile-menu" *ngIf="isMobileResolution">
+              <div class="user-container">
+                <div class="d-flex">
+                  <img src="../../../../assets/images/mob-logo.svg" alt="mobile-logo" class="pr-3" />
+                    <div>
+                    <span class="user-name">sasikumarp36@gmail.com</span>
+                    <p class="sign-out" (click)="signOutUser()">Signout</p>
+                  </div>
+                </div>
+                <div class="close-btn"></div>
+              </div>
               <ul >
                 <li><a routerLink="/mission">Home</a>
                   <ul class="mobile-submenu">
@@ -148,7 +160,7 @@
                   </ul>
                 </li>
                 <li><a routerLink="/">Why TekCapsule</a></li>
-                <li><a routerLink="/mission">About us</a></li>
+                <li><a routerLink="/mission">About Us</a></li>
                 <li><a routerLink="/community">Community</a></li>
                 <li><a routerLink="/faq">FAQ</a></li>
                 <li>

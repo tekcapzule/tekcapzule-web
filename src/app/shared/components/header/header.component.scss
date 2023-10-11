@@ -489,7 +489,7 @@
 
   .navbar-collapse {
     position: fixed;
-    top: 119px;
+    top: 0px;
     left: 0;
     padding-left: 30px;
     padding-right: 30px;
@@ -758,3 +758,28 @@
   }
   
 }
+
+.user-container {
+  display: flex;
+  // align-items: center;
+  padding-top: 24px;
+  border-bottom: 1px solid #D6D8E6;
+  padding-bottom: 10px;
+  justify-content: space-between;
+  .sign-out {
+    color: #FF1293;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  .user-name {
+    font-size: 18px;
+    color: #fff;
+  }
+  .close-btn {
+    background: url('../../../../assets/images/close-icon-white.png');
+    height: 29px;
+    width: 29px;
+    cursor: pointer;
+  }
+}
+
