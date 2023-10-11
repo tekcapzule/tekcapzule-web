@@ -78,7 +78,6 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
       this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().email, refreshCache)
         .subscribe(userInfo => {
           this.userInfo = userInfo;
-          console.log('bookmarks -- ', this.userInfo.bookmarks);
         });
     }
   }

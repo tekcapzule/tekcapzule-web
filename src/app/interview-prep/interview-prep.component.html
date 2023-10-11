@@ -59,7 +59,7 @@
 
             <p>{{ interview.summary }}</p>
             <div class="recommend">
-              <span class="okhand-gray-icon"></span>Recommend <span class="count">(120)</span>
+              <span class="okhand-gray-icon"></span>Recommend <span class="count">({{ interview.recommendations }})</span>
             </div>
 
             <a [href]="interview.courseUrl" target="_blank" class="link">{{

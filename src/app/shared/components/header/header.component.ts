@@ -39,8 +39,10 @@ export class HeaderComponent implements OnInit {
   isMobileResolution: boolean;
   openedMenuItem: NavTab;
   headerMenu: NavTab[] = Constants.HeaderMenu;
+  topMenu: NavTab[] = Constants.TopMenu;
   skillStudioMenu: NavTab[] = [];
   selectedMenuItem: NavTab;
+  selectedTopMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
   math = Math;
   isLoginRequiredDialogShown: boolean = false;
@@ -108,9 +110,12 @@ export class HeaderComponent implements OnInit {
           !this.helperService.getSelectedMenu() ||
           !this.selectedMenuItem.navUrl.includes(ev.url)
         ) {
-          const selectedMenu = this.helperService.findSelectedMenu(ev.url);
-          this.selectedMenuItem = selectedMenu.selectedMenuItem;
-          this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
+          this.selectedTopMenuItem = this.helperService.findSelectedTopMenu(ev.url);
+          if(!this.selectedTopMenuItem) {
+            const selectedMenu = this.helperService.findSelectedMenu(ev.url);
+            this.selectedMenuItem = selectedMenu.selectedMenuItem;
+            this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
+          }
         }
       }
     });
@@ -155,7 +160,13 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  onTopMenuClick(navTab: NavTab) {
+    this.selectedTopMenuItem = navTab;
+    this.router.navigate([navTab.navUrl]);
+  }
+
   onMenuClick(navTab: NavTab): void {
+    this.selectedTopMenuItem = null;
     if(navTab.enablePostLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
       return;
@@ -191,6 +202,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onChildMenuClick(menuItem: NavTab): void {
+    this.selectedTopMenuItem = null;
     this.closeMenu();
     if(menuItem.enablePostLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();

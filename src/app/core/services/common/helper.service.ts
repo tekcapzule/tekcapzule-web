@@ -82,6 +82,15 @@ export class HelperService {
     return this.topicData.find(topic => topic.code === topicCode);
   }
 
+  findSelectedTopMenu(navUrl: string) {
+    let selectedTopMenu;
+    Constants.TopMenu.forEach(tm => {
+      if (tm.navUrl && tm.navUrl.includes(navUrl)) {
+        selectedTopMenu = tm;
+      }
+    });
+    return selectedTopMenu;
+  }
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
