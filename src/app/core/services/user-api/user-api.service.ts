@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { cacheManager, Constants } from '@app/shared/utils';
 import { ApiSuccess, TekUserInfo } from '@app/shared/models';
+import { AuthStateService } from '../app-state/auth-state.service';
 
 const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
   .replace('{{api-gateway}}', environment.userApiGateway)
@@ -16,13 +17,15 @@ const USER_INFO_CACHE_KEY = 'com.tekcapsule.user.info';
   providedIn: 'root',
 })
 export class UserApiService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+    private auth: AuthStateService) {}
 
   getUserApiPath(): string {
     return USER_API_PATH;
   }
 
-  getTekUserInfo(userId: string, refreshCache?: boolean): Observable<TekUserInfo> {
+  getTekUserInfo(refreshCache?: boolean): Observable<TekUserInfo> {
+    const userId = this.auth.getAwsUserInfo().email;
     return this.httpClient.post<TekUserInfo>(
       `${USER_API_PATH}/get`,
       { userId },

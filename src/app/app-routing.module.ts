@@ -14,6 +14,7 @@ const routes: Routes = [
   {
     path: 'capsules',
     loadChildren: () => import('./capsules/capsules.module').then(m => m.CapsulesModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'community',
