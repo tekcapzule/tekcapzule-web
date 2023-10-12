@@ -42,7 +42,7 @@
           
           <div class="mobile-header"  *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
             <div class="page-name">
-            <div class="main-nav">{{ selectedChildMenuItem?.displayName }}</div>
+            <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem.displayName : selectedChildMenuItem? selectedChildMenuItem.displayName: selectedMenuItem.displayName }}</div>
             <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
               {{ selectedChildMenuItem?.displayName }}
             </div> -->
