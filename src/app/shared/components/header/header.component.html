@@ -127,10 +127,11 @@
                   <img src="../../../../assets/images/mob-logo.svg" alt="mobile-logo" class="pr-3" />
                     <div>
                     <span class="user-name">sasikumar.p@gmail.com</span>
-                    <p class="sign-out" (click)="signOutUser()">Signout</p>
+                    <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
+                    <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
                   </div>
                 </div>
-                <div class="close-btn"></div>
+                <div class="close-btn" (click)="closeMenu()"></div>
               </div>
               <ul >
                 <li><a routerLink="/mission">Home</a>
@@ -157,10 +158,7 @@
                     </li>
                   </ul>
                 </li>
-                <li><a routerLink="/">Why TekCapsule</a></li>
-                <li><a routerLink="/mission">About Us</a></li>
-                <li><a routerLink="/community">Community</a></li>
-                <li><a routerLink="/faq">FAQ</a></li>
+                <li *ngFor="let tm of topMenu;"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
                 <li>
                   <a routerLink="https://tekcapsule.blog/" target="_blank">Blog</a>
                 </li>
