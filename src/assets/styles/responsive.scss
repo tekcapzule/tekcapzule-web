@@ -8,7 +8,7 @@
     font-size: 24px !important;
   }
   h3 {
-    font-size: 16px !important;
+    font-size: 20px !important;
   }
   .signin {
     height: 560px !important;
@@ -53,7 +53,7 @@
   .mission-page {
     p {
       font-size: 18px !important;
-      line-height: 28px !important;
+      line-height: 22px !important;
     }
     .tech-repo {
       background-position: center !important;
@@ -231,7 +231,7 @@
     }
   }
   .inner {
-    padding: 20px 20px 0 !important;
+    padding: 20px 5px 0 !important;
   }
   .home-banner {
     margin-top: 75px !important;
@@ -255,6 +255,17 @@
     p {
       margin-bottom: 5px !important;
     }
+  }
+  .contact-form.section-bg {
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+  }
+  .mission-page > section
+  {
+    padding-bottom: 0!important;
+  }
+  .mission-page .about-banner {
+    margin-bottom: 0 !important;
   }
 }
 @media only screen and (width: 1024px) {
@@ -586,6 +597,3 @@
 
 /**************Skil Studio Responsive End****************/
 
-/*********************Mobile Menu Start***********************/
-
-/*********************Mobile Menu End***********************/
