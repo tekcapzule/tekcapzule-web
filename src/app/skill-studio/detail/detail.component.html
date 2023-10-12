@@ -4,8 +4,8 @@
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-<div class="container-fluid linear-bg">
-  <div class="container pt-5">
+<div class="container-fluid top-navigation">
+  <div class="container">
     <div class="back-link pt-0">
       <ng-container *ngFor="let crumb of crumbs">
         <ng-container *ngIf="crumb?.navUrl; else simplecrumb">
@@ -23,10 +23,13 @@
     </div>
   </div>
 </div>
-  <div class="container">
+  
+</section>
+<section>
+  <div class="container pt-4 mt-4">
     <iframe #detailFrame
       [src]="resourceUrl"
-      style="width: 100%; height: 700px"
+      class="video-container"
       frameborder="0"
       (error)="onAfterIframeLoaded()"
     >

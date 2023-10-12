@@ -4,11 +4,14 @@
 
   .community-banner {
     background: url('../../assets/images/community/community-banner-bg.png');
-    height: 386px;
+    height: 310px;
     width: 100%;
     // margin-bottom: 50px;
     background-size: cover;
     margin-top: 108px;
+    .banner-img {
+      text-align: center;
+    }
   }
   .top-community {
     background: url('../../assets/images/community/community-banner-bg-1.svg');
@@ -67,12 +70,18 @@
     background-size: cover;
   }
 }
+
 @media only screen and (max-width: 990px) {
   .community-banner, .feeds-container, .top-community {
     height: auto !important;
   }
-  .community-page .contributors {
+  .community-page {
+  .contributors {
     flex-wrap: wrap;
     padding-bottom: 20px;
   }
+  .bottom-section {
+    background-position-y: 103px !important ;
+  }
+}
 }

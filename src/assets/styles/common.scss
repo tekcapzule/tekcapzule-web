@@ -46,8 +46,8 @@ h1 {
   font-family: $primary-font-bold;
 
   @media only screen and (max-width: 767px) {
-    line-height: 36px;
-    font-size: 25px;
+    line-height: 30px;
+    font-size: 24px;
   }
 
   span {
@@ -62,7 +62,7 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 20px !important;
   font-family: $primary-font-black;
 }
 
@@ -437,8 +437,9 @@ h4 {
   color: $secondary-color;
 
   @media only screen and (max-width: 990px) {
-    font-size: 16px;
+    font-size: 16px !important;
     line-height: 26px;
+    font-family: $primary-font-regular;
   }
 }
 
@@ -1444,8 +1445,9 @@ iframe .navbar-container,
 
 .git-icon {
   background: url('../images/github.svg') no-repeat;
-  width: 14px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
+  margin-right: 7px;
 }
 
 .close-icon {
@@ -2658,3 +2660,10 @@ select {
 }
 
 
+.video-container {
+  width: 100%; 
+  height: 700px
+}
+.dot-pattern {
+  background: url('../../assets/images/community/dot-pattern-pink.svg') -8% -95px  no-repeat,  url('../../assets/images/community/dot-pattern-blue.svg') 100% 30px  no-repeat
+}

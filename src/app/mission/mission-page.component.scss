@@ -17,17 +17,19 @@
     position: absolute;
     display: flex;
     text-align: center;
-    left: 31%;
+    left: 30%;
     margin-top: 150px;
   }
 
   .our-values {
     display: flex;
+    justify-content: flex-end;
     .value-panel {
       margin-right: 20px;
       padding: 35px;
       border-radius: 10px;
       height: 463px;
+      width: 230px;
       h4, p {
         color: $white;
       }
@@ -35,16 +37,16 @@
         line-height: 22px;
       }
     }
-    .col-1 {
+    .cols-1 {
       background: #ff00c0;
     }
-    .col-2 {
+    .cols-2 {
       background: #54aa00;
     }
-    .col-3 {
+    .cols-3 {
       background: #7400bb;
     }
-    .col-4 {
+    .cols-4 {
       background: #0089fb;
     }
   }
@@ -72,3 +74,21 @@
   background: url('../../assets/images/about/form-bg.png') no-repeat;
   background-size: cover;
 }
+
+@media only screen and (max-width: 990px) {
+  .inner {
+    padding: 20px 0 !important;
+  }
+  .our-values {
+    display: block !important;
+    .value-panel {
+      height: 157px !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+    }
+  }
+  
+  .about-banner {
+    height: 450px !important;
+  }
+ }

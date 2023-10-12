@@ -16,7 +16,7 @@
 
   &.section-bg {
       background: url('../../../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
-      padding: 50px 90px;
+      padding: 30px 90px;
       border-top-right-radius: 27px;
       border-top-left-radius: 27px;
       @media only screen and (max-width: 990px) {
@@ -26,7 +26,7 @@
   .contactus-boy {
     img {
      position: absolute;
-     top: -68px;
+     top: -50px;
     }
   }
 }
@@ -46,6 +46,6 @@ input, textarea, select {
   }
 }
 .form-field {
-  margin-bottom: 25px !important;
+  margin-bottom: 20px;
 }
 

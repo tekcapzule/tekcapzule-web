@@ -46,7 +46,9 @@
     text-transform: capitalize;
   }
 }
-
+h1 {
+  line-height: 35px !important;
+}
 h2 {
   font-family: $primary-font-medium;
 }
