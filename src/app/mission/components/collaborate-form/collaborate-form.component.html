@@ -7,9 +7,11 @@
           <h1 class="mb-0">We love to collaborate!</h1>
           <span class="content-sub-text pb-4 text-white">We are excited to hear from you, please drop a note!</span>
         </div>
+
         <div class="row mt-3">
-          <img src="../../assets/images/about/aboutus-call.png" alt="Contact Form" class="img-fluid" *ngIf="isMobileResolution">
-          <div class="col-6 form-field "
+          <img src="../../assets/images/about/aboutus-call-mob.png" alt="Contact Form" class="img-fluid" *ngIf="isMobileResolution">
+
+          <div class="col-lg-6 col-sm-12 form-field "
             [ngClass]="{'error-text': feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid}">
             <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" />
 
@@ -17,7 +19,7 @@
             feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid
             ">Please enter first name</span>
           </div>
-          <div class="col-6 form-field "
+          <div class="col-lg-6 col-sm-12 form-field "
             [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
             <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
             <span class="error-msg" *ngIf="
