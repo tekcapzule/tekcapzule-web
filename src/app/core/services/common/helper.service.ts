@@ -83,6 +83,9 @@ export class HelperService {
   }
 
   findSelectedTopMenu(navUrl: string) {
+    if (navUrl === '/') {
+      return null;
+    }    
     let selectedTopMenu;
     Constants.TopMenu.forEach(tm => {
       if (tm.navUrl && tm.navUrl.includes(navUrl)) {

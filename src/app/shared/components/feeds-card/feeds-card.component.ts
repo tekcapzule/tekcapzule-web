@@ -62,7 +62,7 @@ export class FeedsCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.onResize();
-    this.fetchUserInfo();
+    this.awsUserInfo = this.auth.getAwsUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
@@ -75,16 +75,6 @@ export class FeedsCardComponent implements OnInit {
       this.isMobileResolution = isMobileResolution;
     });
     this.subrscription.push(sub);
-  }
-
-  fetchUserInfo(refreshCache?: boolean): void {
-    if (this.auth.isUserLoggedIn()) {
-      this.awsUserInfo = this.auth.getAwsUserInfo();
-
-      this.userApi
-        .getTekUserInfo(this.awsUserInfo.email, refreshCache)
-        .subscribe(userInfo => (this.userInfo = userInfo));
-    }
   }
 
   doStartReading(): void {
@@ -141,7 +131,6 @@ export class FeedsCardComponent implements OnInit {
     if (this.auth.isUserLoggedIn()) {
       return false;
     }
-
     return true;
   }
 

@@ -98,7 +98,7 @@ export class CapsuleCardComponent implements OnInit, OnChanges {
       this.awsUserInfo = this.auth.getAwsUserInfo();
 
       this.userApi
-        .getTekUserInfo(this.awsUserInfo.email, refreshCache)
+        .getTekUserInfo(refreshCache)
         .subscribe(userInfo => (this.userInfo = userInfo));
     }
   }

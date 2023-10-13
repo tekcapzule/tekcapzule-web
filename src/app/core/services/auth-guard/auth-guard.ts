@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import { Observable } from 'rxjs';
+import { AuthStateService } from '../app-state/auth-state.service';
+import { AuthService } from '../auth/auth.service';
 
 
 /**
@@ -13,19 +15,20 @@ import { Observable } from 'rxjs';
  */
 @Injectable()
 export class AuthGuard {
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private authState: AuthStateService,
+    private auth: AuthService ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    return Auth.currentAuthenticatedUser().then(() => { return true; })
-      .catch(() => {
-        this._router.navigate(['auth/signin']);
-        return false;
-      });
+     if(this.authState.isUserLoggedIn()) {
+      return true;
+     } else {
+      this.auth.signInUser();
+      return false;
+     }
 
-    return true;
 
   }
 }

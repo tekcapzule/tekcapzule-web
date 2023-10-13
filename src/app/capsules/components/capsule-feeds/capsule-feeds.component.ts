@@ -37,6 +37,7 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   selectedTopics = [];
   userInfo: TekUserInfo = null;
   isShowAllBookmarks = false;
+  bookmarks = [];
 
   constructor(
     private auth: AuthStateService,
@@ -74,12 +75,10 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
-    if (this.auth.isUserLoggedIn()) {
-      this.userApi.getTekUserInfo(this.auth.getAwsUserInfo().email, refreshCache)
-        .subscribe(userInfo => {
-          this.userInfo = userInfo;
-        });
-    }
+    this.userApi.getTekUserInfo(refreshCache).subscribe(userInfo => {
+      this.userInfo = userInfo;
+      this.bookmarks = this.userInfo.bookmarks;
+    });
   }
 
   getAllTopics(): void {

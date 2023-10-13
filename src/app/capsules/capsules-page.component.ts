@@ -107,9 +107,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
-      this.userApi
-        .getTekUserInfo(this.auth.getAwsUserInfo().email, refreshCache)
-        .subscribe(userInfo => (this.userInfo = userInfo));
+      this.userApi.getTekUserInfo(refreshCache).subscribe(userInfo => (this.userInfo = userInfo));
     }
   }
 

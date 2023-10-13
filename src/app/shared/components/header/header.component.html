@@ -23,7 +23,7 @@
     </div>
   </div>
   <header id="header">
-    <div class="container-fluid">
+    <div  *ngIf="!isMobileResolution" class="container-fluid">
       <div class="container header-align">
         <!-- Responsive Menu -->
         
@@ -32,29 +32,15 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div *ngIf="
-              !isMobileResolution || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')
-            " class="navbar-brand logo">
+          <div class="navbar-brand logo">
             <a routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
               routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                 alt="Tekcapsule Logo" /></a>
           </div>
           
-          <div class="mobile-header"  *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-            <div class="page-name">
-            <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem.displayName : selectedChildMenuItem? selectedChildMenuItem.displayName: selectedMenuItem.displayName }}</div>
-            <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
-              {{ selectedChildMenuItem?.displayName }}
-            </div> -->
-          </div>
-          <div class="mobile-header-icons" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-            <div class="header-search-icon"></div>
-            <div class="header-sort-icon"></div>
-            <div class="header-filter-icon"></div>
-          </div>
-        </div>
+          
         <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
-          <ul class="navbar-nav" *ngIf="!isMobileResolution">
+          <ul class="navbar-nav">
             <ng-container *ngFor="let hm of headerMenu; let i = index">
                 <li [ngClass]="{ dropdown: hm.children, active: selectedMenuItem?.uniqueId === hm.uniqueId}" 
                   *ngIf="hm.available === 'ALL' || (hm.available === 'PRELOGIN' && !authState.isUserLoggedIn()) || (hm.available === 'POSTLOGIN' && authState.isUserLoggedIn())">
@@ -120,6 +106,60 @@
                 </li>
               </ng-container>
             </ul>
+            
+          </div>
+        </nav>
+
+
+        <div class="d-flex">
+          <div class="header-search-box mr-3">
+            <input type="text" class="search-input" placeholder="Start Looking For Something!" />
+            <a class="search-btn" routerLink="#">
+              <img src="../../../../assets/images/search-icon.svg" alt="Search" />
+            </a>
+          </div>
+          <!-- <div class="global-search-box mr-3">
+            <input type="text" placeholder="What are you looking for?" class="mb-0" />
+            <button title="search bar" class="search-btn mr-3"></button>
+          </div> -->
+          <button mat-raised-button class="button primary-outline" routerLink="/subscribe">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+
+      <!-- Mobile Menu -->
+          
+    <div *ngIf="isMobileResolution" class="container-fluid">
+      <div class="container header-align">
+        <nav class="navbar navbar-expand-lg">
+          <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div *ngIf="
+              !isMobileResolution || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')
+            " class="navbar-brand logo">
+            <a routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
+              routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
+                alt="Tekcapsule Logo" /></a>
+          </div>
+          
+          <div class="mobile-header"  *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+            <div class="page-name">
+            <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ? selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
+            <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
+              {{ selectedChildMenuItem?.displayName }}
+            </div> -->
+          </div>
+          <div class="mobile-header-icons" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+            <div class="header-search-icon"></div>
+            <div class="header-sort-icon"></div>
+            <div class="header-filter-icon"></div>
+          </div>
+        </div>
+        <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
             <!-- Mobile Menu -->
             <div class="mobile-menu" *ngIf="isMobileResolution">
               <div class="user-container">
@@ -158,7 +198,7 @@
                     </li>
                   </ul>
                 </li>
-                <li *ngFor="let tm of topMenu;"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
+                <li *ngFor="let tm of topMenu;"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <li>
                   <a routerLink="https://tekcapsule.blog/" target="_blank">Blog</a>
                 </li>
@@ -168,22 +208,6 @@
           </div>
         </nav>
 
-
-        <div class="d-flex" *ngIf="!isMobileResolution">
-          <div class="header-search-box mr-3">
-            <input type="text" class="search-input" placeholder="Start Looking For Something!" />
-            <a class="search-btn" routerLink="#">
-              <img src="../../../../assets/images/search-icon.svg" alt="Search" />
-            </a>
-          </div>
-          <!-- <div class="global-search-box mr-3">
-            <input type="text" placeholder="What are you looking for?" class="mb-0" />
-            <button title="search bar" class="search-btn mr-3"></button>
-          </div> -->
-          <button mat-raised-button class="button primary-outline" routerLink="/subscribe">
-            Subscribe
-          </button>
-        </div>
       </div>
     </div>
   </header>
