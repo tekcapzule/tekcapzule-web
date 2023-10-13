@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from '@env/environment';
 import { AuthStateService } from '../app-state/auth-state.service';
+import { Router } from '@angular/router';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 const AWS_COGNITO_OAUTH_ID_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.id.token';
 const AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.access.token';
@@ -34,7 +36,8 @@ export interface AwsUserInfo {
 export class AuthService {
   private usedCodeGrandFlowUrls: { [key: string]: boolean } = {};
 
-  constructor(private httpClient: HttpClient, private authState: AuthStateService) {
+  constructor(private httpClient: HttpClient, private authState: AuthStateService,
+    private router: Router, private helperService: HelperService) {
     this.handleAwsCognitoCodeGrandFlow();
   }
 
@@ -146,6 +149,7 @@ export class AuthService {
         this.authState.setAwsUserInfo(user);
         this.authState.setAccessToken(resp.access_token);
         this.saveAwsCognitoOAuthUserIntoLocalStorage(user);
+        this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
       });
   }
 
