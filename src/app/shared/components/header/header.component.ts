@@ -160,10 +160,10 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  onTopMenuClick(navTab: NavTab) {
+  onTopMenuClick(navTab: NavTab, needToCloseMenu = false) {
     this.selectedTopMenuItem = navTab;
     this.router.navigate([navTab.navUrl]);
-    if (this.isMobileResolution) {
+    if (this.isMobileResolution && needToCloseMenu) {
       this.closeMenu();
     }
   }
@@ -175,14 +175,14 @@ export class HeaderComponent implements OnInit {
       return;
     }
     this.selectedMenuItem = navTab;
-    if (!this.isMobileResolution && navTab.viewType !== 'ALL') {
+    /*if (!this.isMobileResolution && navTab.viewType !== 'ALL') {
       if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
         this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
       }else {
         this.router.navigate([navTab.navUrl]);
       }
       return;
-    }
+    }*/
     if (!this.selectedMenuItem.children) {
       this.selectedChildMenuItem = null;
     }
@@ -190,10 +190,11 @@ export class HeaderComponent implements OnInit {
       this.openedMenuItem = null;
     } else {
       this.openedMenuItem = navTab;
-      this.navbarNav.nativeElement.classList.add('show');
-
-      if (!this.openedMenuItem.children) {
-        this.closeMenu();
+      if (!this.isMobileResolution) {
+        this.navbarNav.nativeElement.classList.add('show');
+        if (!this.openedMenuItem.children) {
+          this.closeMenu();
+        }
       }
       
       if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {

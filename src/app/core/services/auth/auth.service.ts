@@ -31,7 +31,7 @@ export interface AwsUserInfo {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   private usedCodeGrandFlowUrls: { [key: string]: boolean } = {};

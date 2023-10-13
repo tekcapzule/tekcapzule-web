@@ -198,7 +198,7 @@
                     </li>
                   </ul>
                 </li>
-                <li *ngFor="let tm of topMenu;"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
+                <li *ngFor="let tm of topMenu;"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <li>
                   <a routerLink="https://tekcapsule.blog/" target="_blank">Blog</a>
                 </li>
