@@ -162,6 +162,7 @@ export class HeaderComponent implements OnInit {
 
   onTopMenuClick(navTab: NavTab, needToCloseMenu = false) {
     this.selectedTopMenuItem = navTab;
+    this.selectedMenuItem = null;
     this.router.navigate([navTab.navUrl]);
     if (this.isMobileResolution && needToCloseMenu) {
       this.closeMenu();
@@ -199,6 +200,8 @@ export class HeaderComponent implements OnInit {
       
       if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
         this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
+      } else if(navTab.uniqueId === 'HOME' && !this.authState.isUserLoggedIn()) {
+        this.router.navigate([navTab.navUrl]);
       } else if (navTab.uniqueId !== 'Skill_Studio' || this.authState.isUserLoggedIn()) {
         this.router.navigate([this.openedMenuItem.navUrl]);
       }
