@@ -145,24 +145,11 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  setActiveTab(navTab: NavTab): void {
-    this.activeTab = navTab.uniqueId;
-  }
 
-  isActiveTab(navTab: NavTab): boolean {
-    return this.activeTab === navTab.uniqueId;
-  }
 
-  deActivateTabs(): void {
-    this.activeTab = Constants.None;
-  }
-
-  canHideNavTabs(): boolean {
-    return this.activeTab === Constants.None || this.helperService.getMobileResolution();
-  }
-
-  canHideFilterAndTags(): boolean {
-    return this.activeTab === Constants.None;
+  canShowFilterAndTags(): boolean {
+    const feedsPage = this.helperService.findPage('My_Feeds');
+    return this.router.url.includes(feedsPage.navUrl);
   }
 
   showFilterOption() {
@@ -251,7 +238,6 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
 
   navigateToContributePage(): void {
     sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-    this.deActivateTabs();
     this.router.navigate(['capsules', 'contribute']);
   }
 

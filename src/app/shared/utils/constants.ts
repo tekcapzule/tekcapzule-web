@@ -11,7 +11,7 @@ export const Constants = {
   ],
   HeaderMenu: [
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', available: 'PRELOGIN'},
-    { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/capsules', viewType: 'MOBILE', available: 'POSTLOGIN' },
+    { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/capsules/myfeeds', viewType: 'MOBILE', available: 'POSTLOGIN' },
     { uniqueId: 'Skill_Studio', displayName: 'SkillStudio', navUrl: '/ai-hub/dashboard', viewType: 'DESKTOP', available: 'ALL',
       enablePostLogin: false,
       children: [

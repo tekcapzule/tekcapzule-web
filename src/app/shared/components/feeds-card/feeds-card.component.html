@@ -2,17 +2,17 @@
   <div class="d-flex">
     <div class="profile-pic"></div>
     <div class="w-100">
-      <div class="d-flex justify-content-between">
-        <h5>{{ capsule.author }}</h5>
+      <div class="d-flex justify-content-between c-click" (click)="doStartReading()">
+        <h5>{{ capsule.title | titlecase }}</h5>
       </div>
       <p class="grey-color">
-        {{ capsule.title | titlecase }}<span> ({{ dateAgoStr }})</span> |
+        {{ capsule.author | titlecase }}<span> ({{ dateAgoStr }})</span> |
         <span>Posted: {{ capsule.publisher | titlecase }}</span>
       </p>
     </div>
   </div>
-  <p>{{ capsule.description }} <span class="grey-color">see more…</span></p>
-  <div class="position-relative">
+  <p>{{ capsule.description }} <span class="grey-color" (click)="doStartReading()"> see more…</span></p>
+  <div class="position-relative c-click" (click)="doStartReading()">
     <img [src]="capsule.imageUrl" alt="" class="img-fluid feeds-img w-100" />
     <div class="icons timer">
       <img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img" /><span>{{

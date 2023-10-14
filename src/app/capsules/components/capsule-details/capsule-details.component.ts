@@ -102,8 +102,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getNavBreadcrumbs(): NavTab | any[] {
     const crumbs: NavTab | any[] = [];
-    const queryTitle =
-      sessionStorage.getItem('com.tekcapsule.title') || this.capsuleDetail.title;
+    const queryTitle = sessionStorage.getItem('com.tekcapsule.title') || this.capsuleDetail.title;
     const selectedMenu = this.helperService.findSelectedMenu(
       sessionStorage.getItem('com.tekcapsule.pageURL') || this.router.url
     );
