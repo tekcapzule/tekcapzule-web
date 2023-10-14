@@ -1,35 +1,42 @@
+import { AwsUserInfo } from '@app/core/services/auth/auth.service';
+
 export interface TekUserInfo {
   userId: string;
-  active: boolean;
+  emailId: string;
   firstName: string;
   lastName: string;
   bookmarks: string[];
   subscribedTopics: string[];
-  emailId: string;
-  contactNumber: string;
+  phoneNumber: string;
   activeSince: string;
+  status: string;
 }
 
 export class TekUserInfoImpl implements TekUserInfo {
   userId: string;
-  active: boolean;
+  emailId: string;
   firstName: string;
   lastName: string;
   bookmarks: string[];
   subscribedTopics: string[];
-  emailId: string;
-  contactNumber: string;
+  phoneNumber: string;
   activeSince: string;
+  status: string;
 
-  constructor(userId: string, email: string, contact: string) {
-    this.userId = userId;
-    this.active = true;
-    this.firstName = userId;
-    this.lastName = null;
+  constructor(awsUserInfo: AwsUserInfo) {
+    this.userId = awsUserInfo.email;
+    this.emailId = awsUserInfo.email;
+    this.firstName = awsUserInfo.given_name;
+    this.lastName = awsUserInfo.family_name;
+    this.phoneNumber = awsUserInfo.phone_number;
     this.bookmarks = null;
     this.subscribedTopics = null;
-    this.emailId = email;
-    this.contactNumber = contact;
     this.activeSince = new Date().toISOString();
+    this.status = UserStatus.Active;
   }
+}
+
+export enum UserStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
 }

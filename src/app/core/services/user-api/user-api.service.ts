@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { cacheManager, Constants } from '@app/shared/utils';
+import { cacheManager, isNullOrUndefined } from '@app/shared/utils';
 import { ApiSuccess, TekUserInfo } from '@app/shared/models';
 import { AuthStateService } from '../app-state/auth-state.service';
+import { AwsUserInfo } from '../auth/auth.service';
 
 const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
   .replace('{{api-gateway}}', environment.userApiGateway)
@@ -17,8 +18,7 @@ const USER_INFO_CACHE_KEY = 'com.tekcapsule.user.info';
   providedIn: 'root',
 })
 export class UserApiService {
-  constructor(private httpClient: HttpClient,
-    private auth: AuthStateService) {}
+  constructor(private httpClient: HttpClient, private auth: AuthStateService) {}
 
   getUserApiPath(): string {
     return USER_API_PATH;
@@ -26,17 +26,29 @@ export class UserApiService {
 
   getTekUserInfo(refreshCache?: boolean): Observable<TekUserInfo> {
     const userId = this.auth.getAwsUserInfo().email;
-    return this.httpClient.post<TekUserInfo>(
-      `${USER_API_PATH}/get`,
-      { userId },
-      {
-        params: {
-          cache: 'yes',
-          refresh: refreshCache ? 'yes' : 'no',
-          ckey: USER_INFO_CACHE_KEY,
-        },
-      }
-    );
+
+    return this.httpClient
+      .post<TekUserInfo>(
+        `${USER_API_PATH}/get`,
+        { userId },
+        {
+          params: {
+            cache: 'yes',
+            refresh: refreshCache ? 'yes' : 'no',
+            ckey: USER_INFO_CACHE_KEY,
+          },
+        }
+      )
+      .pipe(
+        tap((userInfo: TekUserInfo) => {
+          if (isNullOrUndefined(userInfo.bookmarks)) {
+            userInfo.bookmarks = [];
+          }
+          if (isNullOrUndefined(userInfo.subscribedTopics)) {
+            userInfo.subscribedTopics = [];
+          }
+        })
+      );
   }
 
   createTekUserInfo(user: TekUserInfo): Observable<ApiSuccess> {
@@ -79,7 +91,7 @@ export class UserApiService {
   updateTekUserInfoCache(userInfo: TekUserInfo): void {
     const currentCache = cacheManager.getItem(USER_INFO_CACHE_KEY);
 
-    if(currentCache) {
+    if (currentCache) {
       cacheManager.setItem(USER_INFO_CACHE_KEY, {
         body: userInfo,
         expiry: currentCache.expiry,

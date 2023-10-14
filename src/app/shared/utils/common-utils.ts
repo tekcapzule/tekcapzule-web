@@ -10,3 +10,7 @@ export function shuffleArray(array: any[], count?: number): any[] {
 export function toUpperCamelCase(str: string): string {
   return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
 }
+
+export function isNullOrUndefined(value: any) {
+  return value === undefined || value === null;
+}
