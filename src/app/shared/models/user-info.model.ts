@@ -1,35 +1,40 @@
 export interface TekUserInfo {
   userId: string;
-  active: boolean;
+  emailId: string;
   firstName: string;
   lastName: string;
   bookmarks: string[];
   subscribedTopics: string[];
-  emailId: string;
-  contactNumber: string;
+  phoneNumber: string;
   activeSince: string;
+  status: string;
 }
 
 export class TekUserInfoImpl implements TekUserInfo {
   userId: string;
-  active: boolean;
+  emailId: string;
   firstName: string;
   lastName: string;
   bookmarks: string[];
   subscribedTopics: string[];
-  emailId: string;
-  contactNumber: string;
+  phoneNumber: string;
   activeSince: string;
+  status: string;
 
-  constructor(userId: string, email: string, contact: string) {
+  constructor(userId: string, email: string, phone: string, firstName: string, lastName: string) {
     this.userId = userId;
-    this.active = true;
-    this.firstName = userId;
-    this.lastName = null;
+    this.emailId = email;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.phoneNumber = phone;
     this.bookmarks = null;
     this.subscribedTopics = null;
-    this.emailId = email;
-    this.contactNumber = contact;
     this.activeSince = new Date().toISOString();
+    this.status = UserStatus.Active;
   }
+}
+
+export enum UserStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
 }

@@ -5,6 +5,8 @@ import { environment } from '@env/environment';
 import { AuthStateService } from '../app-state/auth-state.service';
 import { Router } from '@angular/router';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { TekUserInfo, TekUserInfoImpl } from '@app/shared/models';
+import { UserApiService } from '@app/core/services/user-api/user-api.service';
 
 const AWS_COGNITO_OAUTH_ID_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.id.token';
 const AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.access.token';
@@ -12,6 +14,8 @@ const AWS_COGNITO_OAUTH_REFRESH_TOKEN_KEY = 'com.tekcapulse.aws.cognito.oauth.re
 const AWS_COGNITO_OAUTH_TOKEN_EXPIRY_KEY = 'com.tekcapulse.aws.cognito.oauth.token.expiry';
 const AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY =
   'com.tekcapulse.aws.cognito.oauth.signedin.user.info';
+const AWS_COGNITO_OAUTH_LAST_SIGNEDIN_USER_SUB_KEY =
+  'com.tekcapulse.aws.cognito.oauth.last.signedin.user.sub';
 
 export interface OAuthTokenInfo {
   id_token: string;
@@ -24,6 +28,8 @@ export interface OAuthTokenInfo {
 export interface AwsUserInfo {
   sub: string;
   username: string;
+  given_name: string;
+  family_name: string;
   email: string;
   email_verified: string;
   phone_number: string;
@@ -31,13 +37,18 @@ export interface AwsUserInfo {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private usedCodeGrandFlowUrls: { [key: string]: boolean } = {};
 
-  constructor(private httpClient: HttpClient, private authState: AuthStateService,
-    private router: Router, private helperService: HelperService) {
+  constructor(
+    private router: Router,
+    private httpClient: HttpClient,
+    private authState: AuthStateService,
+    private helperService: HelperService,
+    private userApi: UserApiService
+  ) {
     this.handleAwsCognitoCodeGrandFlow();
   }
 
@@ -62,9 +73,10 @@ export class AuthService {
 
   public signOutUser(): void {
     window.location.assign(this.getAwsCognitoLogoutApi());
-    this.clearAwsCognitoOAuthLocalStorage();
+    this.clearAwsCognitoOAuthDataFromLocalStorage();
     this.authState.setUserLoggedIn(false);
     this.authState.setAwsUserInfo(null);
+    this.userApi.deleteTekUserInfoCache();
   }
 
   public getAwsUserInfo(): AwsUserInfo {
@@ -129,7 +141,7 @@ export class AuthService {
       })
       .subscribe(data => {
         this.fetchAwsCognitoOAuthUserInfo(data);
-        this.saveAwsCognitoOAuthTokensIntoLocalStorage(data);
+        this.saveAwsCognitoOAuthTokensToLocalStorage(data);
       });
 
     if (window.history) {
@@ -138,37 +150,51 @@ export class AuthService {
   }
 
   private fetchAwsCognitoOAuthUserInfo(resp: OAuthTokenInfo): void {
-    const userApi = new URL(`${environment.awsCognitoConfigs.domain}/oauth2/userInfo`);
+    const awsOAuthUserInfoUrl = new URL(`${environment.awsCognitoConfigs.domain}/oauth2/userInfo`);
 
     this.httpClient
-      .get<AwsUserInfo>(userApi.toString(), {
+      .get<AwsUserInfo>(awsOAuthUserInfoUrl.toString(), {
         headers: new HttpHeaders().set('Authorization', `Bearer ${resp.access_token}`),
       })
       .subscribe(user => {
         this.authState.setUserLoggedIn(true);
         this.authState.setAwsUserInfo(user);
         this.authState.setAccessToken(resp.access_token);
-        this.saveAwsCognitoOAuthUserIntoLocalStorage(user);
+        this.saveAwsCognitoOAuthUserInfoToLocalStorage(user);
         this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
       });
   }
 
-  private saveAwsCognitoOAuthTokensIntoLocalStorage(data: OAuthTokenInfo): void {
+  private saveTekUserInfo(user: AwsUserInfo): void {
+    const tekUserInfo: TekUserInfo = new TekUserInfoImpl(
+      user.username,
+      user.email,
+      user.phone_number,
+      user.given_name,
+      user.family_name
+    );
+
+    this.userApi.createTekUserInfo(tekUserInfo);
+  }
+
+  private saveAwsCognitoOAuthTokensToLocalStorage(data: OAuthTokenInfo): void {
     window.localStorage.setItem(AWS_COGNITO_OAUTH_ID_TOKEN_KEY, data.id_token);
     window.localStorage.setItem(AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY, data.access_token);
     window.localStorage.setItem(AWS_COGNITO_OAUTH_REFRESH_TOKEN_KEY, data.refresh_token);
     window.localStorage.setItem(AWS_COGNITO_OAUTH_TOKEN_EXPIRY_KEY, data.expires_in.toString());
   }
 
-  private saveAwsCognitoOAuthUserIntoLocalStorage(user: AwsUserInfo): void {
+  private saveAwsCognitoOAuthUserInfoToLocalStorage(user: AwsUserInfo): void {
     window.localStorage.setItem(AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY, JSON.stringify(user));
+    window.localStorage.setItem(AWS_COGNITO_OAUTH_LAST_SIGNEDIN_USER_SUB_KEY, user.sub);
   }
 
-  private clearAwsCognitoOAuthLocalStorage(): void {
+  private clearAwsCognitoOAuthDataFromLocalStorage(): void {
     window.localStorage.removeItem(AWS_COGNITO_OAUTH_ID_TOKEN_KEY);
     window.localStorage.removeItem(AWS_COGNITO_OAUTH_ACCESS_TOKEN_KEY);
     window.localStorage.removeItem(AWS_COGNITO_OAUTH_REFRESH_TOKEN_KEY);
     window.localStorage.removeItem(AWS_COGNITO_OAUTH_TOKEN_EXPIRY_KEY);
     window.localStorage.removeItem(AWS_COGNITO_OAUTH_SIGNEDIN_USER_INFO_KEY);
+    window.localStorage.removeItem(AWS_COGNITO_OAUTH_LAST_SIGNEDIN_USER_SUB_KEY);
   }
 }
