@@ -165,15 +165,8 @@ export class AuthService {
       });
   }
 
-  private saveTekUserInfo(user: AwsUserInfo): void {
-    const tekUserInfo: TekUserInfo = new TekUserInfoImpl(
-      user.username,
-      user.email,
-      user.phone_number,
-      user.given_name,
-      user.family_name
-    );
-
+  private saveTekUserInfo(awsUserInfo: AwsUserInfo): void {
+    const tekUserInfo: TekUserInfo = new TekUserInfoImpl(awsUserInfo);
     this.userApi.createTekUserInfo(tekUserInfo);
   }
 

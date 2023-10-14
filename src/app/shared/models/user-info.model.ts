@@ -1,3 +1,5 @@
+import { AwsUserInfo } from '@app/core/services/auth/auth.service';
+
 export interface TekUserInfo {
   userId: string;
   emailId: string;
@@ -21,12 +23,12 @@ export class TekUserInfoImpl implements TekUserInfo {
   activeSince: string;
   status: string;
 
-  constructor(userId: string, email: string, phone: string, firstName: string, lastName: string) {
-    this.userId = userId;
-    this.emailId = email;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phone;
+  constructor(awsUserInfo: AwsUserInfo) {
+    this.userId = awsUserInfo.email;
+    this.emailId = awsUserInfo.email;
+    this.firstName = awsUserInfo.given_name;
+    this.lastName = awsUserInfo.family_name;
+    this.phoneNumber = awsUserInfo.phone_number;
     this.bookmarks = null;
     this.subscribedTopics = null;
     this.activeSince = new Date().toISOString();
