@@ -34,12 +34,12 @@ export class ResearchPapersComponent implements OnInit {
     this.spinner.show();
     this.topics = this.helperService.getTopicData();
     this.researchApi.getAllResearchPaper().subscribe(data => {
-      this.spinner.hide();
       this.researchList = data;
-      this.researchList.forEach(rl => {
+      data.forEach(rl => {
         rl.publishedOn = moment(rl.publishedOn, 'DD/MM/YYYY').fromNow();
       });
       this.filteredResearchList = data;
+      this.spinner.hide();
     });
   }
 

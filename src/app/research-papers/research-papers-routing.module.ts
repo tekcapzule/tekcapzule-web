@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ResearchPapersComponent } from './research-papers.component';
 import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
+import { DetailComponent } from '@app/skill-studio/detail/detail.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: ':id/details',
-        component: CapsuleDetailsComponent
+        component: DetailComponent
       },
       {
         path: '',

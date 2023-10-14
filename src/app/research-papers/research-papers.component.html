@@ -44,7 +44,7 @@
           <button title="search bar" class="search-btn" (click)="onSearch()"></button>
         </div>
       </div>
-      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="spinner.isLoading">
+      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="!spinner.isLoading">
         <div
           *ngFor="let research of filteredResearchList; let i = index"
           class="research-papers-card carousel-card mx-0"

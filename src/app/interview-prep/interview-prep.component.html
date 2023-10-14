@@ -48,23 +48,21 @@
           *ngFor="let interview of filteredInterviewList; let i = index"
           class="box-content mb-4 d-flex"
         >
-          <div>
+          <div class="c-click" (click)="onOpen(interview)">
             <img [src]="interview.imageUrl" alt="ML Coding Questions" class="box-content-img" />
           </div>
           <div>
-            <div class="d-flex">
+            <div class="d-flex c-click" (click)="onOpen(interview)">
               <h3 class="pr-2">{{ interview.title }}</h3>
               <span class="pills mt-1">{{ interview.topicCode }}</span>
             </div>
 
             <p>{{ interview.summary }}</p>
-            <div class="recommend">
+            <div class="recommend c-click">
               <span class="okhand-gray-icon"></span>Recommend <span class="count">({{ interview.recommendations }})</span>
             </div>
+            <a [href]="interview.resourceUrl" target="_blank" class="link">{{interview.resourceUrl}}</a>
 
-            <a [href]="interview.courseUrl" target="_blank" class="link">{{
-              interview.courseUrl
-            }}</a>
           </div>
         </div>
       </ng-container>

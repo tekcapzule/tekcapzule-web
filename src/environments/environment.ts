@@ -17,7 +17,7 @@ export const environment = {
   digestApiGateway: '7vrqxopm10',
   tekByteApiGateway: '8aor8j6icj',
   videoApiGateway: 'kppi2bylsk',
-  interviewprepApiGateway: 'oati6nlc07',
+  interviewprepApiGateway: 's19tfj8cee',
   researchPaperApiGateway: 'flve5ir6cc',
   insightsApiGateway: '878m5ejncb',
   campaignApiGateway: 'fbc0hgdw4j',

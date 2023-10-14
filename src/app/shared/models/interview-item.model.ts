@@ -13,6 +13,7 @@ export interface IInterviewDetail {
   imageUrl: string;
   promotion: IInterviewPromotion;
   status: string;
+  resourceUrl: string;
 }
 
 export interface IInterviewPromotion {
