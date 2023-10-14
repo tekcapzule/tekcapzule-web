@@ -203,7 +203,7 @@ export class HeaderComponent implements OnInit {
       } else if(navTab.uniqueId === 'HOME' && !this.authState.isUserLoggedIn()) {
         this.router.navigate([navTab.navUrl]);
       } else if (navTab.uniqueId !== 'Skill_Studio' || this.authState.isUserLoggedIn()) {
-        this.router.navigate([this.openedMenuItem.navUrl]);
+        this.router.navigate([navTab.navUrl]);
       }
     }
   }
