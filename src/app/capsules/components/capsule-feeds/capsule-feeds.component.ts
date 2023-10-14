@@ -77,7 +77,9 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   fetchUserInfo(refreshCache?: boolean): void {
     this.userApi.getTekUserInfo(refreshCache).subscribe(userInfo => {
       this.userInfo = userInfo;
-      this.bookmarks = this.userInfo.bookmarks;
+      if(this.userInfo.bookmarks) {
+        this.bookmarks = this.userInfo.bookmarks;
+      }
     });
   }
 
