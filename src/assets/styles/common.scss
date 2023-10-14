@@ -2669,3 +2669,14 @@ select {
 .dot-pattern {
   background: url('../../assets/images/community/dot-pattern-pink.svg') -8% -95px  no-repeat,  url('../../assets/images/community/dot-pattern-blue.svg') 100% 30px  no-repeat
 }
+
+
+.disabled {
+  cursor: not-allowed;
+}
+.c-default {
+  cursor: default;
+}
+.c-click {
+  cursor: pointer;
+}

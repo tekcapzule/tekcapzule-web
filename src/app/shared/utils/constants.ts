@@ -88,7 +88,7 @@ export const Constants = {
       navUrl: '/ai-hub/courses',
     },
     {
-      uniqueId: 'interview_prep',
+      uniqueId: 'Interview_Prep',
       displayName: 'Interview Prep',
       desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials',
       navUrl: '/ai-hub/interview-prepartion',
@@ -100,13 +100,13 @@ export const Constants = {
       navUrl: '/ai-hub/video-library',
     },
     {
-      uniqueId: 'research_papers',
+      uniqueId: 'Research_Papers',
       displayName: 'Research Papers',
       desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape',
       navUrl: '/ai-hub/research-papers',
     },
     {
-      uniqueId: 'weekly_digest',
+      uniqueId: 'Weekly_Digest',
       displayName: 'Weekly Digest',
       desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts',
       navUrl: '/ai-hub/weekly-digest',
