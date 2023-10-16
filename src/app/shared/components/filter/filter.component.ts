@@ -13,10 +13,10 @@ import {
 export class FilterComponent {
   filterOptions = [
     {key:'AI', text:'Artificial Intelligence'},
-    {key:'Web3', text:'Web 3.0'},
-    {key:'MTV', text:'Metaverse'}
+    {key:'WEB3', text:'Web 3.0'},
+    {key:'META', text:'Metaverse'}
   ];
-  selectedFilters = ['AI', 'Web3', 'MTV'];
+  selectedFilters = ['AI', 'WEB3', 'META'];
   @Output() onFilterUpdate = new EventEmitter<any>();
 
   constructor() {}
