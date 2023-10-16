@@ -74,9 +74,9 @@ export class ExploreTekbyteComponent implements OnInit {
     this.helperService.setMobileResolution(this.isMobileResolution);
   }
   onSearch() {
-    let tempList = [...this.tekbyteList];
+    let tempList = [];
     if (this.selectedTopics.length > 0) {
-      tempList = tempList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
+      tempList = this.tekbyteList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
     }
     if (this.searchText && this.searchText.trim().length > 0) {
       this.filteredTekbyteList = tempList.filter(
