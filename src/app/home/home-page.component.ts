@@ -1,17 +1,15 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {
-  CapsuleApiService,
-  SubscriptionApiService,
-  UserApiService,
-  AuthStateService,
-  TopicApiService,
   AppSpinnerService,
+  AuthStateService,
+  SubscriptionApiService,
+  TopicApiService,
+  UserApiService
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { CapsuleCardComponent } from '@app/shared/components/capsule-card/capsule-card.component';
 import { CapsuleItem, TopicItem } from '@app/shared/models';
 import { Constants, shuffleArray } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
@@ -33,7 +31,6 @@ export class HomePageComponent implements OnInit {
   responsiveOptions: any[] = Constants.ResponsiveOptions;
   constructor(
     private router: Router,
-    private capsuleApi: CapsuleApiService,
     private userApi: UserApiService,
     private auth: AuthStateService,
     private subscriptionApi: SubscriptionApiService,
@@ -44,6 +41,9 @@ export class HomePageComponent implements OnInit {
     private helperService: HelperService
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
+    if(this.auth.isUserLoggedIn()) {
+      this.router.navigateByUrl(this.helperService.findPage('My_Feeds').navUrl);
+    }
   }
 
   ngOnInit(): void {

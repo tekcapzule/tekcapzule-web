@@ -61,6 +61,9 @@ export class FeedsCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if(!this.auth.isUserLoggedIn()) {
+      this.router.navigateByUrl(this.helperService.findPage('HOME').navUrl);
+    }
     this.onResize();
     this.awsUserInfo = this.auth.getAwsUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
