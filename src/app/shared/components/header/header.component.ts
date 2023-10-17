@@ -196,6 +196,8 @@ export class HeaderComponent implements OnInit {
         if (!this.openedMenuItem.children) {
           this.closeMenu();
         }
+      } else {
+        this.closeMenu();
       }
       
       if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
