@@ -14,6 +14,7 @@ export interface IInterviewDetail {
   promotion: IInterviewPromotion;
   status: string;
   resourceUrl: string;
+  isRecommended: boolean;
 }
 
 export interface IInterviewPromotion {

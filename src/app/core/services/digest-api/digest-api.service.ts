@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { IDigestItem } from '@app/shared/models/digest-item.model';
 import { environment } from '@env/environment';
+import { ApiSuccess } from '@app/shared/models';
 
 const DIGEST_API_PATH = `${environment.apiEndpointTemplate}/news-digest`
   .replace('{{api-gateway}}', environment.digestApiGateway)
@@ -33,5 +34,10 @@ export class DigestApiService {
         },
       }
     );
+  }
+
+  updateRecommendCount(code: string): Observable<ApiSuccess> {
+    return this.httpClient
+      .post<ApiSuccess>(`${DIGEST_API_PATH}/recommend`, { code });
   }
 }

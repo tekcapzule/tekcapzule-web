@@ -13,29 +13,33 @@
         <div class="profile-pic"></div>
         <div class="w-100">
           <div class="d-flex justify-content-between">
-            <h5>Sasikumar P</h5>
+            <h5>{{this.authState.getAwsUserInfo().username}}</h5>
           </div>
         </div>
       </div>
       <div>
-        <textarea class="user-post" placeholder="Start typing…"></textarea>
+        <textarea class="user-post" placeholder="Start typing…" value="desc"></textarea>
         <div class="input-container">
           <span class="post-link-icon ml-2"></span>
-          <input type="text" class="pl-5" placeholder="Post the link here…" />
+          <input type="text" class="pl-5" placeholder="Post the link here…" value="resourceURL" />
         </div>
         <div class="pb-4">
-          <button class="filters-btn">Artificial Intelligence</button
-          ><button class="filters-btn">Web 3.0</button
-          ><button class="filters-btn">Metaverse</button>
+          <app-filter [filterOptions]="[]" (onFilterUpdate)="filterUpdate($event)"></app-filter>
         </div>
         <div class="share-icons">
-          <button class="share-btn news"><span>News</span></button>
-          <button class="share-btn article"><span>Article</span></button>
-          <button class="share-btn course"><span>Course</span></button>
-          <button class="share-btn events"><span>Events</span></button>
-          <button class="share-btn video"><span>Video</span></button>
+          <button class="share-btn news" (click)="onTypeChanged('News')"><span>News</span></button>
+          <button class="share-btn article" (click)="onTypeChanged('Article')"><span>Article</span></button>
+          <button class="share-btn course" (click)="onTypeChanged('Course')"><span>Course</span></button>
+          <button class="share-btn events" (click)="onTypeChanged('Events')"><span>Events</span></button>
+          <button class="share-btn video" (click)="onTypeChanged('Video')"><span>Video</span></button>
         </div>
       </div>
+    </div>
+
+    <div>
+      <button mat-raised-button class="button tertiary-outline mt-3" (click)="createCapsule()">
+        Create
+      </button>
     </div>
   </div>
 </p-dialog>

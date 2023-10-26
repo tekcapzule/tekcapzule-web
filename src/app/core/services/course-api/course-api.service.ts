@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiSuccess } from '@app/shared/models';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 
 import { environment } from '@env/environment';
@@ -31,5 +32,10 @@ export class CourseApiService {
         },
       }
     );
+  }
+
+  updateRecommendCount(courseId: string): Observable<ApiSuccess> {
+    return this.httpClient
+      .post<ApiSuccess>(`${COURSE_API_PATH}/recommend`, { courseId });
   }
 }

@@ -1,5 +1,8 @@
 <div id="interview-prep" class="skill-studio-page p-main pb-0">
   <!-- <app-spinner></app-spinner> -->
+  <div class="card flex justify-content-center gap-2">
+    <p-toast position="top-center" key="tc"></p-toast>
+  </div>
 
   <div class="col-lg-12 px-0">
     <div class="container-fluid top-navigation">
@@ -59,7 +62,7 @@
 
             <p>{{ interview.summary }}</p>
             <div class="recommend c-click">
-              <span class="okhand-gray-icon"></span>Recommend <span class="count">({{ interview.recommendations }})</span>
+              <span (click)="onRecommendClick($event, interview)" class="okhand-gray-icon"></span>Recommend <span class="count">({{ interview.recommendations }})</span>
             </div>
             <a [href]="interview.resourceUrl" target="_blank" class="link">{{interview.resourceUrl}}</a>
 

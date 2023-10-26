@@ -66,6 +66,12 @@ export class ResearchPapersComponent implements OnInit {
         severity: 'success',
         detail: 'Thank you for the recommendation!',
       });
+    }, err => {
+      this.messageService.add({
+        key: 'tc',
+        severity: 'error',
+        detail: 'Please try again later!',
+      });
     });
   }
   @HostListener('window:resize', ['$event'])

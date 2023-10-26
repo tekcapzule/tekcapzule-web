@@ -8,6 +8,8 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseSkeletonComponent } from './course-skeleton/course-skeleton.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [CoursesComponent, CourseSkeletonComponent],
@@ -19,6 +21,10 @@ import { CourseSkeletonComponent } from './course-skeleton/course-skeleton.compo
     MatTabsModule,
     CoursesRoutingModule,
     CheckboxModule,
+    ToastModule
   ],
+  providers: [
+    MessageService
+  ]
 })
 export class CoursesModule {}
