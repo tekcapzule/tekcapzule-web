@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiSuccess } from '@app/shared/models';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { IInterviewDetail } from '@app/shared/models/interview-item.model';
 
@@ -33,5 +34,10 @@ export class InterviewApiService {
         },
       }
     );
+  }
+
+  updateRecommendCount(interviewId: string): Observable<ApiSuccess> {
+    return this.httpClient
+      .post<ApiSuccess>(`${INTERVIEW_API_PATH}/recommend`, { interviewId });
   }
 }

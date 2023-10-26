@@ -1,7 +1,8 @@
 import {
   Component,
   EventEmitter,
-  Output
+  Output,
+  Input
 } from '@angular/core';
 
 
@@ -11,7 +12,7 @@ import {
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent {
-  filterOptions = [
+  @Input() filterOptions = [
     {key:'AI', text:'Artificial Intelligence'},
     {key:'WEB3', text:'Web 3.0'},
     {key:'META', text:'Metaverse'}

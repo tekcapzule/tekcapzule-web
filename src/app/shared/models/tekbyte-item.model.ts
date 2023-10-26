@@ -20,6 +20,7 @@ export interface TekByteItem {
   timeline: TimelineItem;
   recommendations: number;
   prizingModel: string;
+  isRecommended?: boolean;
 }
 export interface GoldenCircleItem {
   why: string;

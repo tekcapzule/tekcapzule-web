@@ -79,7 +79,7 @@
               <span *ngFor="let tag of research.tags; let i = index" class="pills">{{ tag }}</span>
             </div>
             <div class="recommend">
-              <span class="okhand-gray-icon"></span>Recommend
+              <span class="okhand-gray-icon" (click)="onRecommendClick($event, research)"></span>Recommend
               <span class="count">({{ research.recommendations }})</span>
             </div>
           </div>

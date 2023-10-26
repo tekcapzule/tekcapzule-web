@@ -87,7 +87,7 @@
               <span class="pills">{{video.topicCode}}</span>
             </div>
             <div class="recommend">
-              <span class="okhand-gray-icon"></span>Recommend <span class="count">({{video.recommendations}})</span>
+              <span (click)="onRecommendClick($event, video)" class="okhand-gray-icon"></span>Recommend <span class="count">({{video.recommendations}})</span>
             </div>
           </div>
         </div>

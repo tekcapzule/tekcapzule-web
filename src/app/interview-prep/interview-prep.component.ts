@@ -6,6 +6,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { InterviewApiService } from '@app/core/services/interview-api/interview-api.service';
 import { TopicItem } from '@app/shared/models';
 import { IInterviewDetail } from '@app/shared/models/interview-item.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-interview-prep',
@@ -24,7 +25,8 @@ export class InterviewPrepComponent implements OnInit {
     public spinner: AppSpinnerService,
     private interviewApi: InterviewApiService,
     private helperService: HelperService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -87,4 +89,24 @@ export class InterviewPrepComponent implements OnInit {
     }
   }
 
+  onRecommendClick(eve, interviewPrep: IInterviewDetail) {
+    eve.stopPropagation();
+    if(!interviewPrep.isRecommended) {
+      this.interviewApi.updateRecommendCount(interviewPrep.courseId).subscribe(data => {
+        interviewPrep.isRecommended = true;
+        this.messageService.add({
+          key: 'tc',
+          severity: 'success',
+          detail: 'Thank you for the recommendation!',
+        });
+      }, err => {
+        this.messageService.add({
+          key: 'tc',
+          severity: 'error',
+          detail: 'Please try again later!',
+        });
+      });
+    }
+    return false;
+  }
 }

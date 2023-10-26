@@ -100,4 +100,23 @@ export class WeeklyDigestComponent implements OnInit {
     sessionStorage.setItem('com.tekcapsule.title', dig.title);
     this.router.navigateByUrl('/ai-hub/' + dig.code + '/detail?pageId=Weekly_Digest');
   }
+  
+  onRecommendClick(eve, dig: IDigestItem) {
+    eve.stopPropagation();
+    this.digestApiService.updateRecommendCount(dig.code).subscribe(data => {
+      dig.isRecommended = true;
+      this.messageService.add({
+        key: 'tc',
+        severity: 'success',
+        detail: 'Thank you for the recommendation!',
+      });
+    }, err => {
+      this.messageService.add({
+        key: 'tc',
+        severity: 'error',
+        detail: 'Please try again later!',
+      });
+    });
+    return false;
+  }
 }

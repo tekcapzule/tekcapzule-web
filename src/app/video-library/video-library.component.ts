@@ -67,6 +67,12 @@ export class VideoLibraryComponent implements OnInit {
         severity: 'success',
         detail: 'Thank you for the recommendation!',
       });
+    }, err => {
+      this.messageService.add({
+        key: 'tc',
+        severity: 'error',
+        detail: 'Please try again later!',
+      });
     });
     return false;
   }

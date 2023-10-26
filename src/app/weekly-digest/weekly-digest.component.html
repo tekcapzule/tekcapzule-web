@@ -95,7 +95,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
                   <div class="recommend">
-                    <span class="okhand-gray-icon"></span>Recommend
+                    <span (click)="onRecommendClick($event, dig)" class="okhand-gray-icon"></span>Recommend
                     <span class="count">({{ dig.recommendations }})</span>
                   </div>
                 </div>

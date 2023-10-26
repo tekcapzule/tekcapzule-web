@@ -1,27 +1,27 @@
 export interface CapsuleItem {
   author: string;
-  bookmarks: number;
-  capsuleId: string;
+  bookmarks?: number;
+  capsuleId?: string;
   description: string;
-  duration: number;
-  editorsPick: number;
-  expiryDate: string;
-  imageUrl: string;
-  level: string;
-  publishedDate: string;
-  publisher: string;
-  recommendations: number;
+  duration?: number;
+  editorsPick?: number;
+  expiryDate?: string;
+  imageUrl?: string;
+  level?: string;
+  publishedDate?: string;
+  publisher?: string;
+  recommendations?: number;
   resourceUrl: string;
-  keyPoints: string[]; 
-  tags: string[];
+  keyPoints?: string[]; 
+  tags?: string[];
   title: string;
   topicCode: string;
   type: string;
-  views: number;
-  quizzes: Quiz[];
-  badge: CapsuleBadge;
-  status: CapsuleStatus;
-  audience: TargetAudience;
+  views?: number;
+  quizzes?: Quiz[];
+  badge?: CapsuleBadge;
+  status?: CapsuleStatus;
+  audience?: TargetAudience;
 }
 
 export class Quiz {

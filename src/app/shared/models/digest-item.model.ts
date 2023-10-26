@@ -10,4 +10,5 @@ export interface IDigestItem {
   recommendations: number;
   schedule: string;
   status: string;
+  isRecommended?: boolean;
 }

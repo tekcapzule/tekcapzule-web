@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { TopicItem } from '@app/shared/models';
+import { ApiSuccess, TopicItem } from '@app/shared/models';
 import { cacheManager, Constants } from '@app/shared/utils';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserApiService } from '@app/core/services/user-api/user-api.service';
@@ -89,5 +89,10 @@ export class TekByteApiService {
     }
 
     return this.httpClient.post(`${TEKBYTE_API_PATH}/disable`, { capsuleId: code });
+  }
+
+  updateRecommendCount(tekbyteId: string): Observable<ApiSuccess> {
+    return this.httpClient
+      .post<ApiSuccess>(`${TEKBYTE_API_PATH}/recommend`, { tekbyteId });
   }
 }

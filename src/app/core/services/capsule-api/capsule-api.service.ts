@@ -56,20 +56,6 @@ export class CapsuleApiService {
     );
   }
 
-  getEditorsPickCapsules(refreshCache?: boolean): Observable<CapsuleItem[]> {
-    return this.httpClient.post<CapsuleItem[]>(
-      `${CAPSULE_API_PATH}/getEditorsPick`,
-      {},
-      {
-        params: {
-          cache: 'yes',
-          refresh: refreshCache ? 'yes' : 'no',
-          ckey: CAPSULE_EDITORSPICK_CACHE_KEY,
-        },
-      }
-    );
-  }
-
   getPendingApproval(refreshCache?: boolean): Observable<CapsuleItem[]> {
     return this.httpClient.post<CapsuleItem[]>(
       `${CAPSULE_API_PATH}/getPendingApproval`,
