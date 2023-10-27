@@ -28,6 +28,7 @@
     <div class="web-url">
       <a href="{{ capsule.resourceUrl }}" target="_blank">{{ capsule.resourceUrl }}</a>
     </div>
+    <div class="play-button play-icon"></div>
   </div>
   <div class="d-flex justify-content-between">
     <p class="grey-color c-default">{{ capsule.recommendations }} recommended</p>
@@ -37,17 +38,17 @@
   </div>
   <div>
     <div class="d-flex justify-content-between">
-      <div class="d-flex align-items-center icon-click" (click)="onCapsuleRecommend()">
+      <div class="d-flex align-items-center icon-click icons-section" (click)="onCapsuleRecommend()">
         <span class="recommend-gray-icon pr-4"></span>Recommend
       </div>
-      <div class="d-flex align-items-center icon-click" (click)="onShareClick()">
+      <div class="d-flex align-items-center icon-click icons-section" (click)="onShareClick()">
         <span class="share-gray-icon pr-4"></span>Share
       </div>
-      <div class="d-flex align-items-center disabled">
+      <div class="d-flex align-items-center disabled icons-section">
         <span class="comment-gray-icon pr-4"></span>Comment
       </div>
       <div
-        class="d-flex align-items-center"
+        class="d-flex align-items-center icons-section"
         [ngClass]="{ disabled: disableBookmark(), 'icon-click': !disableBookmark() }"
         (click)="onCapsuleBookmark()"
       >

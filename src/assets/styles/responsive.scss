@@ -375,6 +375,25 @@
   .mob-hide {
     display: none !important;
   }
+  .mob-mx {
+    margin: 0 20px;
+  }
+  .mob-mb-2 {
+    margin-bottom: 20px;
+  }
+  .mob-banner-txt {
+    font-size: 22px !important;
+    background: #00000040;
+    width: 60%;
+    margin-top: -15px;
+  }
+  .mob-interview-banner {
+    font-size: 22px !important;
+    top: -95px;
+    position: relative;
+    line-height: 30px;
+    height: 102%;
+  }
   .appstore-tile {
     width: 100% !important;
   }
@@ -456,7 +475,7 @@
   }
     .subscribe-block {
       width: 100%;
-      margin: 0 0 30px 0 !important;
+      margin: 0 20px 0px 20px !important;
     }
     .details-body {
       display: block !important;
