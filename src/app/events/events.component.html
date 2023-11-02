@@ -20,10 +20,7 @@
       *ngIf="!isMobileResolution"
     >
       <div>
-        <button class="filters-btn active">Americas</button>
-        <button class="filters-btn">Europe</button>
-        <button class="filters-btn">Middle East & Africa</button>
-        <button class="filters-btn">Asia & Asia Pacific</button>
+        <button *ngFor="let reg of regions;" class="filters-btn" [ngClass]="{'active': selectedFilters.includes(reg)}" (click)="onFilterChange(reg)">{{reg}}</button>
       </div>
       <div class="search-rounded col-lg-3 pl-0 mr-4">
         <input
@@ -36,13 +33,13 @@
       </div>
     </div>
     <ng-container *ngIf="!spinner.isLoading">
-      <section *ngFor="let reg of regions; let i = index" class="pt-3 container">
+      <section *ngFor="let reg of selectedFilters; let i = index" class="pt-3 container">
         <!-- <div class="pb-3 text-left">
           <h2>{{ reg?.replaceAll('_', ' ') | titlecase }}</h2>
         </div> -->
         <div class="d-flex sm-view">
           <div
-            *ngFor="let eve of events[reg]; let j = index"
+            *ngFor="let eve of filterredEvents[reg]; let j = index"
             class="digest-card"
             (click)="onRegister(eve)"
           >

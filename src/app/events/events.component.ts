@@ -12,9 +12,11 @@ import { Router } from '@angular/router';
 })
 export class EventsComponent implements OnInit {
   events: any = {};
+  filterredEvents: any = {};
   regions: string[] = [];
   promotedEvents: any[] = [];
   pastPopularEvent: any[] = [];
+  selectedFilters: string[] = [];
   isMobileResolution: boolean;
 
   constructor(
@@ -41,6 +43,7 @@ export class EventsComponent implements OnInit {
           }
           if (!this.events[item.region]) {
             this.events[item.region] = [];
+            this.filterredEvents[item.region] = [];
           }
           if (item.promotion) {
             this.promotedEvents.push(item);
@@ -49,8 +52,10 @@ export class EventsComponent implements OnInit {
             this.pastPopularEvent.push(item);
           }
           this.events[item.region].push(item);
+          this.filterredEvents[item.region].push(item);
         });
         this.regions = Object.keys(this.events);
+        this.selectedFilters = Object.keys(this.events);
         this.spinner.hide();
       },
       err => {
@@ -76,5 +81,13 @@ export class EventsComponent implements OnInit {
     sessionStorage.setItem('com.tekcapsule.resourceURL', eve.resourceUrl);
     sessionStorage.setItem('com.tekcapsule.title', eve.title);
     this.router.navigateByUrl('/ai-hub/' + eve.code + '/detail?pageId=events');
+  }
+
+  onFilterChange(reg: string) {
+    if(this.selectedFilters.includes(reg)) {
+      this.selectedFilters = this.selectedFilters.filter(region => region !== reg);  
+    } else {
+      this.selectedFilters.push(reg);
+    }
   }
 }
