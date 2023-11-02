@@ -39,8 +39,7 @@
             placeholder="Search"
             class="mb-0 input-search-rounded"
             [(ngModel)]="searchText"
-            (keyup.enter)="onSearch()"
-            (blur)="onSearch()"
+            (keyup)="onSearch()"
           />
           <button title="search bar" class="search-btn" (click)="onSearch()"></button>
         </div>

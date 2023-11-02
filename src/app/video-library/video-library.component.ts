@@ -18,7 +18,7 @@ export class VideoLibraryComponent implements OnInit {
   filteredVideoList: IVideoDetail[] = [];
   searchText: string;
   topics: TopicItem[] = [];
-  selectedTopics: string[] = [];
+  selectedTopics: string[] = ['AI', 'WEB3', 'META'];
   isMobileResolution: boolean;
 
   constructor(
