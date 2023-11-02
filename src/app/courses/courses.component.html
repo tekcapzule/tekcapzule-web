@@ -74,8 +74,7 @@
                 placeholder="All you need in one place: software, tool, hardware, products etc.."
                 class="mb-0"
                 [(ngModel)]="searchText"
-                (keyup.enter)="onSearch()"
-                (blur)="onSearch()"
+                (keyup)="onSearch()"
               />
               <button title="search bar" class="search-btn mr-3"></button>
             </div>

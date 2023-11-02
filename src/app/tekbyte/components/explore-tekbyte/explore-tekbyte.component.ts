@@ -19,7 +19,7 @@ export class ExploreTekbyteComponent implements OnInit {
   tileDetail: ITile;
   searchText: string;
   topics: TopicItem[] = [];
-  selectedTopics: string[] = [];
+  selectedTopics: string[] = ['AI', 'WEB3', 'META'];
   isMobileResolution: boolean;
 
   constructor(
@@ -73,8 +73,9 @@ export class ExploreTekbyteComponent implements OnInit {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
   }
+
   onSearch() {
-    let tempList = [];
+    let tempList = [...this.tekbyteList];
     if (this.selectedTopics.length > 0) {
       tempList = this.tekbyteList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
     }
