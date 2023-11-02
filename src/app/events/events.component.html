@@ -28,8 +28,10 @@
           name="searchTopics"
           placeholder="Search"
           class="mb-0 input-search-rounded"
+          [(ngModel)]="searchText"
+          (keyup)="onSearch()"
         />
-        <button title="search bar" class="search-btn"></button>
+        <button title="search bar" class="search-btn" (click)="onSearch()"></button>
       </div>
     </div>
     <ng-container *ngIf="!spinner.isLoading">
@@ -39,7 +41,7 @@
         </div> -->
         <div class="d-flex sm-view">
           <div
-            *ngFor="let eve of filterredEvents[reg]; let j = index"
+            *ngFor="let eve of filteredEvents[reg]; let j = index"
             class="digest-card"
             (click)="onRegister(eve)"
           >

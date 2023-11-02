@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class EventsComponent implements OnInit {
   events: any = {};
-  filterredEvents: any = {};
+  filteredEvents: any = {};
   regions: string[] = [];
   promotedEvents: any[] = [];
   pastPopularEvent: any[] = [];
   selectedFilters: string[] = [];
   isMobileResolution: boolean;
+  searchText: string;
 
   constructor(
     public spinner: AppSpinnerService,
@@ -43,7 +44,7 @@ export class EventsComponent implements OnInit {
           }
           if (!this.events[item.region]) {
             this.events[item.region] = [];
-            this.filterredEvents[item.region] = [];
+            this.filteredEvents[item.region] = [];
           }
           if (item.promotion) {
             this.promotedEvents.push(item);
@@ -52,7 +53,7 @@ export class EventsComponent implements OnInit {
             this.pastPopularEvent.push(item);
           }
           this.events[item.region].push(item);
-          this.filterredEvents[item.region].push(item);
+          this.filteredEvents[item.region].push(item);
         });
         this.regions = Object.keys(this.events);
         this.selectedFilters = Object.keys(this.events);
@@ -89,5 +90,31 @@ export class EventsComponent implements OnInit {
     } else {
       this.selectedFilters.push(reg);
     }
+    this.onSearch();
+  }
+
+  onSearch() {
+    let templist = {};
+    if (this.selectedFilters.length > 0) {
+      this.selectedFilters.forEach(region => {
+        templist[region] = [];
+        if (this.searchText && this.searchText.trim().length > 0) {
+          templist[region] = this.getSearchedEvents(region);
+        } else {
+          templist[region] = [...this.events[region]];
+        }
+      });
+      this.filteredEvents = templist;
+    }
+  }
+
+  getSearchedEvents(region: string) {
+    return this.events[region].filter(
+      events =>
+          this.helperService.getIncludesStr(events.title, this.searchText) ||
+          this.helperService.getIncludesStr(events.topicCode, this.searchText) ||
+          this.helperService.getIncludesStr(events.summary, this.searchText) ||
+          this.helperService.getIncludesStr(events.description, this.searchText)
+      );
   }
 }
