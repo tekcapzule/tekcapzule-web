@@ -16,6 +16,13 @@ export const Constants = {
       enablePostLogin: false,
       children: [
         {
+          uniqueId: 'Courses',
+          displayName: 'Courses',
+          navUrl: '/ai-hub/courses',
+          enablePostLogin: true,
+          desc: 'Chart your AI learning path with hand-picked, industry-leading courses.',
+        },
+        {
           uniqueId: 'Tekbyte',
           displayName: 'Tekbyte',
           navUrl: '/ai-hub/tekbyte/explore',
@@ -24,12 +31,13 @@ export const Constants = {
           'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding.',
         },
         {
-          uniqueId: 'Courses',
-          displayName: 'Courses',
-          navUrl: '/ai-hub/courses',
+          uniqueId: 'Weekly_Digest',
+          displayName: 'Weekly Digest',
+          navUrl: '/ai-hub/weekly-digest',
           enablePostLogin: true,
-          desc: 'Chart your AI learning path with hand-picked, industry-leading courses.',
-        },
+          desc:
+            'Get the best of AI with our curated list of leading weekly newsletters and podcasts.',
+        },  
         {
           uniqueId: 'Interview_Prep',
           displayName: 'Interview Prep',
@@ -37,7 +45,14 @@ export const Constants = {
           enablePostLogin: true,
           desc:
           'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.',
-        },        
+        }, 
+        {
+          uniqueId: 'Video_Library',
+          displayName: 'Video Library',
+          navUrl: '/ai-hub/video-library',
+          enablePostLogin: true,
+          desc: 'Gain practical AI insights through our selection of informative videos.',
+        },       
         {
           uniqueId: 'Research_Papers',
           displayName: 'Research papers',
@@ -46,21 +61,7 @@ export const Constants = {
           desc:
             'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape.',
         },
-        {
-          uniqueId: 'Video_Library',
-          displayName: 'Video Library',
-          navUrl: '/ai-hub/video-library',
-          enablePostLogin: true,
-          desc: 'Gain practical AI insights through our selection of informative videos.',
-        },
-        {
-          uniqueId: 'Weekly_Digest',
-          displayName: 'Weekly Digest',
-          navUrl: '/ai-hub/weekly-digest',
-          enablePostLogin: true,
-          desc:
-            'Get the best of AI with our curated list of leading weekly newsletters and podcasts.',
-        }        
+        
       ],
     },
     { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place', available: 'ALL', enablePostLogin: true},

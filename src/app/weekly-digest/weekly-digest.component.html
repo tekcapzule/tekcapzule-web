@@ -13,55 +13,45 @@
       </div>
     </div>
     <section class="container-fluid px-0 weekly-digest-banner">
-      <div class="container row justify-content-center">
-        <div
-          class="col-xl-4 col-lg-4 col-sm-12 order-2 order-lg-1 ml-lg-5 d-flex flex-column justify-content-center banner-content"
-        >
-          <h1>The Edge</h1>
-          <h2 class="text-white">Tekcapsule's Emerging Technology Newsletter</h2>
-          <p class="text-white banner-description">
-            Unlock the power of artificial intelligence with our weekly newsletter. Discover the
-            latest AI News, trends, and innovations, handpicked for you. Subscribe now and level up
-            your AI knowledge.
-          </p>
-          <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
-            <div
-              class="mx-auto d-flex align-items-center justify-content-center subscibeSection-row position-relative"
-              [ngClass]="{
-                'error-text':
-                  subscriberFormGroup.get('emailId').touched &&
-                  subscriberFormGroup.get('emailId').invalid
-              }"
-            >
-              <input
-                type="email"
-                name="email id"
-                formControlName="emailId"
-                class="input-mail mb-0"
-                placeholder="Enter Your Email ID"
-              />
-              <button
-                mat-raised-button
-                class="button tertiary subscribe-btn bg-red"
-                (click)="onSubscribe()"
-              >
-                Subscribe Now
-              </button>
+      <div>
+        <div class="container row banner-title"> <h1>The Edge</h1></div>
+       
+        <div class="container row justify-content-center">
+          <div
+            class="col-xl-4 col-lg-4 col-sm-12 order-2 order-lg-1 ml-lg-5 d-flex flex-column justify-content-center banner-content">
+            <h2 class="text-white">Tekcapsule's Emerging Technology Newsletter</h2>
+            <p class="text-white banner-description">
+              Unlock the power of artificial intelligence with our weekly newsletter. Discover the
+              latest AI News, trends, and innovations, handpicked for you. Subscribe now and level up
+              your AI knowledge.
+            </p>
+            <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
+              <div
+                class="mx-auto d-flex align-items-center justify-content-center subscibeSection-row position-relative"
+                [ngClass]="{
+        'error-text':
+          subscriberFormGroup.get('emailId').touched &&
+          subscriberFormGroup.get('emailId').invalid
+      }">
+                <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
+                  placeholder="Enter Your Email ID" />
+                <button mat-raised-button class="button tertiary subscribe-btn bg-red" (click)="onSubscribe()">
+                  Subscribe Now
+                </button>
+              </div>
+              <span class="error-msg" *ngIf="
+        subscriberFormGroup.get('emailId').touched &&
+        subscriberFormGroup.get('emailId').invalid
+      ">
+                Please enter valid email
+              </span>
             </div>
-            <span
-              class="error-msg"
-              *ngIf="
-                subscriberFormGroup.get('emailId').touched &&
-                subscriberFormGroup.get('emailId').invalid
-              "
-            >
-              Please enter valid email
-            </span>
+          </div>
+          <div class="col-xl-3 col-lg-3 order-1 order-lg-2 banner-img ml-lg-5">
+            <img src="../../assets/images/news-letter.svg" alt="News Letter" class="img-fluid pb-3" />
           </div>
         </div>
-        <div class="col-xl-3 col-lg-3 order-1 order-lg-2 banner-img ml-lg-5">
-          <img src="../../assets/images/news-letter.svg" alt="News Letter" class="img-fluid pb-3" />
-        </div>
+
       </div>
     </section>
     <section class="py-5">
@@ -76,12 +66,8 @@
           </div>
 
           <div *ngIf="!spinner.isLoading">
-            <div
-              *ngFor="let dig of digest[category.id]; let i = index"
-              class="digest-card position-relative"
-              [ngClass]="category.bgColor"
-              (click)="openDigest(dig)"
-            >
+            <div *ngFor="let dig of digest[category.id]; let i = index" class="digest-card position-relative"
+              [ngClass]="category.bgColor" (click)="openDigest(dig)">
               <div class="d-flex justify-content-between align-items-top">
                 <div class="title">
                   <span *ngIf="dig.category === 'PODCAST'"></span>{{ dig.title }}
@@ -108,10 +94,7 @@
           </div>
 
           <div *ngIf="spinner.isLoading">
-            <div
-              *ngFor="let i of [1, 2, 3, 4, 5, 6]"
-              class="digest-card digest-skeleton skeleton-loader"
-            >
+            <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="digest-card digest-skeleton skeleton-loader">
               <div class="title loading"></div>
               <div class="author loading"></div>
               <div class="description loading"></div>

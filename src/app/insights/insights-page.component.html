@@ -24,7 +24,7 @@
   
 
   <section class="inner insights-content">
-    <div class="d-flex justify-content-between">
+    <div class="heading-display d-flex justify-content-between">
       <h2>News & Feeds</h2>
       <div class="search-rounded col-lg-3 pl-0" *ngIf="!isMobileResolution">
         <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div *ngFor="let insights of insightsList; let i = index" class="border-line">
-      <div class="d-flex justify-content-between">
+      <div class="heading-display d-flex justify-content-between">
       <div class="d-flex">
         <h3>{{insights.title}}</h3>
         <span class="pills ml-3" [ngClass]="{'pink':insights.topic === 'AI', 'blue':insights.topic === 'AI', 'yellow':insights.topic === 'MTV'}">{{insights.topicName}}</span>
