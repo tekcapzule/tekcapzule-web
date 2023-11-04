@@ -730,12 +730,17 @@
     flex-wrap: wrap;
     column-gap: 5%;
     padding-top: 20px;
+    &.top-level-menus li{
+      width: 61px;
+    }
     li {
       padding-bottom: 45px;
       width: 30%;
       text-align: center;
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
+      flex-direction: row;
+  
       a {
         font-family: $primary-font-regular;
         color: #A6AACF;
@@ -743,11 +748,11 @@
         display: flex;
         @each $menu-item in home, skill_studio, my_feeds, llm, events, market_place, insights, courses, tekbyte, weekly_digest, interview_prep, video_library, research_papers {
           &.mobile-menu-#{$menu-item} {
-            background: url('../../../../assets/images/mobile/mobile-menu-#{$menu-item}.svg') top center no-repeat;
+            background: url('../../../../assets/images/mobile/mobile-menu-#{$menu-item}.svg') center center no-repeat;
           }
         }
         span {
-          padding-top: 20px;
+          padding-top: 30px;
           line-height: 18px;
         }
         &.mobile-menu-interview {

@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseSkeletonComponent } from './course-skeleton/course-skeleton.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [CoursesComponent, CourseSkeletonComponent],
@@ -21,7 +22,8 @@ import { MessageService } from 'primeng/api';
     MatTabsModule,
     CoursesRoutingModule,
     CheckboxModule,
-    ToastModule
+    ToastModule,
+    AccordionModule
   ],
   providers: [
     MessageService

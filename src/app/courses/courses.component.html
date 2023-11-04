@@ -27,8 +27,10 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="filter-column">
-            <div class="filter-heading">Filter</div>
-            <div>
+            <div class="filter-heading" data-toggle="collapse" href="#filterAccordion" aria-expanded="true">
+              Filter
+            </div>
+            <div id="filterAccordion" class="collapse show filter-accordion-content">
               <div class="filter-topic">Topic</div>
               <div *ngFor="let topic of topics" class="field-checkbox pb-2">
                 <p-checkbox
@@ -51,17 +53,17 @@
                 ></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
               </div>
-            </div>
-            <div class="filter-topic mt-4">Delivery Mode</div>
-            <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
-              <p-checkbox
-                name="delivery"
-                [value]="dm.key"
-                [inputId]="dm.key"
-                [(ngModel)]="selectedDeliveryMode"
-                (onChange)="onFilterChange($event, dm.key)"
-              ></p-checkbox>
-              <label [for]="dm.key">{{ dm.name }}</label>
+              <div class="filter-topic mt-4">Delivery Mode</div>
+              <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
+                <p-checkbox
+                  name="delivery"
+                  [value]="dm.key"
+                  [inputId]="dm.key"
+                  [(ngModel)]="selectedDeliveryMode"
+                  (onChange)="onFilterChange($event, dm.key)"
+                ></p-checkbox>
+                <label [for]="dm.key">{{ dm.name }}</label>
+              </div>
             </div>
           </div>
         </div>
