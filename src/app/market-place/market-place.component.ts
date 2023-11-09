@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppSpinnerService, MarketPlaceApiService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, EventChannelService, MarketPlaceApiService } from '@app/core';
 import { IProduct } from '@app/shared/models/market.model';
 import { finalize } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
   selector: 'app-market-place',
@@ -26,16 +29,57 @@ export class MarketPlaceComponent implements OnInit {
     { name: 'Mac', key: 'Mac' },
     { name: 'Linux', key: 'linux' },
   ];
+  isMobileResolution: boolean;
+  isFilterVisible = true;
+  isSortVisible = true;
+  destroy$ = new Subject<boolean>();
+  subscription: Subscription[] = [];
 
   constructor(
     public spinner: AppSpinnerService,
     private marketApi: MarketPlaceApiService,
-    private router: Router
+    private router: Router,
+    private helperService: HelperService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
+    this.onResize()
+    this.subscribeFilter();
+    this.subscribeSort();
     this.getProducts();
   }
+
+  
+  subscribeFilter(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isFilterVisible = !this.isFilterVisible;
+      });
+    this.subscription.push(sub);
+  }
+
+  subscribeSort(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideSort), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isSortVisible = !this.isSortVisible;
+      });
+    this.subscription.push(sub);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+    if (this.isMobileResolution) {
+      this.isFilterVisible = false;
+      this.isSortVisible = false;
+    }
+  }
+  
+ 
 
   getProducts() {
     this.spinner.show();

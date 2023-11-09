@@ -1,9 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { AppSpinnerService, EventApiService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, EventApiService, EventChannelService } from '@app/core';
 import { IEventItem } from '@app/shared/models';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { Router } from '@angular/router';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-events',
@@ -11,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements OnInit {
+  destroy$ = new Subject<boolean>();
   events: any = {};
   filteredEvents: any = {};
   regions: string[] = [];
@@ -19,16 +22,31 @@ export class EventsComponent implements OnInit {
   selectedFilters: string[] = [];
   isMobileResolution: boolean;
   searchText: string;
+  isFilterVisible: boolean = true;
+  subscription: Subscription[] = [];
 
   constructor(
     public spinner: AppSpinnerService,
     private eventsApi: EventApiService,
     private helperService: HelperService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private eventChannel: EventChannelService
+  ) {
+    this.onResize();
+  }
 
   ngOnInit(): void {
     this.getAllEvents();
+    this.subscribeFilter();
+  }
+
+  subscribeFilter(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isFilterVisible = !this.isFilterVisible;
+      });
+    this.subscription.push(sub);
   }
 
   getAllEvents() {
@@ -73,6 +91,9 @@ export class EventsComponent implements OnInit {
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
+    if(this.isMobileResolution) {
+      this.isFilterVisible = false;
+    }
   }
 
   onPastEvents(eve: IEventItem) {

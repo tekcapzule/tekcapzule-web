@@ -1,12 +1,14 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppSpinnerService, VideoLibraryApiService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, EventChannelService, VideoLibraryApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
 import { IVideoDetail } from '@app/shared/models/video-library-item.model';
 import { MessageService } from 'primeng/api';
 import * as moment from 'moment';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-video-library',
@@ -14,23 +16,28 @@ import * as moment from 'moment';
   styleUrls: ['./video-library.component.scss'],
 })
 export class VideoLibraryComponent implements OnInit {
+  destroy$ = new Subject<boolean>();
   videoList: IVideoDetail[] = [];
   filteredVideoList: IVideoDetail[] = [];
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = ['AI', 'WEB3', 'META'];
   isMobileResolution: boolean;
+  subscription: Subscription[] = [];
+  isFilterVisible = true;
 
   constructor(
     public spinner: AppSpinnerService,
     private videoService: VideoLibraryApiService,
     private router: Router,
     private helperService: HelperService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
     this.spinner.show();
+    this.subscribeFilter();
     this.topics = this.helperService.getTopicData();
     this.videoService.getAllVideos().subscribe(data => {
       this.spinner.hide();
@@ -44,6 +51,15 @@ export class VideoLibraryComponent implements OnInit {
       });
       this.filteredVideoList = this.videoList;
     });
+  }
+
+  subscribeFilter(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isFilterVisible = !this.isFilterVisible;
+      });
+    this.subscription.push(sub);
   }
 
   onVideoClick(video: IVideoDetail) {
@@ -81,6 +97,9 @@ export class VideoLibraryComponent implements OnInit {
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
+    if (this.isMobileResolution) {
+      this.isFilterVisible = false;
+    }
   }
   onSearch(): void {
     let tempList = [...this.videoList];

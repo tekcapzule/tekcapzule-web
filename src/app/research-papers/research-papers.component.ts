@@ -1,13 +1,15 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppSpinnerService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { ResearchApiService } from '@app/core/services/research-api/research-api.service';
 import { TopicItem } from '@app/shared/models';
 import { IResearchPaperDetail } from '@app/shared/models/research-item.model';
 import * as moment from 'moment';
 import { MessageService } from 'primeng/api';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-research-papers',
@@ -21,17 +23,23 @@ export class ResearchPapersComponent implements OnInit {
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
   isMobileResolution: boolean;
+  isFilterVisible = true;
+  destroy$ = new Subject<boolean>();
+  subscription: Subscription[] = [];
 
   constructor(
     public spinner: AppSpinnerService,
     private researchApi: ResearchApiService,
     private helperService: HelperService,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
     this.spinner.show();
+    this.onResize();
+    this.subscribeFilter();
     this.topics = this.helperService.getTopicData();
     this.researchApi.getAllResearchPaper().subscribe(data => {
       this.researchList = data;
@@ -41,6 +49,15 @@ export class ResearchPapersComponent implements OnInit {
       this.filteredResearchList = data;
       this.spinner.hide();
     });
+  }
+
+  subscribeFilter(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isFilterVisible = !this.isFilterVisible;
+      });
+    this.subscription.push(sub);
   }
 
   onOpen(research: IResearchPaperDetail) {
@@ -74,10 +91,14 @@ export class ResearchPapersComponent implements OnInit {
       });
     });
   }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
+    if (this.isMobileResolution) {
+      this.isFilterVisible = false;
+    }
   }
   onSearch() {
     let tempList = [...this.researchList];
