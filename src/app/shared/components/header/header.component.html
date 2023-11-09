@@ -112,18 +112,18 @@
 
 
         <div class="d-flex">
-          <div class="header-search-box mr-3">
+          <!-- <div class="header-search-box mr-3">
             <input type="text" class="search-input" placeholder="Start Looking For Something!" />
             <a class="search-btn" routerLink="#">
               <img src="../../../../assets/images/search-icon.svg" alt="Search" />
             </a>
-          </div>
+          </div> -->
           <!-- <div class="global-search-box mr-3">
             <input type="text" placeholder="What are you looking for?" class="mb-0" />
             <button title="search bar" class="search-btn mr-3"></button>
           </div> -->
           <button mat-raised-button class="button primary-outline" routerLink="/subscribe">
-            Subscribe
+            Try for free
           </button>
         </div>
       </div>
@@ -174,8 +174,8 @@
                 <div class="close-btn" (click)="closeMenu()"></div>
               </div>
               <ul >
-                <li><a routerLink="/mission">Home</a>
-                  <ul class="mobile-submenu">
+                <!-- <li><a routerLink="/mission">Home</a> -->
+                  <ul class="mobile-submenu top-level-menus">
                     <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
                       <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'PRELOGIN' && !authState.isUserLoggedIn(); elseBlock" (click)="onMenuClick(hm)">
                         <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
@@ -189,7 +189,7 @@
                       
                     </ng-cotainer>
                   </ul>
-                </li>
+                <!-- </li> -->
                 
                 <li><a routerLink="/">Skill Studio</a>
                   <ul class="mobile-submenu">

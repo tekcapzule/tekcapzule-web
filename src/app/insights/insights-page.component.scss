@@ -32,6 +32,19 @@
     margin-top: -60px;
     font-size: 14px;
     color: #505050;
+    @media only screen and (max-width: 767px) and (min-width: 360px) {
+      background: linear-gradient(0deg, #672b66 0%, #202a5f 100%, ) !important;
+      margin-top: 0px;
+      padding: 20px 25px !important;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      .heading-display {
+        display: block !important;
+        .date {
+          padding-bottom: 15px;
+        }
+      }
+    }
 
       h2 {
           font-family: $primary-font-black;
@@ -61,6 +74,14 @@
   .border-line {
     border-bottom: 1px solid #707070;
     padding: 23px 0;
+    @media only screen and (max-width: 767px) and (min-width: 360px) {
+      border-bottom: 1px solid #707070;
+      padding: 23px 0;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px !important;
+      margin-bottom: 15px;
+    }
   }
   .date {
     color: #7D809B;

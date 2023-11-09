@@ -149,7 +149,7 @@
   }
   .navbar-toggler-icon {
     width: 25px;
-    height: 34px;
+    height: 30px;
   }
   .contribute-page {
     .contribute-bg {
@@ -239,6 +239,9 @@
   .skill-studio-page.p-main {
     padding-top: 118px !important;
   }
+  .detail-page  {
+    margin-top: 118px !important;
+  }
   .container {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -319,6 +322,12 @@
     }
 }
 @media only screen and (max-width: 767px) and (min-width: 360px) { 
+  .aside-block {
+    display: flex;
+  }
+  .banner-title {
+    justify-content: center;
+  }
   .aihub-banner {
     &.interview-prep {
       background: #f1f7fb url('../images/interview-banner-mob.png') 0px 76px no-repeat !important;
@@ -516,6 +525,7 @@
     .top-navigation {
       // height: auto !important;
       height: 40px !important;
+      position: absolute !important;
     }
     .footer-links {
       margin: 0 0 24px;
