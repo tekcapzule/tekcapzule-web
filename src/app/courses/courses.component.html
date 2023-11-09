@@ -25,7 +25,7 @@
   <div class="col-lg-12 bg-white py-5">
     <section class="container space-fill">
       <div class="row">
-        <div class="col-lg-2 col-md-4 col-sm-6">
+        <div *ngIf="isFilterVisible" class="col-lg-2 col-md-4 col-sm-6">
           <div class="filter-column">
             <div class="filter-heading">Filter</div>
             <div>
@@ -78,7 +78,7 @@
               />
               <button title="search bar" class="search-btn mr-3"></button>
             </div>
-            <div class="col-lg-3">
+            <div *ngIf="isSortVisible" class="col-lg-3">
               <div class="form-group">
                 <select class="form-control" name="sort">
                   <option value="">Sort (Newest)</option>

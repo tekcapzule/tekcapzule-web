@@ -168,7 +168,7 @@ export class HeaderComponent implements OnInit {
       this.closeMenu();
     }
   }
-
+  
   onMenuClick(navTab: NavTab): void {
     this.selectedTopMenuItem = null;
     if(navTab.enablePostLogin && !this.authState.isUserLoggedIn()) {
@@ -255,5 +255,13 @@ export class HeaderComponent implements OnInit {
 
   hideLoginRequiredDialog() {
     this.isLoginRequiredDialogShown = false;
+  }
+
+  onShowFilter() {
+    this.eventChannel.publish({ event: ChannelEvent.ShowHideFilter });
+  }
+
+  onShowSort() {
+    this.eventChannel.publish({ event: ChannelEvent.ShowHideSort });
   }
 }

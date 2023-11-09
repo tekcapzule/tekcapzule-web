@@ -1,11 +1,13 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppSpinnerService, TekByteApiService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService } from '@app/core';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import { ITile } from '@app/skill-studio/models/tile.model';
 import { HelperService } from './../../../core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-explore-tekbyte',
@@ -13,20 +15,24 @@ import { TopicItem } from '@app/shared/models';
   styleUrls: ['./explore-tekbyte.component.scss'],
 })
 export class ExploreTekbyteComponent implements OnInit {
-  tekbyteList: TekByteItem[] = [];
   popularTekbyteList: TekByteItem[] = [];
   filteredTekbyteList: TekByteItem[] = [];
   tileDetail: ITile;
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = ['AI', 'WEB3', 'META'];
+  tekbyteList: TekByteItem[] = [];
   isMobileResolution: boolean;
+  isFilterVisible = true;
+  destroy$ = new Subject<boolean>();
+  subscription: Subscription[] = [];
 
   constructor(
     private tekbyteApi: TekByteApiService,
     public spinner: AppSpinnerService,
     private router: Router,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +40,16 @@ export class ExploreTekbyteComponent implements OnInit {
     this.topics = this.helperService.getTopicData();
     this.getTekbytes();
     this.onResize();
+    this.subscribeFilter();
+  }
+  
+  subscribeFilter(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isFilterVisible = !this.isFilterVisible;
+      });
+    this.subscription.push(sub);
   }
 
   getTekbytes() {
@@ -72,6 +88,9 @@ export class ExploreTekbyteComponent implements OnInit {
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
+    if (this.isMobileResolution) {
+      this.isFilterVisible = false;
+    }
   }
 
   onSearch() {

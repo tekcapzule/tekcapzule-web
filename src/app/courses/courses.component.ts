@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppSpinnerService, CourseApiService, TopicApiService } from '@app/core';
+import { AppSpinnerService, ChannelEvent, CourseApiService, EventChannelService, TopicApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { shuffleArray } from '@app/shared/utils';
 import * as moment from 'moment';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
@@ -32,6 +34,11 @@ export class CoursesComponent implements OnInit {
     { name: 'In Classroom', key: 'IN_CLASSROOM' },
   ];
   searchText: string;
+  isMobileResolution: boolean;
+  isFilterVisible = true;
+  isSortVisible = true;
+  destroy$ = new Subject<boolean>();
+  subscription: Subscription[] = [];
 
   constructor(
     public spinner: AppSpinnerService,
@@ -39,11 +46,14 @@ export class CoursesComponent implements OnInit {
     private topicApi: TopicApiService,
     private route: ActivatedRoute,
     private helperService: HelperService,
-    private router: Router
+    private router: Router,
+    private eventChannel: EventChannelService
   ) {}
 
   ngOnInit(): void {
     this.spinner.show();
+    this.onResize();
+    this.subscribeFilter();
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = shuffleArray(topics, 5);
     });
@@ -59,7 +69,34 @@ export class CoursesComponent implements OnInit {
       this.spinner.hide();
     });
   }
+  subscribeFilter(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isFilterVisible = !this.isFilterVisible;
+      });
+    this.subscription.push(sub);
+  }
 
+  subscribeSort(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.ShowHideSort), takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.isSortVisible = !this.isSortVisible;
+      });
+    this.subscription.push(sub);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+    if (this.isMobileResolution) {
+      this.isFilterVisible = false;
+      this.isSortVisible = false;
+    }
+  }
+  
   onCourseClick(course: ICourseDetail) {
     this.router.navigateByUrl('ai-hub/course-detail/' + course.courseId);
   }

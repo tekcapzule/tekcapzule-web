@@ -15,10 +15,8 @@
   </section>
 
   <div class="col-lg-12 mt-4">
-    <div
-      class="container d-flex align-items-center justify-content-between pb-3"
-      *ngIf="!isMobileResolution"
-    >
+    <div class="container d-flex align-items-center justify-content-between pb-3"
+      *ngIf="isFilterVisible">
       <div>
         <button *ngFor="let reg of regions;" class="filters-btn" [ngClass]="{'active': selectedFilters.includes(reg)}" (click)="onFilterChange(reg)">{{reg}}</button>
       </div>

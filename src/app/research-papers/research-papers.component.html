@@ -28,7 +28,7 @@
     <div class="inner">
       <div
         class="container d-flex align-items-center justify-content-between py-4 px-0"
-        *ngIf="!isMobileResolution"
+        *ngIf="isFilterVisible"
       >
         <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
         <div class="search-rounded col-lg-3 pl-0 mr-4">
