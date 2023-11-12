@@ -25,6 +25,9 @@ export class FilterComponent {
 
   onFilterChange(key) {
     if(this.selectedFilters.includes(key)) {
+      if(this.selectedFilters.length === 1) {
+        return;
+      }  
       this.selectedFilters = this.selectedFilters.filter(fi => fi !== key);
     } else {
       this.selectedFilters.push(key);
