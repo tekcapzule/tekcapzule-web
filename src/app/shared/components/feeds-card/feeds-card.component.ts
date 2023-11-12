@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
@@ -16,6 +16,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-feeds-card',
@@ -48,7 +49,10 @@ export class FeedsCardComponent implements OnInit {
   topicDetail: TopicItem;
   subrscription: Subscription[] = [];
   isMobileResolution = false;
-
+  resourceUrl: SafeResourceUrl;
+  isOnFocus: boolean;
+  @Input() index: number;
+  
   constructor(
     private router: Router,
     private capsuleApi: CapsuleApiService,
@@ -57,7 +61,9 @@ export class FeedsCardComponent implements OnInit {
     private spinner: AppSpinnerService,
     private messageService: MessageService,
     private clipboard: Clipboard,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private sanitizer: DomSanitizer,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -66,6 +72,11 @@ export class FeedsCardComponent implements OnInit {
     }
     this.onResize();
     this.awsUserInfo = this.auth.getAwsUserInfo();
+    if(this.capsule.type === 'VIDEO') {
+      this.resourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/JzPfMbG1vrE');
+    }
+    this.cdr.detectChanges();
+    
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
   }
@@ -233,5 +244,12 @@ export class FeedsCardComponent implements OnInit {
       severity: 'success',
       detail: 'Link copied. You can share it now.',
     });
+  }
+
+  onInView(data: any): void {
+    this.isOnFocus = data.inView;
+    if(data.inView) {
+      //console.log('inView--', data.inView, this.capsule.title, this.index);
+    }
   }
 }

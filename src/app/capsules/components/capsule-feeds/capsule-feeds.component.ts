@@ -16,7 +16,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { Constants } from '@app/shared/utils';
 import { Carousel } from 'primeng/carousel';
 import { MessageService } from 'primeng/api';
-import { TekUserInfo, TopicItem } from '@app/shared/models';
+import { CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { BrowseByTopic } from '@app/capsules/capsules-page.component';
 
 @Component({
@@ -195,4 +195,34 @@ export class CapsuleFeedsComponent implements OnInit, OnDestroy {
   showAllbookmarks() {
     this.isShowAllBookmarks = !this.isShowAllBookmarks;
   }
+
+  playPauseVideo() {
+    let videos = document.querySelectorAll("video");
+    videos.forEach((video) => {
+        // We can only control playback without insteraction if video is mute
+        video.muted = true;
+        // Play is a promise so we need to check we have it
+        let playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then((_) => {
+                let observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (
+                                entry.intersectionRatio !== 1 &&
+                                !video.paused
+                            ) {
+                                video.pause();
+                            } else if (video.paused) {
+                                video.play();
+                            }
+                        });
+                    },
+                    { threshold: 0.2 }
+                );
+                observer.observe(video);
+            });
+        }
+    });
+}
 }

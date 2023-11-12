@@ -25,6 +25,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
 import { FilterComponent } from './components/filter/filter.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
 import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
+import { InViewDirective } from './directive/inview.directive';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skelet
     FilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
+    InViewDirective
   ],
   imports: [
     CommonModule,

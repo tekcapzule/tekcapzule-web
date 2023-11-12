@@ -21,7 +21,7 @@ import { SharePostComponent } from './components/share-post/share-post.component
     CapsuleFeedsComponent,
     CreateSuccessComponent,
     ContributeCapsuleComponent,
-    SharePostComponent,
+    SharePostComponent
   ],
   imports: [
     ToastModule,
