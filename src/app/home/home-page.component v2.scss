@@ -21,24 +21,12 @@
     font-family: $primary-font-regular;
   }
   .home-banner {
-    background: transparent linear-gradient(258deg, #002884 0%, #C31B82 100%) 0% 0% no-repeat;
-
-    // background: url('../../assets/images/ball-wed.svg'), url('../../assets/images/home/home-banner-bg.svg') no-repeat;
-    height: 550px;
+    background: url('../../assets/images/ball-wed.svg'), url('../../assets/images/home/home-banner-bg.svg') no-repeat;
+    height: 700px;
     width: 100%;
-    margin-bottom: 65px;
+    margin-bottom: 140px;
     background-size: cover;
     margin-top: 108px;
-  }
-  .discussion-bg {
-    background: transparent linear-gradient(213deg, #2C2B33 0%, #352B5C 100%) 0% 0% no-repeat;
-  }
-
-  .social-share-container {
-    height: auto;
-    background: url('/assets/images/home/social-community-bg.png');
-    width: 100%;
-    background-size: cover;
   }
 
   button {
@@ -56,31 +44,14 @@
   }
 
   /**********Key Feature*********/
-  .key-feature-block {
-    display: flex;
-    justify-content: space-evenly;
-  }
   .key-feature {
-    min-height: 226px;
+    height: 226px;
+    background: url('../../assets/images/home/key-feature-bg.svg') no-repeat;
     padding: 40px;
+    display: flex;
     margin-top: 0;
     z-index: 0;
     position: relative;
-    width: 335px;
-    color: #fff;
-    h2 {
-      color: #fff;
-    }
-
-    &.ai-bg{
-      background: url('../../assets/images/home/ai-bg.svg') no-repeat; 
-    }
-    &.web3-bg{
-      background: url('../../assets/images/home/web3-bg.svg') no-repeat; 
-    }
-    &.meta-bg{
-      background: url('../../assets/images/home/meta-bg.svg') no-repeat; 
-    }
 
     .key-feature-tile {
       margin-right: 70px;
@@ -190,12 +161,12 @@
     .app-content {
       display: flex;
       align-items: center;
-      justify-content:flex-end;
+      justify-content: center;
     }
     .app-img {
       position: inherit;
     margin-top: -80px;
-    // margin-right: 50px;
+    margin-right: 50px;
     }
   }
 /*--------------------------------------------------------------
@@ -205,8 +176,6 @@
 .subscribe {
   &.section-bg {
     padding: 25px;
-    background-color: #1F284E;
-    padding-top: 95px;
     @media only screen and (max-width: 990px) {
       padding: 0px;
     }
@@ -276,9 +245,6 @@
 .inner {
   max-width: 1220px;
 }
-}
-.home-banner-title {
-  font-family: $primary-font-xbold;
 }
 
 /*************Responsive**********/

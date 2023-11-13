@@ -2676,9 +2676,12 @@ select {
   height: 700px
 }
 .dot-pattern {
-  background: url('../../assets/images/community/dot-pattern-pink.svg') -8% -95px  no-repeat,  url('../../assets/images/community/dot-pattern-blue.svg') 100% 30px  no-repeat
+  background: url('../../assets/images/community/dot-pattern-pink.svg') -8% -95px  no-repeat,  url('../../assets/images/community/dot-pattern-blue.svg') 100% 30px  no-repeat;
 }
+.blue-pink-bg-pattern {
+  background: url('../../assets/images/home/blue-pattern.svg') 0 4px  no-repeat,  url('../../assets/images/home/pink-pattern.svg') 100% 220px  no-repeat !important;
 
+}
 
 .disabled {
   cursor: not-allowed;
