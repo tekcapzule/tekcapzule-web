@@ -3,7 +3,7 @@
 
 const awsmobile = {
   aws_project_region: 'us-east-1',
-  aws_content_delivery_bucket: 'tekcapsuleweb-dev',
+  aws_content_delivery_bucket: 'tekcapzuleweb-dev',
   aws_content_delivery_bucket_region: 'us-east-1',
   aws_content_delivery_url: 'https://dmiglhq5u9z5m.cloudfront.net',
   aws_cognito_identity_pool_id: 'us-east-1:056a5c1b-ee67-4a81-9dfb-06d3d906669a',
@@ -11,7 +11,7 @@ const awsmobile = {
   aws_user_pools_id: 'us-east-1_ez0UV2bJA',
   aws_user_pools_web_client_id: '7ei29kdsqfc8lopbesvcs1v08n',
   oauth: {
-    domain: 'tekcapsuleweb6edfc117-6edfc117-dev.auth.us-east-1.amazoncognito.com',
+    domain: 'tekcapzuleweb6edfc117-6edfc117-dev.auth.us-east-1.amazoncognito.com',
     scope: ['phone', 'email', 'openid', 'profile', 'aws.cognito.signin.user.admin'],
     redirectSignIn: 'https://dmiglhq5u9z5m.cloudfront.net/',
     redirectSignOut: 'https://dmiglhq5u9z5m.cloudfront.net/',

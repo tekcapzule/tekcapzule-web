@@ -9,7 +9,7 @@ const EVENT_API_PATH = `${environment.apiEndpointTemplate}/event`
   .replace('{{api-gateway}}', environment.eventApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const EVENTS_GETALLEVENTS_CACHE_KEY = 'com.tekcapsule.events.allevents';
+const EVENTS_GETALLEVENTS_CACHE_KEY = 'com.tekcapzule.events.allevents';
 @Injectable({
   providedIn: 'root',
 })

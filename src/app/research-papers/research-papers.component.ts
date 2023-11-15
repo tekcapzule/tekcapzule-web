@@ -63,9 +63,9 @@ export class ResearchPapersComponent implements OnInit {
   onOpen(research: IResearchPaperDetail) {
     if (this.helperService.isLocalPublisher(research.publisher)) {
       this.spinner.show();
-      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapsule.resourceURL', research.resourceUrl);
-      sessionStorage.setItem('com.tekcapsule.title', research.title);
+      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', research.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', research.title);
       this.router.navigateByUrl(
         '/ai-hub/' + research.researchPaperId + '/detail?pageId=Research_Papers'
       );
@@ -91,7 +91,7 @@ export class ResearchPapersComponent implements OnInit {
       });
     });
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
@@ -126,9 +126,9 @@ export class ResearchPapersComponent implements OnInit {
     }
     this.onSearch();
   }
-  
+
   filterUpdate(topics) {
     this.selectedTopics = topics;
-    this.onSearch();    
+    this.onSearch();
   }
 }

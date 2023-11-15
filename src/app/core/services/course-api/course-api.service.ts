@@ -10,7 +10,7 @@ const COURSE_API_PATH = `${environment.apiEndpointTemplate}/course`
   .replace('{{api-gateway}}', environment.courseApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapsule.course.allcourses';
+const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapzule.course.allcourses';
 @Injectable({
   providedIn: 'root',
 })

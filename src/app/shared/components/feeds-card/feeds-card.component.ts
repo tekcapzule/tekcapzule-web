@@ -96,9 +96,9 @@ export class FeedsCardComponent implements OnInit {
   navigateToCapsuleDetailsPage(): void {
     if (this.helperService.isLocalPublisher(this.capsule.publisher)) {
       this.spinner.show();
-      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapsule.resourceURL', this.capsule.resourceUrl);
-      sessionStorage.setItem('com.tekcapsule.title', this.capsule.title);
+      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', this.capsule.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', this.capsule.title);
       this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
     } else {
       window.open(this.capsule.resourceUrl, '_blank');

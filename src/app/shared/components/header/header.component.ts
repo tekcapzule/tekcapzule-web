@@ -168,7 +168,7 @@ export class HeaderComponent implements OnInit {
       this.closeMenu();
     }
   }
-  
+
   onMenuClick(navTab: NavTab): void {
     this.selectedTopMenuItem = null;
     if(navTab.enablePostLogin && !this.authState.isUserLoggedIn()) {
@@ -199,7 +199,7 @@ export class HeaderComponent implements OnInit {
       } else {
         this.closeMenu();
       }
-      
+
       if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
         this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
       } else if(navTab.uniqueId === 'HOME' && !this.authState.isUserLoggedIn()) {
@@ -245,10 +245,10 @@ export class HeaderComponent implements OnInit {
   }
 
   openBlog(eve) {
-    window.open('https://tekcapsule.blog/', '_blank');
+    window.open('https://tekcapzule.blog/', '_blank');
   }
 
-  
+
   showLoginRequiredDialog() {
     this.isLoginRequiredDialogShown = true;
   }

@@ -64,7 +64,7 @@ export class InterviewPrepComponent implements OnInit {
       this.isFilterVisible = false;
     }
   }
-  
+
   onSearch() {
     let tempList = [...this.interviewList];
     if (this.selectedTopics.length > 0) {
@@ -93,16 +93,16 @@ export class InterviewPrepComponent implements OnInit {
 
   filterUpdate(topics) {
     this.selectedTopics = topics;
-    this.onSearch();    
+    this.onSearch();
   }
 
-  
+
   onOpen(interview: IInterviewDetail) {
     if (this.helperService.isLocalPublisher(interview.publisher)) {
       this.spinner.show();
-      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapsule.resourceURL', interview.resourceUrl);
-      sessionStorage.setItem('com.tekcapsule.title', interview.title);
+      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', interview.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', interview.title);
       this.router.navigateByUrl(
         '/ai-hub/' + interview.courseId + '/detail?pageId=Interview_Prep'
       );

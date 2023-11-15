@@ -9,8 +9,8 @@ const INSIGHTS_API_PATH = `${environment.apiEndpointTemplate}/insight`
   .replace('{{api-gateway}}', environment.insightsApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const INSIGHTS_ALL_INSIGHTS_CACHE_KEY = 'com.tekcapsule.insights.allinsights';
-const INSIGHTS_GET_INSIGHTS_CACHE_KEY = 'com.tekcapsule.insights.getinsights.<code>';
+const INSIGHTS_ALL_INSIGHTS_CACHE_KEY = 'com.tekcapzule.insights.allinsights';
+const INSIGHTS_GET_INSIGHTS_CACHE_KEY = 'com.tekcapzule.insights.getinsights.<code>';
 
 @Injectable({
   providedIn: 'root',

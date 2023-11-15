@@ -11,7 +11,7 @@ const INTERVIEW_API_PATH = `${environment.apiEndpointTemplate}/interviewprep`
   .replace('{{api-gateway}}', environment.interviewprepApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const INTERVIEW_GETALL_CACHE_KEY = 'com.tekcapsule.interview.allinterview';
+const INTERVIEW_GETALL_CACHE_KEY = 'com.tekcapzule.interview.allinterview';
 
 @Injectable({
   providedIn: 'root',

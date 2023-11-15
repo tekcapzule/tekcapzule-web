@@ -237,7 +237,7 @@ export class CapsulesPageComponent implements OnInit, OnDestroy {
   }
 
   navigateToContributePage(): void {
-    sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
+    sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
     this.router.navigate(['capsules', 'contribute']);
   }
 

@@ -9,12 +9,12 @@ const MARKET_PLACE_API_PATH = `${environment.apiEndpointTemplate}/marketplace`
   .replace('{{api-gateway}}', environment.marketplaceApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const MARKET_PLACE_GETALLEVENTS_CACHE_KEY = 'com.tekcapsule.market.allProducts';
+const MARKET_PLACE_GETALLEVENTS_CACHE_KEY = 'com.tekcapzule.market.allProducts';
 @Injectable({
   providedIn: 'root',
 })
 export class MarketPlaceApiService {
-  
+
   constructor(private httpClient: HttpClient) {}
 
   getEventApiPath(): string {
@@ -34,7 +34,7 @@ export class MarketPlaceApiService {
     );
   }
 
-  
+
   getProduct(code: string): Observable<IProduct> {
     return this.httpClient.post<IProduct>(`${MARKET_PLACE_API_PATH}/get`, {code}, {
       params: {

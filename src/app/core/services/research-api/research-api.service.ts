@@ -10,7 +10,7 @@ const RESEARCH_API_PATH = `${environment.apiEndpointTemplate}/research-paper`
   .replace('{{api-gateway}}', environment.researchPaperApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const RESEARCH_GETALL_CACHE_KEY = 'com.tekcapsule.research.allresearch';
+const RESEARCH_GETALL_CACHE_KEY = 'com.tekcapzule.research.allresearch';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +30,7 @@ export class ResearchApiService {
       }
     );
   }
-  
+
   getResearch(code: string): Observable<IResearchPaperDetail> {
     return this.httpClient.post<IResearchPaperDetail>(`${RESEARCH_API_PATH}/get`, {code}, {
       params: {

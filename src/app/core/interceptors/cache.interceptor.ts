@@ -22,7 +22,7 @@ export class CacheInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const cache = request.params.get('cache') === 'yes' ? true : false;
     const refresh = request.params.get('refresh') === 'yes' ? true : false;
-    const cacheKey = request.params.get('ckey') || 'com.tekcapsule.unknown';
+    const cacheKey = request.params.get('ckey') || 'com.tekcapzule.unknown';
 
     // Removing cache releated request params, as it is used only for response caching purpose.
     request = request.clone({

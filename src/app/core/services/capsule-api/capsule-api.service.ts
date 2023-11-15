@@ -12,11 +12,11 @@ const CAPSULE_API_PATH = `${environment.apiEndpointTemplate}/capsule`
   .replace('{{api-gateway}}', environment.capsuleApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const CAPSULE_MYFEEDS_CACHE_KEY = 'com.tekcapsule.capsules.myfeeds';
-const CAPSULE_TRENDING_CACHE_KEY = 'com.tekcapsule.capsules.trending';
-const CAPSULE_EDITORSPICK_CACHE_KEY = 'com.tekcapsule.capsules.editorspick';
-const CAPSULE_PENDING_APPROVAL_CACHE_KEY = 'com.tekcapsule.capsules.pending.approval';
-const CAPSULE_METADATA_CACHE_KEY = 'com.tekcapsule.capsules.metadata';
+const CAPSULE_MYFEEDS_CACHE_KEY = 'com.tekcapzule.capsules.myfeeds';
+const CAPSULE_TRENDING_CACHE_KEY = 'com.tekcapzule.capsules.trending';
+const CAPSULE_EDITORSPICK_CACHE_KEY = 'com.tekcapzule.capsules.editorspick';
+const CAPSULE_PENDING_APPROVAL_CACHE_KEY = 'com.tekcapzule.capsules.pending.approval';
+const CAPSULE_METADATA_CACHE_KEY = 'com.tekcapzule.capsules.metadata';
 
 @Injectable({
   providedIn: 'root',

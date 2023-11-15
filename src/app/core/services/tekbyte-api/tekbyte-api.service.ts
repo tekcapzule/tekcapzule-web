@@ -14,8 +14,8 @@ const TEKBYTE_API_PATH = `${environment.apiEndpointTemplate}/tekbyte`
   .replace('{{api-gateway}}', environment.tekByteApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const TEKBYTE_ALLTEKBYTE_CACHE_KEY = 'com.tekcapsule.tekbyte.alltekbyte';
-const TEKBYTE_GETTEKBYTE_CACHE_KEY = 'com.tekcapsule.tekbyte.gettekbyte.<code>';
+const TEKBYTE_ALLTEKBYTE_CACHE_KEY = 'com.tekcapzule.tekbyte.alltekbyte';
+const TEKBYTE_GETTEKBYTE_CACHE_KEY = 'com.tekcapzule.tekbyte.gettekbyte.<code>';
 
 @Injectable({
   providedIn: 'root',

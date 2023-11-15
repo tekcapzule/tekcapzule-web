@@ -10,7 +10,7 @@ const DIGEST_API_PATH = `${environment.apiEndpointTemplate}/news-digest`
   .replace('{{api-gateway}}', environment.digestApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const DIGEST_ALLDIGEST_CACHE_KEY = 'com.tekcapsule.digest.alldigest';
+const DIGEST_ALLDIGEST_CACHE_KEY = 'com.tekcapzule.digest.alldigest';
 
 @Injectable({
   providedIn: 'root',

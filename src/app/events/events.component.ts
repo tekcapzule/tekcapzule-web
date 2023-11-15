@@ -99,15 +99,15 @@ export class EventsComponent implements OnInit {
   onPastEvents(eve: IEventItem) {
     this.spinner.show();
     console.log('eve.eventRecordingUrl', eve.eventRecordingUrl);
-    sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-    sessionStorage.setItem('com.tekcapsule.resourceURL', eve.resourceUrl);
-    sessionStorage.setItem('com.tekcapsule.title', eve.title);
+    sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+    sessionStorage.setItem('com.tekcapzule.resourceURL', eve.resourceUrl);
+    sessionStorage.setItem('com.tekcapzule.title', eve.title);
     this.router.navigateByUrl('/ai-hub/' + eve.code + '/detail?pageId=events');
   }
 
   onFilterChange(reg: string) {
     if(this.selectedFilters.includes(reg)) {
-      this.selectedFilters = this.selectedFilters.filter(region => region !== reg);  
+      this.selectedFilters = this.selectedFilters.filter(region => region !== reg);
     } else {
       this.selectedFilters.push(reg);
     }

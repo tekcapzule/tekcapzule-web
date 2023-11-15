@@ -95,12 +95,12 @@ export class WeeklyDigestComponent implements OnInit {
   openDigest(dig) {
     console.log('dig.resourceUrl', dig.resourceURL);
     this.spinner.show();
-    sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-    sessionStorage.setItem('com.tekcapsule.resourceURL', dig.resourceUrl);
-    sessionStorage.setItem('com.tekcapsule.title', dig.title);
+    sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+    sessionStorage.setItem('com.tekcapzule.resourceURL', dig.resourceUrl);
+    sessionStorage.setItem('com.tekcapzule.title', dig.title);
     this.router.navigateByUrl('/ai-hub/' + dig.code + '/detail?pageId=Weekly_Digest');
   }
-  
+
   onRecommendClick(eve, dig: IDigestItem) {
     eve.stopPropagation();
     this.digestApiService.updateRecommendCount(dig.code).subscribe(data => {

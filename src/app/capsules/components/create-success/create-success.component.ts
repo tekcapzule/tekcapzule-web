@@ -12,6 +12,6 @@ export class CreateSuccessComponent implements OnInit {
   ngOnInit(): void {}
 
   onDone(): void {
-    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
+    this.router.navigate([sessionStorage.getItem('com.tekcapzule.pageURL') || '/']);
   }
 }

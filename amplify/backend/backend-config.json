@@ -6,7 +6,7 @@
     }
   },
   "auth": {
-    "tekcapsuleweb6edfc117": {
+    "tekcapzuleweb6edfc117": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

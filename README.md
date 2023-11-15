@@ -1,12 +1,12 @@
 <!-- PROJECT SHIELDS -->
 <a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Main Branch](https://github.com/tekcapsule/tekcapsule-web/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/tekcapsule-web/actions/workflows/cicd.yml) 
-[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_tekcapsule-web&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_tekcapsule-web)
-[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_tekcapsule-web&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_tekcapsule-web)
-[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_tekcapsule-web&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_tekcapsule-web)
-[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_tekcapsule-web&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_tekcapsule-web)
-[![Github all releases](https://img.shields.io/github/downloads/tekcapsule/tekcapsule-web/total.svg)](https://GitHub.com/tekcapsule/tekcapsule-web/releases/)
+[![Main Branch](https://github.com/tekcapzule/tekcapzule-web/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapzule/tekcapzule-web/actions/workflows/cicd.yml) 
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_tekcapzule-web&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapzule_tekcapzule-web)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_tekcapzule-web&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapzule_tekcapzule-web)
+[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_tekcapzule-web&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapzule_tekcapzule-web)
+[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_tekcapzule-web&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapzule_tekcapzule-web)
+[![Github all releases](https://img.shields.io/github/downloads/tekcapzule/tekcapzule-web/total.svg)](https://GitHub.com/tekcapzule/tekcapzule-web/releases/)
 
 
 <!-- PROJECT LOGO -->
@@ -17,9 +17,9 @@
   <p align="center">
     A set of lambda functions to manage users in TekCapsule
     <br />
-    <a href="https://www.tekcapsule.com/">View Demo</a> |
-    <a href="https://github.com/tekcapsule/tekcapsule-web/issues">Report Bug</a> |
-    <a href="https://github.com/tekcapsule/tekcapsule-web/issues">Request Feature</a>
+    <a href="https://www.tekcapzule.com/">View Demo</a> |
+    <a href="https://github.com/tekcapzule/tekcapzule-web/issues">Report Bug</a> |
+    <a href="https://github.com/tekcapzule/tekcapzule-web/issues">Request Feature</a>
   </p>
 </div>
 <div align="center">
@@ -84,7 +84,7 @@ This project requires following softwares:
 Please follow the step by step instructions to install the required softwares and setup the project.
 1. Clone the repo
    ```sh
-   git clone https://github.com/tekcapsule/tekcapsule-web.git
+   git clone https://github.com/tekcapzule/tekcapzule-web.git
    ```
 2. Run the following command for building the project locally
    ```sh
@@ -101,7 +101,7 @@ Please follow the step by step instructions to install the required softwares an
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/tekcapsule/tekcapsule-web/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/tekcapzule/tekcapzule-web/issues) for a list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,7 +120,7 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 ## Contributors
-<img src= "https://contrib.rocks/image?repo=tekcapsule/tekcapsule-web">
+<img src= "https://contrib.rocks/image?repo=tekcapzule/tekcapzule-web">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

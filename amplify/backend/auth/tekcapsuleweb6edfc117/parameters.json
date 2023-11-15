@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "tekcapsuleweb6edfc117_identitypool_6edfc117",
+    "identityPoolName": "tekcapzuleweb6edfc117_identitypool_6edfc117",
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "tekcap6edfc117",
-    "userPoolName": "tekcapsuleweb6edfc117_userpool_6edfc117",
+    "userPoolName": "tekcapzuleweb6edfc117_userpool_6edfc117",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -35,7 +35,7 @@
     "userpoolClientLambdaRole": "tekcap6edfc117_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "6edfc117",
-    "resourceName": "tekcapsuleweb6edfc117",
+    "resourceName": "tekcapzuleweb6edfc117",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -51,7 +51,7 @@
     },
     "useDefault": "defaultSocial",
     "hostedUI": true,
-    "hostedUIDomainName": "tekcapsuleweb6edfc117-6edfc117",
+    "hostedUIDomainName": "tekcapzuleweb6edfc117-6edfc117",
     "authProvidersUserPool": [
         "Facebook",
         "Google"

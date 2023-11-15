@@ -26,7 +26,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/tekcapsule-web'),
+      dir: require('path').join(__dirname, './coverage/tekcapzule-web'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
     },

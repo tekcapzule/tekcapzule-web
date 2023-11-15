@@ -19,7 +19,7 @@ print_help() {
 
 docker_run_it() {
   docker run -it --rm \
-    --name tekcapsule-web \
+    --name tekcapzule-web \
     -p "$SERVER_PORT":"$SERVER_PORT" \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
@@ -29,7 +29,7 @@ docker_run_it() {
 
 docker_run_nonit() {
   docker run --rm \
-    --name tekcapsule-web-runner \
+    --name tekcapzule-web-runner \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 \
@@ -38,7 +38,7 @@ docker_run_nonit() {
 
 docker_run_shell() {
   docker run -it --rm \
-    --name tekcapsule-web-shell \
+    --name tekcapzule-web-shell \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:11.2.8 /bin/sh
@@ -96,7 +96,7 @@ elif [[ "$1" == "install" ]]; then
   exit
 elif [[ "$1" == "stop" ]]; then
   echo "[INFO] Stopping local dev server..."
-  docker stop tekcapsule-web
+  docker stop tekcapzule-web
   exit
 elif [[ "$1" == "shell" ]]; then
   echo "[INFO] Opening shell prompt in the container..."

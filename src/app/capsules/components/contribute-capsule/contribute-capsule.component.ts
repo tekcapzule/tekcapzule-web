@@ -88,7 +88,7 @@ export class ContributeCapsuleComponent implements OnInit, AfterViewInit {
   }
 
   onCancel(): void {
-    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
+    this.router.navigate([sessionStorage.getItem('com.tekcapzule.pageURL') || '/']);
   }
 
   onSubmit(): void {

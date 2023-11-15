@@ -65,9 +65,9 @@ export class VideoLibraryComponent implements OnInit {
   onVideoClick(video: IVideoDetail) {
     if (this.helperService.isLocalPublisher(video.publisher)) {
       this.spinner.show();
-      sessionStorage.setItem('com.tekcapsule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapsule.resourceURL', video.resourceUrl);
-      sessionStorage.setItem('com.tekcapsule.title', video.title);
+      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', video.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', video.title);
       this.router.navigateByUrl('/ai-hub/' + video.videoId + '/detail?pageId=Video_Library');
     } else {
       window.open(video.resourceUrl, '_blank');
@@ -126,9 +126,9 @@ export class VideoLibraryComponent implements OnInit {
     }
     this.onSearch();
   }
-  
+
   filterUpdate(topics) {
     this.selectedTopics = topics;
-    this.onSearch();    
+    this.onSearch();
   }
 }

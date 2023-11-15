@@ -59,8 +59,8 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
     this.route.queryParams.subscribe(params => {
       this.pageId = params.pageId;
       console.log(this.pageId);
-      if (sessionStorage.getItem('com.tekcapsule.resourceURL')) {
-        this.resourceURL = sessionStorage.getItem('com.tekcapsule.resourceURL');
+      if (sessionStorage.getItem('com.tekcapzule.resourceURL')) {
+        this.resourceURL = sessionStorage.getItem('com.tekcapzule.resourceURL');
         this.isDataAvailable = true;
         this.getNavBreadcrumbs();
         this.loadCapsule();
@@ -84,7 +84,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
       this.detail = data;
       this.getNavBreadcrumbs();
       this.isDataAvailable = true;
-      this.resourceURL = this.detail.resourceUrl || 'https://tekcapsule.blog';
+      this.resourceURL = this.detail.resourceUrl || 'https://tekcapzule.blog';
       this.loadCapsule();
     });
     this.subrscription.push(sub);
@@ -95,7 +95,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
       this.detail = data;
       this.getNavBreadcrumbs();
       this.isDataAvailable = true;
-      this.resourceURL = this.detail.resourceUrl || 'https://tekcapsule.blog';
+      this.resourceURL = this.detail.resourceUrl || 'https://tekcapzule.blog';
       this.loadCapsule();
     });
     this.subrscription.push(sub);
@@ -132,7 +132,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getNavBreadcrumbs() {
     this.crumbs = [];
-    const queryTitle = sessionStorage.getItem('com.tekcapsule.title') || this.detail.title;
+    const queryTitle = sessionStorage.getItem('com.tekcapzule.title') || this.detail.title;
     const dashboardPage = this.helperService.findPage('Skill_Studio');
     this.crumbs.push(dashboardPage);
     const selectePage = this.helperService.findAIHubPage(this.pageId);
@@ -149,7 +149,7 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onIFrameClose(): void {
     this.resourceUrl = '';
-    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
+    this.router.navigate([sessionStorage.getItem('com.tekcapzule.pageURL') || '/']);
   }
 
   onAfterIframeLoaded() {

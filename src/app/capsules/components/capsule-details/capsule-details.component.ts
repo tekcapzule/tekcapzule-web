@@ -50,9 +50,9 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.spinner.show();
     this.onResize();
     this.capsuleId = this.route.snapshot.paramMap.get('id');
-    if (sessionStorage.getItem('com.tekcapsule.resourceURL')) {
+    if (sessionStorage.getItem('com.tekcapzule.resourceURL')) {
       this.capsuleURL =
-        sessionStorage.getItem('com.tekcapsule.resourceURL') || 'https://tekcapsule.blog';
+        sessionStorage.getItem('com.tekcapzule.resourceURL') || 'https://tekcapzule.blog';
       this.isDataAvailable = true;
       this.loadCapsule();
     } else {
@@ -70,7 +70,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   fetchCapsuleDetails() {
     const sub = this.capsuleApi.getCapsuleById(this.capsuleId).subscribe(data => {
       this.capsuleDetail = data;
-      this.capsuleURL = this.capsuleDetail.resourceUrl || 'https://tekcapsule.blog';
+      this.capsuleURL = this.capsuleDetail.resourceUrl || 'https://tekcapzule.blog';
       this.loadCapsule();
     });
     this.subrscription.push(sub);
@@ -102,9 +102,9 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getNavBreadcrumbs(): NavTab | any[] {
     const crumbs: NavTab | any[] = [];
-    const queryTitle = sessionStorage.getItem('com.tekcapsule.title') || this.capsuleDetail.title;
+    const queryTitle = sessionStorage.getItem('com.tekcapzule.title') || this.capsuleDetail.title;
     const selectedMenu = this.helperService.findSelectedMenu(
-      sessionStorage.getItem('com.tekcapsule.pageURL') || this.router.url
+      sessionStorage.getItem('com.tekcapzule.pageURL') || this.router.url
     );
     crumbs.push(selectedMenu.selectedMenuItem);
     if (selectedMenu.selectedChildMenuItem) {
@@ -122,7 +122,7 @@ export class CapsuleDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   onIFrameClose(): void {
     this.resourceUrl = '';
-    this.router.navigate([sessionStorage.getItem('com.tekcapsule.pageURL') || '/']);
+    this.router.navigate([sessionStorage.getItem('com.tekcapzule.pageURL') || '/']);
   }
 
   onRecommendClick() {

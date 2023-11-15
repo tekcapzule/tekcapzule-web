@@ -12,7 +12,7 @@ const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
   .replace('{{api-gateway}}', environment.userApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const USER_INFO_CACHE_KEY = 'com.tekcapsule.user.info';
+const USER_INFO_CACHE_KEY = 'com.tekcapzule.user.info';
 
 @Injectable({
   providedIn: 'root',

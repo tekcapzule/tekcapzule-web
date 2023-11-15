@@ -11,8 +11,8 @@ const TOPIC_API_PATH = `${environment.apiEndpointTemplate}/topic`
   .replace('{{api-gateway}}', environment.topicApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
-const TOPICS_ALLTOPICS_CACHE_KEY = 'com.tekcapsule.topics.alltopics';
-const TOPICS_GETTOPIC_CACHE_KEY = 'com.tekcapsule.topics.gettopic.<code>';
+const TOPICS_ALLTOPICS_CACHE_KEY = 'com.tekcapzule.topics.alltopics';
+const TOPICS_GETTOPIC_CACHE_KEY = 'com.tekcapzule.topics.gettopic.<code>';
 
 @Injectable({
   providedIn: 'root',
