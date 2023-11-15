@@ -6,9 +6,19 @@ import { SharedModule } from '@app/shared';
 import { EventsComponent } from './events.component';
 import { EventsRoutingModule } from './events-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EventCardComponent } from './event-card/event-card.component';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
-  declarations: [EventsComponent],
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, SharedModule, MatTabsModule, EventsRoutingModule],
+  declarations: [EventsComponent, EventCardComponent],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    SharedModule,
+    MatTabsModule,
+    EventsRoutingModule,
+    CarouselModule
+  ],
 })
 export class EventsModule {}

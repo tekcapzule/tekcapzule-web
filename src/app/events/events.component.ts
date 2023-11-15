@@ -6,6 +6,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
+import { Constants } from '@app/shared/utils';
 
 @Component({
   selector: 'app-events',
@@ -24,6 +25,7 @@ export class EventsComponent implements OnInit {
   searchText: string;
   isFilterVisible: boolean = true;
   subscription: Subscription[] = [];
+  responsiveOptions: any[] = Constants.ResponsiveOptions;
 
   constructor(
     public spinner: AppSpinnerService,
