@@ -1,0 +1,65 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/common.scss';
+
+.digest-card {
+  background-image: url('../../../assets/images/skill-studio-card-pattern.png');
+  // background-color: #2e375a;
+  cursor: pointer;
+  max-height: 260px;
+  max-width: 395px;
+  width: 100%;
+  padding: 15px 25px;
+  color: #1c1c1c;
+  border-radius: 15px;
+  margin: 0px 40px 25px 0px;
+  // display: inline-grid;
+  text-align: left;
+  border: 1px solid #e8edff;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &.razzmatazz {
+    background-color: #e30070;
+  }
+  &.purple-heart {
+    background-color: #4936d6;
+  }
+  &.indigo-purple {
+    background-color: #6200a4;
+  }
+  &.night-rider {
+    background-color: #2e2e2e;
+  }
+  .date-icon {
+    margin-right: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-family: $primary-font-black;
+    display: flex;
+    align-items: center;
+    line-height: 26px;
+  }
+  .description {
+    font-size: 16px;
+    font-family: $primary-font-regular;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow-y: hidden;
+    min-height: 80px;
+    display: -webkit-box;
+    border-bottom: 1px solid #e8edff;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    &.small {
+      min-height: auto;
+    }
+  }
+}
+.venue-details {
+  font-size: 24px;
+  font-family: $primary-font-medium;
+  margin-bottom: 20px;
+}
+

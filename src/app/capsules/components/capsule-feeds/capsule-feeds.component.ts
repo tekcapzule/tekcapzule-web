@@ -1,6 +1,4 @@
-import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
-import { noop, Subject, Subscription } from 'rxjs';
-import { catchError, filter, finalize, takeUntil } from 'rxjs/operators';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   AppSpinnerService,
@@ -8,16 +6,16 @@ import {
   CapsuleApiService,
   ChannelEvent,
   EventChannelService,
-  UserApiService,
   SubscriptionApiService,
   TopicApiService,
+  UserApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { Constants } from '@app/shared/utils';
-import { Carousel } from 'primeng/carousel';
-import { MessageService } from 'primeng/api';
 import { TekUserInfo, TopicItem } from '@app/shared/models';
-import { BrowseByTopic } from '@app/capsules/capsules-page.component';
+import { MessageService } from 'primeng/api';
+import { Carousel } from 'primeng/carousel';
+import { Subject, Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-capsule-feeds',

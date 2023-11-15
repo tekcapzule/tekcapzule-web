@@ -1,0 +1,16 @@
+<div *ngIf="event" class="conference-header">
+  <div class="d-flex justify-content-between align-items-top">
+    <div class="title">{{ event.title }}<br />2023</div>
+    <span class="pills mr-0 mt-2">Metaverse</span>
+  </div>
+  <div class="description">{{ event.summary }}</div>
+</div>
+<div *ngIf="isPastEvent" class="play-button play-icon"></div>
+<div *ngIf="!isPastEvent && event.schedule" class="d-flex align-items-center">
+  <span class="date-icon"></span>{{ event.schedule.startDate }} - {{ event.schedule.endDate
+  }}<span class="px-3"> | </span>{{ event.schedule.startTime }} -
+  {{ event.schedule.endTime }}
+</div>
+<div *ngIf="!isPastEvent" class="d-flex align-items-top">
+  <span class="location-icon mt-2"></span>{{ event.venue }}
+</div>
