@@ -9,7 +9,7 @@ env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 jobs:
   Build:
-    name: Build TekCapsule Web App
+    name: Build TekCapzule Web App
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

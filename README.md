@@ -13,9 +13,9 @@
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/9839481/209770761-99fd940f-3c75-407b-a339-9fd2cd2c5b7f.svg">
-  <h3 align="center">TekCapsule Web App</h3>
+  <h3 align="center">TekCapzule Web App</h3>
   <p align="center">
-    A set of lambda functions to manage users in TekCapsule
+    A set of lambda functions to manage users in TekCapzule
     <br />
     <a href="https://www.tekcapzule.com/">View Demo</a> |
     <a href="https://github.com/tekcapzule/tekcapzule-web/issues">Report Bug</a> |
@@ -55,7 +55,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-TekCapsule Web Applicaiton built using Angular. TekCapsule user's can leverage this application to explore and learn new tech topics, read tech news, articles and veriety of other contents. Follow specific tech topics to get daily updates etc.
+TekCapzule Web Applicaiton built using Angular. TekCapzule user's can leverage this application to explore and learn new tech topics, read tech news, articles and veriety of other contents. Follow specific tech topics to get daily updates etc.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

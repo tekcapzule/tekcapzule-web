@@ -139,6 +139,6 @@ Resources:
 Outputs:
   WebsiteURL:
     Value: !GetAtt S3Bucket.WebsiteURL
-    Description: URL for dev TekCapsule website hosted on S3
+    Description: URL for dev TekCapzule website hosted on S3
   CloudfrontDomainName:
     Value: !GetAtt CloudFrontDistribution.DomainName
