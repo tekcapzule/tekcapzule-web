@@ -1,17 +1,17 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Cloud formation for hosting Dev TeckCapsule Web App
+Description: Cloud formation for hosting Dev TekCapzule Web App
 
 Parameters:
   DomainName:
     Description: Domain name
     Type: String
-    Default: tekcapsule.com
+    Default: tekcapzule.com
   HostedZoneId:
     Description: Hosted Zone ID
     Type: String
   BucketName:
     Type: String
-    Default: tekcapsule.com
+    Default: tekcapzule.com
 
 Resources:
   S3Bucket:
@@ -135,7 +135,7 @@ Resources:
             DNSName: !GetAtt CloudFrontDistribution.DomainName
             EvaluateTargetHealth: false
             HostedZoneId: Z2FDTNDATAQYW2
-        
+
 Outputs:
   WebsiteURL:
     Value: !GetAtt S3Bucket.WebsiteURL
