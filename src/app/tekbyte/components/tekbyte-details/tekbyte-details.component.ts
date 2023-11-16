@@ -1,22 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { forkJoin, Observable, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   AppSpinnerService,
-  CapsuleApiService,
   SubscriptionApiService,
-  TekByteApiService,
-  TopicApiService,
+  TekByteApiService
 } from '@app/core';
-import { CapsuleItem, TopicItem } from '@app/shared/models';
-import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { ITile } from '@app/skill-studio/models/tile.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import { Constants } from '@app/shared/utils';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-tekbyte-details',

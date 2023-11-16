@@ -91,7 +91,7 @@ export class HomePageComponent implements OnInit {
   }
 
   gotoCapsulesPage(): void {
-    this.router.navigateByUrl('/capsules');
+    this.router.navigateByUrl('/feeds');
   }
 
   onCardOpened(capsuleId) {

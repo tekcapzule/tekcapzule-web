@@ -12,8 +12,8 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
-    path: 'capsules',
-    loadChildren: () => import('./capsules/capsules.module').then(m => m.CapsulesModule),
+    path: 'feeds',
+    loadChildren: () => import('./feeds/feeds.module').then(m => m.FeedsModule),
     canActivate: [AuthGuard]
   },
   {
