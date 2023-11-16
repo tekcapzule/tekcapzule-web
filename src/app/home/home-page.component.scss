@@ -176,7 +176,7 @@
 
   /***********Insights**********/
   .insight-container {
-    background: #252a40;
+    background: #252a40 !important;
     padding: 50px 0 50px;
   }
 
@@ -283,6 +283,13 @@
 
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
+  .key-feature-block {
+    display: block !important;
+    text-align: center !important;
+  }
+  .banner-content {
+    padding-bottom: 20px;
+  }
 
   .mobile-app{
     background: #EC0085;
@@ -292,7 +299,11 @@
     height: auto;
     .app-content {
       display: block !important;
-      line-height: 0;
+      line-height: 22px;
+    }
+    .app-img {
+      width: 100px;
+      margin-top: 20px !important;
     }
   }
   .subscribe {
@@ -323,13 +334,14 @@
   }
   .key-feature {
     height: auto !important;
-    background: #202A5F !important;
+    // background: #202A5F !important;
     padding: 20px !important;
     display: inline-block !important;
     border-radius: 25px;
-    margin: 0 20px;
+    // margin: 0 20px;
+    margin-bottom: 20px;
     width: 90%;
-    margin-top: -35px !important;
+    // margin-top: -35px !important;
     .key-feature-tile  {
       margin-right: 20px !important;
     }

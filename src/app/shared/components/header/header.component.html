@@ -191,15 +191,15 @@
                   </ul>
                 <!-- </li> -->
 
-                <li><a routerLink="/">Skill Studio</a>
+                <li class="skill-menu-bg"><a routerLink="/" class="mobile-menu-skill-studio">Skill Studio</a>
                   <ul class="mobile-submenu">
-                    <li class="sub-menu-element" *ngFor="let sm of skillStudioMenu; let i = index" (click)="onChildMenuClick(sm)">
+                    <li class="sub-menu-element skill-menu" *ngFor="let sm of skillStudioMenu; let i = index" (click)="onChildMenuClick(sm)">
                       <a href="Javascript:void(0)"  [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{sm.displayName}}</span></a>
                     </li>
                   </ul>
                 </li>
-                <li *ngFor="let tm of topMenu;"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
-                <li>
+                <li *ngFor="let tm of topMenu;" class="main-nav-links"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
+                <li class="main-nav-links">
                   <a routerLink="https://tekcapzule.blog/" target="_blank">Blog</a>
                 </li>
 
