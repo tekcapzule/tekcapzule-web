@@ -26,7 +26,7 @@ export class AuthGuard {
       return true;
      } else {
       this.auth.signInUser();
-      return false;
+      return true;
      }
 
 

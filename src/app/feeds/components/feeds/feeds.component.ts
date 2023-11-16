@@ -57,6 +57,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.log('FeedsComponent  ')
     this.fetchUserInfo();
     this.getAllTopics();
     this.subscribeFilterType();
