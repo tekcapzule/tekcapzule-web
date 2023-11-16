@@ -1,4 +1,4 @@
-![tekcapzule_logo](https://github.com/tekcapzule/tekcapzule-web/assets/9839481/7c89b3e7-364d-4f5f-a102-57d18a802cbf)<!-- PROJECT SHIELDS -->
+<!-- PROJECT SHIELDS -->
 <a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Main Branch](https://github.com/tekcapzule/tekcapzule-web/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapzule/tekcapzule-web/actions/workflows/cicd.yml) 
