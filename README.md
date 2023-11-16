@@ -1,4 +1,4 @@
-<!-- PROJECT SHIELDS -->
+![tekcapzule_logo](https://github.com/tekcapzule/tekcapzule-web/assets/9839481/7c89b3e7-364d-4f5f-a102-57d18a802cbf)<!-- PROJECT SHIELDS -->
 <a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Main Branch](https://github.com/tekcapzule/tekcapzule-web/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapzule/tekcapzule-web/actions/workflows/cicd.yml) 
@@ -8,11 +8,10 @@
 [![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_tekcapzule-web&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapzule_tekcapzule-web)
 [![Github all releases](https://img.shields.io/github/downloads/tekcapzule/tekcapzule-web/total.svg)](https://GitHub.com/tekcapzule/tekcapzule-web/releases/)
 
-
 <!-- PROJECT LOGO -->
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/9839481/209770761-99fd940f-3c75-407b-a339-9fd2cd2c5b7f.svg">
+  <img src="https://github.com/tekcapzule/tekcapzule-web/assets/9839481/bc965502-9a3a-4eb0-bb56-f1e9c0f4a5b0.svg">
   <h3 align="center">TekCapzule Web App</h3>
   <p align="center">
     A set of lambda functions to manage users in TekCapzule
