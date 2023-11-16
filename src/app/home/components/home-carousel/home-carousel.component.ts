@@ -16,6 +16,6 @@ export class HomeCarouselComponent implements OnInit {
 
   gotoCapsulesPage(): void {
     this.helperService.setSelectedMenu(null);
-    this.router.navigateByUrl('/capsules/myfeeds');
+    this.router.navigateByUrl('/feeds/myfeeds');
   }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { InterviewPrepComponent } from './interview-prep.component';
-import { CapsuleDetailsComponent } from '@app/capsules/components/capsule-details/capsule-details.component';
+import { DetailComponent } from '@app/skill-studio/detail/detail.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: ':id/details',
-        component: CapsuleDetailsComponent
+        component: DetailComponent
       },
       {
         path: '',
