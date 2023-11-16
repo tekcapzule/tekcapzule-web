@@ -32,7 +32,9 @@
     justify-content: space-between;
     .column {
       width: 175px;
-      // margin: 0 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       color: $white;
       .contributors-bg {
         width: 174px;
@@ -56,7 +58,7 @@
         border-radius: 13px;
         padding: 2px 15px;
         color: #000;
-        display: initial;
+        display: flex;
         span {
           color: #EC0085;
         }

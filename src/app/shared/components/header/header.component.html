@@ -1,6 +1,6 @@
 <!-- ======= Header ======= -->
 <div class="fixed-top">
-  <div class="top-main-header">
+  <div class="top-main-header mob-hide">
     <div class="container d-flex justify-content-end pr-4">
       <ul>
         <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}" href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
@@ -180,12 +180,7 @@
                       <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'PRELOGIN' && !authState.isUserLoggedIn(); elseBlock" (click)="onMenuClick(hm)">
                         <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
                       </li>
-                      <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()" (click)="onMenuClick(hm)">
-                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                      </li>
-                      <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'ALL'" (click)="onMenuClick(hm)">
-                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                      </li>
+                      
 
                     </ng-cotainer>
                   </ul>
@@ -198,6 +193,16 @@
                     </li>
                   </ul>
                 </li>
+                <ul class="mobile-submenu top-level-menus">
+                  <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
+                <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()" (click)="onMenuClick(hm)">
+                  <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                </li>
+                <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'ALL'" (click)="onMenuClick(hm)">
+                  <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                </li>
+              </ng-cotainer>
+            </ul>
                 <li *ngFor="let tm of topMenu;" class="main-nav-links"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <li class="main-nav-links">
                   <a routerLink="https://tekcapzule.blog/" target="_blank">Blog</a>
