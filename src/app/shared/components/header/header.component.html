@@ -3,27 +3,28 @@
   <div class="top-main-header mob-hide">
     <div class="container d-flex justify-content-end pr-4">
       <ul>
-        <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}" href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
+        <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}"
+            href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
         <li>
-          <div class="dropdown"  *ngIf="!isMobileResolution">
+          <div class="dropdown" *ngIf="!isMobileResolution">
             <button class="dropbtn" (click)="openBlog($event)">Blog</button>
           </div>
           <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
             *ngIf="isMobileResolution">Blog</a>
         </li>
       </ul>
-      <div  *ngIf="!isMobileResolution">
-      <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
-        Sign In
-      </button>
-      <button *ngIf="isLoggedIn$ | async" mat-raised-button class="button signin-btn" (click)="signOutUser()">
-        Sign Out
-      </button>
-    </div>
+      <div *ngIf="!isMobileResolution">
+        <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
+          Sign In
+        </button>
+        <button *ngIf="isLoggedIn$ | async" mat-raised-button class="button signin-btn" (click)="signOutUser()">
+          Sign Out
+        </button>
+      </div>
     </div>
   </div>
   <header id="header">
-    <div  *ngIf="!isMobileResolution" class="container-fluid">
+    <div *ngIf="!isMobileResolution" class="container-fluid">
       <div class="container header-align">
         <!-- Responsive Menu -->
 
@@ -39,9 +40,9 @@
           </div>
 
 
-        <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
-          <ul class="navbar-nav">
-            <ng-container *ngFor="let hm of headerMenu; let i = index">
+          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+            <ul class="navbar-nav">
+              <ng-container *ngFor="let hm of headerMenu; let i = index">
                 <li [ngClass]="{ dropdown: hm.children, active: selectedMenuItem?.uniqueId === hm.uniqueId}"
                   *ngIf="hm.available === 'ALL' || (hm.available === 'PRELOGIN' && !authState.isUserLoggedIn()) || (hm.available === 'POSTLOGIN' && authState.isUserLoggedIn())">
                   <div class="dropdown">
@@ -52,7 +53,8 @@
                     </button>
                   </div>
 
-                  <ng-container *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
+                  <ng-container
+                    *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <ul class="dropdown-menu show">
                       <li *ngFor="let menuItem of hm.children; let i = index">
                         <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{
@@ -129,7 +131,7 @@
       </div>
     </div>
 
-      <!-- Mobile Menu -->
+    <!-- Mobile Menu -->
 
     <div *ngIf="isMobileResolution" class="container-fluid">
       <div class="container header-align">
@@ -146,26 +148,27 @@
                 alt="Tekcapzule Logo" /></a>
           </div>
 
-          <div class="mobile-header"  *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+          <div class="mobile-header" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
             <div class="page-name">
-            <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ? selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
-            <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
+              <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ?
+                selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
+              <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
               {{ selectedChildMenuItem?.displayName }}
             </div> -->
+            </div>
+            <div class="mobile-header-icons" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+              <div class="header-search-icon"></div>
+              <div class="header-sort-icon" (click)="onShowSort()"></div>
+              <div class="header-filter-icon" (click)="onShowFilter()"></div>
+            </div>
           </div>
-          <div class="mobile-header-icons" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-            <div class="header-search-icon"></div>
-            <div class="header-sort-icon" (click)="onShowSort()"></div>
-            <div class="header-filter-icon" (click)="onShowFilter()"></div>
-          </div>
-        </div>
-        <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
             <!-- Mobile Menu -->
             <div class="mobile-menu" *ngIf="isMobileResolution">
               <div class="user-container">
                 <div class="d-flex">
                   <img src="../../../../assets/images/mob-logo.svg" alt="mobile-logo" class="pr-3" />
-                    <div>
+                  <div>
                     <span class="user-name">sasikumar.p@gmail.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
@@ -173,41 +176,57 @@
                 </div>
                 <div class="close-btn" (click)="closeMenu()"></div>
               </div>
-              <ul >
+              <ul>
                 <!-- <li><a routerLink="/mission">Home</a> -->
-                  <ul class="mobile-submenu top-level-menus">
-                    <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
-                      <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'PRELOGIN' && !authState.isUserLoggedIn(); elseBlock" (click)="onMenuClick(hm)">
-                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                      </li>
-                      
+                <ul class="mobile-submenu top-level-menus">
+                  <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
+                    <li class="sub-menu-element"
+                      *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'PRELOGIN' && !authState.isUserLoggedIn(); elseBlock"
+                      (click)="onMenuClick(hm)">
+                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
+                        class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                    </li>
 
-                    </ng-cotainer>
-                  </ul>
+
+                  </ng-cotainer>
+                </ul>
                 <!-- </li> -->
 
-                <li class="skill-menu-bg"><a routerLink="/" class="mobile-menu-skill-studio">Skill Studio</a>
-                  <ul class="mobile-submenu">
-                    <li class="sub-menu-element skill-menu" *ngFor="let sm of skillStudioMenu; let i = index" (click)="onChildMenuClick(sm)">
-                      <a href="Javascript:void(0)"  [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{sm.displayName}}</span></a>
+                <li class="skill-menu-bg" (click)="toggleSkillStudioMenu()">
+                  <a routerLink="/" class="mobile-menu-skill-studio">
+                    SkillStudio
+                    <span [ngClass]="{'arrow-up': isSkillStudioMenuOpen, 'arrow-down': !isSkillStudioMenuOpen}"></span>
+                  </a>
+                  <ul class="mobile-submenu" *ngIf="isSkillStudioMenuOpen" [@expandCollapseAnimation]="'expanded'">
+                    <li class="sub-menu-element skill-menu" *ngFor="let sm of skillStudioMenu; let i = index"
+                      (click)="onChildMenuClick(sm)">
+                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()"
+                        class="sub-menu-element">
+                        <span class="sub-menu-element">{{sm.displayName}}</span>
+                      </a>
                     </li>
                   </ul>
                 </li>
-                <ul class="mobile-submenu top-level-menus">
+                <ul class="mobile-submenu top-level-menus sub-nav-line">
                   <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
-                <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()" (click)="onMenuClick(hm)">
-                  <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                </li>
-                <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'ALL'" (click)="onMenuClick(hm)">
-                  <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()" class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                </li>
-              </ng-cotainer>
-            </ul>
-                <li *ngFor="let tm of topMenu;" class="main-nav-links"><a href="Javascript:void(0)" (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
-                <li class="main-nav-links">
+                    <li class="sub-menu-element"
+                      *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()"
+                      (click)="onMenuClick(hm)">
+                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
+                        class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                    </li>
+                    <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'ALL'"
+                      (click)="onMenuClick(hm)">
+                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
+                        class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                    </li>
+                  </ng-cotainer>
+                </ul>
+                <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
+                    (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
+                <li class="main-nav-links pt-2">
                   <a routerLink="https://tekcapzule.blog/" target="_blank">Blog</a>
                 </li>
-
               </ul>
             </div>
           </div>
@@ -221,7 +240,5 @@
 
 
 
-<app-login-required
-  [isDialogVisible]="isLoginRequiredDialogShown"
-  (dialogClosed)="hideLoginRequiredDialog()"
-></app-login-required>
+<app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
+  (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>

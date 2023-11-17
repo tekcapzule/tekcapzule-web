@@ -1,21 +1,33 @@
-<p-dialog
-  [(visible)]="isDialogVisible"
-  [breakpoints]="{ '960px': '75vw' }"
-  [style]="{ width: '25vw' }"
-  [modal]="true"
-  [draggable]="false"
-  [resizable]="false"
-  (onHide)="onDialogClosed()"
->
-<div class="text-center launching-soon-bg">
-  <h1>Launching Soon...</h1>
-  <p class="content-sub-text text-white">We are committed to providing the best learning experience.</p>
-  <div class="py-4 avatar">
-    <img src="../../../../assets/images/launchingsoon.png" alt="Launching Soon Image" class="img-fluid" />
+<p-dialog [(visible)]="isDialogVisible" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '25vw' }" [modal]="true"
+  [draggable]="false" [resizable]="false" (onHide)="onDialogClosed()">
+  <div class="text-center launching-soon-bg">
+    <div class="mob-hide">
+    <div class="x2">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x3">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x4">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x5">
+      <div class="cloud"></div>
+    </div>
   </div>
-  <div class="text-center">
-    <!-- <button class="button secondary bg-white primary-color mr-5" (click)="onLoginClick()">Login</button> -->
-    <button class="button secondary bg-white primary-color" (click)="onDialogClosed()">Close</button>
+    <div class="launchingsoon-content">
+      <h1>Launching Soon...</h1>
+      <p class="content-sub-text text-white">We are committed to providing the best learning experience.</p>
+      <div class="py-4 avatar">
+        <img src="../../../../assets/images/launchingsoon.png" alt="Launching Soon Image" class="img-fluid" />
+      </div>
+      <div class="text-center">
+        <!-- <button class="button secondary bg-white primary-color mr-5" (click)="onLoginClick()">Login</button> -->
+        <button class="button secondary bg-white primary-color" (click)="onDialogClosed()">Close</button>
+      </div>
+    </div>
   </div>
-</div>
 </p-dialog>
