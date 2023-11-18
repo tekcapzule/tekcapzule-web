@@ -31,31 +31,15 @@
               </ng-template>
           </p-carousel>
       </div> -->
-        <div class="column">
-          <div class="contributors-bg reward-1"></div>
-          <p>Sasikumar P</p>
-          <a href="https://github.com/orgs/tekcapzule/people/sasikumarp36" target="_blank"><div class="points"><span class="git-icon"></span> sasikumarp36</div></a>
-        </div>
-        <div class="column">
-          <div class="contributors-bg reward-2"></div>
-          <p>Sathish Kumar</p>
-          <a href="https://github.com/orgs/tekcapzule/people/sathish257216" target="_blank"><div class="points"><span class="git-icon"></span> sathish257216</div></a>
-        </div>
-        <div class="column">
-          <div class="contributors-bg reward-3"></div>
-          <p>Haritha Peryala</p>
-          <a href="https://github.com/orgs/tekcapzule/people/HarithaPeryala" target="_blank"><div class="points"><span class="git-icon"></span> HarithaPeryala</div></a>
-        </div>
-        <div class="column">
-          <div class="contributors-bg reward-4"></div>
-          <p>Akhil P. B.</p>
-          <a href="https://github.com/orgs/tekcapzule/people/akhilpb001" target="_blank"><div class="points"><span class="git-icon"></span> akhilpb001</div></a>
-        </div>
-        <div class="column">
-          <div class="contributors-bg reward-1"></div>
-          <p>Karthikeyan</p>
-          <a href="#https://github.com/orgs/tekcapzule/people/kartekspace" target="_blank"><div class="points"><span class="git-icon"></span> kartekspace</div></a>
-        </div>
+        <p-carousel [value]="contributers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+            <ng-template let-contributer pTemplate="item">
+              <div class="column">
+                <div class="contributors-bg reward-1"></div>
+                <p>{{contributer.name}}</p>
+                <a [href]="contributer.url" target="_blank"><div class="points"><span class="git-icon"></span>{{contributer.id}}</div></a>
+              </div>
+            </ng-template>
+        </p-carousel>
       </div>
     </div>
 

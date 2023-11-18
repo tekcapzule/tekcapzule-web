@@ -12,6 +12,27 @@ export class CommunityPageComponent implements OnInit {
   ) {}
   responsiveOptions: any[] | undefined;
   isMobileResolution: boolean;
+  contributers: any[] = [{
+    name: 'Sasikumar P',
+    id: 'sasikumarp36',
+    url: 'https://github.com/sasikumarp36'
+  }, {
+    name: 'Sathish Kumar',
+    id: 'sathish257216',
+    url: 'https://github.com/sathish257216'
+  }, {
+    name: 'Haritha Peryala',
+    id: 'HarithaPeryala',
+    url: 'https://github.com/HarithaPeryala'
+  }, {
+    name: 'Akhil P. B.',
+    id: 'akhilpb001',
+    url: 'https://github.com/akhilpb001'
+  }, {
+    name: 'Karthikeyan',
+    id: 'kartekspace',
+    url: 'https://github.com/kartekspace'
+  }];
 
   ngOnInit(): void {
     this.responsiveOptions = [
