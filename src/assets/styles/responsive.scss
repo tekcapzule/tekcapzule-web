@@ -284,6 +284,21 @@
     position: relative !important;
     left: 0 !important;
   }
+  .navbar {
+    justify-content: flex-start !important;
+  }
+  .skillstudio-inner 
+  {
+    .row {
+      margin-top: 20px;
+    }
+    .mr-5 {
+    margin-right: 0 !important;
+  }
+  }
+  .home-page h2 {
+    font-size: 24px !important;
+  }
 }
 @media only screen and (width: 1024px) {
   .col-card {

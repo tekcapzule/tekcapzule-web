@@ -41,7 +41,7 @@ h6 {
 
 h1 {
   font-size: 34px;
-  line-height: 45px;
+  line-height: 40px;
   color: #fff;
   font-family: $primary-font-bold;
 
@@ -433,7 +433,7 @@ h4 {
 .content-sub-text {
   font-size: 18px;
   font-family: $primary-font-medium;
-  line-height: 30px;
+  line-height: 26px;
   color: $secondary-color;
 
   @media only screen and (max-width: 990px) {
@@ -1091,6 +1091,17 @@ app-spinner {
 .bg-navy-blue 
 {
   background-color: #202A5F !important;
+  color: #fff;
+}
+.bg-inchworm {
+  background-color: #C2E823;
+  width: fit-content;
+  padding: 0 25px;
+}
+.bg-fandango {
+  background-color: #B90D94;
+  width: fit-content;
+  padding: 0 25px;
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
@@ -2686,7 +2697,14 @@ select {
 }
 .blue-pink-bg-pattern {
   background: url('../../assets/images/home/blue-pattern.svg') 0 4px  no-repeat,  url('../../assets/images/home/pink-pattern.svg') 100% 220px  no-repeat !important;
-
+}
+.learning-pattern {
+  background: url('../../assets/images/home/learning-pattern.svg') 0 0  no-repeat;
+  background-size: cover;
+}
+.dark-grey-pattern {
+  background: url('../../assets/images/home/dark-grey-pattern.svg') 0 0  no-repeat;
+  background-size: cover;
 }
 
 .disabled {

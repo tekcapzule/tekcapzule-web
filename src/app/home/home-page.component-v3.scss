@@ -16,26 +16,22 @@
     font-family: $primary-font-black;
     padding-bottom: 10px;
   }
-  // .content-sub-text {
-  //   font-size: 18px;
-  //   font-family: $primary-font-regular;
-  // }
+  .content-sub-text {
+    font-size: 18px;
+    font-family: $primary-font-regular;
+  }
   .home-banner {
     background: transparent linear-gradient(258deg, #002884 0%, #C31B82 100%) 0% 0% no-repeat;
 
     // background: url('../../assets/images/ball-wed.svg'), url('../../assets/images/home/home-banner-bg.svg') no-repeat;
-    height: 600px;
+    height: 550px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 65px;
     background-size: cover;
     margin-top: 108px;
   }
   .discussion-bg {
-    background: transparent linear-gradient(280deg, #2C2B33 0%, #352B5C 100%) 0% 0% no-repeat;
-  }
-  .key-feature-bg {
-    background: transparent linear-gradient(263deg, #2C2B33 0%, #352B5C 100%) 31% 75% no-repeat;
-    background-position-y: 243px;
+    background: transparent linear-gradient(213deg, #2C2B33 0%, #352B5C 100%) 0% 0% no-repeat;
   }
 
   .social-share-container {
@@ -180,7 +176,7 @@
 
   /***********Insights**********/
   .insight-container {
-    background-color: #252a40 !important;
+    background: #252a40 !important;
     padding: 50px 0 50px;
   }
 
@@ -277,23 +273,12 @@
     }
   }
 }
-  .inner {
-    max-width: 1220px;
-  }
-  .skillstudio-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    width: 100%;
-  }
+.inner {
+  max-width: 1220px;
 }
-.home-banner-title, .home-banner-subtitle {
-  font-family: $primary-font-xbold !important;
-  min-height: 45px;
-  img {
-    width: 60px;
-    min-height: 50px;
-    float: left;
-  }
+}
+.home-banner-title {
+  font-family: $primary-font-xbold;
 }
 
 /*************Responsive**********/
@@ -369,9 +354,4 @@
     height: auto !important;
     margin-bottom: 50px;
   }
-}
-.high-note {
-  background: url('../../assets/images/home/comingsoon-bg.svg') no-repeat;
-  color: #fff;
-  padding: 0 20px;
 }
