@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ChannelEvent, EventChannelService, TopicApiService } from '@app/core';
+import { EventChannelService, TopicApiService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 
 @Component({
   selector: 'app-create-feed',

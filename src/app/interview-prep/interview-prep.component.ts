@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppSpinnerService, ChannelEvent, EventChannelService } from '@app/core';
+import { AppSpinnerService, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { InterviewApiService } from '@app/core/services/interview-api/interview-api.service';
 import { TopicItem } from '@app/shared/models';
@@ -9,6 +9,7 @@ import { IInterviewDetail } from '@app/shared/models/interview-item.model';
 import { MessageService } from 'primeng/api';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 
 @Component({
   selector: 'app-interview-prep',

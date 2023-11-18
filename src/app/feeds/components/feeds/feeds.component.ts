@@ -4,7 +4,6 @@ import {
   AppSpinnerService,
   AuthStateService,
   FeedApiService,
-  ChannelEvent,
   EventChannelService,
   SubscriptionApiService,
   TopicApiService,
@@ -12,6 +11,7 @@ import {
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { TekUserInfo, TopicItem } from '@app/shared/models';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { MessageService } from 'primeng/api';
 import { Carousel } from 'primeng/carousel';
 import { Subject, Subscription } from 'rxjs';

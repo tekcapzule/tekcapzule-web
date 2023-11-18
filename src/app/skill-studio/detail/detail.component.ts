@@ -9,10 +9,11 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppSpinnerService, ChannelEvent, EventChannelService, VideoLibraryApiService } from '@app/core';
+import { AppSpinnerService, EventChannelService, VideoLibraryApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { ResearchApiService } from '@app/core/services/research-api/research-api.service';
 import { NavTab } from '@app/shared/models';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { IResearchPaperDetail } from '@app/shared/models/research-item.model';
 import { IVideoDetail } from '@app/shared/models/video-library-item.model';
 import { MessageService } from 'primeng/api';

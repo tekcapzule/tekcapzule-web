@@ -1,12 +1,13 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppSpinnerService, ChannelEvent, EventChannelService, MarketPlaceApiService } from '@app/core';
+import { AppSpinnerService, EventChannelService, MarketPlaceApiService } from '@app/core';
 import { IProduct } from '@app/shared/models/market.model';
 import { finalize } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 
 @Component({
   selector: 'app-market-place',

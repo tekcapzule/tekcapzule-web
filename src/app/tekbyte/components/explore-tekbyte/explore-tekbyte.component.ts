@@ -1,13 +1,14 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AppSpinnerService, ChannelEvent, EventChannelService, TekByteApiService } from '@app/core';
+import { AppSpinnerService, EventChannelService, TekByteApiService } from '@app/core';
+import { TopicItem } from '@app/shared/models';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import { ITile } from '@app/skill-studio/models/tile.model';
-import { HelperService } from './../../../core/services/common/helper.service';
-import { TopicItem } from '@app/shared/models';
-import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
+import { HelperService } from './../../../core/services/common/helper.service';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 
 @Component({
   selector: 'app-explore-tekbyte',

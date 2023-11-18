@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EventChannelService } from '@app/core';
 import { NavTab } from '@app/shared/models';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { Constants } from '@app/shared/utils';
 
 @Component({
@@ -9,7 +11,12 @@ import { Constants } from '@app/shared/utils';
 })
 export class FooterComponent implements OnInit {
   menuItems: NavTab[] = [];
-  constructor() {}
+  selectedMenuItem: NavTab;
+  selectedChildMenuItem: NavTab;
+  
+  constructor(
+    private eventChannel: EventChannelService
+    ) {}
 
   ngOnInit(): void {
     Constants.FooterItems.forEach(item =>  {
@@ -18,5 +25,8 @@ export class FooterComponent implements OnInit {
     });
   }
 
-  getItem
+  onMenuClick(navTab: NavTab): void {
+    this.eventChannel.publish({ event: ChannelEvent.MenuClick, data: navTab });
+  }
+
 }

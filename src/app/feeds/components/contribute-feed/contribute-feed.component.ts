@@ -5,13 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {
   AppSpinnerService,
   FeedApiService,
-  ChannelEvent,
   EventChannelService,
   TopicApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { finalize } from 'rxjs/operators';
 
 @Component({

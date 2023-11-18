@@ -117,7 +117,7 @@ export const Constants = {
     //{uniqueId: 'generativeAI', displayName: 'Generative AI', desc: 'Go ahead and prepare for your interview', navUrl:'/ai-hub/interview-prepartion'},
     //{uniqueId: 'Insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
   ],
-  FooterItems: ['My_Feeds', 'Skill_Studio', 'Market_Place', 'Insights'],
+  FooterItems: ['HOME', 'Skill_Studio', 'Market_Place', 'Insights'],
   ResponsiveOptions: [
     {
       breakpoint: '1199px',
