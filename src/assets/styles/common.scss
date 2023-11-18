@@ -2388,7 +2388,7 @@ select {
     linear-gradient(104.04deg, #ff1675 0%, #ff7b01 100%);
   padding: 30px;
   border-radius: 20px !important;
-  min-height: 423px;
+  min-height: 500px;
   width: 930px !important;
   input,
   textarea {
@@ -2708,4 +2708,8 @@ select {
   .p-dialog[pr_id_1] {
       min-width: 86vw !important;
   }
+}
+.dropdown-item:hover, .dropdown-item.active {
+  background: none !important;
+  color: #fff !important;
 }

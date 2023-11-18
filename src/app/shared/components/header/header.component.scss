@@ -632,7 +632,7 @@
         &:hover, &.active {
           color: #fff;
           &::after {
-            border-bottom: 4px solid #ff00c8;
+            // border-bottom: 4px solid #ff00c8;
           }
         }
       }
@@ -821,29 +821,27 @@
 }
 .arrow-up {
   border: solid $white;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        margin-left: 16px;
-        margin-bottom: 2px;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 16px;
+  margin-bottom: 2px;
   transition: transform 0.3s ease-in-out;
   transform: rotate(225deg) translateY(-50%);
 }
 
 .arrow-down {
   border: solid $white;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        margin-left: 16px;
-        margin-bottom: 2px;
-  // display: inline-block;
-  // width: 0;
-  // height: 0;
-  // border-left: 5px solid transparent;
-  // border-right: 5px solid transparent;
-  // border-top: 5px solid #000; /* You can change the color to match your design */
-  // margin-left: 5px; /* Adjust the margin as needed */
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 16px;
+  margin-bottom: 2px;
   transition: transform 0.3s ease-in-out;
   transform: rotate(45deg);
+}
+
+.blog-menu .dropdown-menu.show {
+  display: block !important;
+  background: #19224a;
 }
