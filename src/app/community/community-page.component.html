@@ -68,7 +68,12 @@
         <h2>What it takes to build a social learning platform?</h2>
         <p class="content-sub-text">We are looking to aggregate tech learning resources <br> at
           internet scale with the help of passionate technologist like you. Your every post count!</p>
-        <img src="../../assets/images/community/community-image.png" alt="" class="pt-3 img-fluid" />
+          <div>
+            <img src="../../assets/images/community/community-image.png" alt="" class="pt-3 img-fluid mob-hide" />
+          </div> 
+          <div *ngIf="isMobileResolution">
+            <img src="../../assets/images/community/community-image-mobile.png" alt="" class="py-3 img-fluid" />
+          </div>
         <div >
       </div>
       </div>

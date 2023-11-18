@@ -5,23 +5,21 @@
       <ul>
         <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}"
             href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
-            <li class="blog-menu">
-              <div class="dropdown">
-                <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                  Blogs
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <button class="dropdown-item" type="button">
-                    <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none"
-                    >TekCapsule</a>
-                  </button>
-                  <button class="dropdown-item" type="button">
-                    <a href="https://aitoday.blog/" target="_blank" class="nav-item pe-none"
-                   >AI Today</a>
-                  </button>
-                </div>
-              </div>
-            </li>
+        <li class="blog-menu">
+          <div class="dropdown">
+            <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+              Blogs
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">
+                <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none">TekCapsule</a>
+              </button>
+              <button class="dropdown-item" type="button">
+                <a href="https://aitoday.blog/" target="_blank" class="nav-item pe-none">AI Today</a>
+              </button>
+            </div>
+          </div>
+        </li>
       </ul>
       <div *ngIf="!isMobileResolution">
         <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
@@ -163,7 +161,8 @@
               <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ?
                 selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
             </div>
-            <div class="mobile-header-icons" *ngIf="isMobileResolution && !selectedTopMenuItem && selectedMenuItem?.uniqueId !== 'HOME'">
+            <div class="mobile-header-icons"
+              *ngIf="isMobileResolution && !selectedTopMenuItem && selectedMenuItem?.uniqueId !== 'HOME'">
               <div class="header-search-icon"></div>
               <div class="header-sort-icon" (click)="onShowSort()"></div>
               <div class="header-filter-icon" (click)="onShowFilter()"></div>
@@ -231,10 +230,21 @@
                 </ul>
                 <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
                     (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
-                <li class="main-nav-links pt-2">
-                  <a routerLink="https://tekcapzule.blog/" target="_blank">Blog</a>
+                <li class="main-nav-links pt-2 skill-menu-bg sub-nav-line">
+                  <a (click)="toggleBlogMenu()">Blog
+                    <span [ngClass]="{'arrow-up': isBlogMenuOpen, 'arrow-down': !isBlogMenuOpen}"></span>
+                  </a>
+                  <ul *ngIf="isBlogMenuOpen" [@expandCollapseAnimation]="'expanded'">
+                    <li><a href="https://tekcapsule.blog/" target="_blank">TekCapsule</a></li>
+                    <li><a href="https://aitoday.blog/" target="_blank">AI Today</a></li>
+                  </ul>
                 </li>
               </ul>
+              <div class="d-flex align-items-center mx-5 mt-4">
+                <button mat-raised-button class="button primary-outline w-100" routerLink="/subscribe">
+                  View plans
+                </button>
+              </div>
             </div>
           </div>
         </nav>

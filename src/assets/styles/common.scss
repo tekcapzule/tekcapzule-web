@@ -2708,6 +2708,21 @@ select {
   .p-dialog[pr_id_1] {
       min-width: 86vw !important;
   }
+  .p-dialog[pr_id_2] {
+    max-height: 100% !important;
+    min-width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    .p-dialog-content {
+      padding: 0 !important;
+      .row {
+        .col-lg-6, .col-lg-3 {
+          padding-right: 0px !important;
+          padding-left: 0px !important;
+        }
+      }
+    }
+  }
 }
 .dropdown-item:hover, .dropdown-item.active {
   background: none !important;

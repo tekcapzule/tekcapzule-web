@@ -46,6 +46,8 @@ export class HeaderComponent implements OnInit {
   math = Math;
   isLoginRequiredDialogShown: boolean = false;
   isSkillStudioMenuOpen = false;
+  isBlogMenuOpen = false;
+
   destroy$ = new Subject<boolean>();
   subscription: Subscription[] = [];
 
@@ -63,6 +65,9 @@ export class HeaderComponent implements OnInit {
   }
   toggleSkillStudioMenu() {
     this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
+  }
+  toggleBlogMenu() {
+    this.isBlogMenuOpen = !this.isBlogMenuOpen;
   }
   menuClickOutsideEvent() {
     window.addEventListener(

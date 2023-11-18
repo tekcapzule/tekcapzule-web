@@ -827,7 +827,7 @@
   margin-left: 16px;
   margin-bottom: 2px;
   transition: transform 0.3s ease-in-out;
-  transform: rotate(225deg) translateY(-50%);
+  transform: rotate(45deg) translateY(-50%);
 }
 
 .arrow-down {
@@ -838,7 +838,7 @@
   margin-left: 16px;
   margin-bottom: 2px;
   transition: transform 0.3s ease-in-out;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
 }
 
 .blog-menu .dropdown-menu.show {
