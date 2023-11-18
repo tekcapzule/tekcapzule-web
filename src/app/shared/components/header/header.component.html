@@ -5,13 +5,30 @@
       <ul>
         <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}"
             href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
-        <li>
+            <li class="blog-menu">
+              <div class="dropdown">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                  Blog
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button class="dropdown-item" type="button">
+                    <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
+                    >Blog 1</a>
+                  </button>
+                  <button class="dropdown-item" type="button">
+                    <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
+                   >Blog 2</a>
+                  </button>
+                </div>
+              </div>
+            </li>
+        <!-- <li>
           <div class="dropdown" *ngIf="!isMobileResolution">
             <button class="dropbtn" (click)="openBlog($event)">Blog</button>
           </div>
           <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
             *ngIf="isMobileResolution">Blog</a>
-        </li>
+        </li> -->
       </ul>
       <div *ngIf="!isMobileResolution">
         <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
@@ -169,7 +186,7 @@
                 <div class="d-flex">
                   <img src="../../../../assets/images/mob-logo.svg" alt="mobile-logo" class="pr-3" />
                   <div>
-                    <span class="user-name">sasikumar.p@gmail.com</span>
+                    <span class="user-name">username@tekcapzule.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
                   </div>
