@@ -184,8 +184,13 @@
   .button.primary, button.tertiary {
     padding: 5px 20px;
     font-size: 15px;
-    height: auto !important;
-    width: auto !important;
+    height: 45px !important;
+    width: 148px !important;
+    // height: auto !important;
+    // width: auto !important;
+  }
+  .button.primary-outline {
+    height: 45px !important;
   }
  
   .p-multiselect-panel {
@@ -271,13 +276,14 @@
   .mission-page .about-banner {
     margin-bottom: 0 !important;
   }
-  .p-dialog {
-    width: 86vw !important;
-}
-.launchingsoon-content {
-  position: relative !important;
-  left: 0 !important;
-}
+  // .p-dialog {
+  //   width: 86vw !important;
+  // }
+
+  .launchingsoon-content {
+    position: relative !important;
+    left: 0 !important;
+  }
 }
 @media only screen and (width: 1024px) {
   .col-card {

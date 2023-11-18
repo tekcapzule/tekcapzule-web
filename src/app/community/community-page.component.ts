@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
   selector: 'app-community-page',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community-page.component.scss'],
 })
 export class CommunityPageComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private helperService: HelperService
+  ) {}
   responsiveOptions: any[] | undefined;
+  isMobileResolution: boolean;
 
   ngOnInit(): void {
     this.responsiveOptions = [
@@ -27,5 +31,10 @@ export class CommunityPageComponent implements OnInit {
           numScroll: 1
       }
   ];
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
   }
 }
