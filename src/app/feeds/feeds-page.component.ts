@@ -5,7 +5,6 @@ import { Subject, forkJoin } from 'rxjs';
 
 import {
   EventChannelService,
-  ChannelEvent,
   TopicApiService,
   UserApiService,
   FeedApiService,
@@ -16,6 +15,7 @@ import { NavTab, TopicItem, TekUserInfo } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { toUpperCamelCase } from '@app/shared/utils/common-utils';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 
 declare const jQuery: any;
 

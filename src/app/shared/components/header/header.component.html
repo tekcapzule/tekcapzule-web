@@ -8,27 +8,20 @@
             <li class="blog-menu">
               <div class="dropdown">
                 <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                  Blog
+                  Blogs
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                   <button class="dropdown-item" type="button">
-                    <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
-                    >Blog 1</a>
+                    <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none"
+                    >TekCapsule</a>
                   </button>
                   <button class="dropdown-item" type="button">
-                    <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
-                   >Blog 2</a>
+                    <a href="https://aitoday.blog/" target="_blank" class="nav-item pe-none"
+                   >AI Today</a>
                   </button>
                 </div>
               </div>
             </li>
-        <!-- <li>
-          <div class="dropdown" *ngIf="!isMobileResolution">
-            <button class="dropbtn" (click)="openBlog($event)">Blog</button>
-          </div>
-          <a routerLink="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none"
-            *ngIf="isMobileResolution">Blog</a>
-        </li> -->
       </ul>
       <div *ngIf="!isMobileResolution">
         <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
@@ -169,11 +162,8 @@
             <div class="page-name">
               <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ?
                 selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
-              <!-- <div *ngIf="selectedChildMenuItem" class="sub-nav">
-              {{ selectedChildMenuItem?.displayName }}
-            </div> -->
             </div>
-            <div class="mobile-header-icons" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
+            <div class="mobile-header-icons" *ngIf="isMobileResolution && !selectedTopMenuItem && selectedMenuItem?.uniqueId !== 'HOME'">
               <div class="header-search-icon"></div>
               <div class="header-sort-icon" (click)="onShowSort()"></div>
               <div class="header-filter-icon" (click)="onShowFilter()"></div>

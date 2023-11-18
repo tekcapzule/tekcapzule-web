@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppSpinnerService, FeedApiService, ChannelEvent, EventChannelService } from '@app/core';
+import { AppSpinnerService, FeedApiService, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleItem, NavTab } from '@app/shared/models';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 
