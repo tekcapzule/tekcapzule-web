@@ -9,6 +9,11 @@ import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [CommunityPageComponent, CommunityCarouselComponent],
-  imports: [CommonModule, SharedModule, CommunityRoutingModule, CarouselModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    CommunityRoutingModule,
+    CarouselModule
+  ],
 })
 export class CommunityModule {}
