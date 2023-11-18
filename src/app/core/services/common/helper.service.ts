@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ErrorModel, TopicItem } from '@app/shared/models';
-import { SelectedMenu } from '@app/shared/models/nav-tab.model';
+import { NavTab, SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
 import { ITile } from '@app/skill-studio/models/tile.model';
 import { MessageService } from 'primeng/api';
@@ -94,6 +94,7 @@ export class HelperService {
     });
     return selectedTopMenu;
   }
+
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
     this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
@@ -128,6 +129,11 @@ export class HelperService {
       });
     }
     return this.selectedMenu;
+  }
+
+  
+  findExtraMenuPage(pageId: string): NavTab {
+    return Constants.ExtraLink.find(el => el.uniqueId === pageId);
   }
 
   findPage(pageId: string) {

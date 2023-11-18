@@ -132,7 +132,7 @@
             <input type="text" placeholder="What are you looking for?" class="mb-0" />
             <button title="search bar" class="search-btn mr-3"></button>
           </div> -->
-          <button mat-raised-button class="button primary-outline" routerLink="/subscribe">
+          <button mat-raised-button class="button primary-outline" (click)="onViewPlans()">
             View plans
           </button>
         </div>
@@ -241,7 +241,7 @@
                 </li>
               </ul>
               <div class="d-flex align-items-center mx-5 mt-4">
-                <button mat-raised-button class="button primary-outline w-100" routerLink="/subscribe">
+                <button mat-raised-button class="button primary-outline w-100" (click)="onViewPlans()">
                   View plans
                 </button>
               </div>

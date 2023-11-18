@@ -118,6 +118,14 @@ export const Constants = {
     //{uniqueId: 'Insights', displayName: 'Insights', desc: 'Mentoring is our top priority for the people need mentor', navUrl:'/ai-hub/mentoring'}
   ],
   FooterItems: ['HOME', 'Skill_Studio', 'Market_Place', 'Insights'],
+  ExtraLink: [
+    {
+      uniqueId: 'Subscribe',
+      displayName: 'Subscribe',
+      desc: 'Subscribe Page',
+      navUrl: '/subscribe',
+    }
+  ],
   ResponsiveOptions: [
     {
       breakpoint: '1199px',
