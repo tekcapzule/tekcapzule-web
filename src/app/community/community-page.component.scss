@@ -28,8 +28,10 @@
   }
   .contributors {
     padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
+    
+    &.inner {
+      max-width: 1120px;
+    }
     .column {
       width: 175px;
       display: flex;
