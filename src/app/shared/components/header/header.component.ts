@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
   topMenu: NavTab[] = Constants.TopMenu;
   skillStudioMenu: NavTab[] = [];
   selectedTopMenuItem: NavTab;
+  selectedExtraMenuItem: NavTab;
   selectedMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
   math = Math;
@@ -273,5 +274,16 @@ export class HeaderComponent implements OnInit {
 
   onShowSort() {
     this.eventChannel.publish({ event: ChannelEvent.ShowHideSort });
+  }
+
+  onViewPlans() {
+    const navTab = this.helperService.findExtraMenuPage('Subscribe');
+    this.router.navigateByUrl(navTab.navUrl);
+    this.selectedMenuItem = Constants.HeaderMenu[0];
+    this.selectedChildMenuItem = null;
+    this.selectedTopMenuItem = null;
+    if(this.isMobileResolution) {
+      this.closeMenu()
+    }
   }
 }
