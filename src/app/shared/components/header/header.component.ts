@@ -3,26 +3,24 @@ import {
   Component,
   ElementRef,
   HostListener,
-  NgZone,
   OnInit,
-  Renderer2,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 
 import {
   AuthService,
   AuthStateService,
-  ChannelEvent,
   EventChannelService,
   TopicApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
+import { ChannelEvent, EventChannelOutput } from '@app/shared/models/channel-item.model';
 import { Constants } from '@app/shared/utils';
-import { of } from 'rxjs';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Subject, Subscription } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -42,18 +40,18 @@ export class HeaderComponent implements OnInit {
   headerMenu: NavTab[] = Constants.HeaderMenu;
   topMenu: NavTab[] = Constants.TopMenu;
   skillStudioMenu: NavTab[] = [];
-  selectedMenuItem: NavTab;
   selectedTopMenuItem: NavTab;
+  selectedMenuItem: NavTab;
   selectedChildMenuItem: NavTab;
   math = Math;
   isLoginRequiredDialogShown: boolean = false;
   isSkillStudioMenuOpen = false;
+  destroy$ = new Subject<boolean>();
+  subscription: Subscription[] = [];
 
   constructor(
-    private renderer: Renderer2,
     private auth: AuthService,
     private authState: AuthStateService,
-    private zone: NgZone,
     private router: Router,
     private topicApi: TopicApiService,
     private eventChannel: EventChannelService,
@@ -95,6 +93,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.onResize();
     this.scrollToTop();
+    this.subscribeMenuClick()
     this.topicApi.getAllTopics().subscribe(data => {
       this.topics = data;
       this.helperService.setTopicData(data);
@@ -103,6 +102,16 @@ export class HeaderComponent implements OnInit {
 
   onStopClick(eve) {
     eve.stopPropagation();
+  }
+
+  
+  subscribeMenuClick(): void {
+    const sub = this.eventChannel.getChannel().pipe(
+        filter(out => out.event === ChannelEvent.MenuClick), takeUntil(this.destroy$))
+      .subscribe((eventData: EventChannelOutput) => {
+        this.onMenuClick(eventData.data)
+      });
+    this.subscription.push(sub);
   }
 
   scrollToTop() {
@@ -180,14 +189,6 @@ export class HeaderComponent implements OnInit {
       return;
     }
     this.selectedMenuItem = navTab;
-    /*if (!this.isMobileResolution && navTab.viewType !== 'ALL') {
-      if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
-        this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
-      }else {
-        this.router.navigate([navTab.navUrl]);
-      }
-      return;
-    }*/
     if (!this.selectedMenuItem.children) {
       this.selectedChildMenuItem = null;
     }

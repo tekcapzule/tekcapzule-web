@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService, ChannelEvent, EventChannelService } from './core';
+import { AuthService, EventChannelService } from './core';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 
@@ -7,6 +7,7 @@ import { Amplify } from 'aws-amplify';
 import awsExports from '../aws-exports';
 import { Router } from '@angular/router';
 import { Carousel } from 'primeng/carousel';
+import { ChannelEvent } from './shared/models/channel-item.model';
 
 @Component({
   selector: 'app-root',

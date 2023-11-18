@@ -1,12 +1,13 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { AppSpinnerService, ChannelEvent, EventApiService, EventChannelService } from '@app/core';
+import { AppSpinnerService, EventApiService, EventChannelService } from '@app/core';
 import { IEventItem } from '@app/shared/models';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { Constants } from '@app/shared/utils';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 
 @Component({
   selector: 'app-events',
