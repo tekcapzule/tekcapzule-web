@@ -242,7 +242,13 @@
                 <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
                     (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <li class="main-nav-links pt-2">
-                  <a routerLink="https://tekcapzule.blog/" target="_blank">Blog</a>
+                  <a (click)="toggleBlogMenu()">Blog
+                    <span [ngClass]="{'arrow-up': isBlogMenuOpen, 'arrow-down': !isBlogMenuOpen}"></span>
+                  </a>
+                  <ul class="mobile-submenu" *ngIf="isBlogMenuOpen" [@expandCollapseAnimation]="'expanded'">
+                    <li><a href="https://tekcapsule.blog/" target="_blank">TekCapsule</a></li>
+                    <li><a href="https://aitoday.blog/" target="_blank">AI Today</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>

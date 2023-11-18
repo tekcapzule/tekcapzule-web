@@ -48,6 +48,8 @@ export class HeaderComponent implements OnInit {
   math = Math;
   isLoginRequiredDialogShown: boolean = false;
   isSkillStudioMenuOpen = false;
+  isBlogMenuOpen = false;
+
 
   constructor(
     private renderer: Renderer2,
@@ -65,6 +67,9 @@ export class HeaderComponent implements OnInit {
   }
   toggleSkillStudioMenu() {
     this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
+  }
+  toggleBlogMenu() {
+    this.isBlogMenuOpen = !this.isBlogMenuOpen;
   }
   menuClickOutsideEvent() {
     window.addEventListener(
