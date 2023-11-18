@@ -22,6 +22,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
 import { Constants } from '@app/shared/utils';
 import { of } from 'rxjs';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -46,6 +47,7 @@ export class HeaderComponent implements OnInit {
   selectedChildMenuItem: NavTab;
   math = Math;
   isLoginRequiredDialogShown: boolean = false;
+  isSkillStudioMenuOpen = false;
 
   constructor(
     private renderer: Renderer2,
@@ -61,7 +63,9 @@ export class HeaderComponent implements OnInit {
     this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
     //this.menuClickOutsideEvent();
   }
-
+  toggleSkillStudioMenu() {
+    this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
+  }
   menuClickOutsideEvent() {
     window.addEventListener(
       'click',
