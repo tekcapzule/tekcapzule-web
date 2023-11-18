@@ -48,6 +48,12 @@ export class FeedCardComponent implements OnInit {
   topicDetail: TopicItem;
   subrscription: Subscription[] = [];
   isMobileResolution = false;
+  playerConfig = {
+    controls: 0,
+    mute: 1,
+    autoplay: 1
+  };
+  videoId = 'XqZsoesa55w';
 
   constructor(
     private router: Router,
@@ -68,6 +74,11 @@ export class FeedCardComponent implements OnInit {
     this.awsUserInfo = this.auth.getAwsUserInfo();
     this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
     this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
+    
+  }
+  
+  onReady(e): void{
+    console.log(e, 'its ready')
   }
 
   ngOnDestroy(): void {
@@ -149,8 +160,9 @@ export class FeedCardComponent implements OnInit {
     if (!this.auth.isUserLoggedIn()) {
       return;
     }
+    const username = this.awsUserInfo ? this.awsUserInfo.username : ''; 
     this.userApi
-      .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
+      .bookmarCapsule(username, this.capsule.capsuleId)
       .pipe(
         tap(() => {
           this.feedApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe(data => {

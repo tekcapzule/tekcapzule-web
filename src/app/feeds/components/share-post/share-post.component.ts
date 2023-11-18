@@ -20,8 +20,9 @@ export class SharePostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const username = this.authState.getAwsUserInfo() ? this.authState.getAwsUserInfo().username : '';
     this.capsuleData = {
-      author: this.authState.getAwsUserInfo().username,
+      author: username,
       description: '',
       resourceUrl: '',
       title: '',

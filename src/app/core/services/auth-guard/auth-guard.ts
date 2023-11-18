@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Auth } from 'aws-amplify';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthStateService } from '../app-state/auth-state.service';
 import { AuthService } from '../auth/auth.service';

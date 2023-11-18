@@ -25,7 +25,7 @@ export class UserApiService {
   }
 
   getTekUserInfo(refreshCache?: boolean): Observable<TekUserInfo> {
-    const userId = this.auth.getAwsUserInfo().email;
+    const userId = this.auth.getAwsUserInfo() ? this.auth.getAwsUserInfo().email : 'sathish.257216@gmail.com';
 
     return this.httpClient
       .post<TekUserInfo>(

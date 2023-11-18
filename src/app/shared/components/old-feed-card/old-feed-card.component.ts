@@ -218,9 +218,9 @@ export class OldFeedCardComponent implements OnInit, OnChanges {
     if (!this.auth.isUserLoggedIn()) {
       return;
     }
-
+    const username = this.awsUserInfo ? this.awsUserInfo.username : ''; 
     this.userApi
-      .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
+      .removeCapsuleBookmark(username, this.capsule.capsuleId)
       .subscribe(data => {
         this.messageService.add({
           key: 'tc',

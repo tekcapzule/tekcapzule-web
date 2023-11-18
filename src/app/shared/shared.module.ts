@@ -25,6 +25,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
 import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
 import { CarouselModule } from 'primeng/carousel';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CarouselModule } from 'primeng/carousel';
     MatMenuModule,
     ToastModule,
     DialogModule,
-    CarouselModule
+    CarouselModule,
+    YouTubePlayerModule
   ],
   exports: [
     HeaderComponent,

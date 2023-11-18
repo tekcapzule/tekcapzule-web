@@ -152,6 +152,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();
+        this.spinner.hide();
       });
   }
 

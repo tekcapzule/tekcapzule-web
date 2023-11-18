@@ -10,7 +10,7 @@ export const Constants = {
     { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'},
   ],
   HeaderMenu: [
-    { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', available: 'PRELOGIN'},
+    { uniqueId: 'HOME', displayName: 'Home', navUrl: '/feeds/myfeeds', available: 'PRELOGIN'},
     { uniqueId: 'My_Feeds', displayName: 'Home', navUrl: '/feeds/myfeeds', viewType: 'MOBILE', available: 'POSTLOGIN' },
     { uniqueId: 'Skill_Studio', displayName: 'SkillStudio', navUrl: '/ai-hub/dashboard', viewType: 'DESKTOP', available: 'ALL',
       enablePostLogin: false,

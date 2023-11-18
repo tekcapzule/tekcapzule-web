@@ -12,7 +12,7 @@
     </div>
   </div>
   <p>{{ capsule.description }} <span class="grey-color c-click" (click)="doStartReading()"> see more…</span></p>
-  <div class="position-relative c-click" (click)="doStartReading()">
+  <div *ngIf="capsule.type !== 'VIDEO'" class="position-relative c-click" (click)="doStartReading()">
     <img [src]="capsule.imageUrl" alt="" class="img-fluid feeds-img w-100" />
     <div class="icons timer">
       <img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img" /><span>{{
@@ -28,7 +28,10 @@
     <div class="web-url">
       <a href="{{ capsule.resourceUrl }}" target="_blank">{{ capsule.resourceUrl }}</a>
     </div>
-    <div class="play-button play-icon"></div>
+    <div *ngIf="capsule.type === 'VIDEO'" class="play-button play-icon"></div>
+  </div>
+  <div *ngIf="capsule.type === 'VIDEO'">
+    <youtube-player [playerVars]="playerConfig" [width]="500" [height]="320" [videoId]="videoId" (ready)="onReady($event)"></youtube-player>
   </div>
   <div class="d-flex justify-content-between">
     <p class="grey-color c-default">{{ capsule.recommendations }} recommended</p>
