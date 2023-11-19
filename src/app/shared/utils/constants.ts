@@ -20,7 +20,7 @@ export const Constants = {
           displayName: 'Courses',
           navUrl: '/ai-hub/courses',
           enablePostLogin: true,
-          desc: 'Chart your AI learning path with hand-picked, industry-leading courses.',
+          desc: 'Chart your tech learning path with hand-picked, industry-leading courses.',
         },
         {
           uniqueId: 'Tekbyte',
@@ -28,7 +28,7 @@ export const Constants = {
           navUrl: '/ai-hub/tekbyte/explore',
           enablePostLogin: true,
           desc:
-          'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding.',
+          'Boost your tech lexicon effortlessly! Simplified explanations for complex tech terms to improve your understanding.',
         },
         {
           uniqueId: 'Weekly_Digest',
@@ -36,32 +36,32 @@ export const Constants = {
           navUrl: '/ai-hub/weekly-digest',
           enablePostLogin: true,
           desc:
-            'Get the best of AI with our curated list of leading weekly newsletters and podcasts.',
-        },  
+            'Get the best of emerging technologies with our curated list of leading weekly newsletters and podcasts.',
+        },
         {
           uniqueId: 'Interview_Prep',
           displayName: 'Interview Prep',
           navUrl: '/ai-hub/interview-prepartion',
           enablePostLogin: true,
           desc:
-          'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials.',
-        }, 
+          'Ace tech interviews! Your one-stop shop for top-tier interview preparation materials.',
+        },
         {
           uniqueId: 'Video_Library',
           displayName: 'Video Library',
           navUrl: '/ai-hub/video-library',
           enablePostLogin: true,
-          desc: 'Gain practical AI insights through our selection of informative videos.',
-        },       
+          desc: 'Gain practical tech insights through our selection of informative videos.',
+        },
         {
           uniqueId: 'Research_Papers',
           displayName: 'Research papers',
           navUrl: '/ai-hub/research-papers',
           enablePostLogin: true,
           desc:
-            'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape.',
+            'Explore the best in emerging tech research. Access groundbreaking papers that shape the tech landscape.',
         },
-        
+
       ],
     },
     { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place', available: 'ALL', enablePostLogin: true},
@@ -79,37 +79,37 @@ export const Constants = {
       uniqueId: 'tekbyte',
       displayName: 'Tekbytes',
       desc:
-        'Boost your AI lexicon effortlessly! Simplified explanations for complex AI terms to improve your understanding',
+        'Boost your tech lexicon effortlessly! Simplified explanations for complex tech terms to improve your understanding.',
       navUrl: '/ai-hub/tekbyte/explore',
     },
     {
       uniqueId: 'courses',
       displayName: 'Courses',
-      desc: 'Chart your AI learning path with hand-picked, industry-leading courses',
+      desc: 'Chart your tech learning path with hand-picked, industry-leading courses',
       navUrl: '/ai-hub/courses',
     },
     {
       uniqueId: 'Interview_Prep',
       displayName: 'Interview Prep',
-      desc: 'Ace AI interviews! Your one-stop shop for top-tier interview preparation materials',
+      desc: 'Ace tech interviews! Your one-stop shop for top-tier interview preparation materials',
       navUrl: '/ai-hub/interview-prepartion',
     },
     {
       uniqueId: 'video_library',
       displayName: 'Video Library',
-      desc: 'Gain practical AI insights through our selection of informative videos',
+      desc: 'Gain practical tech insights through our selection of informative videos',
       navUrl: '/ai-hub/video-library',
     },
     {
       uniqueId: 'Research_Papers',
       displayName: 'Research Papers',
-      desc: 'Explore the best in AI research. Access groundbreaking papers that shape the AI landscape',
+      desc: 'Explore the best in emerging tech research. Access groundbreaking papers that shape the tech landscape',
       navUrl: '/ai-hub/research-papers',
     },
     {
       uniqueId: 'Weekly_Digest',
       displayName: 'Weekly Digest',
-      desc: 'Get the best of AI with our curated list of leading weekly newsletters and podcasts',
+      desc: 'Get the best of emerging tech with our curated list of leading weekly newsletters and podcasts',
       navUrl: '/ai-hub/weekly-digest',
     },
     //{uniqueId: 'prompts', displayName: 'Prompts', desc: 'Get your AI Vocabulary Right', navUrl:'/ai-hub/prompts'},
