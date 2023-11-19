@@ -20,9 +20,9 @@ export const environment = {
   awsRegion: 'us-east-1',
   apiEndpointTemplate: 'https://{{api-gateway}}.execute-api.{{aws-region}}.amazonaws.com/dev',
   awsCognitoConfigs: {
-    clientId: '31mi0mrtgief8i94su1ejq1pgg',
-    clientSecret: '1tvg13ji1ebc5can275k4tj5i5rhqshevma5cceofaq25atednh0',
+    clientId: '6oh669hj770mhsg9pss38l9cmb',
+    clientSecret: 'ro7o0f8fcbfe8bko62c8khsakoqbeej1gf946ptrsvqng07seec',
     redirectUri: 'https://dev.tekcapzule.com',
-    domainUri: 'https://tekcapzuledev-staging.auth.us-east-1.amazoncognito.com',
+    domainUri: 'https://tekcapzuledev.auth.us-east-1.amazoncognito.com',
   },
 };
