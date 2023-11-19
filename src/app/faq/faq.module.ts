@@ -1,19 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { FaqRoutingModule } from './faq-routing.module';
-import { FaqPageComponent } from './faq-page.component';
+import { SharedModule } from '@app/shared';
 import { AccordionModule } from 'primeng/accordion';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FaqPageComponent } from './faq-page.component';
+import { FaqRoutingModule } from './faq-routing.module';
 
 @NgModule({
   declarations: [FaqPageComponent],
   imports: [
-    FormsModule,
-    ReactiveFormsModule,
     CommonModule,
     FaqRoutingModule,
-    AccordionModule
+    AccordionModule,
+    SharedModule
   ]
 })
 export class FaqModule {}

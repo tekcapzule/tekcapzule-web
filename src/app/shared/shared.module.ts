@@ -25,6 +25,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
 import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
 import { CarouselModule } from 'primeng/carousel';
+import { QAComponent } from './components/qa/qa.component';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { CarouselModule } from 'primeng/carousel';
     FilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
+    QAComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,8 @@ import { CarouselModule } from 'primeng/carousel';
     MatMenuModule,
     ToastModule,
     DialogModule,
-    CarouselModule
+    CarouselModule,
+    AccordionModule
   ],
   exports: [
     HeaderComponent,
@@ -71,6 +75,7 @@ import { CarouselModule } from 'primeng/carousel';
     FilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
+    QAComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

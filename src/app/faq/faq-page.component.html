@@ -5,29 +5,7 @@
         <h1 style="color: #1E274F;">Frequently <br>Asked Questions</h1>
         <img src="../../assets/images/faq.png" alt="" class="img-fluid" />
       </div>
-      <div class="col-lg-7">
-        <div class="search-box mx-0">
-          <input type="search" name="search" placeholder="What are you looking for?" autocomplete="off" 
-          [(ngModel)]="searchText"
-          (keyup)="onSearch()"/>
-          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
-        </div>
-
-        <div class="card flex justify-content-center">
-          <p-accordion [activeIndex]="0" #accordion>
-            <ng-container *ngFor="let list of qaList;">
-              <p-accordionTab [header]="list.title">
-                <ng-container *ngFor="let qa of list.qa;">
-                  <div class="qa-col">
-                    <p class="question" [innerHTML]="qa.qus"></p>
-                    <p class="ans" [innerHTML]="qa.ans"></p>
-                  </div>
-                </ng-container>
-              </p-accordionTab>
-            </ng-container>
-          </p-accordion>
-        </div>
-      </div>
+      <app-qa-comp [qaList]="qaList"></app-qa-comp>
     </div>
   </section>
 </div>

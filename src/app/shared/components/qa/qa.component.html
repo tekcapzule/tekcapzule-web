@@ -1,0 +1,25 @@
+<div class="faq-container">
+  <div class="col-lg-7">
+    <div class="search-box mx-0">
+      <input type="search" name="search" placeholder="What are you looking for?" autocomplete="off" 
+      [(ngModel)]="searchText"
+      (keyup)="onSearch()"/>
+      <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+    </div>
+
+    <div class="card flex justify-content-center">
+      <p-accordion [activeIndex]="0" #accordion>
+        <ng-container *ngFor="let list of qaList;">
+          <p-accordionTab [header]="list.title">
+            <ng-container *ngFor="let qa of list.qa;">
+              <div class="qa-col">
+                <p class="question" [innerHTML]="qa.qus"></p>
+                <p class="ans" [innerHTML]="qa.ans"></p>
+              </div>
+            </ng-container>
+          </p-accordionTab>
+        </ng-container>
+      </p-accordion>
+    </div>
+  </div>
+</div>
