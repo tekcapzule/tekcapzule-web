@@ -53,7 +53,7 @@ export class AuthService {
   }
 
   private getAwsCognitoLoginApi(): string {
-    const loginApi = new URL(`${environment.awsCognitoConfigs.domain}/login`);
+    const loginApi = new URL(`${environment.awsCognitoConfigs.domainUri}/login`);
     loginApi.searchParams.append('response_type', 'code');
     loginApi.searchParams.append('client_id', environment.awsCognitoConfigs.clientId);
     loginApi.searchParams.append('redirect_uri', environment.awsCognitoConfigs.redirectUri);
@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   private getAwsCognitoLogoutApi(): string {
-    const logoutApi = new URL(`${environment.awsCognitoConfigs.domain}/logout`);
+    const logoutApi = new URL(`${environment.awsCognitoConfigs.domainUri}/logout`);
     logoutApi.searchParams.append('client_id', environment.awsCognitoConfigs.clientId);
     logoutApi.searchParams.append('logout_uri', environment.awsCognitoConfigs.redirectUri);
     return logoutApi.toString();
@@ -121,7 +121,7 @@ export class AuthService {
   }
 
   private fetchAwsCognitoOAuthToken(code: string): void {
-    const tokenApi = new URL(`${environment.awsCognitoConfigs.domain}/oauth2/token`);
+    const tokenApi = new URL(`${environment.awsCognitoConfigs.domainUri}/oauth2/token`);
     const authHeaderEncoded = btoa(
       `${environment.awsCognitoConfigs.clientId}:${environment.awsCognitoConfigs.clientSecret}`
     );
@@ -150,7 +150,9 @@ export class AuthService {
   }
 
   private fetchAwsCognitoOAuthUserInfo(resp: OAuthTokenInfo): void {
-    const awsOAuthUserInfoUrl = new URL(`${environment.awsCognitoConfigs.domain}/oauth2/userInfo`);
+    const awsOAuthUserInfoUrl = new URL(
+      `${environment.awsCognitoConfigs.domainUri}/oauth2/userInfo`
+    );
 
     this.httpClient
       .get<AwsUserInfo>(awsOAuthUserInfoUrl.toString(), {

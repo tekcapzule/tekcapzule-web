@@ -27,7 +27,7 @@ export const environment = {
     clientId: '32afdup2cl1jg2fv9idfd8l4hn',
     clientSecret: 'g3esl8ns46kukru0gu2f6sc2tf6n84ltu79pq8e5hdklagvum0v',
     redirectUri: 'http://localhost:4200',
-    domain: 'https://tekcapzuledev-local.auth.us-east-1.amazoncognito.com',
+    domainUri: 'https://tekcapzuledev-local.auth.us-east-1.amazoncognito.com',
   },
 };
 

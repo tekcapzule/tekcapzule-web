@@ -23,6 +23,6 @@ export const environment = {
     clientId: '31mi0mrtgief8i94su1ejq1pgg',
     clientSecret: '1tvg13ji1ebc5can275k4tj5i5rhqshevma5cceofaq25atednh0',
     redirectUri: 'https://dev.tekcapzule.com',
-    domain: 'https://tekcapzuledev-staging.auth.us-east-1.amazoncognito.com',
+    domainUri: 'https://tekcapzuledev-staging.auth.us-east-1.amazoncognito.com',
   },
 };
