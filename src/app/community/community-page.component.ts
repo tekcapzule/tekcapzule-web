@@ -15,23 +15,28 @@ export class CommunityPageComponent implements OnInit {
   contributers: any[] = [{
     name: 'Sasikumar P',
     id: 'sasikumarp36',
-    url: 'https://github.com/sasikumarp36'
+    url: 'https://github.com/sasikumarp36',
+    imageClass: 'reward-1'
   }, {
     name: 'Sathish Kumar',
     id: 'sathish257216',
-    url: 'https://github.com/sathish257216'
+    url: 'https://github.com/sathish257216',
+    imageClass: 'reward-2'
   }, {
     name: 'Haritha Peryala',
     id: 'HarithaPeryala',
-    url: 'https://github.com/HarithaPeryala'
+    url: 'https://github.com/HarithaPeryala',
+    imageClass: 'reward-3'
   }, {
     name: 'Akhil P. B.',
     id: 'akhilpb001',
-    url: 'https://github.com/akhilpb001'
+    url: 'https://github.com/akhilpb001',
+    imageClass: 'reward-4'
   }, {
     name: 'Karthikeyan',
     id: 'kartekspace',
-    url: 'https://github.com/kartekspace'
+    url: 'https://github.com/kartekspace',
+    imageClass: 'reward-5'
   }];
 
   ngOnInit(): void {
