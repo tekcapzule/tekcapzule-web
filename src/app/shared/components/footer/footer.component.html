@@ -5,12 +5,15 @@
       <div class="row">
         <div class="col-lg-2 col-md-3 footer-links">
           <ul>
-            <li *ngFor="let menuItem of menuItems;"><a  href="Javascript:void(0)" (click)="onMenuClick(menuItem)">{{menuItem.displayName}}</a></li>
+            <li *ngFor="let menuItem of menuItems">
+              <a href="Javascript:void(0)" (click)="onMenuClick(menuItem)">{{
+                menuItem.displayName
+              }}</a>
+            </li>
             <li>
               <a href="https://tekcapzule.blog/" target="_blank" class="nav-item pe-none">Blog</a>
             </li>
           </ul>
-
         </div>
         <div class="col-lg-2 col-md-3 footer-links">
           <h6>Community</h6>
@@ -29,11 +32,17 @@
         </div>
         <div class="col-lg-4 col-md-3 pt-3">
           <div class="social-links">
-            <a target="_blank" href="https://twitter.com/tekcapzule" aria-label="Play Store"
-              ><img src="/assets/images/play-store.svg" alt="Play Store icon" class="img-fluid"
+            <a href="javascript:void(0)" aria-label="Play Store"
+              ><img
+                src="/assets/images/play-store.svg"
+                alt="Play Store icon"
+                class="img-fluid disabled"
             /></a>
-            <a target="_blank" href="https://www.linkedin.com/company/tekcapzule/" aria-label="App Store"
-              ><img src="/assets/images/app-store.svg" alt="App Store icon" class="img-fluid"
+            <a href="javascript:void(0)" aria-label="App Store"
+              ><img
+                src="/assets/images/app-store.svg"
+                alt="App Store icon"
+                class="img-fluid disabled"
             /></a>
           </div>
         </div>
@@ -43,7 +52,10 @@
             <a target="_blank" href="https://twitter.com/tekcapzule" aria-label="Twitter"
               ><img src="/assets/images/twitter.svg" alt="twitter icon"
             /></a>
-            <a target="_blank" href="https://www.linkedin.com/company/tekcapzule/" aria-label="LinkedIn"
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/company/tekcapzule/"
+              aria-label="LinkedIn"
               ><img src="/assets/images/linkedin.svg" alt="linkedin icon"
             /></a>
             <a target="_blank" href="https://www.meetup.com/tekcapzule/" aria-label="Meet"
@@ -53,7 +65,10 @@
         </div>
       </div>
       <div class="row d-flex justify-content-between copyright">
-        <div> <img src="/assets/images/logo.svg" class="footer-logo pr-3" alt="footer logo" /> Copyright &copy; 2023 TekCapzule Technologies Private Limited. All rights reserved.</div>
+        <div>
+          <img src="/assets/images/logo.svg" class="footer-logo pr-3" alt="footer logo" /> Copyright
+          &copy; 2023 TekCapzule Technologies Private Limited. All rights reserved.
+        </div>
         <div>
           <a routerLink="/legaldocs/privacypolicy">Privacy Policy</a>
           <a routerLink="/legaldocs/termsofservice">Terms of Service</a>
