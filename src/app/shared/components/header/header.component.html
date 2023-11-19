@@ -22,7 +22,7 @@
         </li>
       </ul>
       <div *ngIf="!isMobileResolution">
-        <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
+        <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn disabled-btn" disabled="true" (click)="signInUser()">
           Sign In
         </button>
         <button *ngIf="isLoggedIn$ | async" mat-raised-button class="button signin-btn" (click)="signOutUser()">
@@ -175,8 +175,11 @@
                 <div class="d-flex">
                   <img src="../../../../assets/images/mob-logo.svg" alt="mobile-logo" class="pr-3" />
                   <div>
-                    <span class="user-name">username@tekcapzule.com</span>
-                    <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
+                    <a *ngIf="!authState.isUserLoggedIn()" routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
+                    routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
+                    alt="Tekcapzule Logo" /></a>
+                    <span *ngIf="authState.isUserLoggedIn()" class="user-name">username@tekcapzule.com</span>
+                    <p *ngIf="!authState.isUserLoggedIn()" class="sign-out disabled" disabled="true" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
                   </div>
                 </div>
