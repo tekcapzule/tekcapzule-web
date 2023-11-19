@@ -28,8 +28,10 @@
   }
   .contributors {
     padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
+    
+    &.inner {
+      max-width: 1120px;
+    }
     .column {
       width: 175px;
       display: flex;
@@ -41,16 +43,19 @@
         height: 175px;
         display: flex;
         &.reward-1 {
-          background: url('../../assets/images/community/reward-1.png') no-repeat;
+          background: url('../../assets/images/community/sasi.png') no-repeat;
         }
         &.reward-2 {
-          background: url('../../assets/images/community/reward-2.png') no-repeat;
+          background: url('../../assets/images/community/sathish.png') no-repeat;
         }
         &.reward-3 {
-          background: url('../../assets/images/community/reward-3.png') no-repeat;
+          background: url('../../assets/images/community/haritha.png') no-repeat;
         }
         &.reward-4 {
-          background: url('../../assets/images/community/reward-4.png') no-repeat;
+          background: url('../../assets/images/community/akhil.png') no-repeat;
+        }
+        &.reward-5 {
+          background: url('../../assets/images/community/karthick.png') no-repeat;
         }
       }
       .points {
@@ -60,6 +65,10 @@
         color: #000;
         display: flex;
         cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         span {
           color: #EC0085;
         }

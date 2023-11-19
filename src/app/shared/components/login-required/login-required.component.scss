@@ -32,7 +32,7 @@
 
 @-webkit-keyframes animateCloud {
     0% {
-        margin-left: -1000px;
+        margin-left: -100px;
     }
     100% {
         margin-left: 100%;
@@ -50,7 +50,7 @@
 
 @keyframes animateCloud {
     0% {
-        margin-left: -1000px;
+        margin-left: -500px;
     }
     100% {
         margin-left: 100%;
@@ -72,9 +72,9 @@
 }
 
 .x3 {
-	-webkit-animation: animateCloud 15s linear infinite;
-	-moz-animation: animateCloud 15s linear infinite;
-	animation: animateCloud 15s linear infinite;
+	-webkit-animation: animateCloud 25s linear infinite;
+	-moz-animation: animateCloud 25s linear infinite;
+	animation: animateCloud 25s linear infinite;
 	
 	-webkit-transform: scale(0.5);
 	-moz-transform: scale(0.5);
@@ -82,9 +82,9 @@
 }
 
 .x4 {
-	-webkit-animation: animateCloud 20s linear infinite;
-	-moz-animation: animateCloud 20s linear infinite;
-	animation: animateCloud 20s linear infinite;
+	-webkit-animation: animateCloud 30s linear infinite;
+	-moz-animation: animateCloud 30s linear infinite;
+	animation: animateCloud 30s linear infinite;
 	
 	-webkit-transform: scale(0.4);
 	-moz-transform: scale(0.4);
@@ -92,9 +92,9 @@
 }
 
 .x5 {
-	-webkit-animation: animateCloud 25s linear infinite;
-	-moz-animation: animateCloud 25s linear infinite;
-	animation: animateCloud 25s linear infinite;
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
 	
 	-webkit-transform: scale(0.55);
 	-moz-transform: scale(0.55);
