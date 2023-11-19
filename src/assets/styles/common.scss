@@ -2746,3 +2746,8 @@ select {
   background: none !important;
   color: #fff !important;
 }
+
+.disabled-btn {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
