@@ -1,7 +1,10 @@
 <div class="insights-page">
   <div class="linear-bg-banner insights-banner">
     <section class="inner">
-      <div class="d-flex align-items-center justify-content-between py-4 px-0" *ngIf="!isMobileResolution">
+      <div
+        class="d-flex align-items-center justify-content-between py-4 px-0"
+        *ngIf="!isMobileResolution"
+      >
         <div>
           <button class="filters-btn active">Artificial Intelligence</button>
           <button class="filters-btn">Web 3.0</button>
@@ -21,32 +24,61 @@
     </section>
   </div>
 
-  
-
   <section class="inner insights-content">
     <div class="heading-display d-flex justify-content-between">
       <h2>News & Feeds</h2>
       <div class="search-rounded col-lg-3 pl-0" *ngIf="!isMobileResolution">
-        <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
-            [(ngModel)]="searchText" (keyup)="onSearch()" />
-          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+        <input
+          type="text"
+          name="searchTopics"
+          placeholder="Search"
+          class="mb-0 input-search-rounded"
+          [(ngModel)]="searchText"
+          (keyup)="onSearch()"
+        />
+        <button title="search bar" class="search-btn" (click)="onSearch()"></button>
       </div>
     </div>
-    <div *ngFor="let insights of insightsList; let i = index" class="border-line">
-      <div class="heading-display d-flex justify-content-between">
-      <div class="d-flex">
-        <h3>{{insights.title}}</h3>
-        <span class="pills ml-3" [ngClass]="{'pink':insights.topic === 'AI', 'blue':insights.topic === 'AI', 'yellow':insights.topic === 'MTV'}">{{insights.topicName}}</span>
-      </div>
-      <div class="date">{{insights.publishedOn}}<span class="pl-3 date-icon light"></span></div>
-      </div>
-      <p>{{insights.description}}</p>
-        <div class="d-flex">
-          <div class="pills">Industry News</div>
-          <div class="pills">Regulatroy News</div>
-          <div class="pills">LLM Update</div>
+    <ng-container *ngIf="spinner.isLoading">
+      <div *ngFor="let i of [1, 2, 3]" class="insight-skeleton-loader skeleton-loader border-line">
+        <div class="d-flex justify-content-between mb-4">
+          <div class="title-skeleton loading"></div>
+          <div class="date-skeleton loading"></div>
         </div>
-    </div>
-    
+        <div class="description-skeleton loading"></div>
+        <div class="description-skeleton loading"></div>
+        <div class="description-skeleton loading"></div>
+        <div class="d-flex mt-4">
+          <div class="pill-skeleton loading"></div>
+          <div class="pill-skeleton loading"></div>
+          <div class="pill-skeleton loading"></div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!spinner.isLoading">
+      <div *ngFor="let insight of insightsList; let i = index" class="border-line">
+        <div class="heading-display d-flex justify-content-between">
+          <div class="d-flex">
+            <h3>{{ insight.title }}</h3>
+            <span
+              class="pills ml-3"
+              [ngClass]="{
+                pink: insight.topic === 'AI',
+                blue: insight.topic === 'AI',
+                yellow: insight.topic === 'MTV'
+              }"
+              >{{ insight.topicName }}</span
+            >
+          </div>
+          <div class="date">
+            {{ insight.publishedOn }}<span class="pl-3 date-icon light"></span>
+          </div>
+        </div>
+        <p>{{ insight.description }}</p>
+        <div class="d-flex" *ngIf="insight?.tags?.length > 0">
+          <div class="pills" *ngFor="let tag of insight.tags">{{ tag }}</div>
+        </div>
+      </div>
+    </ng-container>
   </section>
 </div>

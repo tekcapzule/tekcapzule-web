@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { InsightsApiService } from '@app/core';
+import { AppSpinnerService, InsightsApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { InsightsItem } from '@app/shared/models/insights-item.model';
 import * as moment from 'moment';
@@ -9,28 +9,36 @@ import * as moment from 'moment';
   templateUrl: './insights-page.component.html',
   styleUrls: ['./insights-page.component.scss'],
 })
-export class InsightsPageComponent implements OnInit{
-
+export class InsightsPageComponent implements OnInit {
   insightsList: InsightsItem[] = [];
   selectedTopics = [];
   searchText: string;
   filteredInterviewList: InsightsItem[] = [];
   isMobileResolution: boolean;
-  
-  
-  constructor(private insightsApi: InsightsApiService,
-    private helperService: HelperService) {
 
-  }
+  constructor(
+    private insightsApi: InsightsApiService,
+    private helperService: HelperService,
+    public spinner: AppSpinnerService
+  ) {}
 
   ngOnInit(): void {
-    this.insightsApi.getAllInsights().subscribe(data => {
-      data.forEach(insight => {
-        insight.topicName = this.helperService.getTopicName(insight.topic);
-        insight.publishedOn = insight.publishedOn ? moment(insight.publishedOn, 'YYYY-MM-DD').fromNow() : 'NA';
-      });
-      this.insightsList = data;
-    });
+    this.spinner.show();
+    this.insightsApi.getAllInsights().subscribe(
+      data => {
+        data.forEach(insight => {
+          insight.topicName = this.helperService.getTopicName(insight.topic);
+          insight.publishedOn = insight.publishedOn
+            ? moment(insight.publishedOn, 'YYYY-MM-DD').fromNow()
+            : 'NA';
+        });
+        this.insightsList = data;
+        this.spinner.hide();
+      },
+      () => {
+        this.spinner.hide();
+      }
+    );
   }
 
   @HostListener('window:resize', ['$event'])
@@ -57,7 +65,6 @@ export class InsightsPageComponent implements OnInit{
 
   filterUpdate(topics) {
     this.selectedTopics = topics;
-    this.onSearch();    
+    this.onSearch();
   }
-
 }
