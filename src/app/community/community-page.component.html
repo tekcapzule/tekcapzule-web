@@ -34,7 +34,7 @@
         <p-carousel [value]="contributers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
             <ng-template let-contributer pTemplate="item">
               <div class="column">
-                <div class="contributors-bg reward-1"></div>
+                <div class="contributors-bg" [ngClass]="contributer.imageClass"></div>
                 <p>{{contributer.name}}</p>
                 <a [href]="contributer.url" target="_blank"><div class="points"><span class="git-icon"></span>{{contributer.id}}</div></a>
               </div>
