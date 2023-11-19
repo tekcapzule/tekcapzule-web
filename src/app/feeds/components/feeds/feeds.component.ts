@@ -36,6 +36,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
   userInfo: TekUserInfo = null;
   isShowAllBookmarks = false;
   bookmarks = [];
+  isBookmarkLoading = false;
 
   constructor(
     private auth: AuthStateService,
@@ -57,7 +58,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('FeedsComponent  ')
+    console.log('FeedsComponent  ');
     this.fetchUserInfo();
     this.getAllTopics();
     this.subscribeFilterType();
@@ -74,12 +75,19 @@ export class FeedsComponent implements OnInit, OnDestroy {
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
-    this.userApi.getTekUserInfo(refreshCache).subscribe(userInfo => {
-      this.userInfo = userInfo;
-      if(this.userInfo.bookmarks) {
-        this.bookmarks = this.userInfo.bookmarks;
+    this.isBookmarkLoading = true;
+    this.userApi.getTekUserInfo(refreshCache).subscribe(
+      userInfo => {
+        this.userInfo = userInfo;
+        if (this.userInfo.bookmarks) {
+          this.bookmarks = this.userInfo.bookmarks;
+        }
+        this.isBookmarkLoading = false;
+      },
+      () => {
+        this.isBookmarkLoading = false;
       }
-    });
+    );
   }
 
   getAllTopics(): void {

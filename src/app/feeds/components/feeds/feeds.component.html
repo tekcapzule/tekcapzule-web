@@ -3,10 +3,32 @@
     <div class="d-flex justify-content-between row-mobile">
       <div class="bookmarks-container mob-hide">
         <h6>Recent Bookmarks</h6>
-        <ul class="bookmarks">
-          <li *ngFor="let bm of bookmarks | slice: 0: (!this.isShowAllBookmarks && bookmarks.length > 10 ? 10 : bookmarks.length)">{{bm.title}}</li>
+        <div *ngIf="isBookmarkLoading" class="bookmark-skeleton-loader skeleton-loader">
+          <div class="bookmark-item loading"></div>
+          <div class="bookmark-item loading"></div>
+          <div class="bookmark-item loading"></div>
+          <div class="bookmark-item loading"></div>
+          <div class="bookmark-item loading"></div>
+        </div>
+        <ul *ngIf="!isBookmarkLoading" class="bookmarks">
+          <li
+            *ngFor="
+              let bm of bookmarks
+                | slice
+                  : 0
+                  : (!this.isShowAllBookmarks && bookmarks.length > 10 ? 10 : bookmarks.length)
+            "
+          >
+            {{ bm.title }}
+          </li>
         </ul>
-        <p *ngIf="!this.isShowAllBookmarks && bookmarks.length > 10" class="text-bold" (click)="showAllbookmarks()"><a href="#" class="underline">See all</a></p>
+        <p
+          *ngIf="!this.isShowAllBookmarks && bookmarks.length > 10"
+          class="text-bold"
+          (click)="showAllbookmarks()"
+        >
+          <a href="#" class="underline">See all</a>
+        </p>
       </div>
       <div>
         <div class="share-container mob-hide">
