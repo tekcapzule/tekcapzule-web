@@ -12,12 +12,14 @@ export class CommunityPageComponent implements OnInit {
   ) {}
   responsiveOptions: any[] | undefined;
   isMobileResolution: boolean;
-  contributers: any[] = [{
-    name: 'Sasikumar P',
-    id: 'sasikumarp36',
-    url: 'https://github.com/sasikumarp36',
-    imageClass: 'reward-1'
-  }, {
+  contributers: any[] = [
+  //   {
+  //   name: 'Sasikumar P',
+  //   id: 'sasikumarp36',
+  //   url: 'https://github.com/sasikumarp36',
+  //   imageClass: 'reward-1'
+  // }, 
+  {
     name: 'Sathish Kumar',
     id: 'sathish257216',
     url: 'https://github.com/sathish257216',
