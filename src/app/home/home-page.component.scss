@@ -6,6 +6,9 @@
   h2 {
     font-size: 30px !important;
     font-family: $primary-font-bold;
+    @media only screen and (max-width: 990px) {
+      font-size: 24px !important;
+    }
   }
   h3 {
     font-size: 24px;
@@ -281,23 +284,33 @@
     max-width: 1220px;
   }
   .skillstudio-inner {
-    max-width: 1120px;
+    max-width: 990px;
     margin: 0 auto;
     width: 100%;
   }
 }
-.home-banner-title, .home-banner-subtitle {
+.home-banner-title{
+  font-family: $primary-font-xbold !important;
+  line-height: 35px;
+}
+.home-banner-subtitle {
   font-family: $primary-font-xbold !important;
   min-height: 45px;
+  display: flex;
+  align-items: center;
+  line-height: 30px;
   img {
-    width: 60px;
-    min-height: 50px;
+    max-height: 50px;
     float: left;
+    margin-right: 20px;
   }
 }
 
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
+  .coming-soon-img {
+    padding-top: 20px;
+  }
   .key-feature-block {
     display: block !important;
     text-align: center !important;
