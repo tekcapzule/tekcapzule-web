@@ -141,7 +141,6 @@ export class HeaderComponent implements OnInit {
   }
 
   signInUser(): void {
-    return;
     this.auth.signInUser();
   }
 
