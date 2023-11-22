@@ -3,7 +3,7 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-2 col-md-2 footer-links">
           <ul>
             <li *ngFor="let menuItem of menuItems">
               <a href="Javascript:void(0)" (click)="onMenuClick(menuItem)">{{
@@ -15,7 +15,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-2 col-md-2 footer-links">
           <h6>Community</h6>
           <ul class="text-lightpurple">
             <li><a routerLink="/community">Our Community</a></li>
@@ -23,20 +23,20 @@
             <li><a  href="Javascript:void(0)" (click)="onMenuClick(eventsPageLink)">{{eventsPageLink.displayName}}</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-2 col-md-2 footer-links">
           <h6>Company</h6>
           <ul class="text-lightpurple">
             <li><a routerLink="/mission">About Us</a></li>
             <li><a routerLink="/mission">Contact Us</a></li>
           </ul>
         </div>
-        <div class="col-lg-4 col-md-3 pt-3">
+        <div class="col-lg-4 col-md-4 pt-3">
           <div class="social-links">
             <a href="javascript:void(0)" aria-label="Play Store"
               ><img
                 src="/assets/images/play-store.svg"
                 alt="Play Store icon"
-                class="img-fluid disabled"
+                class="img-fluid disabled pb-3"
             /></a>
             <a href="javascript:void(0)" aria-label="App Store"
               ><img
@@ -46,7 +46,7 @@
             /></a>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-2 col-md-2 footer-links">
           <h6>Follow Us</h6>
           <div class="social-links">
             <a target="_blank" href="https://twitter.com/tekcapzule" aria-label="Twitter"

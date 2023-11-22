@@ -32,7 +32,7 @@
     margin-top: -60px;
     font-size: 14px;
     color: #505050;
-    @media only screen and (max-width: 767px) and (min-width: 360px) {
+    @media only screen and (max-width: 767px) and (min-width: 280px) {
       background: linear-gradient(0deg, #672b66 0%, #202a5f 100%) !important;
       margin-top: 0px;
       padding: 20px 25px !important;
@@ -74,7 +74,7 @@
   .border-line {
     border-bottom: 1px solid #707070;
     padding: 23px 0;
-    @media only screen and (max-width: 767px) and (min-width: 360px) {
+    @media only screen and (max-width: 767px) and (min-width: 280px) {
       border-bottom: 1px solid #707070;
       padding: 23px 0;
       background: #fff;

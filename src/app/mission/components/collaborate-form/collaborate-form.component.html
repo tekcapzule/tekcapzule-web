@@ -11,7 +11,7 @@
         <div class="row mt-3">
           <img src="../../assets/images/about/aboutus-call-mob.png" alt="Contact Form" class="img-fluid" *ngIf="isMobileResolution">
 
-          <div class="col-lg-6 col-sm-12 form-field "
+          <div class="col-lg-6 col-md-6 col-sm-12 form-field "
             [ngClass]="{'error-text': feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid}">
             <input type="text" name="firstname" placeholder="First Name *" formControlName="firstName" />
 
@@ -19,7 +19,7 @@
             feedbackFormGroup.get('firstName').touched && feedbackFormGroup.get('firstName').invalid
             ">Please enter first name</span>
           </div>
-          <div class="col-lg-6 col-sm-12 form-field "
+          <div class="col-lg-6 col-md-6 col-sm-12 form-field "
             [ngClass]="{'error-text': feedbackFormGroup.get('lastName').touched && feedbackFormGroup.get('lastName').invalid}">
             <input type="text" name="lastname" placeholder="Last Name *" formControlName="lastName" />
             <span class="error-msg" *ngIf="
