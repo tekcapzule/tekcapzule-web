@@ -195,6 +195,11 @@
     height: 116px;
     width: auto;
     background-size: cover;
+    .app-content {
+      display: flex;
+      align-items: center;
+      justify-content:flex-end;
+  }
     .app-img {
       position: inherit;
       margin-top: -80px;
