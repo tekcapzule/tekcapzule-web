@@ -40,14 +40,16 @@ h6 {
 }
 
 h1 {
-  font-size: 34px;
-  line-height: 40px;
-  color: #fff;
+  font-size: 42px;
+  line-height: 46px !important;
   font-family: $primary-font-bold;
 
   @media only screen and (max-width: 767px) {
-    line-height: 30px;
+    line-height: 30px !important;
     font-size: 24px;
+  }
+  @media only screen and (width: 768px) {
+    line-height: 36px !important;
   }
 
   span {
@@ -2701,6 +2703,7 @@ select {
 .learning-pattern {
   background: url('../../assets/images/home/learning-pattern.svg') 0 0  no-repeat;
   background-size: cover;
+  padding-top: 40px;
 }
 .dark-grey-pattern {
   background: url('../../assets/images/home/dark-grey-pattern.svg') 0 0  no-repeat;
@@ -2753,4 +2756,9 @@ select {
 .disabled-btn {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+body.modal-open {
+  height: 100vh;
+  overflow-y: hidden;
 }
