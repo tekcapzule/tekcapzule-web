@@ -10,10 +10,21 @@ import { HomeCarouselComponent } from './components/home-carousel/home-carousel.
 import { CarouselModule } from 'primeng/carousel';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { NgxTypedWriterModule } from 'ngx-typed-writer';
 
 @NgModule({
   declarations: [HomePageComponent, HomeCarouselComponent],
-  imports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule, SharedModule, CarouselModule, HomeRoutingModule, ToastModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    CarouselModule,
+    HomeRoutingModule,
+    ToastModule,
+    NgxTypedWriterModule
+  ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
