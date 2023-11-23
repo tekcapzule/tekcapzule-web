@@ -11,6 +11,7 @@ import { ApiInterceptor, CacheInterceptor, CoreModule, UserApiService } from '@a
 import { AuthGuard } from './core/services/auth-guard/auth-guard';
 import { HelperService } from './core/services/common/helper.service';
 import { MessageService } from 'primeng/api';
+import { NgxTypedWriterModule } from 'ngx-typed-writer';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MessageService } from 'primeng/api';
     CoreModule,
     SharedModule,
     AuthModule,
+    NgxTypedWriterModule
   ],
   exports: [],
   providers: [

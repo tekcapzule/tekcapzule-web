@@ -26,12 +26,12 @@
   },
   "dependencies": {
     "@angular/animations": "16.2.12",
-    "@angular/cdk": "15.2.5",
+    "@angular/cdk": "16.2.12",
     "@angular/common": "16.2.12",
     "@angular/compiler": "16.2.12",
     "@angular/core": "16.2.12",
     "@angular/forms": "16.2.12",
-    "@angular/material": "15.2.5",
+    "@angular/material": "16.2.12",
     "@angular/platform-browser": "16.2.12",
     "@angular/platform-browser-dynamic": "16.2.12",
     "@angular/router": "16.2.12",
@@ -40,10 +40,10 @@
     "d3": "7.8.5",
     "eslint": "8.53.0",
     "moment": "2.29.4",
+    "ngx-typed-writer": "^1.1.2",
     "primeicons": "6.0.1",
-    "primeng": "15.3.0",
-    "rxjs": "7.8.0",
-    "tslib": "2.3.0",
+    "primeng": "16.9.0",
+    "rxjs": "7.8.1",
     "zone.js": "0.13.0"
   },
   "devDependencies": {
@@ -54,6 +54,7 @@
     "@types/jasmine": "3.6.0",
     "@types/node": "12.11.1",
     "codelyzer": "6.0.0",
+    "eslint": "8.53.0",
     "husky": "6.0.0",
     "jasmine-core": "3.6.0",
     "jasmine-spec-reporter": "5.0.0",
@@ -67,7 +68,7 @@
     "pretty-quick": "3.1.0",
     "protractor": "7.0.0",
     "ts-node": "8.3.0",
-    "eslint": "8.53.0",
+    "tslib": "^2.6.2",
     "typescript": "4.9.5"
   }
 }
