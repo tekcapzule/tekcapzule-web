@@ -8,8 +8,8 @@ import { ApiSuccess, CapsuleItem } from '@app/shared/models';
 import { cacheManager } from '@app/shared/utils';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 
-const FEED_API_PATH = `${environment.apiEndpointTemplate}/capsule`
-  .replace('{{api-gateway}}', environment.capsuleApiGateway)
+const FEED_API_PATH = `${environment.apiEndpointTemplate}/feed`
+  .replace('{{api-gateway}}', environment.feedApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
 const FEEDS_MYFEEDS_CACHE_KEY = 'com.tekcapzule.feeds.myfeeds';
