@@ -21,7 +21,7 @@ import { MessageService } from 'primeng/api';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    AuthModule,
+    AuthModule
   ],
   exports: [],
   providers: [

@@ -17,6 +17,7 @@ export const environment = {
   researchPaperApiGateway: 'flve5ir6cc',
   campaignApiGateway: 'orf1vh4o23',
   insightsApiGateway: '878m5ejncb',
+  feedApiGateway: 'b0jqzywk9l',
   awsRegion: 'us-east-1',
   apiEndpointTemplate: 'https://{{api-gateway}}.execute-api.{{aws-region}}.amazonaws.com/prod',
   awsCognitoConfigs: {

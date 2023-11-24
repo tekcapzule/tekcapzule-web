@@ -4,9 +4,16 @@
   <section class="home-banner">
     <div class="container-fluid text-center pt-5">
       <h1 class="home-banner-title text-white">We guide you to master <br> emerging technologies with ease</h1>
-      <h3 class="text-white pb-3 content-sub-text">
-        Enhance your skills with easy-to-follow content from around the globe. <br>
-      </h3>
+      <div class="text-white pb-3 content-sub-text">
+        <ngx-typed-writer
+          [strings]="['<h3>Enhance your skills with easy-to-follow content from around the globe.</h3>']"
+          [showCursor]="true"
+          [cursorChar]="'|'"
+          [isHTML]="true"
+          [backSpeed]="30"
+          [typeSpeed]="30"
+        ></ngx-typed-writer>
+      </div>
       <div class="d-block text-center">
         <button class="button primary-btn disabled-btn" disabled="true">Watch Demo</button>
       </div>
