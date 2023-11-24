@@ -57,7 +57,17 @@ export class CommunityPageComponent implements OnInit {
           breakpoint: '1100px',
           numVisible: 2,
           numScroll: 2
-      }
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 3,
+        numScroll: 3
+    },
+    {
+      breakpoint: '767px',
+      numVisible: 2,
+      numScroll: 2
+  }
   ];
   }
   @HostListener('window:resize', ['$event'])

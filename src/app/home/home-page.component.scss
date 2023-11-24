@@ -4,15 +4,17 @@
   margin-top: 75px;
 
   h2 {
-    font-size: 30px !important;
+    font-size: 38px !important;
     font-family: $primary-font-bold;
+    color: #363636;
     @media only screen and (max-width: 990px) {
-      font-size: 24px !important;
+      font-size: 22px !important;
+      line-height: 28px;
     }
   }
   h3 {
     font-size: 24px;
-    font-family: $primary-font-medium;
+    font-family: $primary-font-regular;
   }
   h4 {
     font-size: 20px;
@@ -38,7 +40,7 @@
   }
   .key-feature-bg {
     background: transparent linear-gradient(263deg, #2C2B33 0%, #352B5C 100%) 31% 75% no-repeat;
-    background-position-y: 243px;
+    background-position-y: 365px;
   }
 
   .social-share-container {
@@ -198,10 +200,10 @@
       display: flex;
       align-items: center;
       justify-content:flex-end;
-    }
+  }
     .app-img {
       position: inherit;
-    margin-top: -80px;
+      margin-top: -80px;
     // margin-right: 50px;
     }
   }
@@ -290,15 +292,17 @@
   }
 }
 .home-banner-title{
-  font-family: $primary-font-xbold !important;
+  font-family: $primary-font-bold !important;
   line-height: 35px;
+  color: #363636;
 }
 .home-banner-subtitle {
-  font-family: $primary-font-xbold !important;
+  font-family: $primary-font-bold !important;
   min-height: 45px;
   display: flex;
   align-items: center;
-  line-height: 30px;
+  line-height: 38px;
+  color: #363636;
   img {
     max-height: 50px;
     float: left;
@@ -331,10 +335,6 @@
     height: auto !important;
     padding: 0 0 20px;
     height: auto;
-    .app-content {
-      display: block !important;
-      line-height: 22px;
-    }
     .app-img {
       width: 100px;
       margin-top: 20px !important;
@@ -386,11 +386,16 @@
   }
   .home-page .home-banner{
     height: auto !important;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
   }
 }
 .high-note {
   background: url('../../assets/images/home/comingsoon-bg.svg') no-repeat;
   color: #fff;
   padding: 0 20px;
+}
+.skill-bg-section {
+  background: url('../../assets/images/home/skillstudio-bg.svg') no-repeat;
+  background-size: cover;
+  color: #fff;
 }
