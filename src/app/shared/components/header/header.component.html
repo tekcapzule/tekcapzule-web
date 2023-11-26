@@ -182,7 +182,6 @@
                     <span *ngIf="authState.isUserLoggedIn()" class="user-name">username@tekcapzule.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
-                    >
                   </div>
                 </div>
                 <div class="close-btn" (click)="closeMenu()"></div>
