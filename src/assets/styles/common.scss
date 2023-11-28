@@ -205,7 +205,7 @@ h4 {
     }
   }
 
-  .content {
+  .loader-content {
     padding: 0 20px 20px;
 
     .title {
@@ -435,7 +435,7 @@ h4 {
 .content-sub-text {
   font-size: 18px;
   font-family: $primary-font-medium;
-  line-height: 26px;
+  line-height: 30px;
   color: $secondary-color;
 
   @media only screen and (max-width: 990px) {
@@ -1098,12 +1098,12 @@ app-spinner {
 .bg-inchworm {
   background-color: #C2E823;
   width: fit-content;
-  padding: 0 25px;
+  padding: 0 25px 0 !important;
 }
 .bg-fandango {
   background-color: #B90D94;
   width: fit-content;
-  padding: 0 25px;
+  padding: 0 25px 0 !important;
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
@@ -2762,3 +2762,64 @@ body.modal-open {
   height: 100vh;
   overflow-y: hidden;
 }
+
+/***********Loader**************/
+.loader-content {
+	position: relative;
+  display: flex;
+	background: #fff;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader-content h2 {
+	color: #fff;
+	font-size: 4rem !important;
+	position: absolute;
+	// transform: translate(-50%, -50%);
+  font-family: $primary-font-regular;
+
+}
+
+.loader-content h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #ec0085;
+}
+
+.loader-content h2:nth-child(2) {
+	color: #ec0085;
+	animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+

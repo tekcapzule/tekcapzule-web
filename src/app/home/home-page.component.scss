@@ -4,9 +4,10 @@
   margin-top: 75px;
 
   h2 {
-    font-size: 38px !important;
+    font-size: 34px !important;
     font-family: $primary-font-bold;
     color: #363636;
+    padding-bottom: 15px;
     @media only screen and (max-width: 990px) {
       font-size: 22px !important;
       line-height: 28px;
@@ -29,7 +30,7 @@
     background: transparent linear-gradient(258deg, #002884 0%, #C31B82 100%) 0% 0% no-repeat;
 
     // background: url('../../assets/images/ball-wed.svg'), url('../../assets/images/home/home-banner-bg.svg') no-repeat;
-    height: 600px;
+    height: 592px;
     width: 100%;
     margin-bottom: 50px;
     background-size: cover;
@@ -199,12 +200,14 @@
     .app-content {
       display: flex;
       align-items: center;
-      justify-content:flex-end;
+      justify-content: center;
+      height: 116px;
+      gap: 20px;
   }
     .app-img {
-      position: inherit;
-      margin-top: -80px;
-    // margin-right: 50px;
+      position: absolute;
+      margin-top: -70px;
+      right: 12%;
     }
   }
 /*--------------------------------------------------------------
@@ -286,15 +289,17 @@
     max-width: 1220px;
   }
   .skillstudio-inner {
-    max-width: 990px;
+    max-width: 1040px;
     margin: 0 auto;
     width: 100%;
+    padding: 50px 0;
   }
 }
 .home-banner-title{
   font-family: $primary-font-bold !important;
-  line-height: 35px;
+  line-height: 42px;
   color: #363636;
+  padding-bottom: 15px;
 }
 .home-banner-subtitle {
   font-family: $primary-font-bold !important;
@@ -336,8 +341,9 @@
     padding: 0 0 20px;
     height: auto;
     .app-img {
-      width: 100px;
-      margin-top: 20px !important;
+      width: 80px;
+      margin-top: 10px !important;
+      right: 4% !important;
     }
   }
   .subscribe {
@@ -395,7 +401,7 @@
   padding: 0 20px;
 }
 .skill-bg-section {
-  background: url('../../assets/images/home/skillstudio-bg.svg') no-repeat;
+  background: url('../../assets/images/home/skillstudio-line.png') no-repeat, url('../../assets/images/home/skillstudio-bg.svg') no-repeat;
   background-size: cover;
   color: #fff;
 }
