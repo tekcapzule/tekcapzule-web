@@ -54,7 +54,7 @@ h1 {
 
   span {
     color: $primary-color;
-    text-transform: uppercase;
+    text-transform: none;
   }
 }
 
@@ -356,7 +356,7 @@ h4 {
     font-family: $primary-font-black;
     font-size: 16px;
     border: 1px solid #1E2663;
-    transition: all 0.35s ease-in-out; 
+    transition: all 0.35s ease-in-out;
     background: transparent;
     color: #1E2663;
     &:hover {
@@ -1090,7 +1090,7 @@ app-spinner {
   border: 1px solid #AAADD8 !important;
   margin-right: 20px;
 }
-.bg-navy-blue 
+.bg-navy-blue
 {
   background-color: #202A5F !important;
   color: #fff;
@@ -2562,7 +2562,7 @@ select {
     width: 100%;
     height: 250px;
     margin-bottom: 20px;
-    min-width: 529px; 
+    min-width: 529px;
     margin-left: -16px;
   }
   .subscribe-container {
@@ -2676,7 +2676,7 @@ select {
 .header-search-icon {
   background: url('../images/mobile/mobile-search.svg') no-repeat;
   width: 20px;
-  height: 20px; 
+  height: 20px;
 }
 .header-sort-icon {
   background: url('../images/mobile/mobile-sort.svg') no-repeat;
@@ -2686,12 +2686,12 @@ select {
 .header-filter-icon {
   background: url('../images/mobile/mobile-filter.svg') no-repeat;
   width: 25px;
-  height: 23px; 
+  height: 23px;
 }
 
 
 .video-container {
-  width: 100%; 
+  width: 100%;
   height: 700px
 }
 .dot-pattern {
