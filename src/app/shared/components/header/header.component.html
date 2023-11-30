@@ -21,7 +21,6 @@
           </div>
         </li>
       </ul>
-      <!--
       <div *ngIf="!isMobileResolution">
         <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
           Sign In
@@ -30,7 +29,6 @@
           Sign Out
         </button>
       </div>
-      -->
     </div>
   </div>
   <header id="header">
@@ -180,11 +178,9 @@
                     <a *ngIf="!authState.isUserLoggedIn()" routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
                     routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                     alt="Tekcapzule Logo" /></a>
-                    <!--
                     <span *ngIf="authState.isUserLoggedIn()" class="user-name">username@tekcapzule.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
-                    -->
                   </div>
                 </div>
                 <div class="close-btn" (click)="closeMenu()"></div>
