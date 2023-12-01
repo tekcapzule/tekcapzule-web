@@ -5,7 +5,7 @@ export interface TekUserInfo {
   emailId: string;
   firstName: string;
   lastName: string;
-  bookmarks: string[];
+  bookmarks: any[];
   subscribedTopics: string[];
   phoneNumber: string;
   activeSince: string;

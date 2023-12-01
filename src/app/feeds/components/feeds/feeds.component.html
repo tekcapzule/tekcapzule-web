@@ -11,9 +11,16 @@
           <div class="bookmark-item loading"></div>
         </div>
         <ul *ngIf="!isBookmarkLoading" class="bookmarks">
-          <li *ngFor="let bm of bookmarks | slice : 0 : (!this.isShowAllBookmarks && bookmarks.length > 10 ? 10 : bookmarks.length)">
-            {{ bm.title }}
+          <li *ngFor="let bmName of bookmarks">
+            {{bmName}}
+            <ul>
+              <li *ngFor="let bm of bookmarkObj[bmName]" (click)="onBookmarkClick(bm)">
+                {{bm.title}}
+            </ul>
           </li>
+          <!--li *ngFor="let bm of bookmarks | slice : 0 : (!this.isShowAllBookmarks && bookmarks.length > 10 ? 10 : bookmarks.length)">
+            {{ bm.title }}
+          </!li-->
         </ul>
         <p
           *ngIf="!this.isShowAllBookmarks && bookmarks.length > 10"

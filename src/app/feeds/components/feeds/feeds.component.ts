@@ -37,6 +37,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
   isShowAllBookmarks = false;
   bookmarks = [];
   isBookmarkLoading = false;
+  bookmarkObj = {};
 
   constructor(
     private auth: AuthStateService,
@@ -81,6 +82,16 @@ export class FeedsComponent implements OnInit, OnDestroy {
         this.userInfo = userInfo;
         if (this.userInfo.bookmarks) {
           this.bookmarks = this.userInfo.bookmarks;
+          this.userInfo.bookmarks.forEach(bm => {
+            if(this.bookmarkObj[bm.resourceType]) {
+              this.bookmarkObj[bm.resourceType].push(bm);
+            } else {
+              this.bookmarkObj[bm.resourceType] = []
+              this.bookmarkObj[bm.resourceType].push(bm);
+            }
+            this.bookmarks = Object.keys(this.bookmarkObj);
+          });
+          console.log('bookmarkObj', this.bookmarks, this.bookmarkObj);
         }
         this.isBookmarkLoading = false;
       },
@@ -203,5 +214,9 @@ export class FeedsComponent implements OnInit, OnDestroy {
 
   showAllbookmarks() {
     this.isShowAllBookmarks = !this.isShowAllBookmarks;
+  }
+
+  onBookmarkClick(bm) {
+    console.log('bm', bm);
   }
 }
