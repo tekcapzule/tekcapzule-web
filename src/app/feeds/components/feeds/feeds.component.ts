@@ -1,5 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   AppSpinnerService,
   AuthStateService,
@@ -49,7 +50,8 @@ export class FeedsComponent implements OnInit, OnDestroy {
     private messageService: MessageService,
     private fb: FormBuilder,
     private subscriptionApi: SubscriptionApiService,
-    private topicApi: TopicApiService
+    private topicApi: TopicApiService,
+    private router: Router
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel.publish({
@@ -217,6 +219,14 @@ export class FeedsComponent implements OnInit, OnDestroy {
   }
 
   onBookmarkClick(bm) {
-    console.log('bm', bm);
+    if (this.helperService.isLocalPublisher(bm.publisher)) {
+      this.spinner.show();
+      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', bm.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', bm.title);
+      this.router.navigate(['capsules', bm.resourceId, 'details']);
+    } else {
+      window.open(bm.resourceUrl, '_blank');
+    }
   }
 }
