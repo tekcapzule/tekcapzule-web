@@ -14,7 +14,7 @@
           <li *ngFor="let bmName of bookmarks">
             {{bmName}}
             <ul>
-              <li *ngFor="let bm of bookmarkObj[bmName]" (click)="onBookmarkClick(bm)">
+              <li *ngFor="let bm of bookmarkObj[bmName]" class="c-click" (click)="onBookmarkClick(bm)">
                 {{bm.title}}
             </ul>
           </li>
