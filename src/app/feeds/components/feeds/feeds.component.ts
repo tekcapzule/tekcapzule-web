@@ -137,6 +137,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
     } else {
       this.filteredCapsule = this.capsules;
     }
+    console.log('filteredCapsule', this.filteredCapsule);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -160,6 +161,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();
+        this.spinner.hide();
       });
   }
 
