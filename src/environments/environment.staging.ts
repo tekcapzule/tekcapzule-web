@@ -23,7 +23,7 @@ export const environment = {
   awsCognitoConfigs: {
     clientId: '6oh669hj770mhsg9pss38l9cmb',
     clientSecret: 'ro7o0f8fcbfe8bko62c8khsakoqbeej1gf946ptrsvqng07seec',
-    redirectUri: 'http://localhost:4200/',
+    redirectUri: 'https://de.tekcapzule.com/',
     domainUri: 'https://tekcapzuledev.auth.us-east-1.amazoncognito.com',
   },
 };
