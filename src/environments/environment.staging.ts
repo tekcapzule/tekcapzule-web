@@ -7,7 +7,7 @@ export const environment = {
   courseApiGateway: 'pir8ksji0b',
   marketplaceApiGateway: '2qdikhxbob',
   capsuleApiGateway: 'zgzztfoaxe',
-  topicApiGateway: 'ydfobf5vfd',
+  topicApiGateway: 'q7y9oyz0d9',
   feedbackApiGateway: 'm4hav0fkxf',
   subscriptionApiGateway: 'r8stxkvqs4',
   digestApiGateway: '7vrqxopm10',

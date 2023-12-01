@@ -1,5 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   AppSpinnerService,
   AuthStateService,
@@ -37,6 +38,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
   isShowAllBookmarks = false;
   bookmarks = [];
   isBookmarkLoading = false;
+  bookmarkObj = {};
 
   constructor(
     private auth: AuthStateService,
@@ -48,7 +50,8 @@ export class FeedsComponent implements OnInit, OnDestroy {
     private messageService: MessageService,
     private fb: FormBuilder,
     private subscriptionApi: SubscriptionApiService,
-    private topicApi: TopicApiService
+    private topicApi: TopicApiService,
+    private router: Router
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
     this.eventChannel.publish({
@@ -81,6 +84,16 @@ export class FeedsComponent implements OnInit, OnDestroy {
         this.userInfo = userInfo;
         if (this.userInfo.bookmarks) {
           this.bookmarks = this.userInfo.bookmarks;
+          this.userInfo.bookmarks.forEach(bm => {
+            if(this.bookmarkObj[bm.resourceType]) {
+              this.bookmarkObj[bm.resourceType].push(bm);
+            } else {
+              this.bookmarkObj[bm.resourceType] = []
+              this.bookmarkObj[bm.resourceType].push(bm);
+            }
+            this.bookmarks = Object.keys(this.bookmarkObj);
+          });
+          console.log('bookmarkObj', this.bookmarks, this.bookmarkObj);
         }
         this.isBookmarkLoading = false;
       },
@@ -137,6 +150,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
     } else {
       this.filteredCapsule = this.capsules;
     }
+    console.log('filteredCapsule', this.filteredCapsule);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -160,6 +174,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
       .subscribe(capsules => {
         this.capsules = capsules;
         this.filterByCapsuleType();
+        this.spinner.hide();
       });
   }
 
@@ -201,5 +216,17 @@ export class FeedsComponent implements OnInit, OnDestroy {
 
   showAllbookmarks() {
     this.isShowAllBookmarks = !this.isShowAllBookmarks;
+  }
+
+  onBookmarkClick(bm) {
+    if (this.helperService.isLocalPublisher(bm.publisher)) {
+      this.spinner.show();
+      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', bm.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', bm.title);
+      this.router.navigate(['capsules', bm.resourceId, 'details']);
+    } else {
+      window.open(bm.resourceUrl, '_blank');
+    }
   }
 }

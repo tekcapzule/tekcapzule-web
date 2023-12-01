@@ -62,9 +62,9 @@ export class FeedsPageComponent implements OnInit, OnDestroy {
 
   getMetadata() {
     this.feedApi.getMetadata().subscribe(data => {
-      data.capsuleType.forEach(type => {
+      /*data.capsuleType.forEach(type => {
         this.capsuleTypes.push({ code: type, name: type, displayName: toUpperCamelCase(type) });
-      });
+      });*/
       this.capsuleTypes.push({ code: 'VIDEO', name: 'VIDEO', displayName: toUpperCamelCase('VIDEO') });
       this.capsuleTypes.push({ code: 'ARTICLE', name: 'ARTICLE', displayName: toUpperCamelCase('ARTICLE') });
       this.capsuleTypes.push({ code: 'NEWS', name: 'NEWS', displayName: toUpperCamelCase('NEWS') });
