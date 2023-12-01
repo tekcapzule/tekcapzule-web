@@ -11,14 +11,7 @@
           <div class="bookmark-item loading"></div>
         </div>
         <ul *ngIf="!isBookmarkLoading" class="bookmarks">
-          <li
-            *ngFor="
-              let bm of bookmarks
-                | slice
-                  : 0
-                  : (!this.isShowAllBookmarks && bookmarks.length > 10 ? 10 : bookmarks.length)
-            "
-          >
+          <li *ngFor="let bm of bookmarks | slice : 0 : (!this.isShowAllBookmarks && bookmarks.length > 10 ? 10 : bookmarks.length)">
             {{ bm.title }}
           </li>
         </ul>
