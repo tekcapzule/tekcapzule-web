@@ -23,6 +23,7 @@ export class CoursesComponent implements OnInit {
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
   selectedDeliveryMode: any[] = [];
+  selectedSkillstudioCategories: any[] = [];
   paymentCategories: any[] = [
     { name: 'Free', key: 'Free' },
     { name: 'Freemium', key: 'Freemium' },
@@ -33,6 +34,19 @@ export class CoursesComponent implements OnInit {
     { name: 'Online', key: 'ONLINE' },
     { name: 'Hybrid', key: 'HYBRID' },
     { name: 'In Classroom', key: 'IN_CLASSROOM' },
+  ];
+  skillstudioCategories: any[] = [
+    { name: 'All', key: 'All' },
+    { name: 'Tekbyte', key: 'Tekbyte' },
+    { name: 'Course', key: 'Course' },
+    { name: 'Interview Prep', key: 'Interview_Prep' },
+    { name: 'Video', key: 'Video' },
+    { name: 'Research Paper', key: 'Research_Paper' },
+    { name: 'Newsletter', key: 'Newsletter' },
+    { name: 'Podcast', key: 'Podcast' },
+    { name: 'Event', key: 'Event' },
+    { name: 'Recorded Event', key: 'Recorded_Event' },
+    { name: 'Book', key: 'Book' },
   ];
   searchText: string;
   isMobileResolution: boolean;
@@ -112,7 +126,8 @@ export class CoursesComponent implements OnInit {
     if (
       this.selectedTopic.length > 0 ||
       this.selectedPayments.length > 0 ||
-      this.selectedDeliveryMode.length > 0
+      this.selectedDeliveryMode.length > 0 ||
+      this.selectedSkillstudioCategories.length > 0
     ) {
       if (this.selectedTopic.length) {
         tempList = tempList.filter(course => this.selectedTopic.includes(course.topicCode));
