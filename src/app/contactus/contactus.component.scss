@@ -1,0 +1,95 @@
+@import './../../assets/styles/variables.scss';
+
+.mission-page {
+  
+  &.p-main {
+    padding: 92px 12px 20px;
+  }
+  .about-banner {
+    background: url('../../assets/images/about/aboutus-banner-bg.svg');
+    height: 635px;
+    width: 100%;
+    margin-bottom: 50px;
+    background-size: cover;
+    margin-top: 77px;
+  }
+  .lead-img {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    left: 30%;
+    margin-top: 150px;
+  }
+
+  .our-values {
+    display: flex;
+    justify-content: flex-end;
+    .value-panel {
+      margin-right: 20px;
+      padding: 35px;
+      border-radius: 10px;
+      height: 463px;
+      width: 230px;
+      h4, p {
+        color: $white;
+      }
+      p {
+        line-height: 22px;
+      }
+    }
+    .cols-1 {
+      background: #ff00c0;
+    }
+    .cols-2 {
+      background: #54aa00;
+    }
+    .cols-3 {
+      background: #7400bb;
+    }
+    .cols-4 {
+      background: #0089fb;
+    }
+  }
+  
+  .tech-learning {
+    background-image: url('../../assets/images/grid.png');
+    padding: 40px 0px;
+  }
+  & > section {
+    padding-bottom: 50px;
+  }
+  p {
+    font-size: 18px;
+    font-family: $primary-font-regular;
+    line-height: 30px;
+    color: #5a5a5a;
+  }
+  .success-section {
+    background: url('../../assets/images/success-bg.svg') no-repeat;
+    padding-top: 70px;
+    padding-bottom: 0!important;
+  }
+}
+.form-bg {
+  background: url('../../assets/images/about/form-bg.png') no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 990px) {
+  .inner {
+    padding: 20px 0 0!important;
+  }
+  .our-values {
+    display: block !important;
+    .value-panel {
+      height: 157px !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+    }
+  }
+  
+  .about-banner {
+    // height: 450px !important;
+    height: auto !important;
+  }
+ }

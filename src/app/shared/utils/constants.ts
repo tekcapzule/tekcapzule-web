@@ -8,6 +8,7 @@ export const Constants = {
     { uniqueId: 'Mission', displayName: 'About Us', navUrl: '/mission'},
     { uniqueId: 'Community', displayName: 'Community', navUrl: '/community'},
     { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'},
+    { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'}
   ],
   HeaderMenu: [
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', available: 'PRELOGIN'},
