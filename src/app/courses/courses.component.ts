@@ -10,6 +10,8 @@ import * as moment from 'moment';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-courses',
@@ -17,8 +19,8 @@ import { ChannelEvent } from '@app/shared/models/channel-item.model';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
-  courseList: ICourseDetail[] = [];
-  filteredCourseList: ICourseDetail[] = [];
+  courseList: ILearningMaterial[] = [];
+  filteredCourseList: ILearningMaterial[] = [];
   topics: TopicItem[] = [];
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
@@ -57,7 +59,7 @@ export class CoursesComponent implements OnInit {
 
   constructor(
     public spinner: AppSpinnerService,
-    private courseApi: CourseApiService,
+    private skillStudioApi: SkillStudioApiService,
     private topicApi: TopicApiService,
     private route: ActivatedRoute,
     private helperService: HelperService,
@@ -72,7 +74,7 @@ export class CoursesComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = shuffleArray(topics, 5);
     });
-    this.courseApi.getAllCourse().subscribe(data => {
+    this.skillStudioApi.getAllLearning().subscribe(data => {
       data.forEach(course => {
         course.topicName = this.helperService.getTopicName(course.topicCode);
         course.publishedOn = course.publishedOn

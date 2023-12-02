@@ -22,6 +22,7 @@ export const environment = {
   campaignApiGateway: 'orf1vh4o23',
   insightsApiGateway: '878m5ejncb',
   feedApiGateway: 'b0jqzywk9l',
+  skillStudioApiGateway: 'jcsh0salef',
   awsRegion: 'us-east-1',
   apiEndpointTemplate: 'https://{{api-gateway}}.execute-api.{{aws-region}}.amazonaws.com/dev',
   awsCognitoConfigs: {
