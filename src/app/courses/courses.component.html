@@ -4,16 +4,17 @@
   </div>
   <section class="container-fluid aihub-banner courses skillstudio-banner">
     <div class="container main-banner">
-      <div class="mob-mr-0 mt-lg-5 mt-sm-0 mob-mb-2">
+      <div class="mob-mr-0 mt-sm-0 mob-mb-2">
         <h2 class="bg-fandango text-white">SkillStudio</h2>
-        <div class="banner-highlights text-white mob-banner-txt">
+        <div class="banner-highlights text-white">
           A comprehensive collection <br>of tech learning resources <br>at your fingertip!
         </div>
       </div>
       <img src="assets/images/home/skillstudio-all.png" alt="skillstudio" class="img-fluid skill-girl" />
       <div class="skill-carousel">
         <h2 class="text-white">Learning never stops, Continuous Learning starts here!</h2>
-        <p class="text-white">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque.</p>
+        <p class="text-white">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium
+          doloremque.</p>
         <button class="button primary-btn-sm">Know More</button>
         <img src="assets/images/skillstudio/online-video-call.png" alt="online" class="img-fluid video-call" />
       </div>
@@ -29,18 +30,69 @@
             </div>
             <div id="filterAccordion" class="collapse show filter-accordion-content">
               <div class="filter-topic">Topic</div>
-              <div *ngFor="let topic of topics" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="topic"
-                  [value]="topic.code"
-                  [(ngModel)]="selectedTopic"
-                  [inputId]="topic.code"
-                  (onChange)="onFilterChange($event, topic.code)"
-                ></p-checkbox>
+              <div *ngFor="let topic of topics" class="field-checkbox pb-3">
+                <p-checkbox name="topic" [value]="topic.code" [(ngModel)]="selectedTopic" [inputId]="topic.code"
+                  (onChange)="onFilterChange($event, topic.code)"></p-checkbox>
                 <label [for]="topic.code">{{ topic.title }}</label>
               </div>
               <div class="filter-topic mt-4">Category</div>
-              <div *ngFor="let skillstudio of skillstudioCategories" class="field-checkbox pb-2">
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="All"></p-checkbox>
+                <label>All</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Tekbyte"></p-checkbox>
+                <span class="icon tekbyte-select-icon"></span>
+                <label>Tekbyte</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Course"></p-checkbox>
+                <span class="icon course-select-icon"></span>
+                <label>Course</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Interview Prep"></p-checkbox>
+                <span class="icon interview-prep-select-icon"></span>
+                <label>Interview Prep</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Video"></p-checkbox>
+                <span class="icon video-select-icon"></span>
+                <label>Video</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Research Paper"></p-checkbox>
+                <span class="icon research-paper-select-icon"></span>
+                <label>Research Paper</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Newsletter"></p-checkbox>
+                <span class="icon newsletter-select-icon"></span>
+                <label>Newsletter</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Podcast"></p-checkbox>
+                <span class="icon podcast-select-icon"></span>
+                <label>Podcast</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Event"></p-checkbox>
+                <span class="icon events-select-icon"></span>
+                <label>Event</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Recorded Event"></p-checkbox>
+                <span class="icon events-select-icon"></span>
+                <label>Recorded Event</label>
+              </div>
+              <div class="field-checkbox pb-3">
+                <p-checkbox name="group1" value="Book"></p-checkbox>
+                <span class="icon events-select-icon"></span>
+                <label>Book</label>
+              </div>
+
+
+              <!-- <div *ngFor="let skillstudio of skillstudioCategories" class="field-checkbox pb-2">
                 <p-checkbox
                   name="category"
                   [value]="skillstudio.key"
@@ -48,30 +100,20 @@
                   [(ngModel)]="selectedSkillstudioCategories"
                   (onChange)="onFilterChange($event, skillstudio.key)"
                 ></p-checkbox>
-                <img src="assets/images/skillstudio_submenu_icon-1.svg" />
+                <span class="icon course-select-icon"></span>
 
                 <label [for]="skillstudio.key">{{ skillstudio.name }}</label>
-              </div>
+              </div> -->
               <div class="filter-topic mt-4">Price Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="payment"
-                  [value]="category.key"
-                  [inputId]="category.key"
-                  [(ngModel)]="selectedPayments"
-                  (onChange)="onFilterChange($event, category.key)"
-                ></p-checkbox>
+                <p-checkbox name="payment" [value]="category.key" [inputId]="category.key"
+                  [(ngModel)]="selectedPayments" (onChange)="onFilterChange($event, category.key)"></p-checkbox>
                 <label [for]="category.key">{{ category.name }}</label>
               </div>
               <div class="filter-topic mt-4">Delivery Mode</div>
               <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="delivery"
-                  [value]="dm.key"
-                  [inputId]="dm.key"
-                  [(ngModel)]="selectedDeliveryMode"
-                  (onChange)="onFilterChange($event, dm.key)"
-                ></p-checkbox>
+                <p-checkbox name="delivery" [value]="dm.key" [inputId]="dm.key" [(ngModel)]="selectedDeliveryMode"
+                  (onChange)="onFilterChange($event, dm.key)"></p-checkbox>
                 <label [for]="dm.key">{{ dm.name }}</label>
               </div>
             </div>
@@ -80,14 +122,9 @@
         <div class="col-lg-10 col-md-8 col-sm-6">
           <div class="row">
             <div class="search-box mt-0 pb-4 mb-3 ml-0 col-lg-9">
-              <input
-                type="text"
-                name="searchTopics"
-                placeholder="All you need in one place: software, tool, hardware, products etc.."
-                class="mb-0"
-                [(ngModel)]="searchText"
-                (keyup)="onSearch()"
-              />
+              <input type="text" name="searchTopics"
+                placeholder="All you need in one place: software, tool, hardware, products etc.." class="mb-0"
+                [(ngModel)]="searchText" (keyup)="onSearch()" />
               <button title="search bar" class="search-btn mr-3"></button>
             </div>
             <div *ngIf="isSortVisible" class="col-lg-3">
@@ -103,7 +140,7 @@
           <div class="course-card-skeleton-wrapper">
             <div class="mb-4 pb-4" *ngIf="!spinner.isLoading">
               <ng-container *ngFor="let course of filteredCourseList; let i = index">
-                <app-course-card [course]="course"></app-course-card>
+                <app-course-card [course]="course" class="course-tile-bg-{{i}}"></app-course-card>
               </ng-container>
             </div>
             <div *ngIf="spinner.isLoading">
