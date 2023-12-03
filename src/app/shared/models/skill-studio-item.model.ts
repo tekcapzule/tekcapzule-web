@@ -12,7 +12,7 @@ export interface ILearningMaterial {
   publishedOn: string;
   authors: string[];
   tags: string[];
-  duration: string;
+  duration: any;
   resourceUrl: string;
   imageUrl: string;
   modules: Imodule[];
@@ -27,6 +27,7 @@ export interface ILearningMaterial {
   registrationUrl: number;
   prizingModel: string;
   promotion: any;
+  isRecommended: boolean;
   recommendations: string;
   status: string;
 }

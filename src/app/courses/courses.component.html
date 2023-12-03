@@ -140,7 +140,7 @@
           <div class="course-card-skeleton-wrapper">
             <div class="mb-4 pb-4" *ngIf="!spinner.isLoading">
               <ng-container *ngFor="let course of filteredCourseList; let i = index">
-                <app-course-card [course]="course" class="course-tile-bg-{{i}}"></app-course-card>
+                <app-course-card [learningMt]="course" class="course-tile-bg-{{i}}"></app-course-card>
               </ng-container>
             </div>
             <div *ngIf="spinner.isLoading">
