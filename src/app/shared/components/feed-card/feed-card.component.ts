@@ -13,7 +13,7 @@ import {
   UserApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { CapsuleBadge, CapsuleItem, TekUserInfo, TopicItem } from '@app/shared/models';
+import { CapsuleBadge, IFeedItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 
@@ -23,12 +23,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./feed-card.component.scss'],
 })
 export class FeedCardComponent implements OnInit {
-  userInfo: TekUserInfo = null;
+  userInfo: TekUserInfo;
   awsUserInfo: AwsUserInfo = null;
   searchInputValue = '';
-  isCapsuleViewed = false;
-  isCapsuleBookmarked = false;
-  isCapsuleRecommended = false;
+  isFeedViewed = false;
+  isFeedBookmarked = false;
+  isFeedRecommended = false;
   dateAgoStr: string;
   localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
   buttonLabel: any = {
@@ -42,8 +42,8 @@ export class FeedCardComponent implements OnInit {
     ad: 'View',
     product: 'Buy',
   };
-  @Input() selectedCapsuleId: string;
-  @Input() capsule: CapsuleItem;
+  @Input() selectedFeedId: string;
+  @Input() feed: IFeedItem;
   @Output() cardOpened: EventEmitter<any> = new EventEmitter();
   topicDetail: TopicItem;
   subrscription: Subscription[] = [];
@@ -66,8 +66,8 @@ export class FeedCardComponent implements OnInit {
     }
     this.onResize();
     this.awsUserInfo = this.auth.getAwsUserInfo();
-    this.topicDetail = this.helperService.getTopic(this.capsule.topicCode);
-    this.dateAgoStr = moment(this.capsule.publishedDate, 'DD/MM/YYYY').fromNow();
+    this.topicDetail = this.helperService.getTopic(this.feed.topicCode);
+    this.dateAgoStr = moment(this.feed.publishedDate, 'DD/MM/YYYY').fromNow();
   }
 
   ngOnDestroy(): void {
@@ -81,27 +81,27 @@ export class FeedCardComponent implements OnInit {
   }
 
   doStartReading(): void {
-    this.navigateToCapsuleDetailsPage();
+    this.navigateToFeedDetailsPage();
   }
 
   onCardClick(): void {
-    if (!this.isCapsuleViewed) {
-      this.capsule.views += 1;
-      this.isCapsuleViewed = true;
-      this.feedApi.updateCapsuleViewCount(this.capsule.capsuleId).subscribe();
+    if (!this.isFeedViewed) {
+      this.feed.views += 1;
+      this.isFeedViewed = true;
+      this.feedApi.updateFeedViewCount(this.feed.feedId).subscribe();
     }
-    this.navigateToCapsuleDetailsPage();
+    this.navigateToFeedDetailsPage();
   }
 
-  navigateToCapsuleDetailsPage(): void {
-    if (this.helperService.isLocalPublisher(this.capsule.publisher)) {
+  navigateToFeedDetailsPage(): void {
+    if (this.helperService.isLocalPublisher(this.feed.publisher)) {
       this.spinner.show();
       sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapzule.resourceURL', this.capsule.resourceUrl);
-      sessionStorage.setItem('com.tekcapzule.title', this.capsule.title);
-      this.router.navigate(['capsules', this.capsule.capsuleId, 'details']);
+      sessionStorage.setItem('com.tekcapzule.resourceURL', this.feed.resourceUrl);
+      sessionStorage.setItem('com.tekcapzule.title', this.feed.title);
+      this.router.navigate(['feeds', this.feed.feedId, 'details']);
     } else {
-      window.open(this.capsule.resourceUrl, '_blank');
+      window.open(this.feed.resourceUrl, '_blank');
     }
   }
 
@@ -109,11 +109,11 @@ export class FeedCardComponent implements OnInit {
     return url.startsWith('https://') || url.startsWith('http://');
   }
 
-  onCapsuleRecommend(): void {
-    if (!this.isCapsuleRecommended) {
-      this.capsule.recommendations += 1;
-      this.isCapsuleRecommended = true;
-      this.feedApi.updateCapsuleRecommendCount(this.capsule.capsuleId).subscribe(
+  onFeedRecommend(): void {
+    if (!this.isFeedRecommended) {
+      this.feed.recommendations += 1;
+      this.isFeedRecommended = true;
+      this.feedApi.updateFeedRecommendCount(this.feed.feedId).subscribe(
         data => {
           this.messageService.add({
             key: 'tc',
@@ -122,8 +122,8 @@ export class FeedCardComponent implements OnInit {
           });
         },
         err => {
-          this.capsule.recommendations -= 1;
-          this.isCapsuleRecommended = false;
+          this.feed.recommendations -= 1;
+          this.isFeedRecommended = false;
           this.messageService.add(this.helperService.getInternalErrorMessage());
         }
       );
@@ -142,18 +142,18 @@ export class FeedCardComponent implements OnInit {
       return false;
     }
 
-    return this?.userInfo?.bookmarks?.find(id => id === this.capsule.capsuleId) ? true : false;
+    return this?.userInfo?.bookmarks?.find(id => id === this.feed.feedId) ? true : false;
   }
 
-  onCapsuleBookmark(): void {
+  onFeedBookmark(): void {
     if (!this.auth.isUserLoggedIn()) {
       return;
     }
     this.userApi
-      .bookmarCapsule(this.awsUserInfo.username, this.capsule.capsuleId)
+      .bookmarFeed(this.awsUserInfo.username, this.feed.feedId)
       .pipe(
         tap(() => {
-          this.feedApi.updateCapsuleBookmarkCount(this.capsule.capsuleId).subscribe(data => {
+          this.feedApi.updateFeedBookmarkCount(this.feed.feedId).subscribe(data => {
             this.messageService.add({
               key: 'tc',
               severity: 'success',
@@ -166,24 +166,24 @@ export class FeedCardComponent implements OnInit {
 
     this.userInfo = {
       ...this.userInfo,
-      bookmarks: [...this.userInfo.bookmarks, this.capsule.capsuleId],
+      bookmarks: [...this.userInfo.bookmarks, this.feed.feedId],
     };
 
     this.userApi.updateTekUserInfoCache(this.userInfo);
 
-    if (!this.isCapsuleBookmarked) {
-      this.capsule.bookmarks += 1;
-      this.isCapsuleBookmarked = true;
+    if (!this.isFeedBookmarked) {
+      this.feed.bookmarks += 1;
+      this.isFeedBookmarked = true;
     }
   }
 
-  onCapsuleBookmarkRemove(): void {
+  onFeedBookmarkRemove(): void {
     if (!this.auth.isUserLoggedIn()) {
       return;
     }
 
     this.userApi
-      .removeCapsuleBookmark(this.awsUserInfo.username, this.capsule.capsuleId)
+      .removeFeedBookmark(this.awsUserInfo.username, this.feed.feedId)
       .subscribe(data => {
         this.messageService.add({
           key: 'tc',
@@ -194,15 +194,15 @@ export class FeedCardComponent implements OnInit {
 
     this.userInfo = {
       ...this.userInfo,
-      bookmarks: this.userInfo.bookmarks.filter(id => id !== this.capsule.capsuleId),
+      bookmarks: this.userInfo.bookmarks.filter(id => id !== this.feed.feedId),
     };
 
     this.userApi.updateTekUserInfoCache(this.userInfo);
   }
 
   getCapsuleBadgeUrls(): string[] {
-    if (this.capsule && this.capsule.badge) {
-      switch (this.capsule.badge) {
+    if (this.feed && this.feed.badge) {
+      switch (this.feed.badge) {
         case CapsuleBadge.BRONZE:
           return ['/assets/images/badge-bronze.svg'];
         case CapsuleBadge.SILVER:
@@ -222,11 +222,11 @@ export class FeedCardComponent implements OnInit {
   }
 
   onShareClick() {
-    if (this.helperService.isLocalPublisher(this.capsule.publisher)) {
-      const shareableUrl = `${window.location.origin}/feeeds/${this.capsule.capsuleId}/details`;
+    if (this.helperService.isLocalPublisher(this.feed.publisher)) {
+      const shareableUrl = `${window.location.origin}/feeeds/${this.feed.feedId}/details`;
       this.clipboard.copy(shareableUrl);
     } else {
-      this.clipboard.copy(this.capsule.resourceUrl);
+      this.clipboard.copy(this.feed.resourceUrl);
     }
     this.messageService.add({
       key: 'tc',

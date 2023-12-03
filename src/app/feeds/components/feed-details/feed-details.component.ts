@@ -13,7 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, FeedApiService, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { CapsuleItem, NavTab } from '@app/shared/models';
+import { IFeedItem, NavTab } from '@app/shared/models';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
@@ -26,10 +26,10 @@ import { Subscription } from 'rxjs';
 })
 export class FeedDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   resourceUrl: SafeResourceUrl;
-  capsuleId: string;
+  feedId: string;
   capsuleURL: string;
   isMobileResolution: boolean;
-  capsuleDetail: CapsuleItem;
+  capsuleDetail: IFeedItem;
   subrscription: Subscription[] = [];
   @ViewChild('capsuleFrame') capsuleFrame: ElementRef;
   isDataAvailable: boolean;
@@ -50,7 +50,7 @@ export class FeedDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.spinner.show();
     this.onResize();
-    this.capsuleId = this.route.snapshot.paramMap.get('id');
+    this.feedId = this.route.snapshot.paramMap.get('id');
     if (sessionStorage.getItem('com.tekcapzule.resourceURL')) {
       this.capsuleURL =
         sessionStorage.getItem('com.tekcapzule.resourceURL') || 'https://tekcapzule.blog';
@@ -69,7 +69,7 @@ export class FeedDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   fetchCapsuleDetails() {
-    const sub = this.feedApi.getCapsuleById(this.capsuleId).subscribe(data => {
+    const sub = this.feedApi.getCapsuleById(this.feedId).subscribe(data => {
       this.capsuleDetail = data;
       this.capsuleURL = this.capsuleDetail.resourceUrl || 'https://tekcapzule.blog';
       this.loadCapsule();
@@ -127,7 +127,7 @@ export class FeedDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onRecommendClick() {
-    const sub = this.feedApi.updateCapsuleRecommendCount(this.capsuleId).subscribe(data => {
+    const sub = this.feedApi.updateFeedRecommendCount(this.feedId).subscribe(data => {
       this.messageService.add({
         key: 'tc',
         severity: 'success',

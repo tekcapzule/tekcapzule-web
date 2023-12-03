@@ -10,7 +10,7 @@ import {
   UserApiService
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { CapsuleItem, TopicItem } from '@app/shared/models';
+import { IFeedItem, TopicItem } from '@app/shared/models';
 import { Constants, shuffleArray } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
 import { Carousel } from 'primeng/carousel';
@@ -23,10 +23,10 @@ declare const jQuery: any;
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  capsules: CapsuleItem[] = [];
+  capsules: IFeedItem[] = [];
   topics: TopicItem[] = [];
   subscriberFormGroup: FormGroup;
-  selectedCasuleId: string;
+  selectedFeedId: string;
   @ViewChild('subscribe') subscribeSection: ElementRef;
   responsiveOptions: any[] = Constants.ResponsiveOptions;
   constructor(
@@ -94,8 +94,8 @@ export class HomePageComponent implements OnInit {
     this.router.navigateByUrl('/feeds');
   }
 
-  onCardOpened(capsuleId) {
-    this.selectedCasuleId = capsuleId;
+  onCardOpened(feedId) {
+    this.selectedFeedId = feedId;
   }
 
   navigatePage(pageId: string) {

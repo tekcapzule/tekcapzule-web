@@ -105,7 +105,10 @@ export class FeedsPageComponent implements OnInit, OnDestroy {
 
   fetchUserInfo(refreshCache?: boolean): void {
     if (this.auth.isUserLoggedIn()) {
-      this.userApi.getTekUserInfo(refreshCache).subscribe(userInfo => (this.userInfo = userInfo));
+      this.userApi.getTekUserInfo(refreshCache).subscribe(userInfo => {
+        this.userInfo = userInfo;
+        this.userApi.setUserInfo(userInfo);
+      });
     }
   }
 
