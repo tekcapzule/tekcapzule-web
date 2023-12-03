@@ -2127,8 +2127,10 @@ select {
   }
 
   &.courses {
-    background: url('../images/events/events-banner-bg.png') no-repeat, url('../images/courses-banner.png') no-repeat;
+    background: url('../images/skillstudio/skillstudio-bg.png') no-repeat;
     background-size: cover;
+    height: 380px;
+    margin: 20px 0;
     @media only screen and (max-width: 990px) {
       height: auto !important;
     }

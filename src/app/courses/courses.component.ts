@@ -10,6 +10,8 @@ import * as moment from 'moment';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-courses',
@@ -17,12 +19,13 @@ import { ChannelEvent } from '@app/shared/models/channel-item.model';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
-  courseList: ICourseDetail[] = [];
-  filteredCourseList: ICourseDetail[] = [];
+  courseList: ILearningMaterial[] = [];
+  filteredCourseList: ILearningMaterial[] = [];
   topics: TopicItem[] = [];
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
   selectedDeliveryMode: any[] = [];
+  selectedSkillstudioCategories: any[] = [];
   paymentCategories: any[] = [
     { name: 'Free', key: 'Free' },
     { name: 'Freemium', key: 'Freemium' },
@@ -34,6 +37,19 @@ export class CoursesComponent implements OnInit {
     { name: 'Hybrid', key: 'HYBRID' },
     { name: 'In Classroom', key: 'IN_CLASSROOM' },
   ];
+  skillstudioCategories: any[] = [
+    { name: 'All', key: 'All' },
+    { name: 'Tekbyte', key: 'Tekbyte' },
+    { name: 'Course', key: 'Course' },
+    { name: 'Interview Prep', key: 'Interview_Prep' },
+    { name: 'Video', key: 'Video' },
+    { name: 'Research Paper', key: 'Research_Paper' },
+    { name: 'Newsletter', key: 'Newsletter' },
+    { name: 'Podcast', key: 'Podcast' },
+    { name: 'Event', key: 'Event' },
+    { name: 'Recorded Event', key: 'Recorded_Event' },
+    { name: 'Book', key: 'Book' },
+  ];
   searchText: string;
   isMobileResolution: boolean;
   isFilterVisible = true;
@@ -43,7 +59,7 @@ export class CoursesComponent implements OnInit {
 
   constructor(
     public spinner: AppSpinnerService,
-    private courseApi: CourseApiService,
+    private skillStudioApi: SkillStudioApiService,
     private topicApi: TopicApiService,
     private route: ActivatedRoute,
     private helperService: HelperService,
@@ -58,7 +74,7 @@ export class CoursesComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = shuffleArray(topics, 5);
     });
-    this.courseApi.getAllCourse().subscribe(data => {
+    this.skillStudioApi.getAllLearning().subscribe(data => {
       data.forEach(course => {
         course.topicName = this.helperService.getTopicName(course.topicCode);
         course.publishedOn = course.publishedOn
@@ -112,7 +128,8 @@ export class CoursesComponent implements OnInit {
     if (
       this.selectedTopic.length > 0 ||
       this.selectedPayments.length > 0 ||
-      this.selectedDeliveryMode.length > 0
+      this.selectedDeliveryMode.length > 0 ||
+      this.selectedSkillstudioCategories.length > 0
     ) {
       if (this.selectedTopic.length) {
         tempList = tempList.filter(course => this.selectedTopic.includes(course.topicCode));

@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./community/community.module').then(m => m.CommunityModule),
   },
   {
+    path: 'contactus',
+    loadChildren: () => import('./contactus/contactus.module').then(m => m.ContactusModule),
+  },
+  {
     path: 'mission',
     loadChildren: () => import('./mission/mission.module').then(m => m.MissionModule),
   },

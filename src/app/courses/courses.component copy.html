@@ -2,20 +2,23 @@
   <div class="card flex justify-content-center gap-2">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
-  <section class="container-fluid aihub-banner courses skillstudio-banner">
-    <div class="container main-banner">
-      <div class="mob-mr-0 mt-lg-5 mt-sm-0 mob-mb-2">
-        <h2 class="bg-fandango text-white">SkillStudio</h2>
-        <div class="banner-highlights text-white mob-banner-txt">
-          A comprehensive collection <br>of tech learning resources <br>at your fingertip!
+  <div class="col-lg-12 px-0">
+    <div class="container-fluid top-navigation">
+      <div class="container">
+        <div class="back-link">
+          <a class="url-link" [routerLink]="['/ai-hub/dashboard']">SkillStudio</a>
+          <span>Courses</span>
         </div>
       </div>
-      <img src="assets/images/home/skillstudio-all.png" alt="skillstudio" class="img-fluid skill-girl" />
-      <div class="skill-carousel">
-        <h2 class="text-white">Learning never stops, Continuous Learning starts here!</h2>
-        <p class="text-white">Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque.</p>
-        <button class="button primary-btn-sm">Know More</button>
-        <img src="assets/images/skillstudio/online-video-call.png" alt="online" class="img-fluid video-call" />
+    </div>
+  </div>
+  <section class="container-fluid aihub-banner courses pt-5">
+    <div class="container">
+      <div class="text-right mob-mr-0 mt-lg-5 mt-sm-0 mob-mb-2">
+        <div class="banner-highlights text-white mob-banner-txt">
+          Chart your AI learning path with hand-picked,<br />
+          industry-leading courses
+        </div>
       </div>
     </div>
   </section>
@@ -38,19 +41,6 @@
                   (onChange)="onFilterChange($event, topic.code)"
                 ></p-checkbox>
                 <label [for]="topic.code">{{ topic.title }}</label>
-              </div>
-              <div class="filter-topic mt-4">Category</div>
-              <div *ngFor="let skillstudio of skillstudioCategories" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="category"
-                  [value]="skillstudio.key"
-                  [inputId]="skillstudio.key"
-                  [(ngModel)]="selectedSkillstudioCategories"
-                  (onChange)="onFilterChange($event, skillstudio.key)"
-                ></p-checkbox>
-                <img src="assets/images/skillstudio_submenu_icon-1.svg" />
-
-                <label [for]="skillstudio.key">{{ skillstudio.name }}</label>
               </div>
               <div class="filter-topic mt-4">Price Type</div>
               <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
