@@ -1,7 +1,7 @@
-export interface CapsuleItem {
+export interface IFeedItem {
   author: string;
   bookmarks?: number;
-  capsuleId?: string;
+  feedId?: string;
   description: string;
   duration?: number;
   editorsPick?: number;

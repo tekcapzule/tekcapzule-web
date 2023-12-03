@@ -26,10 +26,10 @@ import { finalize } from 'rxjs/operators';
 export class FeedsComponent implements OnInit, OnDestroy {
   isSharePostDialogShown = false;
   destroy$ = new Subject<boolean>();
-  capsules = [];
-  filteredCapsule = [];
-  selectedCapsuleId: string;
-  selectedCapsuleType: string;
+  feeds = [];
+  filteredFeeds = [];
+  selectedFeedId: string;
+  selectedFeedType: string;
   subrscription: Subscription[] = [];
   subscriberFormGroup: FormGroup;
   isMobileResolution: boolean;
@@ -37,7 +37,7 @@ export class FeedsComponent implements OnInit, OnDestroy {
   userInfo: TekUserInfo = null;
   isShowAllBookmarks = false;
   bookmarks = [];
-  isBookmarkLoading = false;
+  isBookmarkLoading = true;
   bookmarkObj = {};
 
   constructor(
@@ -61,8 +61,15 @@ export class FeedsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('FeedsComponent  ');
-    this.fetchUserInfo();
+    this.userInfo = this.userApi.getUserInfo();
+    if(this.userInfo) {
+      if (this.userInfo.bookmarks) {
+        this.setBookmarks();
+      }
+      this.isBookmarkLoading = false;
+    } else {
+      this.fetchUserInfo();
+    }
     this.getAllTopics();
     this.subscribeFilterType();
     this.subscriberFormGroup = this.fb.group({
@@ -78,29 +85,33 @@ export class FeedsComponent implements OnInit, OnDestroy {
   }
 
   fetchUserInfo(refreshCache?: boolean): void {
-    this.isBookmarkLoading = true;
     this.userApi.getTekUserInfo(refreshCache).subscribe(
       userInfo => {
         this.userInfo = userInfo;
         if (this.userInfo.bookmarks) {
-          this.bookmarks = this.userInfo.bookmarks;
-          this.userInfo.bookmarks.forEach(bm => {
-            if(this.bookmarkObj[bm.resourceType]) {
-              this.bookmarkObj[bm.resourceType].push(bm);
-            } else {
-              this.bookmarkObj[bm.resourceType] = []
-              this.bookmarkObj[bm.resourceType].push(bm);
-            }
-            this.bookmarks = Object.keys(this.bookmarkObj);
-          });
-          console.log('bookmarkObj', this.bookmarks, this.bookmarkObj);
+          this.setBookmarks();
         }
         this.isBookmarkLoading = false;
       },
       () => {
         this.isBookmarkLoading = false;
       }
-    );
+    );    
+  }
+
+  setBookmarks() {
+    this.bookmarks = this.userInfo.bookmarks;
+    this.userInfo.bookmarks.forEach(bm => {
+      if(bm) {
+        if(this.bookmarkObj[bm.resourceType]) {
+          this.bookmarkObj[bm.resourceType].push(bm);
+        } else {
+          this.bookmarkObj[bm.resourceType] = []
+          this.bookmarkObj[bm.resourceType].push(bm);
+        }
+        this.bookmarks = Object.keys(this.bookmarkObj);
+      }
+    });
   }
 
   getAllTopics(): void {
@@ -136,21 +147,21 @@ export class FeedsComponent implements OnInit, OnDestroy {
 
   subscribeFilterType(): void {
     const sub = this.helperService.onFilterByCapsuleType$().subscribe(selectedCapsuleType => {
-      this.selectedCapsuleType = selectedCapsuleType;
+      this.selectedFeedType = selectedCapsuleType;
       this.filterByCapsuleType();
     });
     this.subrscription.push(sub);
   }
 
   filterByCapsuleType() {
-    if (this.selectedCapsuleType) {
-      this.filteredCapsule = this.capsules.filter(capsule => {
-        return this.selectedCapsuleType.includes(capsule.type);
+    if (this.selectedFeedType) {
+      this.filteredFeeds = this.feeds.filter(capsule => {
+        return this.selectedFeedType.includes(capsule.type);
       });
     } else {
-      this.filteredCapsule = this.capsules;
+      this.filteredFeeds = this.feeds;
     }
-    console.log('filteredCapsule', this.filteredCapsule);
+    console.log('filteredCapsule', this.filteredFeeds);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -172,14 +183,14 @@ export class FeedsComponent implements OnInit, OnDestroy {
       .getMyFeedCapsules(subscribedTopics, refreshCache)
       .pipe(finalize(() => this.spinner.hide()))
       .subscribe(capsules => {
-        this.capsules = capsules;
+        this.feeds = capsules;
         this.filterByCapsuleType();
         this.spinner.hide();
       });
   }
 
-  onCardOpened(capsuleId: string): void {
-    this.selectedCapsuleId = capsuleId;
+  onCardOpened(feedId: string): void {
+    this.selectedFeedId = feedId;
   }
 
   onSubscribe(): void {

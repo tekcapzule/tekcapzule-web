@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthStateService, FeedApiService } from '@app/core';
-import { CapsuleItem } from '@app/shared/models';
+import { IFeedItem } from '@app/shared/models';
 
 @Component({
   selector: 'app-share-post',
@@ -10,7 +10,7 @@ import { CapsuleItem } from '@app/shared/models';
 export class SharePostComponent implements OnInit {
   @Input() isDialogVisible = false;
   @Output() dialogClosed = new EventEmitter();
-  capsuleData: CapsuleItem;
+  capsuleData: IFeedItem;
   resourceUrl: string;
   desc: string;
 

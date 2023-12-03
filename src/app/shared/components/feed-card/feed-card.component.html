@@ -3,42 +3,42 @@
     <div class="profile-pic"></div>
     <div class="w-100">
       <div class="d-flex justify-content-between c-click" (click)="doStartReading()">
-        <h5>{{ capsule.title | titlecase }}</h5>
+        <h5>{{ feed.title | titlecase }}</h5>
       </div>
       <p class="grey-color">
-        {{ capsule.author | titlecase }}<span> ({{ dateAgoStr }})</span> |
-        <span>Posted: {{ capsule.publisher | titlecase }}</span>
+        {{ feed.author | titlecase }}<span> ({{ dateAgoStr }})</span> |
+        <span>Posted: {{ feed.publisher | titlecase }}</span>
       </p>
     </div>
   </div>
-  <p>{{ capsule.description }} <span class="grey-color c-click" (click)="doStartReading()"> see more…</span></p>
+  <p>{{ feed.description }} <span class="grey-color c-click" (click)="doStartReading()"> see more…</span></p>
   <div class="position-relative c-click" (click)="doStartReading()">
-    <img [src]="capsule.imageUrl" alt="" class="img-fluid feeds-img w-100" />
+    <img [src]="feed.imageUrl" alt="" class="img-fluid feeds-img w-100" />
     <div class="icons timer">
       <img src="/assets/images/timer.svg" alt="timer icon" class="rounded-img" /><span>{{
-        capsule.duration
+        feed.duration
       }}</span>
     </div>
     <div class="icons labelRed">
-      <span>{{ capsule.topicCode }}</span>
+      <span>{{ feed.topicCode }}</span>
     </div>
     <div class="short-desc">
       <p>The IT Ops Sessions: The Effect of ChatGPT and AI on the World of IT</p>
     </div>
     <div class="web-url">
-      <a href="{{ capsule.resourceUrl }}" target="_blank">{{ capsule.resourceUrl }}</a>
+      <a href="{{ feed.resourceUrl }}" target="_blank">{{ feed.resourceUrl }}</a>
     </div>
-    <div class="play-button play-icon"></div>
+    <div *ngIf="feed.type === 'VIDEO'" class="play-button play-icon"></div>
   </div>
   <div class="d-flex justify-content-between">
-    <p class="grey-color c-default">{{ capsule.recommendations }} recommended</p>
+    <p class="grey-color c-default">{{ feed.recommendations }} recommended</p>
     <div class="d-flex align-items-center grey-color c-default">
-      {{ capsule.type | titlecase }} <span class="article-gray-icon ml-2"></span>
+      {{ feed.type | titlecase }} <span class="article-gray-icon ml-2"></span>
     </div>
   </div>
   <div>
     <div class="d-flex justify-content-between">
-      <div class="d-flex align-items-center icon-click icons-section" (click)="onCapsuleRecommend()">
+      <div class="d-flex align-items-center icon-click icons-section" (click)="onFeedRecommend()">
         <span class="recommend-gray-icon pr-4"></span>Recommend
       </div>
       <div class="d-flex align-items-center icon-click icons-section" (click)="onShareClick()">
@@ -50,7 +50,7 @@
       <div
         class="d-flex align-items-center icons-section"
         [ngClass]="{ disabled: disableBookmark(), 'icon-click': !disableBookmark() }"
-        (click)="onCapsuleBookmark()"
+        (click)="onFeedBookmark()"
       >
         <span class="bookmark-gray-icon pr-4"></span>Bookmark
       </div>

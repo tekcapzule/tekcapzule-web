@@ -18,12 +18,22 @@ const USER_INFO_CACHE_KEY = 'com.tekcapzule.user.info';
   providedIn: 'root',
 })
 export class UserApiService {
+  userInfo: TekUserInfo;
+
   constructor(private httpClient: HttpClient, private auth: AuthStateService) {}
 
   getUserApiPath(): string {
     return USER_API_PATH;
   }
 
+  setUserInfo(userInfo: TekUserInfo) {
+    this.userInfo = userInfo;
+  }
+  
+  getUserInfo(): TekUserInfo {
+    return this.userInfo;
+  }
+  
   getTekUserInfo(refreshCache?: boolean): Observable<TekUserInfo> {
     const userId = this.auth.getAwsUserInfo().email;
 
@@ -55,24 +65,24 @@ export class UserApiService {
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/create`, user);
   }
 
-  bookmarCapsule(userId: string, capsuleId: string): Observable<any> {
+  bookmarFeed(userId: string, feedId: string): Observable<any> {
     const userInfo = this.getTekUserInfoCache();
     if (userInfo && userInfo.bookmarks) {
-      userInfo.bookmarks.push(capsuleId);
+      userInfo.bookmarks.push(feedId);
       this.updateTekUserInfoCache(userInfo);
     }
 
-    return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, capsuleId });
+    return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, feedId });
   }
 
-  removeCapsuleBookmark(userId: string, capsuleId: string): Observable<any> {
+  removeFeedBookmark(userId: string, feedId: string): Observable<any> {
     const userInfo = this.getTekUserInfoCache();
     if (userInfo && userInfo.bookmarks) {
-      userInfo.bookmarks = userInfo.bookmarks.filter(bm => bm !== capsuleId);
+      userInfo.bookmarks = userInfo.bookmarks.filter(bm => bm !== feedId);
       this.updateTekUserInfoCache(userInfo);
     }
 
-    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, capsuleId });
+    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, feedId });
   }
 
   followTopic(userId: string, topicCodes: string[]): Observable<ApiSuccess> {

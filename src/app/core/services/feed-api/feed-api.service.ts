@@ -4,7 +4,7 @@ import { share, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { ApiSuccess, CapsuleItem } from '@app/shared/models';
+import { ApiSuccess, IFeedItem } from '@app/shared/models';
 import { cacheManager } from '@app/shared/utils';
 import { MetadataItem } from '@app/shared/models/capsule-item.model';
 
@@ -26,8 +26,8 @@ export class FeedApiService {
     return FEED_API_PATH;
   }
 
-  getMyFeedCapsules(subscribedTopics: string[], refreshCache?: boolean): Observable<CapsuleItem[]> {
-    return this.httpClient.post<CapsuleItem[]>(
+  getMyFeedCapsules(subscribedTopics: string[], refreshCache?: boolean): Observable<IFeedItem[]> {
+    return this.httpClient.post<IFeedItem[]>(
       `${FEED_API_PATH}/getMyFeed`,
       { subscribedTopics },
       {
@@ -40,8 +40,8 @@ export class FeedApiService {
     );
   }
 
-  getPendingApproval(refreshCache?: boolean): Observable<CapsuleItem[]> {
-    return this.httpClient.post<CapsuleItem[]>(
+  getPendingApproval(refreshCache?: boolean): Observable<IFeedItem[]> {
+    return this.httpClient.post<IFeedItem[]>(
       `${FEED_API_PATH}/getPendingApproval`,
       {},
       {
@@ -54,12 +54,12 @@ export class FeedApiService {
     );
   }
 
-  disableCapsule(capsuleId: string): Observable<CapsuleItem> {
+  disableCapsule(feedId: string): Observable<IFeedItem> {
     const pendingCapsuleCache = cacheManager.getItem(FEEDS_PENDING_APPROVAL_CACHE_KEY);
 
     if (pendingCapsuleCache) {
-      const pendingCapsules = (pendingCapsuleCache.body as CapsuleItem[]).filter(
-        capsule => capsule.capsuleId !== capsuleId
+      const pendingCapsules = (pendingCapsuleCache.body as IFeedItem[]).filter(
+        capsule => capsule.feedId !== feedId
       );
 
       cacheManager.setItem(FEEDS_PENDING_APPROVAL_CACHE_KEY, {
@@ -68,40 +68,40 @@ export class FeedApiService {
       });
     }
 
-    return this.httpClient.post<CapsuleItem>(`${FEED_API_PATH}/disable`, { capsuleId });
+    return this.httpClient.post<IFeedItem>(`${FEED_API_PATH}/disable`, { feedId });
   }
 
-  getCapsuleById(capsuleId: string): Observable<CapsuleItem> {
-    return this.httpClient.post<CapsuleItem>(`${FEED_API_PATH}/get`, { capsuleId });
+  getCapsuleById(feedId: string): Observable<IFeedItem> {
+    return this.httpClient.post<IFeedItem>(`${FEED_API_PATH}/get`, { feedId });
   }
 
-  updateCapsuleViewCount(capsuleId: string): Observable<ApiSuccess> {
+  updateFeedViewCount(feedId: string): Observable<ApiSuccess> {
     return this.httpClient
-      .post<ApiSuccess>(`${FEED_API_PATH}/view`, { capsuleId })
-      .pipe(tap(() => this.updateViewCountInCache(capsuleId)));
+      .post<ApiSuccess>(`${FEED_API_PATH}/view`, { feedId })
+      .pipe(tap(() => this.updateViewCountInCache(feedId)));
   }
 
-  updateCapsuleRecommendCount(capsuleId: string): Observable<ApiSuccess> {
+  updateFeedRecommendCount(feedId: string): Observable<ApiSuccess> {
     return this.httpClient
-      .post<ApiSuccess>(`${FEED_API_PATH}/recommend`, { capsuleId })
-      .pipe(tap(() => this.updateRecommendationCountInCache(capsuleId)));
+      .post<ApiSuccess>(`${FEED_API_PATH}/recommend`, { feedId })
+      .pipe(tap(() => this.updateRecommendationCountInCache(feedId)));
   }
 
-  updateCapsuleBookmarkCount(capsuleId: string): Observable<ApiSuccess> {
+  updateFeedBookmarkCount(feedId: string): Observable<ApiSuccess> {
     return this.httpClient
-      .post<ApiSuccess>(`${FEED_API_PATH}/bookmark`, { capsuleId })
-      .pipe(tap(() => this.updateBookmarkCountInCache(capsuleId)));
+      .post<ApiSuccess>(`${FEED_API_PATH}/bookmark`, { feedId })
+      .pipe(tap(() => this.updateBookmarkCountInCache(feedId)));
   }
 
-  approveCapsule(capsuleId: string): Observable<ApiSuccess> {
-    return this.httpClient.post<ApiSuccess>(`${FEED_API_PATH}/approve`, { capsuleId });
+  approveCapsule(feedId: string): Observable<ApiSuccess> {
+    return this.httpClient.post<ApiSuccess>(`${FEED_API_PATH}/approve`, { feedId });
   }
 
   createCapsule(capsuleInfo: any): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${FEED_API_PATH}/create`, capsuleInfo);
   }
 
-  updateCapsule(capsuleInfo: CapsuleItem): Observable<ApiSuccess> {
+  updateCapsule(capsuleInfo: IFeedItem): Observable<ApiSuccess> {
     return this.httpClient.post<ApiSuccess>(`${FEED_API_PATH}/update`, capsuleInfo);
   }
 
@@ -119,13 +119,13 @@ export class FeedApiService {
     );
   }
 
-  updateViewCountInCache(capsuleId: string): void {
+  updateViewCountInCache(feedId: string): void {
     [FEEDS_MYFEEDS_CACHE_KEY]
       .map(cacheKey => ({ cacheKey, cacheItem: cacheManager.getItem(cacheKey) }))
       .map(item => {
         if (item.cacheItem?.body) {
-          (item.cacheItem.body as CapsuleItem[]).forEach(cap => {
-            if (cap.capsuleId === capsuleId) {
+          (item.cacheItem.body as IFeedItem[]).forEach(cap => {
+            if (cap.feedId === feedId) {
               cap.views += 1;
             }
           });
@@ -142,13 +142,13 @@ export class FeedApiService {
       });
   }
 
-  updateRecommendationCountInCache(capsuleId: string): void {
+  updateRecommendationCountInCache(feedId: string): void {
     [FEEDS_MYFEEDS_CACHE_KEY]
       .map(cacheKey => ({ cacheKey, cacheItem: cacheManager.getItem(cacheKey) }))
       .map(item => {
         if (item.cacheItem?.body) {
-          (item.cacheItem.body as CapsuleItem[]).forEach(cap => {
-            if (cap.capsuleId === capsuleId) {
+          (item.cacheItem.body as IFeedItem[]).forEach(cap => {
+            if (cap.feedId === feedId) {
               cap.recommendations += 1;
             }
           });
@@ -165,13 +165,13 @@ export class FeedApiService {
       });
   }
 
-  updateBookmarkCountInCache(capsuleId: string): void {
+  updateBookmarkCountInCache(feedId: string): void {
     [FEEDS_MYFEEDS_CACHE_KEY]
       .map(cacheKey => ({ cacheKey, cacheItem: cacheManager.getItem(cacheKey) }))
       .map(item => {
         if (item.cacheItem?.body) {
-          (item.cacheItem.body as CapsuleItem[]).forEach(cap => {
-            if (cap.capsuleId === capsuleId) {
+          (item.cacheItem.body as IFeedItem[]).forEach(cap => {
+            if (cap.feedId === feedId) {
               cap.bookmarks += 1;
             }
           });

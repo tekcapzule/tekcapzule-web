@@ -51,8 +51,8 @@
           </p>
         </div>
         <ng-container *ngIf="!spinner.isLoading">
-          <div *ngFor="let capsule of filteredCapsule">
-            <app-feed-card [capsule]="capsule"></app-feed-card>
+          <div *ngFor="let feed of filteredFeeds">
+            <app-feed-card [feed]="feed"></app-feed-card>
           </div>
         </ng-container>
         <ng-container *ngIf="spinner.isLoading">
