@@ -4,9 +4,10 @@ import { Observable, tap } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { cacheManager, isNullOrUndefined } from '@app/shared/utils';
-import { ApiSuccess, TekUserInfo } from '@app/shared/models';
+import { ApiSuccess, IFeedItem, TekUserInfo } from '@app/shared/models';
 import { AuthStateService } from '../app-state/auth-state.service';
 import { AwsUserInfo } from '../auth/auth.service';
+import { IBookmarkItem } from '@app/shared/models/user-info.model';
 
 const USER_API_PATH = `${environment.apiEndpointTemplate}/user`
   .replace('{{api-gateway}}', environment.userApiGateway)
@@ -65,24 +66,24 @@ export class UserApiService {
     return this.httpClient.post<ApiSuccess>(`${USER_API_PATH}/create`, user);
   }
 
-  bookmarFeed(userId: string, feedId: string): Observable<any> {
+  bookmarFeed(userId: string, bookmark: IBookmarkItem): Observable<any> {
     const userInfo = this.getTekUserInfoCache();
     if (userInfo && userInfo.bookmarks) {
-      userInfo.bookmarks.push(feedId);
+      userInfo.bookmarks.push(bookmark);
       this.updateTekUserInfoCache(userInfo);
     }
 
-    return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, feedId });
+    return this.httpClient.post(`${USER_API_PATH}/bookmark`, { userId, bookmark });
   }
 
-  removeFeedBookmark(userId: string, feedId: string): Observable<any> {
+  removeFeedBookmark(userId: string, bookmark: IBookmarkItem): Observable<any> {
     const userInfo = this.getTekUserInfoCache();
     if (userInfo && userInfo.bookmarks) {
-      userInfo.bookmarks = userInfo.bookmarks.filter(bm => bm !== feedId);
+      userInfo.bookmarks = userInfo.bookmarks.filter(bm => bm.resourceId !== bookmark.resourceId);
       this.updateTekUserInfoCache(userInfo);
     }
 
-    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, feedId });
+    return this.httpClient.post(`${USER_API_PATH}/removeBookmark`, { userId, bookmark });
   }
 
   followTopic(userId: string, topicCodes: string[]): Observable<ApiSuccess> {
