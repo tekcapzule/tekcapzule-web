@@ -10,10 +10,10 @@
        >{{learningMt.publisher}}</span>
     </div>
     <div class="icons topic-name">
-      <img [src]="'../../../assets/images/skillstudio/' + learningMt.learningMaterialType.toLowerCase() + '-icon.svg'" alt="" />
+      <img [src]="'../../../assets/images/skillstudio/' + learningMt.learningMaterialType.trim().toLowerCase() + '-icon.svg'" alt="" />
       <span>{{learningMt.learningMaterialType}}</span>
     </div>
-    <div [ngClass]="learningMt.learningMaterialType.toLowerCase() + '-tile-bg'"></div>
+    <div [ngClass]="learningMt.learningMaterialType.trim().toLowerCase() + '-tile-bg'"></div>
   </div>
   <div class="content">
     <div class="title">
