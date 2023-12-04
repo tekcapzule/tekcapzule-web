@@ -24,11 +24,11 @@
         background: url('../../assets/images/skillstudio/carousel-bg.png') no-repeat;
         width: 515px;
         height: 281px;
-        padding: 40px;
+        padding: 40px 20px 40px 40px;
         .video-call {
-            position: absolute;
-            top: 200px;
-            right: 140px;
+          position: absolute;
+          top: 0;
+          right: -126px;
         }
     }
 }
@@ -175,4 +175,11 @@
         margin: 0 auto;
       }
     }
+  }
+  .carousel-caption {
+    padding-top: 0 !important;
+  }
+  h3 {
+    font-size: 24px;
+    font-family: $primary-font-medium;
   }
