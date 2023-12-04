@@ -7,13 +7,13 @@
     <div class="icons labelRed"><span>#{{learningMt.topicName}}</span></div>
     <div class="icons publisher">
       <img src="/assets/images/course-list-icon.svg" alt="publisher icon" /><span
-       >TekCapzule</span>
+       >{{learningMt.publisher}}</span>
     </div>
     <div class="icons topic-name">
-      <img src="../../../assets/images/skillstudio/course-icon.svg" alt="" />
-      <span>Course</span>
+      <img [src]="'../../../assets/images/skillstudio/' + learningMt.learningMaterialType.toLowerCase() + '-icon.svg'" alt="" />
+      <span>{{learningMt.learningMaterialType}}</span>
     </div>
-    <div class="course-tile-bg"></div>
+    <div [ngClass]="learningMt.learningMaterialType.toLowerCase() + '-tile-bg'"></div>
   </div>
   <div class="content">
     <div class="title">
