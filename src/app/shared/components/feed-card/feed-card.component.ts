@@ -16,6 +16,7 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { CapsuleBadge, IFeedItem, TekUserInfo, TopicItem } from '@app/shared/models';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
+import { IBookmarkItem } from '@app/shared/models/user-info.model';
 
 @Component({
   selector: 'app-feed-card',
@@ -66,6 +67,7 @@ export class FeedCardComponent implements OnInit {
     }
     this.onResize();
     this.awsUserInfo = this.auth.getAwsUserInfo();
+    this.userInfo = this.userApi.getUserInfo();
     this.topicDetail = this.helperService.getTopic(this.feed.topicCode);
     this.dateAgoStr = moment(this.feed.publishedDate, 'DD/MM/YYYY').fromNow();
   }
@@ -142,15 +144,28 @@ export class FeedCardComponent implements OnInit {
       return false;
     }
 
-    return this?.userInfo?.bookmarks?.find(id => id === this.feed.feedId) ? true : false;
+    return this?.userInfo?.bookmarks?.find(bm => bm.resourceId === this.feed.feedId) ? true : false;
+  }
+
+  getBookmarkReqBody(): IBookmarkItem {
+    const bookmarks: IBookmarkItem = {
+      resourceType: 'FEED',
+      resourceContentType: this.feed.type,
+      resourceId: this.feed.feedId,
+      title: this.feed.title,
+      resourceUrl: this.feed.resourceUrl,
+      publisher: this.feed.publisher
+    }
+    return bookmarks;
   }
 
   onFeedBookmark(): void {
     if (!this.auth.isUserLoggedIn()) {
       return;
     }
+    const bookmark = this.getBookmarkReqBody();
     this.userApi
-      .bookmarFeed(this.awsUserInfo.username, this.feed.feedId)
+      .bookmarFeed(this.awsUserInfo.username, bookmark)
       .pipe(
         tap(() => {
           this.feedApi.updateFeedBookmarkCount(this.feed.feedId).subscribe(data => {
@@ -166,7 +181,7 @@ export class FeedCardComponent implements OnInit {
 
     this.userInfo = {
       ...this.userInfo,
-      bookmarks: [...this.userInfo.bookmarks, this.feed.feedId],
+      bookmarks: [...this.userInfo.bookmarks, bookmark],
     };
 
     this.userApi.updateTekUserInfoCache(this.userInfo);
@@ -181,9 +196,10 @@ export class FeedCardComponent implements OnInit {
     if (!this.auth.isUserLoggedIn()) {
       return;
     }
-
+    const bookmark = this.getBookmarkReqBody();
+    
     this.userApi
-      .removeFeedBookmark(this.awsUserInfo.username, this.feed.feedId)
+      .removeFeedBookmark(this.awsUserInfo.username, bookmark)
       .subscribe(data => {
         this.messageService.add({
           key: 'tc',
@@ -194,7 +210,7 @@ export class FeedCardComponent implements OnInit {
 
     this.userInfo = {
       ...this.userInfo,
-      bookmarks: this.userInfo.bookmarks.filter(id => id !== this.feed.feedId),
+      bookmarks: this.userInfo.bookmarks.filter(bm => bm.resourceId !== this.feed.feedId),
     };
 
     this.userApi.updateTekUserInfoCache(this.userInfo);

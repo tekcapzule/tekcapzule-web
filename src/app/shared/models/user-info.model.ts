@@ -5,11 +5,20 @@ export interface TekUserInfo {
   emailId: string;
   firstName: string;
   lastName: string;
-  bookmarks: any[];
+  bookmarks: IBookmarkItem[];
   subscribedTopics: string[];
   phoneNumber: string;
   activeSince: string;
   status: string;
+}
+
+export interface IBookmarkItem {
+  resourceType: string;
+  resourceContentType: string;
+  resourceId: string;
+  title: string;
+  resourceUrl: string;
+  publisher: string;
 }
 
 export class TekUserInfoImpl implements TekUserInfo {
@@ -17,7 +26,7 @@ export class TekUserInfoImpl implements TekUserInfo {
   emailId: string;
   firstName: string;
   lastName: string;
-  bookmarks: string[];
+  bookmarks: IBookmarkItem[];
   subscribedTopics: string[];
   phoneNumber: string;
   activeSince: string;
