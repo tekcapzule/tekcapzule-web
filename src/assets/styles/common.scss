@@ -1493,6 +1493,12 @@ iframe .navbar-container,
   height: 14px;
   margin-right: 6px;
 }
+.paid-icon {
+  background: url('../images/paid-icon.svg') no-repeat;
+  width: 17px;
+  height: 13px;
+  margin-right: 6px;
+}
 
 .mdc-tab-indicator--active .mdc-tab-indicator__content {
   color: $primary-color !important;

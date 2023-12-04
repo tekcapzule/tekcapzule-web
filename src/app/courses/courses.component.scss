@@ -122,7 +122,7 @@
     height: 20px;
     margin-left: 10px;
     &.tekbyte-select-icon {
-      background: url('../../assets/images/skillstudio/tekbytes-icon.svg') no-repeat;
+      background: url('../../assets/images/skillstudio/tekbyte-icon.svg') no-repeat;
       background-size: 18px;
     }
     &.course-select-icon {
@@ -130,7 +130,7 @@
       background-size: 18px;
     }
     &.interview-prep-select-icon {
-      background: url('../../assets/images/skillstudio/interview-prep-icon.svg') no-repeat;
+      background: url('../../assets/images/skillstudio/interview prep-icon.svg') no-repeat;
       background-size: 16px;
       height: 23px;
     }
@@ -139,7 +139,7 @@
       background-size: 20px;
     }
     &.research-paper-select-icon {
-      background: url('../../assets/images/skillstudio/research-paper-icon.svg') no-repeat;
+      background: url('../../assets/images/skillstudio/research paper-icon.svg') no-repeat;
       background-size: 16px;
     }
     &.newsletter-select-icon {
@@ -153,9 +153,7 @@
     &.events-select-icon {
       background: url('../../assets/images/skillstudio/events-icon.svg') no-repeat;
       background-size: 18px;
-    }
-
-    
+    }    
   }
  
   @media only screen and (max-width: 990px) {
