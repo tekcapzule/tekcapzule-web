@@ -2,7 +2,7 @@
   <div class="position-relative">
     <div class="icons timer">
       <img src="/assets/images/timer.svg" class="rounded-img" alt="timer icon" /><span
-       >{{learningMt.duration.inMinutes}}</span>
+       >{{learningMt.duration.inMinutes}} min</span>
     </div>
     <div class="icons labelRed"><span>#{{learningMt.topicName}}</span></div>
     <div class="icons publisher">
@@ -14,7 +14,6 @@
       <span>Course</span>
     </div>
     <div class="course-tile-bg"></div>
-    <!-- <img src="assets/images/skillstudio/thumbnail.png" alt="card 3" class="header-image" /> -->
   </div>
   <div class="content">
     <div class="title">
@@ -28,7 +27,6 @@
     </div>
     <div *ngIf="learningMt.tags?.length" class="d-flex">
       <div *ngFor="let tag of learningMt.tags" class="pills">#{{tag}}</div>
-      <div class="pills">#Cloud</div>
     </div>
   </div>
   <div class="mt-2 d-flex align-items-center justify-content-between px-4 card-footer">
@@ -37,7 +35,7 @@
   </div>
   <div class="icon bookmark-icon-animated"></div>
     <div class="d-flex align-items-center">
-      <span class="free-icon mr-2"></span>Free
+      <span [ngClass]="learningMt.prizingModel.toLowerCase()+'-icon'" class="mr-2"></span>{{learningMt.prizingModel}}
     </div>
   </div>
 </div>
