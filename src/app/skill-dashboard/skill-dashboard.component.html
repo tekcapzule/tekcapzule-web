@@ -193,13 +193,13 @@
 
           <div class="course-card-skeleton-wrapper">
             <div class="mb-4 pb-4" *ngIf="!spinner.isLoading">
-              <ng-container *ngFor="let course of filteredCourseList; let i = index">
-                <app-course-card [learningMt]="course" class="course-tile-bg-{{i}}"></app-course-card>
+              <ng-container *ngFor="let learningMt of filteredlearningMtList; let i = index">
+                <app-skill-card [learningMt]="learningMt" class="course-tile-bg-{{i}}"></app-skill-card>
               </ng-container>
             </div>
             <div *ngIf="spinner.isLoading">
               <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-                <app-course-skeleton></app-course-skeleton>
+                <app-skill-skeleton></app-skill-skeleton>
               </ng-container>
             </div>
           </div>

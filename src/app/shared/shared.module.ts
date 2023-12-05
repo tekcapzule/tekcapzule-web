@@ -7,27 +7,26 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 
-import { FeedDetailsComponent } from '@app/feeds/components/feed-details/feed-details.component';
 import { CourseCardComponent } from '@app/courses/course-card/course-card.component';
+import { FeedDetailsComponent } from '@app/feeds/components/feed-details/feed-details.component';
 import { ProductCardComponent } from '@app/market-place/product-card/product-card.component';
-import { FeedSkeletonComponent } from './components/feed-skeleton/feed-skeleton.component';
+import { AccordionModule } from 'primeng/accordion';
+import { CarouselModule } from 'primeng/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
+import { FeedSkeletonComponent } from './components/feed-skeleton/feed-skeleton.component';
+import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
+import { FilterComponent } from './components/filter/filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginRequiredComponent } from './components/login-required/login-required.component';
+import { QAComponent } from './components/qa/qa.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
-import { FilterComponent } from './components/filter/filter.component';
-import { LoginRequiredComponent } from './components/login-required/login-required.component';
-import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
-import { CarouselModule } from 'primeng/carousel';
-import { QAComponent } from './components/qa/qa.component';
-import { AccordionModule } from 'primeng/accordion';
-import { SkillCardComponent } from '@app/skill-dashboard/skill-card/skill-card.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { SkillCardComponent } from '@app/skill-dashboard/skill-card/skill-card.c
     SpinnerComponent,
     FeedDetailsComponent,
     CourseCardComponent,
-    SkillCardComponent,
     ProductCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
@@ -71,7 +69,6 @@ import { SkillCardComponent } from '@app/skill-dashboard/skill-card/skill-card.c
     SpinnerComponent,
     FeedDetailsComponent,
     CourseCardComponent,
-    SkillCardComponent,
     ProductCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,

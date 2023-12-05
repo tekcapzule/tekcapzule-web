@@ -11,9 +11,10 @@ import { SkillSkeletonComponent } from './skill-skeleton/skill-skeleton.componen
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AccordionModule } from 'primeng/accordion';
+import { SkillCardComponent } from './skill-card/skill-card.component';
 
 @NgModule({
-  declarations: [SkillDashboardComponent, SkillSkeletonComponent],
+  declarations: [SkillDashboardComponent, SkillCardComponent, SkillSkeletonComponent],
   imports: [
     CommonModule,
     SharedModule,
