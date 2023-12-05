@@ -19,8 +19,8 @@ import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
   styleUrls: ['./skill-dashboard.component.scss'],
 })
 export class SkillDashboardComponent implements OnInit {
-  courseList: ILearningMaterial[] = [];
-  filteredCourseList: ILearningMaterial[] = [];
+  learningMtList: ILearningMaterial[] = [];
+  filteredlearningMtList: ILearningMaterial[] = [];
   topics: TopicItem[] = [];
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
@@ -81,8 +81,8 @@ export class SkillDashboardComponent implements OnInit {
           ? moment(course.publishedOn, 'DD/MM/YYYY').fromNow()
           : 'NA';
       });
-      this.courseList = data;
-      this.filteredCourseList = data;
+      this.learningMtList = data;
+      this.filteredlearningMtList = data;
       this.spinner.hide();
     });
   }
@@ -124,7 +124,7 @@ export class SkillDashboardComponent implements OnInit {
   }
 
   productFilter(isSearchCall = false) {
-    let tempList = [...this.courseList];
+    let tempList = [...this.learningMtList];
     if (
       this.selectedTopic.length > 0 ||
       this.selectedPayments.length > 0 ||
@@ -143,7 +143,7 @@ export class SkillDashboardComponent implements OnInit {
         );
       }
     }
-    this.filteredCourseList = tempList;
+    this.filteredlearningMtList = tempList;
     if (!isSearchCall) {
       this.onSearch(true);
     }
@@ -154,7 +154,7 @@ export class SkillDashboardComponent implements OnInit {
       this.productFilter(true);
     }
     if (this.searchText && this.searchText.trim().length > 0) {
-      this.filteredCourseList = this.filteredCourseList.filter(
+      this.filteredlearningMtList = this.filteredlearningMtList.filter(
         course =>
           this.helperService.getIncludesStr(course.title, this.searchText) ||
           this.helperService.getIncludesStr(course.topicName, this.searchText) ||
