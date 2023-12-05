@@ -1,6 +1,6 @@
 @import '../../../assets/styles/variables.scss';
 @import '../../../assets/styles/common.scss';
-@import '../courses.component.scss';
+// @import '../courses.component.scss';
 
 .container {
   max-width: 1336px !important;
@@ -37,8 +37,39 @@
 }
 
 .course-card {
-  cursor: pointer;
-
+  cursor: pointer;  
+  .content {
+    height: 210px;
+    padding: 0 24px;
+    .title{
+        font-size: 18px;
+        font-family: $primary-font-black;
+        line-height: 23px;
+        max-height: 70px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+    p {
+        color: #777777;
+        font-size: 13px;
+        margin-bottom: 10px;
+        font-family: $primary-font-medium;
+      }
+      .description {
+        font-size: 14px;
+        min-height: 85px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow-y: hidden;
+        margin-bottom: 10px;
+        color: #212121;
+      }
+      .pills {
+        background: #d9e9f7;
+        color: #556779;
+      }
+}
   .icons {
     font-family: 'TTCommons-Medium';
 
@@ -152,4 +183,7 @@
   height: 104px;
   width: 100%;
   background-size: cover;
+}
+.course-card.carousel-card{
+  height:400px;
 }

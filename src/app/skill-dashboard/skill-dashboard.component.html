@@ -192,7 +192,7 @@
           <!-- <div class="show-result pb-4">Showing <span>{{filteredCourseList.length}}</span> of <span>{{courseList.length}}</span></div> -->
 
           <div class="course-card-skeleton-wrapper">
-            <div class="mb-4 pb-4" *ngIf="!spinner.isLoading">
+            <div class="mb-4 pb-4 colby3" *ngIf="!spinner.isLoading">
               <ng-container *ngFor="let learningMt of filteredlearningMtList; let i = index">
                 <app-skill-card [learningMt]="learningMt" class="course-tile-bg-{{i}}"></app-skill-card>
               </ng-container>
