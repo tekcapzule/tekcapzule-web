@@ -27,6 +27,7 @@ import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skelet
 import { CarouselModule } from 'primeng/carousel';
 import { QAComponent } from './components/qa/qa.component';
 import { AccordionModule } from 'primeng/accordion';
+import { SkillCardComponent } from '@app/skill-dashboard/skill-card/skill-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AccordionModule } from 'primeng/accordion';
     SpinnerComponent,
     FeedDetailsComponent,
     CourseCardComponent,
+    SkillCardComponent,
     ProductCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
@@ -69,6 +71,7 @@ import { AccordionModule } from 'primeng/accordion';
     SpinnerComponent,
     FeedDetailsComponent,
     CourseCardComponent,
+    SkillCardComponent,
     ProductCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
