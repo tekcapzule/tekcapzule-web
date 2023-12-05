@@ -75,13 +75,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./interview-prep/interview-prep.module').then(m => m.InterviewPrepModule),
   },
-  // {
-  //   path: 'ai-hub/mentoring',
-  //   loadChildren: () => import('./mentoring/mentoring.module').then(m => m.MentoringModule),
-  // },
   {
     path: 'ai-hub/courses',
     loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule),
+  },
+  {
+    path: 'skill-dashboard',
+    loadChildren: () => import('./skill-dashboard/skill-dashboard.module').then(m => m.SkillDashboardModule),
   },
   {
     path: 'ai-hub/product-detail/:code',
