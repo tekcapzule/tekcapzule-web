@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -27,6 +27,7 @@ import { LoginRequiredComponent } from './components/login-required/login-requir
 import { QAComponent } from './components/qa/qa.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
+import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     FilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
-    QAComponent
+    QAComponent,
+    CollaborateFormComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     ToastModule,
     DialogModule,
     CarouselModule,
-    AccordionModule
+    AccordionModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
@@ -75,7 +78,8 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
     FilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
-    QAComponent
+    QAComponent,
+    CollaborateFormComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
