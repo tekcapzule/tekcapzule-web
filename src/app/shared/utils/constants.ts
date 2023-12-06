@@ -5,6 +5,7 @@ export const Constants = {
   DefaultApiCacheExpiryHours: 12,
   DefaultSubscriptionTopics: ['NLP', 'MLR', 'CVS'],
   TopMenu: [
+    { uniqueId: 'whatwedo', displayName: 'What We Do', navUrl: '/whatwedo'},
     { uniqueId: 'Mission', displayName: 'About Us', navUrl: '/mission'},
     { uniqueId: 'Community', displayName: 'Community', navUrl: '/community'},
     { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'},

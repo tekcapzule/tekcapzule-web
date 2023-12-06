@@ -39,7 +39,7 @@
 .course-card {
   cursor: pointer;  
   .content {
-    height: 210px;
+    height: 220px;
     padding: 0 24px;
     .title{
         font-size: 18px;
@@ -186,4 +186,5 @@
 }
 .course-card.carousel-card{
   height:400px;
+  border: 1px solid #E8EDFF;
 }

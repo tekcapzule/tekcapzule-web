@@ -132,7 +132,7 @@
                 <div >
                   <h2>{{groupName}}</h2>
                 </div>
-                <div class="mb-4 pb-4 colby3">
+                <div class="mb-3 colby3">
                   <ng-container *ngFor="let learningMt of learningMtObj[groupName] | slice:0:3; let i = index">
                     <app-skill-card [learningMt]="learningMt" class="course-tile-bg-{{i}}"></app-skill-card>
                   </ng-container>

@@ -153,7 +153,8 @@
   .colby3{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 40px;
     .course-card{
       height:400px;
     }

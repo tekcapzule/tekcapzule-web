@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./contactus/contactus.module').then(m => m.ContactusModule),
   },
   {
+    path: 'whatwedo',
+    loadChildren: () => import('./whatwedo/whatwedo.module').then(m => m.WhatwedoModule),
+  },
+  {
     path: 'mission',
     loadChildren: () => import('./mission/mission.module').then(m => m.MissionModule),
   },
