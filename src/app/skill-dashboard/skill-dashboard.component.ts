@@ -23,9 +23,13 @@ export class SkillDashboardComponent implements OnInit {
   filteredlearningMtList: ILearningMaterial[] = [];
   topics: TopicItem[] = [];
   selectedTopic: string[] = [];
-  selectedPayments: any[] = [];
-  selectedDeliveryMode: any[] = [];
-  selectedSkillstudioCategories: any[] = [];
+  selectedPayments: string[] = [];
+  selectedDeliveryMode: string[] = [];
+  selectedSkillCategories: string[] = [];
+  selectedAllCategory: string[] = [];
+  learningMtObj: any = {};
+  learningMtGrps: string[] = [];
+
   paymentCategories: any[] = [
     { name: 'Free', key: 'Free' },
     { name: 'Freemium', key: 'Freemium' },
@@ -37,18 +41,17 @@ export class SkillDashboardComponent implements OnInit {
     { name: 'Hybrid', key: 'HYBRID' },
     { name: 'In Classroom', key: 'IN_CLASSROOM' },
   ];
-  skillstudioCategories: any[] = [
-    { name: 'All', key: 'All' },
-    { name: 'Tekbyte', key: 'Tekbyte' },
-    { name: 'Course', key: 'Course' },
-    { name: 'Interview Prep', key: 'Interview_Prep' },
-    { name: 'Video', key: 'Video' },
-    { name: 'Research Paper', key: 'Research_Paper' },
-    { name: 'Newsletter', key: 'Newsletter' },
-    { name: 'Podcast', key: 'Podcast' },
-    { name: 'Event', key: 'Event' },
-    { name: 'Recorded Event', key: 'Recorded_Event' },
-    { name: 'Book', key: 'Book' },
+  skillCategories: any[] = [
+    { name: 'Tekbyte', key: 'Tekbyte', iconClass: 'tekbyte' },
+    { name: 'Course', key: 'Course', iconClass: 'course' },
+    { name: 'Interview Prep', key: 'Interview Prep', iconClass: 'interview-prep' },
+    { name: 'Video', key: 'Video', iconClass: 'video' },
+    { name: 'Research Paper', key: 'Research Paper', iconClass: 'research-paper' },
+    { name: 'Newsletter', key: 'Newsletter', iconClass: 'newsletter' },
+    { name: 'Podcast', key: 'Podcast', iconClass: 'podcast' },
+    { name: 'Event', key: 'Events', iconClass: 'events' },
+    { name: 'Recorded Event', key: 'Recorded Event', iconClass: 'events' },
+    { name: 'Book', key: 'Book', iconClass: 'book' }
   ];
   searchText: string;
   isMobileResolution: boolean;
@@ -72,20 +75,42 @@ export class SkillDashboardComponent implements OnInit {
     this.onResize();
     this.subscribeFilter();
     this.topicApi.getAllTopics().subscribe(topics => {
-      this.topics = shuffleArray(topics, 5);
+      this.topics = topics;
     });
+    /*this.skillCategories.forEach(skill => {
+      this.selectedSkillCategories.push(skill.key);
+    });*/
+    this.getLearningMt();
+  }
+
+  getLearningMt() {
     this.skillStudioApi.getAllLearning().subscribe(data => {
-      data.forEach(course => {
-        course.topicName = this.helperService.getTopicName(course.topicCode);
-        course.publishedOn = course.publishedOn
-          ? moment(course.publishedOn, 'DD/MM/YYYY').fromNow()
+      data.forEach(learningMt => {
+        learningMt.topicName = this.helperService.getTopicName(learningMt.topicCode);
+        learningMt.publishedOn = learningMt.publishedOn
+          ? moment(learningMt.publishedOn, 'DD/MM/YYYY').fromNow()
           : 'NA';
       });
       this.learningMtList = data;
       this.filteredlearningMtList = data;
+      this.seperateCategory();
       this.spinner.hide();
     });
   }
+
+  seperateCategory() {
+    this.learningMtObj = {};
+    this.filteredlearningMtList.forEach(lm => {
+        if(this.learningMtObj[lm.learningMaterialType]) {
+          this.learningMtObj[lm.learningMaterialType].push(lm);
+        } else {
+          this.learningMtObj[lm.learningMaterialType] = []
+          this.learningMtObj[lm.learningMaterialType].push(lm);
+        }
+        this.learningMtGrps = Object.keys(this.learningMtObj);
+    });
+  }
+
   subscribeFilter(): void {
     const sub = this.eventChannel.getChannel().pipe(
         filter(out => out.event === ChannelEvent.ShowHideFilter), takeUntil(this.destroy$))
@@ -114,12 +139,26 @@ export class SkillDashboardComponent implements OnInit {
     }
   }
   
-  onCourseClick(course: ICourseDetail) {
-    this.router.navigateByUrl('ai-hub/course-detail/' + course.courseId);
+  onLearningClick(learningMt: ILearningMaterial) {
+    this.router.navigateByUrl('ai-hub/course-detail/' + learningMt.learningMaterialId);
+  }
+  onSelectAll(event) {
+    this.selectedSkillCategories = []
+    if(event.checked) {
+      this.skillCategories.forEach(skill => {
+        if(skill.key !== 'All') {
+          this.selectedSkillCategories.push(skill.key)
+        }
+      })
+    }
   }
 
   onFilterChange(event, key: string) {
-    // console.log('event.checked',event.checked, key, field, this.selectedPayments, this.selectedDeliveryMode);
+    if(event.checked.length === this.skillCategories.length) {
+      this.selectedAllCategory = ['All'];
+    }else {
+      this.selectedAllCategory = [];
+    }
     this.productFilter();
   }
 
@@ -128,24 +167,22 @@ export class SkillDashboardComponent implements OnInit {
     if (
       this.selectedTopic.length > 0 ||
       this.selectedPayments.length > 0 ||
-      this.selectedDeliveryMode.length > 0 ||
-      this.selectedSkillstudioCategories.length > 0
+      this.selectedSkillCategories.length > 0
     ) {
       if (this.selectedTopic.length) {
-        tempList = tempList.filter(course => this.selectedTopic.includes(course.topicCode));
+        tempList = tempList.filter(learningMt => this.selectedTopic.includes(learningMt.topicCode));
       }
       if (this.selectedPayments.length) {
-        tempList = tempList.filter(course => this.selectedPayments.includes(course.prizingModel));
+        tempList = tempList.filter(learningMt => this.selectedPayments.includes(learningMt.prizingModel));
       }
-      if (this.selectedDeliveryMode.length > 0) {
-        tempList = tempList.filter(course =>
-          this.selectedDeliveryMode.includes(course.deliveryMode)
-        );
+      if (this.selectedSkillCategories.length) {
+        tempList = tempList.filter(learningMt => this.selectedSkillCategories.includes(learningMt.learningMaterialType));
       }
     }
     this.filteredlearningMtList = tempList;
     if (!isSearchCall) {
       this.onSearch(true);
+      this.seperateCategory();
     }
   }
 
@@ -155,12 +192,14 @@ export class SkillDashboardComponent implements OnInit {
     }
     if (this.searchText && this.searchText.trim().length > 0) {
       this.filteredlearningMtList = this.filteredlearningMtList.filter(
-        course =>
-          this.helperService.getIncludesStr(course.title, this.searchText) ||
-          this.helperService.getIncludesStr(course.topicName, this.searchText) ||
-          this.helperService.getIncludesStr(course.summary, this.searchText) ||
-          this.helperService.getIncludesStr(course.description, this.searchText)
+        learningMt =>
+          this.helperService.getIncludesStr(learningMt.title, this.searchText) ||
+          this.helperService.getIncludesStr(learningMt.topicName, this.searchText) ||
+          this.helperService.getIncludesStr(learningMt.summary, this.searchText) ||
+          this.helperService.getIncludesStr(learningMt.description, this.searchText)
       );
     }
+    
+    this.seperateCategory();
   }
 }
