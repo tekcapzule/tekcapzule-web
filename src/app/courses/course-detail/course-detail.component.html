@@ -6,7 +6,7 @@
         <div class="back-link">
           <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
           <a class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
-          <span>{{courseDetail.title}}</span>
+          <span>{{learningMt.title}}</span>
         </div>
       </div>
     </div>
@@ -18,11 +18,11 @@
           <div class="row justify-content-between align-items-center">
             <div class="col-lg-8 mr-5 mob-mr-0">
               <div class="d-flex align-items-top">
-                <h2>{{courseDetail.title}}</h2>
+                <h2>{{learningMt.title}}</h2>
                 <span class="pills ml-3 bg-navy-blue mt-2">Metaverse</span>
               </div>
-              <h6 class="text-white author">{{courseDetail.author}} (August 16, 2010)</h6>
-              <p>{{courseDetail.summary}}</p>
+              <h6 class="text-white author">{{learningMt.authors[0]}} (August 16, 2010)</h6>
+              <p>{{learningMt.summary}}</p>
               <div class="d-flex align-items-center py-3">
                 <div class="recommend font-16 d-flex mr-4"><span class="okhand-white-icon pr-3"></span>Recommend
                   <span class="count text-white pl-2">(120)</span>
@@ -60,8 +60,8 @@
         <div class="pb-3 text-left">
           <h2>The Curriculum</h2>
         </div>
-        <p class="pb-3">{{courseDetail.description}}</p>
-        <div *ngFor="let module of courseDetail.modules" class="box-content">
+        <p class="pb-3">{{learningMt.description}}</p>
+        <div *ngFor="let module of learningMt.modules" class="box-content">
           <h4 class="text-blue">{{module.title}} 
             <!-- <span class="link-icon"></span> -->
           </h4>

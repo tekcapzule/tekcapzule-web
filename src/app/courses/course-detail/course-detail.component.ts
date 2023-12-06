@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppSpinnerService, CourseApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 import { Constants } from '@app/shared/utils';
 
 @Component({
@@ -12,14 +14,14 @@ import { Constants } from '@app/shared/utils';
   styleUrls: ['./course-detail.component.scss'],
 })
 export class CourseDetailComponent implements OnInit {
-  courseDetail: ICourseDetail;
+  learningMt: ILearningMaterial;
   courseList: ICourseDetail[] = [];
   relatedCourseList: ICourseDetail[] = [];
   titleUrl: string[];
   responsiveOptions: any[] = Constants.ResponsiveOptions;
   
   constructor(private spinner: AppSpinnerService,
-    private courseApi: CourseApiService,
+    private skillApi: SkillStudioApiService,
     private route: ActivatedRoute,
     private helperService: HelperService,
     private router: Router) {
@@ -34,12 +36,12 @@ export class CourseDetailComponent implements OnInit {
   }
 
   getAllCourses(code: string) {
-    this.courseApi.getAllCourse().subscribe(data => {
+    this.skillApi.getAllLearning().subscribe(data => {
       data.forEach(c => {
         c.topicName = this.helperService.getTopicName(c.topicCode)
       });
-      this.courseDetail = data.find(c => c.courseId === code);
-      this.relatedCourseList = data.filter(c => c.topicCode === this.courseDetail.topicCode && c.courseId !== this.courseDetail.courseId);
+      this.learningMt = data.find(c => c.learningMaterialId === code);
+      // this.relatedCourseList = data.filter(c => c.topicCode === this.learningMt.topicCode && c.courseId !== this.learningMt.courseId);
       this.spinner.hide();
     }, err => {
       this.spinner.hide();
