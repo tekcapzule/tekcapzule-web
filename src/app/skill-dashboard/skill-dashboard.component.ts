@@ -77,9 +77,6 @@ export class SkillDashboardComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = topics;
     });
-    /*this.skillCategories.forEach(skill => {
-      this.selectedSkillCategories.push(skill.key);
-    });*/
     this.getLearningMt();
   }
 
