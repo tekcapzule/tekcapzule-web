@@ -16,6 +16,6 @@ export class MentoringComponent implements OnInit {
   }
 
   navigateToSkilStudio(): void {
-    this.router.navigateByUrl('/ai-hub/dashboard');
+    this.router.navigateByUrl('/skill-dashboard');
   }
 }

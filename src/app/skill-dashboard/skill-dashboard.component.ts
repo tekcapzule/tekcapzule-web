@@ -144,11 +144,9 @@ export class SkillDashboardComponent implements OnInit {
   }
   onSelectAll(event) {
     this.selectedSkillCategories = []
-    if(event.checked) {
+    if(event.checked.length) {
       this.skillCategories.forEach(skill => {
-        if(skill.key !== 'All') {
-          this.selectedSkillCategories.push(skill.key)
-        }
+        this.selectedSkillCategories.push(skill.key)
       })
     }
   }
