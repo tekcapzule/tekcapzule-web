@@ -24,7 +24,7 @@ export class SkillCardComponent {
     if(learningMt.learningMaterialType === 'Course') {
       this.router.navigateByUrl('/ai-hub/course-detail/'+ learningMt.learningMaterialId);
     } else if (learningMt.learningMaterialType === 'Tekbyte') {
-      this.router.navigateByUrl('/'+ learningMt.learningMaterialId + '/details');
+      this.router.navigateByUrl('/ai-hub/tekbyte/'+ learningMt.learningMaterialId + '/details');
     } else if (learningMt.learningMaterialType === 'Video' || learningMt.learningMaterialType === 'Research Paper'
     || learningMt.learningMaterialType === 'Interview Prep' || learningMt.learningMaterialType === 'Recorded Event'
     || learningMt.learningMaterialType === 'Newsletter') {
