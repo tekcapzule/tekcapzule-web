@@ -100,6 +100,7 @@ export class SkillDashboardComponent implements OnInit {
 
   seperateCategory() {
     this.learningMtObj = {};
+    this.learningMtGrps = [];
     this.filteredlearningMtList.forEach(lm => {
         if(this.learningMtObj[lm.learningMaterialType]) {
           this.learningMtObj[lm.learningMaterialType].push(lm);
