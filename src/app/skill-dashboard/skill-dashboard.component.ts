@@ -77,9 +77,6 @@ export class SkillDashboardComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = topics;
     });
-    /*this.skillCategories.forEach(skill => {
-      this.selectedSkillCategories.push(skill.key);
-    });*/
     this.getLearningMt();
   }
 
@@ -100,6 +97,7 @@ export class SkillDashboardComponent implements OnInit {
 
   seperateCategory() {
     this.learningMtObj = {};
+    this.learningMtGrps = [];
     this.filteredlearningMtList.forEach(lm => {
         if(this.learningMtObj[lm.learningMaterialType]) {
           this.learningMtObj[lm.learningMaterialType].push(lm);

@@ -31,11 +31,11 @@ export class CourseDetailComponent implements OnInit {
     this.spinner.show();
     this.titleUrl = [this.helperService.getTileDetails('courses').navUrl];
     this.route.params.subscribe(params => {
-      this.getAllCourses(params['code']);
+      this.getAllLearning(params['code']);
     });
   }
 
-  getAllCourses(code: string) {
+  getAllLearning(code: string) {
     this.skillApi.getAllLearning().subscribe(data => {
       data.forEach(c => {
         c.topicName = this.helperService.getTopicName(c.topicCode)

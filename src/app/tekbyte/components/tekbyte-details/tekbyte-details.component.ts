@@ -11,6 +11,8 @@ import { HelperService } from '@app/core/services/common/helper.service';
 import { TekByteItem } from '@app/shared/models/tekbyte-item.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-tekbyte-details',
@@ -18,17 +20,17 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./tekbyte-details.component.scss'],
 })
 export class TekbyteDetailsComponent implements OnInit, OnDestroy {
-  tekbyteData: TekByteItem;
+  learningMt: ILearningMaterial;
   titleUrl: string[];
   subscriberFormGroup: FormGroup;
-  tekbyteList: TekByteItem[] = [];
-  popularTekbyteList: TekByteItem[] = [];
+  learningMtList: ILearningMaterial[] = [];
+  popularTekbyteList: ILearningMaterial[] = [];
   responsiveOptions: any[] = Constants.ResponsiveOptions;
 
   constructor(
     private spinner: AppSpinnerService,
-    private route: ActivatedRoute,
-    private tekbyteApi: TekByteApiService,
+    private route: ActivatedRoute,    
+    private skillApi: SkillStudioApiService,
     private helperService: HelperService,
     private fb: FormBuilder,
     private subscriptionApi: SubscriptionApiService,
@@ -49,19 +51,19 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
     this.titleUrl = [this.helperService.getTileDetails('tekbyte').navUrl];
     this.spinner.show();
     this.route.params.subscribe(params => {
-      this.getTekbyteDetaills(params['code']);
+      this.getAllLearning(params['code']);
     });
   }
 
-  getTekbyteDetaills(tekbyteCode: string) {
-    this.tekbyteApi.getAllTekByte().subscribe(
+  getAllLearning(tekbyteCode: string) {
+    this.skillApi.getAllLearning().subscribe(
       data => {
         if (data) {
-          this.tekbyteList = data;
+          this.learningMtList = data;
           if (data.length > 5) {
-            this.randaomTekbyte();
+            //this.randaomTekbyte();
           }
-          this.tekbyteData = this.tekbyteList.find(tek => tek.tekByteId === tekbyteCode);
+          this.learningMt = this.learningMtList.find(tek => tek.learningMaterialId === tekbyteCode);
           this.spinner.hide();
         }
       },
@@ -75,9 +77,9 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   randaomTekbyte() {
     const arr = [];
     while (this.popularTekbyteList.length < 3) {
-      let randomInt = Math.floor(Math.random() * this.tekbyteList.length - 1);
+      let randomInt = Math.floor(Math.random() * this.learningMtList.length - 1);
       if (arr.indexOf(randomInt) === -1) {
-        this.popularTekbyteList.push(this.tekbyteList[randomInt]);
+        this.popularTekbyteList.push(this.learningMtList[randomInt]);
       }
     }
   }
