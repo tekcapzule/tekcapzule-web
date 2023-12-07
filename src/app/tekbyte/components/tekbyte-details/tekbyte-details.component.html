@@ -44,7 +44,7 @@
           </div>
           <div class="banner-highlight d-flex">
             <img src="/assets/images/knowmore-icon.png" alt="Did you know icon" class="img-fluid w-75 h-75" />
-            <p class="text-black">A good user interface can raise website conversion rates by up to 200%</p>
+            <p class="text-black">{{learningMt.overview.didYouKnow}}</p>
           </div>
         </div>
       </div>
@@ -54,41 +54,41 @@
   <div class="row justify-content-end row-mobile">
     <div class="col-lg-10 px-0 pb-0 tekbyte-details">
       <!-- Business Modal Section -->
-      <section *ngIf="learningMt.goldenCircle" class="inner business-modal">
+      <section *ngIf="learningMt.overview?.goldenCircle" class="inner business-modal">
         <div class="row">
           <div class="col-lg-4 card">
             <h2>Why</h2>
             <p>
-              {{ learningMt.goldenCircle.why }}
+              {{ learningMt.overview.goldenCircle.why }}
             </p>
           </div>
           <div class="col-lg-4 card">
             <h2>How</h2>
             <p>
-              {{ learningMt.goldenCircle.how }}
+              {{ learningMt.overview.goldenCircle.how }}
             </p>
           </div>
           <div class="col-lg-4 card">
             <h2>What</h2>
             <p>
-              {{ learningMt.goldenCircle.what }}
+              {{ learningMt.overview.goldenCircle.what }}
             </p>
           </div>
         </div>
       </section>
       <!-- Key Concepts Section -->
-      <section *ngIf="learningMt.keyConcepts" class="key-concepts inner">
+      <section *ngIf="learningMt.overview?.keyConcepts" class="key-concepts inner">
         <div class="row">
           <div class="col-lg-11">
             <h2 class="pb-3"><span class="title-img key-concept-icon"></span> Key Concepts</h2>
-            <div *ngFor="let kc of learningMt.keyConcepts" class="pb-2">
+            <div *ngFor="let kc of learningMt.overview.keyConcepts" class="pb-2">
               <div>
                 <h3>{{ kc.title }}</h3>
                 <p>{{ kc.description }}</p>
               </div>
             </div>
             <h2 class="pb-3 pt-4"><span class="title-img application-icon"></span> Applications</h2>
-            <div *ngFor="let app of learningMt.applications" class="pb-2">
+            <div *ngFor="let app of learningMt.overview.applications" class="pb-2">
               <h3>{{ app.title }}</h3>
               <p class="description">{{ app.description }}</p>
             </div>

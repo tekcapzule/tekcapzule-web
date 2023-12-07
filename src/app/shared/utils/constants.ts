@@ -68,7 +68,7 @@ export const Constants = {
     },
     { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place', available: 'ALL', enablePostLogin: true},
     { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights', available: 'ALL', enablePostLogin: true },
-    { uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events', available: 'ALL', enablePostLogin: true },
+    //{ uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events', available: 'ALL', enablePostLogin: true },
     //{ uniqueId: 'Contribute', displayName: 'Contribute', navUrl: 'capsules/contribute', showOnMobile: true, disablePreLogin: true },
     //{ uniqueId: 'LLM_Hub', displayName: 'LLM-Hub', navUrl: '/llm-hub', disablePreLogin: true },
     // { uniqueId: 'Mentoring', displayName: 'Mentoring', isPageReady: false, navUrl: '/ai-hub/mentoring', disablePreLogin: true },
