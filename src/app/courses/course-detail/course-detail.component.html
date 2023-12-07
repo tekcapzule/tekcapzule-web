@@ -38,10 +38,10 @@
             <div class="col-lg-3 subscribe-block border-0">
               <h3 class="text-white">Highlight of this course:</h3>
               <ul class="course-highlight">
-                <li>Channel: udemy</li>
-                <li class="duration">Duration: 12 hours</li>
-                <li class="delivery">Delivery More: Online</li>
-                <li class="learning">Learning: Self-Paced</li>
+                <li>Channel: {{learningMt.publisher}}</li>
+                <li class="duration">Duration: {{learningMt.duration.inMinutes}} mins</li>
+                <li class="delivery">Delivery More: {{learningMt.deliveryMode}}</li>
+                <li class="learning">Learning: {{learningMt.learningMode}}</li>
               </ul>
               <div class="text-center">
                 <button class="button tertiary b-radius">Explore</button>
@@ -66,7 +66,7 @@
             <!-- <span class="link-icon"></span> -->
           </h4>
           <p>{{module.description}}</p>
-          <div class="d-flex align-items-center text-dark-gray"><span class="date-icon dark"></span>2 - 3 weeks</div>
+          <div class="d-flex align-items-center text-dark-gray"><span class="date-icon dark">{{module.duration}} weeks</span></div>
         </div>
       </section>
     </div>
