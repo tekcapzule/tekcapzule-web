@@ -10,6 +10,8 @@ import * as moment from 'moment';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-video-library',
@@ -18,8 +20,8 @@ import { ChannelEvent } from '@app/shared/models/channel-item.model';
 })
 export class VideoLibraryComponent implements OnInit {
   destroy$ = new Subject<boolean>();
-  videoList: IVideoDetail[] = [];
-  filteredVideoList: IVideoDetail[] = [];
+  videoList: ILearningMaterial[] = [];
+  filteredVideoList: ILearningMaterial[] = [];
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = ['AI', 'WEB3', 'META'];
@@ -29,7 +31,7 @@ export class VideoLibraryComponent implements OnInit {
 
   constructor(
     public spinner: AppSpinnerService,
-    private videoService: VideoLibraryApiService,
+    private skillApi: SkillStudioApiService,
     private router: Router,
     private helperService: HelperService,
     private messageService: MessageService,
@@ -40,17 +42,17 @@ export class VideoLibraryComponent implements OnInit {
     this.spinner.show();
     this.subscribeFilter();
     this.topics = this.helperService.getTopicData();
-    this.videoService.getAllVideos().subscribe(data => {
+    this.skillApi.getAllLearning().subscribe(data => {
       this.spinner.hide();
-      this.videoList = data;
-      this.videoList.forEach(video => {
-        const topic = this.topics.find(t => t.code === video.topicCode);
-        video.topicName = topic ? topic.title : '';
-        video.publishedOn = video.publishedOn
-          ? moment(video.publishedOn, 'DD/MM/YYYY').fromNow()
-          : 'NA';
+      data.forEach(lm => {
+        if(lm.learningMaterialType === 'Video') {
+          const topic = this.topics.find(t => t.code === lm.topicCode);
+          lm.topicName = topic ? topic.title : '';
+          lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
+          this.videoList.push(lm);
+          this.filteredVideoList.push(lm);
+        }
       });
-      this.filteredVideoList = this.videoList;
     });
   }
 
@@ -77,7 +79,7 @@ export class VideoLibraryComponent implements OnInit {
 
   onRecommendClick(eve, video: IVideoDetail) {
     eve.stopPropagation();
-    this.videoService.updateVideoRecommendCount(video.videoId).subscribe(data => {
+    /*this.videoService.updateVideoRecommendCount(video.videoId).subscribe(data => {
       video.isRecommended = true;
       this.messageService.add({
         key: 'tc',
@@ -91,7 +93,7 @@ export class VideoLibraryComponent implements OnInit {
         detail: 'Please try again later!',
       });
     });
-    return false;
+    return false;*/
   }
 
   @HostListener('window:resize', ['$event'])

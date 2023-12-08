@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 import { AppSpinnerService, EventChannelService, TekByteApiService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
@@ -9,6 +10,8 @@ import { Subject, Subscription } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { HelperService } from './../../../core/services/common/helper.service';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-explore-tekbyte',
@@ -16,20 +19,20 @@ import { ChannelEvent } from '@app/shared/models/channel-item.model';
   styleUrls: ['./explore-tekbyte.component.scss'],
 })
 export class ExploreTekbyteComponent implements OnInit {
-  popularTekbyteList: TekByteItem[] = [];
-  filteredTekbyteList: TekByteItem[] = [];
+  popularTekbyteList: ILearningMaterial[] = [];
+  filteredTekbyteList: ILearningMaterial[] = [];
   tileDetail: ITile;
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = ['AI', 'WEB3', 'META'];
-  tekbyteList: TekByteItem[] = [];
+  tekbyteList: ILearningMaterial[] = [];
   isMobileResolution: boolean;
   isFilterVisible = true;
   destroy$ = new Subject<boolean>();
   subscription: Subscription[] = [];
 
   constructor(
-    private tekbyteApi: TekByteApiService,
+    private skillApi: SkillStudioApiService,
     public spinner: AppSpinnerService,
     private router: Router,
     private helperService: HelperService,
@@ -54,16 +57,18 @@ export class ExploreTekbyteComponent implements OnInit {
   }
 
   getTekbytes() {
-    this.tekbyteApi.getAllTekByte().subscribe(
-      data => {
-        if (data) {
-          this.tekbyteList = data;
-          this.filteredTekbyteList = data;
-          if (data.length > 7) {
-            this.randaomTekbyte(data);
+    this.skillApi.getAllLearning().subscribe(data => {
+        data.forEach(lm => {   
+          if(lm.learningMaterialType === 'Tekbyte') {
+            lm.topicName = this.helperService.getTopicName(lm.topicCode);
+            lm.publishedOn = lm.publishedOn
+            ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow()
+            : 'NA';
+            this.tekbyteList.push(lm);
+            this.filteredTekbyteList.push(lm);
           }
-          this.spinner.hide();
-        }
+        });
+        this.spinner.hide();
       },
       err => {
         this.spinner.hide();
@@ -81,8 +86,8 @@ export class ExploreTekbyteComponent implements OnInit {
     }
   }
 
-  openTekbyte(tl) {
-    this.router.navigateByUrl('/ai-hub/tekbyte/' + tl.tekByteId + '/details');
+  openTekbyte(tl: ILearningMaterial) {
+    this.router.navigateByUrl('/ai-hub/tekbyte/' + tl.learningMaterialId + '/details?pageId=' + 'Tekbyte');
   }
 
   @HostListener('window:resize', ['$event'])

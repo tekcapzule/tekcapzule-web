@@ -83,7 +83,7 @@ export class CoursesComponent implements OnInit {
             : 'NA';
             this.courseList.push(lm);
             this.filteredCourseList.push(lm);
-          }
+        }
       });
       this.spinner.hide();
     });
