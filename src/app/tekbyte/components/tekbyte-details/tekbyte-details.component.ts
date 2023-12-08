@@ -76,7 +76,7 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
 
   randaomTekbyte() {
     this.relatedLearningMt = this.learningMtList.filter(lm => 
-      lm.learningMaterialType === 'Tekbyte' && lm.topicCode === this.learningMt.topicCode && lm.learningMaterialId !== learningMaterialId
+      lm.learningMaterialType === 'Tekbyte' && lm.topicCode === this.learningMt.topicCode && lm.learningMaterialId !== this.learningMt.learningMaterialId
     );
   }
 
