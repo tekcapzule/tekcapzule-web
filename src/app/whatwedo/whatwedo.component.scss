@@ -24,8 +24,15 @@
 
   .bg-style {
     opacity: 0.95;
-    padding: 15px 25px;
+    padding: 10px 40px 10px 20px;
     width: fit-content;
+    position: relative;
+    top: 107px;
+  }
+  .company-logo {
+    background: url('../../assets/images/whatwedo/tekcapzule-white-logo.svg') no-repeat;
+    width: 58px;
+    height: 12px;
   }
 
   .bg-red-wrath { background: #EF1054; }
@@ -85,7 +92,10 @@
 }
 
 
-.form-bg { background: url('../../assets/images/about/form-bg.png') center/cover no-repeat; }
+.form-bg {
+  background: transparent linear-gradient(263deg, #1F284E 0%, #1F284E 100%) 31% 75% no-repeat;
+  background-position-y: 232px;
+  padding-bottom: 0; }
 
 @media only screen and (max-width: 990px) {
   .inner { padding: 20px 0 0 !important; }
