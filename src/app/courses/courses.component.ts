@@ -75,14 +75,16 @@ export class CoursesComponent implements OnInit {
       this.topics = shuffleArray(topics, 5);
     });
     this.skillStudioApi.getAllLearning().subscribe(data => {
-      data.forEach(course => {
-        course.topicName = this.helperService.getTopicName(course.topicCode);
-        course.publishedOn = course.publishedOn
-          ? moment(course.publishedOn, 'DD/MM/YYYY').fromNow()
-          : 'NA';
+      data.forEach(lm => {
+        if(lm.learningMaterialType === 'Course') {
+          lm.topicName = this.helperService.getTopicName(lm.topicCode);
+          lm.publishedOn = lm.publishedOn
+            ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow()
+            : 'NA';
+            this.courseList.push(lm);
+            this.filteredCourseList.push(lm);
+        }
       });
-      this.courseList = data;
-      this.filteredCourseList = data;
       this.spinner.hide();
     });
   }
@@ -114,8 +116,8 @@ export class CoursesComponent implements OnInit {
     }
   }
   
-  onCourseClick(course: ICourseDetail) {
-    this.router.navigateByUrl('ai-hub/course-detail/' + course.courseId);
+  onCourseClick(learningMt: ILearningMaterial) {
+    this.router.navigateByUrl('ai-hub/course-detail/' + learningMt.learningMaterialId + '?pageId="Course"');
   }
 
   onFilterChange(event, key: string) {

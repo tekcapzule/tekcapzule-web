@@ -29,6 +29,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
+import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SkillCardComponent } from './components/skill-card/skill-card.component
     FeedsSkeletonComponent,
     QAComponent,
     CollaborateFormComponent,
-    SkillCardComponent
+    SkillCardComponent,
+    SkillSkeletonComponent
   ],
   imports: [
     CommonModule,
@@ -82,7 +84,8 @@ import { SkillCardComponent } from './components/skill-card/skill-card.component
     FeedsSkeletonComponent,
     QAComponent,
     CollaborateFormComponent,
-    SkillCardComponent
+    SkillCardComponent,
+    SkillSkeletonComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
