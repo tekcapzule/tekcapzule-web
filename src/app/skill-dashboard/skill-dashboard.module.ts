@@ -7,13 +7,12 @@ import { SkillDashboardComponent } from './skill-dashboard.component';
 import { SkillDashboardRoutingModule } from './skill-dashboard-routing.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SkillSkeletonComponent } from './skill-skeleton/skill-skeleton.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
-  declarations: [SkillDashboardComponent, SkillSkeletonComponent],
+  declarations: [SkillDashboardComponent],
   imports: [
     CommonModule,
     SharedModule,
