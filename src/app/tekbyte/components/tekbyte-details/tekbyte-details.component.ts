@@ -24,8 +24,9 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   titleUrl: string[];
   subscriberFormGroup: FormGroup;
   learningMtList: ILearningMaterial[] = [];
-  popularTekbyteList: ILearningMaterial[] = [];
+  relatedLearningMt: ILearningMaterial[] = [];
   responsiveOptions: any[] = Constants.ResponsiveOptions;
+  pageId: string;
 
   constructor(
     private spinner: AppSpinnerService,
@@ -51,6 +52,7 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
     this.titleUrl = [this.helperService.getTileDetails('tekbyte').navUrl];
     this.spinner.show();
     this.route.params.subscribe(params => {
+      this.pageId = params['pageId'];
       this.getAllLearning(params['code']);
     });
   }
@@ -60,10 +62,8 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
       data => {
         if (data) {
           this.learningMtList = data;
-          if (data.length > 5) {
-            //this.randaomTekbyte();
-          }
           this.learningMt = this.learningMtList.find(tek => tek.learningMaterialId === tekbyteCode);
+          this.randaomTekbyte();
           this.spinner.hide();
         }
       },
@@ -75,13 +75,9 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   }
 
   randaomTekbyte() {
-    const arr = [];
-    while (this.popularTekbyteList.length < 3) {
-      let randomInt = Math.floor(Math.random() * this.learningMtList.length - 1);
-      if (arr.indexOf(randomInt) === -1) {
-        this.popularTekbyteList.push(this.learningMtList[randomInt]);
-      }
-    }
+    this.relatedLearningMt = this.learningMtList.filter(lm => 
+      lm.learningMaterialType === 'Tekbyte' && lm.topicCode === this.learningMt.topicCode && lm.learningMaterialId !== this.learningMt.learningMaterialId
+    );
   }
 
   ngOnDestroy(): void {}

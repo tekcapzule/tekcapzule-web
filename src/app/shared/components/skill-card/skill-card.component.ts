@@ -13,6 +13,7 @@ import { MessageService } from 'primeng/api';
 })
 export class SkillCardComponent {
   @Input() learningMt: ILearningMaterial;
+  @Input() hostPage: string = 'Skill_Studio';
 
   constructor(private router: Router,
     private courseService: CourseApiService,
@@ -38,7 +39,7 @@ export class SkillCardComponent {
       sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
       sessionStorage.setItem('com.tekcapzule.resourceURL', learningMt.resourceUrl);
       sessionStorage.setItem('com.tekcapzule.title', learningMt.title);
-      this.router.navigateByUrl('/ai-hub/' + learningMt.learningMaterialId + '/detail?pageId=Skill_Studio');
+      this.router.navigateByUrl('/ai-hub/' + learningMt.learningMaterialId + '/detail?pageId='+ this.hostPage);
     } else {
       window.open(learningMt.resourceUrl, '_blank');
     }
