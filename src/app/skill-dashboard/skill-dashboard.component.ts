@@ -29,7 +29,7 @@ export class SkillDashboardComponent implements OnInit {
   selectedAllCategory: string[] = [];
   learningMtObj: any = {};
   learningMtGrps: string[] = [];
-
+  navUrl: any = {};
   paymentCategories: any[] = [
     { name: 'Free', key: 'Free' },
     { name: 'Freemium', key: 'Freemium' },
@@ -98,15 +98,49 @@ export class SkillDashboardComponent implements OnInit {
   seperateCategory() {
     this.learningMtObj = {};
     this.learningMtGrps = [];
+    this.navUrl = {};
     this.filteredlearningMtList.forEach(lm => {
-        if(this.learningMtObj[lm.learningMaterialType]) {
-          this.learningMtObj[lm.learningMaterialType].push(lm);
-        } else {
-          this.learningMtObj[lm.learningMaterialType] = []
-          this.learningMtObj[lm.learningMaterialType].push(lm);
+      if(this.learningMtObj[lm.learningMaterialType]) {
+        this.learningMtObj[lm.learningMaterialType].push(lm);
+      } else {
+        this.learningMtObj[lm.learningMaterialType] = []
+        this.learningMtObj[lm.learningMaterialType].push(lm);
+      }
+      this.learningMtGrps = Object.keys(this.learningMtObj);
+      this.learningMtGrps.forEach(grpName => {
+        this.navUrl[grpName] = {};
+        this.navUrl[grpName]['len'] = 3;
+        if( grpName === 'Tekbyte') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Tekbyte').navUrl;
+        } else if( grpName === 'Course') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Courses').navUrl;
+        } else if( grpName === 'Interview Prep') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Interview_Prep').navUrl;
+        } else if( grpName === 'Video') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Video_Library').navUrl;
+        } else if( grpName === 'Research Paper') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Research_Papers').navUrl;
+        } else if( grpName === 'newsletter') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Weekly_Digest').navUrl;
+        } else if( grpName === 'Podcast') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Video_Library').navUrl;
+        } else if( grpName === 'Podcast') {
+          this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Video_Library').navUrl;
+        } else if( grpName === 'Events' || grpName === 'Recorded Event') {
+          this.navUrl[grpName]['url'] = '/ai-hub/events';
+        } else if( grpName === 'Book') {
+          this.navUrl[grpName]['url'] = '/ai-hub/research-papers';
         }
-        this.learningMtGrps = Object.keys(this.learningMtObj);
+      });
     });
+    
+  }
+
+  openDashboard(groupName) {
+    this.router.navigateByUrl(this.navUrl[groupName].url);
+  }
+  learnMore(groupName) {
+    this.navUrl[groupName]['len'] = 6;
   }
 
   subscribeFilter(): void {

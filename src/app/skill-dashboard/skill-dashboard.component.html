@@ -133,9 +133,17 @@
                   <h2>{{groupName}}</h2>
                 </div>
                 <div class="mb-3 colby3">
-                  <ng-container *ngFor="let learningMt of learningMtObj[groupName] | slice:0:3; let i = index">
+                  <ng-container *ngFor="let learningMt of learningMtObj[groupName] | slice:0 : navUrl[groupName]?.len; let i = index">
                     <app-skill-card [learningMt]="learningMt" class="course-tile-bg-{{i}}"></app-skill-card>
                   </ng-container>
+                  <div class="d-flex justify-content-center align-items-center">
+                    <button class="button secondary mt-5" (click)="learnMore(groupName)">
+                      Learn More
+                    </button>
+                    <button class="button secondary mt-5" (click)="openDashboard(groupName)">
+                      See All
+                    </button>
+                  </div>
                 </div>
               </ng-container>
               
