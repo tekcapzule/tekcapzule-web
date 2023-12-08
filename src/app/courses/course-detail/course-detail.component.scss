@@ -16,11 +16,15 @@
 }
 .date-icon {
     width: 25px;
-    height: 25px;
+    height: 18px;
     margin-right: 5px;
     display: inline-block;
     &.dark {
       background: url("../../../assets/images/date-icon-black.png") no-repeat;
+      width: 100%;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
     }
   }
   .link-icon {
@@ -59,3 +63,6 @@
     }
   }
 
+.top-navigation {
+  margin-top: 20px;
+}

@@ -4,6 +4,9 @@
     &.p-main {
       padding: 92px 12px 20px;
     }
+    .inner {
+      width: 980px;
+    }
     .contactus-banner {
       background: url('../../assets/images/whatwedo/whatwedo-banner.svg');
       height: 300px;
@@ -12,14 +15,51 @@
       background-size: cover;
       margin-top: 108px;
     }
+    .contactus-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
     h2 {
-      font-size: 24px;
-      font-family: $primary-font-medium;
+      font-size: 24px !important;
+      font-family: $primary-font-bold;
+    }
+    .map-bg {
+      background: url('../../assets/images/contactus/map-bg.png') no-repeat;
+      background-size: cover;
+    }
+    .office-image {
+      background: #30354D;
+      padding: 20px 30px 30px;
+      width: 325px;
+      height: 305px;
+      margin-right: 50px;
+      label {
+        font-family: $primary-font-black;
+        font-size: 21px;
+        padding-bottom: 10px;
+        color: #fff;
+      }
+    }
+    .contact-details {
+      background: #fff;
+      padding: 30px;
+      font-size: 20px;
+      font-family:  $primary-font-medium;
+    }
+    .map {
+      font-size: 20px;
+      font-family:  $primary-font-bold;
+      display: flex;
+      align-items: center;
+      margin: 30px 0 0 30px;
     }
   }
 .form-bg {
   background: url('../../assets/images/about/form-bg.png') no-repeat;
   background-size: cover;
+  height: fit-content;
+  padding-bottom: 40px;
 }
 
 @media only screen and (max-width: 990px) {

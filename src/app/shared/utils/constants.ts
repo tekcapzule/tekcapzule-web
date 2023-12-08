@@ -6,7 +6,7 @@ export const Constants = {
   DefaultSubscriptionTopics: ['NLP', 'MLR', 'CVS'],
   TopMenu: [
     { uniqueId: 'whatwedo', displayName: 'What We Do', navUrl: '/whatwedo'},
-    { uniqueId: 'Mission', displayName: 'About Us', navUrl: '/mission'},
+    { uniqueId: 'About Us', displayName: 'About Us', navUrl: '/aboutus'},
     { uniqueId: 'Community', displayName: 'Community', navUrl: '/community'},
     { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'},
     { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'}
@@ -74,7 +74,7 @@ export const Constants = {
     // { uniqueId: 'Mentoring', displayName: 'Mentoring', isPageReady: false, navUrl: '/ai-hub/mentoring', disablePreLogin: true },
     //{ uniqueId: 'Jobs', displayName: 'Jobs', navUrl: '/jobs', disablePreLogin: true },
     // { uniqueId: 'Community', displayName: 'Community', navUrl: '/community', disablePreLogin: true },
-    // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/mission', disablePreLogin: true },
+    // { uniqueId: 'Our_Mission', displayName: 'Our Mission', navUrl: '/aboutus', disablePreLogin: true },
   ],
   SkillTiles: [
     {

@@ -4,7 +4,7 @@ import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 import { FeedbackApiService } from '@app/core/services/feedback-api/feedback-api.service';
-import { CollaborateForm } from '@app/mission/models/collaborate-form.model';
+import { CollaborateForm } from '@app/aboutus/models/collaborate-form.model';
 import { MessageService } from 'primeng/api';
 
 @Component({
