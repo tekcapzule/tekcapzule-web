@@ -50,7 +50,7 @@
     height: 277px;
   }
   .community-page,
-  .mission-page {
+  .aboutus-page {
     p {
       font-size: 18px !important;
       line-height: 22px !important;
@@ -134,7 +134,7 @@
       }
     }
   }
-  .mission-page, .community-page {
+  .aboutus-page, .community-page {
   .tech-learning {
       padding: 40px 0 !important;
     }
@@ -269,11 +269,11 @@
     border-top-right-radius: 0 !important;
     border-top-left-radius: 0 !important;
   }
-  .mission-page > section
+  .aboutus-page > section
   {
     padding-bottom: 0!important;
   }
-  .mission-page .about-banner {
+  .aboutus-page .about-banner {
     margin-bottom: 0 !important;
   }
   // .p-dialog {
@@ -484,7 +484,7 @@
     min-height: inherit !important;
     margin-bottom: 20px;
   }
-  .mission-page {
+  .aboutus-page {
     .tech-learning {
       padding-top: 0px !important;
     }

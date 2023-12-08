@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SkillStudioComponent } from './skill-studio.component';
 
-describe('MissionPageComponent', () => {
+describe('AboutUsPageComponent', () => {
   let component: SkillStudioComponent;
   let fixture: ComponentFixture<SkillStudioComponent>;
 

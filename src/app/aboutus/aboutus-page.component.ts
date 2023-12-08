@@ -2,11 +2,11 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
-  selector: 'app-mission-page',
-  templateUrl: './mission-page.component.html',
-  styleUrls: ['./mission-page.component.scss'],
+  selector: 'app-aboutus-page',
+  templateUrl: './aboutus-page.component.html',
+  styleUrls: ['./aboutus-page.component.scss'],
 })
-export class MissionPageComponent implements OnInit {
+export class AboutUsPageComponent implements OnInit {
   isMobileResolution: boolean;
   constructor(
     private helperService: HelperService,

@@ -16,7 +16,7 @@
       <section class="container-fluid details-banner linear-newbg-banner px-0 pt-5 ">
         <div class="inner">
           <div class="row justify-content-between align-items-center">
-            <div class="col-lg-8 mr-5 mob-mr-0">
+            <div class="col-lg-7 mr-5 mob-mr-0">
               <div class="d-flex align-items-top">
                 <h2>{{learningMt.title}}</h2>
                 <span class="pills ml-3 bg-navy-blue mt-2">Metaverse</span>
@@ -35,7 +35,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 subscribe-block border-0">
+            <div class="col-lg-4 subscribe-block border-0">
               <h3 class="text-white">Highlight of this course:</h3>
               <ul class="course-highlight">
                 <li>Channel: {{learningMt.publisher}}</li>
@@ -86,13 +86,13 @@
   </div>
 
   <!-----Related Topics Section----->
-  <section *ngIf="relatedLearningMt.length" class="bg-gray">
+  <section *ngIf="relatedLearningMt.length" class="bg-gray pt-4">
     <div class="container course-tile">
       <div class="section-title">
         <h2>Courses you may be interested in!</h2>
       </div>
       <div class="d-flex flex-wrap mob-carousel">
-        <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
+        <div class="card-section card-wrapper d-flex justify-content-center">
           <p-carousel [value]="relatedLearningMt" [numVisible]="3" [numScroll]="3" [circular]="false"
             [responsiveOptions]="responsiveOptions">
             <ng-template let-learningMt pTemplate="item">
