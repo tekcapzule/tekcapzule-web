@@ -5,7 +5,7 @@
       <div class="container">
         <div class="back-link">
           <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
-          <a class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
+          <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
           <span>{{learningMt.title}}</span>
         </div>
       </div>
@@ -86,17 +86,17 @@
   </div>
 
   <!-----Related Topics Section----->
-  <section *ngIf="relatedCourseList.length" class="bg-gray">
+  <section *ngIf="relatedLearningMt.length" class="bg-gray">
     <div class="container course-tile">
       <div class="section-title">
         <h2>Courses you may be interested in!</h2>
       </div>
       <div class="d-flex flex-wrap mob-carousel">
         <div class="card-section card-wrapper d-flex justify-content-center mb-4 pb-4">
-          <p-carousel [value]="relatedCourseList" [numVisible]="3" [numScroll]="3" [circular]="false"
+          <p-carousel [value]="relatedLearningMt" [numVisible]="3" [numScroll]="3" [circular]="false"
             [responsiveOptions]="responsiveOptions">
-            <ng-template let-course pTemplate="item">
-              <app-course-card [course]="course"></app-course-card>
+            <ng-template let-learningMt pTemplate="item">
+              <app-skill-card [hostPage]="Courses" [learningMt]="learningMt"></app-skill-card>
             </ng-template>
           </p-carousel>
         </div>

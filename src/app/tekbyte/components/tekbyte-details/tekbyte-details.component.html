@@ -11,7 +11,7 @@
       <div class="container">
         <div class="back-link">
           <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
-          <a class="url-link" [routerLink]="titleUrl">Tekbyte</a>
+          <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="titleUrl">Tekbyte</a>
           <span>{{ learningMt.title }}</span>
         </div>
       </div>
@@ -109,16 +109,16 @@
       </section> -->
       <!-- Popular Events Section -->
 
-      <div *ngIf="popularTekbyteList.length" class="container-fluid bg-gray pt-3">
+      <div *ngIf="relatedLearningMt.length" class="container-fluid bg-gray pt-3">
         <section class="py-3 container">
           <div class="section-title text-center">
             <h2>Other Tekbytes you may be interested in!</h2>
           </div>
           <div>
-            <p-carousel [value]="popularTekbyteList" [numVisible]="3" [numScroll]="3" [circular]="false"
+            <p-carousel [value]="relatedLearningMt" [numVisible]="3" [numScroll]="3" [circular]="false"
               [responsiveOptions]="responsiveOptions" [showNavigators]="false">
-              <ng-template let-tekbyte pTemplate="item">
-                <app-tekbyte-card [tekbyte]="tekbyte"></app-tekbyte-card>
+              <ng-template let-learningMt pTemplate="item">
+                <app-skill-card [learningMt]="learningMt"></app-skill-card>
               </ng-template>
             </p-carousel>
           </div>
@@ -126,7 +126,7 @@
       </div>
     </div>
     <!-- Stay So Far Scection -->
-    <div *ngIf="learningMt.timeline" class="col-lg-2 px-0">
+    <div *ngIf="learningMt.overview.timeline" class="col-lg-2 px-0">
       <div class="story-bg">
         <h2 class="year pr-3">
           Story So Far <img class="pl-3 mob-hide" src="/assets/images/story-arrow.svg" />

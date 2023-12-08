@@ -15,11 +15,12 @@ import { Constants } from '@app/shared/utils';
 })
 export class CourseDetailComponent implements OnInit {
   learningMt: ILearningMaterial;
-  courseList: ICourseDetail[] = [];
-  relatedCourseList: ICourseDetail[] = [];
+  learningMtList: ILearningMaterial[] = [];
+  relatedLearningMt: ILearningMaterial[] = [];
   titleUrl: string[];
   responsiveOptions: any[] = Constants.ResponsiveOptions;
-  
+  pageId: string;
+
   constructor(private spinner: AppSpinnerService,
     private skillApi: SkillStudioApiService,
     private route: ActivatedRoute,
@@ -31,17 +32,20 @@ export class CourseDetailComponent implements OnInit {
     this.spinner.show();
     this.titleUrl = [this.helperService.getTileDetails('courses').navUrl];
     this.route.params.subscribe(params => {
+      this.pageId = params['pageId'];
       this.getAllLearning(params['code']);
     });
   }
 
-  getAllLearning(code: string) {
+  getAllLearning(learningMaterialId: string) {
     this.skillApi.getAllLearning().subscribe(data => {
       data.forEach(c => {
         c.topicName = this.helperService.getTopicName(c.topicCode)
       });
-      this.learningMt = data.find(c => c.learningMaterialId === code);
-      // this.relatedCourseList = data.filter(c => c.topicCode === this.learningMt.topicCode && c.courseId !== this.learningMt.courseId);
+      this.learningMt = data.find(c => c.learningMaterialId === learningMaterialId);
+      this.relatedLearningMt = data.filter(lm => 
+        lm.learningMaterialType === 'Course' && lm.topicCode === this.learningMt.topicCode && lm.learningMaterialId !== learningMaterialId
+      );
       this.spinner.hide();
     }, err => {
       this.spinner.hide();
