@@ -186,27 +186,20 @@
                 <div class="close-btn" (click)="closeMenu()"></div>
               </div>
               <ul>
-                <!-- <li><a routerLink="/mission">Home</a> -->
                 <ul class="mobile-submenu top-level-menus">
-                  <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
                     <li class="sub-menu-element"
-                      *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'PRELOGIN' && !authState.isUserLoggedIn(); elseBlock"
-                      (click)="onMenuClick(hm)">
-                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
-                        class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
+                      (click)="onMenuClick(headerMenu[0])">
+                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + headerMenu[0].uniqueId.toLowerCase()"
+                        class="sub-menu-element"><span class="sub-menu-element">{{headerMenu[0].displayName}}</span></a>
                     </li>
-
-
-                  </ng-cotainer>
                 </ul>
-                <!-- </li> -->
-
+                
                 <li class="skill-menu-bg" (click)="toggleSkillStudioMenu()">
                   <a routerLink="/" class="mobile-menu-skill-studio">
                     SkillStudio
-                    <span [ngClass]="{'arrow-up': isSkillStudioMenuOpen, 'arrow-down': !isSkillStudioMenuOpen}"></span>
+                    <span *ngIf="!authState.isUserLoggedIn()" [ngClass]="{'arrow-up': isSkillStudioMenuOpen, 'arrow-down': !isSkillStudioMenuOpen}"></span>
                   </a>
-                  <ul class="mobile-submenu" *ngIf="isSkillStudioMenuOpen" [@expandCollapseAnimation]="'expanded'">
+                  <ul *ngIf="!authState.isUserLoggedIn() && isSkillStudioMenuOpen" class="mobile-submenu" [@expandCollapseAnimation]="'expanded'">
                     <li class="sub-menu-element skill-menu" *ngFor="let sm of skillStudioMenu; let i = index"
                       (click)="onChildMenuClick(sm)">
                       <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()"
@@ -216,8 +209,9 @@
                     </li>
                   </ul>
                 </li>
+
                 <ul class="mobile-submenu top-level-menus sub-nav-line">
-                  <ng-cotainer *ngFor="let hm of headerMenu; let i = index">
+                  <ng-cotainer *ngFor="let hm of headerMenu | slice:2:headerMenu.length let i = index">
                     <li class="sub-menu-element"
                       *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()"
                       (click)="onMenuClick(hm)">
@@ -231,6 +225,9 @@
                     </li>
                   </ng-cotainer>
                 </ul>
+
+
+
                 <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
                     (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <li class="main-nav-links pt-2 skill-menu-bg sub-nav-line">

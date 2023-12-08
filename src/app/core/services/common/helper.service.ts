@@ -150,6 +150,12 @@ export class HelperService {
     return Constants.SkillTiles.find(tile => tile.uniqueId === uniqueId);
   }
 
+  
+  getSkillPage(uniqueId): ITile {
+    const skillPages = this.findPage('Skill_Studio').children;
+    return skillPages.find(tile => tile.uniqueId === uniqueId);
+  }
+
   isLocalPublisher(publisher: string) {
     return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());
   }

@@ -30,6 +30,7 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
 import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
 import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skeleton.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skelet
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     RouterModule,
     FormsModule,
     MatTableModule,

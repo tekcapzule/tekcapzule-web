@@ -11,10 +11,12 @@ import { CarouselModule } from 'primeng/carousel';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { NgxTypedWriterModule } from 'ngx-typed-writer';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [HomePageComponent, HomeCarouselComponent],
   imports: [
+    BrowserModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
