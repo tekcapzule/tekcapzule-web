@@ -195,11 +195,11 @@
                 </ul>
                 
                 <li class="skill-menu-bg" (click)="toggleSkillStudioMenu()">
-                  <a routerLink="/" class="mobile-menu-skill-studio">
+                  <a routerLink="/skill-dashboard" class="mobile-menu-skill-studio">
                     SkillStudio
                     <span *ngIf="!authState.isUserLoggedIn()" [ngClass]="{'arrow-up': isSkillStudioMenuOpen, 'arrow-down': !isSkillStudioMenuOpen}"></span>
                   </a>
-                  <ul *ngIf="!authState.isUserLoggedIn() && isSkillStudioMenuOpen" class="mobile-submenu" [@expandCollapseAnimation]="'expanded'">
+                  <ul *ngIf="!authState.isUserLoggedIn() && isSkillStudioMenuOpen" class="mobile-submenu">
                     <li class="sub-menu-element skill-menu" *ngFor="let sm of skillStudioMenu; let i = index"
                       (click)="onChildMenuClick(sm)">
                       <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()"
