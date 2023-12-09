@@ -50,15 +50,9 @@ export class InterviewPrepComponent implements OnInit {
 
   getInterviewPrep() {
     this.skillApi.getAllLearning().subscribe(data => {
-      data.forEach(lm => {
-        if(lm.learningMaterialType === 'Interview Prep') {
-          const topic = this.topics.find(t => t.code === lm.topicCode);
-          lm.topicName = topic ? topic.title : '';
-          lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
-          this.interviewList.push(lm);
-          this.filteredInterviewList.push(lm);
-        }
-      });
+      const items = this.helperService.getLearningMtsByType(data, 'Interview Prep');
+      this.interviewList = items.currentList;
+      this.filteredInterviewList = items.filteredList;
       this.spinner.hide();
     });
   }

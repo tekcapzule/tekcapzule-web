@@ -49,15 +49,9 @@ export class ResearchPapersComponent implements OnInit {
 
   getResearchPapers() {
     this.skillApi.getAllLearning().subscribe(data => {
-      data.forEach(lm => {
-        if(lm.learningMaterialType === 'Interview Prep') {
-          const topic = this.topics.find(t => t.code === lm.topicCode);
-          lm.topicName = topic ? topic.title : '';
-          lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
-          this.researchList.push(lm);
-          this.filteredResearchList.push(lm);
-        }
-      });
+      const items = this.helperService.getLearningMtsByType(data, 'Research Paper');
+      this.researchList = items.currentList;
+      this.filteredResearchList = items.filteredList;
       this.spinner.hide();
     });
   }
