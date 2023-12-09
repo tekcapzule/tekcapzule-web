@@ -118,7 +118,7 @@ export class SkillDashboardComponent implements OnInit {
           this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Video_Library').navUrl;
         } else if(grpName === 'Research Paper') {
           this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Research_Papers').navUrl;
-        } else if(grpName === 'newsletter') {
+        } else if(grpName === 'Newsletter') {
           this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Weekly_Digest').navUrl;
         } else if(grpName === 'Podcast') {
           this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Weekly_Digest').navUrl;
