@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CourseApiService, EventChannelService, TopicApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { TopicItem } from '@app/shared/models';
-import { ICourseDetail } from '@app/shared/models/course-item.model';
-import { shuffleArray } from '@app/shared/utils';
 import * as moment from 'moment';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';

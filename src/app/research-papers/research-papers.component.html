@@ -43,68 +43,24 @@
           <button title="search bar" class="search-btn" (click)="onSearch()"></button>
         </div>
       </div>
-      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="!spinner.isLoading">
-        <div
-          *ngFor="let research of filteredResearchList; let i = index"
-          class="research-papers-card carousel-card mx-0"
-          (click)="onOpen(research)"
-        >
-          <div class="position-relative">
-            <div class="bookmark-icon-animated"></div>
-            <div class="icons labelRed">
-              <span _ngcontent-xwg-c263="">#{{ research.topicCode }}</span>
-            </div>
-            <img alt="" class="header-image" [src]="research.imageUrl" />
-          </div>
-          <div class="content">
-            <div class="title">
-              {{ research.title }}
-              <p *ngFor="let author of research.authors; let i = index">
-                {{ author }}
-                <span *ngIf="research.authors.length > 1" class="more">
-                  + {{ research.authors.length - 1 }} more</span
-                >
-                <span class="px-1"> | </span>
-                <span *ngIf="i === research.authors.length - 1">{{ research.publishedOn }}</span>
-              </p>
-            </div>
-
-            <div class="description">
-              <p>
-                {{ research.summary }}
-              </p>
-            </div>
-            <div class="d-flex pb-3">
-              <span *ngFor="let tag of research.tags; let i = index" class="pills">{{ tag }}</span>
-            </div>
-            <div class="recommend">
-              <span class="okhand-gray-icon" (click)="onRecommendClick($event, research)"></span>Recommend
-              <span class="count">({{ research.recommendations }})</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="spinner.isLoading">
-        <div
-          *ngFor="let i of [1, 2, 3, 4, 5, 6]"
-          class="research-papers-card carousel-card mx-0 research-paper-skeleton skeleton-loader"
-        >
-          <div class="header">
-            <div class="image loading"></div>
-          </div>
-          <div class="content">
-            <div class="title loading"></div>
-            <div class="author loading"></div>
-            <div class="skeleton-description loading"></div>
-            <div class="skeleton-description loading"></div>
-            <div class="skeleton-description loading"></div>
-            <div class="d-flex mt-4 mb-2">
-              <div class="badge badge1 loading"></div>
-              <div class="badge badge2 loading"></div>
-            </div>
-          </div>
-        </div>
+      
+      <ng-container *ngIf="!spinner.isLoading">
+        <ng-container *ngIf="filteredResearchList.length > 0; else noDataFound">
+          <app-skill-card
+            *ngFor="let interview of filteredResearchList"
+            [learningMt]="interview"
+          ></app-skill-card>
+        </ng-container>
+        <ng-template #noDataFound>
+          <h2 class="text-center">Sorry, data not found.</h2>
+        </ng-template>
+        
+      </ng-container>
+      
+      <div *ngIf="spinner.isLoading">
+        <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+          <app-skill-skeleton></app-skill-skeleton>
+        </ng-container>
       </div>
     </div>
   </section>
