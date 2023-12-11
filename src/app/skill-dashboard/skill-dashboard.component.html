@@ -136,12 +136,12 @@
                   <ng-container *ngFor="let learningMt of learningMtObj[groupName] | slice:0 : navUrl[groupName]?.len; let i = index">
                     <app-skill-card [learningMt]="learningMt" class="course-tile-bg-{{i}}"></app-skill-card>
                   </ng-container>
-                  <div class="d-flex justify-content-center align-items-center">
-                    <button class="button secondary mt-5" (click)="learnMore(groupName)">
-                      Learn More
+                  <div class="more-cards">
+                    <button class="button secondary-btn-sm mr-3 w-auto px-4" (click)="learnMore(groupName)">
+                      Load More
                     </button>
-                    <button class="button secondary mt-5" (click)="openDashboard(groupName)">
-                      See All
+                    <button class="button secondary-btn-sm  w-auto px-4" (click)="openDashboard(groupName)">
+                      Explore
                     </button>
                   </div>
                 </div>

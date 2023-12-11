@@ -75,7 +75,7 @@
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     
     img {
       padding: 10px;
@@ -84,9 +84,10 @@
     border-radius: 10px;
     width: 100%; 
     height: auto;
-    max-width: 132px; 
+    max-width: 100px; 
     margin-bottom: 34px;
     object-fit: scale-down;
+    margin-right: 30px;
     }
   }
 }

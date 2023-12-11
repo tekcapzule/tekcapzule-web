@@ -171,15 +171,16 @@
         height: 15px;
       }
       &:nth-child(4) {
-        background: url('../../../../assets/images/home/llmhub-menu-icon.svg') no-repeat;
-        width: 19px;
-        height: 16px;
-      }
-      &:nth-child(5) {
         background: url('../../../../assets/images/home/insights-menu-icon.svg') no-repeat;
         width: 16px;
         height: 16px;
       }
+      &:nth-child(5) {
+        background: url('../../../../assets/images/home/llmhub-menu-icon.svg') no-repeat;
+        width: 19px;
+        height: 16px;
+      }
+      
       &:nth-child(6) {
         background: url('../../../../assets/images/home/events-menu-icon.svg') no-repeat;
         width: 18px;
