@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AppSpinnerService, DigestApiService, SubscriptionApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
 import { IDigestItem } from '@app/shared/models/digest-item.model';
 import { MessageService } from 'primeng/api';
 
@@ -27,7 +28,7 @@ export class WeeklyDigestComponent implements OnInit {
 
   constructor(
     public spinner: AppSpinnerService,
-    private digestApiService: DigestApiService,
+    private skillApi: SkillStudioApiService,
     private subscriptionApi: SubscriptionApiService,
     private fb: FormBuilder,
     private messageService: MessageService,
@@ -51,21 +52,18 @@ export class WeeklyDigestComponent implements OnInit {
   }
 
   getWeeklyDigest() {
-    this.digestApiService.getAllDigest().subscribe(
-      data => {
-        data.forEach(item => {
-          if (!this.digest[item.category]) {
-            this.digest[item.category] = [];
-          }
-          this.digest[item.category].push(item);
-        });
-        this.categories = Object.keys(this.digest).sort();
-        this.spinner.hide();
-      },
-      err => {
-        this.spinner.hide();
-      }
-    );
+    this.skillApi.getAllLearning().subscribe(data => {
+      const items = this.helperService.getLearningMtsByType(data, 'Newsletter');
+      const weeklyDigestList = items.currentList;
+      weeklyDigestList.forEach(item => {
+        if (!this.digest[item.category]) {
+          this.digest[item.category] = [];
+        }
+        this.digest[item.category].push(item);
+      });
+      this.categories = Object.keys(this.digest).sort();
+      this.spinner.hide();
+    });
   }
 
   onSubscribe(): void {
@@ -99,24 +97,5 @@ export class WeeklyDigestComponent implements OnInit {
     sessionStorage.setItem('com.tekcapzule.resourceURL', dig.resourceUrl);
     sessionStorage.setItem('com.tekcapzule.title', dig.title);
     this.router.navigateByUrl('/ai-hub/' + dig.code + '/detail?pageId=Weekly_Digest');
-  }
-
-  onRecommendClick(eve, dig: IDigestItem) {
-    eve.stopPropagation();
-    this.digestApiService.updateRecommendCount(dig.code).subscribe(data => {
-      dig.isRecommended = true;
-      this.messageService.add({
-        key: 'tc',
-        severity: 'success',
-        detail: 'Thank you for the recommendation!',
-      });
-    }, err => {
-      this.messageService.add({
-        key: 'tc',
-        severity: 'error',
-        detail: 'Please try again later!',
-      });
-    });
-    return false;
   }
 }

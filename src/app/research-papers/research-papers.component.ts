@@ -11,6 +11,8 @@ import { MessageService } from 'primeng/api';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
 
 @Component({
   selector: 'app-research-papers',
@@ -18,8 +20,8 @@ import { ChannelEvent } from '@app/shared/models/channel-item.model';
   styleUrls: ['./research-papers.component.scss'],
 })
 export class ResearchPapersComponent implements OnInit {
-  researchList: IResearchPaperDetail[] = [];
-  filteredResearchList: IResearchPaperDetail[] = [];
+  researchList: ILearningMaterial[] = [];
+  filteredResearchList: ILearningMaterial[] = [];
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
@@ -30,11 +32,11 @@ export class ResearchPapersComponent implements OnInit {
 
   constructor(
     public spinner: AppSpinnerService,
-    private researchApi: ResearchApiService,
     private helperService: HelperService,
     private router: Router,
     private messageService: MessageService,
-    private eventChannel: EventChannelService
+    private eventChannel: EventChannelService,
+    private skillApi: SkillStudioApiService
   ) {}
 
   ngOnInit(): void {
@@ -42,12 +44,14 @@ export class ResearchPapersComponent implements OnInit {
     this.onResize();
     this.subscribeFilter();
     this.topics = this.helperService.getTopicData();
-    this.researchApi.getAllResearchPaper().subscribe(data => {
-      this.researchList = data;
-      data.forEach(rl => {
-        rl.publishedOn = moment(rl.publishedOn, 'DD/MM/YYYY').fromNow();
-      });
-      this.filteredResearchList = data;
+    this.getResearchPapers();
+  }
+
+  getResearchPapers() {
+    this.skillApi.getAllLearning().subscribe(data => {
+      const items = this.helperService.getLearningMtsByType(data, 'Research Paper');
+      this.researchList = items.currentList;
+      this.filteredResearchList = items.filteredList;
       this.spinner.hide();
     });
   }
@@ -61,37 +65,6 @@ export class ResearchPapersComponent implements OnInit {
     this.subscription.push(sub);
   }
 
-  onOpen(research: IResearchPaperDetail) {
-    if (this.helperService.isLocalPublisher(research.publisher)) {
-      this.spinner.show();
-      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapzule.resourceURL', research.resourceUrl);
-      sessionStorage.setItem('com.tekcapzule.title', research.title);
-      this.router.navigateByUrl(
-        '/ai-hub/' + research.researchPaperId + '/detail?pageId=Research_Papers'
-      );
-    } else {
-      window.open(research.resourceUrl, '_blank');
-    }
-  }
-
-  onRecommendClick(event, research: IResearchPaperDetail) {
-    event.stopPropagation();
-    this.researchApi.updateResearchRecommendCount(research.researchPaperId).subscribe(data => {
-      research.isRecommended = true;
-      this.messageService.add({
-        key: 'tc',
-        severity: 'success',
-        detail: 'Thank you for the recommendation!',
-      });
-    }, err => {
-      this.messageService.add({
-        key: 'tc',
-        severity: 'error',
-        detail: 'Please try again later!',
-      });
-    });
-  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
@@ -101,6 +74,7 @@ export class ResearchPapersComponent implements OnInit {
       this.isFilterVisible = false;
     }
   }
+
   onSearch() {
     let tempList = [...this.researchList];
     if (this.selectedTopics.length > 0) {

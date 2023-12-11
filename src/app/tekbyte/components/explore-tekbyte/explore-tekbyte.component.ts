@@ -58,22 +58,11 @@ export class ExploreTekbyteComponent implements OnInit {
 
   getTekbytes() {
     this.skillApi.getAllLearning().subscribe(data => {
-        data.forEach(lm => {   
-          if(lm.learningMaterialType === 'Tekbyte') {
-            lm.topicName = this.helperService.getTopicName(lm.topicCode);
-            lm.publishedOn = lm.publishedOn
-            ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow()
-            : 'NA';
-            this.tekbyteList.push(lm);
-            this.filteredTekbyteList.push(lm);
-          }
-        });
-        this.spinner.hide();
-      },
-      err => {
-        this.spinner.hide();
-      }
-    );
+      const items = this.helperService.getLearningMtsByType(data, 'Tekbyte');
+      this.tekbyteList = items.currentList;
+      this.filteredTekbyteList = items.filteredList;
+      this.spinner.hide();
+    });
   }
 
   randaomTekbyte(data) {

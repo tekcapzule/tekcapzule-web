@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ErrorModel, TopicItem } from '@app/shared/models';
 import { NavTab, SelectedMenu } from '@app/shared/models/nav-tab.model';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 import { Constants } from '@app/shared/utils';
 import { ITile } from '@app/skill-studio/models/tile.model';
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject, Observable } from 'rxjs';
+import * as moment from 'moment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -171,5 +174,22 @@ export class HelperService {
   getTopicName(topicCode: string) {
     const topic = this.topicData.find(topic => topic.code === topicCode);
     return topic ? topic.title : '';
+  }
+
+
+  getLearningMtsByType(learningMT:ILearningMaterial[], type: string) {
+    const currentList = [];
+    const filteredList = [];
+    learningMT.forEach(lm => {
+      if(!lm.topicName) {
+        lm.topicName = this.getTopicName(lm.topicCode);
+        lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
+      }
+      if(lm.learningMaterialType === 'Video') {
+        currentList.push(lm);
+        filteredList.push(lm);
+      }
+    });
+    return {currentList, filteredList};
   }
 }

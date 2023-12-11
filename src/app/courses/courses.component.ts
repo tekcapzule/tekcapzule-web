@@ -74,17 +74,14 @@ export class CoursesComponent implements OnInit {
     this.topicApi.getAllTopics().subscribe(topics => {
       this.topics = shuffleArray(topics, 5);
     });
+    this.getcourseList()
+  }
+
+  getcourseList() {
     this.skillStudioApi.getAllLearning().subscribe(data => {
-      data.forEach(lm => {
-        if(lm.learningMaterialType === 'Course') {
-          lm.topicName = this.helperService.getTopicName(lm.topicCode);
-          lm.publishedOn = lm.publishedOn
-            ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow()
-            : 'NA';
-            this.courseList.push(lm);
-            this.filteredCourseList.push(lm);
-        }
-      });
+      const items = this.helperService.getLearningMtsByType(data, 'Course');
+      this.courseList = items.currentList;
+      this.filteredCourseList = items.filteredList;
       this.spinner.hide();
     });
   }

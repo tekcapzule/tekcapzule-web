@@ -43,16 +43,10 @@ export class VideoLibraryComponent implements OnInit {
     this.subscribeFilter();
     this.topics = this.helperService.getTopicData();
     this.skillApi.getAllLearning().subscribe(data => {
+      const items = this.helperService.getLearningMtsByType(data, 'Video');
+      this.videoList = items.currentList;
+      this.filteredVideoList = items.filteredList;
       this.spinner.hide();
-      data.forEach(lm => {
-        if(lm.learningMaterialType === 'Video') {
-          const topic = this.topics.find(t => t.code === lm.topicCode);
-          lm.topicName = topic ? topic.title : '';
-          lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
-          this.videoList.push(lm);
-          this.filteredVideoList.push(lm);
-        }
-      });
     });
   }
 

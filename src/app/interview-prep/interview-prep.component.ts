@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import * as moment from 'moment';
+
 import { AppSpinnerService, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { InterviewApiService } from '@app/core/services/interview-api/interview-api.service';
@@ -10,6 +12,8 @@ import { MessageService } from 'primeng/api';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-interview-prep',
@@ -17,8 +21,8 @@ import { ChannelEvent } from '@app/shared/models/channel-item.model';
   styleUrls: ['./interview-prep.component.scss'],
 })
 export class InterviewPrepComponent implements OnInit {
-  interviewList: IInterviewDetail[] = [];
-  filteredInterviewList: IInterviewDetail[] = [];
+  interviewList: ILearningMaterial[] = [];
+  filteredInterviewList: ILearningMaterial[] = [];
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
@@ -29,11 +33,11 @@ export class InterviewPrepComponent implements OnInit {
 
   constructor(
     public spinner: AppSpinnerService,
-    private interviewApi: InterviewApiService,
     private helperService: HelperService,
     private router: Router,
     private messageService: MessageService,
-    private eventChannel: EventChannelService
+    private eventChannel: EventChannelService,
+    private skillApi: SkillStudioApiService
   ) {}
 
   ngOnInit(): void {
@@ -41,10 +45,15 @@ export class InterviewPrepComponent implements OnInit {
     this.onResize();
     this.subscribeFilter();
     this.topics = this.helperService.getTopicData();
-    this.interviewApi.getAllInterview().subscribe(data => {
+    this.getInterviewPrep();
+  }
+
+  getInterviewPrep() {
+    this.skillApi.getAllLearning().subscribe(data => {
+      const items = this.helperService.getLearningMtsByType(data, 'Interview Prep');
+      this.interviewList = items.currentList;
+      this.filteredInterviewList = items.filteredList;
       this.spinner.hide();
-      this.interviewList = data;
-      this.filteredInterviewList = data;
     });
   }
 
@@ -98,38 +107,17 @@ export class InterviewPrepComponent implements OnInit {
   }
 
 
-  onOpen(interview: IInterviewDetail) {
+  onOpen(interview: ILearningMaterial) {
     if (this.helperService.isLocalPublisher(interview.publisher)) {
       this.spinner.show();
       sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
       sessionStorage.setItem('com.tekcapzule.resourceURL', interview.resourceUrl);
       sessionStorage.setItem('com.tekcapzule.title', interview.title);
       this.router.navigateByUrl(
-        '/ai-hub/' + interview.courseId + '/detail?pageId=Interview_Prep'
+        '/ai-hub/' + interview.learningMaterialId + '/detail?pageId=Interview_Prep'
       );
     } else {
       window.open(interview.resourceUrl, '_blank');
     }
-  }
-
-  onRecommendClick(eve, interviewPrep: IInterviewDetail) {
-    eve.stopPropagation();
-    if(!interviewPrep.isRecommended) {
-      this.interviewApi.updateRecommendCount(interviewPrep.courseId).subscribe(data => {
-        interviewPrep.isRecommended = true;
-        this.messageService.add({
-          key: 'tc',
-          severity: 'success',
-          detail: 'Thank you for the recommendation!',
-        });
-      }, err => {
-        this.messageService.add({
-          key: 'tc',
-          severity: 'error',
-          detail: 'Please try again later!',
-        });
-      });
-    }
-    return false;
   }
 }
