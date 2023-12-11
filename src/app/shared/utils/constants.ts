@@ -7,9 +7,9 @@ export const Constants = {
   TopMenu: [
     { uniqueId: 'whatwedo', displayName: 'What We Do', navUrl: '/whatwedo'},
     { uniqueId: 'About Us', displayName: 'About Us', navUrl: '/aboutus'},
+    { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'},
     { uniqueId: 'Community', displayName: 'Community', navUrl: '/community'},
-    { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'},
-    { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'}
+    { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'}
   ],
   HeaderMenu: [
     { uniqueId: 'HOME', displayName: 'Home', navUrl: '/', available: 'PRELOGIN'},
