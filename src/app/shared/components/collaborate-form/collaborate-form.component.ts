@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -14,7 +14,8 @@ import { MessageService } from 'primeng/api';
 })
 export class CollaborateFormComponent implements OnInit {
   feedbackFormGroup: FormGroup;
-
+  @Input() pageType: string;
+  
   constructor(
     private feedbackApi: FeedbackApiService,
     private spinner: AppSpinnerService,
