@@ -56,7 +56,7 @@
             <h3>Master emerging technologies with ease</h3>
             <p>A subscription-based platform tailored for AI, Metaverse, and Web 3.0.
               Stay ahead in the dynamic tech landscape through easy to understand learning resources around the globe.</p>
-            <a href="#form-bg">Know More</a>
+            <a routerLink="/">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -70,7 +70,7 @@
             <h3>Empowering Corporate Learning with AI</h3>
             <p>Enhance employee development with Tekcapzule LMS, your next-gen corporate learning solution.
               Powered by AI, it delivers personalized training, automates administration, and provides data-driven insights.</p>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="openLaunchPopup()">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -85,7 +85,7 @@
             <p>Revolutionize education with Tekcapzule Campus, an AI-powered LMS designed for schools and colleges.
               Offering intuitive administration, personalized learning paths, and insightful analytics,
               it transforms traditional education into a dynamic and adaptive experience.</p>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="openLaunchPopup()">Know More</a>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
               <li>Interactive Prototyping</li>
               <li>Optimized User Engagement</li>
             </ul>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -148,7 +148,7 @@
               <li>Quality Assurance Excellence</li>
               <li>Continuous Optimization</li>
             </ul>
-            <a href="#form-bg">Know More</a>
+            <a  href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -167,7 +167,7 @@
               <li>Scalable Architecture</li>
               <li>Ongoing Support & Optimization</li>
             </ul>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -186,7 +186,7 @@
               <li>Seamless Integration</li>
               <li>Ongoing Support and Optimization</li>
             </ul>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -205,7 +205,7 @@
               <li>Flexible Learning Paths</li>
               <li>Performance Analytics</li>
             </ul>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
           </div>
         </div>
         <div class="soln-card">
@@ -223,7 +223,7 @@
               <li>Comprehensive Skill Assessments</li>
               <li>Streamlined Recruitment Workflow</li>
             </ul>
-            <a href="#form-bg">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
           </div>
         </div>
       </div>
@@ -258,7 +258,13 @@
       </div>
     </section>
   </div>
-  <section class="form-bg" id ="form-bg">
-    <app-collaborate-form [pageType]="'whatWeDo'"></app-collaborate-form>
-  </section>
+  <div id="coll-form-bg">
+    <section class="form-bg">
+      <app-collaborate-form [pageType]="'whatWeDo'"></app-collaborate-form>
+    </section>
+  </div>
 </div>
+
+
+<app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
+  (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>

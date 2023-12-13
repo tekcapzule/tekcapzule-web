@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { HelperService } from '@app/core/services/common/helper.service';
 })
 export class WhatwedoComponent implements OnInit {
   isMobileResolution: boolean;
+  isLoginRequiredDialogShown: boolean;
+
   constructor(
     private helperService: HelperService,
   ) {
@@ -18,5 +20,17 @@ export class WhatwedoComponent implements OnInit {
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
     this.helperService.setMobileResolution(this.isMobileResolution);
+  }
+
+  onKnowMore() {
+    document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
+  }
+
+  openLaunchPopup() {
+    this.isLoginRequiredDialogShown = true;
+  }
+  
+  hideLoginRequiredDialog() {
+    this.isLoginRequiredDialogShown = false;
   }
 }
