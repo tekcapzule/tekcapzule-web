@@ -32,14 +32,14 @@
       </div>
     </div>
   </section>
-  <div class="col-lg-12 pb-5">
+  <div class="pb-3 inner">
     <section
-      class="container d-flex align-items-center justify-content-between pt-4"
+      class="d-flex align-items-center justify-content-between pt-4"
       *ngIf="isFilterVisible"
     >
       <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
 
-      <div class="search-rounded col-lg-3 pl-0 mr-4">
+      <div class="search-rounded col-lg-3 pr-0">
         <input
           type="text"
           name="searchTopics"
@@ -52,8 +52,8 @@
       </div>
     </section>
 
-    <section class="pt-3 container">
-      <div *ngIf="!spinner.isLoading">
+    <section class="pt-4">
+      <div *ngIf="!spinner.isLoading" class="colby3">
         <ng-container *ngIf="filteredTekbyteList.length > 0; else noDataFound">
           <app-skill-card
             *ngFor="let tl of filteredTekbyteList"
