@@ -150,15 +150,7 @@
     font-size: 24px;
     font-family: $primary-font-medium;
   }
-  .colby3{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 40px;
-    .course-card{
-      height:400px;
-    }
-  }
+
   .more-cards {
     width: 100%;
     justify-content: center;

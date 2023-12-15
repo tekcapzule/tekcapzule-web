@@ -37,12 +37,14 @@
       </div>
 
       <ng-container *ngIf="!spinner.isLoading">
+        <div class="mb-3 colby3">
         <ng-container *ngIf="filteredInterviewList.length > 0; else noDataFound">
           <app-skill-card
             *ngFor="let interview of filteredInterviewList"
             [learningMt]="interview"
           ></app-skill-card>
         </ng-container>
+      </div>
         <ng-template #noDataFound>
           <h2 class="text-center">Sorry, data not found.</h2>
         </ng-template>

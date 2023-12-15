@@ -26,7 +26,7 @@
     <div class="inner">
       <div class="container d-flex align-items-center justify-content-between py-4 px-0" *ngIf="isFilterVisible">
         <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
-        <div class="search-rounded col-lg-3 pl-0 mr-4">
+        <div class="search-rounded col-lg-3 pr-0">
           <input
             type="text"
             name="searchTopics"
@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <div class="card-wrapper card-section mb-4 pb-4" *ngIf="!spinner.isLoading">
+      <div class="colby3 card-section pb-3" *ngIf="!spinner.isLoading">
         <ng-container *ngIf="filteredVideoList.length > 0; else noDataFound">
           <app-skill-card
             *ngFor="let video of filteredVideoList"

@@ -1,5 +1,5 @@
 <div id="tekbyte" class="skill-studio-page p-main pb-0">
-  <div class="card flex justify-content-center gap-2">
+  <div class="card flex justify-content-center gap-2 pt-3">
     <p-toast position="top-center" key="tc"></p-toast>
   </div>
   <div class="col-lg-12 px-0">
@@ -22,7 +22,7 @@
       </div>
     </div>
   </section>
-  <div class="col-lg-12 bg-white py-5">
+  <div class="col-lg-12 bg-white pt-5">
     <section class="container space-fill">
       <div class="row">
         <div *ngIf="isFilterVisible" class="col-lg-2 col-md-4 col-sm-6">
@@ -91,7 +91,7 @@
           <!-- <div class="show-result pb-4">Showing <span>{{filteredCourseList.length}}</span> of <span>{{courseList.length}}</span></div> -->
 
           <div class="course-card-skeleton-wrapper">
-            <div class="mb-4 pb-4" *ngIf="!spinner.isLoading">
+            <div class="colby3 pb-3" *ngIf="!spinner.isLoading">
               <ng-container *ngFor="let course of filteredCourseList; let i = index">
                 <app-skill-card [learningMt]="course"></app-skill-card>
               </ng-container>

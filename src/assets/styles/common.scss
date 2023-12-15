@@ -2185,7 +2185,7 @@ select {
 
 .inner {
   margin: 0 auto;
-  max-width: 1040px;
+  max-width: 1080px;
   width: 100%;
 }
 
@@ -2832,3 +2832,12 @@ body.modal-open {
 	}
 }
 
+.colby3{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 40px;
+  .course-card{
+    height:400px;
+  }
+}

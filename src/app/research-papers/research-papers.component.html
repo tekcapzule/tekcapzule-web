@@ -31,7 +31,7 @@
         *ngIf="isFilterVisible"
       >
         <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
-        <div class="search-rounded col-lg-3 pl-0 mr-4">
+        <div class="search-rounded col-lg-3 pr-0">
           <input
             type="text"
             name="searchTopics"
@@ -45,12 +45,14 @@
       </div>
       
       <ng-container *ngIf="!spinner.isLoading">
+        <div class="colby3 pb-3">
         <ng-container *ngIf="filteredResearchList.length > 0; else noDataFound">
           <app-skill-card
             *ngFor="let interview of filteredResearchList"
             [learningMt]="interview"
           ></app-skill-card>
         </ng-container>
+      </div>
         <ng-template #noDataFound>
           <h2 class="text-center">Sorry, data not found.</h2>
         </ng-template>
