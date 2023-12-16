@@ -7,11 +7,11 @@ import {
 
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss'],
+  selector: 'app-topic-filter',
+  templateUrl: './topic-filter.component.html',
+  styleUrls: ['./topic-filter.component.scss'],
 })
-export class FilterComponent {
+export class TopicFilterComponent {
   @Input() filterOptions = [
     {key:'AI', text:'Artificial Intelligence'},
     {key:'WEB3', text:'Web 3.0'},

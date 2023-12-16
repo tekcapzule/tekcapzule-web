@@ -21,7 +21,6 @@ import { AccordionModule } from 'primeng/accordion';
     ReactiveFormsModule,
     MatTabsModule,
     CoursesRoutingModule,
-    CheckboxModule,
     ToastModule,
     AccordionModule
   ],

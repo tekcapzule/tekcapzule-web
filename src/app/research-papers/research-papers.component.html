@@ -30,7 +30,7 @@
         class="container d-flex align-items-center justify-content-between py-4 px-0"
         *ngIf="isFilterVisible"
       >
-        <app-filter (onFilterUpdate)="filterUpdate($event)"></app-filter>
+        <app-topic-filter (onFilterUpdate)="filterUpdate($event)"></app-topic-filter>
         <div class="search-rounded col-lg-3 pr-0">
           <input
             type="text"

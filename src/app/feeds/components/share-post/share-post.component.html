@@ -24,7 +24,7 @@
           <input type="text" class="pl-5" placeholder="Post the link here…" value="resourceURL" />
         </div>
         <div class="pb-4">
-          <app-filter [filterOptions]="[]" (onFilterUpdate)="filterUpdate($event)"></app-filter>
+          <app-topic-filter [filterOptions]="[]" (onFilterUpdate)="filterUpdate($event)"></app-topic-filter>
         </div>
         <div class="share-icons">
           <button class="share-btn news" (click)="onTypeChanged('News')"><span>News</span></button>

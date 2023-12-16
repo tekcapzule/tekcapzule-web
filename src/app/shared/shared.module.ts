@@ -20,7 +20,7 @@ import { DataTableComponent } from './components/data-table/data-table.component
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
 import { FeedSkeletonComponent } from './components/feed-skeleton/feed-skeleton.component';
 import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
-import { FilterComponent } from './components/filter/filter.component';
+import { DataFilterComponent } from './components/data-filter/data-filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
@@ -30,6 +30,8 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
 import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
 import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skeleton.component';
+import { TopicFilterComponent } from './components/topic-filter/topic-filter.component';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skelet
     ProductCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
-    FilterComponent,
+    DataFilterComponent,
+    TopicFilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
     QAComponent,
@@ -64,7 +67,8 @@ import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skelet
     DialogModule,
     CarouselModule,
     AccordionModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CheckboxModule
   ],
   exports: [
     HeaderComponent,
@@ -79,7 +83,8 @@ import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skelet
     ProductCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
-    FilterComponent,
+    TopicFilterComponent,
+    DataFilterComponent,
     LoginRequiredComponent,
     FeedsSkeletonComponent,
     QAComponent,
