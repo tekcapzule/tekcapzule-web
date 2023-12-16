@@ -7,6 +7,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CourseDetailComponent } from './course-detail.component';
 import { CourseDetailRoutingModule } from './course-detail-routing.module';
 import { CarouselModule } from 'primeng/carousel';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CourseDetailComponent],
@@ -16,7 +17,9 @@ import { CarouselModule } from 'primeng/carousel';
     MatTabsModule,
     CourseDetailRoutingModule,
     CheckboxModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class CourseDetailModule {}

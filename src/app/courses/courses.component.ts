@@ -1,17 +1,15 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppSpinnerService, CourseApiService, EventChannelService, TopicApiService } from '@app/core';
+import { AppSpinnerService, EventChannelService, TopicApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { TopicItem } from '@app/shared/models';
-import { ICourseDetail } from '@app/shared/models/course-item.model';
-import { shuffleArray } from '@app/shared/utils';
-import * as moment from 'moment';
-import { filter, takeUntil } from 'rxjs/operators';
-import { Subject, Subscription } from 'rxjs';
-import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { TopicItem } from '@app/shared/models';
+import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
+import { shuffleArray } from '@app/shared/utils';
+import { Subject, Subscription } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-courses',
@@ -36,19 +34,6 @@ export class CoursesComponent implements OnInit {
     { name: 'Online', key: 'ONLINE' },
     { name: 'Hybrid', key: 'HYBRID' },
     { name: 'In Classroom', key: 'IN_CLASSROOM' },
-  ];
-  skillstudioCategories: any[] = [
-    { name: 'All', key: 'All' },
-    { name: 'Tekbyte', key: 'Tekbyte' },
-    { name: 'Course', key: 'Course' },
-    { name: 'Interview Prep', key: 'Interview_Prep' },
-    { name: 'Video', key: 'Video' },
-    { name: 'Research Paper', key: 'Research_Paper' },
-    { name: 'Newsletter', key: 'Newsletter' },
-    { name: 'Podcast', key: 'Podcast' },
-    { name: 'Event', key: 'Event' },
-    { name: 'Recorded Event', key: 'Recorded_Event' },
-    { name: 'Book', key: 'Book' },
   ];
   searchText: string;
   isMobileResolution: boolean;
@@ -124,12 +109,8 @@ export class CoursesComponent implements OnInit {
 
   productFilter(isSearchCall = false) {
     let tempList = [...this.courseList];
-    if (
-      this.selectedTopic.length > 0 ||
-      this.selectedPayments.length > 0 ||
-      this.selectedDeliveryMode.length > 0 ||
-      this.selectedSkillstudioCategories.length > 0
-    ) {
+    if ( this.selectedTopic.length > 0 || this.selectedPayments.length > 0 ||
+    this.selectedDeliveryMode.length > 0 || this.selectedSkillstudioCategories.length > 0 ) {
       if (this.selectedTopic.length) {
         tempList = tempList.filter(course => this.selectedTopic.includes(course.topicCode));
       }
@@ -161,5 +142,9 @@ export class CoursesComponent implements OnInit {
           this.helperService.getIncludesStr(course.description, this.searchText)
       );
     }
+  }
+
+  onFilterUpdate(event) {
+    console.log('--->>> ', event);
   }
 }

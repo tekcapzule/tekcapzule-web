@@ -9,6 +9,6 @@ import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [WhatwedoComponent],
-  imports: [CommonModule, SharedModule, WhatwedoRoutingModule, FormsModule, ToastModule, ReactiveFormsModule],
+  imports: [CommonModule, SharedModule, WhatwedoRoutingModule, ToastModule],
 })
 export class WhatwedoModule { }
