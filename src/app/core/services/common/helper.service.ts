@@ -185,7 +185,7 @@ export class HelperService {
         lm.topicName = this.getTopicName(lm.topicCode);
         lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
       }
-      if(lm.learningMaterialType === 'Video') {
+      if(lm.learningMaterialType === type) {
         currentList.push(lm);
         filteredList.push(lm);
       }
