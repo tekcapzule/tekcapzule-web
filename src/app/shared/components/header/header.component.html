@@ -231,7 +231,7 @@
                 <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
                     (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <li class="main-nav-links pt-2 skill-menu-bg sub-nav-line">
-                  <a (click)="toggleBlogMenu()">Blog
+                  <a (click)="toggleBlogMenu()">Blogs
                     <span [ngClass]="{'arrow-up': isBlogMenuOpen, 'arrow-down': !isBlogMenuOpen}"></span>
                   </a>
                   <ul *ngIf="isBlogMenuOpen" [@expandCollapseAnimation]="'expanded'">
