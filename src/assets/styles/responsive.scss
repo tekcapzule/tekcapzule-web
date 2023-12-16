@@ -268,6 +268,7 @@
   .contact-form.section-bg {
     border-top-right-radius: 0 !important;
     border-top-left-radius: 0 !important;
+    border-radius: 0 !important;
   }
   .aboutus-page > section
   {
@@ -713,3 +714,9 @@
   display: flex !important;
 }
  }
+
+ @media screen and (width: 1366px) {
+  .colby3 {
+    gap: 38px !important;
+  }
+}
