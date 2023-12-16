@@ -13,7 +13,7 @@
         <ul *ngIf="!isBookmarkLoading" class="bookmarks">
           <li *ngFor="let bmName of bookmarks">
             {{bmName}}
-            <ul>
+            <ul class="pl-0">
               <li *ngFor="let bm of bookmarkObj[bmName]" class="c-click" (click)="onBookmarkClick(bm)">
                 {{bm.title}}
             </ul>

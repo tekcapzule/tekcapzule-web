@@ -1545,6 +1545,12 @@ iframe .navbar-container,
 .p-toast-top-center {
   top: 76px !important;
 }
+.p-icon-wrapper {
+  width: 14px;
+  position: absolute;
+  top: 8px;
+}
+
 
 .p-toast {
   top: 80px !important;
@@ -1583,6 +1589,8 @@ iframe .navbar-container,
   }
   .p-toast-message-content {
     padding: 0.5rem 1rem !important;
+    display: flex;
+    align-items: center;
   }
 
   .p-toast-message-content .p-toast-message-text {
@@ -2663,6 +2671,7 @@ select {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+      color: #ec0085;
     }
   }
 }
