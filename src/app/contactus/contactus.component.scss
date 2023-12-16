@@ -61,14 +61,42 @@
   height: fit-content;
   padding-bottom: 40px;
 }
+.contactus-content {
+  display: flex;
+}
 
 @media only screen and (max-width: 990px) {
   .inner {
-    padding: 20px 0 0!important;
+    padding: 0px 20px !important;
+    width: 100% !important;
   }
  
   
   .contactus-banner {
     height: auto !important;
+    margin-top: 76px !important;
+  }
+  .banner-img {
+    width: 100%;
+  }
+  .contactus-content {
+    display: block;
+    .w-75 {
+      width: 100% !important;
+    }
+    .map {
+      margin: 0;
+    }
+    .contact-details {
+      padding: 30px 0;
+      span {
+      display: block !important;
+    }
+  }
+    .office-image {
+      display: block;
+      text-align: center;
+      width: 100% !important;
+    }
   }
  }

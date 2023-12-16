@@ -138,4 +138,17 @@
     // height: 450px !important;
     height: auto !important;
   }
+  .aboutus-page {
+    .mission-section {
+      background-size: 100%;
+      width: 100%;
+      height: auto;
+      .content {
+        width: 100%;
+        padding: 20px;
+        margin-left: 0;
+        padding-top: 215px;
+      }
+    }
+  }
 }
