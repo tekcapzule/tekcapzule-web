@@ -145,6 +145,9 @@ export class CoursesComponent implements OnInit {
   }
 
   onFilterUpdate(event) {
-    console.log('--->>> ', event);
+    this.selectedTopic = event.topic;
+    this.selectedDeliveryMode = event.deliveryMode;
+    this.selectedPayments = event.payments;
+    this.productFilter();
   }
 }
