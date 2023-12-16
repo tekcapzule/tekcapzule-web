@@ -129,8 +129,9 @@
           <div class="course-card-skeleton-wrapper">
             <div *ngIf="!spinner.isLoading">
               <ng-container *ngFor="let groupName of learningMtGrps; let i = index">
-                <div >
-                  <h2>{{groupName}}</h2>
+                <div>
+                  <h2 *ngIf="groupName !== 'Newsletter'">{{groupName}}</h2>
+                  <h2 *ngIf="groupName === 'Newsletter'">Newsletter & Podcast</h2>
                 </div>
                 <div class="mb-3 colby3">
                   <ng-container *ngFor="let learningMt of learningMtObj[groupName] | slice:0 : navUrl[groupName]?.len; let i = index">
