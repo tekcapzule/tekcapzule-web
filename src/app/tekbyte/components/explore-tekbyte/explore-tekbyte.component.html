@@ -32,55 +32,60 @@
       </div>
     </div>
   </section>
-  <div class="pb-3 inner">
-    <section
-      class="d-flex align-items-center justify-content-between pt-4"
-      *ngIf="isFilterVisible"
-    >
-      <app-topic-filter (onFilterUpdate)="filterUpdate($event)"></app-topic-filter>
+  <div class="row">
+    <app-data-filter *ngIf="isFilterVisible" (filterUpdate)="onFilterUpdate($event)" class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
+        
+    <div class="pb-3 inner">
+      <section
+        class="d-flex align-items-center justify-content-between pt-4"
+        *ngIf="isFilterVisible"
+      >
+        
+        <div class="search-rounded col-lg-3 pr-0">
+          <input
+            type="text"
+            name="searchTopics"
+            placeholder="Search"
+            class="mb-0 input-search-rounded"
+            [(ngModel)]="searchText"
+            (keyup)="onSearch()"
+          />
+          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+        </div>
+      </section>
+  
+      <section class="pt-4">
+        <div *ngIf="!spinner.isLoading" class="colby3">
+          <ng-container *ngIf="filteredTekbyteList.length > 0; else noDataFound">
+            <app-skill-card
+              *ngFor="let tl of filteredTekbyteList"
+              [learningMt]="tl"
+            ></app-skill-card>
+          </ng-container>
+          <ng-template #noDataFound>
+            <h2 class="text-center">Sorry, data not found.</h2>
+          </ng-template>
+        </div>
+        <div *ngIf="spinner.isLoading">
+          <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+            <app-skill-skeleton></app-skill-skeleton>
+          </ng-container>
+        </div>
+      </section>
+  
+      <!--div class="container pt-3 pb-2">
+        <h3>Popular Tekbytes</h3>
+      </div>    
+  
+      <section-- *ngIf="popularTekbyteList.length" class="pb-3 container">
+        <div class="popular-tekbytes-wrapper">
+          <ng-container *ngFor="let tl of popularTekbyteList">
+            <app-tekbyte-card [tekbyte]="tl"></app-tekbyte-card>
+          </ng-container>
+        </div>
+      </section-->
+    </div>
 
-      <div class="search-rounded col-lg-3 pr-0">
-        <input
-          type="text"
-          name="searchTopics"
-          placeholder="Search"
-          class="mb-0 input-search-rounded"
-          [(ngModel)]="searchText"
-          (keyup)="onSearch()"
-        />
-        <button title="search bar" class="search-btn" (click)="onSearch()"></button>
-      </div>
-    </section>
-
-    <section class="pt-4">
-      <div *ngIf="!spinner.isLoading" class="colby3">
-        <ng-container *ngIf="filteredTekbyteList.length > 0; else noDataFound">
-          <app-skill-card
-            *ngFor="let tl of filteredTekbyteList"
-            [learningMt]="tl"
-          ></app-skill-card>
-        </ng-container>
-        <ng-template #noDataFound>
-          <h2 class="text-center">Sorry, data not found.</h2>
-        </ng-template>
-      </div>
-      <div *ngIf="spinner.isLoading">
-        <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-          <app-skill-skeleton></app-skill-skeleton>
-        </ng-container>
-      </div>
-    </section>
-
-    <!--div class="container pt-3 pb-2">
-      <h3>Popular Tekbytes</h3>
-    </div>    
-
-    <section-- *ngIf="popularTekbyteList.length" class="pb-3 container">
-      <div class="popular-tekbytes-wrapper">
-        <ng-container *ngFor="let tl of popularTekbyteList">
-          <app-tekbyte-card [tekbyte]="tl"></app-tekbyte-card>
-        </ng-container>
-      </div>
-    </section-->
   </div>
+  
 </div>

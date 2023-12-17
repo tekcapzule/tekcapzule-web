@@ -23,18 +23,6 @@ export class CoursesComponent implements OnInit {
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
   selectedDeliveryMode: any[] = [];
-  selectedSkillstudioCategories: any[] = [];
-  paymentCategories: any[] = [
-    { name: 'Free', key: 'Free' },
-    { name: 'Freemium', key: 'Freemium' },
-    { name: 'Premium', key: 'Premium' },
-    { name: 'Paid', key: 'Standard' },
-  ];
-  deliveryMode: any[] = [
-    { name: 'Online', key: 'ONLINE' },
-    { name: 'Hybrid', key: 'HYBRID' },
-    { name: 'In Classroom', key: 'IN_CLASSROOM' },
-  ];
   searchText: string;
   isMobileResolution: boolean;
   isFilterVisible = true;
@@ -110,7 +98,7 @@ export class CoursesComponent implements OnInit {
   productFilter(isSearchCall = false) {
     let tempList = [...this.courseList];
     if ( this.selectedTopic.length > 0 || this.selectedPayments.length > 0 ||
-    this.selectedDeliveryMode.length > 0 || this.selectedSkillstudioCategories.length > 0 ) {
+      this.selectedDeliveryMode.length > 0) {
       if (this.selectedTopic.length) {
         tempList = tempList.filter(course => this.selectedTopic.includes(course.topicCode));
       }
