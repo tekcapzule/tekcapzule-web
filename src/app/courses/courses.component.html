@@ -25,48 +25,6 @@
   <div class="col-lg-12 bg-white pt-5">
     <section class="container space-fill">
       <div class="row">
-        <!--div *ngIf="isFilterVisible" class="col-lg-2 col-md-4 col-sm-6">
-          <div class="filter-column">
-            <div class="filter-heading" data-toggle="collapse" href="#filterAccordion" aria-expanded="true">
-              Filter
-            </div>
-            <div id="filterAccordion" class="collapse show filter-accordion-content">
-              <div class="filter-topic">Topic</div>
-              <div *ngFor="let topic of topics" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="topic"
-                  [value]="topic.code"
-                  [(ngModel)]="selectedTopic"
-                  [inputId]="topic.code"
-                  (onChange)="onFilterChange($event, topic.code)"
-                ></p-checkbox>
-                <label [for]="topic.code">{{ topic.title }}</label>
-              </div>
-              <div class="filter-topic mt-4">Price Type</div>
-              <div *ngFor="let category of paymentCategories" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="payment"
-                  [value]="category.key"
-                  [inputId]="category.key"
-                  [(ngModel)]="selectedPayments"
-                  (onChange)="onFilterChange($event, category.key)"
-                ></p-checkbox>
-                <label [for]="category.key">{{ category.name }}</label>
-              </div>
-              <div class="filter-topic mt-4">Delivery Mode</div>
-              <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
-                <p-checkbox
-                  name="delivery"
-                  [value]="dm.key"
-                  [inputId]="dm.key"
-                  [(ngModel)]="selectedDeliveryMode"
-                  (onChange)="onFilterChange($event, dm.key)"
-                ></p-checkbox>
-                <label [for]="dm.key">{{ dm.name }}</label>
-              </div>
-            </div>
-          </div>
-        </div-->
         <app-data-filter *ngIf="isFilterVisible" [pageId]="'Course'" (filterUpdate)="onFilterUpdate($event)" class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
         <div class="col-lg-10 col-md-8 col-sm-6">
           <div class="row">
@@ -89,13 +47,16 @@
               </div>
             </div>
           </div>
-          <!-- <div class="show-result pb-4">Showing <span>{{filteredCourseList.length}}</span> of <span>{{courseList.length}}</span></div> -->
+          <!-- <div class="show-result pb-4">Showing <span>{{filteredList.length}}</span> of <span>{{courseList.length}}</span></div> -->
 
           <div class="course-card-skeleton-wrapper">
             <div class="colby3 pb-3" *ngIf="!spinner.isLoading">
-              <ng-container *ngFor="let course of filteredCourseList; let i = index">
-                <app-skill-card [learningMt]="course"></app-skill-card>
+              <ng-container *ngIf="filteredList.length > 0; else noDataFound">
+                <app-skill-card *ngFor="let course of filteredList; let i = index" [learningMt]="course"></app-skill-card>
               </ng-container>
+              <ng-template #noDataFound>
+                <h2 class="text-center">Sorry, data not found.</h2>
+              </ng-template>
             </div>
             <div *ngIf="spinner.isLoading">
               <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">

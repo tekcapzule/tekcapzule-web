@@ -19,9 +19,12 @@ import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
   styleUrls: ['./video-library.component.scss'],
 })
 export class VideoLibraryComponent implements OnInit {
+  learningList: ILearningMaterial[] = [];
+  filteredList: ILearningMaterial[] = [];
+  selectedTopic: string[] = [];
+  selectedPayments: any[] = [];
+  
   destroy$ = new Subject<boolean>();
-  videoList: ILearningMaterial[] = [];
-  filteredVideoList: ILearningMaterial[] = [];
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = ['AI', 'WEB3', 'META'];
@@ -44,8 +47,8 @@ export class VideoLibraryComponent implements OnInit {
     this.topics = this.helperService.getTopicData();
     this.skillApi.getAllLearning().subscribe(data => {
       const items = this.helperService.getLearningMtsByType(data, 'Video');
-      this.videoList = items.currentList;
-      this.filteredVideoList = items.filteredList;
+      this.learningList = items.currentList;
+      this.filteredList = items.filteredList;
       this.spinner.hide();
     });
   }
@@ -98,34 +101,27 @@ export class VideoLibraryComponent implements OnInit {
       this.isFilterVisible = false;
     }
   }
-  onSearch(): void {
-    let tempList = [...this.videoList];
-    if (this.selectedTopics.length > 0) {
-      tempList = tempList.filter(video => this.selectedTopics.includes(video.topicCode));
+
+  onFilterUpdate(event) {
+    this.selectedTopic = event.topic;
+    this.selectedPayments = event.payments;
+    this.productFilter();
+  }  
+  
+  productFilter(isSearchCall = false) {
+    this.filteredList = this.helperService.productFilter(this.learningList, this.selectedTopic,
+      this.selectedPayments, []);
+    if (!isSearchCall) {
+      this.onSearch(true);
+    }
+  }
+
+  onSearch(isFiltered = false): void {
+    if (!isFiltered) {
+      this.productFilter(true);
     }
     if (this.searchText && this.searchText.trim().length > 0) {
-      this.filteredVideoList = tempList.filter(
-        video =>
-          this.helperService.getIncludesStr(video.title, this.searchText) ||
-          this.helperService.getIncludesStr(video.topicName, this.searchText) ||
-          this.helperService.getIncludesStr(video.summary, this.searchText) ||
-          this.helperService.getIncludesStr(video.description, this.searchText)
-      );
-    } else {
-      this.filteredVideoList = tempList;
+      this.helperService.searchByText(this.filteredList, this.searchText);
     }
-  }
-
-  onChange(eve: any): void {
-    this.selectedTopics = [];
-    if (eve.value.length > 0) {
-      eve.value.forEach(topic => this.selectedTopics.push(topic.code));
-    }
-    this.onSearch();
-  }
-
-  filterUpdate(topics) {
-    this.selectedTopics = topics;
-    this.onSearch();
   }
 }

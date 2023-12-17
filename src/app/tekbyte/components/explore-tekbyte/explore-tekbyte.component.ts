@@ -19,8 +19,11 @@ import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
   styleUrls: ['./explore-tekbyte.component.scss'],
 })
 export class ExploreTekbyteComponent implements OnInit {
-  popularTekbyteList: ILearningMaterial[] = [];
-  filteredTekbyteList: ILearningMaterial[] = [];
+  learningList: ILearningMaterial[] = [];
+  filteredList: ILearningMaterial[] = [];
+  selectedTopic: string[] = [];
+  selectedPayments: any[] = [];
+  
   tileDetail: ITile;
   searchText: string;
   topics: TopicItem[] = [];
@@ -30,8 +33,6 @@ export class ExploreTekbyteComponent implements OnInit {
   isFilterVisible = true;
   destroy$ = new Subject<boolean>();
   subscription: Subscription[] = [];
-  selectedTopic: string[] = [];
-  selectedPayments: any[] = [];
   
   constructor(
     private skillApi: SkillStudioApiService,
@@ -62,17 +63,17 @@ export class ExploreTekbyteComponent implements OnInit {
     this.skillApi.getAllLearning().subscribe(data => {
       const items = this.helperService.getLearningMtsByType(data, 'Tekbyte');
       this.tekbyteList = items.currentList;
-      this.filteredTekbyteList = items.filteredList;
+      this.filteredList = items.filteredList;
       this.spinner.hide();
     });
   }
 
   randaomTekbyte(data) {
     const arr = [];
-    while (this.popularTekbyteList.length < 5) {
+    while (this.learningList.length < 5) {
       let randomInt = Math.floor(Math.random() * data.length - 1);
       if (arr.indexOf(randomInt) === -1) {
-        this.popularTekbyteList.push(data[randomInt]);
+        this.learningList.push(data[randomInt]);
       }
     }
   }
@@ -93,20 +94,12 @@ export class ExploreTekbyteComponent implements OnInit {
   onFilterUpdate(event) {
     this.selectedTopic = event.topic;
     this.selectedPayments = event.payments;
-    this.tekbyteFilter();
-  }
-
-  tekbyteFilter(isSearchCall = false) {
-    let tempList = [...this.tekbyteList];
-    if ( this.selectedTopic.length > 0 || this.selectedPayments.length > 0) {
-      if (this.selectedTopic.length) {
-        tempList = tempList.filter(tekbyte => this.selectedTopic.includes(tekbyte.topicCode));
-      }
-      if (this.selectedPayments.length) {
-        tempList = tempList.filter(tekbyte => this.selectedPayments.includes(tekbyte.prizingModel));
-      }
-    }
-    this.filteredTekbyteList = tempList;
+    this.productFilter();
+  }  
+  
+  productFilter(isSearchCall = false) {
+    this.filteredList = this.helperService.productFilter(this.learningList, this.selectedTopic,
+      this.selectedPayments, []);
     if (!isSearchCall) {
       this.onSearch(true);
     }
@@ -114,17 +107,10 @@ export class ExploreTekbyteComponent implements OnInit {
 
   onSearch(isFiltered = false): void {
     if (!isFiltered) {
-      this.tekbyteFilter(true);
+      this.productFilter(true);
     }
     if (this.searchText && this.searchText.trim().length > 0) {
-      this.filteredTekbyteList = this.filteredTekbyteList.filter(
-        tekbyte =>
-          this.helperService.getIncludesStr(tekbyte.title, this.searchText) ||
-          this.helperService.getIncludesStr(tekbyte.topicName, this.searchText) ||
-          this.helperService.getIncludesStr(tekbyte.summary, this.searchText) ||
-          this.helperService.getIncludesStr(tekbyte.description, this.searchText)
-      );
+      this.helperService.searchByText(this.filteredList, this.searchText);
     }
   }
-
 }

@@ -34,7 +34,7 @@ export const Constants = {
         },
         {
           uniqueId: 'Weekly_Digest',
-          displayName: 'Weekly Digest',
+          displayName: 'Newsletter & Podcast',
           navUrl: '/ai-hub/weekly-digest',
           enablePostLogin: true,
           desc:
@@ -110,7 +110,7 @@ export const Constants = {
     },
     {
       uniqueId: 'Weekly_Digest',
-      displayName: 'Weekly Digest',
+      displayName: 'Newsletter',
       desc: 'Get the best of emerging tech with our curated list of leading weekly newsletters and podcasts',
       navUrl: '/ai-hub/weekly-digest',
     },

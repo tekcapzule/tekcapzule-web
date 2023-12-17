@@ -17,14 +17,7 @@ export class WeeklyDigestComponent implements OnInit {
   digest: any = {};
   categories: string[] = [];
   subscriberFormGroup: FormGroup;
-  categoryDetail = [
-    {
-      id: 'NEWS_LETTER',
-      displayName: 'News Letter',
-      url: '/digest/newsletter?id=',
-    },
-    { id: 'PODCAST', displayName: 'Podcast', bgColor: '', url: '/digest/podcast?id=' },
-  ];
+  
 
   constructor(
     public spinner: AppSpinnerService,
@@ -53,13 +46,16 @@ export class WeeklyDigestComponent implements OnInit {
 
   getWeeklyDigest() {
     this.skillApi.getAllLearning().subscribe(data => {
-      const items = this.helperService.getLearningMtsByType(data, 'Newsletter');
-      const weeklyDigestList = items.currentList;
+      const newsletter = this.helperService.getLearningMtsByType(data, 'Newsletter');
+      let weeklyDigestList = newsletter.currentList;
+      const podcast = this.helperService.getLearningMtsByType(data, 'Podcast');
+      weeklyDigestList.push(...podcast.currentList);
+      console.log('weeklyDigestList  ',weeklyDigestList, newsletter.currentList, podcast.currentList)
       weeklyDigestList.forEach(item => {
-        if (!this.digest[item.category]) {
-          this.digest[item.category] = [];
+        if (!this.digest[item.learningMaterialType]) {
+          this.digest[item.learningMaterialType] = [];
         }
-        this.digest[item.category].push(item);
+        this.digest[item.learningMaterialType].push(item);
       });
       this.categories = Object.keys(this.digest).sort();
       this.spinner.hide();

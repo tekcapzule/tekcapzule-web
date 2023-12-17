@@ -26,36 +26,38 @@
   </section>
 
   <section class="col-lg-12">
-    <div class="inner">
-      <div class="container d-flex align-items-center justify-content-between py-4 px-0" *ngIf="isFilterVisible">
-        <app-topic-filter (onFilterUpdate)="filterUpdate($event)"></app-topic-filter>
-        <div class="search-rounded col-lg-3 pl-0 mr-4">
-          <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
-            [(ngModel)]="searchText" (keyup)="onSearch()" />
-          <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+    <div class="row">
+      <app-data-filter *ngIf="isFilterVisible" [pageId]="'Interview_Prep'" (filterUpdate)="onFilterUpdate($event)"
+        class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
+
+      <div class="inner">
+        <div class="container d-flex align-items-center justify-content-between py-4 px-0" *ngIf="isFilterVisible">
+          <div class="search-rounded col-lg-3 pl-0 mr-4">
+            <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
+              [(ngModel)]="searchText" (keyup)="onSearch()" />
+            <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+          </div>
+        </div>
+
+        <ng-container *ngIf="!spinner.isLoading">
+          <div class="mb-3 colby3">
+            <ng-container *ngIf="filteredList.length > 0; else noDataFound">
+              <app-skill-card *ngFor="let interview of filteredList" [learningMt]="interview"></app-skill-card>
+            </ng-container>
+          </div>
+          <ng-template #noDataFound>
+            <h2 class="text-center">Sorry, data not found.</h2>
+          </ng-template>
+
+        </ng-container>
+
+        <div *ngIf="spinner.isLoading">
+          <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+            <app-skill-skeleton></app-skill-skeleton>
+          </ng-container>
         </div>
       </div>
 
-      <ng-container *ngIf="!spinner.isLoading">
-        <div class="mb-3 colby3">
-        <ng-container *ngIf="filteredInterviewList.length > 0; else noDataFound">
-          <app-skill-card
-            *ngFor="let interview of filteredInterviewList"
-            [learningMt]="interview"
-          ></app-skill-card>
-        </ng-container>
-      </div>
-        <ng-template #noDataFound>
-          <h2 class="text-center">Sorry, data not found.</h2>
-        </ng-template>
-        
-      </ng-container>
-      
-      <div *ngIf="spinner.isLoading">
-        <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-          <app-skill-skeleton></app-skill-skeleton>
-        </ng-container>
-      </div>
     </div>
   </section>
 </div>
