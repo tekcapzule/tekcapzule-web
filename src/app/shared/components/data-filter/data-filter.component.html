@@ -26,17 +26,19 @@
         ></p-checkbox>
         <label [for]="category.key">{{ category.name }}</label>
       </div>
-      <div class="filter-topic mt-4">Delivery Mode</div>
-      <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
-        <p-checkbox
+      <ng-container *ngIf="pageId === 'Course' || pageId === 'Events' || pageId === 'Interview_Prep'">
+        <div class="filter-topic mt-4">Delivery Mode</div>
+        <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
+          <p-checkbox
           name="delivery"
           [value]="dm.key"
           [inputId]="dm.key"
           [(ngModel)]="selectedDeliveryMode"
           (onChange)="onFilterChange($event, dm.key)"
-        ></p-checkbox>
-        <label [for]="dm.key">{{ dm.name }}</label>
+          ></p-checkbox>
+          <label [for]="dm.key">{{ dm.name }}</label>
+        </div>
+      </ng-container>
       </div>
-    </div>
   </div>
 </div>

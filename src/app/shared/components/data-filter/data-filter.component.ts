@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   Output
 } from '@angular/core';
 import { TopicApiService } from '@app/core';
@@ -30,7 +31,8 @@ export class DataFilterComponent {
   ];
   
   @Output() filterUpdate = new EventEmitter<any>();
-
+  @Input() pageId:string;
+  
   constructor(
     private topicApi: TopicApiService) {
     this.topicApi.getAllTopics().subscribe(topics => {
