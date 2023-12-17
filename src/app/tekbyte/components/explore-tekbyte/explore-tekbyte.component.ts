@@ -32,7 +32,6 @@ export class ExploreTekbyteComponent implements OnInit {
   subscription: Subscription[] = [];
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
-  selectedDeliveryMode: any[] = [];
   
   constructor(
     private skillApi: SkillStudioApiService,
@@ -93,25 +92,18 @@ export class ExploreTekbyteComponent implements OnInit {
   
   onFilterUpdate(event) {
     this.selectedTopic = event.topic;
-    this.selectedDeliveryMode = event.deliveryMode;
     this.selectedPayments = event.payments;
     this.tekbyteFilter();
   }
 
   tekbyteFilter(isSearchCall = false) {
     let tempList = [...this.tekbyteList];
-    if ( this.selectedTopic.length > 0 || this.selectedPayments.length > 0 ||
-      this.selectedDeliveryMode.length > 0) {
+    if ( this.selectedTopic.length > 0 || this.selectedPayments.length > 0) {
       if (this.selectedTopic.length) {
         tempList = tempList.filter(tekbyte => this.selectedTopic.includes(tekbyte.topicCode));
       }
       if (this.selectedPayments.length) {
         tempList = tempList.filter(tekbyte => this.selectedPayments.includes(tekbyte.prizingModel));
-      }
-      if (this.selectedDeliveryMode.length > 0) {
-        tempList = tempList.filter(tekbyte =>
-          this.selectedDeliveryMode.includes(tekbyte.deliveryMode)
-        );
       }
     }
     this.filteredTekbyteList = tempList;
