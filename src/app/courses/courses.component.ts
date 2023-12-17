@@ -102,9 +102,7 @@ export class CoursesComponent implements OnInit {
     if (!isFiltered) {
       this.productFilter(true);
     }
-    if (this.searchText && this.searchText.trim().length > 0) {
-      this.helperService.searchByText(this.filteredList, this.searchText);
-    }
+    this.helperService.searchByText(this.filteredList, this.searchText);
   }
 
   onFilterUpdate(event) {

@@ -62,37 +62,6 @@ export class VideoLibraryComponent implements OnInit {
     this.subscription.push(sub);
   }
 
-  onVideoClick(video: IVideoDetail) {
-    if (this.helperService.isLocalPublisher(video.publisher)) {
-      this.spinner.show();
-      sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
-      sessionStorage.setItem('com.tekcapzule.resourceURL', video.resourceUrl);
-      sessionStorage.setItem('com.tekcapzule.title', video.title);
-      this.router.navigateByUrl('/ai-hub/' + video.videoId + '/detail?pageId=Video_Library');
-    } else {
-      window.open(video.resourceUrl, '_blank');
-    }
-  }
-
-  onRecommendClick(eve, video: IVideoDetail) {
-    eve.stopPropagation();
-    /*this.videoService.updateVideoRecommendCount(video.videoId).subscribe(data => {
-      video.isRecommended = true;
-      this.messageService.add({
-        key: 'tc',
-        severity: 'success',
-        detail: 'Thank you for the recommendation!',
-      });
-    }, err => {
-      this.messageService.add({
-        key: 'tc',
-        severity: 'error',
-        detail: 'Please try again later!',
-      });
-    });
-    return false;*/
-  }
-
   @HostListener('window:resize', ['$event'])
   onResize(event = null) {
     this.isMobileResolution = window.innerWidth < 992 ? true : false;
@@ -120,8 +89,6 @@ export class VideoLibraryComponent implements OnInit {
     if (!isFiltered) {
       this.productFilter(true);
     }
-    if (this.searchText && this.searchText.trim().length > 0) {
-      this.helperService.searchByText(this.filteredList, this.searchText);
-    }
+    this.helperService.searchByText(this.filteredList, this.searchText);
   }
 }

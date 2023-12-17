@@ -62,36 +62,4 @@ export class WeeklyDigestComponent implements OnInit {
     });
   }
 
-  onSubscribe(): void {
-    this.subscriberFormGroup.markAsTouched();
-    if (this.subscriberFormGroup.valid) {
-      this.spinner.show();
-      this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(
-        data => {
-          this.messageService.add({
-            key: 'tc',
-            severity: 'success',
-            detail: 'Thank you for subscribing!',
-          });
-          this.subscriberFormGroup.reset();
-          this.spinner.hide();
-        },
-        error => {
-          this.messageService.add(this.helperService.getInternalErrorMessage());
-          this.spinner.hide();
-        }
-      );
-    } else {
-      this.messageService.add({ key: 'tc', severity: 'error', detail: 'Enter valid email' });
-    }
-  }
-
-  openDigest(dig) {
-    console.log('dig.resourceUrl', dig.resourceURL);
-    this.spinner.show();
-    sessionStorage.setItem('com.tekcapzule.pageURL', this.router.url);
-    sessionStorage.setItem('com.tekcapzule.resourceURL', dig.resourceUrl);
-    sessionStorage.setItem('com.tekcapzule.title', dig.title);
-    this.router.navigateByUrl('/ai-hub/' + dig.code + '/detail?pageId=Weekly_Digest');
-  }
 }
