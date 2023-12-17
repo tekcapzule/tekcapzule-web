@@ -21,8 +21,8 @@ import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
   styleUrls: ['./interview-prep.component.scss'],
 })
 export class InterviewPrepComponent implements OnInit {
-  interviewList: ILearningMaterial[] = [];
-  filteredInterviewList: ILearningMaterial[] = [];
+  learningList: ILearningMaterial[] = [];
+  filteredList: ILearningMaterial[] = [];
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
@@ -30,6 +30,10 @@ export class InterviewPrepComponent implements OnInit {
   isFilterVisible = true;
   destroy$ = new Subject<boolean>();
   subscription: Subscription[] = [];
+  selectedTopic: string[] = [];
+  selectedPayments: any[] = [];
+  selectedDeliveryMode: any[] = [];
+  
 
   constructor(
     public spinner: AppSpinnerService,
@@ -51,8 +55,8 @@ export class InterviewPrepComponent implements OnInit {
   getInterviewPrep() {
     this.skillApi.getAllLearning().subscribe(data => {
       const items = this.helperService.getLearningMtsByType(data, 'Interview Prep');
-      this.interviewList = items.currentList;
-      this.filteredInterviewList = items.filteredList;
+      this.learningList = items.currentList;
+      this.filteredList = items.filteredList;
       this.spinner.hide();
     });
   }
@@ -74,38 +78,31 @@ export class InterviewPrepComponent implements OnInit {
       this.isFilterVisible = false;
     }
   }
+  
+  onFilterUpdate(event) {
+    this.selectedTopic = event.topic;
+    this.selectedDeliveryMode = event.deliveryMode;
+    this.selectedPayments = event.payments;
+    this.productFilter();
+  }
+  
+  
+  productFilter(isSearchCall = false) {
+    this.filteredList = this.helperService.productFilter(this.learningList, this.selectedTopic,
+      this.selectedPayments, this.selectedDeliveryMode);
+    if (!isSearchCall) {
+      this.onSearch(true);
+    }
+  }
 
-  onSearch() {
-    let tempList = [...this.interviewList];
-    if (this.selectedTopics.length > 0) {
-      tempList = tempList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
+  onSearch(isFiltered = false): void {
+    if (!isFiltered) {
+      this.productFilter(true);
     }
     if (this.searchText && this.searchText.trim().length > 0) {
-      this.filteredInterviewList = tempList.filter(
-        intreview =>
-          this.helperService.getIncludesStr(intreview.title, this.searchText) ||
-          this.helperService.getIncludesStr(intreview.topicCode, this.searchText) ||
-          this.helperService.getIncludesStr(intreview.summary, this.searchText) ||
-          this.helperService.getIncludesStr(intreview.description, this.searchText)
-      );
-    } else {
-      this.filteredInterviewList = tempList;
+      this.helperService.searchByText(this.filteredList, this.searchText);
     }
   }
-
-  onChange(eve) {
-    this.selectedTopics = [];
-    if (eve.value.length > 0) {
-      eve.value.forEach(topic => this.selectedTopics.push(topic.code));
-    }
-    this.onSearch();
-  }
-
-  filterUpdate(topics) {
-    this.selectedTopics = topics;
-    this.onSearch();
-  }
-
 
   onOpen(interview: ILearningMaterial) {
     if (this.helperService.isLocalPublisher(interview.publisher)) {

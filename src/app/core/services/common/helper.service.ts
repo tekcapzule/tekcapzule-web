@@ -192,4 +192,30 @@ export class HelperService {
     });
     return {currentList, filteredList};
   }
+
+  productFilter(learningList: ILearningMaterial[], topic: string[], payments: any[], deliveryMode:any[]) {
+    let tempList = [...learningList];
+    if (topic.length) {
+      tempList = tempList.filter(tl => topic.includes(tl.topicCode));
+    }
+    if (payments.length) {
+      tempList = tempList.filter(tl => payments.includes(tl.prizingModel));
+    }
+    if (deliveryMode.length > 0) {
+      tempList = tempList.filter(tl => deliveryMode.includes(tl.deliveryMode));
+    }
+    return tempList;
+  }
+
+  searchByText(filteredList:ILearningMaterial[], searchText: string): ILearningMaterial[] {
+    filteredList = filteredList.filter(
+      fl =>
+        this.getIncludesStr(fl.title, searchText) ||
+        this.getIncludesStr(fl.topicName, searchText) ||
+        this.getIncludesStr(fl.summary, searchText) ||
+        this.getIncludesStr(fl.description, searchText)
+    );
+    return filteredList;
+  }
+
 }

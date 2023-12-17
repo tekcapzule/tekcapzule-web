@@ -20,8 +20,11 @@ import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill
   styleUrls: ['./research-papers.component.scss'],
 })
 export class ResearchPapersComponent implements OnInit {
-  researchList: ILearningMaterial[] = [];
-  filteredResearchList: ILearningMaterial[] = [];
+  learningList: ILearningMaterial[] = [];
+  filteredList: ILearningMaterial[] = [];
+  selectedTopic: string[] = [];
+  selectedPayments: any[] = [];
+
   searchText: string;
   topics: TopicItem[] = [];
   selectedTopics: string[] = [];
@@ -50,8 +53,8 @@ export class ResearchPapersComponent implements OnInit {
   getResearchPapers() {
     this.skillApi.getAllLearning().subscribe(data => {
       const items = this.helperService.getLearningMtsByType(data, 'Research Paper');
-      this.researchList = items.currentList;
-      this.filteredResearchList = items.filteredList;
+      this.learningList = items.currentList;
+      this.filteredList = items.filteredList;
       this.spinner.hide();
     });
   }
@@ -75,35 +78,26 @@ export class ResearchPapersComponent implements OnInit {
     }
   }
 
-  onSearch() {
-    let tempList = [...this.researchList];
-    if (this.selectedTopics.length > 0) {
-      tempList = tempList.filter(research => this.selectedTopics.includes(research.topicCode));
+  onFilterUpdate(event) {
+    this.selectedTopic = event.topic;
+    this.selectedPayments = event.payments;
+    this.productFilter();
+  }  
+  
+  productFilter(isSearchCall = false) {
+    this.filteredList = this.helperService.productFilter(this.learningList, this.selectedTopic,
+      this.selectedPayments, []);
+    if (!isSearchCall) {
+      this.onSearch(true);
+    }
+  }
+
+  onSearch(isFiltered = false): void {
+    if (!isFiltered) {
+      this.productFilter(true);
     }
     if (this.searchText && this.searchText.trim().length > 0) {
-      this.filteredResearchList = tempList.filter(
-        research =>
-          this.helperService.getIncludesStr(research.title, this.searchText) ||
-          this.helperService.getIncludesStr(research.topicCode, this.searchText) ||
-          this.helperService.getIncludesStr(research.summary, this.searchText) ||
-          this.helperService.getIncludesStr(research.description, this.searchText) ||
-          this.helperService.getIncludesStr(research.tags.toString(), this.searchText)
-      );
-    } else {
-      this.filteredResearchList = tempList;
+      this.helperService.searchByText(this.filteredList, this.searchText);
     }
-  }
-
-  onChange(eve) {
-    this.selectedTopics = [];
-    if (eve.value.length > 0) {
-      eve.value.forEach((topic: TopicItem) => this.selectedTopics.push(topic.code));
-    }
-    this.onSearch();
-  }
-
-  filterUpdate(topics) {
-    this.selectedTopics = topics;
-    this.onSearch();
   }
 }

@@ -56,9 +56,9 @@
   
       <section class="pt-4">
         <div *ngIf="!spinner.isLoading" class="colby3">
-          <ng-container *ngIf="filteredTekbyteList.length > 0; else noDataFound">
+          <ng-container *ngIf="filteredList.length > 0; else noDataFound">
             <app-skill-card
-              *ngFor="let tl of filteredTekbyteList"
+              *ngFor="let tl of filteredList"
               [learningMt]="tl"
             ></app-skill-card>
           </ng-container>
