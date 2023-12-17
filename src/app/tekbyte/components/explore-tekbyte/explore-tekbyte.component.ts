@@ -30,7 +30,10 @@ export class ExploreTekbyteComponent implements OnInit {
   isFilterVisible = true;
   destroy$ = new Subject<boolean>();
   subscription: Subscription[] = [];
-
+  selectedTopic: string[] = [];
+  selectedPayments: any[] = [];
+  selectedDeliveryMode: any[] = [];
+  
   constructor(
     private skillApi: SkillStudioApiService,
     public spinner: AppSpinnerService,
@@ -87,35 +90,49 @@ export class ExploreTekbyteComponent implements OnInit {
       this.isFilterVisible = false;
     }
   }
+  
+  onFilterUpdate(event) {
+    this.selectedTopic = event.topic;
+    this.selectedDeliveryMode = event.deliveryMode;
+    this.selectedPayments = event.payments;
+    this.tekbyteFilter();
+  }
 
-  onSearch() {
+  tekbyteFilter(isSearchCall = false) {
     let tempList = [...this.tekbyteList];
-    if (this.selectedTopics.length > 0) {
-      tempList = this.tekbyteList.filter(tekbyte => this.selectedTopics.includes(tekbyte.topicCode));
+    if ( this.selectedTopic.length > 0 || this.selectedPayments.length > 0 ||
+      this.selectedDeliveryMode.length > 0) {
+      if (this.selectedTopic.length) {
+        tempList = tempList.filter(tekbyte => this.selectedTopic.includes(tekbyte.topicCode));
+      }
+      if (this.selectedPayments.length) {
+        tempList = tempList.filter(tekbyte => this.selectedPayments.includes(tekbyte.prizingModel));
+      }
+      if (this.selectedDeliveryMode.length > 0) {
+        tempList = tempList.filter(tekbyte =>
+          this.selectedDeliveryMode.includes(tekbyte.deliveryMode)
+        );
+      }
+    }
+    this.filteredTekbyteList = tempList;
+    if (!isSearchCall) {
+      this.onSearch(true);
+    }
+  }
+
+  onSearch(isFiltered = false): void {
+    if (!isFiltered) {
+      this.tekbyteFilter(true);
     }
     if (this.searchText && this.searchText.trim().length > 0) {
-      this.filteredTekbyteList = tempList.filter(
+      this.filteredTekbyteList = this.filteredTekbyteList.filter(
         tekbyte =>
           this.helperService.getIncludesStr(tekbyte.title, this.searchText) ||
-          this.helperService.getIncludesStr(tekbyte.topicCode, this.searchText) ||
+          this.helperService.getIncludesStr(tekbyte.topicName, this.searchText) ||
           this.helperService.getIncludesStr(tekbyte.summary, this.searchText) ||
           this.helperService.getIncludesStr(tekbyte.description, this.searchText)
       );
-    } else {
-      this.filteredTekbyteList = tempList;
     }
   }
 
-  onChange(eve) {
-    this.selectedTopics = [];
-    if (eve.value.length > 0) {
-      eve.value.forEach(topic => this.selectedTopics.push(topic.code));
-    }
-    this.onSearch();
-  }
-
-  filterUpdate(topics) {
-    this.selectedTopics = topics;
-    this.onSearch();
-  }
 }
