@@ -26,8 +26,8 @@
         ></p-checkbox>
         <label [for]="category.key">{{ category.name }}</label>
       </div>
-      <div class="filter-topic mt-4">Delivery Mode</div>
       <ng-container *ngIf="pageId === 'Course' || pageId === 'Events' || pageId === 'Interview_Prep'">
+        <div class="filter-topic mt-4">Delivery Mode</div>
         <div *ngFor="let dm of deliveryMode" class="field-checkbox pb-2">
           <p-checkbox
           name="delivery"
