@@ -208,13 +208,15 @@ export class HelperService {
   }
 
   searchByText(filteredList:ILearningMaterial[], searchText: string): ILearningMaterial[] {
-    filteredList = filteredList.filter(
-      fl =>
-        this.getIncludesStr(fl.title, searchText) ||
-        this.getIncludesStr(fl.topicName, searchText) ||
-        this.getIncludesStr(fl.summary, searchText) ||
-        this.getIncludesStr(fl.description, searchText)
-    );
+    if (searchText && searchText.trim().length > 0) {
+      filteredList = filteredList.filter(
+        fl =>
+          this.getIncludesStr(fl.title, searchText) ||
+          this.getIncludesStr(fl.topicName, searchText) ||
+          this.getIncludesStr(fl.summary, searchText) ||
+          this.getIncludesStr(fl.description, searchText)
+      );
+    }
     return filteredList;
   }
 

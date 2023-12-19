@@ -23,7 +23,7 @@ export class ExploreTekbyteComponent implements OnInit {
   filteredList: ILearningMaterial[] = [];
   selectedTopic: string[] = [];
   selectedPayments: any[] = [];
-  
+
   tileDetail: ITile;
   searchText: string;
   topics: TopicItem[] = [];
@@ -109,8 +109,6 @@ export class ExploreTekbyteComponent implements OnInit {
     if (!isFiltered) {
       this.productFilter(true);
     }
-    if (this.searchText && this.searchText.trim().length > 0) {
-      this.helperService.searchByText(this.filteredList, this.searchText);
-    }
+    this.helperService.searchByText(this.filteredList, this.searchText);
   }
 }
