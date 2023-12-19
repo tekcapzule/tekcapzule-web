@@ -56,28 +56,33 @@
 
       </div>
     </section>
-    <section class="py-5 col-lg-12">
-      <div class="row">
-        <app-data-filter *ngIf="isFilterVisible" (filterUpdate)="onFilterUpdate($event)"
-          class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
-        <div>
-          <div class="col-lg-10">
-            <div *ngFor="let category of categories; let i = index" class="container">
+    <section class="col-lg-12 pt-5">
+      <div class="container space-fill">
+        <div class="row">
+          <app-data-filter *ngIf="isFilterVisible" (filterUpdate)="onFilterUpdate($event)"
+            class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
+          <div class="pb-3 inner">
+            <div *ngFor="let category of categories; let i = index">
               <div class="pb-3 text-left">
-                <h3 class="weekly-digest-title">{{ category }}</h3>
-              </div>
-  
-              <div *ngIf="!spinner.isLoading">
-                <div class="row">
-                  <app-skill-card *ngFor="let dig of digest[category]; let i = index" [learningMt]="dig"></app-skill-card>
+                  <h3 class="weekly-digest-title">{{ category }}</h3>
                 </div>
-              </div>
-  
-              <div *ngIf="spinner.isLoading">
-                <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-                  <app-skill-skeleton></app-skill-skeleton>
-                </ng-container>
-              </div>
+              <section class="pt-2">
+                <div *ngIf="!spinner.isLoading" class="colby3">
+                  <ng-container *ngIf="filteredList.length > 0; else noDataFound">
+                    <app-skill-card *ngFor="let dig of digest[category]; let i = index"
+                      [learningMt]="dig"></app-skill-card>
+                  </ng-container>
+                  <ng-template #noDataFound>
+                    <h2 class="text-center">Sorry, data not found.</h2>
+                  </ng-template>
+                </div>
+
+                <div *ngIf="spinner.isLoading">
+                  <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+                    <app-skill-skeleton></app-skill-skeleton>
+                  </ng-container>
+                </div>
+              </section>
             </div>
           </div>
         </div>
