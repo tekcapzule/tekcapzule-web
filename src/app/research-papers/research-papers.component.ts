@@ -3,16 +3,13 @@ import { Router } from '@angular/router';
 
 import { AppSpinnerService, EventChannelService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { ResearchApiService } from '@app/core/services/research-api/research-api.service';
+import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
 import { TopicItem } from '@app/shared/models';
-import { IResearchPaperDetail } from '@app/shared/models/research-item.model';
-import * as moment from 'moment';
-import { MessageService } from 'primeng/api';
-import { filter, takeUntil } from 'rxjs/operators';
-import { Subject, Subscription } from 'rxjs';
 import { ChannelEvent } from '@app/shared/models/channel-item.model';
 import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
-import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
+import { MessageService } from 'primeng/api';
+import { Subject, Subscription } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-research-papers',
@@ -36,8 +33,6 @@ export class ResearchPapersComponent implements OnInit {
   constructor(
     public spinner: AppSpinnerService,
     private helperService: HelperService,
-    private router: Router,
-    private messageService: MessageService,
     private eventChannel: EventChannelService,
     private skillApi: SkillStudioApiService
   ) {}

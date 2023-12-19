@@ -8,7 +8,7 @@
       <div class="container">
         <div class="back-link">
           <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
-          <span>Weekly Digest</span>
+          <span>Newsletter & Podcast</span>
         </div>
       </div>
     </div>
@@ -56,24 +56,29 @@
 
       </div>
     </section>
-    <section class="py-5">
-      
-      <div class="col-lg-12">
-        <div *ngFor="let category of categories; let i = index" class="container">
-          <div class="pb-3 text-left">
-            <h3 class="weekly-digest-title">{{ category }}</h3>
-          </div>
-
-          <div *ngIf="!spinner.isLoading">
-            <div class="row">
-              <app-skill-card *ngFor="let dig of digest[category]; let i = index" [learningMt]="dig"></app-skill-card>
+    <section class="py-5 col-lg-12">
+      <div class="row">
+        <app-data-filter *ngIf="isFilterVisible" (filterUpdate)="onFilterUpdate($event)"
+          class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
+        <div>
+          <div class="col-lg-10">
+            <div *ngFor="let category of categories; let i = index" class="container">
+              <div class="pb-3 text-left">
+                <h3 class="weekly-digest-title">{{ category }}</h3>
+              </div>
+  
+              <div *ngIf="!spinner.isLoading">
+                <div class="row">
+                  <app-skill-card *ngFor="let dig of digest[category]; let i = index" [learningMt]="dig"></app-skill-card>
+                </div>
+              </div>
+  
+              <div *ngIf="spinner.isLoading">
+                <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+                  <app-skill-skeleton></app-skill-skeleton>
+                </ng-container>
+              </div>
             </div>
-          </div>
-
-          <div *ngIf="spinner.isLoading">
-            <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-              <app-skill-skeleton></app-skill-skeleton>
-            </ng-container>
           </div>
         </div>
       </div>

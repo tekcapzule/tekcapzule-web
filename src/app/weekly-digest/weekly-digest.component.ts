@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
-import { AppSpinnerService, DigestApiService, SubscriptionApiService } from '@app/core';
+import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { SkillStudioApiService } from '@app/core/services/skill-studio-api/skill-studio-api.service';
-import { IDigestItem } from '@app/shared/models/digest-item.model';
-import { MessageService } from 'primeng/api';
+import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 
 @Component({
   selector: 'app-weekly-digest',
@@ -17,16 +15,20 @@ export class WeeklyDigestComponent implements OnInit {
   digest: any = {};
   categories: string[] = [];
   subscriberFormGroup: FormGroup;
-  
+
+  learningList: ILearningMaterial[] = [];
+  filteredList: ILearningMaterial[] = [];
+  selectedTopic: string[] = [];
+  selectedPayments: any[] = [];
+  searchText: string;  
+  isFilterVisible = true;
+  isMobileResolution: boolean;
 
   constructor(
     public spinner: AppSpinnerService,
     private skillApi: SkillStudioApiService,
-    private subscriptionApi: SubscriptionApiService,
     private fb: FormBuilder,
-    private messageService: MessageService,
-    private helperService: HelperService,
-    private router: Router
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
@@ -44,22 +46,60 @@ export class WeeklyDigestComponent implements OnInit {
     this.getWeeklyDigest();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event = null) {
+    this.isMobileResolution = window.innerWidth < 992 ? true : false;
+    this.helperService.setMobileResolution(this.isMobileResolution);
+    if (this.isMobileResolution) {
+      this.isFilterVisible = false;
+    }
+  }
+
+
   getWeeklyDigest() {
     this.skillApi.getAllLearning().subscribe(data => {
       const newsletter = this.helperService.getLearningMtsByType(data, 'Newsletter');
-      let weeklyDigestList = newsletter.currentList;
+      this.learningList = [...newsletter.currentList];
+      this.filteredList = [...newsletter.currentList];
       const podcast = this.helperService.getLearningMtsByType(data, 'Podcast');
-      weeklyDigestList.push(...podcast.currentList);
-      console.log('weeklyDigestList  ',weeklyDigestList, newsletter.currentList, podcast.currentList)
-      weeklyDigestList.forEach(item => {
-        if (!this.digest[item.learningMaterialType]) {
-          this.digest[item.learningMaterialType] = [];
-        }
-        this.digest[item.learningMaterialType].push(item);
-      });
-      this.categories = Object.keys(this.digest).sort();
+      this.learningList.push(...podcast.currentList);
+      this.filteredList.push(...podcast.currentList);
+      this.seperateCategories()
       this.spinner.hide();
     });
   }
 
+  seperateCategories() {
+    this.digest = [];
+    this.filteredList.forEach(item => {
+      if (!this.digest[item.learningMaterialType]) {
+        this.digest[item.learningMaterialType] = [];
+      }
+      this.digest[item.learningMaterialType].push(item);
+    });
+    this.categories = Object.keys(this.digest).sort();
+  }
+
+  onFilterUpdate(event) {
+    this.selectedTopic = event.topic;
+    this.selectedPayments = event.payments;
+    this.productFilter();
+  }
+  
+  productFilter(isSearchCall = false) {
+    this.filteredList = this.helperService.productFilter(this.learningList, this.selectedTopic,
+      this.selectedPayments, []);
+    if (!isSearchCall) {
+      this.onSearch(true);
+      this.seperateCategories();
+    }
+  }
+
+  onSearch(isFiltered = false): void {
+    if (!isFiltered) {
+      this.productFilter(true);
+    }
+    this.helperService.searchByText(this.filteredList, this.searchText);
+    this.seperateCategories();
+  }
 }
