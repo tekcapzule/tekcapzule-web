@@ -1,5 +1,6 @@
 @import '../../assets/styles/variables.scss';
 @import '../../assets/styles/common.scss';
+@import './event-card/event-card.component.scss';
 
 .section-title.skeleton-loader {
   h2 {
@@ -51,6 +52,7 @@
     font-family: $primary-font-regular;
   }
 }
+
 @media only screen and (max-width: 767px) {
   .aihub-banner.events {
     background: url('../../assets/images/events/events-banner-bg.png') no-repeat, url('../../assets/images/events/events-banner.png') -245px 0px no-repeat;
@@ -64,3 +66,5 @@
     }
   }
 }
+
+

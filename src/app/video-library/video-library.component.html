@@ -29,7 +29,8 @@
         class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
 
       <div class="inner">
-        <div class="container d-flex align-items-center justify-content-between py-4 px-0" *ngIf="isFilterVisible">
+        <div class="container d-flex align-items-center justify-content-between pb-4 px-0" *ngIf="isFilterVisible">
+          <h3>Video Library</h3>
           <div class="search-rounded col-lg-3 pr-0">
             <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
               [(ngModel)]="searchText" (keyup)="onSearch()" />

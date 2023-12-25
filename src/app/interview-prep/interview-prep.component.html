@@ -16,7 +16,7 @@
   </div>
   <section class="container-fluid aihub-banner interview-prep">
     <div class="inner">
-      <div class="col-lg-7 mob-mr-0 mt-5">
+      <div class="col-lg-7 mob-mr-0">
         <div class="banner-highlights text-black mob-interview-banner">
           Ace AI interviews! <br />Your <span>one-stop shop</span> for
           <span>top-tier</span> interview preparation materials.
@@ -32,8 +32,9 @@
         class="col-lg-2 col-md-4 col-sm-6"></app-data-filter>
 
       <div class="inner">
-        <div class="container d-flex align-items-center justify-content-between py-4 px-0" *ngIf="isFilterVisible">
-          <div class="search-rounded col-lg-3 pl-0 mr-4">
+        <div class="container d-flex align-items-center justify-content-between pb-4 px-0" *ngIf="isFilterVisible">
+          <h3>Interview Prep</h3>
+          <div class="search-rounded col-lg-3 pr-0">
             <input type="text" name="searchTopics" placeholder="Search" class="mb-0 input-search-rounded"
               [(ngModel)]="searchText" (keyup)="onSearch()" />
             <button title="search bar" class="search-btn" (click)="onSearch()"></button>
