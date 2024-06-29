@@ -15,9 +15,10 @@
   }
 
   &.section-bg {
-      background: url('../../../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
-      padding: 30px 90px;
-      border-radius: 27px;
+      background: url('../../../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #fff 0%, #fff 100%);
+      padding: 40px 0px 40px 50px;
+      border-radius: 28px;
+      border: 1px solid #CCCCCC;
       @media only screen and (max-width: 990px) {
         padding: 50px 20px;
       }
@@ -25,7 +26,8 @@
   .contactus-boy {
     img {
      position: absolute;
-     top: -47px;
+     top: -44px;
+    right: 44px;
     }
   }
 }
@@ -35,6 +37,7 @@
 
 input, textarea, select {
   margin-bottom: 0px;
+  border-radius: 20px;
 }
 .error-text {
   input, textarea, select {

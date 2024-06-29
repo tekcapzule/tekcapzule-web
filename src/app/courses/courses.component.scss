@@ -12,7 +12,7 @@
     }
     .banner-highlights {
         font-size: 30px;
-        font-family: $primary-font-black;
+        font-family: $primary-font-bold;
         line-height: 38px;
     }
     .skill-girl {
@@ -61,7 +61,7 @@
         padding: 0 24px;
         .title{
             font-size: 18px;
-            font-family: $primary-font-black;
+            font-family: $primary-font-bold;
             line-height: 23px;
             max-height: 70px;
             margin-top: 20px;
@@ -154,9 +154,9 @@
     &.events-select-icon {
       background: url('../../assets/images/skillstudio/events-icon.svg') no-repeat;
       background-size: 18px;
-    }    
+    }
   }
- 
+
   @media only screen and (max-width: 990px) {
     .skillstudio-banner {
       .main-banner {

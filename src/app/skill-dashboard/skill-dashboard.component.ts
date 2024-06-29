@@ -87,7 +87,7 @@ export class SkillDashboardComponent implements OnInit {
       this.learningMtList = data;
       this.filteredlearningMtList = data;
       this.seperateCategory();
-      this.setNavUrl();
+      // this.setNavUrl();
       this.spinner.hide();
     });
   }
@@ -118,29 +118,29 @@ export class SkillDashboardComponent implements OnInit {
     });
   }
 
-  setNavUrl() {
-    this.learningMtGrps.forEach(grpName => {
-      this.navUrl[grpName] = {};
-      this.navUrl[grpName]['len'] = 3;
-      if( grpName === 'Tekbyte') {
-        this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Tekbyte').navUrl;
-      } else if(grpName === 'Course') {
-        this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Courses').navUrl;
-      } else if(grpName === 'Interview Prep') {
-        this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Interview_Prep').navUrl;
-      } else if(grpName === 'Video') {
-        this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Video_Library').navUrl;
-      } else if(grpName === 'Research Paper') {
-        this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Research_Papers').navUrl;
-      } else if(grpName === 'Newsletter') {
-        this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Weekly_Digest').navUrl + '?pageId='+ grpName;
-      } else if(grpName === 'Events') {
-        this.navUrl[grpName]['url'] = '/ai-hub/events' + '?pageId='+ grpName;
-      } else if(grpName === 'Book') {
-        this.navUrl[grpName]['url'] = '/ai-hub/research-papers';
-      }
-    });
-  }
+  // setNavUrl() {
+  //   this.learningMtGrps.forEach(grpName => {
+  //     this.navUrl[grpName] = {};
+  //     this.navUrl[grpName]['len'] = 3;
+  //     if( grpName === 'Tekbyte') {
+  //       this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Tekbyte').navUrl;
+  //     } else if(grpName === 'Course') {
+  //       this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Courses').navUrl;
+  //     } else if(grpName === 'Interview Prep') {
+  //       this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Interview_Prep').navUrl;
+  //     } else if(grpName === 'Video') {
+  //       this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Video_Library').navUrl;
+  //     } else if(grpName === 'Research Paper') {
+  //       this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Research_Papers').navUrl;
+  //     } else if(grpName === 'Newsletter') {
+  //       this.navUrl[grpName]['url'] = this.helperService.getSkillPage('Weekly_Digest').navUrl + '?pageId='+ grpName;
+  //     } else if(grpName === 'Events') {
+  //       this.navUrl[grpName]['url'] = '/ai-hub/events' + '?pageId='+ grpName;
+  //     } else if(grpName === 'Book') {
+  //       this.navUrl[grpName]['url'] = '/ai-hub/research-papers';
+  //     }
+  //   });
+  // }
 
   openDashboard(groupName) {
     this.router.navigateByUrl(this.navUrl[groupName].url);
@@ -176,7 +176,7 @@ export class SkillDashboardComponent implements OnInit {
       this.isSortVisible = false;
     }
   }
-  
+
   onLearningClick(learningMt: ILearningMaterial) {
     this.router.navigateByUrl('ai-hub/course-detail/' + learningMt.learningMaterialId);
   }
@@ -235,7 +235,7 @@ export class SkillDashboardComponent implements OnInit {
           this.helperService.getIncludesStr(learningMt.description, this.searchText)
       );
     }
-    
+
     this.seperateCategory();
   }
 }

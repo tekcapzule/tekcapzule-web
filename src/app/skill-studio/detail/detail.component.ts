@@ -136,8 +136,8 @@ export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
     const queryTitle = sessionStorage.getItem('com.tekcapzule.title') || this.detail.title;
     const dashboardPage = this.helperService.findPage('Skill_Studio');
     this.crumbs.push(dashboardPage);
-    const selectePage = this.helperService.findAIHubPage(this.pageId);
-    this.crumbs.push(selectePage);
+    // const selectePage = this.helperService.findAIHubPage(this.pageId);
+    // this.crumbs.push(selectePage);
     if (queryTitle) {
       this.crumbs.push({ displayName: queryTitle });
     }

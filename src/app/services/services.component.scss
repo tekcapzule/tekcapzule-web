@@ -1,0 +1,216 @@
+@import './../../assets/styles/variables.scss';
+
+.products-page {
+  &.p-main {
+    padding: 92px 12px 20px;
+  }
+
+  h2 {
+    font-size: 33px !important;
+  }
+
+  .products-banner {
+    background: $corporate-color url('../../assets/images/banner-pattern.svg') 125px 0 no-repeat;
+
+    height: 316px;
+    width: 100%;
+    margin: 65px 0 50px;
+  }
+
+  .content-block {
+    padding: 20px 24px;
+
+    .key-points {
+      padding-inline-start: 15px;
+      list-style-type: circle;
+
+      li {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .bg-style {
+    opacity: 0.95;
+    padding: 10px 40px 10px 20px;
+    width: fit-content;
+    position: relative;
+    top: 107px;
+  }
+
+  .company-logo {
+    background: url('../../assets/images/products/tekcapzule-white-logo.svg') no-repeat;
+    width: 58px;
+    height: 12px;
+  }
+
+  .bg-red-wrath {
+    background: #EF1054;
+  }
+
+  .bg-blueberry {
+    background: #0657D8;
+  }
+
+  .bg-blue-magenta {
+    background: #5338E5;
+  }
+
+  .service-caption {
+    font-family: $primary-font-bold;
+    font-size: 24px;
+    color: $white;
+    width: fit-content;
+    padding-top: 62px;
+
+    p {
+      display: inline;
+      box-decoration-break: clone;
+      padding: 2px 15px;
+      font-size: 18px;
+      color: $white;
+      font-weight: 600;
+    }
+
+    .bg-1 {
+      background-color: #E5006A;
+    }
+
+    .bg-2 {
+      background-color: #0BA818;
+    }
+
+    .bg-3 {
+      background-color: #DB8B12;
+    }
+
+    .bg-4 {
+      background-color: #6F1B9A;
+    }
+
+    .bg-5 {
+      background-color: #1A73E8;
+    }
+
+    .bg-6 {
+      background-color: #EB1212;
+    }
+  }
+
+  .img-block {
+    width: 318px;
+    height: 163px;
+  }
+
+  .our-soln-1 {
+    background: url('../../assets/images/products/our-solution-1.png') center/cover no-repeat;
+  }
+
+  .our-soln-2 {
+    background: url('../../assets/images/products/our-solution-2.png') center/cover no-repeat;
+  }
+
+  .our-soln-3 {
+    background: url('../../assets/images/products/our-solution-3.png') center/cover no-repeat;
+  }
+
+  .service-1 {
+    background: url('../../assets/images/products/service-1.png') center/cover no-repeat;
+  }
+
+  .service-2 {
+    background: url('../../assets/images/products/service-2.png') center/cover no-repeat;
+  }
+
+  .service-3 {
+    background: url('../../assets/images/products/service-3.png') center/cover no-repeat;
+  }
+
+  .service-4 {
+    background: url('../../assets/images/products/service-4.png') center/cover no-repeat;
+  }
+
+  .service-5 {
+    background: url('../../assets/images/products/service-5.png') center/cover no-repeat;
+  }
+
+  .service-6 {
+    background: url('../../assets/images/products/service-6.png') center/cover no-repeat;
+  }
+
+  .soln-card {
+    border: 1px solid #E8EDFF;
+    width: 320px;
+  }
+
+  .soln-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    img {
+      padding: 10px;
+      box-shadow: 0px 3px 6px #00000017;
+      border: 1px solid #DBDBDB;
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      max-width: 100px;
+      margin-bottom: 34px;
+      object-fit: scale-down;
+      margin-right: 30px;
+    }
+  }
+}
+
+
+.form-bg {
+  background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+  background-position-y: 232px;
+  padding-bottom: 0;
+}
+
+@media only screen and (max-width: 990px) {
+  .inner {
+    padding: 20px 10px 0 !important;
+  }
+
+  .about-banner {
+    height: auto !important;
+  }
+
+  .products-page {
+    .products-banner {
+      margin: 76px 0 0px;
+      height: auto;
+
+      .banner-content {
+        margin: 0 !important;
+      }
+
+      .banner-img {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .soln-card {
+      width: 100%;
+
+      .img-block {
+        width: 100%;
+      }
+    }
+  }
+  .pl-5 {
+    padding-left: 0 !important;
+  }
+}

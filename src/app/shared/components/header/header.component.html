@@ -1,36 +1,6 @@
 <!-- ======= Header ======= -->
 <div class="fixed-top">
-  <div class="top-main-header mob-hide">
-    <div class="container d-flex justify-content-end pr-4">
-      <ul>
-        <li *ngFor="let tm of topMenu;"><a [ngClass]="{active: selectedTopMenuItem?.uniqueId === tm.uniqueId}"
-            href="Javascript:void(0)" (click)="onTopMenuClick(tm)">{{tm.displayName}}</a></li>
-        <li class="blog-menu">
-          <div class="dropdown">
-            <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-              Blogs
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <button class="dropdown-item" type="button">
-                <a href="https://tekcapsule.blog/" target="_blank" class="nav-item pe-none">TekCapsule</a>
-              </button>
-              <button class="dropdown-item" type="button">
-                <a href="https://aitoday.blog/" target="_blank" class="nav-item pe-none">AI Today</a>
-              </button>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <div *ngIf="!isMobileResolution">
-        <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button class="button signin-btn" (click)="signInUser()">
-          Sign In
-        </button>
-        <button *ngIf="isLoggedIn$ | async" mat-raised-button class="button signin-btn" (click)="signOutUser()">
-          Sign Out
-        </button>
-      </div>
-    </div>
-  </div>
+
   <header id="header">
     <div *ngIf="!isMobileResolution" class="container-fluid">
       <div class="container header-align">
@@ -132,9 +102,14 @@
             <input type="text" placeholder="What are you looking for?" class="mb-0" />
             <button title="search bar" class="search-btn mr-3"></button>
           </div> -->
-          <button mat-raised-button class="button primary-outline" (click)="onViewPlans()">
-            View plans
-          </button>
+
+          <!-- /***Search Box*****/ -->
+          <div class="search-box mx-0">
+            <input type="search" name="search"  autocomplete="off"
+            [(ngModel)]="searchText"
+            (keyup)="onSearch()"/>
+            <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -193,7 +168,7 @@
                         class="sub-menu-element"><span class="sub-menu-element">{{headerMenu[0].displayName}}</span></a>
                     </li>
                 </ul>
-                
+
                 <li class="skill-menu-bg" (click)="toggleSkillStudioMenu()">
                   <a routerLink="/skill-dashboard" class="mobile-menu-skill-studio">
                     SkillStudio

@@ -88,7 +88,7 @@ export class HelperService {
   findSelectedTopMenu(navUrl: string) {
     if (navUrl === '/') {
       return null;
-    }    
+    }
     let selectedTopMenu;
     Constants.TopMenu.forEach(tm => {
       if (tm.navUrl && tm.navUrl.includes(navUrl)) {
@@ -109,55 +109,55 @@ export class HelperService {
       if (hm.navUrl && hm.navUrl.includes(navUrl)) {
         isMenuItemFound = true;
         this.selectedMenu = { selectedMenuItem: hm, selectedChildMenuItem: null };
-        if (hm.children) {
-          hm.children.forEach(cm => {
-            if (cm.navUrl && navUrl.includes(cm.navUrl)) {
-              this.selectedMenu.selectedChildMenuItem = cm;
-            }
-          });
-        }
+        // if (hm.children) {
+        //   hm.children.forEach(cm => {
+        //     if (cm.navUrl && navUrl.includes(cm.navUrl)) {
+        //       this.selectedMenu.selectedChildMenuItem = cm;
+        //     }
+        //   });
+        // }
       }
     });
 
-    if (!isMenuItemFound) {
-      const tilesMenu = Constants.SkillTiles;
-      tilesMenu.forEach(hm => {
-        if (hm.navUrl && hm.navUrl.includes(navUrl)) {
-          isMenuItemFound = true;
-          this.selectedMenu = {
-            selectedMenuItem: this.findPage('Skill_Studio'),
-            selectedChildMenuItem: hm,
-          };
-        }
-      });
-    }
+    // if (!isMenuItemFound) {
+    //   const tilesMenu = Constants.SkillTiles;
+    //   tilesMenu.forEach(hm => {
+    //     if (hm.navUrl && hm.navUrl.includes(navUrl)) {
+    //       isMenuItemFound = true;
+    //       this.selectedMenu = {
+    //         selectedMenuItem: this.findPage('Skill_Studio'),
+    //         selectedChildMenuItem: hm,
+    //       };
+    //     }
+    //   });
+    // }
     return this.selectedMenu;
   }
 
-  
-  findExtraMenuPage(pageId: string): NavTab {
-    return Constants.ExtraLink.find(el => el.uniqueId === pageId);
-  }
+
+  // findExtraMenuPage(pageId: string): NavTab {
+  //   return Constants.ExtraLink.find(el => el.uniqueId === pageId);
+  // }
 
   findPage(pageId: string) {
     const headerMenu = Constants.HeaderMenu;
     return headerMenu.find(hm => hm.uniqueId === pageId);
   }
 
-  findAIHubPage(pageId: string) {
-    const tiles = Constants.SkillTiles;
-    return tiles.find(hm => hm.uniqueId === pageId);
-  }
+  // findAIHubPage(pageId: string) {
+  //   const tiles = Constants.SkillTiles;
+  //   return tiles.find(hm => hm.uniqueId === pageId);
+  // }
 
-  getTileDetails(uniqueId): ITile {
-    return Constants.SkillTiles.find(tile => tile.uniqueId === uniqueId);
-  }
+  // getTileDetails(uniqueId): ITile {
+  //   return Constants.SkillTiles.find(tile => tile.uniqueId === uniqueId);
+  // }
 
-  
-  getSkillPage(uniqueId): ITile {
-    const skillPages = this.findPage('Skill_Studio').children;
-    return skillPages.find(tile => tile.uniqueId === uniqueId);
-  }
+
+  // getSkillPage(uniqueId): ITile {
+  //   // const skillPages = this.findPage('Skill_Studio').children;
+  //   // return skillPages.find(tile => tile.uniqueId === uniqueId);
+  // }
 
   isLocalPublisher(publisher: string) {
     return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());

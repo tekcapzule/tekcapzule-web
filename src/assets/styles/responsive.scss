@@ -3,6 +3,11 @@
     width: 390px !important;
     height: 590px !important;
   }
+  // h1 {
+  //   font-size: 24px;
+  //   font-weight: 600;
+  //   line-height: 30px !important;
+  // }
   .section-title h2,
   h2 {
     font-size: 24px !important;
@@ -192,7 +197,7 @@
   .button.primary-outline {
     height: 45px !important;
   }
- 
+
   .p-multiselect-panel {
     border-radius: 0 !important;
   }
@@ -379,7 +384,7 @@
       height: 337px !important;
     }
 }
-@media only screen and (max-width: 767px) and (min-width: 280px) { 
+@media only screen and (max-width: 767px) and (min-width: 280px) {
   .mobile-app .app-content {
     display: block !important;
     line-height: 0;
@@ -480,7 +485,7 @@
   .card-wrapper {
     padding-bottom: 0 !important;
   }
-  .carousel-card 
+  .carousel-card
   .content .title {
     min-height: inherit !important;
     margin-bottom: 20px;
@@ -502,7 +507,7 @@
   //   }
   //  }
 
-  
+
   .hero-img {
     text-align: center;
     display: initial !important;
@@ -514,7 +519,7 @@
       height: 390px !important;
     }
   }
-  // /AI Hub Search container/ 
+  // /AI Hub Search container/
   .hub-search {
     display: block !important;
   }
@@ -562,9 +567,9 @@
         display: block !important;
       }
     }
-    .tekbyte-details-page 
-    .tekbyte-details 
-    .business-modal 
+    .tekbyte-details-page
+    .tekbyte-details
+    .business-modal
     .card, .llm-hub-bg {
       height: auto !important;
       max-width: fit-content !important
@@ -594,7 +599,7 @@
       max-width: 50%;
       width: 100%;
       padding: 0;
-  
+
     }
     .social-links {
       display: flex;
