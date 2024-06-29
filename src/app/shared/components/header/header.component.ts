@@ -61,12 +61,12 @@ export class HeaderComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private helperService: HelperService
   ) {
-    this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
+    // this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
     //this.menuClickOutsideEvent();
   }
-  toggleSkillStudioMenu() {
-    this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
-  }
+  // toggleSkillStudioMenu() {
+  //   this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
+  // }
   toggleBlogMenu() {
     this.isBlogMenuOpen = !this.isBlogMenuOpen;
   }
@@ -110,7 +110,7 @@ export class HeaderComponent implements OnInit {
     eve.stopPropagation();
   }
 
-  
+
   subscribeMenuClick(): void {
     const sub = this.eventChannel.getChannel().pipe(
         filter(out => out.event === ChannelEvent.MenuClick), takeUntil(this.destroy$))
@@ -277,8 +277,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onViewPlans() {
-    const navTab = this.helperService.findExtraMenuPage('Subscribe');
-    this.router.navigateByUrl(navTab.navUrl);
+   //  const navTab = this.helperService.findExtraMenuPage('Subscribe');
+    //this.router.navigateByUrl(navTab.navUrl);
     this.selectedMenuItem = Constants.HeaderMenu[0];
     this.selectedChildMenuItem = null;
     this.selectedTopMenuItem = null;

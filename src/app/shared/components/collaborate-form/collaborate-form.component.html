@@ -4,11 +4,11 @@
     <div id="form-collobrate" class="col-lg-7">
       <div [formGroup]="feedbackFormGroup" class="container">
         <div *ngIf="pageType === 'whatWeDo'" class="section-title pb-0">
-          <h1 class="mb-0 text-white">Inquiry Form</h1>
+          <div class="form-heading">Inquiry Form</div>
         </div>
 
         <div *ngIf="pageType === 'contactUs'" class="section-title pb-0">
-          <h1 class="mb-0 text-white">Contact Form</h1>
+          <div class="form-heading">Contact Form</div>
         </div>
 
         <!--div *ngIf="pageType === 'whatWeDo'" class="section-title pb-0">
@@ -68,7 +68,7 @@
 
           </div>
         </div>
-        <div class="d-flex justify-content-center mb-5">
+        <div class="d-flex justify-content-center my-4">
           <button mat-raised-button class="button btn-bg primary" (click)="onCollabFormSubmit()">
             Submit
           </button>
@@ -84,7 +84,7 @@
       </div>
     </div>
     <div *ngIf="pageType === 'whatWeDo'" class="col-lg-5">
-      <div class="contactus-boy"><img src="../../assets/images/whatwedo/inquiry-form.png" alt="Contact Form" class="img-fluid mob-hide"></div>
+      <div class="contactus-boy"><img src="../../assets/images/products/inquiry-form.png" alt="Contact Form" class="img-fluid mob-hide"></div>
     </div>
     <div *ngIf="pageType === 'contactUs'" class="col-lg-5">
       <div class="contactus-boy"><img src="../../assets/images/about/aboutus-call.png" alt="Contact Form" class="img-fluid mob-hide"></div>

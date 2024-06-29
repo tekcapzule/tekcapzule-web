@@ -9,7 +9,7 @@
       padding: 75px 0 0;
     }
   }
-  
+
   .tekbyte-details {
     .title-img {
         display: inline-block;
@@ -47,7 +47,7 @@
           padding: 0 20px;
           left: 33%;
           font-size: 26px;
-          font-family: $primary-font-black;
+          font-family: $primary-font-bold;
         }
         &:last-child {
           margin-right: 0;
@@ -59,7 +59,7 @@
 
 
   /*~~~~~~~~~~ OLD CSS STYLES~~~~~~~~~~~*/
-  
+
   .skill-studio-page  {
     background: linear-gradient(180deg, white 0%, #efd6dd 100%) no-repeat 0px -175px;
     // url("/assets/images/topics-bg-img.png") no-repeat;
@@ -492,7 +492,7 @@ ul.timeline {
     display: flex;
     gap: 20px;
     // background: url("../../../../assets/images/mobile-timeline.png") 0px 5px no-repeat;
-    background: url('../../../../assets/images/mobile-timeline.png') repeat-x scroll; 
+    background: url('../../../../assets/images/mobile-timeline.png') repeat-x scroll;
     top: 0;
     &:before {
       display: none;

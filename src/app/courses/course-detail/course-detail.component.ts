@@ -30,7 +30,7 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.titleUrl = [this.helperService.getTileDetails('courses').navUrl];
+    // this.titleUrl = [this.helperService.getTileDetails('courses').navUrl];
     this.route.params.subscribe(params => {
       this.pageId = params['pageId'];
       this.getAllLearning(params['code']);
@@ -43,7 +43,7 @@ export class CourseDetailComponent implements OnInit {
         c.topicName = this.helperService.getTopicName(c.topicCode)
       });
       this.learningMt = data.find(c => c.learningMaterialId === learningMaterialId);
-      this.relatedLearningMt = data.filter(lm => 
+      this.relatedLearningMt = data.filter(lm =>
         lm.learningMaterialType === 'Course' && lm.topicCode === this.learningMt.topicCode && lm.learningMaterialId !== learningMaterialId
       );
       this.spinner.hide();

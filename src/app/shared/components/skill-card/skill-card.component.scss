@@ -37,13 +37,13 @@
 }
 
 .course-card {
-  cursor: pointer;  
+  cursor: pointer;
   .content {
     height: 220px;
     padding: 0 24px;
     .title{
         font-size: 18px;
-        font-family: $primary-font-black;
+        font-family: $primary-font-bold;
         line-height: 23px;
         max-height: 70px;
         margin-top: 20px;
@@ -115,7 +115,7 @@
         margin-top: 12px;
       }
       span {
-        font-family: $primary-font-black;
+        font-family: $primary-font-bold;
         font-size: 13px;
         color: #868686;
       }

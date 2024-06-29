@@ -5,7 +5,8 @@
 # General
 --------------------------------------------------------------*/
 a {
-  color: #ff00c4;
+  color: #1A73E8;
+  font-weight: 500;
 }
 
 .url-link {
@@ -27,6 +28,9 @@ a {
 a:hover {
   color: $primary-color;
   text-decoration: none;
+}
+.text-bold {
+  font-weight: bold !important;
 }
 
 h1,
@@ -53,20 +57,20 @@ h1 {
   }
 
   span {
-    color: $primary-color;
+    color: #609eef;
     text-transform: none;
   }
 }
 
-h2 {
-  margin-bottom: 10px;
-  font-size: 26px !important;
-}
+// h2 {
+//   margin-bottom: 10px;
+//   font-size: 26px !important;
+// }
 
-h3 {
-  font-size: 20px;
-  font-family: $primary-font-black;
-}
+// h3 {
+//   font-size: 20px;
+//   font-family: $primary-font-bold;
+// }
 
 .heading {
   font-size: 50px;
@@ -79,10 +83,10 @@ h3 {
   color: #070707;
 }
 
-h4 {
-  font-size: 26px;
-  font-family: $primary-font-bold;
-}
+// h4 {
+//   font-size: 26px;
+//   font-family: $primary-font-bold;
+// }
 
 .banner-heading {
   font-size: 36px;
@@ -100,7 +104,7 @@ h4 {
 
   h2 {
     font-size: 20px;
-    font-family: $primary-font-black;
+    font-family: $primary-font-bold;
   }
 }
 
@@ -299,6 +303,7 @@ h4 {
   font-size: 16px;
   border: 2px solid $primary-color;
   transition: all 0.35s ease-in-out;
+  font-weight: 600;
 
   &.primary {
     background-color: $primary-color;
@@ -353,7 +358,7 @@ h4 {
     border-radius: 42px;
     height: 35px;
     width: 165px;
-    font-family: $primary-font-black;
+    font-family: $primary-font-bold;
     font-size: 16px;
     border: 1px solid #1E2663;
     transition: all 0.35s ease-in-out;
@@ -449,8 +454,8 @@ h4 {
   margin-top: 25px;
 
   a {
-    color: $white;
-    font-size: 22px;
+    color: $black;
+    font-size: 16px;
     font-family: $primary-font-medium;
     padding: 0 10px;
     text-decoration: underline;
@@ -556,7 +561,7 @@ textarea {
   background: #fff;
   border: 0 none;
   padding: 10px 20px;
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   color: #000;
   font-family: $primary-font-regular;
   font-size: 16px;
@@ -765,7 +770,7 @@ Carousel Topics & Community Page
 
     h2 {
       font-size: 29px;
-      font-family: $primary-font-black;
+      font-family: $primary-font-bold;
       font-style: italic;
       color: #2e2e2e;
     }
@@ -1099,11 +1104,14 @@ app-spinner {
   background-color: #C2E823;
   width: fit-content;
   padding: 0 25px 0 !important;
+  line-height: 42px !important;
+
 }
 .bg-fandango {
   background-color: #B90D94;
   width: fit-content;
   padding: 0 25px 0 !important;
+  line-height: 42px !important;
 }
 /* scrollbar styles - start */
 ::-webkit-scrollbar {
@@ -2230,7 +2238,7 @@ select {
 }
 
 .btn-bg {
-  background-color: #212c5e !important;
+  background-color: #07182F !important;
 }
 
 /*************Feeds***********/
@@ -2269,7 +2277,7 @@ select {
   background: none !important;
   border: 0 none !important;
   padding: 0 20px !important;
-  font-family: $primary-font-black !important;
+  font-family: $primary-font-bold !important;
   font-size: 18px !important;
   color: #101010 !important;
 }
@@ -2612,7 +2620,7 @@ select {
 .share-btn {
   border: none;
   cursor: pointer;
-  font-family: $primary-font-black;
+  font-family: $primary-font-bold;
   color: #7b7b7b;
   padding-bottom: 15px;
   &:hover {
@@ -2850,4 +2858,11 @@ body.modal-open {
   .course-card{
     height:400px;
   }
+}
+.form-heading {
+  font-size: 36px;
+  font-family: $primary-font-bold;
+  padding-bottom: 30px;
+  font-weight: 700;
+
 }

@@ -30,7 +30,7 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private spinner: AppSpinnerService,
-    private route: ActivatedRoute,    
+    private route: ActivatedRoute,
     private skillApi: SkillStudioApiService,
     private helperService: HelperService,
     private fb: FormBuilder,
@@ -49,7 +49,7 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
         ],
       ],
     });
-    this.titleUrl = [this.helperService.getTileDetails('tekbyte').navUrl];
+    // this.titleUrl = [this.helperService.getTileDetails('tekbyte').navUrl];
     this.spinner.show();
     this.route.params.subscribe(params => {
       this.pageId = params['pageId'];
@@ -75,7 +75,7 @@ export class TekbyteDetailsComponent implements OnInit, OnDestroy {
   }
 
   randaomTekbyte() {
-    this.relatedLearningMt = this.learningMtList.filter(lm => 
+    this.relatedLearningMt = this.learningMtList.filter(lm =>
       lm.learningMaterialType === 'Tekbyte' && lm.topicCode === this.learningMt.topicCode && lm.learningMaterialId !== this.learningMt.learningMaterialId
     );
   }
