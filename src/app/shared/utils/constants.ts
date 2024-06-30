@@ -5,11 +5,11 @@ export const Constants = {
   DefaultApiCacheExpiryHours: 12,
   DefaultSubscriptionTopics: ['NLP', 'MLR', 'CVS'],
   TopMenu: [
-    { uniqueId: 'products', displayName: 'What We Do', navUrl: '/products'},
+    { uniqueId: 'products', displayName: 'Products', navUrl: '/products'},
+    { uniqueId: 'Services', displayName: 'Services', navUrl: '/services'},
     { uniqueId: 'About Us', displayName: 'About Us', navUrl: '/aboutus'},
+    { uniqueId: 'Careers', displayName: 'Careers', navUrl: '/careers'},
     { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'},
-    { uniqueId: 'Community', displayName: 'Community', navUrl: '/community'},
-    { uniqueId: 'Faq', displayName: 'FAQ', navUrl: '/faq'}
   ],
   HeaderMenu: [
     { uniqueId: 'Products', displayName: 'Products', navUrl: '/products', available: 'PRELOGIN'},

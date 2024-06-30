@@ -187,7 +187,7 @@
       // }
       &.active {
         .dropdown .dropbtn {
-          color: $white;
+          color: #07182F;
         }
       }
 
@@ -565,20 +565,7 @@
   }
 }
 
-.dropbtn::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px; /* You can adjust the height as needed */
-  bottom: 0;
-  left: 0;
-  background-color: currentColor; /* Uses the current text color */
-  transition: width 0.3s ease; /* Smooth transition */
-}
 
-.dropbtn:hover::after {
-  width: 100%; /* Expand underline on hover */
-}
 .dropdown.menu-open .dropbtn .arrow .down {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
@@ -607,8 +594,9 @@
 }
 
 .dropdown:hover .dropbtn {
-  color: $white;
+  color: #07182F;
 }
+
 
 .sub-menu-title {
   border-bottom: 1px solid #0000002b;

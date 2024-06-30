@@ -60,11 +60,19 @@
       font-weight: 500;
     }
   }
+// .form-bg {
+//   background: url('../../assets/images/about/form-bg.png') no-repeat;
+//   background-size: cover;
+//   height: fit-content;
+//   padding-bottom: 40px;
+// }
 .form-bg {
-  background: url('../../assets/images/about/form-bg.png') no-repeat;
+  background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
   background-size: cover;
+  height: -moz-fit-content;
   height: fit-content;
   padding-bottom: 40px;
+  background-position-y: 325px;
 }
 .contactus-content {
   display: flex;
