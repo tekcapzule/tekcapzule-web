@@ -108,6 +108,13 @@
   .banner-img {
     width: 100%;
   }
+  .careers-block {
+    padding: 45px 75px !important;
+    h2 {
+      font-size: 23px;
+      line-height: 25px !important;
+    }
+   }
  }
 
  .careers-block {
@@ -116,7 +123,7 @@
   padding: 45px 210px;
   border: 1px solid #3E3E3E;
   h2 {
-    font-size: 48px !important;
+    font-size: 48px;
     font-weight: 300;
     color: $white;
     line-height: 68px;
