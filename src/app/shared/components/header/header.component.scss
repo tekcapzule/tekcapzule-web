@@ -187,7 +187,7 @@
       // }
       &.active {
         .dropdown .dropbtn {
-          color: #07182F;
+          color: #FFF;
         }
       }
 
@@ -530,6 +530,10 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
+    border-bottom: 3px solid transparent;
+    padding: 0;
+    margin: 0 10px;
+    line-height: 20px;
     &.menu-open {
       .arrow {
         border: solid $white;
@@ -593,8 +597,10 @@
   background-color: #ddd;
 }
 
-.dropdown:hover .dropbtn {
-  color: #07182F;
+.dropdown:hover .dropbtn,  .dropdown.active .dropbtn{
+  color: #fff;
+  transition-duration: .3s !important;
+  border-bottom: 3px solid #fff;
 }
 
 

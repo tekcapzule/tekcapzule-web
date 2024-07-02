@@ -7,11 +7,14 @@
 h5 {
   color: #2B2B2B;
 }
+h4 {
+  line-height: 36px;
+}
 
   .products-banner {
     background: $corporate-color url('../../assets/images/banner-pattern.svg') 125px 0 no-repeat;
 
-    height: 316px;
+    height: 396px;
     width: 100%;
     margin: 65px 0 50px;
   }
