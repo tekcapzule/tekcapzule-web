@@ -2866,3 +2866,20 @@ body.modal-open {
   font-weight: 700;
 
 }
+.breadcrumbs {
+  font-size: 13px;
+  height: 80px;
+  align-items: center;
+  display: flex;
+  a {
+    color: $white;
+    font-weight: 300;
+  }
+  .breadcrumb_last {
+    color: $white;
+    font-weight: 600;
+  }
+   img {
+    margin: 0 5px !important;
+}
+}
