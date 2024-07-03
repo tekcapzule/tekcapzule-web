@@ -38,6 +38,8 @@
         }
         li a {
           color: #979EC1;
+          text-decoration: none;
+
           &:hover, &.active {
             color: $primary-color;
           }

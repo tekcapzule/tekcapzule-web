@@ -166,6 +166,7 @@
       margin-bottom: 34px;
       object-fit: scale-down;
       margin-right: 30px;
+      background: $white;
     }
   }
 }
@@ -213,4 +214,11 @@
   .pl-5 {
     padding-left: 0 !important;
   }
+}
+.tech-stack-col {
+  background-color: $grey-bg;
+  padding: 55px 0;
+}
+.inquiry-form{
+  background-color: $grey-bg;
 }

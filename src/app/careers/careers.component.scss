@@ -4,25 +4,8 @@
     &.p-main {
       padding: 92px 12px 20px;
     }
-    .inner {
-      width: 980px;
-    }
-    .careers-banner {
-      background: url('../../assets/images/careers/careers-banner.png') no-repeat;
-      // background: $corporate-color;
-      height: 585px;
-      width: 100%;
-      margin-bottom: 50px;
-      background-size: cover;
-      margin-top: 65px;
-      vertical-align: middle;
-    display: flex;
-    h1, h4 {
-      margin-bottom: 25px;
-      color: $black !important;
-      line-height: 34px;
-    }
-    }
+
+
     h3 {
       font-size: 20px;
       font-weight: 600 !important;
@@ -123,7 +106,7 @@
   padding: 45px 210px;
   border: 1px solid #3E3E3E;
   h2 {
-    font-size: 48px;
+    font-size: 48px !important;
     font-weight: 300;
     color: $white;
     line-height: 68px;

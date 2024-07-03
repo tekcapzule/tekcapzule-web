@@ -1,15 +1,17 @@
 <div class="contactus-page">
   <app-spinner></app-spinner>
   <!-- ======= Hero Banner Section ======= -->
-  <section class="contactus-banner">
-    <div class="inner row justify-content-center pt-3">
+  <div class="container">
+    <nav id="breadcrumbs" class="container breadcrumbs"><span><span><a href="/">Home</a></span> <img
+      src="../../assets/images/breadcrumb_arrow.png">
+    <span class="breadcrumb_last" aria-current="page">Contact Us</span></span></nav>
+  </div>
+  <section class="page-banner contactus-banner-bg">
+    <div class="inner row">
       <div
-        class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content">
-        <h2 class="text-white">We love to collaborate! </h2>
-        <h5 class="text-white pb-3 content-sub-text">We are excited to hear from you…</h5>
-      </div>
-      <div class="col-xl-6 col-lg-6 order-2 order-lg-2">
-        <img src="../../assets/images/contactus/contactus-banner-people.png" alt="" class="banner-img" />
+        class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
+        <h1 class="text-white animate__animated animate__fadeInUp delay-1">We wanted to here from you</h1>
+        <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">Enhance your skills with easy-to-follow content from around the globe.</h4>
       </div>
     </div>
   </section>
@@ -18,7 +20,7 @@
   <section class="map-bg">
     <div class="inner">
       <!-- Sec 1 -->
-      <div class="contactus-container">
+      <div class="contactus-container animate__animated animate__fadeInUp delay-2">
         <div class="contactus-content">
           <div class="office-image">
             <label>Registered Office</label>
@@ -45,7 +47,7 @@
         </div>
       </div>
       <!-- Sec 2 -->
-      <div class="contactus-container">
+      <div class="contactus-container animate__animated animate__fadeInUp delay-3">
         <div class="contactus-content">
           <div class="office-image">
             <label>Other Office Location</label>
@@ -75,7 +77,7 @@
     </div>
   </section>
 
-  <section class="form-bg">
+  <section class="form-bg animate__animated animate__fadeInUp delay-3">
     <app-collaborate-form [pageType]="'contactUs'"></app-collaborate-form>
   </section>
 </div>

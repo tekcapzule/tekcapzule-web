@@ -9,6 +9,8 @@ $grey: #484848;
 $skeleton-grey: #dddbdd;
 $corporate-color: #1A73E8;
 $button-bg: #07182F;
+$banner-text: #2B2B2B;
+$grey-bg: #E6E6E6;
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -37,6 +39,7 @@ h1, h2, h3, h4, h5, h6{
 h1 {
   font-size: 42px;
   font-weight: 600;
+  line-height: 50px;
 }
 h2 {
   font-size: 34px;
@@ -54,6 +57,10 @@ h4 {
 }
 h5 {
   font-size: 18px;
+  font-weight: 400;
+}
+h6 {
+  font-size: 16px;
   font-weight: 400;
 }
 

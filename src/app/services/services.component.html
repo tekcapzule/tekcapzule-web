@@ -1,34 +1,39 @@
 <div class="products-page">
   <app-spinner></app-spinner>
   <!-- ======= Hero Banner Section ======= -->
-  <section class="products-banner">
-    <nav id="breadcrumbs" class="container breadcrumbs"><span><span><a href="/">Home</a></span> <img
-      src="../../assets/images/breadcrumb_arrow.png">
-    <span class="breadcrumb_last" aria-current="page">Products</span></span></nav>
-    <div class="row justify-content-center pt-3">
-
+  <div class="container">
+    <nav id="breadcrumbs" class="container breadcrumbs">
+      <span>
+        <span><a href="/">Home</a></span>
+        <img src="../../assets/images/breadcrumb_arrow.png">
+        <span class="breadcrumb_last" aria-current="page">Services</span>
+      </span>
+    </nav>
+  </div>
+  <section class="page-banner services-banner-bg">
+    <div class="inner row">
       <div
-        class="col-xl-5 col-lg-5 mr-5 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content">
-        <h1 class="text-white">Our Services</h1>
-        <h4 class="text-white pb-3 content-sub-text">We’re a leading global technology consultancy that integrates strategy, design and software engineering to enable enterprises and technology</h4>
-      </div>
-      <div class="col-xl-3 col-lg-6 order-2 order-lg-2 banner-img">
-        <img src="../../assets/images/products/products-banner-man.png" alt="" class="img-fluid" />
-      </div>
+      class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
+      <h1 class="text-white animate__animated animate__fadeInUp delay-1">Our Services</h1>
+      <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
+        We’re a leading global technology consultancy that integrates strategy, design and software engineering to enable enterprises and technology
+      </h4>
+      <button mat-raised-button class="button primary mt-2 animate__animated animate__fadeInUp delay-3">
+        Explore
+      </button>
+    </div>
     </div>
   </section>
   <div class="inner mb-5">
 
     <!-- ======= Our Services ======= -->
-    <section>
-      <div class="row align-items-center  mb-5">
+    <section class="animate__animated animate__fadeInUp delay-2">
+      <div class="row align-items-center mb-5">
         <div class="col-lg-6 col-md-6 order-2 order-lg-1 order-md-1 pr-5">
           <img src="assets/images/products/our-services.png" class="img-fluid" alt="Our Services" />
         </div>
         <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-2">
-          <h3>
-            Our Services
-          </h3>
+          <h3>Our Services</h3>
           <p class="content-sub-text">
             Whether you're seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration,
             our expert team delivers transformative solutions.
@@ -38,7 +43,7 @@
     </section>
     <section class="mb-5">
       <div class="soln-block">
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-3">
           <div class="img-block service-1">
             <div class="service-caption">
               <p class="bg-5">UX Design & <br> Prototyping</p>
@@ -55,10 +60,10 @@
               <li>Interactive Prototyping</li>
               <li>Optimized User Engagement</li>
             </ul>
-            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-3">
           <div class="img-block service-2">
             <div class="service-caption">
               <p class="bg-5">Product <br> Engineering</p>
@@ -75,10 +80,10 @@
               <li>Quality Assurance Excellence</li>
               <li>Continuous Optimization</li>
             </ul>
-            <a  href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-3">
           <div class="img-block service-3">
             <div class="service-caption">
               <p class="bg-5">Custom LMS <br>Development</p>
@@ -94,10 +99,10 @@
               <li>Scalable Architecture</li>
               <li>Ongoing Support & Optimization</li>
             </ul>
-            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-4">
           <div class="img-block service-4">
             <div class="service-caption">
               <p class="bg-5">AI/ML<br> Consulting</p>
@@ -113,10 +118,10 @@
               <li>Seamless Integration</li>
               <li>Ongoing Support and Optimization</li>
             </ul>
-            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-4">
           <div class="img-block service-5">
             <div class="service-caption">
               <p class="bg-5">Corporate<br> Trainings</p>
@@ -132,10 +137,10 @@
               <li>Flexible Learning Paths</li>
               <li>Performance Analytics</li>
             </ul>
-            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-4">
           <div class="img-block service-6">
             <div class="service-caption">
               <p class="bg-5">Candidate <br> Screening</p>
@@ -150,13 +155,14 @@
               <li>Comprehensive Skill Assessments</li>
               <li>Streamlined Recruitment Workflow</li>
             </ul>
-            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="text-center">
+  </div>
+  <div class="container-fluid tech-stack-col">
+    <section class="text-center animate__animated animate__fadeInUp delay-4">
       <h3>Our Technology Stack</h3>
       <p class="content-sub-text">Dive into our technology stack, highlighting our proficiency in a diverse set of
         technologies and platforms.</p>
@@ -166,7 +172,6 @@
           <img src="../../assets/images/products/tech-stack-2.png" />
           <img src="../../assets/images/products/tech-stack-3.png" />
           <img src="../../assets/images/products/tech-stack-4.png" />
-
           <img src="../../assets/images/products/tech-stack-5.png" />
           <img src="../../assets/images/products/tech-stack-6.png" />
         </div>
@@ -175,23 +180,20 @@
         <div class="tech-stack">
           <img src="../../assets/images/products/tech-stack-7.png" />
           <img src="../../assets/images/products/tech-stack-8.png" />
-
           <img src="../../assets/images/products/tech-stack-9.png" />
           <img src="../../assets/images/products/tech-stack-10.png" />
           <img src="../../assets/images/products/tech-stack-11.png" />
           <img src="../../assets/images/products/tech-stack-12.png" />
         </div>
-
       </div>
     </section>
   </div>
-  <div id="coll-form-bg">
-    <section class="form-bg">
+  <div id="coll-form-bg" class="inquiry-form">
+    <section class="form-bg animate__animated animate__fadeInUp delay-5">
       <app-collaborate-form [pageType]="'whatWeDo'"></app-collaborate-form>
     </section>
   </div>
 </div>
-
 
 <app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
   (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>
