@@ -1,104 +1,105 @@
 <div class="products-page">
   <app-spinner></app-spinner>
   <!-- ======= Hero Banner Section ======= -->
-  <section class="products-banner">
-    <nav id="breadcrumbs" class="container breadcrumbs"><span><span><a href="/">Home</a></span> <img
-          src="../../assets/images/breadcrumb_arrow.png">
-        <span class="breadcrumb_last" aria-current="page">Products</span></span></nav>
-    <div class="row justify-content-center pt-3">
+  <div class="container">
+    <div id="breadcrumbs" class="container breadcrumbs">
+      <span>
+        <span><a href="/">Home</a></span>
+        <img src="../../assets/images/breadcrumb_arrow.png">
+        <span class="breadcrumb_last" aria-current="page">Products</span>
+      </span>
+    </div>
+  </div>
 
+  <section class="page-banner products-banner-bg">
+    <div class="inner row">
       <div
-        class="col-xl-5 col-lg-5 mr-5 col-sm-12  pt-lg-0 order-1 order-lg-1 d-flex flex-column banner-content">
-        <h1 class="text-white">Our Products</h1>
-        <h4 class="pb-3 content-sub-text text-white">We’re a leading global technology consultancy that integrates
-          strategy, design and software engineering to enable enterprises and technology</h4>
-      </div>
-      <div class="col-xl-3 col-lg-6 order-2 order-lg-2 banner-img">
-        <img src="../../assets/images/products/products-banner-man.png" alt="" class="img-fluid" />
+        class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
+        <h1 class="text-white animate__animated animate__fadeInUp delay-1">Our Products</h1>
+        <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
+          We’re a leading global technology consultancy that integrates strategy, design and software engineering to enable enterprises and technology
+        </h4>
+        <button mat-raised-button class="button primary mt-2 animate__animated animate__fadeInUp delay-3">
+          Explore
+        </button>
       </div>
     </div>
   </section>
-  <div class="inner mb-5">
+  <div class="inner mb-5 animate__animated animate__fadeInUp delay-1">
     <!-- ======= Our Solution ======= -->
-    <section>
+    <section class="animate__animated animate__fadeInUp delay-1">
       <!-- Sec 1 -->
-      <div class="inner row align-items-center mb-5">
-        <div class="col-lg-6 col-md-4 order-2 order-lg-2 pl-5">
+      <div class="inner row align-items-center mb-5 animate__animated animate__fadeInUp delay-2">
+        <div class="col-lg-6 col-md-4 order-2 order-lg-2 pl-5 animate__animated animate__fadeInUp delay-3">
           <img src="assets/images/products/our-solution.png" class="img-fluid" alt="Our Solutions" />
         </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-1">
+        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-1 animate__animated animate__fadeInUp delay-3">
           <h3>
             Our Solutions
           </h3>
           <p class="content-sub-text">
-            We’re a leading global technology consultancy that integrates strategy, design and software engineering to
-            enable enterprises and technology disruptors across the globe to thrive as modern digital businesses.
-            Ongoing digital disruption is challenging enterprises to keep pace with the accelerating rate of
-            technological change. This is where Thoughtworks can help. We’ve been at the forefront of technology
-            innovation for 30 years.
+            We’re a leading global technology consultancy that integrates strategy, design and software engineering to enable enterprises and technology disruptors across the globe to thrive as modern digital businesses.
+            Ongoing digital disruption is challenging enterprises to keep pace with the accelerating rate of technological change. This is where Thoughtworks can help. We’ve been at the forefront of technology innovation for 30 years.
           </p>
         </div>
       </div>
-
     </section>
 
-    <section class="mb-5">
-      <div class="soln-block">
-        <div class="soln-card">
+    <section class="mb-5 animate__animated animate__fadeInUp delay-1">
+      <div class="soln-block animate__animated animate__fadeInUp delay-2">
+        <div class="soln-card animate__animated animate__fadeInUp delay-3">
           <div class="img-block our-soln-1">
             <div class="bg-style bg-blueberry">
               <div class="company-logo"></div>
               <img src="../../assets/images/products/career-logo.svg" alt="Career" />
             </div>
           </div>
-          <div class="content-block">
+          <div class="content-block animate__animated animate__fadeInUp delay-3">
             <h5 class="text-bold">Master emerging technologies with ease</h5>
             <p>A subscription-based learning platform tailored for AI, Metaverse, and Web 3.0.<br>
               Stay ahead in the dynamic tech landscape through easy to understand learning resources around the globe.
             </p>
-            <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
+            <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
           </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-3">
           <div class="img-block our-soln-2">
             <div class="bg-style bg-blueberry">
               <div class="company-logo"></div>
               <img src="../../assets/images/products/LMS-logo.svg" alt="LMS" />
             </div>
           </div>
-          <div class="content-block">
+          <div class="content-block animate__animated animate__fadeInUp delay-3">
             <h5 class="text-bold">Empowering Corporate Learning with AI</h5>
             <p>Enhance employee development with Tekcapzule LMS, your next-gen corporate learning solution.
               Powered by AI, it delivers personalized training, automates administration, and provides data-driven
               insights.</p>
-              <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
-          </div>
+              <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
+            </div>
         </div>
-        <div class="soln-card">
+        <div class="soln-card animate__animated animate__fadeInUp delay-3">
           <div class="img-block our-soln-3">
             <div class="bg-style bg-blueberry">
               <div class="company-logo"></div>
               <img src="../../assets/images/products/campus-logo.svg" alt="Campus" />
             </div>
           </div>
-          <div class="content-block">
+          <div class="content-block animate__animated animate__fadeInUp delay-3">
             <h5 class="text-bold">AI-Enhanced Learning for Schools and Colleges</h5>
             <p>Revolutionize education with Tekcapzule Campus, an AI-powered LMS designed for schools and colleges.
               Offering intuitive administration, personalized learning paths, and insightful analytics.</p>
-              <a href="javascript:void(0)" (click)="onKnowMore()">Know More</a>
-          </div>
+              <a href="javascript:void(0)" (click)="onKnowMore()" class="know-more">Know More</a>
+            </div>
         </div>
       </div>
     </section>
-
   </div>
-  <div id="coll-form-bg">
+  <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-5">
     <section class="form-bg">
       <app-collaborate-form [pageType]="'whatWeDo'"></app-collaborate-form>
     </section>
   </div>
 </div>
-
 
 <app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
   (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>

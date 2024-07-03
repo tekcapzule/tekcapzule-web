@@ -8,7 +8,7 @@
   //transition: all 0.5s;
   z-index: 997;
   // margin-top: 43px;
-  background: $corporate-color;
+  background: $white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .header-align {
@@ -142,6 +142,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    height: 400px;
+    @media (max-width: 992px) {
+      background-color: #07182F;
+      padding-top: 20px;
+    }
   }
 
   > ul {
@@ -187,7 +192,7 @@
       // }
       &.active {
         .dropdown .dropbtn {
-          color: #FFF;
+          color: $primary-color;
         }
       }
 
@@ -232,6 +237,7 @@
       color: $white;
       font-size: 16px !important;
       -webkit-font-smoothing: antialiased;
+      text-decoration: none;
     }
 
     &:hover:before {
@@ -452,6 +458,7 @@
 
 .navbar {
   padding: 0.5rem 0 !important;
+  height: 84px;
   @media only screen and (max-width: 767px) {
     padding: 1rem 0 !important;
   }
@@ -476,10 +483,16 @@
     margin-right: 10px;
     padding: 0.25rem 0.5rem;
     background: url('../../../../assets/images/mobile-menu-icon.svg') 10px 10px no-repeat;
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   .navbar-toggler[aria-expanded='true'] {
     background: url('../../../../assets/images/mobile-menu-close.svg') 5px 3px no-repeat;
+    &:focus {
+      box-shadow: none;
+    }
   }
   .nav-menu {
     // padding-left: 40px;
@@ -498,7 +511,8 @@
     padding-bottom: 15px;
     width: 100%;
     height: 100%;
-    background: #040c31;
+    //background: #040c31;
+    height: 400px;
   }
 
   .navbar-collapse.collapsing {
@@ -524,9 +538,9 @@
 
   .dropbtn {
     background-color: transparent;
-    color: $white;
+    color: $black;
     border: none;
-    font-size: 13px !important;
+    font-size: 16px !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
@@ -598,9 +612,9 @@
 }
 
 .dropdown:hover .dropbtn,  .dropdown.active .dropbtn{
-  color: #fff;
+  color: $primary-color;
   transition-duration: .3s !important;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid $primary-color;
 }
 
 
@@ -784,7 +798,7 @@
 .user-container {
   display: flex;
   // align-items: center;
-  padding-top: 24px;
+  padding-top: 36px;
   border-bottom: 1px solid #2B315C;
   padding-bottom: 10px;
   justify-content: space-between;
@@ -807,6 +821,9 @@
   }
 }
 
+.mobile-menu-bg {
+  background-color: #07182F;
+}
 .skill-menu-bg {
   // background-color: #101843;
   padding: 10px 0 5px;
@@ -863,7 +880,7 @@
 .search-box {
   display: flex;
   input[type='search'] {
-    border: 1px solid $white;
+    border: 1px solid #C4C4C4;
     border-radius: 17px !important;
     font-size: 13px !important;
     color: $white;

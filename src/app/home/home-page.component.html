@@ -1,238 +1,99 @@
 <div class="home-page">
   <app-spinner></app-spinner>
   <!-- ======= Hero Banner Section ======= -->
-  <section class="home-banner">
-    <div class="container-fluid text-center pt-5">
-      <h1 class="text-white">We guide you to master</h1>
-      <h1 class="text-white">
-        <ngx-typed-writer class="text-white" [strings]='[
-        "emerging technologies",
-        "Artificial Intelligence",
-        "Web 3.0",
-        "Metaverse"]'
-        [smartBackspace]="true" [shuffle]="false"
-        [showCursor]="true"
-        [loop]="true"
-        [backSpeed]="100" [typeSpeed]="100"
-        [delay]="200"></ngx-typed-writer>
-        with ease
-      </h1>
-      <h4 class="text-white pb-3 content-sub-text">
-        Enhance your skills with easy-to-follow content from around the globe.<br>
-      </h4>
-      <div class="d-block text-center">
-        <button class="button primary-btn disabled-btn" disabled="true">Watch Demo</button>
+  <section>
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
-      <img src="../../assets/images/home/home-banner.png" alt="" class="img-fluid"/>
-    </div>
-  </section>
-
-  <!-- ======= SkillStudio Section ======= -->
-  <section class="key-feature-bg">
-    <div class="inner skillstudio pb-4">
-      <div class="text-center">
-        <h2 class="home-banner-title">We are dedicated to providing a top-notch <br>learning experience</h2>
-
-        <h3>Our ultimate goal is to provide our users a top-notch learning experience in these specific areas.</h3>
-      </div>
-    </div>
-    <!-- ======= Key Feature Section ======= -->
-    <section class="inner key-feature-block pt-3">
-      <div class="key-feature ai-bg">
-        <h2>Artificial Intelligence</h2>
-        <img src="../../assets/images/home/AI-icon.svg" class="py-3" alt="AI Icon"/>
-        <p>
-          AI is like teaching computers to be super smart.
-          Learning AI is like having a secret power to make awesome things happen!
-        </p>
-      </div>
-      <div class="key-feature web3-bg">
-        <h2>Web 3.0</h2>
-        <img src="../../assets/images/home/web3-icon.svg" class="py-3" alt="Web 3 Icon"/>
-        <p>
-          A superhero version of the internet that is smart and interactive. Diving into Web 3.0
-          means being part of the team that makes the internet even better and futuristic!
-        </p>
-      </div>
-      <div class="key-feature meta-bg">
-        <h2>Metaverse</h2>
-        <img src="../../assets/images/home/meta-icon.svg" class="py-3" alt="meta Icon"/>
-
-        <p>
-          A giant online playground where you can live, work, and play in a virtual world. Learning
-          about the metaverse is like stepping into a digital wonderland!
-        </p>
-      </div>
-    </section>
-  </section>
-
-  <!-- ======= Discussion Section ======= -->
-  <section class="discussion-bg pt-55">
-    <div class="learning-pattern">
-      <div class="inner">
-        <div class="container-fluid text-center">
-          <h1 class="text-white">Learning never stops, <br>Continuous Learning starts here!</h1>
-          <h3 class="text-white pb-3 content-sub-text">
-            Learn from technologists around the world with our Social Feeds. <br/>
-            Join, share and get smarter together!
-          </h3>
-          <div class="d-block text-center">
-            <button class="button primary-btn">Explore</button>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../assets/images/slide-1.png" class="d-block w-100" alt="slide-1">
+          <div class="carousel-caption d-md-block animate__animated animate__fadeInUp delay-1">
+            <h1>We guide you to master emerging technologies with ease</h1>
+            <h4>Enhance your skills with easy-to-follow content from around the globe.</h4>
+            <button class="button primary-btn mt-3 animate__animated animate__fadeInUp delay-2">Explore</button>
           </div>
-          <img src="../../assets/images/home/tekcapzule-discussion.png" alt="" class="img-fluid pt-4"/>
+        </div>
+        <div class="carousel-item">
+          <img src="../../assets/images/banner/careers-banner.png" class="d-block w-100" alt="slide-2">
+          <div class="carousel-caption d-md-block animate__animated animate__fadeInUp delay-1">
+            <h1>We guide you to master emerging technologies with ease</h1>
+            <h4>Enhance your skills with easy-to-follow content from around the globe.</h4>
+            <button class="button primary-btn mt-3 animate__animated animate__fadeInUp delay-4">Explore</button>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../../assets/images/banner/products-banner.png" class="d-block w-100" alt="slide-3">
+          <div class="carousel-caption d-md-block animate__animated animate__fadeInUp delay-1">
+            <h1>We guide you to master emerging technologies with ease</h1>
+            <h4>Enhance your skills with easy-to-follow content from around the globe.</h4>
+            <button class="button primary-btn mt-3 animate__animated animate__fadeInUp delay-1">Explore</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
   <!-- ======= SkillStudio New Section ======= -->
   <section class="skill-bg-section">
     <div class="skillstudio-inner">
-      <!-- Sec 1 -->
       <div class="row align-items-center">
-        <div class="col-lg-7 col-md-6 order-2 order-lg-2">
-          <img src="assets/images/home/skillstudio-all.png" class="img-fluid skill-girl" alt="Marketplace"/>
+        <div class="col-lg-9 col-md-6 order-2 order-lg-2 animate__animated animate__fadeInUp delay-1">
+          <div class="mission-block">
+            <div class="mission-role">
+              <img src="assets/images/home/career.png" class="img-fluid" alt="career" />
+              <div class="vision-role">
+                <img src="assets/images/home/tek-career.png" class="img-fluid" alt="career" />
+                <a href="#" class="know-more animate__animated animate__fadeInUp delay-2">Know More</a>
+              </div>
+            </div>
+            <div class="mission-role">
+              <img src="assets/images/home/lms.png" class="img-fluid lms" alt="lms" />
+              <div class="vision-role">
+                <img src="assets/images/home/tek-lms.png" class="img-fluid" alt="career" />
+                <a href="#" class="know-more animate__animated animate__fadeInUp delay-3">Know More</a>
+              </div>
+            </div>
+            <div class="mission-role">
+              <img src="assets/images/home/campus.png" class="img-fluid" alt="campus" />
+              <div class="vision-role">
+                <img src="assets/images/home/tek-campus.png" class="img-fluid" alt="career" />
+                <a href="#" class="know-more animate__animated animate__fadeInUp delay-4">Know More</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-5 col-md-6 pt-lg-0 order-1 order-lg-1">
-          <h2 class="bg-fandango text-white">SkillStudio</h2>
-          <h2 class="home-banner-title text-white">
-            Comprehensive <br>collection of tech <br>learning resources at <br>your finger tip!
-          </h2>
-          <h3 class="content-sub-text text-white">
-            News, courses, articles, training videos, research papers and you name it, we have them
-            covered for you!
-          </h3>
-          <button class="button primary-btn mt-3">Explore</button>
+        <div class="col-lg-3 col-md-6 pt-lg-0 order-1 order-lg-1 animate__animated animate__fadeInUp delay-2">
+          <img src="../../assets/images/home/mission.svg" class="mb-4" />
+          <h2 class="home-banner-title text-white">Our Mission & Vision</h2>
+          <h6 class="content-sub-text text-white">
+            We aspire to be the world’s most exceptional technology training and consulting company, united by our shared values of learning, excellence, adaptability, and diversity.
+          </h6>
+          <button class="button primary-btn mt-3 animate__animated animate__fadeInUp delay-1">Explore</button>
         </div>
       </div>
     </div>
   </section>
-  <section class="dot-line-pattern">
+
+  <section>
     <div class="skillstudio-inner">
-
-      <!-- Sec 2 -->
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-6 col-md-6 order-2 order-lg-1 order-md-1 pr-5">
-          <img src="assets/images/home/skillstudio-tekbyte.png" class="img-fluid" alt="Marketplace"/>
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-6 order-2 order-lg-2  animate__animated animate__fadeInUp delay-2">
+          <img src="assets/images/home/lms-dev.png" class="img-fluid" alt="lms" />
         </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-2 pl-5 pr-0">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-1.svg"/> Effortlessly improve your
-            tech vocab
-          </h2>
+        <div class="col-lg-5 col-md-6 pt-lg-0 order-1 order-lg-1 pr-5 animate__animated animate__fadeInUp delay-3">
+          <img src="../../assets/images/home/lms-icon.svg" class="mb-4" />
+          <h2 class="home-banner-subtitle">Custom LMS development</h2>
           <h3 class="content-sub-text">
-            Your gateway to demystifying tech jargon! Unlock the world of
-            complex tech terms with ease. Our TekBytes breaks down intricate concepts into
-            digestible, bite-sized explanations, enhancing your tech vocabulary effortlessly.
+            We aspire to be the world’s most exceptional technology training and consulting company, united by our shared values of learning, excellence, adaptability, and diversity.
           </h3>
-        </div>
-      </div>
-
-      <!-- Sec 3 -->
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-6 col-md-4 order-2 order-lg-2 pl-5">
-          <img src="assets/images/home/skillstudio-course.png" class="img-fluid" alt="Marketplace"/>
-        </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-1">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-2.svg"/>Best technology courses
-            around the web
-          </h2>
-          <h3 class="content-sub-text">
-            Master emerging technologies with our curated collection of top-tier courses, sourced
-            from leading technology training platforms worldwide.
-          </h3>
-        </div>
-      </div>
-      <!-- Sec 4 -->
-      <div class="row align-items-center  mb-5">
-        <div class="col-lg-6 col-md-6 order-2 order-lg-1 order-md-1 pr-5">
-          <img src="assets/images/home/skillstudio-interview.png" class="img-fluid" alt="Marketplace"/>
-        </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-2">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-3.svg"/>Face your next tech
-            interview with confidence
-          </h2>
-
-          <h3 class="content-sub-text">
-            Gear up for success with our interview preparation library, offering a comprehensive
-            collection of materials focused on emerging technologies like AI, Metaverse, and Web
-            3.0. From commonly asked questions to insider tips, access a curated selection that
-            prepare you for the tech-driven job market.
-          </h3>
-        </div>
-      </div>
-
-      <!-- Sec 5 -->
-      <div class="row align-items-center  mb-5 pb-3">
-        <div class="col-lg-6 col-md-6 order-2 order-lg-2 pr-5">
-          <img src="assets/images/home/skillstudio-researchpapers.png" class="img-fluid" alt="Marketplace"/>
-        </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-1 pl-5">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-4.svg"/>Easy to digest research
-            paper summaries
-          </h2>
-          <h3 class="content-sub-text">
-            Navigate the world of tech research effortlessly with our research paper summaries.
-            Explore concise yet comprehensive summaries of research papers in AI, Web 3.0, and the
-            Metaverse.
-          </h3>
-        </div>
-      </div>
-      <!-- Sec 6 -->
-      <div class="row align-items-center bg-white  mb-5">
-        <div class="col-lg-6 col-md-6 order-2 order-lg-1 order-md-1">
-          <img src="assets/images/home/skillstudio-video.png" class="img-fluid py-4 px-5 skill-mob-padding"
-               alt="Marketplace"/>
-        </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-2">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-5.svg"/>Learn tech by watching
-            short videos
-          </h2>
-
-          <h3 class="content-sub-text">
-            Access a curated collection of concise, informative videos covering diverse topics in
-            AI, Metaverse, and Web 3.0. Perfect for quick learning sessions, these bite-sized videos
-            empower you with essential knowledge, making tech education convenient and effective.
-          </h3>
-        </div>
-      </div>
-
-      <!-- Sec 7 -->
-      <div class="row align-items-center bg-white mt-5 mb-5">
-        <div class="col-lg-4 col-md-4 order-2 order-lg-2">
-          <img src="assets/images/home/skillstudio-weeklydigest.png" class="img-fluid" alt="Marketplace"/>
-        </div>
-        <div class="col-lg-7 col-md-6 order-1 order-lg-1 py-4 px-5 skill-mob-padding">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-6.svg"/>Stay updated with our
-            weekly digest
-          </h2>
-          <h3 class="content-sub-text">
-            Stay up-to-date with our Weekly Digests feature, offering a roundup of key developments
-            in emerging technologies. Explore curated insights from across the web,
-            complemented by our exclusive weekly digests.
-          </h3>
-        </div>
-      </div>
-      <!-- Sec 8 -->
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-6 col-md-6 order-2 order-lg-1 order-md-1">
-          <img src="assets/images/home/skillstudio-events.png" class="img-fluid" alt="Marketplace"/>
-        </div>
-        <div class="col-lg-6 col-md-6 pt-lg-0 order-1 order-lg-2">
-          <h2 class="home-banner-subtitle">
-            <img src="../../assets/images/home/home-skill-icon-7.svg"/>Tech events that you don't
-            want to miss!
-          </h2>
-
-          <h3 class="content-sub-text">
-            Discover a global array of technology events, from conferences to meetups, all in one
-            place. Whether it's AI, Metaverse, or Web 3.0, explore opportunities to network, learn,
-            and stay informed about the latest advancements shaping the future!
-          </h3>
+          <button class="button primary-btn mt-3 animate__animated animate__fadeInUp delay-4">Know More</button>
         </div>
       </div>
     </div>
@@ -242,61 +103,45 @@
   <section class="social-share-container">
     <div class="inner">
       <div class="row align-items-center">
-        <div class="col-lg-7 col-md-6 order-2 order-lg-1 order-md-1 pr-5">
-          <img src="assets/images/home/market-place-img.png" class="img-fluid" alt="Marketplace"/>
-        </div>
-        <div class="col-lg-5 col-md-6 pt-lg-0 order-1 order-lg-2 pl-3">
-          <h2 class="bg-inchworm">AI Marketplace</h2>
-          <h2 class="home-banner-title text-white">
-            10x your team productivity and reduce the time to market by integrating right AI tools!
-          </h2>
-          <h3 class="content-sub-text text-white">
-            Our AI Marketplace features a comprehensive list of AI tools and frameworks that could
-            help improve your productivity, reduce the time to market and better innovate your
-            product.
-          </h3>
-          <div class="d-block pt-3">
-            <button class="button primary-btn">Explore</button>
+        <div class="col-lg-6 col-md-6 order-2 order-lg-1 order-md-1 pr-0 mr-0">
+          <img src="assets/images/home/offer.png" class="img-fluid animate__animated animate__fadeInUp delay-2" alt="Marketplace" />
+          <div class="col-lg-9 col-md-6 pt-lg-0 order-1 order-lg-1 offer-sec animate__animated animate__fadeInUp delay-3">
+            <img src="../../assets/images/home/offer-icon.svg" class="mb-4" />
+            <h2 class="home-banner-title text-white">What We Offer?</h2>
+            <h6 class="content-sub-text text-white">
+              Whether you’re seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration, our expert team delivers transformative solutions.
+            </h6>
+            <button class="button primary-btn mt-3 animate__animated animate__fadeInUp delay-4">Explore</button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Community Section ======= -->
-  <section class="container-fluid insight-container dark-grey-pattern pt-5 py-0">
-    <div class="inner">
-      <div class="container-fluid text-center col-lg-8">
-        <h2 class="text-white">
-          Don’t be blind folded while making <br>important technology decisions!
-        </h2>
-        <h3 class="text-white pb-3 content-sub-text">
-          With TekCapzule Insights, understanding tech trends have become easier!
-        </h3>
-        <div class="d-block text-center">
-          <img src="../../assets/images/home/comingsoon-new.png" class="img-fluid w-50"/>
-          <!-- <h1 class="text-white">COMING <span class="high-note">SOON</span></h1> -->
-          <!-- <button class="button primary-btn">Coming Soon</button> -->
+        <div class="col-lg-5 col-md-6 pt-lg-0 order-1 order-lg-2 pl-0">
+          <div class="offer-container animate__animated animate__fadeInUp delay-5">
+            <div class="offer-col">
+              <img src="assets/images/home/offer-1.svg" class="img-fluid" alt="UX Design & Prototyping" />
+              <label>UX Design & Prototyping</label>
+            </div>
+            <div class="offer-col">
+              <img src="assets/images/home/offer-2.svg" class="img-fluid" alt="Product Engineering" />
+              <label>Product Engineering</label>
+            </div>
+            <div class="offer-col">
+              <img src="assets/images/home/offer-3.svg" class="img-fluid" alt="Custom LMS Development" />
+              <label>Custom LMS Development</label>
+            </div>
+            <div class="offer-col">
+              <img src="assets/images/home/offer-4.svg" class="img-fluid" alt="Staffing Management" />
+              <label>Staffing Management</label>
+            </div>
+            <div class="offer-col">
+              <img src="assets/images/home/offer-5.svg" class="img-fluid" alt="Corporate Trainings" />
+              <label>Corporate Trainings</label>
+            </div>
+            <div class="offer-col">
+              <img src="assets/images/home/offer-6.svg" class="img-fluid" alt="Candidate Screening" />
+              <label>Candidate Screening</label>
+            </div>
+          </div>
         </div>
-        <img src="../../assets/images/home/insight-graph.png" alt="" class="img-fluid pt-4"/>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Mobile App Section ======= -->
-  <section class="container-fluid mobile-app">
-    <div class="inner">
-      <div class="app-content">
-        <!-- <p class="text-white mb-0">Download our mobile app</p> -->
-        <h3 class="text-white pr-5 mb-0 pb-0">TekCapzule <br/>on the go…</h3>
-        <a href="javascript:void(0)" aria-label="Play Store" class="disabled"><img src="/assets/images/play-store.svg"
-                                                                                   alt="Play Store icon" class="pr-4"/></a>
-        <a href="javascript:void(0)" aria-label="App Store" class="disabled"><img src="/assets/images/app-store.svg"
-                                                                                  alt="App Store icon"
-                                                                                  class="pr-4"/></a>
-        <a href="javascript:void(0)"><img src="/assets/images/home/comingsoon.png" alt=""
-                                          class="coming-soon-img"/></a>
-        <img src="../../assets/images/home/mobile-app.png" alt="" class="img-fluid app-img"/>
       </div>
     </div>
   </section>
@@ -306,19 +151,19 @@
     <div class="container inner">
       <div class="row">
         <div class="col-lg-7 col-md-7">
-          <div class="section-title pb-0 pt-5">
-            <h2>Subscribe to our newsletter</h2>
+          <div class="section-title pb-0 pt-5 animate__animated animate__fadeInUp delay-1">
+            <h1>Subscribe to our newsletter</h1>
             <p class="content-sub-text">We will never spam you. That is our promise!</p>
             <div *ngIf="subscriberFormGroup" [formGroup]="subscriberFormGroup">
               <div class="d-flex align-items-center justify-content-center subscibeSection-row position-relative"
-                   [ngClass]="{
+                [ngClass]="{
                   'error-text':
                     subscriberFormGroup.get('emailId').touched &&
                     subscriberFormGroup.get('emailId').invalid
                 }">
                 <input type="email" name="email id" formControlName="emailId" class="input-mail mb-0"
-                       placeholder="Enter Your Email ID"/>
-                <button mat-raised-button class="button tertiary" (click)="onSubscribe()">
+                  placeholder="Enter Your Email ID" />
+                <button mat-raised-button class="button tertiary animate__animated animate__fadeInUp delay-2" (click)="onSubscribe()">
                   Subscribe Now
                 </button>
               </div>
@@ -331,13 +176,13 @@
             <div class="follow-us">
               <span class="content-sub-text">Join us on</span>
               <a href="https://twitter.com/tekcapzule" target="__blank" rel="noopener noreferrer"
-                 aria-label="Twitter"><img src="/assets/images/twitter.svg" alt="twitter icon"/>#TekCapzule</a>
+                aria-label="Twitter"><img src="/assets/images/twitter.svg" alt="twitter icon" />#TekCapzule</a>
             </div>
           </div>
         </div>
         <div class="col-lg-5 col-md-5">
-          <div class="newsletter-girl">
-            <img src="../../assets/images/home/suscribe-girl.png" alt="News Letter"/>
+          <div class="newsletter-girl animate__animated animate__fadeInUp delay-3">
+            <img src="../../assets/images/home/suscribe-girl.png" alt="News Letter" />
           </div>
         </div>
       </div>

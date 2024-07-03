@@ -119,6 +119,9 @@
     <div *ngIf="isMobileResolution" class="container-fluid">
       <div class="container header-align">
         <nav class="navbar navbar-expand-lg">
+
+
+
           <button #collapseBtn class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -130,12 +133,14 @@
               routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                 alt="Tekcapzule Logo" /></a>
           </div>
-
           <div class="mobile-header" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
-            <div class="page-name">
+            <a routerLink="/" data-toggle="collapse" data-target=".navbar-collapse.show"
+            routerLinkActive="active"><img src="/assets/images/logo.svg"
+              alt="Tekcapzule Logo" /></a>
+            <!-- <div class="page-name">
               <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ?
                 selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
-            </div>
+            </div> -->
             <!-- <div class="mobile-header-icons"
               *ngIf="isMobileResolution && !selectedTopMenuItem && selectedMenuItem?.uniqueId !== 'HOME'">
               <div class="header-search-icon"></div>
@@ -147,7 +152,7 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu" *ngIf="isMobileResolution">
               <div class="user-container">
-                <div class="d-flex">
+                <div class="d-flex  d-none">
                   <img src="../../../../assets/images/mob-logo.svg" alt="mobile-logo" class="pr-3" />
                   <div>
                     <a *ngIf="!authState.isUserLoggedIn()" routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
@@ -160,6 +165,13 @@
                 </div>
                 <div class="close-btn" (click)="closeMenu()"></div>
               </div>
+              <div class="mobile-menu-bg">
+              <!-- <div class="search-box mx-0">
+                <input type="search" name="search"  autocomplete="off"
+                [(ngModel)]="searchText"
+                (keyup)="onSearch()"/>
+                <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+              </div> -->
               <ul>
               <!--  <ul class="mobile-submenu top-level-menus">
                     <li class="sub-menu-element"
@@ -215,6 +227,7 @@
                   </ul>
                 </li> -->
               </ul>
+            </div>
               <!-- <div class="d-flex align-items-center mx-5 mt-4">
                 <button mat-raised-button class="button primary-outline w-100" (click)="onViewPlans()">
                   View plans

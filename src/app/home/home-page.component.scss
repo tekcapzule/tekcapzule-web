@@ -3,7 +3,7 @@
 .home-page {
   margin-top: 65px;
 h1 {
-    font-size: 33px !important;
+    font-size: 42px !important;
     font-family: $primary-font-bold;
     color: #363636;
     padding-bottom: 15px;
@@ -19,6 +19,7 @@ h1 {
     color: #363636;
     padding-bottom: 15px;
     line-height: 34px;
+    font-weight: 500;
     @media only screen and (max-width: 990px) {
       font-size: 22px !important;
       line-height: 28px;
@@ -59,14 +60,47 @@ h1 {
 
   .social-share-container {
     height: auto;
-    background: url('/assets/images/home/social-community-bg.png');
+    background: #EAEAEA;
     width: 100%;
     background-size: cover;
+    .offer-sec {
+      position: absolute;
+      top: 130px;
+      padding-left: 150px;
+    }
+    .offer-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      //height: 324px;
+      max-width: 720px; /* 3 columns x 240px each */
+      margin: 0 auto;
+    }
+    .offer-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #D5D5D5;
+      width: 240px;
+      height: 289px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .offer-col img {
+      max-height: 100px; /* adjust as necessary */
+      margin-bottom: 10px;
+    }
+    .offer-col label {
+      margin-top: 10px;
+      width: 100px; /* adjust as necessary to control wrapping */
+      white-space: normal; /* allow text to wrap */
+    }
   }
 
   button {
     &.primary-btn {
-      background-color: $button-bg;
+      background-color: $primary-color;
       color: $white;
       margin-right: 15px;
 
@@ -238,20 +272,21 @@ h1 {
 
 .subscribe {
   &.section-bg {
-    padding: 25px;
-    background-color: #07182F;
-    padding-top: 95px;
+    padding-top: 115px;
+    background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+    background-position-y: 350px;
     @media only screen and (max-width: 990px) {
       padding: 0px;
     }
     .container {
       // background: url('../../assets/images/home/subscribe-bg.svg') no-repeat;
       // background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
-       background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #fff 0%, #fff 100%);
+       background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #EAEAEA 0%, #EAEAEA 100%);
 
       padding: 30px;
       border-radius: 40px;
       height: 423px;
+      border: 1px solid #D5D5D5;
       // background-size: contain;
       @media only screen and (max-width: 990px) {
         padding: 15px;
@@ -268,6 +303,10 @@ h1 {
         text-align: left;
         color: $white !important;
       }
+      p {
+        font-weight: 400;
+        font-size: 18px;
+      }
       .input-mail {
         background: #f7f7f7;
         border: 0 none;
@@ -277,8 +316,9 @@ h1 {
         color: #a1a1a1;
         font-family: $primary-font-regular;
         font-size: 16px;
-        height: 50px;
+        height: 63px;
         padding-right: 190px;
+        border: 1px solid #CCCCCC;
         @media only screen and (max-width: 480px) {
           padding-right: 10px;
           font-size: 16px;
@@ -288,8 +328,8 @@ h1 {
       button {
         position: absolute;
         right: 5px;
-        background-color: #212C5E;
-        border: 1px solid #212C5E;
+        // background-color: #212C5E;
+        // border: 1px solid #212C5E;
         @media only screen and (max-width: 480px) {
           position: relative;
           right: auto;
@@ -312,10 +352,10 @@ h1 {
     max-width: 1220px;
   }
   .skillstudio-inner {
-    max-width: 1040px;
+    max-width: 1136px;
     margin: 0 auto;
     width: 100%;
-    padding: 50px 0;
+    padding: 105px 0;
   }
 }
 .home-banner-title{
@@ -333,6 +373,7 @@ h1 {
   line-height: 38px;
   color: #363636;
   font-size: 28px;
+  font-weight: 500;
 
   img {
     max-height: 50px;
@@ -343,6 +384,9 @@ h1 {
 
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
+  .carousel-caption {
+    width: 60% !important;
+  }
   .skill-girl {
     padding-top: 30px;
   }
@@ -420,6 +464,60 @@ h1 {
     height: auto !important;
     margin-bottom: 45px;
   }
+  .home-page {
+    .social-share-container
+    {
+      .offer-col {
+        width: 128px;
+    height: 210px;
+    img {
+      height: 50px;
+    }
+      }
+    }
+    .skillstudio-inner {
+      text-align: center;
+      padding: 25px 0 !important;
+      .primary-btn {
+        margin-bottom: 20px;
+
+      }
+      .col-lg-5 {
+        padding: 0px !important;
+      }
+    }
+    .social-share-container {
+      .offer-sec {
+        top: 0;
+    padding: 20px;
+    text-align: center;
+    img {
+      height: 60px;
+    }
+      }
+
+    }
+    .mission-block {
+      display: inline-block;
+      .mission-role
+      {
+        .vision-role {
+          margin-top: -165px;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+        }
+      }
+    }
+  }
+  .carousel-caption {
+    top: 10% !important;
+  }
+  .home-page{
+     h2 {
+      justify-content: center;
+     }
+  }
 }
 .high-note {
   background: url('../../assets/images/home/comingsoon-bg.svg') no-repeat;
@@ -427,7 +525,34 @@ h1 {
   padding: 0 20px;
 }
 .skill-bg-section {
-  background: url('../../assets/images/home/skillstudio-line.png') no-repeat, url('../../assets/images/home/skillstudio-bg.svg') no-repeat;
+  background: #07182F url('../../assets/images/pattern-bg.png') no-repeat;
   background-size: cover;
   color: #fff;
 }
+
+.mission-block {
+  display: flex;
+  grid-gap: 10px;
+  .mission-role {
+    .lms {
+      border: 1px solid #f8f8f8;
+    }
+    .vision-role {
+      background-image: url('../../assets/images/home/black-bg.png');
+      height: 165px;
+      width: 265px;
+      position: absolute;
+      bottom: 0;
+      display: grid;
+      padding: 22px 0 0 36px;
+    }
+  }
+}
+
+.carousel-caption {
+  position: absolute;
+  width: 32%;
+  text-align: left;
+  top: 20%;
+}
+

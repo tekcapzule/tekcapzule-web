@@ -111,61 +111,74 @@ h1 {
 /*--------------------------------------------------------------
 # Carousel Section
 --------------------------------------------------------------*/
-
-/* Carousel Slider Styles Starts */
 .carousel {
-  // padding-top: 100px;
-  // margin-bottom: 80px;
-  @media only screen and (max-width: 768px) {
-    margin-bottom: 30px;
-  }
-
-  .carousel-indicators li {
-    background-color: #fff;
-    height: 7px;
-    border: 1px solid #202A5F;
-
-    &.active {
-      background-color: #202A5F;
-    }
-  }
-
-  .carousel-inner {
-    .carousel-item {
-      position: relative;
-      top: 0;
-      height: 580px;
+  .carousel-item {
+    height: 600px;
+    img{
+      height: 600px;
       width: 100%;
-
-      @media only screen and (max-width: 990px) {
-        height: 500px !important;
-      }
-
-      .carousel-caption {
-        top: auto;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        text-align: left;
-        color: #3c3b3b !important;
-
-        .hero-text {
-          color: $white;
-          margin: 10px 0 56px 0;
-          font-size: 18px;
-          font-family: $primary-font-regular;
-        }
-
-        .animated {
-          animation: up-down 2s ease-in-out infinite alternate-reverse both;
-        }
-      }
+      object-fit: cover;
     }
   }
 }
 
-/* Carousel Slider Styles End */
+/* Carousel Slider Styles Starts */
+// .carousel {
+//   // padding-top: 100px;
+//   // margin-bottom: 80px;
+//   @media only screen and (max-width: 768px) {
+//     margin-bottom: 30px;
+//   }
 
+//   .carousel-indicators li {
+//     background-color: #fff;
+//     height: 7px;
+//     border: 1px solid #202A5F;
+
+//     &.active {
+//       background-color: #202A5F;
+//     }
+//   }
+
+//   .carousel-inner {
+//     .carousel-item {
+//       position: relative;
+//       top: 0;
+//       height: 600px;
+//       width: 100%;
+
+
+//       @media only screen and (max-width: 990px) {
+//         height: 500px !important;
+//       }
+
+//       .carousel-caption {
+//         top: auto;
+//         bottom: auto;
+//         left: auto;
+//         right: auto;
+//         text-align: left;
+//         color: #3c3b3b !important;
+
+//         .hero-text {
+//           color: $white;
+//           margin: 10px 0 56px 0;
+//           font-size: 18px;
+//           font-family: $primary-font-regular;
+//         }
+
+//         .animated {
+//           animation: up-down 2s ease-in-out infinite alternate-reverse both;
+//         }
+//       }
+//     }
+//   }
+// }
+
+/* Carousel Slider Styles End */
+.carousel-indicators  {
+  border: 0 none;
+}
 .carousel-card {
   width: 333px;
   height: 560px;
@@ -296,7 +309,6 @@ h1 {
 # Button Styles
 --------------------------------------------------------------*/
 .button {
-  border-radius: 42px;
   height: 45px;
   width: 165px;
   font-family: $primary-font-bold;
@@ -347,11 +359,11 @@ h1 {
   }
 
   &.tertiary {
-    border-radius: 8px;
+    // border-radius: 8px;
     background-color: $primary-color;
     color: $white;
     width: 170px;
-    height: 35px;
+    height: 50px;
     font-size: 16px;
   }
   &.tertiary-outline {
@@ -643,7 +655,7 @@ Search Box
 
 button {
   &.search-btn {
-    background: url('../images/search-icon.svg') center right no-repeat;
+    background: url('../images/search.svg') center right no-repeat;
     width: 20px;
     height: 44px;
     border: none;
@@ -2868,18 +2880,118 @@ body.modal-open {
 }
 .breadcrumbs {
   font-size: 13px;
-  height: 80px;
+  top: 100px;
   align-items: center;
   display: flex;
+  position: absolute;
   a {
-    color: $white;
-    font-weight: 300;
+    color: $black;
+    font-weight: 400;
+    text-decoration: none;
   }
   .breadcrumb_last {
-    color: $white;
+    color: $black;
     font-weight: 600;
   }
    img {
     margin: 0 5px !important;
 }
+}
+
+
+
+/********* Banner Section*******/
+.page-banner {
+  height: 607px;
+  width: 100%;
+  margin: 65px 0 50px;
+  display: flex;
+  vertical-align: middle;
+
+  h1, h4 {
+    margin-bottom: 25px;
+    color: $banner-text !important;
+  }
+
+  h1 {
+    line-height: 50px !important;
+  }
+
+  h4 {
+    line-height: 34px !important;
+  }
+
+  &.careers-banner-bg {
+    background: url('../../assets/images/banner/careers-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &.contactus-banner-bg {
+    background: url('../../assets/images/banner/contactus-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  &.aboutus-banner-bg {
+    background: url('../../assets/images/banner/aboutus-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &.products-banner-bg {
+    background: url('../../assets/images/banner/products-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &.services-banner-bg {
+    background: url('../../assets/images/banner/services-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+
+.animate__animated.animate__fadeInUp {
+  --animate-duration: 1s;
+}
+.delay-1 {
+  animation-delay: 0.5s;
+}
+.delay-2 {
+  animation-delay: 1s;
+}
+.delay-3 {
+  animation-delay: 2s;
+}
+.delay-4 {
+  animation-delay: 3s;
+}
+.delay-5 {
+  animation-delay: 4s;
+}
+
+.know-more {
+  color: #26C6DA;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .breadcrumbs {
+    display: none;
+  }
+  .page-banner {
+    height: 400px;
+    h1{
+      line-height: 40px !important;
+    }
+  }
+  h1 {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
 }

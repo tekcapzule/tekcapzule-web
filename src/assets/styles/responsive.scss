@@ -190,7 +190,7 @@
     padding: 5px 20px;
     font-size: 15px;
     height: 45px !important;
-    width: 148px !important;
+    width: 175px !important;
     // height: auto !important;
     // width: auto !important;
   }
@@ -223,8 +223,9 @@
     font-size: 25px;
   }
   .banner-content {
-    align-items: center;
-    text-align: center;
+    // align-items: center;
+    // text-align: center;
+    padding: 0px 15px!important
   }
   .space-fill {
     padding: 0 1rem !important;
