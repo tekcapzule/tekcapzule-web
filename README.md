@@ -129,4 +129,4 @@ Don't forget to give the project a star! Thanks again!
 Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<p></p>
+
