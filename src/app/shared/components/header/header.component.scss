@@ -193,7 +193,6 @@
       // }
       &.active {
         .dropdown .dropbtn {
-          // color: $primary-color;
           transition-duration: 0.3s !important;
           border-bottom: 3px solid #1A73E8;
         }
@@ -886,7 +885,7 @@
     border: 1px solid #C4C4C4;
     border-radius: 17px !important;
     font-size: 13px !important;
-    color: $white;
+    color: #2B2B2B;
     background-color: transparent;
     min-width: 220px;
     height: 30px;

@@ -166,12 +166,7 @@
                 <div class="close-btn" (click)="closeMenu()"></div>
               </div>
               <div class="mobile-menu-bg">
-              <!-- <div class="search-box mx-0">
-                <input type="search" name="search"  autocomplete="off"
-                [(ngModel)]="searchText"
-                (keyup)="onSearch()"/>
-                <button title="search bar" class="search-btn" (click)="onSearch()"></button>
-              </div> -->
+              
               <ul>
               <!--  <ul class="mobile-submenu top-level-menus">
                     <li class="sub-menu-element"
@@ -214,7 +209,14 @@
                 </ul> -->
 
 
-
+                <li>
+                  <div class="search-box mx-0">
+                    <input type="search" name="search"  autocomplete="off"
+                    [(ngModel)]="searchText"
+                    (keyup)="onSearch()"/>
+                    <button title="search bar" class="search-btn" (click)="onSearch()"></button>
+                  </div>
+                </li>
                 <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
                     (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
                 <!-- <li class="main-nav-links pt-2 skill-menu-bg sub-nav-line">
