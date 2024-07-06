@@ -13,6 +13,12 @@
       background-size: cover;
       margin-top: 65px;
     }
+    .page-banner {
+      height: 470px;
+    }
+    .banner-rh-section {
+      top: 86px;
+    }
     .contactus-container {
       display: flex;
       justify-content: center;
@@ -76,6 +82,10 @@
 }
 
 @media only screen and (max-width: 990px) {
+  .contactus-page {
+  .banner-rh-section {
+    top: 274px;
+  }
   .inner {
     padding: 0px 20px !important;
     width: 100% !important;
@@ -110,3 +120,4 @@
     }
   }
  }
+}
