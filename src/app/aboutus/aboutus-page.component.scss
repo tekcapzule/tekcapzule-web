@@ -134,6 +134,12 @@
 }
 
 @media only screen and (max-width: 990px) {
+  .describe {
+    font-size: 20px !important;
+  }
+  h3 {
+   font-size: 28px !important; 
+  }
   .inner {
     padding: 20px 0 0 !important;
   }
@@ -223,7 +229,7 @@
       text-align: left;
       padding: 20px;
       margin-bottom: 0;
-      line-height: 32px;
+      line-height: 32px !important;
     }
 
   }
