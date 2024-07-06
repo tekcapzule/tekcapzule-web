@@ -113,29 +113,7 @@ h4 {
     background: url('../../assets/images/products/our-solution-3.png') center/cover no-repeat;
   }
 
-  .service-1 {
-    background: url('../../assets/images/products/service-1.png') center/cover no-repeat;
-  }
 
-  .service-2 {
-    background: url('../../assets/images/products/service-2.png') center/cover no-repeat;
-  }
-
-  .service-3 {
-    background: url('../../assets/images/products/service-3.png') center/cover no-repeat;
-  }
-
-  .service-4 {
-    background: url('../../assets/images/products/service-4.png') center/cover no-repeat;
-  }
-
-  .service-5 {
-    background: url('../../assets/images/products/service-5.png') center/cover no-repeat;
-  }
-
-  .service-6 {
-    background: url('../../assets/images/products/service-6.png') center/cover no-repeat;
-  }
 
   .soln-card {
     border: 1px solid #E8EDFF;
@@ -175,8 +153,19 @@ h4 {
   background-position-y: 232px;
   padding-bottom: 0;
 }
+.mission-block {
+  grid-gap: 30px;
+  justify-content: center;
+  padding: 30px 0;
+}
 
 @media only screen and (max-width: 990px) {
+  .banner-rh-section {
+    top: 390px;
+  }
+  .page-banner {
+    height: 600px;
+  }
   .inner {
     padding: 20px 10px 0 !important;
   }

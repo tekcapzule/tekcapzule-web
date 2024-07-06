@@ -225,7 +225,9 @@
   .banner-content {
     // align-items: center;
     // text-align: center;
-    padding: 0px 15px!important
+    padding: 0px 15px!important;
+    margin-top: 70px;
+    justify-content: start !important;
   }
   .space-fill {
     padding: 0 1rem !important;
@@ -610,7 +612,7 @@
       justify-content: center !important;
       line-height: 30px;
       a {
-        padding: 0 15px !important;
+        padding: 0 8px !important;
       }
     }
 }

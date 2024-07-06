@@ -23,49 +23,77 @@
     left: 33%;
     margin-top: 151px;
   }
+
   .core-value {
-    background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
-    background-position-y: 460px;
-    padding-bottom: 0;
+    // background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+    // background-position-y: 460px;
+    // padding-bottom: 0;
+    padding-bottom: 65px;
   }
+
   .our-values {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    @media (max-width: 990px) {
+      flex-direction: column;
+    }
+
     .value-panel {
-      margin-right: 20px;
-      padding: 35px;
-      border-radius: 10px;
-      height: 463px;
-      width: 230px;
-      h4 {
-        font-weight: 600;
-        font-size: 26px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 254px;
+      height: 545px;
+      border: 1px solid #959595;
+      background-size: cover;
+      background-position: center;
+      .content {
+        height: 545px;
+        top: 325px;
+        position: absolute;
+        padding: 20px;
+        p {
+          font-weight: 400;
+          line-height: 24px;
+        }
+        h4 {
+          font-size: 30px;
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+
+        h4, p {
+          color: $white !important;
+          margin-bottom: 0;
+        }
       }
-      h4,
-      p {
-        color: $white;
+
+
+      &.learning {
+        background-image: url('../../assets/images/about/gradient-bg.svg'), url('../../assets/images/about/core-value-1.png');
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
       }
 
-      p {
-        line-height: 22px;
-        font-weight: 400;
+      &.excellence {
+        background-image: url('../../assets/images/about/gradient-bg.svg'), url('../../assets/images/about/core-value-2.png');
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
       }
-    }
 
-    .cols-1 {
-      background: #ff00c0;
-    }
+      &.adaptability {
+        background-image: url('../../assets/images/about/gradient-bg.svg'), url('../../assets/images/about/core-value-4.png');
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
+      }
 
-    .cols-2 {
-      background: #54aa00;
-    }
-
-    .cols-3 {
-      background: #7400bb;
-    }
-
-    .cols-4 {
-      background: #0089fb;
+      &.diversity {
+        background-image: url('../../assets/images/about/gradient-bg.svg'), url('../../assets/images/about/core-value-3.png');
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
+      }
     }
   }
 
@@ -75,6 +103,7 @@
     height: 449px;
     background-size: 100%;
     margin-bottom: 35px;
+
     .content {
       width: 42%;
       display: flex;
@@ -111,12 +140,19 @@
   .inner {
     padding: 20px 0 0 !important;
   }
-
+  .banner-rh-section {
+    top: 390px;
+  }
+  .page-banner {
+    height: 600px;
+  }
   .our-values {
-    display: block !important;
+   // display: block !important;
+   margin: 20px;
+   gap: 20px !important;
 
     .value-panel {
-      height: 157px !important;
+      height: 490px !important;
       width: 100% !important;
       border-radius: 0 !important;
     }
@@ -126,11 +162,13 @@
     // height: 450px !important;
     height: auto !important;
   }
+
   .aboutus-page {
     .mission-section {
       background-size: 100%;
       width: 100%;
       height: auto;
+
       .content {
         width: 100%;
         padding: 20px;
@@ -139,4 +177,60 @@
       }
     }
   }
+  .mv-block {
+    margin: 20px;
+
+    display: inline-grid !important;
+    .mv-card {
+      width: 100% !important;
+    }
+  }
+}
+
+.mv-block {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  margin-top: 30px;
+
+  .mv-card {
+    box-shadow: 0px 3px 6px #00000017;
+    border: 1px solid #9AA3AF;
+    width: 527px;
+    height: 413px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.mission-bg {
+      background-image: url('../../assets/images/about/mission-bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    &.vision-bg {
+      background-image: url('../../assets/images/about/vision-bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-header {
+      background-color: #07182F;
+      color: white;
+      width: fit-content;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .card-content {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: left;
+      padding: 20px;
+      margin-bottom: 0;
+      line-height: 32px;
+    }
+
+  }
+
 }

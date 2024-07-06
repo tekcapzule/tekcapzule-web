@@ -176,6 +176,9 @@ h1 {
 // }
 
 /* Carousel Slider Styles End */
+.carousel-indicators [data-bs-target] {
+  background-color: #1A73E8 !important;
+}
 .carousel-indicators  {
   border: 0 none;
 }
@@ -2968,6 +2971,9 @@ body.modal-open {
 .delay-5 {
   animation-delay: 4s;
 }
+.delay-6 {
+  animation-delay: 5s;
+}
 
 .know-more {
   color: #26C6DA;
@@ -2979,7 +2985,40 @@ body.modal-open {
     text-decoration: underline;
   }
 }
+.describe {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 34px;
+}
 
+.mission-block {
+  display: flex;
+  grid-gap: 10px;
+  .mission-role {
+    .lms {
+      border: 1px solid #f8f8f8;
+    }
+    .vision-role {
+      background-image: url('../../assets/images/home/black-bg.png');
+      height: 165px;
+      width: 265px;
+      position: absolute;
+      bottom: 0;
+      display: grid;
+      padding: 22px 0 0 36px;
+    }
+  }
+}
+.banner-rh-section {
+  position: absolute;
+  right: 0;
+  top: 90px;
+  img
+  {
+    position: absolute;
+    right: 0;
+  }
+}
 @media only screen and (max-width: 990px) {
   .breadcrumbs {
     display: none;
@@ -2994,4 +3033,24 @@ body.modal-open {
     font-size: 30px !important;
     line-height: 40px !important;
   }
+  .mission-block {
+    display: inline-block !important;
+    .mission-role
+    {
+      .vision-role {
+        margin-top: -165px;
+  position: relative;
+  margin-bottom: 20px;
+  text-align: left;
+      }
+    }
+  }
+  .nav-menu ul {
+    height: 400px !important;
+  }
+  .mobile-display {
+    text-align: center;
+  }
 }
+
+

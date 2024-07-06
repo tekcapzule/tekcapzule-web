@@ -60,7 +60,6 @@ h1 {
 
   .social-share-container {
     height: auto;
-    background: #EAEAEA;
     width: 100%;
     background-size: cover;
     .offer-sec {
@@ -86,6 +85,7 @@ h1 {
       text-align: center;
       font-weight: 500;
       font-size: 18px;
+      background: #f6f6f6;
     }
     .offer-col img {
       max-height: 100px; /* adjust as necessary */
@@ -290,6 +290,8 @@ h1 {
       // background-size: contain;
       @media only screen and (max-width: 990px) {
         padding: 15px;
+        background: white;
+        border: none;
       }
       .subscibeSection-row {
         width: 100%;
@@ -384,6 +386,9 @@ h1 {
 
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
+  .offer-img {
+    height: 370px;
+  }
   .carousel-caption {
     width: 60% !important;
   }
@@ -426,10 +431,11 @@ h1 {
           justify-content: center;
           display: flex;
           img{
-            position: inherit !important;
+            position: relative !important;
             top: auto !important;
             width: 80% !important;
             height: auto !important;
+            top: 23px !important;
           }
         }
 
@@ -497,18 +503,7 @@ h1 {
       }
 
     }
-    .mission-block {
-      display: inline-block;
-      .mission-role
-      {
-        .vision-role {
-          margin-top: -165px;
-    position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-        }
-      }
-    }
+
   }
   .carousel-caption {
     top: 10% !important;
@@ -528,25 +523,6 @@ h1 {
   background: #07182F url('../../assets/images/pattern-bg.png') no-repeat;
   background-size: cover;
   color: #fff;
-}
-
-.mission-block {
-  display: flex;
-  grid-gap: 10px;
-  .mission-role {
-    .lms {
-      border: 1px solid #f8f8f8;
-    }
-    .vision-role {
-      background-image: url('../../assets/images/home/black-bg.png');
-      height: 165px;
-      width: 265px;
-      position: absolute;
-      bottom: 0;
-      display: grid;
-      padding: 22px 0 0 36px;
-    }
-  }
 }
 
 .carousel-caption {

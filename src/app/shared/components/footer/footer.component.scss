@@ -89,7 +89,8 @@
 @media only screen and (max-width: 768px) {
   .footer-links {
     margin-bottom: 20px;
-    width: 50%;
+    //width: 50%;
+    max-width: 100%;
     padding-left: 0;
     a {
       padding-right: 14px !important;
@@ -98,8 +99,16 @@
   .copyright {
     padding-bottom: 0 !important;
     padding-left: 0 !important;
+    display: block !important;
+    text-align: center;
   }
   .footer-top {
     padding-top: 0 !important;
+    .row {
+      display: block;
+    }
+    .footer-logo {
+      width: 100%;
+    }
   }
 }

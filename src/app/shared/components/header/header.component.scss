@@ -143,6 +143,7 @@
     padding: 0;
     list-style: none;
     height: 400px;
+    height: 30px;
     @media (max-width: 992px) {
       background-color: #07182F;
       padding-top: 20px;
@@ -192,7 +193,9 @@
       // }
       &.active {
         .dropdown .dropbtn {
-          color: $primary-color;
+          // color: $primary-color;
+          transition-duration: 0.3s !important;
+          border-bottom: 3px solid #1A73E8;
         }
       }
 

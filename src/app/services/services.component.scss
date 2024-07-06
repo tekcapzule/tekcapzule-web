@@ -1,6 +1,6 @@
 @import './../../assets/styles/variables.scss';
 
-.products-page {
+.services-page {
   &.p-main {
     padding: 92px 12px 20px;
   }
@@ -115,27 +115,27 @@
   }
 
   .service-1 {
-    background: url('../../assets/images/products/service-1.png') center/cover no-repeat;
+    background: url('../../assets/images/services/service-1.png') center/cover no-repeat;
   }
 
   .service-2 {
-    background: url('../../assets/images/products/service-2.png') center/cover no-repeat;
+    background: url('../../assets/images/services/service-2.png') center/cover no-repeat;
   }
 
   .service-3 {
-    background: url('../../assets/images/products/service-3.png') center/cover no-repeat;
+    background: url('../../assets/images/services/service-3.png') center/cover no-repeat;
   }
 
   .service-4 {
-    background: url('../../assets/images/products/service-4.png') center/cover no-repeat;
+    background: url('../../assets/images/services/service-4.png') center/cover no-repeat;
   }
 
   .service-5 {
-    background: url('../../assets/images/products/service-5.png') center/cover no-repeat;
+    background: url('../../assets/images/services/service-5.png') center/cover no-repeat;
   }
 
   .service-6 {
-    background: url('../../assets/images/products/service-6.png') center/cover no-repeat;
+    background: url('../../assets/images/services/service-6.png') center/cover no-repeat;
   }
 
   .soln-card {
@@ -165,7 +165,7 @@
       max-width: 100px;
       margin-bottom: 34px;
       object-fit: scale-down;
-      margin-right: 30px;
+      margin: 10px;
       background: $white;
     }
   }
@@ -179,6 +179,13 @@
 }
 
 @media only screen and (max-width: 990px) {
+  .banner-rh-section {
+    top: 313px !important;
+    margin-right: -75px;
+  }
+  .page-banner {
+    height: 578px;
+  }
   .inner {
     padding: 20px 10px 0 !important;
   }
@@ -187,7 +194,7 @@
     height: auto !important;
   }
 
-  .products-page {
+  .services-page  {
     .products-banner {
       margin: 76px 0 0px;
       height: auto;
@@ -221,4 +228,7 @@
 }
 .inquiry-form{
   background-color: $grey-bg;
+}
+.banner-rh-section {
+  top: 65px
 }
