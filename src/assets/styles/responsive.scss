@@ -1,4 +1,17 @@
 @media only screen and (max-width: 990px) {
+  .search-box {
+    background: 0 none !important;
+    padding: 15px 35px!important;
+    position: inherit !important;
+
+    input {
+      top: 0;
+    }
+    button.search-btn {
+      right: 50px !important;
+    }
+
+  }
   .capsule-card-container {
     width: 390px !important;
     height: 590px !important;
@@ -226,7 +239,7 @@
     // align-items: center;
     // text-align: center;
     padding: 0px 15px!important;
-    margin-top: 70px;
+    margin-top: 40px;
     justify-content: start !important;
   }
   .space-fill {
