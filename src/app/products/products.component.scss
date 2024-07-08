@@ -1,6 +1,10 @@
 @import './../../assets/styles/variables.scss';
 
 .products-page {
+  .container {
+    max-width: 1080px;
+    padding-left: 0;
+  }
   &.p-main {
     padding: 92px 12px 20px;
   }

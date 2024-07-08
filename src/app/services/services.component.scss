@@ -1,6 +1,10 @@
 @import './../../assets/styles/variables.scss';
 
 .services-page {
+  .container {
+    max-width: 1080px;
+    padding-left: 0;
+  }
   &.p-main {
     padding: 92px 12px 20px;
   }
@@ -100,6 +104,22 @@
   .img-block {
     width: 318px;
     height: 163px;
+    transition: all 1s ease-out;
+    cursor: pointer;
+    &:hover {
+      background: $primary-color;
+      // transition: all 0.5s ease-out;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      .service-caption {
+        padding-top: 45px;
+        .bg-5 {
+          background-color: transparent;
+        }
+      }
+    }
+  
   }
 
   .our-soln-1 {
@@ -181,6 +201,9 @@
   .banner-rh-section {
     top: 313px !important;
     margin-right: -75px;
+    img {
+      height: 330px;
+    }
   }
   .page-banner {
     height: 578px;
@@ -229,5 +252,6 @@
   background-color: $grey-bg;
 }
 .banner-rh-section {
-  top: 65px
+  top: 125px;
+    right: 20%;
 }

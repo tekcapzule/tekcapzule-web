@@ -2882,11 +2882,12 @@ body.modal-open {
 
 }
 .breadcrumbs {
-  font-size: 13px;
+  font-size: 15px;
   top: 100px;
   align-items: center;
   display: flex;
   position: absolute;
+  padding-left: 0;
   a {
     color: $black;
     font-weight: 400;
