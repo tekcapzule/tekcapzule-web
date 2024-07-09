@@ -5,7 +5,7 @@
     <div id="breadcrumbs" class="container breadcrumbs">
       <span>
         <span><a href="/">Home</a></span>
-        <img src="../../assets/images/breadcrumb_arrow.png">
+        <img src="../../assets/images/breadcrumb_arrow.png" />
         <span class="breadcrumb_last" aria-current="page">Products</span>
       </span>
     </div>
@@ -14,19 +14,27 @@
   <section class="page-banner products-banner-bg">
     <div class="inner row">
       <div
-        class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
-        <h1 class="text-white animate__animated animate__fadeInUp delay-1">Our Products</h1>
+        class="col-xl-5 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0"
+      >
+        <h1 class="text-white animate__animated animate__fadeInUp delay-1">
+          Learn. Anytime. Anywhere.
+        </h1>
         <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
-          We’re a leading global technology consultancy that integrates strategy, design and software engineering to
-          enable enterprises and technology
+          Transform the way you learn and teach with out modern LMS platform.
         </h4>
-        <button mat-raised-button class="button primary mt-2 animate__animated animate__fadeInUp delay-3">
+        <button
+          mat-raised-button
+          class="button primary mt-2 animate__animated animate__fadeInUp delay-3"
+        >
           Explore
         </button>
       </div>
       <div class="banner-rh-section order-2 order-lg-2">
-        <img src="assets/images/banner/products.png" class="img-fluid animate__animated animate__fadeIn delay-1"
-          alt="products" />
+        <img
+          src="assets/images/banner/products.png"
+          class="img-fluid animate__animated animate__fadeIn delay-1"
+          alt="products"
+        />
       </div>
     </div>
   </section>
@@ -35,17 +43,14 @@
     <section>
       <!-- Sec 1 -->
       <div class="inner row align-items-center">
-
         <div class="col-lg-12">
-          <h3>
-            Our Solutions
-          </h3>
+          <h3>Our Solutions</h3>
           <p class="content-sub-text">
-            We’re a leading global technology consultancy that integrates strategy, design and software engineering to
-            enable enterprises and technology disruptors across the globe to thrive as modern digital businesses.
-            Ongoing digital disruption is challenging enterprises to keep pace with the accelerating rate of
-            technological change. This is where Thoughtworks can help. We’ve been at the forefront of technology
-            innovation for 30 years.
+            Our SaaS hosted LMS platform is designed to revolutionarize the way acadamies,
+            corporates and colleges approach learning. With a user friendly interface, personalizd
+            learning paths and realtime analytics, our platform empowers educators to deliver
+            impactful learning experiences. Our AI powered course authoring tool helps educators
+            create courses in minutes.
           </p>
         </div>
       </div>
@@ -88,5 +93,7 @@
   </div>
 </div>
 
-<app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
-  (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>
+<app-login-required
+  [isDialogVisible]="isLoginRequiredDialogShown"
+  (dialogClosed)="hideLoginRequiredDialog()"
+></app-login-required>
