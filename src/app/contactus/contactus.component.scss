@@ -2,7 +2,7 @@
 
 .contactus-page {
   .container {
-    max-width: 1080px;
+    max-width: 1200px;
     padding-left: 0;
   }
     &.p-main {
@@ -35,6 +35,9 @@
     .map-bg {
       background: url('../../assets/images/contactus/map-bg.png') no-repeat;
       background-size: cover;
+      .inner {
+        max-width: 1040px;
+      }
     }
     .office-image {
       background: #30354D;
@@ -56,6 +59,10 @@
       font-family:  $primary-font-medium;
        a {
         font-weight: 400;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
        }
     }
     .map {

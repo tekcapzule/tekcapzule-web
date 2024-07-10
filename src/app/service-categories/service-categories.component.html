@@ -1,0 +1,110 @@
+<div class="service-categories-page">
+  <app-spinner></app-spinner>
+  <!-- ======= Hero Banner Section ======= -->
+  <div class="container">
+    <div id="breadcrumbs" class="container breadcrumbs">
+      <span>
+        <span><a href="/">Home</a></span>
+        <img src="../../assets/images/breadcrumb_arrow.png">
+        <span><a href="/services">Services</a></span>
+        <img src="../../assets/images/breadcrumb_arrow.png">
+        <span class="breadcrumb_last" aria-current="page">UX Design & Prototyping</span>
+
+      </span>
+    </div>
+  </div>
+
+  <section class="page-banner service-categories-banner-bg">
+    <div class="inner row">
+      <div
+        class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
+        <h1 class="text-white animate__animated animate__fadeInUp delay-1">UX Design & Prototyping</h1>
+        <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
+          We’re a leading global technology consultancy that integrates strategy, design and software engineering to
+          enable enterprises and technology
+        </h4>
+      </div>
+    </div>
+  </section>
+  <div class="inner animate__animated animate__fadeInUp delay-2">
+    <!-- ======= Our Solution ======= -->
+    <section>
+      <!-- Sec 1 -->
+      <div class="inner row align-items-center services-desc">
+
+        <div class="col-lg-4 px-0">
+          <h4>
+            Customer Journey Documentation
+          </h4>
+          <p class="content-sub-text pr-5 mr-4">
+            Whether you’re seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration, our expert team delivers transformative solutions.
+          </p>
+        </div>
+        <div class="col-lg-4 px-0">
+          <h4>
+            Information Architecture
+          </h4>
+          <p class="content-sub-text pr-5 mr-4">
+            Whether you’re seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration, our expert team delivers transformative solutions.
+          </p>
+        </div>
+        <div class="col-lg-4 px-0">
+          <h4>
+            Wireframe & Prototyping
+          </h4>
+          <p class="content-sub-text pr-5 mr-4">
+            Whether you’re seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration, our expert team delivers transformative solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <div class="row align-items-center">
+        <div class="col-lg-12 mobile-display">
+          <div class="mission-block">
+            <div class="mission-role animate__animated animate__fadeInUp delay-2">
+              <img src="assets/images/services/ux-design-1.png" class="img-fluid" alt="career" />
+            </div>
+            <div class="mission-role animate__animated animate__fadeInUp delay-3">
+              <img src="assets/images/services/ux-design-2.png" class="img-fluid" alt="career" />
+            </div>
+            <div class="mission-role animate__animated animate__fadeInUp delay-4">
+              <img src="assets/images/services/ux-design-3.png" class="img-fluid" alt="career" />
+            </div>
+            <div class="mission-role animate__animated animate__fadeInUp delay-5">
+              <img src="assets/images/services/ux-design-4.png" class="img-fluid" alt="career" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="inner row align-items-center">
+
+        <div class="details d-flex">
+          <div>
+            <img src="assets/images/home/tek-career.png" class="img-fluid" alt="career" />
+          </div>
+          <div>
+            <h4>
+              Customer Journey Documentation
+            </h4>
+            <p class="content-sub-text">
+              Whether you’re seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration, our expert team delivers transformative solutions.Whether you’re seeking user-centric interfaces, tailored learning platforms, or cutting-edge AI integration, our expert team delivers transformative solutions.
+            </p>
+          </div>
+
+        </div>
+        </div>
+    </section>
+  </div>
+  <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-5">
+    <section class="form-bg">
+      <app-collaborate-form [pageType]="'serviceCategories'"></app-collaborate-form>
+    </section>
+  </div>
+</div>
+
+<app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
+  (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>

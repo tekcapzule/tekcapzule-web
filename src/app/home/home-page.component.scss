@@ -86,6 +86,21 @@ h1 {
       font-weight: 500;
       font-size: 18px;
       background: #f6f6f6;
+      color: #000;
+      transition: transform 0.5s, background-color 0.5s, color 0.5s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1A73E8;
+        color: #fff;
+        transform: rotateY(180deg);
+        img {
+          filter: brightness(0) invert(1);
+          transition: all 0.65s;
+          transform: rotateY(180deg);
+        }
+      }
     }
     .offer-col img {
       max-height: 100px; /* adjust as necessary */
@@ -531,3 +546,10 @@ h1 {
   top: 20%;
 }
 
+.lms-img {
+  transition: 1s ease;
+    &:hover {
+      border-radius:50%;
+      transition: 1s ease;
+    }
+  }

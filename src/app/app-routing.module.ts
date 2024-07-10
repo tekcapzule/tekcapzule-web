@@ -37,6 +37,10 @@ const routes: Routes = [
     loadChildren: () => import('./services/services.module').then(m => m.ServicesModule),
   },
   {
+    path: 'services/services-categories',
+    loadChildren: () => import('./service-categories/service-categories.module').then(m => m.ServiceCategoriesModule),
+  },
+  {
     path: 'aboutus',
     loadChildren: () => import('./aboutus/aboutus.module').then(m => m.AboutUsModule),
   },
