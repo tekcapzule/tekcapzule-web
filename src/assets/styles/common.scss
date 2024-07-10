@@ -596,7 +596,8 @@ textarea {
 }
 
 .container {
-  max-width: 1336px;
+  max-width: 1200px;
+  padding: 0;
 }
 
 input:focus,
@@ -2217,7 +2218,7 @@ select {
 
 .inner {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1200px;
   width: 100%;
 }
 
@@ -2951,6 +2952,12 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
+  &.service-categories-banner-bg {
+    background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
 }
 
 

@@ -2,7 +2,7 @@
 
 .aboutus-page {
   .container {
-    max-width: 1080px;
+    max-width: 1200px;
     padding-left: 0;
   }
 
@@ -34,7 +34,7 @@
 
   .our-values {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
     @media (max-width: 990px) {
       flex-direction: column;
@@ -142,7 +142,7 @@
     font-size: 20px !important;
   }
   h3 {
-   font-size: 28px !important; 
+   font-size: 28px !important;
   }
   .inner {
     padding: 20px 0 0 !important;
@@ -234,6 +234,7 @@
       padding: 20px;
       margin-bottom: 0;
       line-height: 32px !important;
+      min-height: 168px;
     }
 
   }
