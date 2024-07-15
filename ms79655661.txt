@@ -1,5 +1,0 @@
-﻿{
-  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
-  "Domain": "tekcapzule.com",
-  "Id": "afcb8ac8-a08c-4d99-88a7-3720e8615f37"
-}
