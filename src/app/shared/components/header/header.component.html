@@ -44,9 +44,9 @@
                   <ng-cotainer *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
-                        <div class="sub-menu px-5">
+                        <div class="sub-menu px-5 sub-menu-container">
                           <div class="sub-menu-element sub-menu-title text-left">
-                            <h2 class="sub-menu-element">SkillStudio</h2>
+                            <h2 class="sub-menu-element pb-0">Services</h2>
                           </div>
                           <div class="d-flex">
                             <div class="col-lg-6 pl-0">
@@ -213,7 +213,8 @@
                   <div class="search-box mx-0">
                     <input type="search" name="search"  autocomplete="off"
                     [(ngModel)]="searchText"
-                    (keyup)="onSearch()"/>
+                    (keyup)="onSearch()"
+                    placeholder="Search"/>
                     <button title="search bar" class="search-btn" (click)="onSearch()"></button>
                   </div>
                 </li>
