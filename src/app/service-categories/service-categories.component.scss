@@ -29,7 +29,77 @@
   justify-content: center;
   margin: 50px 0;
 }
+.details {
+  h4 {
+    font-weight: bold;
+    padding-bottom: 20px;
+    width: 220px;
+    line-height: 31px;
+   }
+ }
 
+ .mission-role {
+  position: relative;
+  display: inline-block; /* Ensure images are inline for the animation */
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.43); /* Black background with 43% opacity */
+  z-index: 1;
+}
+
+.mission-role img {
+  display: block;
+  position: relative;
+  z-index: 0; /* Ensure the image is below the overlay */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 5%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 2;
+  line-height: 30px;
+  padding: 0 25px;
+}
+
+.mission-role.animate__animated.animate__fadeInUp {
+  animation-duration: 1s; /* Adjust as needed */
+  animation-fill-mode: both;
+}
+
+.delay-2 {
+  animation-delay: 2s; /* Adjust as needed */
+}
+
+.delay-3 {
+  animation-delay: 3s; /* Adjust as needed */
+}
+
+.delay-4 {
+  animation-delay: 4s; /* Adjust as needed */
+}
+
+.delay-5 {
+  animation-delay: 5s; /* Adjust as needed */
+}
+
+@media only screen and (max-width: 990px) {
+  .details {
+    display: block !important;
+    .img-block {
+      margin-right: 0 !important;
+      margin-bottom: 20px !important;
+    }
+  }
+}
 // .service-categories-page {
 //   &.p-main {
 //     padding: 92px 12px 20px;

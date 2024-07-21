@@ -13,64 +13,62 @@ export const Constants = {
   ],
   HeaderMenu: [
     { uniqueId: 'Products', displayName: 'Products', navUrl: '/products', available: 'PRELOGIN'},
-    { uniqueId: 'Services', displayName: 'Services', navUrl: '/services', viewType: 'MOBILE', available: 'PRELOGIN'},
+    { uniqueId: 'Services', displayName: 'Services', navUrl: '/services', viewType: 'DESKTOP', available: 'ALL',
+    enablePostLogin: false,
+    children: [
+      {
+        uniqueId: 'UX_Design_Prototyping',
+        displayName: 'UX Design & Prototyping',
+        navUrl: '/services/services-categories',
+        enablePostLogin: false,
+        desc: 'Optimize your hiring process with our Candidate Screening services.',
+      },
+      {
+        uniqueId: 'Product_Engineering',
+        displayName: 'Product Engineering',
+        navUrl: '/services/services-categories',
+        enablePostLogin: true,
+        desc: 'Optimize your hiring process with our Candidate Screening services.',
+      },
+      {
+        uniqueId: 'Custom_LMS_Development',
+        displayName: 'Custom LMS Development',
+        navUrl: '/services/services-categories',
+        enablePostLogin: true,
+        desc: 'Optimize your hiring process with our Candidate Screening services.',
+      },
+      {
+        uniqueId: 'Staffing_Management',
+        displayName: 'Staffing Management',
+        navUrl: '/services/services-categories',
+        enablePostLogin: true,
+        desc: 'Optimize your hiring process with our Candidate Screening services.',
+      },
+      {
+        uniqueId: 'Corporate_Trainings',
+        displayName: 'Corporate Trainings',
+        navUrl: '/services/services-categories',
+        enablePostLogin: true,
+        desc: 'Optimize your hiring process with our Candidate Screening services.',
+      },
+      {
+        uniqueId: 'Candidate_Screening',
+        displayName: 'Candidate Screening',
+        navUrl: '/services/services-categories',
+        enablePostLogin: true,
+        desc: 'Optimize your hiring process with our Candidate Screening services.',
+      },
+
+
+    ],
+  },
+    // { uniqueId: 'Services', displayName: 'Services', navUrl: '/services', viewType: 'MOBILE', available: 'PRELOGIN'},
     { uniqueId: 'About Us', displayName: 'About Us', navUrl: '/aboutus', available: 'PRELOGIN'},
     { uniqueId: 'Careers', displayName: 'Careers', navUrl: '/careers', available: 'PRELOGIN'},
     { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus', available: 'PRELOGIN'},
 
 
-    // { uniqueId: 'Skill_Studio', displayName: 'SkillStudio', navUrl: '/skill-dashboard', viewType: 'DESKTOP', available: 'ALL',
-    //   enablePostLogin: false,
-    //   children: [
-    //     {
-    //       uniqueId: 'Courses',
-    //       displayName: 'Courses',
-    //       navUrl: '/ai-hub/courses',
-    //       enablePostLogin: true,
-    //       desc: 'Chart your tech learning path with hand-picked, industry-leading courses.',
-    //     },
-    //     {
-    //       uniqueId: 'Tekbyte',
-    //       displayName: 'Tekbyte',
-    //       navUrl: '/ai-hub/tekbyte/explore',
-    //       enablePostLogin: true,
-    //       desc:
-    //       'Boost your tech lexicon effortlessly! Simplified explanations for complex tech terms to improve your understanding.',
-    //     },
-    //     {
-    //       uniqueId: 'Weekly_Digest',
-    //       displayName: 'Newsletter & Podcast',
-    //       navUrl: '/ai-hub/weekly-digest',
-    //       enablePostLogin: true,
-    //       desc:
-    //         'Get the best of emerging technologies with our curated list of leading weekly newsletters and podcasts.',
-    //     },
-    //     {
-    //       uniqueId: 'Interview_Prep',
-    //       displayName: 'Interview Prep',
-    //       navUrl: '/ai-hub/interview-prepartion',
-    //       enablePostLogin: true,
-    //       desc:
-    //       'Ace tech interviews! Your one-stop shop for top-tier interview preparation materials.',
-    //     },
-    //     {
-    //       uniqueId: 'Video_Library',
-    //       displayName: 'Video Library',
-    //       navUrl: '/ai-hub/video-library',
-    //       enablePostLogin: true,
-    //       desc: 'Gain practical tech insights through our selection of informative videos.',
-    //     },
-    //     {
-    //       uniqueId: 'Research_Papers',
-    //       displayName: 'Research papers',
-    //       navUrl: '/ai-hub/research-papers',
-    //       enablePostLogin: true,
-    //       desc:
-    //         'Explore the best in emerging tech research. Access groundbreaking papers that shape the tech landscape.',
-    //     },
 
-    //   ],
-    // },
     // { uniqueId: 'Market_Place', displayName: 'Marketplace', navUrl: '/market-place', available: 'ALL', enablePostLogin: true},
     // { uniqueId: 'Insights', displayName: 'Insights', navUrl: '/insights', available: 'ALL', enablePostLogin: true },
     // { uniqueId: 'events', displayName: 'Events', navUrl: '/ai-hub/events', available: 'ALL', enablePostLogin: true },

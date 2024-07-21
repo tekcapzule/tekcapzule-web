@@ -6,6 +6,14 @@
 
     input {
       top: 0;
+      border: 1px solid transparent;
+    border-radius: 0px !important;
+    font-size: 13px !important;
+    color: #2B2B2B;
+    min-width: 220px;
+    height: 40px;
+    background-color: #fff !important;
+    border-bottom: 1px solid #1A73E8 !important;
     }
     button.search-btn {
       right: 50px !important;

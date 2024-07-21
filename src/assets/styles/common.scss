@@ -2327,10 +2327,10 @@ select {
 // -----------------------------------------------
 .sub-menu {
   li {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 10px;
     cursor: pointer;
-    text-wrap: wrap;
+    // text-wrap: wrap;
     line-height: 20px;
     &:hover {
       background-color: #f4f7fa;
@@ -2338,11 +2338,13 @@ select {
       box-shadow: 0px 4px 6px #0000000f;
       h3 {
         color: $primary-color;
+        font-weight: 500 !important;
       }
     }
     h3 {
       font-size: 16px;
       margin-bottom: 0;
+      font-weight: 500 !important;
     }
 
     .icon {
@@ -2410,6 +2412,7 @@ select {
 
   span {
     font-size: 14px;
+    color: #717171;
   }
 }
 
@@ -2880,6 +2883,7 @@ body.modal-open {
   font-family: $primary-font-bold;
   padding-bottom: 30px;
   font-weight: 700;
+  line-height: 40px;
 
 }
 .breadcrumbs {
@@ -2889,10 +2893,12 @@ body.modal-open {
   display: flex;
   position: absolute;
   padding-left: 0;
+  z-index: 1;
   a {
     color: $black;
     font-weight: 400;
     text-decoration: none;
+    cursor: pointer;
   }
   .breadcrumb_last {
     color: $black;
