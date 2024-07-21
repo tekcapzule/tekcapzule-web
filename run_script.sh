@@ -2,6 +2,7 @@
 
 SHELL_ARG="yarn start:dev"
 SERVER_PORT="4200"
+NG_CLI_VERSION="16.2.10"
 
 print_help() {
   echo "\nUsage: ./run_script.sh [option]\n"
@@ -23,7 +24,7 @@ docker_run_it() {
     -p "$SERVER_PORT":"$SERVER_PORT" \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
-    akhilpb001/ng-cli:11.2.8 \
+    akhilpb001/ng-cli:$NG_CLI_VERSION \
     /bin/sh -c "$SHELL_ARG"
 }
 
@@ -32,7 +33,7 @@ docker_run_nonit() {
     --name tekcapzule-web-runner \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
-    akhilpb001/ng-cli:11.2.8 \
+    akhilpb001/ng-cli:$NG_CLI_VERSION \
     /bin/sh -c "$SHELL_ARG"
 }
 
@@ -41,7 +42,7 @@ docker_run_shell() {
     --name tekcapzule-web-shell \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
-    akhilpb001/ng-cli:11.2.8 /bin/sh
+    akhilpb001/ng-cli:$NG_CLI_VERSION /bin/sh
 }
 
 # Print help if there are no arguments
