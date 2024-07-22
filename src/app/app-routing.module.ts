@@ -37,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./services/services.module').then(m => m.ServicesModule),
   },
   {
-    path: 'services/services-categories',
+    path: 'services/services-categories/:code',
     loadChildren: () => import('./service-categories/service-categories.module').then(m => m.ServiceCategoriesModule),
   },
   {
