@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
+import { CourseApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
@@ -11,18 +12,26 @@ export class ServiceCategoriesComponent implements OnInit {
   isMobileResolution: boolean;
   isLoginRequiredDialogShown: boolean;
   pageDetails;
+  servicePageDetails: any;
 
   constructor(
     private helperService: HelperService,
     private route: ActivatedRoute,
+    private courseApi: CourseApiService
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const menuItem = this.helperService.findPage('Services');
-      this.pageDetails = menuItem.children.find(mi => mi.uniqueId === params['code'])
+      this.pageDetails = menuItem.children.find(mi => mi.uniqueId === params['code']);
+      this.loadServiceData(params['code']);
+    });    
+  }
+
+  loadServiceData(fileName: string) {
+    this.courseApi.getServicePage(fileName.toLowerCase()).subscribe(data => {
+      this.servicePageDetails = data;
     });
-    
   }
 
   @HostListener('window:resize', ['$event'])

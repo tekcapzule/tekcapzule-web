@@ -32,6 +32,7 @@ import { SkillCardComponent } from './components/skill-card/skill-card.component
 import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skeleton.component';
 import { TopicFilterComponent } from './components/topic-filter/topic-filter.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import { FaqPageComponent } from '@app/faq/faq-page.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     QAComponent,
     CollaborateFormComponent,
     SkillCardComponent,
-    SkillSkeletonComponent
+    SkillSkeletonComponent,
+    FaqPageComponent
   ],
   imports: [
     CommonModule,
@@ -90,7 +92,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     QAComponent,
     CollaborateFormComponent,
     SkillCardComponent,
-    SkillSkeletonComponent
+    SkillSkeletonComponent,
+    FaqPageComponent
   ],
   providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
