@@ -38,4 +38,9 @@ export class CourseApiService {
     return this.httpClient
       .post<ApiSuccess>(`${COURSE_API_PATH}/recommend`, { courseId });
   }
+
+  getServicePage(fileName: string ): Observable<any[]> {
+    return this.httpClient.get<any[]>(`/assets/json/${fileName}.json`);
+  }
+
 }
