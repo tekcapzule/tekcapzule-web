@@ -58,13 +58,13 @@ export const Constants = {
         enablePostLogin: true,
         desc: 'Optimize your hiring process with our Candidate Screening services.',
       },
-      {
-        uniqueId: 'Talent_Solutions',
-        displayName: 'Talent Solutions',
-        navUrl: '/services/services-categories/Talent_Solutions',
-        enablePostLogin: true,
-        desc: 'Optimize your hiring process with our Candidate Screening services.',
-      }
+      // {
+      //   uniqueId: 'Talent_Solutions',
+      //   displayName: 'Talent Solutions',
+      //   navUrl: '/services/services-categories/Talent_Solutions',
+      //   enablePostLogin: true,
+      //   desc: 'Optimize your hiring process with our Candidate Screening services.',
+      // }
 
     ],
   },
