@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/services/auth-guard/auth-guard';
+import { FaqPageComponent } from './faq/faq-page.component';
 
 const routes: Routes = [
   {
@@ -50,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'faq',
-    loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule),
+    component: FaqPageComponent
   },
   {
     path: 'subscribe',

@@ -224,10 +224,11 @@ export class HeaderComponent implements OnInit {
   onChildMenuClick(menuItem: NavTab): void {
     this.selectedTopMenuItem = null;
     this.closeMenu();
-    if(menuItem.enablePostLogin && !this.authState.isUserLoggedIn()) {
+    //Launching Soon... popup
+    /*if(menuItem.enablePostLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
       return;
-    }
+    }*/
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);

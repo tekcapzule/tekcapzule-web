@@ -1,0 +1,92 @@
+{
+  "uniqueId": "Corporate_Trainings",
+  "topicName": "Corporate Trainings",
+  "bannerImage": "assets/images/ux-design-banner.png",
+  "bannerText": "We craft intuitive and engaging user experiences through meticulous design and prototyping. Our team ensures each interface is both aesthetically pleasing and functionally seamless, tailored to meet your business needs.",
+  "topics": [
+    { 
+      "name": "User-Centered Research",
+      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs, behaviors, and preferences. Combining this with collaborative workshops, we brainstorm innovative solutions that ensure our designs are not only aesthetically pleasing but also user-centric and feasible."
+    },
+    { 
+      "name": "Rapid Prototyping",
+      "summaryText": "We transform ideas into tangible prototypes quickly and efficiently. Using the latest tools and technologies, we create interactive prototypes that allow for real-time testing and validation. This step helps us identify and resolve potential issues early in the development process."
+    },
+    { 
+      "name": "Continuous Testing and Improvement",
+      "summaryText": "Our iterative design process involves continuous testing and refinement. We gather user feedback through usability testing and make necessary adjustments to enhance the user experience. This ensures the final product is intuitive, functional, and aligns with user expectations."
+    }
+  ],
+  "animateImages": [
+    "assets/images/services/ux-design-1.png",
+    "assets/images/services/ux-design-2.png",
+    "assets/images/services/ux-design-3.png",
+    "assets/images/services/ux-design-4.png"
+  ],
+  "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
+  "faq": [
+    {
+      "title": "Subscription and Billing",
+      "qa": [
+        {
+          "qus": "How can I subscribe to the TekCapzule training platform?",
+          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+        },
+        {
+          "qus": "What payment methods do you accept?",
+          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
+        },
+        {
+          "qus": "Is my payment information secure?",
+          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
+        },
+        {
+          "qus": "How do I cancel my subscription?",
+          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+        }
+      ]
+    }, {
+      "title": "Technical Support",
+      "qa": [
+        {
+          "qus": "What should I do if I'm having trouble accessing the platform?",
+          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+        },
+        {
+          "qus": "Is there any system requirement to use the platform?",
+          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+        }
+      ]
+    },
+    {
+      "title": "Account Management",
+      "qa": [
+        {
+          "qus": "How can I change my account details?",
+          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+        },
+        {
+          "qus": "I forgot my password. What should I do?",
+          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
+        },
+        {
+          "qus": "How can I delete my account?",
+          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+        }
+      ]
+    },
+    {
+      "title": "Community and Networking",
+      "qa": [
+        {
+          "qus": "Are there opportunities for networking and collaboration?",
+          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+        },
+        {
+          "qus": "How can I report inappropriate behavior in the community forums?",
+          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+        }
+      ]
+    }
+  ]
+}
