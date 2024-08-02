@@ -31,7 +31,7 @@
     <!-- ======= Our Solution ======= -->
     <section>
       <!-- Sec 1 -->
-      <div class="inner row align-items-center services-desc">
+      <div class="inner row services-desc">
         <div *ngFor="let topic of servicePageDetails?.topics;" class="col-lg-4 px-0">
           <h4>{{topic.name}}</h4>
           <p class="content-sub-text pr-5 mr-4">
@@ -57,10 +57,10 @@
     <section>
       <div class="inner row align-items-center">
         <div class="details d-flex mb-5">
-          <div class="me-5 img-block">
+          <div class="me-5 img-block col-4">
             <img src="assets/images/home/lms-dev.png" class="img-fluid" alt="career" />
           </div>
-          <div>
+          <div class="col-8">
             <h4>Why Choose Us?</h4>
             <p class="content-sub-text">
               {{servicePageDetails?.why}}
