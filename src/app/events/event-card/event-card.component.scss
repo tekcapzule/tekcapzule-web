@@ -38,7 +38,7 @@
   margin-top: 5px;
 }
   .conference-header {
-    // border-left: 7px solid #fff;
+    // border-left: 7px solid $white;
     // padding-left: 20px;
     // margin-bottom: 20px;
   }
@@ -83,7 +83,7 @@
   }
 }
 .event-skeleton {
-  background: #fff !important;
+  background: $white !important;
   .conference-header {
     border-bottom: 1px solid #e8edff;
   }

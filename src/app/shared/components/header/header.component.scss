@@ -27,7 +27,7 @@
       border-radius: 25px;
       font-size: 14px;
       background: transparent;
-      color: #fff !important;
+      color: $white !important;
     }
     button.search-btn {
       right: 110px;
@@ -145,7 +145,7 @@
     height: 400px;
     height: 30px;
     @media (max-width: 992px) {
-      background-color: #07182F;
+      background-color: $black-currant;
       padding-top: 20px;
     }
   }
@@ -194,7 +194,7 @@
       &.active {
         .dropdown .dropbtn {
           transition-duration: 0.3s !important;
-          border-bottom: 3px solid #1A73E8;
+          border-bottom: 3px solid $primary-color;
         }
       }
 
@@ -255,7 +255,7 @@
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #fff;
+    background-color: $white;
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -288,8 +288,8 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
 
   &:hover {
-    border-color: #fff;
-    color: #fff;
+    border-color: $white;
+    color: $white;
   }
 }
 
@@ -350,7 +350,7 @@
   .main-nav {
     font-family: $primary-font-medium;
     font-size: 24px;
-    color: #fff;
+    color: $white;
   }
 
   .sub-nav {
@@ -386,7 +386,7 @@
   text-align: right;
 
   i {
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -398,7 +398,7 @@
   left: 15px;
   z-index: 9999;
   overflow-y: auto;
-  background: #fff;
+  background: $white;
   transition: ease-in-out 0.2s;
   opacity: 0;
   visibility: hidden;
@@ -454,7 +454,7 @@
   }
 
   .mobile-nav-toggle i {
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -501,7 +501,7 @@
   }
   .nav-menu > ul > li {
     padding: 0 10px !important;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $white;
   }
 
   .navbar-collapse {
@@ -593,7 +593,7 @@
 
 .dropdown-content {
   position: absolute;
-  background-color: #fff;
+  background-color: $white;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
   width: max-content;
   margin: 0 auto;
@@ -654,7 +654,7 @@
         // font-family: $primary-font-medium;
         // font-size: 12px;
         &:hover, &.active {
-          color: #fff;
+          color: $white;
           &::after {
             // border-bottom: 4px solid #ff00c8;
           }
@@ -667,7 +667,7 @@
   background: #ff00c4;
   border: 1pc solid #ff00c4;
   border-radius: 18px;
-  color: #fff;
+  color: $white;
   font-size: 12px;
   width: auto;
   height: 25px;
@@ -695,7 +695,7 @@
   background: none;
   width: 0;
   padding: 0;
-  color: #fff;
+  color: $white;
   float: left;
   font-size: 14px;
   transition: 0.3s;
@@ -708,7 +708,7 @@
 
 /* icon */
 .search-btn {
-  color: #fff;
+  color: $white;
   float: right;
   width: 35px;
   height: 35px;
@@ -735,7 +735,7 @@
 .header-search-box:hover > .search-btn,
 .search-input:focus + .search-btn,
 .search-input:not(:placeholder-shown) + .search-btn {
-  // background: #fff;
+  // background: $white;
   color: #5966ad;
 }
 
@@ -745,7 +745,7 @@
   a {
     font-family: $primary-font-medium;
     font-size: 16px;
-    color: #fff;
+    color: $white;
     padding-bottom: 0;
     text-transform: uppercase;
   }
@@ -810,7 +810,7 @@
   }
   .user-name {
     font-size: 18px;
-    color: #fff;
+    color: $white;
   }
   .close-btn {
     background: url('../../../../assets/images/close-icon-white.png') no-repeat;
@@ -822,7 +822,7 @@
 }
 
 .mobile-menu-bg {
-  background-color: #07182F;
+  background-color: $black-currant;
 }
 .skill-menu-bg {
   // background-color: #101843;
@@ -883,7 +883,7 @@
     border: 1px solid #C4C4C4;
     border-radius: 17px !important;
     font-size: 13px !important;
-    color: #2B2B2B;
+    color: $banner-text;
     background-color: transparent;
     min-width: 220px;
     height: 30px;
@@ -891,11 +891,11 @@
       border: 1px solid transparent;
       border-radius: 0px !important;
       font-size: 13px !important;
-      color: #2B2B2B;
+      color: $banner-text;
       min-width: 220px;
       height: 40px;
-      background-color: #fff !important;
-      border-bottom: 1px solid #1A73E8 !important;
+      background-color: $white !important;
+      border-bottom: 1px solid $primary-color !important;
     }
   }
   .search-btn {

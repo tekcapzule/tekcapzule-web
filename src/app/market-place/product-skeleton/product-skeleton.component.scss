@@ -17,14 +17,14 @@
   .badge-hand {
     width: 32px;
     height: 32px;
-    background-color: #dddbdd;
+    background-color: $skeleton-grey;
     border-radius: 50%;
     margin-left: 20px;
   }
   .badge-free {
     width: 60px;
     height: 30px;
-    background-color: #dddbdd;
+    background-color: $skeleton-grey;
     border-radius: 20px;
     margin-right: 20px;
   }

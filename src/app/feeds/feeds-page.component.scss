@@ -67,7 +67,7 @@
 .mat-mdc-tab-label,
 .mat-mdc-tab-link {
   font-family: $primary-font-medium !important;
-  color: #fff;
+  color: $white;
   font-size: 13px !important;
   height: 45px;
 
@@ -104,7 +104,7 @@ ul {
       border: 1px solid #A7389F;
       &.active {
         background-color: transparent;
-        color: #fff;
+        color: $white;
         border-color: #A7389F;
         span {
           color: #4F2965;
@@ -157,7 +157,7 @@ ul {
   justify-content: initial !important;
   margin-right: 65px !important;
   font-family: $primary-font-medium !important;
-  color: #fff !important;
+  color: $white !important;
   font-size: 13px !important;
   height: 45px !important;
 }

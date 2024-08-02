@@ -5,7 +5,7 @@
 # General
 --------------------------------------------------------------*/
 a {
-  color: #1A73E8;
+  color: $primary-color;
   font-weight: 500;
 }
 
@@ -131,7 +131,7 @@ h1 {
 //   }
 
 //   .carousel-indicators li {
-//     background-color: #fff;
+//     background-color: $white;
 //     height: 7px;
 //     border: 1px solid #202A5F;
 
@@ -177,7 +177,7 @@ h1 {
 
 /* Carousel Slider Styles End */
 .carousel-indicators [data-bs-target] {
-  background-color: #1A73E8 !important;
+  background-color: $primary-color !important;
 }
 .carousel-indicators  {
   border: 0 none;
@@ -189,7 +189,7 @@ h1 {
   // border-radius: 20px;
   margin: 0 20px;
   transition: 0.3s;
-  background: #fff;
+  background: $white;
   margin-bottom: 25px;
 
   // cursor: pointer;
@@ -381,7 +381,7 @@ h1 {
     color: #1E2663;
     &:hover {
       background: #1E2663;
-      color: #fff;
+      color: $white;
     }
   }
 
@@ -440,7 +440,7 @@ h1 {
   height: 30px;
   border: 1px solid #AAADD8;
   border-radius: 20px;
-  background: #fff;
+  background: $white;
   font-size: 13px;
   font-family: $primary-font-medium;
   padding: 0 20px;
@@ -489,7 +489,7 @@ h1 {
   }
 
   .divider {
-    color: #000;
+    color: $black;
 
     @media only screen and (max-width: 570px) {
       display: none;
@@ -545,8 +545,8 @@ h1 {
 }
 .filter-btn {
   background-color: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  color: $white;
+  border: 1px solid $white;
   padding: 0 15px;
   border-radius: 25px;
   line-height: 28px;
@@ -573,11 +573,11 @@ h1 {
 
 input,
 textarea {
-  background: #fff;
+  background: $white;
   border: 0 none;
   padding: 10px 20px;
   border-radius: 10px !important;
-  color: #000;
+  color: $black;
   font-family: $primary-font-regular;
   font-size: 16px;
   margin-bottom: 25px;
@@ -1057,7 +1057,7 @@ app-spinner {
   position: fixed;
   top: 0;
   left: 0;
-  background: #fff;
+  background: $white;
   opacity: 0.7;
   text-align: center;
   z-index: 999;
@@ -1114,7 +1114,7 @@ app-spinner {
 .bg-navy-blue
 {
   background-color: #202A5F !important;
-  color: #fff;
+  color: $white;
 }
 .bg-inchworm {
   background-color: #C2E823;
@@ -1190,7 +1190,7 @@ iframe .navbar-container,
 
 /***********Carousel Slider****************/
 .p-carousel .p-carousel-indicators .p-carousel-indicator {
-  background-color: #fff;
+  background-color: $white;
   height: 7px;
   border: 1px solid #2E365B;
 }
@@ -1248,7 +1248,7 @@ iframe .navbar-container,
     position: absolute;
     right: 20px;
     top: -15px;
-    border: 1px solid #ffffff;
+    border: 1px solid $white;
   }
 
   // text-transform: uppercase;
@@ -1275,7 +1275,7 @@ iframe .navbar-container,
 
   &.pink {
     background: #e60041;
-    color: #fff;
+    color: $white;
   }
 
   &.green {
@@ -1594,7 +1594,7 @@ iframe .navbar-container,
 
   &.p-toast-message-success,
   &.p-toast-message-error {
-    background: #fff !important;
+    background: $white !important;
     border-width: 0 !important;
   }
 
@@ -1606,7 +1606,7 @@ iframe .navbar-container,
   .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
     background: #00a64e !important;
     border-radius: 40px !important;
-    color: #fff !important;
+    color: $white !important;
     padding: 0px 6px !important;
     width: 1.5rem;
     height: 1.5rem;
@@ -1643,7 +1643,7 @@ iframe .navbar-container,
 
   .pi-times:before {
     font-size: 18px;
-    color: #000;
+    color: $black;
     right: 5px !important;
     position: absolute !important;
     top: 8px !important;
@@ -1679,14 +1679,14 @@ iframe .navbar-container,
 @keyframes shockwave {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 2px #fff;
+    box-shadow: 0 0 2px $white;
     opacity: 1;
   }
 
   100% {
     transform: scale(1);
     opacity: 0;
-    box-shadow: 0 0 80px #fff, inset 0 0 40px #ccc;
+    box-shadow: 0 0 80px $white, inset 0 0 40px #ccc;
   }
 }
 
@@ -1868,7 +1868,7 @@ iframe .navbar-container,
 
   &.p-main {
     padding-top: 108px;
-    background: #fff;
+    background: $white;
   }
 
   .skill-studio-bg {
@@ -1971,7 +1971,7 @@ iframe .navbar-container,
 select {
   font-family: $primary-font-regular;
   font-size: 16px;
-  background-color: #fff;
+  background-color: $white;
   // height: 50px;
   border-radius: 7px;
   color: #2c2c2c;
@@ -2104,7 +2104,7 @@ select {
   }
 
   p {
-    color: #000;
+    color: $black;
     font-family: $primary-font-medium;
     font-size: 15px;
   }
@@ -2254,7 +2254,7 @@ select {
 }
 
 .btn-bg {
-  background-color: #07182F !important;
+  background-color: $black-currant !important;
 }
 
 /*************Feeds***********/
@@ -2308,7 +2308,7 @@ select {
 
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 25px !important;
-  color: #ff00c4;
+  color: $primary-color;
   @media only screen and (max-width: 990px) {
     margin-right: 20px !important;
   }
@@ -2485,7 +2485,7 @@ select {
   border-radius: 10px;
   padding: 1px 10px;
   height: fit-content;
-  color: #fff;
+  color: $white;
   font-family: $primary-font-regular;
   font-size: 12px;
   margin-right: 10px;
@@ -2524,7 +2524,7 @@ select {
   height: 17px;
   border-radius: 12px;
   background: #DEDEDE;
-  color: #000 !important;
+  color: $black !important;
   font-size: 11px;
   padding: 2px 5px;
 }
@@ -2676,7 +2676,7 @@ select {
   padding: 16px 16px 0;
     bottom: 23px;
     position: absolute;
-    color: #fff;
+    color: $white;
     font-size: 17px;
     margin-left: -16px;
     max-width: 530px;
@@ -2705,7 +2705,7 @@ select {
 }
 /*****************Feeds Page Style end******************/
 .svg-chart {
-  color: #fff !important;
+  color: $white !important;
 }
 
 /*****************Header icons******************/
@@ -2797,7 +2797,7 @@ select {
 }
 .dropdown-item:hover, .dropdown-item.active {
   background: none !important;
-  color: #fff !important;
+  color: $white !important;
 }
 
 .disabled-btn {
@@ -2814,14 +2814,14 @@ body.modal-open {
 .loader-content {
 	position: relative;
   display: flex;
-	background: #fff;
+	background: $white;
 	min-height: 100vh;
 	align-items: center;
 	justify-content: center;
 }
 
 .loader-content h2 {
-	color: #fff;
+	color: $white;
 	font-size: 4rem !important;
 	position: absolute;
 	// transform: translate(-50%, -50%);
@@ -3004,8 +3004,11 @@ body.modal-open {
   top: 0;
   left: 0;
   width: 100%;
-  height: 87%;
+  height: 672px;
   background-color: rgba(0, 0, 0, 0.6);
+  @media only screen and (max-width: 990px) {
+    height: 465px;
+  }
   }
 }
 
@@ -3052,7 +3055,7 @@ body.modal-open {
   grid-gap: 10px;
   .mission-role {
     .lms {
-      border: 1px solid #f8f8f8;
+      border: 1px solid $section-bg;
     }
     .vision-role {
       background-image: url('../../assets/images/home/black-bg.png');

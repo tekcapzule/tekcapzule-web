@@ -9,11 +9,11 @@
       border: 1px solid transparent;
     border-radius: 0px !important;
     font-size: 13px !important;
-    color: #2B2B2B;
+    color: $banner-text;
     min-width: 220px;
     height: 40px;
-    background-color: #fff !important;
-    border-bottom: 1px solid #1A73E8 !important;
+    background-color: $white !important;
+    border-bottom: 1px solid $primary-color !important;
     }
     button.search-btn {
       right: 50px !important;
@@ -134,7 +134,7 @@
   .badge-danger {
     top: 17px !important;
     left: 105px !important;
-    border: 1px solid #fff;
+    border: 1px solid $white;
   }
   .nav-menu .active > a {
     color: $white!important;

@@ -43,7 +43,7 @@
           position: absolute;
           top: -20px;
           text-align: center;
-          background: #fff;
+          background: $white;
           padding: 0 20px;
           left: 33%;
           font-size: 26px;
@@ -89,7 +89,7 @@
         cursor: pointer;
         &:hover {
           background: #c9224d;
-          color: #fff;
+          color: $white;
         }
       }
     }
@@ -468,7 +468,7 @@ ul.timeline {
 }
 .banner-highlight {
   padding: 30px 20px 10px;
-  color: #000;
+  color: $black;
   background: url('../../../../assets/images/didyouknow_png.png') no-repeat;
   width: 280px;
   height: 153px;
