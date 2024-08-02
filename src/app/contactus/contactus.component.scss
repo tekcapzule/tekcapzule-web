@@ -49,11 +49,11 @@
         font-family: $primary-font-bold;
         font-size: 21px;
         padding-bottom: 10px;
-        color: #fff;
+        color: $white;
       }
     }
     .contact-details {
-      background: #fff;
+      background: $white;
       padding: 30px;
       font-size: 18px;
       font-family:  $primary-font-medium;
@@ -81,7 +81,7 @@
 //   padding-bottom: 40px;
 // }
 .form-bg {
-  background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+  background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
   background-size: cover;
   height: -moz-fit-content;
   height: fit-content;

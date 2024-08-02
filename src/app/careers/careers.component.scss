@@ -117,7 +117,7 @@
 }
 
  .careers-block {
-  background: #07182F;
+  background: $black-currant;
   text-align: center;
   padding: 45px 260px;
   border: 1px solid #3E3E3E;
@@ -137,6 +137,6 @@
  }
 
  .form-bg {
-  background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+  background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
   background-position-y: 125px;
 }

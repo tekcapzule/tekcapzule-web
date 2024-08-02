@@ -9,7 +9,7 @@
     padding: 92px 12px 20px;
   }
 h5 {
-  color: #2B2B2B;
+  color: $banner-text;
 }
 h4 {
   line-height: 36px;
@@ -153,7 +153,7 @@ h4 {
 
 
 .form-bg {
-  background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+  background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
   background-position-y: 370PX;
   padding-bottom: 0;
 }

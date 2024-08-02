@@ -86,14 +86,14 @@ h1 {
       font-weight: 500;
       font-size: 18px;
       background: #f6f6f6;
-      color: #000;
+      color: $black;
       transition: transform 0.5s, background-color 0.5s, color 0.5s;
       transform-style: preserve-3d;
       cursor: pointer;
 
       &:hover {
-        background-color: #1A73E8;
-        color: #fff;
+        background-color: $primary-color;
+        color: $white;
         transform: rotateY(180deg);
         img {
           filter: brightness(0) invert(1);
@@ -139,15 +139,15 @@ h1 {
     z-index: 0;
     position: relative;
     width: 335px;
-    color: #fff;
+    color: $white;
     text-align: center;
     h2 {
-      color: #fff;
+      color: $white;
       line-height: 32px;
       font-size: 28px;
     }
     p {
-      color: #fff;
+      color: $white;
 
     }
     img {
@@ -288,7 +288,7 @@ h1 {
 .subscribe {
   &.section-bg {
     padding-top: 115px;
-    background: transparent linear-gradient(263deg, #07182F 0%, #07182F 100%) 31% 75% no-repeat;
+    background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
     background-position-y: 350px;
     @media only screen and (max-width: 990px) {
       padding: 0px;
@@ -296,7 +296,7 @@ h1 {
     .container {
       // background: url('../../assets/images/home/subscribe-bg.svg') no-repeat;
       // background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #FF1675 0%, #FF7B01 100%);
-       background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, #fff 0%, #EAEAEA 100%);
+       background: url('../../assets/images/pattern.png') 440px 0px no-repeat, linear-gradient(104.04deg, $white 0%, #EAEAEA 100%);
 
       padding: 30px;
       border-radius: 40px;
@@ -330,7 +330,7 @@ h1 {
         padding: 14px 20px;
         border-radius: 10px;
         width: 100%;
-        color: #000;
+        color: $black;
         font-family: $primary-font-regular;
         font-size: 16px;
         height: 63px;
@@ -530,13 +530,13 @@ h1 {
 }
 .high-note {
   background: url('../../assets/images/home/comingsoon-bg.svg') no-repeat;
-  color: #fff;
+  color: $white;
   padding: 0 20px;
 }
 .skill-bg-section {
-  background: #07182F url('../../assets/images/pattern-bg.png') no-repeat;
+  background: $black-currant url('../../assets/images/pattern-bg.png') no-repeat;
   background-size: cover;
-  color: #fff;
+  color: $white;
 }
 
 .carousel-caption {

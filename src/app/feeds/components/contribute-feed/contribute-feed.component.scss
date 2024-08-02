@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/variables.scss';
+
 .contribute-page {
   .contribute-bg {
     background: url(../../../../assets/images/contribute-bg.svg) no-repeat;
@@ -66,7 +68,7 @@
   }
 }
 label {
-  color: #fff;
+  color: $white;
   font-size: 16px;
 }
 }
