@@ -21,8 +21,7 @@
           <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
             <ul class="navbar-nav">
               <ng-container *ngFor="let hm of headerMenu; let i = index">
-                <li [ngClass]="{ dropdown: hm.children, active: selectedMenuItem?.uniqueId === hm.uniqueId}"
-                  *ngIf="hm.available === 'ALL' || (hm.available === 'PRELOGIN' && !authState.isUserLoggedIn()) || (hm.available === 'POSTLOGIN' && authState.isUserLoggedIn())">
+                <li [ngClass]="{ dropdown: hm.children, active: selectedTopMenuItem?.uniqueId === hm.uniqueId}" >
                   <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
@@ -35,7 +34,7 @@
                     *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <ul class="dropdown-menu show">
                       <li *ngFor="let menuItem of hm.children; let i = index">
-                        <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(menuItem)">{{
+                        <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(hm, menuItem)">{{
                           menuItem.displayName }}</a>
                       </li>
                     </ul>
@@ -54,7 +53,7 @@
                                 <li class="sub-menu-element nav-item" *ngFor="
                                     let sm of hm.children
                                       | slice: 0:math.ceil(hm.children.length / 2)
-                                  " (click)="onChildMenuClick(sm)">
+                                  " (click)="onChildMenuClick(hm, sm)">
                                   <div class="sub-menu-element icon">
                                     <span class="sub-menu-element"
                                       [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span>
@@ -69,7 +68,7 @@
                                 <li class="sub-menu-element nav-item" *ngFor="
                                     let sm of hm.children
                                       | slice: math.ceil(hm.children.length / 2):hm.children.length
-                                  " (click)="onChildMenuClick(sm)">
+                                  " (click)="onChildMenuClick(hm, sm)">
                                   <div class="sub-menu-element icon">
                                     <span [ngClass]="sm.uniqueId.toLowerCase() + '-menu-icon'"></span>
                                   </div>
@@ -194,8 +193,7 @@
 
                 <!-- <ul class="mobile-submenu top-level-menus sub-nav-line">
                   <ng-cotainer *ngFor="let hm of headerMenu | slice:2:headerMenu.length let i = index">
-                    <li class="sub-menu-element"
-                      *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()"
+                    <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()"
                       (click)="onMenuClick(hm)">
                       <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
                         class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
@@ -218,8 +216,20 @@
                     <button title="search bar" class="search-btn" (click)="onSearch()"></button>
                   </div>
                 </li>
-                <li *ngFor="let tm of topMenu;" class="main-nav-links pt-2"><a href="Javascript:void(0)"
-                    (click)="onTopMenuClick(tm, true)">{{tm.displayName}}</a></li>
+                <li *ngFor="let hm of headerMenu;" class="main-nav-links pt-2"  [ngClass]="{ dropdown: hm.children, active: selectedTopMenuItem?.uniqueId === hm.uniqueId}">
+                  <a href="Javascript:void(0)" (click)="onTopMenuClick(hm, !hm.children)">{{hm.displayName}}</a>
+                  
+                    <ul *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId" class="mobile-submenu">
+                      <li  class="sub-menu-element skill-menu" *ngFor="let sm of hm.children; let i = index"
+                        (click)="onChildMenuClick(hm, sm)">
+                        <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()"
+                          class="sub-menu-element">
+                          <span class="sub-menu-element">{{sm.displayName}}</span>
+                        </a>
+                      </li>
+                    </ul>
+
+                  </li>
                 <!-- <li class="main-nav-links pt-2 skill-menu-bg sub-nav-line">
                   <a (click)="toggleBlogMenu()">Blogs
                     <span [ngClass]="{'arrow-up': isBlogMenuOpen, 'arrow-down': !isBlogMenuOpen}"></span>

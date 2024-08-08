@@ -5,6 +5,10 @@ import { FaqPageComponent } from './faq/faq-page.component';
 
 const routes: Routes = [
   {
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
+  },
+  {
     path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
@@ -28,10 +32,6 @@ const routes: Routes = [
   {
     path: 'careers',
     loadChildren: () => import('./careers/careers.module').then(m => m.CareersModule),
-  },
-  {
-    path: 'products',
-    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
   },
   {
     path: 'services',
