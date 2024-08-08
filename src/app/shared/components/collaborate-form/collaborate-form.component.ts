@@ -4,7 +4,6 @@ import { AppSpinnerService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 import { FeedbackApiService } from '@app/core/services/feedback-api/feedback-api.service';
-import { CollaborateForm } from '@app/aboutus/models/collaborate-form.model';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -43,10 +42,11 @@ export class CollaborateFormComponent implements OnInit {
     if(this.feedbackFormGroup.valid) {
       this.spinner.show();
       this.feedbackApi.createFeedback(this.feedbackFormGroup.value).subscribe(_ => {
-        this.feedbackFormGroup.reset();
-        this.spinner.hide();        
-        this.messageService.add({ key: 'tc', severity: 'success', detail: 'We’re so happy to hear from you! Thank you for your valuable feedback.' });
+        this.spinner.hide();       
+        this.messageService.add({ key: 'tc', severity: 'success', detail: 'Thank you for contacting us!' });
       }, err => {
+        this.spinner.hide(); 
+        this.feedbackFormGroup.reset();
         this.messageService.add(this.helperService.getInternalErrorMessage());
       });
     } else {
