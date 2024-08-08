@@ -123,19 +123,11 @@ export class HeaderComponent implements OnInit {
   scrollToTop() {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
-        window.scrollTo(0, 0);
-        if (
-          !this.selectedMenuItem ||
-          !this.helperService.getSelectedMenu() ||
-          !this.selectedMenuItem.navUrl.includes(ev.url)
-        ) {
+        if(!this.selectedTopMenuItem) {
           this.selectedTopMenuItem = this.helperService.findSelectedTopMenu(ev.url);
-          if(!this.selectedTopMenuItem) {
-            const selectedMenu = this.helperService.findSelectedMenu(ev.url);
-            this.selectedMenuItem = selectedMenu.selectedMenuItem;
-            this.selectedChildMenuItem = selectedMenu.selectedChildMenuItem;
-          }
+          console.log('selec ', this.selectedTopMenuItem);
         }
+        window.scrollTo(0, 0);
       }
     });
   }
@@ -186,14 +178,17 @@ export class HeaderComponent implements OnInit {
     if (this.isMobileResolution && needToCloseMenu) {
       this.closeMenu();
     }
+    if(!needToCloseMenu) {
+      if (this.openedMenuItem && this.openedMenuItem.uniqueId === navTab.uniqueId) {
+        this.openedMenuItem = null;
+      } else {
+        this.openedMenuItem = navTab;
+      }
+    }
   }
 
   onMenuClick(navTab: NavTab): void {
-    this.selectedTopMenuItem = null;
-    if(navTab.enablePostLogin && !this.authState.isUserLoggedIn()) {
-      this.showLoginRequiredDialog();
-      return;
-    }
+    this.selectedTopMenuItem = navTab;
     this.selectedMenuItem = navTab;
     if (!this.selectedMenuItem.children) {
       this.selectedChildMenuItem = null;
@@ -221,9 +216,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onChildMenuClick(menuItem: NavTab): void {
-    this.selectedTopMenuItem = null;
+  onChildMenuClick(topTab: NavTab, menuItem: NavTab): void {
+    this.selectedTopMenuItem = topTab;
     this.closeMenu();
+    this.openedMenuItem = null;
     //Launching Soon... popup
     /*if(menuItem.enablePostLogin && !this.authState.isUserLoggedIn()) {
       this.showLoginRequiredDialog();
@@ -277,14 +273,4 @@ export class HeaderComponent implements OnInit {
     this.eventChannel.publish({ event: ChannelEvent.ShowHideSort });
   }
 
-  onViewPlans() {
-   //  const navTab = this.helperService.findExtraMenuPage('Subscribe');
-    //this.router.navigateByUrl(navTab.navUrl);
-    this.selectedMenuItem = Constants.HeaderMenu[0];
-    this.selectedChildMenuItem = null;
-    this.selectedTopMenuItem = null;
-    if(this.isMobileResolution) {
-      this.closeMenu()
-    }
-  }
 }
