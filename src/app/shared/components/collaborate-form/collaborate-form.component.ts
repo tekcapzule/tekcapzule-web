@@ -43,6 +43,7 @@ export class CollaborateFormComponent implements OnInit {
       this.spinner.show();
       this.feedbackApi.createFeedback(this.feedbackFormGroup.value).subscribe(_ => {
         this.spinner.hide();       
+        this.feedbackFormGroup.reset();
         this.messageService.add({ key: 'tc', severity: 'success', detail: 'Thank you for contacting us!' });
       }, err => {
         this.spinner.hide(); 
