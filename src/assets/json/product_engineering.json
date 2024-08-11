@@ -18,10 +18,10 @@
     }
   ],
   "animateImages": [
-    "assets/images/services/ux-design-1.png",
-    "assets/images/services/ux-design-2.png",
-    "assets/images/services/ux-design-3.png",
-    "assets/images/services/ux-design-4.png"
+    "assets/images/services/product-engineering/product-engineering-1.png",
+    "assets/images/services/product-engineering/product-engineering-2.png",
+    "assets/images/services/product-engineering/product-engineering-3.png",
+    "assets/images/services/product-engineering/product-engineering-4.png"
   ],
   "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
   "faq": [
