@@ -219,7 +219,7 @@
                 <li *ngFor="let hm of headerMenu;" class="main-nav-links pt-2"  [ngClass]="{ dropdown: hm.children, active: selectedTopMenuItem?.uniqueId === hm.uniqueId}">
                   <a href="Javascript:void(0)" (click)="onTopMenuClick(hm, !hm.children)">{{hm.displayName}}</a>
                   
-                    <ul *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId" class="mobile-submenu">
+                    <ul *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId" class="mobile-submenu pb-0">
                       <li  class="sub-menu-element skill-menu" *ngFor="let sm of hm.children; let i = index"
                         (click)="onChildMenuClick(hm, sm)">
                         <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()"
