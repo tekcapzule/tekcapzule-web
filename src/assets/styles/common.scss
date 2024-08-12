@@ -1149,7 +1149,7 @@ app-spinner {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1A73E8 !important;
+  background: #ec0085 !important;
 }
 
 .banner-text {
@@ -2279,7 +2279,7 @@ select {
 .pi-chevron-down:before,
 .pi-chevron-right:before,
 .pi-chevron-left:before {
-  color: #1A73E8;
+  color: #ec0085;
   font-size: 15px;
   font-weight: bold;
   top: -5px;
@@ -2699,7 +2699,7 @@ select {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-      color: #1A73E8;
+      color: #ec0085;
     }
   }
 }
@@ -2831,11 +2831,11 @@ body.modal-open {
 
 .loader-content h2:nth-child(1) {
 	color: transparent;
-	-webkit-text-stroke: 2px #1A73E8;
+	-webkit-text-stroke: 2px #ec0085;
 }
 
 .loader-content h2:nth-child(2) {
-	color: #1A73E8;
+	color: #ec0085;
 	animation: animate 4s ease-in-out infinite;
 }
 
@@ -2903,10 +2903,10 @@ body.modal-open {
   }
   .breadcrumb_last {
     color: $black;
-    font-weight: 500;
+    font-weight: 600;
   }
    img {
-    margin: 0 10px !important;
+    margin: 0 5px !important;
 }
 }
 
@@ -2965,27 +2965,27 @@ body.modal-open {
     background-size: cover;
   }
   &.candidate_screening-bg {
-    background: url('../../assets/images/banner/candidate_screening-banner.png') no-repeat;
+    background: url('../../assets/images/banner/candidate_screening-banner.jpg') no-repeat;
     background-position: center center;
     background-size: cover;
   }
   &.corporate_trainings-bg {
-    background: url('../../assets/images/banner/corporate_trainings-banner.png') no-repeat;
+    background: url('../../assets/images/banner/corporate_trainings-banner.jpg') no-repeat;
     background-position: center center;
     background-size: cover;
   }
   &.custom_lms_development-bg {
-    background: url('../../assets/images/banner/custom_lms_development-banner.png') no-repeat;
+    background: url('../../assets/images/banner/custom_lms_development-banner.jpg') no-repeat;
     background-position: center center;
     background-size: cover;
   }
   &.product_engineering-bg {
-    background: url('../../assets/images/banner/Product-Engineering-banner.png') no-repeat;
+    background: url('../../assets/images/banner/Product-Engineering-banner.jpg') no-repeat;
     background-position: center center;
     background-size: cover;
   }
   &.staffing_management-bg {
-    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
+    background: url('../../assets/images/banner/Staffing_Management.jpg') no-repeat;
     background-position: center center;
     background-size: cover;
 
@@ -2998,18 +2998,18 @@ body.modal-open {
 
 }
 .service-categories-banner-bg {
-  // &::before {
-  //   content: "";
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 672px;
-  // background-color: rgba(0, 0, 0, 0.6);
-  // @media only screen and (max-width: 990px) {
-  //   height: 465px;
-  // }
-  // }
+  &::before {
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 672px;
+  background-color: rgba(0, 0, 0, 0.6);
+  @media only screen and (max-width: 990px) {
+    height: 465px;
+  }
+  }
 }
 
 .animate__animated.animate__fadeInUp {
