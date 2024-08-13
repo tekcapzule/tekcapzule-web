@@ -93,6 +93,18 @@
 }
 
 @media only screen and (max-width: 990px) {
+  .services-desc { 
+    padding: 0 30px !important;
+    gap: 20px;
+    h4 {
+      height: auto !important;
+    }
+    .content-sub-text {
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
   .details {
     display: block !important;
     .img-block {
