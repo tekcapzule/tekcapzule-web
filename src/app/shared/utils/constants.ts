@@ -18,7 +18,7 @@ export const Constants = {
     children: [
       {
         uniqueId: 'UX_Design_Prototyping',
-        displayName: 'UX Design & Prototyping',
+        displayName: 'Web Branding',
         navUrl: '/services/services-categories/UX_Design_Prototyping',
         enablePostLogin: false,
         desc: 'Optimize your hiring process with our Candidate Screening services.',
@@ -32,7 +32,7 @@ export const Constants = {
       },
       {
         uniqueId: 'Custom_LMS_Development',
-        displayName: 'Custom LMS Development',
+        displayName: 'Course Development',
         navUrl: '/services/services-categories/Custom_LMS_Development',
         enablePostLogin: true,
         desc: 'Optimize your hiring process with our Candidate Screening services.',
