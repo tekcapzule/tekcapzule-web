@@ -25,8 +25,8 @@
                   <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
-                      <i *ngIf="hm.children && !authState.isUserLoggedIn()" class="arrow down"
-                        [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"></i>
+                      <!-- <i *ngIf="hm.children && !authState.isUserLoggedIn()" class="arrow down"
+                        [ngClass]="{ 'menu-open': openedMenuItem?.uniqueId === hm.uniqueId }"></i> -->
                     </button>
                   </div>
 
