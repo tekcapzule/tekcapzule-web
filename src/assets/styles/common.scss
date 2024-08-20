@@ -433,6 +433,24 @@ h1 {
       color: $white;
     }
   }
+  &.download_btn {
+    width: 213px;
+    height: 61px;
+    background: #689F38;
+    border-radius: 7px;
+    color: #fff;
+    border: 0 none;
+    font-weight: 500;
+     &:hover {
+      background: $primary-color;
+     }
+     &.talk-expert {
+      background: $primary-color;
+      &:hover {
+        background: #689F38;
+       }
+     }
+  }
 }
 .filters-btn {
   color: #4B4E67 !important;
@@ -2407,6 +2425,21 @@ select {
         width: 48px;
         height: 47px;
         background-size: 65%;
+      }
+      .ux_design_prototyping-menu-icon {
+        background: url('../../assets/images/home/web-branding-icon.svg') no-repeat;
+        width: 33px;
+        height: 40px;
+      }
+      .product_engineering-menu-icon {
+        background: url('../../assets/images/home/product-engineering-icon.svg') no-repeat;
+        width: 44px;
+        height: 44px;
+      }
+      .custom_lms_development-menu-icon {
+        background: url('../../assets/images/home/course-development-icon.svg') no-repeat;
+        width: 41px;
+        height: 39px;
       }
     }
   }
