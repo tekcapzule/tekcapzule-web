@@ -4,6 +4,10 @@
   color: $white !important;
  }
  .services-desc {
+  .tile {
+    height: 47px;
+    margin-bottom: 20px;
+  }
   h4 {
     font-weight: bold;
     border-bottom: 1px solid #707070;
@@ -24,12 +28,12 @@
   background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
   background-position-y: 325px;
 }
-.mission-block {
-  display: flex;
-  grid-gap: 5px;
-  justify-content: center;
-  margin: 50px 0;
-}
+// .mission-block {
+//   display: flex;
+//   grid-gap: 5px;
+//   justify-content: center;
+//   margin: 50px 0;
+// }
 .details {
   h4 {
     font-weight: bold;
@@ -43,16 +47,61 @@
   position: relative;
   display: inline-block; /* Ensure images are inline for the animation */
 }
+.mission-block {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.image-wrapper {
+  margin: 10px; /* Adjust spacing between images */
+  position: relative;
+}
+
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 .image-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.43); /* Black background with 43% opacity */
-  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 430px); /* Subtracting margins to cover all images */
+  height: 211px;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+  z-index: 2;
+  text-align: center;
+    display: grid;
+    align-items: center;
+    gap: 30px;
 }
+
+.overlay-text {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.mission-role {
+  position: relative;
+  z-index: 2;
+}
+
+// .image-overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(0, 0, 0, 0.43); /* Black background with 43% opacity */
+//   z-index: 1;
+// }
 
 .mission-role img {
   display: block;
@@ -60,16 +109,16 @@
   z-index: 0; /* Ensure the image is below the overlay */
 }
 
-.overlay-text {
-  position: absolute;
-  top: 5%;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  z-index: 2;
-  line-height: 30px;
-  padding: 0 25px;
-}
+// .overlay-text {
+//   position: absolute;
+//   top: 5%;
+//   color: white;
+//   font-size: 24px;
+//   font-weight: bold;
+//   z-index: 2;
+//   line-height: 30px;
+//   padding: 0 25px;
+// }
 
 .mission-role.animate__animated.animate__fadeInUp {
   animation-duration: 1s; /* Adjust as needed */
