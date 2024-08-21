@@ -595,10 +595,10 @@
 .dropdown-content {
   position: absolute;
   background-color: $white;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
   width: max-content;
   margin: 0 auto;
-  border-radius: 0 0px 16px 16px;
+  // border-radius: 0 0px 16px 16px;
   left: -300px;
   margin-top: 32px;
   max-width: 1300px;
@@ -909,5 +909,6 @@
 }
 
 .sub-menu-container {
-  height: 360px !important;
+  height: 435px !important;
+  padding-top: 45px;
 }

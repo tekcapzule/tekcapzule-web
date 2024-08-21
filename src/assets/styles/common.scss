@@ -2315,6 +2315,13 @@ select {
   font-size: 18px !important;
   color: #101010 !important;
 }
+.p-accordion-header-text {
+  font-size: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #CCCCCC;
+    padding: 10px 0 35px;
+    width: 555px;
+}
 
 .p-accordion .p-accordion-content {
   border: 0 none !important;
@@ -2323,10 +2330,16 @@ select {
 .p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
   box-shadow: none !important;
 }
+.chevrondownicon {
+  transform: rotate(180deg); /* Points the chevron down */
 
+}
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
   margin-right: 25px !important;
   color: $primary-color;
+  order: 1;
+  transform: rotate(90deg); /* Points the chevron down */
+
   @media only screen and (max-width: 990px) {
     margin-right: 20px !important;
   }
@@ -2340,21 +2353,37 @@ select {
   padding-bottom: 20px !important;
   text-decoration: none;
 }
+// .p-accordion .p-accordion-header-link .p-accordion-header-icon {
+//   transform: rotate(90deg); /* Points the chevron down */
+//   transition: transform 0.3s ease; /* Smooth transition for the rotation */
+// }
+
+// /* Rotate the chevron to point up when the accordion is expanded */
+// .p-accordion .p-accordion-header-link.p-highlight .p-accordion-header-icon {
+//   transform: rotate(180deg); /* Points the chevron up */
+// }
 
 // -----------------------------------------------
 // Skill Cards
 // -----------------------------------------------
 .sub-menu {
   li {
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 60px;
+    // padding: 10px;
     cursor: pointer;
     // text-wrap: wrap;
     line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
     &:hover {
       background-color: #f4f7fa;
       border-radius: 8px;
       box-shadow: 0px 4px 6px #0000000f;
+      padding: 10px;
+
       h3 {
         color: $primary-color;
         font-weight: 500 !important;
@@ -2440,6 +2469,21 @@ select {
         background: url('../../assets/images/home/course-development-icon.svg') no-repeat;
         width: 41px;
         height: 39px;
+      }
+      .staffing_management-menu-icon {
+        background: url('../../assets/images/home/staffing-management-icon.svg') no-repeat;
+        width: 44px;
+        height: 42px;
+      }
+      .corporate_trainings-menu-icon {
+        background: url('../../assets/images/home/corporate-trainings-icon.svg') no-repeat;
+        width: 48px;
+        height: 39px;
+      }
+      .candidate_screening-menu-icon {
+        background: url('../../assets/images/home/candidate-screening-icon.svg') no-repeat;
+        width: 44px;
+        height: 44px;
       }
     }
   }
@@ -2916,7 +2960,7 @@ body.modal-open {
   font-size: 36px;
   font-family: $primary-font-bold;
   padding-bottom: 30px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 40px;
 
 }
@@ -3143,6 +3187,11 @@ body.modal-open {
   .mobile-display {
     text-align: center;
   }
+}
+
+.details-sections {
+  max-width: 1022px;
+  margin: 0 auto;
 }
 
 
