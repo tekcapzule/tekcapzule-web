@@ -13,7 +13,7 @@
     font-size: 16px;
     border-bottom: 1px solid #C4C4C4;
     margin-bottom: 20px;
-    margin-left: 41px;
+    // margin-left: 41px;
     color: #101010;
     .question {
       font-family: $primary-font-bold;
@@ -24,6 +24,15 @@
       color: #191919;
     }
   }
+}
+.p-accordion .p-accordion-header-link .p-accordion-header-icon {
+  transform: rotate(0deg); /* Points the chevron down */
+  transition: transform 0.3s ease; /* Smooth transition for the rotation */
+}
+
+/* Rotate the chevron to point up when the accordion is expanded */
+.p-accordion .p-accordion-header-link.p-highlight .p-accordion-header-icon {
+  transform: rotate(180deg); /* Points the chevron up */
 }
 
 

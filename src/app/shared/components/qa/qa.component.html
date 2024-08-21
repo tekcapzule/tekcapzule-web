@@ -8,7 +8,7 @@
     </div> -->
 
     <div class="card flex justify-content-center">
-      <p-accordion [activeIndex]="0" #accordion>
+      <p-accordion  #accordion>
         <ng-container *ngFor="let list of qaList;">
           <p-accordionTab [header]="list.title">
             <ng-container *ngFor="let qa of list.qa;">

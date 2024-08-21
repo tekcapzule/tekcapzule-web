@@ -16,11 +16,11 @@
     </div>
   </div>
 
-  <section *ngIf="servicePageDetails" class="page-banner service-categories-banner-bg" [ngClass]="pageDetails.uniqueId.toLowerCase()+ '-bg'">
+  <section *ngIf="servicePageDetails" class="page-banner service-categories-banner-bg"
+    [ngClass]="pageDetails.uniqueId.toLowerCase()+ '-bg'">
     <div class="inner row">
       <div
-        class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0"
-      >
+        class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
         <h1 class="text-white animate__animated animate__fadeInUp delay-1">
           {{pageDetails.displayName}}
         </h1>
@@ -39,7 +39,7 @@
       <!-- Sec 1 -->
       <div class="inner row services-desc">
         <div *ngFor="let topic of servicePageDetails?.topics;" class="col-lg-4 px-0">
-          <img src={{topic.tile}} alt=""  class="tile"/>
+          <img src={{topic.tile}} alt="" class="tile" />
           <h4>{{topic.name}}</h4>
           <p class="content-sub-text pr-5 mr-4">
             {{topic.summaryText}}
@@ -47,15 +47,16 @@
         </div>
       </div>
     </section>
+  </div>
+  <div class="details-sections">
 
-    <section class="my-5">
+    <section class="my-5 animate__animated animate__fadeInUp delay-3">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-12 mobile-display">
           <div class="mission-block position-relative">
             <div class="d-flex justify-content-center flex-wrap">
-              <div *ngFor="let image of servicePageDetails?.animateImages; let i = index;" 
-                   class="mission-role animate__animated animate__fadeInUp" 
-                   [ngClass]="'delay-' + i + 2">
+              <div *ngFor="let image of servicePageDetails?.animateImages; let i = index;"
+                class="mission-role animate__animated animate__fadeInUp" [ngClass]="'delay-' + i + 2">
                 <div class="image-wrapper">
                   <img [src]="image" class="img-fluid" alt="career" />
                 </div>
@@ -64,29 +65,29 @@
             <div class="image-overlay">
               <div>
                 <div class="overlay-text pb-5">All you need to know is just one click away</div>
-            <button mat-raised-button class="button download_btn  animate__animated animate__fadeInUp delay-2">
-              Download Brochure
-            </button>
+                <button mat-raised-button class="button download_btn  animate__animated animate__fadeInUp delay-2">
+                  Download Brochure
+                </button>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
     </section>
-    
-    
-    
-    
-    
-    <section>
+
+
+
+
+
+    <section class="animate__animated animate__fadeInUp delay-4">
       <div class="inner row">
         <div class="details d-flex mb-5 align-items-center">
-          <div class="me-5 img-block col-lg-3">
-            <img src="assets/images/services/why-choose-us.png" class="img-fluid" alt="career" />
+          <div class="me-5 img-block col-lg-4">
+            <h1>Why <br>Choose Us?</h1>
+            <!-- <img src="assets/images/services/why-choose-us.png" class="img-fluid" alt="career" /> -->
           </div>
-          <div class="col-lg-9">
-            <h4>Why Choose Us?</h4>
+          <div class="col-lg-8">
             <p class="content-sub-text">
               {{servicePageDetails?.why}}
             </p>
@@ -94,18 +95,17 @@
         </div>
       </div>
     </section>
+    <div class="animate__animated animate__fadeInUp delay-5">
+      <app-faq-page [qaList]="servicePageDetails?.faq"></app-faq-page>
+    </div>
+   
   </div>
-  <div class="animate__animated animate__fadeInUp delay-3">
-    <app-faq-page [qaList]="servicePageDetails?.faq"></app-faq-page>
-  </div>
-  <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-5">
+  <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-6">
     <section class="form-bg">
       <app-collaborate-form [pageType]="'serviceCategories'"></app-collaborate-form>
     </section>
   </div>
 </div>
 
-<app-login-required
-  [isDialogVisible]="isLoginRequiredDialogShown"
-  (dialogClosed)="hideLoginRequiredDialog()"
-></app-login-required>
+<app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
+  (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>
