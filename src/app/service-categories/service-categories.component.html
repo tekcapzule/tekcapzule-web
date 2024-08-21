@@ -27,7 +27,7 @@
         <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
           {{servicePageDetails?.bannerText}}
         </h4>
-        <button mat-raised-button class="button download_btn talk-expert  animate__animated animate__fadeInUp delay-2">
+        <button mat-raised-button (click)="onKnowMore()" class="button download_btn talk-expert  animate__animated animate__fadeInUp delay-2">
           Talk to our Expert
         </button>
       </div>
@@ -54,7 +54,7 @@
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-12 mobile-display">
           <div class="mission-block position-relative">
-            <div class="d-flex justify-content-center flex-wrap">
+            <div class="d-flex justify-content-center flex-wrap mobile-img">
               <div *ngFor="let image of servicePageDetails?.animateImages; let i = index;"
                 class="mission-role animate__animated animate__fadeInUp" [ngClass]="'delay-' + i + 2">
                 <div class="image-wrapper">

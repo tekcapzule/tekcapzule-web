@@ -333,6 +333,32 @@
   .home-page h2 {
     font-size: 24px !important;
   }
+  .image-overlay {
+    width: 100% !important;
+      height: 125px !important;
+      top: 70% !important
+  }
+  .mission-block {
+    .mobile-img {
+      flex-wrap: nowrap !important;
+    }
+    .overlay-text {
+      font-size: 18px !important;
+      padding-bottom: 20px !important;
+
+    }
+  }
+  .details-sections {
+    .inner {
+      margin: 0 20px !important;
+      width: auto !important;
+    }
+  }
+  .form-heading {
+    font-size: 28px !important;
+    padding-bottom: 20px !important;
+    line-height: 30px !important;
+}
 }
 @media only screen and (width: 1024px) {
   .dropdown-content {
