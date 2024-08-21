@@ -161,7 +161,7 @@
                     <a *ngIf="!authState.isUserLoggedIn()" routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
                     routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                     alt="Tekcapzule Logo" /></a>
-                    <span *ngIf="authState.isUserLoggedIn()" class="user-name">username@tekcapzule.com</span>
+                    <span *ngIf="authState.isUserLoggedIn()" class="user-name">username&#64;tekcapzule.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
                   </div>
