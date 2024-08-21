@@ -2368,7 +2368,7 @@ select {
 // -----------------------------------------------
 .sub-menu {
   li {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     // padding: 10px;
     cursor: pointer;
     // text-wrap: wrap;
@@ -3008,6 +3008,9 @@ body.modal-open {
 
   h4 {
     line-height: 34px !important;
+    @media only screen and (max-width: 990px) {
+      line-height: 30px !important;
+    }
   }
 
   &.careers-banner-bg {
