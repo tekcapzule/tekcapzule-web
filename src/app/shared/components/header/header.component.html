@@ -40,7 +40,7 @@
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
+                  <ng-container *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5 sub-menu-container">
@@ -85,7 +85,7 @@
                         </div>
                       </div>
                     </div>
-                  </ng-cotainer>
+                  </ng-container>
                 </li>
               </ng-container>
             </ul>

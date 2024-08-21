@@ -22,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const menuItem = this.helperService.findPage('Services');
+      const menuItem = this.helperService.findPage('Products');
       this.pageDetails = menuItem.children.find(mi => mi.uniqueId === params['code']);
       this.loadServiceData(params['code']);
     });    
