@@ -142,7 +142,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    height: 400px;
+    height: auto !important;
     height: 30px;
     @media (max-width: 992px) {
       background-color: $black-currant;
@@ -909,6 +909,6 @@
 }
 
 .sub-menu-container {
-  height: 400px !important;
+  //height: 400px !important;
   padding-top: 45px;
 }
