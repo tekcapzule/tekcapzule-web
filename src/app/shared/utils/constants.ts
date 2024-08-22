@@ -12,7 +12,25 @@ export const Constants = {
     { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'},
   ],
   HeaderMenu: [
-    { uniqueId: 'Products', displayName: 'Products', navUrl: '/products', available: 'PRELOGIN'},
+    { uniqueId: 'Products', displayName: 'Products', navUrl: '/products', viewType: 'DESKTOP', available: 'ALL',
+      enablePostLogin: false,
+      children: [
+        {
+          uniqueId: 'LMS',
+          displayName: 'LMS',
+          navUrl: '/products/product-details/LMS',
+          enablePostLogin: false,
+          desc: 'Optimize your hiring process with our Candidate Screening services.',
+        },
+        {
+          uniqueId: 'Candidate_Screening_Product',
+          displayName: 'Candidate Screening',
+          navUrl: '/products/product-details/Candidate_Screening_Product',
+          enablePostLogin: true,
+          desc: 'Optimize your hiring process with our Candidate Screening services.',
+        },
+      ],
+    },
     { uniqueId: 'Services', displayName: 'Services', navUrl: '/services', viewType: 'DESKTOP', available: 'ALL',
     enablePostLogin: false,
     children: [

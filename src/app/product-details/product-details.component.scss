@@ -1,0 +1,90 @@
+ @import './../../assets/styles/variables.scss';
+ .service-categories-page {
+ .breadcrumbs span, .breadcrumbs span a, .page-banner h1, .page-banner h4 {
+  color: $black !important;
+ }
+ .services-desc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  .col-lg-4 {
+    width: calc(33.333% - 88px); /* Subtract the margin space from the column width */
+    margin-bottom: 55px;
+  }
+  .tile {
+    height: 35px;
+    width: auto;
+    margin-bottom: 20px;
+  }
+  h4 {
+    font-weight: 600;
+    padding-bottom: 6px;
+    font-size: 20px;
+   }
+ }
+
+}
+.form-heading {
+  font-size: 42px !important;
+    font-weight: 500 !important;
+    line-height: 38px !important;
+}
+.form-bg {
+  background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
+  background-position-y: 325px;
+}
+.tekcapzule-top-video {
+  width: 100%;
+  height: 100%;
+  max-width: 1034px;
+  max-height: 690px;
+  margin: 0 auto;
+}
+.tekcapzule-top-video .tekcapzule-top-video2 {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+}
+.tekcapzule-top-video iframe {
+  box-sizing: border-box;
+  background: url('../../assets/images/products/laptop.png') center center no-repeat;
+  background-size: contain;
+  padding: 11.5% 13.3% 12.9%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.details-btn {
+  button {
+    height: 50px;
+    border-radius: 4px;
+    min-width: 140px;
+  }
+  
+}
+.banner-rh-section img {
+  position: absolute;
+  right: 10%;
+  top: 60px;
+}
+
+@media only screen and (max-width: 990px) {
+  .services-desc { 
+    padding: 0 30px !important;
+    gap: 20px;
+    h4 {
+      height: auto !important;
+    }
+    .content-sub-text {
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+    }
+    .col-lg-4 {
+      width: 100%;
+      margin-bottom: 55px;
+    }
+  }
+}

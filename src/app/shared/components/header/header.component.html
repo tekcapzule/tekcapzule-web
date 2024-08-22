@@ -40,7 +40,7 @@
                     </ul>
                   </ng-container>
 
-                  <ng-cotainer *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
+                  <ng-container *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
                     <div class="sub-menu">
                       <div class="sub-menu dropdown-content container">
                         <div class="sub-menu px-5 sub-menu-container">
@@ -85,7 +85,7 @@
                         </div>
                       </div>
                     </div>
-                  </ng-cotainer>
+                  </ng-container>
                 </li>
               </ng-container>
             </ul>
@@ -161,7 +161,7 @@
                     <a *ngIf="!authState.isUserLoggedIn()" routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
                     routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                     alt="Tekcapzule Logo" /></a>
-                    <span *ngIf="authState.isUserLoggedIn()" class="user-name">username@tekcapzule.com</span>
+                    <span *ngIf="authState.isUserLoggedIn()" class="user-name">username&#64;tekcapzule.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
                     <p *ngIf="authState.isUserLoggedIn()" class="sign-out" (click)="signOutUser()">Signout</p>
                   </div>

@@ -2485,6 +2485,16 @@ select {
         width: 44px;
         height: 44px;
       }
+      .lms-menu-icon {
+        background: url('../../assets/images/home/candidate-screening-icon.svg') no-repeat;
+        width: 44px;
+        height: 44px;
+      }
+      .candidate_screening_product-menu-icon {
+        background: url('../../assets/images/home/candidate-screening-icon.svg') no-repeat;
+        width: 44px;
+        height: 44px;
+      }
     }
   }
 
@@ -3075,7 +3085,12 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
-
+  &.candidate_screening_product-bg {
+    // background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+    // background-position: center center;
+    // background-size: cover;
+    background: linear-gradient(146deg, #ffffff, #DEEDFF);
+  }
 }
 .service-categories-banner-bg {
   // &::before {
