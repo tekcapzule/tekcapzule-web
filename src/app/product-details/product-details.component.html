@@ -22,15 +22,22 @@
       <div
         class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
         <h1 class="text-white animate__animated animate__fadeInUp delay-1">
-          {{pageDetails.displayName}}
+          {{productPageDetails?.topicName}}
         </h1>
         <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
           {{productPageDetails?.bannerText}}
         </h4>
-        <button mat-raised-button (click)="onKnowMore()" class="button download_btn talk-expert  animate__animated animate__fadeInUp delay-2">
-          Talk to our Expert
-        </button>
+        <div class="d-flex details-btn">
+          <button mat-raised-button (click)="onKnowMore()" class="button download_btn talk-expert me-3  animate__animated animate__fadeInUp delay-2">
+            Explore
+          </button>
+          <button mat-raised-button (click)="onKnowMore()" class="button secondary  animate__animated animate__fadeInUp delay-2">
+            Request Demo
+          </button>
+        </div>
+        
       </div>
+      <div  class="banner-rh-section order-2 order-lg-2"><img  src="assets/images/products/product-details-banner.png" alt="services" class="img-fluid animate__animated animate__fadeIn delay-2"></div>
     </div>
   </section>
   <div class="animate__animated animate__fadeInUp delay-2">
@@ -41,65 +48,66 @@
         <div *ngFor="let topic of productPageDetails?.topics;" class="col-lg-4 px-0">
           <img src={{topic.tile}} alt="" class="tile" />
           <h4>{{topic.name}}</h4>
-          <p class="content-sub-text pr-5 mr-4">
+          <p class="content-sub-text">
             {{topic.summaryText}}
           </p>
         </div>
       </div>
     </section>
   </div>
-  <div class="details-sections">
-
     <section class="my-5 animate__animated animate__fadeInUp delay-3">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-lg-12 mobile-display">
-          <div class="mission-block position-relative">
-            <div class="d-flex justify-content-center flex-wrap mobile-img">
-              <div *ngFor="let image of productPageDetails?.animateImages; let i = index;"
-                class="mission-role animate__animated animate__fadeInUp" [ngClass]="'delay-' + i + 2">
-                <div class="image-wrapper">
-                  <img [src]="image" class="img-fluid" alt="career" />
-                </div>
-              </div>
-            </div>
-            <div class="image-overlay">
-              <div>
-                <div class="overlay-text pb-5">All you need to know is just one click away</div>
-                <button mat-raised-button class="button download_btn  animate__animated animate__fadeInUp delay-2">
-                  Download Brochure
-                </button>
-              </div>
-            </div>
-
-          </div>
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <h2>Our LMS App So Simple, Learn, Excel</h2>
         </div>
+        <div class="tekcapzule-top-video">
+          <div class="tekcapzule-top-video2">
+              <iframe width="748" height="470" src="https://www.youtube.com/embed/l30NAX66eSU?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+         </div>
+      </div>
+      </div>
+      <div class="text-center details-btn">
+        <button mat-raised-button (click)="onKnowMore()" class="button secondary  animate__animated animate__fadeInUp delay-2">
+          Request Demo
+        </button>
       </div>
     </section>
 
-
-
-
-
-    <section class="animate__animated animate__fadeInUp delay-4">
-      <div class="inner row">
-        <div class="details d-flex mb-5 align-items-center">
-          <div class="me-5 img-block col-lg-4">
-            <h1>Why <br>Choose Us?</h1>
-            <!-- <img src="assets/images/services/why-choose-us.png" class="img-fluid" alt="career" /> -->
-          </div>
-          <div class="col-lg-8">
-            <p class="content-sub-text">
-              {{productPageDetails?.why}}
-            </p>
-          </div>
+    <!-- <section class="my-5 animate__animated animate__fadeInUp delay-3">
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <h2>We have some good features in our LMS</h2>
         </div>
+      </div>
+    </section> -->
+
+    <section class="my-5 animate__animated animate__fadeInUp delay-3">
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <h2>We have some good features in our LMS</h2>
+        </div>
+        
+      </div>
+      <div class="inner row services-desc">
+        <div *ngFor="let features of productPageDetails?.features;" class="col-lg-4 px-0">
+          <img src={{features.tile}} alt="" class="tile" />
+          <h4>{{features.name}}</h4>
+          <p class="content-sub-text">
+            {{features.summaryText}}
+          </p>
+        </div>
+      </div>
+      <div class="text-center details-btn">
+        <button mat-raised-button (click)="onKnowMore()" class="button secondary  animate__animated animate__fadeInUp delay-2">
+          SHow Less
+        </button>
       </div>
     </section>
     <div class="animate__animated animate__fadeInUp delay-5">
       <app-faq-page [qaList]="productPageDetails?.faq"></app-faq-page>
     </div>
    
-  </div>
+  
   <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-6">
     <section class="form-bg">
       <app-collaborate-form [pageType]="'productDetails'"></app-collaborate-form>

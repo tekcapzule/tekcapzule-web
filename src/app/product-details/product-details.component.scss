@@ -1,20 +1,25 @@
  @import './../../assets/styles/variables.scss';
  .service-categories-page {
  .breadcrumbs span, .breadcrumbs span a, .page-banner h1, .page-banner h4 {
-  color: $white !important;
+  color: $black !important;
  }
  .services-desc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  .col-lg-4 {
+    width: calc(33.333% - 88px); /* Subtract the margin space from the column width */
+    margin-bottom: 55px;
+  }
   .tile {
-    height: 47px;
+    height: 35px;
+    width: auto;
     margin-bottom: 20px;
   }
   h4 {
-    font-weight: bold;
-    border-bottom: 1px solid #707070;
-    padding-bottom: 20px;
-    width: 325px;
-    line-height: 31px;
-    height: 70px;
+    font-weight: 600;
+    padding-bottom: 6px;
+    font-size: 20px;
    }
  }
 
@@ -28,127 +33,42 @@
   background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
   background-position-y: 325px;
 }
-// .mission-block {
-//   display: flex;
-//   grid-gap: 5px;
-//   justify-content: center;
-//   margin: 50px 0;
-// }
-.details {
-  border: 1px solid #D5D5D5;
-  border-radius: 24px;
-  padding: 45px;
-  .img-block {
-    border-right: 5px solid #0880FD;
-    height: 200px;
-    align-items: center;
-    display: flex;
-    font-weight: bold;
-  h1 {
-    font-weight: bold;
-   
-    line-height: 54px;
-   }
-  }
- }
-
- .mission-role {
-  position: relative;
-  display: inline-block; /* Ensure images are inline for the animation */
-}
-.mission-block {
-  position: relative;
+.tekcapzule-top-video {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  height: 100%;
+  max-width: 1034px;
+  max-height: 690px;
+  margin: 0 auto;
 }
-
-.image-wrapper {
-  margin: 1px; /* Adjust spacing between images */
+.tekcapzule-top-video .tekcapzule-top-video2 {
   position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
 }
-
-.image-wrapper img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.image-overlay {
+.tekcapzule-top-video iframe {
+  box-sizing: border-box;
+  background: url('../../assets/images/products/laptop.png') center center no-repeat;
+  background-size: contain;
+  padding: 11.5% 13.3% 12.9%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% - 430px); /* Subtracting margins to cover all images */
-  height: 211px;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
-  z-index: 2;
-  text-align: center;
-    display: grid;
-    align-items: center;
-    gap: 30px;
-    width: 1022px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-
-.overlay-text {
-    color: white;
-    font-size: 24px;
-    font-weight: 500;
+.details-btn {
+  button {
+    height: 50px;
+    border-radius: 4px;
+    min-width: 140px;
+  }
+  
 }
-
-.mission-role {
-  position: relative;
-  z-index: 2;
-}
-
-// .image-overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: rgba(0, 0, 0, 0.43); /* Black background with 43% opacity */
-//   z-index: 1;
-// }
-
-.mission-role img {
-  display: block;
-  position: relative;
-  z-index: 0; /* Ensure the image is below the overlay */
-}
-
-// .overlay-text {
-//   position: absolute;
-//   top: 5%;
-//   color: white;
-//   font-size: 24px;
-//   font-weight: bold;
-//   z-index: 2;
-//   line-height: 30px;
-//   padding: 0 25px;
-// }
-
-.mission-role.animate__animated.animate__fadeInUp {
-  animation-duration: 1s; /* Adjust as needed */
-  animation-fill-mode: both;
-}
-
-.delay-2 {
-  animation-delay: 2s; /* Adjust as needed */
-}
-
-.delay-3 {
-  animation-delay: 3s; /* Adjust as needed */
-}
-
-.delay-4 {
-  animation-delay: 4s; /* Adjust as needed */
-}
-
-.delay-5 {
-  animation-delay: 5s; /* Adjust as needed */
+.banner-rh-section img {
+  position: absolute;
+  right: 10%;
+  top: 60px;
 }
 
 @media only screen and (max-width: 990px) {
@@ -162,217 +82,9 @@
       padding-right: 0 !important;
       margin-right: 0 !important;
     }
-  }
-
-  .details {
-    display: block !important;
-    padding: 20px;
-    .img-block {
-      margin-right: 0 !important;
-      margin-bottom: 20px !important;
-      height: auto;
+    .col-lg-4 {
+      width: 100%;
+      margin-bottom: 55px;
     }
   }
 }
-// .service-categories-page {
-//   &.p-main {
-//     padding: 92px 12px 20px;
-//   }
-// h5 {
-//   color: $banner-text;
-// }
-// h4 {
-//   line-height: 36px;
-// }
-
-//   .service-categories-banner {
-//     background: $corporate-color url('../../assets/images/banner-pattern.svg') 125px 0 no-repeat;
-
-//     height: 396px;
-//     width: 100%;
-//     margin: 65px 0 50px;
-//   }
-
-//   .content-block {
-//     padding: 20px 24px;
-
-//     .key-points {
-//       padding-inline-start: 15px;
-//       list-style-type: circle;
-
-//       li {
-//         font-size: 16px;
-//       }
-//     }
-//   }
-
-//   .bg-style {
-//     opacity: 0.95;
-//     padding: 10px 40px 10px 20px;
-//     width: fit-content;
-//     position: relative;
-//     top: 107px;
-//   }
-
-//   .company-logo {
-//     background: url('../../assets/images/products/tekcapzule-white-logo.svg') no-repeat;
-//     width: 58px;
-//     height: 12px;
-//   }
-
-//   .bg-red-wrath {
-//     background: #EF1054;
-//   }
-
-//   .bg-blueberry {
-//     background: #0657D8;
-//   }
-
-//   .bg-blue-magenta {
-//     background: #5338E5;
-//   }
-
-//   .service-caption {
-//     font-family: $primary-font-bold;
-//     font-size: 24px;
-//     color: $white;
-//     width: fit-content;
-//     padding-top: 62px;
-
-//     p {
-//       display: inline;
-//       box-decoration-break: clone;
-//       padding: 0 10px;
-//     }
-
-//     .bg-1 {
-//       background-color: #E5006A;
-//     }
-
-//     .bg-2 {
-//       background-color: #0BA818;
-//     }
-
-//     .bg-3 {
-//       background-color: #DB8B12;
-//     }
-
-//     .bg-4 {
-//       background-color: #6F1B9A;
-//     }
-
-//     .bg-5 {
-//       background-color: #3574D5;
-//     }
-
-//     .bg-6 {
-//       background-color: #EB1212;
-//     }
-//   }
-
-//   .img-block {
-//     width: 318px;
-//     height: 163px;
-//   }
-
-//   .our-soln-1 {
-//     background: url('../../assets/images/products/our-solution-1.png') center/cover no-repeat;
-//   }
-
-//   .our-soln-2 {
-//     background: url('../../assets/images/products/our-solution-2.png') center/cover no-repeat;
-//   }
-
-//   .our-soln-3 {
-//     background: url('../../assets/images/products/our-solution-3.png') center/cover no-repeat;
-//   }
-
-
-
-//   .soln-card {
-//     border: 1px solid #E8EDFF;
-//     width: 320px;
-//   }
-
-//   .soln-block {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: flex-start;
-//     gap: 40px;
-//   }
-
-//   .tech-stack {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-
-//     img {
-//       padding: 10px;
-//       box-shadow: 0px 3px 6px #00000017;
-//       border: 1px solid #DBDBDB;
-//       border-radius: 10px;
-//       width: 100%;
-//       height: auto;
-//       max-width: 100px;
-//       margin-bottom: 34px;
-//       object-fit: scale-down;
-//       margin-right: 30px;
-//     }
-//   }
-// }
-
-
-// .form-bg {
-//   background: transparent linear-gradient(263deg, $black-currant 0%, $black-currant 100%) 31% 75% no-repeat;
-//   background-position-y: 232px;
-//   padding-bottom: 0;
-// }
-// .mission-block {
-//   grid-gap: 30px;
-//   justify-content: center;
-//   padding: 30px 0;
-// }
-
-// @media only screen and (max-width: 990px) {
-//   .banner-rh-section {
-//     top: 390px;
-//   }
-//   .page-banner {
-//     height: 600px;
-//   }
-//   .inner {
-//     padding: 20px 10px 0 !important;
-//   }
-
-//   .about-banner {
-//     height: auto !important;
-//   }
-
-//   .service-categories-page {
-//     .service-categories-banner {
-//       margin: 76px 0 0px;
-//       height: auto;
-
-//       .banner-content {
-//         margin: 0 !important;
-//       }
-
-//       .banner-img {
-//         align-items: center;
-//         display: flex;
-//         justify-content: center;
-//       }
-//     }
-
-//     .soln-card {
-//       width: 100%;
-
-//       .img-block {
-//         width: 100%;
-//       }
-//     }
-//   }
-//   .pl-5 {
-//     padding-left: 0 !important;
-//   }
-// }

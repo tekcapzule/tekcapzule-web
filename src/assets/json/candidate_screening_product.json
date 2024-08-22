@@ -2,31 +2,121 @@
   "uniqueId": "Candidate_Screening_Product",
   "topicName": "Deliver exceptional employee box experiences",
   "bannerImage": "assets/images/ux-design-banner.png",
-  "bannerText": "We craft intuitive and engaging user experiences through meticulous design and prototyping. Our team ensures each interface is both aesthetically pleasing and functionally seamless, tailored to meet your business needs.",
+  "bannerText": "We’re a leading global technology consultancy that integrates strategy, design and software engineering to enable enterprises and technology",
   "topics": [
     { 
       "tile": "assets/images/home/offer-4.svg",
-      "name": "User-Centered Research",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs, behaviors, and preferences. Combining this with collaborative workshops, we brainstorm innovative solutions that ensure our designs are not only aesthetically pleasing but also user-centric and feasible."
+      "name": "Leaner’s Experience",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
     { 
       "tile": "assets/images/home/offer-5.svg",
-      "name": "Rapid Prototyping",
-      "summaryText": "We transform ideas into tangible prototypes quickly and efficiently. Using the latest tools and technologies, we create interactive prototypes that allow for real-time testing and validation. This step helps us identify and resolve potential issues early in the development process."
+      "name": "AI powered authoring",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
     { 
-      "tile": "assets/images/home/offer-3.svg",
-      "name": "Continuous Testing and Improvement",
-      "summaryText": "Our iterative design process involves continuous testing and refinement. We gather user feedback through usability testing and make necessary adjustments to enhance the user experience. This ensures the final product is intuitive, functional, and aligns with user expectations."
+      "tile": "assets/images/home/offer-6.svg",
+      "name": "White label",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    } 
+  ],
+  "features": [
+    { 
+      "tile": "assets/images/products/book-icon.svg",
+      "name": "On-Demand Learning",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/video-icon.svg",
+      "name": "Course Catalogue",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/event-icon.svg",
+      "name": "Tests",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+
+    { 
+      "tile": "assets/images/products/book-icon.svg",
+      "name": "Batches",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/video-icon.svg",
+      "name": "Live Classes",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/event-icon.svg",
+      "name": "References",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+
+    { 
+      "tile": "assets/images/products/book-icon.svg",
+      "name": "Leader board",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/video-icon.svg",
+      "name": "Automated payments",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/event-icon.svg",
+      "name": "White label",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+
+    { 
+      "tile": "assets/images/products/book-icon.svg",
+      "name": "Insights",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/video-icon.svg",
+      "name": "Multiple Content types",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/event-icon.svg",
+      "name": "Mobile app",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+
+    { 
+      "tile": "assets/images/products/book-icon.svg",
+      "name": "AI Powered authoring",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/video-icon.svg",
+      "name": "Calendar",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/event-icon.svg",
+      "name": "Messages",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+
+    { 
+      "tile": "assets/images/products/book-icon.svg",
+      "name": "Tasks",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/video-icon.svg",
+      "name": "Discussions",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+    },
+    { 
+      "tile": "assets/images/products/event-icon.svg",
+      "name": "SCORM/Tincan (Standard)",
+      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     }
   ],
-  "animateImages": [
-    "assets/images/services/candidate-screening/candidate-screening-1.png",
-    "assets/images/services/candidate-screening/candidate-screening-2.png",
-    "assets/images/services/candidate-screening/candidate-screening-3.png",
-    "assets/images/services/candidate-screening/candidate-screening-4.png"
-  ],
-  "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
   "faq": [
     {
       "title": "Subscription and Billing",

@@ -12,7 +12,8 @@ export const Constants = {
     { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus'},
   ],
   HeaderMenu: [
-    { uniqueId: 'Products', displayName: 'Products', navUrl: '/products', available: 'PRELOGIN',
+    { uniqueId: 'Products', displayName: 'Products', navUrl: '/products', viewType: 'DESKTOP', available: 'ALL',
+      enablePostLogin: false,
       children: [
         {
           uniqueId: 'LMS',
