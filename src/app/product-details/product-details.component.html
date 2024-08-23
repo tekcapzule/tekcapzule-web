@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <section *ngIf="productPageDetails" class="page-banner service-categories-banner-bg"
+  <section *ngIf="productPageDetails" class="page-banner product-details-banner-bg"
     [ngClass]="pageDetails.uniqueId.toLowerCase()+ '-bg'">
     <div class="inner row">
       <div
@@ -45,7 +45,7 @@
     <section>
       <!-- Sec 1 -->
       <div class="inner row services-desc">
-        <div *ngFor="let topic of productPageDetails?.topics;" class="col-lg-4 px-0">
+        <div *ngFor="let topic of productPageDetails?.topics;" class="col-lg-4">
           <img src={{topic.tile}} alt="" class="tile" />
           <h4>{{topic.name}}</h4>
           <p class="content-sub-text">
@@ -56,7 +56,7 @@
     </section>
   </div>
     <section class="my-5 animate__animated animate__fadeInUp delay-3">
-      <div class="row text-center">
+      <div class="row text-center video-col">
         <div class="col-lg-12">
           <h2>Our LMS App So Simple, Learn, Excel</h2>
         </div>
@@ -73,13 +73,89 @@
       </div>
     </section>
 
-    <!-- <section class="my-5 animate__animated animate__fadeInUp delay-3">
+    <section class="my-5 animate__animated animate__fadeInUp delay-3">
       <div class="row text-center">
         <div class="col-lg-12">
           <h2>We have some good features in our LMS</h2>
         </div>
       </div>
-    </section> -->
+      <div class="container products-list">
+        <!-- Row 1 -->
+        <div class="row mb-4">
+            <div class="col-md-6 animate__animated animate__fadeInUp delay-4">
+                <h3 class="heading-custom">On Demand Learning</h3>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+                <ul>
+                  <li>Facilitates collaboration and knowledge sharing.</li>
+                  <li>Facilitates collaboration and knowledge sharing.</li>
+                </ul>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/images/products/product-1.png" alt="Image 1" class="img-fluid animate__animated animate__fadeIn delay-4">
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row mb-4">
+            <div class="col-md-5">
+                <img src="assets/images/products/product-2.png" alt="Image 2" class="img-fluid animate__animated animate__fadeIn delay-5">
+            </div>
+            <div class="col-md-6 animate__animated animate__fadeInUp delay-5">
+                <h3 class="heading-custom">Dashboard</h3>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row mb-4">
+            <div class="col-md-6 animate__animated animate__fadeInUp delay-6">
+                <h3 class="heading-custom">Course Catalogue</h3>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/images/products/product-3.png" alt="Image 3" class="img-fluid animate__animated animate__fadeIn delay-6">
+            </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="row mb-4">
+            <div class="col-md-5">
+                <img src="assets/images/products/product-4.png" alt="Image 4" class="img-fluid animate__animated animate__fadeIn delay-7">
+            </div>
+            <div class="col-md-6 animate__animated animate__fadeInUp delay-7">
+                <h3 class="heading-custom">Tests</h3>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+            </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="row mb-4">
+            <div class="col-md-6 animate__animated animate__fadeInUp delay-8">
+                <h3 class="heading-custom">Live Classes</h3>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+                <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/images/products/product-5.png" alt="Image 5" class="img-fluid animate__animated animate__fadeIn delay-8">
+            </div>
+        </div>
+
+         <!-- Row 6 -->
+         <div class="row mb-4">
+          <div class="col-md-5">
+              <img src="assets/images/products/product-6.png" alt="Image 4" class="img-fluid animate__animated animate__fadeIn delay-9">
+          </div>
+          <div class="col-md-6 animate__animated animate__fadeInUp delay-9">
+              <h3 class="heading-custom">Mobile app</h3>
+              <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+              <p>Facilitates collaboration and knowledge sharing among learners, using social networks within the system to build a learning community and enhance outcomes.</p>
+          </div>
+      </div>
+    </div>
+    </section>
 
     <section class="my-5 animate__animated animate__fadeInUp delay-3">
       <div class="row text-center">
@@ -89,7 +165,7 @@
         
       </div>
       <div class="inner row services-desc">
-        <div *ngFor="let features of productPageDetails?.features;" class="col-lg-4 px-0">
+        <div *ngFor="let features of productPageDetails?.features;" class="col-lg-4">
           <img src={{features.tile}} alt="" class="tile" />
           <h4>{{features.name}}</h4>
           <p class="content-sub-text">
@@ -99,7 +175,7 @@
       </div>
       <div class="text-center details-btn">
         <button mat-raised-button (click)="onKnowMore()" class="button secondary  animate__animated animate__fadeInUp delay-2">
-          SHow Less
+          Show Less
         </button>
       </div>
     </section>
@@ -114,6 +190,3 @@
     </section>
   </div>
 </div>
-
-<app-login-required [isDialogVisible]="isLoginRequiredDialogShown"
-  (dialogClosed)="hideLoginRequiredDialog()"></app-login-required>

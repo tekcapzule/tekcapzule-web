@@ -3085,10 +3085,7 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
-  &.candidate_screening_product-bg {
-    // background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
-    // background-position: center center;
-    // background-size: cover;
+  &.candidate_screening_product-bg, &.product-details-banner-bg {
     background: linear-gradient(146deg, #ffffff, #DEEDFF);
   }
 }
@@ -3127,6 +3124,15 @@ body.modal-open {
 }
 .delay-6 {
   animation-delay: 5s;
+}
+.delay-7 {
+  animation-delay: 6s;
+}
+.delay-8 {
+  animation-delay: 7s;
+}
+.delay-9 {
+  animation-delay: 8s;
 }
 
 .know-more {
