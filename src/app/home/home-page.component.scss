@@ -398,9 +398,55 @@ h1 {
     margin-right: 20px;
   }
 }
+.package-container {
+  background: url('../../assets/images/home/grid-bg.png') no-repeat;
+  height: 476px;;
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 70px;
+  .price-block {
+    border: 2px solid #C4C4C491;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    width: 210px;
+    background: $white;
+    line-height: 44px;
+    margin-right: 30px;
+    display: inline-grid;
+    &:last-child {
+      margin-right: 0px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .price {
+      color: #689F38;
+      font-size: 38px;
+      font-family: TungstenSemiBold;
 
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.8px;
+    }
+  }
+}
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
+  .branding-tile {
+    height: auto !important;
+    width: 100% !important;
+    padding: 30px !important;
+  }
+  .branding-container {
+    margin: 70px 20px !important;
+  }
+  .brand-kit, .website, .social-media {
+    height: auto !important;
+  }
   .offer-img {
     height: 370px;
   }
@@ -551,5 +597,68 @@ h1 {
     &:hover {
       border-radius:50%;
       transition: 1s ease;
+    }
+  }
+
+  .product-section{
+    background: #FAFAFA;
+    padding: 30px;
+    margin-bottom: 50px;
+  }
+  .content-sub-text {
+    font-size: 20px;
+  }
+  .brand-kit {
+    background: url('../../assets/images/home/brand-kit.jpg') no-repeat;
+    height: 427px;
+    width: 100%;
+    border-radius: 26px;
+  
+  }
+  .website {
+    background: url('../../assets/images/home/website.png') no-repeat;
+    height: 427px;
+    width: 100%;
+    border-radius: 26px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .social-media {
+    background: url('../../assets/images/home/social-media.png') top right no-repeat;
+    height: 427px;
+    width: 100%;
+    border-radius: 26px;
+    background-size: 83%;
+  }
+  .branding-tile {
+    padding: 100px;
+    border-radius: 26px;
+    width: 595px;
+    text-align: left;
+    height: 490px;
+    margin-top: -30px;
+    display: inline-grid;
+    align-items: center;
+    p {
+      font-size: 18px;
+    }
+  
+    &.coral-blue {
+      background: $coral-blue;
+    }
+    &.peach-puff {
+      background: $peach-puff;
+    }
+    &.sea-mist {
+      background: $sea-mist;
+    }
+  }
+  .branding-container {
+    display: grid;
+    gap: 55px;
+    margin: 70px 0;
+    h3 {
+      font-size: 28px !important;
+      font-weight: 600;
     }
   }

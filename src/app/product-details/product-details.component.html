@@ -44,7 +44,7 @@
     <!-- ======= Our Solution ======= -->
     <section>
       <!-- Sec 1 -->
-      <div class="inner row services-desc">
+      <div class="inner row product-desc">
         <div *ngFor="let topic of productPageDetails?.topics;" class="col-lg-4">
           <img src={{topic.tile}} alt="" class="tile" />
           <h4>{{topic.name}}</h4>
@@ -164,8 +164,8 @@
         </div>
         
       </div>
-      <div class="inner row services-desc">
-        <div *ngFor="let features of productPageDetails?.features;" class="col-lg-4">
+      <div class="inner row product-desc">
+        <div *ngFor="let features of productPageDetails?.features;" class="col-lg-4 service-card">
           <img src={{features.tile}} alt="" class="tile" />
           <h4>{{features.name}}</h4>
           <p class="content-sub-text">
