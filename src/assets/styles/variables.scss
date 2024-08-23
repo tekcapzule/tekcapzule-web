@@ -12,6 +12,9 @@ $corporate-color: #1A73E8;
 $black-currant: #07182F;
 $banner-text: #2B2B2B;
 $grey-bg: #E6E6E6;
+$coral-blue: #C0D7F2;
+$peach-puff: #F2DFBA;
+$sea-mist: #CDDDBB;
 
 
 
@@ -22,6 +25,10 @@ $primary-font-light: 'Work Sans', sans-serif;
 $primary-font-medium: 'Work Sans', sans-serif;
 $primary-font-bold: 'Work Sans', sans-serif;
 
+@font-face {
+  font-family: TungstenSemiBold;
+  src: url('../fonts/Tungsten-SemiBold.ttf');
+}
 
 body {
   font-family: $primary-font-regular;
@@ -32,7 +39,7 @@ body {
 p {
   font-family: $primary-font-light;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: $black;
 }
 

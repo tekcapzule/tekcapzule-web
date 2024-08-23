@@ -3,30 +3,7 @@
  .breadcrumbs span, .breadcrumbs span a, .page-banner h1, .page-banner h4 {
   color: $black !important;
  }
- .services-desc {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; 
-  .col-lg-4 {
-    width: calc(33.333% - 88px); /* Subtract the margin space from the column width */
-    margin-bottom: 55px;
-    // background: #f5f5f5;
-    // padding: 20px;
-    // border-radius: 10px;
-    // box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-    // border: 1px solid #f5f5f5;
-  }
-  .tile {
-    height: 35px;
-    width: auto;
-    margin-bottom: 20px;
-  }
-  h4 {
-    font-weight: 600;
-    padding-bottom: 6px;
-    font-size: 20px;
-   }
- }
+ 
 
 }
 .form-heading {
@@ -97,7 +74,7 @@ h2 {
 }
 
 @media only screen and (max-width: 990px) {
-  .services-desc { 
+  .product-desc { 
     padding: 0 30px !important;
     gap: 20px;
     h4 {

@@ -359,6 +359,12 @@
     padding-bottom: 20px !important;
     line-height: 30px !important;
 }
+.product-desc {
+  display: block !important;
+  .col-lg-4 {
+    width: 100% !important;
+  }
+}
 }
 @media only screen and (width: 1024px) {
   .dropdown-content {
