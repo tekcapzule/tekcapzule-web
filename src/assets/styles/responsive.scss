@@ -141,6 +141,7 @@
   }
   .dropdown {
     padding-bottom: 10px !important;
+    display: block !important;
   }
   .back-link {
     font-size: 14px !important;
@@ -358,6 +359,18 @@
     font-size: 28px !important;
     padding-bottom: 20px !important;
     line-height: 30px !important;
+}
+.package-container {
+  height: auto !important;
+    margin-bottom: 50px;
+    padding: 40px 20px !important;
+    background: linear-gradient(rgba(196, 196, 196, 0.2) .1em, transparent .1em), linear-gradient(90deg, rgba(196, 196, 196, 0.2) .1em, transparent .1em) !important;
+    background-size: 3em 3em !important;
+    width: 100% !important;
+    text-align: center;
+    .price-block {
+      width: 100% !important;
+    }
 }
 .product-desc {
   display: block !important;

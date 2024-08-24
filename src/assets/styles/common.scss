@@ -436,9 +436,9 @@ h1 {
   &.download_btn {
     width: 213px;
     height: 61px;
-    background: #689F38;
+    background: $green-color;
     border-radius: 7px;
-    color: #fff;
+    color: $white;
     border: 0 none;
     font-weight: 500;
      &:hover {
@@ -447,7 +447,7 @@ h1 {
      &.talk-expert {
       background: $primary-color;
       &:hover {
-        background: #689F38;
+        background: $green-color;
        }
      }
   }
@@ -808,9 +808,7 @@ Carousel Topics & Community Page
       font-style: italic;
       color: #2e2e2e;
     }
-    .carousel-inner {
-      border-bottom: 2px solid #e8f2ff !important;
-    }
+   
     .carousel-inner .carousel-item {
       height: 338px;
       background: $white;
@@ -2503,6 +2501,7 @@ select {
   span {
     font-size: 14px;
     color: #717171;
+    text-wrap: wrap;
   }
 }
 
@@ -3230,17 +3229,17 @@ body.modal-open {
     width: calc(33.333% - 20px); /* Subtract the margin space from the column width */
     margin-bottom: 55px;
     &.service-card {
-      background: #fafcff;
-      border: 1px solid #DEEDFF !important;	
+      // background: #fafcff;
+      // border: 1px solid #DEEDFF !important;	
       border-radius: 4px;
-      padding: 20px 20px 0px;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;
+      // padding: 20px 20px 0px;
+      // box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;
   }
   }
   .tile {
     height: 35px;
     width: auto;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   h4 {
     font-weight: 600 !important;
@@ -3266,3 +3265,14 @@ body.modal-open {
     }
   }
  }
+ .carousel-inner {
+  border-bottom: 2px solid #e8f2ff !important;
+}
+.green-btn {
+  background-color: $green-color !important;
+  border: 1px solid $green-color;
+  &:hover {
+    background-color: $white !important;
+    border: 1px solid $primary-color;
+  }
+}
