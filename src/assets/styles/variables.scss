@@ -15,6 +15,8 @@ $grey-bg: #E6E6E6;
 $coral-blue: #C0D7F2;
 $peach-puff: #F2DFBA;
 $sea-mist: #CDDDBB;
+$green-color: #689F38;
+$body-text: #535353;
 
 
 
@@ -34,13 +36,12 @@ body {
   font-family: $primary-font-regular;
   font-size: 16px;
   line-height: 28px;
-  color: $black;
 }
 p {
   font-family: $primary-font-light;
   font-size: 16px;
   font-weight: 400;
-  color: $black;
+  color: $body-text;
 }
 
 h1, h2, h3, h4, h5, h6{

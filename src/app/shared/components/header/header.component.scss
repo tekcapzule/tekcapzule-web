@@ -595,13 +595,13 @@
 .dropdown-content {
   position: absolute;
   background-color: $white;
-   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   width: max-content;
   margin: 0 auto;
   // border-radius: 0 0px 16px 16px;
-  left: -300px;
+  left: -315px;
   margin-top: 32px;
-  max-width: 1300px;
+  max-width: 1200px;
 }
 
 .dropdown-content a {
