@@ -2367,6 +2367,11 @@ select {
 // Skill Cards
 // -----------------------------------------------
 .sub-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 65px;
+  width: 100%;
   li {
     margin-bottom: 40px;
     // padding: 10px;
@@ -2374,7 +2379,7 @@ select {
     // text-wrap: wrap;
     line-height: 20px;
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     gap: 10px;
     padding: 10px;
