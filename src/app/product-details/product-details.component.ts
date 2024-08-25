@@ -13,6 +13,7 @@ export class ProductDetailsComponent implements OnInit {
   isLoginRequiredDialogShown: boolean;
   pageDetails;
   productPageDetails: any;
+  featureCount = 3;
 
   constructor(
     private helperService: HelperService,
@@ -41,7 +42,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onKnowMore() {
-    document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
+    //document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
+    this.featureCount = this.featureCount === 3 ? this.productPageDetails.length : 3;
   }
 
   openLaunchPopup() {

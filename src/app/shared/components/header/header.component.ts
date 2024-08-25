@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit {
     private helperService: HelperService
   ) {
     // this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
-    //this.menuClickOutsideEvent();
+    this.menuClickOutsideEvent();
   }
   // toggleSkillStudioMenu() {
   //   this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
