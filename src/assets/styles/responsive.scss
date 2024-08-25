@@ -1,7 +1,7 @@
 @media only screen and (max-width: 990px) {
   .search-box {
     background: 0 none !important;
-    padding: 15px 35px!important;
+    padding: 15px 25px!important;
     position: inherit !important;
 
     input {
@@ -140,7 +140,7 @@
     color: $white!important;
   }
   .dropdown {
-    padding-bottom: 10px !important;
+   // padding-bottom: 10px !important;
     display: block !important;
   }
   .back-link {

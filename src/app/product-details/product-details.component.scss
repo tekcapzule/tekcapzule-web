@@ -1,6 +1,6 @@
  @import './../../assets/styles/variables.scss';
  .service-categories-page {
- .breadcrumbs span, .breadcrumbs span a, .page-banner h1, .page-banner h4 {
+ .breadcrumbs span, .breadcrumbs span a, .page-banner h1 {
   color: $black !important;
  }
  
@@ -59,6 +59,12 @@ h3 {
 h2 {
   padding-bottom: 50px;
 }
+.banner-content {
+  h4 {
+    color: #535353 !important;
+  }
+}
+
 .products-list {
   .row {
     align-items: center;

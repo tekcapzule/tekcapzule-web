@@ -302,6 +302,7 @@ h1 {
       border-radius: 40px;
       height: 423px;
       border: 1px solid #D5D5D5;
+      border-bottom-right-radius: 0;
       // background-size: contain;
       @media only screen and (max-width: 990px) {
         padding: 15px;
@@ -425,12 +426,14 @@ h1 {
       color: $green-color;
       font-size: 38px;
       font-family: TungstenSemiBold;
-
+      margin: 15px 0px;
     }
     .brand {
       font-size: 20px;
       font-weight: 500;
       letter-spacing: -0.8px;
+      line-height: 35px;
+      color: #000;
     }
   }
 }
@@ -637,8 +640,9 @@ h1 {
     text-align: left;
     height: 490px;
     margin-top: -30px;
-    display: inline-grid;
-    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     p {
       font-size: 18px;
     }
@@ -670,3 +674,23 @@ h1 {
       font-weight: 600;
     }
   }
+
+
+  // Our Services
+  .global-section {
+    background-size: 330px;
+    color: #fff;
+    .content-wrap {
+      max-width: 1680px;
+      width: 100%;
+      background: #1d1e25 url(//www.zohowebstatic.com/sites/zweb/images/salesiq/salesiq-home-pattern.jpg);
+      background-size: 80px;
+  }
+  .rows {
+    align-items: center;
+    -ms-flex-align: center;
+}
+.global-img {
+  position: relative;
+}
+}

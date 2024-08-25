@@ -238,7 +238,7 @@
       // padding: 15px 0;
       font-family: $primary-font-bold;
       color: $white;
-      font-size: 16px !important;
+      font-size: 18px !important;
       -webkit-font-smoothing: antialiased;
       text-decoration: none;
     }
@@ -749,6 +749,7 @@
     color: $white;
     padding-bottom: 0;
     text-transform: uppercase;
+    transition: transform 0.3s ease;
   }
   .mobile-submenu {
     display: block;
@@ -791,7 +792,7 @@
     }
     .sub-menu-element.skill-menu {
       // padding-left: 50px;
-      margin: 10px 0;
+      // margin: 10px 0;
     }
   }
 
@@ -840,7 +841,7 @@
 }
 .main-nav-links {
   line-height: 35px;
-  padding-left: 40px;
+  padding-left: 25px;
 }
 .sub-nav-line {
   border-bottom: 1px solid #9BA0C6;
@@ -911,4 +912,19 @@
 .sub-menu-container {
   //height: 400px !important;
   padding-top: 45px;
+}
+.arrow-icon {
+  font-size: 1em;
+    color: #1A73E8;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    vertical-align: middle; 
+    display: inline-block; 
+    transform-origin: center center;
+}
+.rotate {
+  transform: rotate(180deg); 
+  top: 10% !important;
 }

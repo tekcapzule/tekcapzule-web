@@ -4,6 +4,10 @@
   color: $white !important;
  }
  .services-desc {
+  display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 1020px;
   .tile {
     height: 47px;
     margin-bottom: 20px;
@@ -12,7 +16,7 @@
     font-weight: bold;
     border-bottom: 1px solid #707070;
     padding-bottom: 20px;
-    width: 325px;
+    // width: 325px;
     line-height: 31px;
     height: 70px;
    }

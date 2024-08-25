@@ -38,10 +38,10 @@
     <section>
       <!-- Sec 1 -->
       <div class="inner row services-desc">
-        <div *ngFor="let topic of servicePageDetails?.topics;" class="col-lg-4 px-0">
+        <div *ngFor="let topic of servicePageDetails?.topics;" class="px-0">
           <img src={{topic.tile}} alt="" class="tile" />
-          <h4>{{topic.name}}</h4>
-          <p class="content-sub-text pr-5 mr-4">
+          <h4 [innerHTML]="topic.name"></h4>
+          <p class="content-sub-text">
             {{topic.summaryText}}
           </p>
         </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="image-overlay">
               <div>
-                <div class="overlay-text pb-5">All you need to know is just one click away</div>
+                <div class="overlay-text pb-4">All you need to know is just one click away</div>
                 <button mat-raised-button class="button download_btn  animate__animated animate__fadeInUp delay-2">
                   Download Brochure
                 </button>
@@ -87,7 +87,7 @@
             <h1>Why <br>Choose Us?</h1>
             <!-- <img src="assets/images/services/why-choose-us.png" class="img-fluid" alt="career" /> -->
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-7">
             <p class="content-sub-text">
               {{servicePageDetails?.why}}
             </p>
