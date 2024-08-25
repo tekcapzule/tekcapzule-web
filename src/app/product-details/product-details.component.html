@@ -165,7 +165,7 @@
         
       </div>
       <div class="inner row product-desc">
-        <div *ngFor="let features of productPageDetails?.features;" class="col-lg-4 service-card px-0">
+        <div *ngFor="let features of productPageDetails?.features | slice:0 : featureCount;" class="col-lg-4 service-card px-0">
           <img src={{features.tile}} alt="" class="tile" />
           <h4>{{features.name}}</h4>
           <p class="content-sub-text">
@@ -175,7 +175,7 @@
       </div>
       <div class="text-center details-btn">
         <button mat-raised-button (click)="onKnowMore()" class="button tertiary-btn animate__animated animate__fadeInUp delay-2">
-          Show Less
+          {{featureCount === 3 ? 'View More' : 'Show Less'}}
         </button>
       </div>
     </section>
@@ -186,7 +186,7 @@
   
   <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-6">
     <section class="form-bg">
-      <app-collaborate-form [pageType]="'productDetails'"></app-collaborate-form>
+      <app-collaborate-form [pageType]="'whatWeDo'"></app-collaborate-form>
     </section>
   </div>
 </div>
