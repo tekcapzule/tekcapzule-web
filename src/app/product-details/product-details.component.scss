@@ -91,7 +91,7 @@ h2 {
       margin-right: 0 !important;
     }
     .col-lg-4 {
-      width: 100%;
+      width: calc(33.333% - 25px);
       margin-bottom: 55px;
     }
   }

@@ -6,17 +6,17 @@
   "topics": [
     { 
       "tile": "assets/images/home/offer-4.svg",
-      "name": "Leaner’s Experience",
+      "name": "AI Assessment",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
     { 
       "tile": "assets/images/home/offer-5.svg",
-      "name": "AI powered authoring",
+      "name": "CV Relevant to the JD and Filteration",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
     { 
       "tile": "assets/images/home/offer-6.svg",
-      "name": "White label",
+      "name": "End to end workflow",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     } 
   ],
