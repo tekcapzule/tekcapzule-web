@@ -370,12 +370,23 @@
     text-align: center;
     .price-block {
       width: 100% !important;
+      margin-bottom: 20px;
     }
 }
 .product-desc {
   display: block !important;
   .col-lg-4 {
     width: 100% !important;
+  }
+}
+.inner-block {
+  display: block !important;
+  .mobile-display {
+    img {
+      height: 255px !important;
+      width: auto !important;
+      margin-top: 0 !important;
+    }
   }
 }
 }

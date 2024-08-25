@@ -2491,12 +2491,12 @@ select {
         height: 44px;
       }
       .lms-menu-icon {
-        background: url('../../assets/images/home/candidate-screening-icon.svg') no-repeat;
+        background: url('../../assets/images/home/lms-menu-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
       .candidate_screening_product-menu-icon {
-        background: url('../../assets/images/home/candidate-screening-icon.svg') no-repeat;
+        background: url('../../assets/images/home/candidate- screening-menu-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -3228,10 +3228,11 @@ body.modal-open {
 .product-desc {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; 
+  justify-content:flex-start;
+  gap: 0 94px;
 
   .col-lg-4 {
-    width: calc(33.333% - 67px); /* Subtract the margin space from the column width */
+    width: calc(33.333% - 63px); /* Subtract the margin space from the column width */
     margin-bottom: 55px;
     &.service-card {
       // background: #fafcff;
@@ -3242,7 +3243,7 @@ body.modal-open {
   }
   }
   .tile {
-    height: 35px;
+    // height: 35px;
     width: auto;
     margin-bottom: 16px;
   }
