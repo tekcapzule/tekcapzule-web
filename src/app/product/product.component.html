@@ -19,8 +19,11 @@
   <section *ngIf="productPageDetails" class="page-banner product-details-banner-bg"
     [ngClass]="pageDetails.uniqueId.toLowerCase()+ '-bg'">
     <div class="inner row">
+
       <div
         class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
+        <div class="beta">BETA</div>
+
         <h1 class="text-white animate__animated animate__fadeInUp delay-1">
           {{productPageDetails?.topicName}}
         </h1>
