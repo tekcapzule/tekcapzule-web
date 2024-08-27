@@ -23,7 +23,9 @@ export class ServiceCategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const menuItem = this.helperService.findPage('Services');
+      console.log(menuItem.displayName);
       this.pageDetails = menuItem.children.find(mi => mi.uniqueId === params['code']);
+      console.log(this.pageDetails);
       this.loadServiceData(params['code']);
     });
   }

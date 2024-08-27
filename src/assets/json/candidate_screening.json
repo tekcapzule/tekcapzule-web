@@ -4,17 +4,17 @@
   "bannerImage": "assets/images/ux-design-banner.png",
   "bannerText": "We craft intuitive and engaging user experiences through meticulous design and prototyping. Our team ensures each interface is both aesthetically pleasing and functionally seamless, tailored to meet your business needs.",
   "topics": [
-    { 
+    {
       "tile": "assets/images/services/candidate-screening/icon-1.svg",
       "name": "Automated <br> Screening",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs, behaviors, and preferences. Combining this with collaborative workshops, we brainstorm innovative solutions that ensure our designs are not only aesthetically pleasing but also user-centric and feasible."
     },
-    { 
+    {
       "tile": "assets/images/services/candidate-screening/icon-2.svg",
       "name": "In-depth <br> assessment",
       "summaryText": "We transform ideas into tangible prototypes quickly and efficiently. Using the latest tools and technologies, we create interactive prototypes that allow for real-time testing and validation. This step helps us identify and resolve potential issues early in the development process."
     },
-    { 
+    {
       "tile": "assets/images/services/candidate-screening/icon-3.svg",
       "name": "Ranking <br> and Recommnedations",
       "summaryText": "Our iterative design process involves continuous testing and refinement. We gather user feedback through usability testing and make necessary adjustments to enhance the user experience. This ensures the final product is intuitive, functional, and aligns with user expectations."

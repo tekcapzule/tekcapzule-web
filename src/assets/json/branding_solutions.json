@@ -1,30 +1,31 @@
 {
-  "uniqueId": "Staffing_Management",
-  "topicName": "Staffing Management",
-  "bannerImage": "assets/images/ux-design-banner.png",
+
+  "uniqueId": "Branding_Solutions",
+  "topicName": "Branding Solutions",
+  "bannerImage": "assets/images/banner/ux-design-banner.png",
   "bannerText": "We craft intuitive and engaging user experiences through meticulous design and prototyping. Our team ensures each interface is both aesthetically pleasing and functionally seamless, tailored to meet your business needs.",
- "topics": [
-    { 
-      "tile": "assets/images/services/staffing-management/icon-1.svg",
-      "name": "Permanent <br> Staffing",
+"topics": [
+    {
+      "tile": "assets/images/services/web-branding/icon-1.svg",
+      "name": "Brand kit",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs, behaviors, and preferences. Combining this with collaborative workshops, we brainstorm innovative solutions that ensure our designs are not only aesthetically pleasing but also user-centric and feasible."
     },
-    { 
-      "tile": "assets/images/services/staffing-management/icon-2.svg",
-      "name": "Contract <br> to hire",
+    {
+      "tile": "assets/images/services/web-branding/icon-2.svg",
+      "name": "Website",
       "summaryText": "We transform ideas into tangible prototypes quickly and efficiently. Using the latest tools and technologies, we create interactive prototypes that allow for real-time testing and validation. This step helps us identify and resolve potential issues early in the development process."
     },
-    { 
-      "tile": "assets/images/services/staffing-management/icon-3.svg",
-      "name": "Direct <br> hire",
+    {
+      "tile": "assets/images/services/web-branding/icon-3.svg",
+      "name": "Social media kit",
       "summaryText": "Our iterative design process involves continuous testing and refinement. We gather user feedback through usability testing and make necessary adjustments to enhance the user experience. This ensures the final product is intuitive, functional, and aligns with user expectations."
     }
   ],
   "animateImages": [
-    "assets/images/services/staffing-management/staffing-management-1.png",
-    "assets/images/services/staffing-management/staffing-management-2.png",
-    "assets/images/services/staffing-management/staffing-management-3.png",
-    "assets/images/services/staffing-management/staffing-management-4.png"
+    "assets/images/services/web-branding/web-branding-1.png",
+    "assets/images/services/web-branding/web-branding-2.png",
+    "assets/images/services/web-branding/web-branding-3.png",
+    "assets/images/services/web-branding/web-branding-4.png"
   ],
   "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
   "faq": [

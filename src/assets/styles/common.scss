@@ -808,7 +808,7 @@ Carousel Topics & Community Page
       font-style: italic;
       color: #2e2e2e;
     }
-   
+
     .carousel-inner .carousel-item {
       height: 338px;
       background: $white;
@@ -2486,7 +2486,7 @@ select {
         height: 39px;
       }
       .candidate_screening-menu-icon {
-        background: url('../../assets/images/home/candidate-screening-icon.svg') no-repeat;
+        background: url('src/assets/images/home/hire-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2496,7 +2496,7 @@ select {
         height: 44px;
       }
       .candidate_screening_product-menu-icon {
-        background: url('../../assets/images/home/candidate- screening-menu-icon.svg') no-repeat;
+        background: url('src/assets/images/home/hire-menu-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -3236,7 +3236,7 @@ body.modal-open {
     margin-bottom: 55px;
     &.service-card {
       // background: #fafcff;
-      // border: 1px solid #DEEDFF !important;	
+      // border: 1px solid #DEEDFF !important;
       border-radius: 4px;
       // padding: 20px 20px 0px;
       // box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;

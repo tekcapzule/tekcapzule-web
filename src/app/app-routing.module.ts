@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/services/auth-guard/auth-guard';
-import { FaqPageComponent } from './faq/faq-page.component';
 
 const routes: Routes = [
   {
@@ -29,11 +27,11 @@ const routes: Routes = [
     loadChildren: () => import('./services/services.module').then(m => m.ServicesModule),
   },
   {
-    path: 'services/services-categories/:code',
+    path: 'services/:code',
     loadChildren: () => import('./service-categories/service-categories.module').then(m => m.ServiceCategoriesModule),
   },
   {
-    path: 'products/product-details/:code',
+    path: 'products/:code',
     loadChildren: () => import('./product-details/product-details.module').then(m => m.ProductDetailsModule),
   },
   {
