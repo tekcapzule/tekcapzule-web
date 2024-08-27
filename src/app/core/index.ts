@@ -6,15 +6,11 @@ export { FeedbackApiService } from './services/feedback-api/feedback-api.service
 export { SubscriptionApiService } from './services/subscription-api/subscription-api.service';
 export { TopicApiService } from './services/topic-api/topic-api.service';
 export { TekByteApiService } from './services/tekbyte-api/tekbyte-api.service';
-export { InsightsApiService } from './services/insights-api/insights-api.service';
-export { DigestApiService } from './services/digest-api/digest-api.service';
 export { UserApiService } from './services/user-api/user-api.service';
 export { ApiInterceptor } from './interceptors/api.interceptor';
 export { CacheInterceptor } from './interceptors/cache.interceptor';
 export { AppSpinnerService } from './services/app-spinner/app-spinner.service';
-export { MarketPlaceApiService } from './services/market-place-api/market-place-api.service';
 export { CourseApiService } from './services/course-api/course-api.service';
-export { InterviewApiService } from './services/interview-api/interview-api.service';
 export { VideoLibraryApiService } from './services/video-library-api/video-library-api.service';
 export { AuthService, AwsUserInfo } from './services/auth/auth.service';
 export { AuthStateService } from './services/app-state/auth-state.service';
