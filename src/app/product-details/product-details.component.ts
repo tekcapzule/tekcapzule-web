@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { CourseApiService } from '@app/core';
+import { PortfolioApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private helperService: HelperService,
     private route: ActivatedRoute,
-    private courseApi: CourseApiService
+    private courseApi: PortfolioApiService
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class ProductDetailsComponent implements OnInit {
       const menuItem = this.helperService.findPage('Products');
       this.pageDetails = menuItem.children.find(mi => mi.uniqueId === params['code']);
       this.loadServiceData(params['code']);
-    });    
+    });
   }
 
   loadServiceData(fileName: string) {

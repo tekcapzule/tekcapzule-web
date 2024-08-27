@@ -6,6 +6,6 @@ export { UserApiService } from './services/user-api/user-api.service';
 export { ApiInterceptor } from './interceptors/api.interceptor';
 export { CacheInterceptor } from './interceptors/cache.interceptor';
 export { AppSpinnerService } from './services/app-spinner/app-spinner.service';
-export { CourseApiService } from './services/course-api/course-api.service';
+export { PortfolioApiService } from './services/portfolio-api/portfolio-api.service';
 export { AuthService, AwsUserInfo } from './services/auth/auth.service';
 export { AuthStateService } from './services/app-state/auth-state.service';

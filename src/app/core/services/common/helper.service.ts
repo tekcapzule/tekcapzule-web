@@ -5,7 +5,6 @@ import { NavTab, SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject, Observable } from 'rxjs';
-import * as moment from 'moment';
 
 
 @Injectable({
@@ -15,12 +14,10 @@ export class HelperService {
   isMobileResolution = false;
   filterByCapsuleType = '';
   selectedMenu: SelectedMenu;
-  topicData: TopicItem[] = [];
-  localPublisher: string[] = ['TEKCAPSULE', 'AITODAY', 'YOUTUBE'];
   private resizeChange$ = new BehaviorSubject<boolean>(this.isMobileResolution);
-  private filterByCapsuleType$ = new BehaviorSubject<string>(this.filterByCapsuleType);
 
-  constructor(private router: Router, private messageService: MessageService) {}
+  constructor(private router: Router, private messageService: MessageService) {
+  }
 
   private routeToSingIn() {
     if (!this.router.url.includes('auth')) {
@@ -29,7 +26,7 @@ export class HelperService {
   }
 
   showSuccess(msg): void {
-    this.messageService.add({ key: 'tc', severity: 'success', detail: msg });
+    this.messageService.add({key: 'tc', severity: 'success', detail: msg});
   }
 
   getInternalErrorMessage(): ErrorModel {
@@ -43,15 +40,6 @@ export class HelperService {
 
   public onResizeChange$(): Observable<boolean> {
     return this.resizeChange$.asObservable();
-  }
-
-  public onFilterByCapsuleType$(): Observable<string> {
-    return this.filterByCapsuleType$.asObservable();
-  }
-
-  setFilterByCapsuleType(selectedCapsuleType: string): void {
-    this.filterByCapsuleType = selectedCapsuleType;
-    this.filterByCapsuleType$.next(this.filterByCapsuleType);
   }
 
   setMobileResolution(isMobileResolution): void {
@@ -71,18 +59,6 @@ export class HelperService {
     this.selectedMenu = selectedMenu;
   }
 
-  setTopicData(topicData: TopicItem[]): void {
-    this.topicData = topicData;
-  }
-
-  getTopicData(): TopicItem[] {
-    return this.topicData;
-  }
-
-  getTopic(topicCode: string): TopicItem {
-    return this.topicData.find(topic => topic.code === topicCode);
-  }
-
   findSelectedTopMenu(navUrl: string) {
     if (navUrl === '/') {
       return null;
@@ -98,7 +74,7 @@ export class HelperService {
 
   findSelectedMenu(navUrl: string) {
     const headerMenu = Constants.HeaderMenu;
-    this.selectedMenu = { selectedMenuItem: headerMenu[0], selectedChildMenuItem: null };
+    this.selectedMenu = {selectedMenuItem: headerMenu[0], selectedChildMenuItem: null};
     if (navUrl === '/') {
       return this.selectedMenu;
     }
@@ -106,59 +82,15 @@ export class HelperService {
     headerMenu.forEach(hm => {
       if (hm.navUrl && hm.navUrl.includes(navUrl)) {
         isMenuItemFound = true;
-        this.selectedMenu = { selectedMenuItem: hm, selectedChildMenuItem: null };
-        // if (hm.children) {
-        //   hm.children.forEach(cm => {
-        //     if (cm.navUrl && navUrl.includes(cm.navUrl)) {
-        //       this.selectedMenu.selectedChildMenuItem = cm;
-        //     }
-        //   });
-        // }
+        this.selectedMenu = {selectedMenuItem: hm, selectedChildMenuItem: null};
       }
     });
-
-    // if (!isMenuItemFound) {
-    //   const tilesMenu = Constants.SkillTiles;
-    //   tilesMenu.forEach(hm => {
-    //     if (hm.navUrl && hm.navUrl.includes(navUrl)) {
-    //       isMenuItemFound = true;
-    //       this.selectedMenu = {
-    //         selectedMenuItem: this.findPage('Skill_Studio'),
-    //         selectedChildMenuItem: hm,
-    //       };
-    //     }
-    //   });
-    // }
     return this.selectedMenu;
   }
-
-
-  // findExtraMenuPage(pageId: string): NavTab {
-  //   return Constants.ExtraLink.find(el => el.uniqueId === pageId);
-  // }
 
   findPage(pageId: string) {
     const headerMenu = Constants.HeaderMenu;
     return headerMenu.find(hm => hm.uniqueId === pageId);
-  }
-
-  // findAIHubPage(pageId: string) {
-  //   const tiles = Constants.SkillTiles;
-  //   return tiles.find(hm => hm.uniqueId === pageId);
-  // }
-
-  // getTileDetails(uniqueId): ITile {
-  //   return Constants.SkillTiles.find(tile => tile.uniqueId === uniqueId);
-  // }
-
-
-  // getSkillPage(uniqueId): ITile {
-  //   // const skillPages = this.findPage('Skill_Studio').children;
-  //   // return skillPages.find(tile => tile.uniqueId === uniqueId);
-  // }
-
-  isLocalPublisher(publisher: string) {
-    return this.localPublisher.find(pub => pub.toLowerCase() === publisher.toLowerCase());
   }
 
   getIncludesStr(value: string, searchText: string): boolean {
@@ -168,11 +100,4 @@ export class HelperService {
     }
     return false;
   }
-
-  getTopicName(topicCode: string) {
-    const topic = this.topicData.find(topic => topic.code === topicCode);
-    return topic ? topic.title : '';
-  }
-
-
 }
