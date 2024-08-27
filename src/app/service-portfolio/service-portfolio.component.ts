@@ -3,10 +3,10 @@ import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
+  templateUrl: './service-portfolio.component.html',
+  styleUrls: ['./service-portfolio.component.scss'],
 })
-export class ProductsComponent implements OnInit {
+export class ServicePortfolioComponent implements OnInit {
   isMobileResolution: boolean;
   isLoginRequiredDialogShown: boolean;
 

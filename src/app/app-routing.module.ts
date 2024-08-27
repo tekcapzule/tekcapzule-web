@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'products',
-    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
+    loadChildren: () => import('./product-portfolio/product-portfolio.module').then(m => m.ProductPortfolioModule),
   },
   {
     path: '',
@@ -24,15 +24,15 @@ const routes: Routes = [
   },
   {
     path: 'services',
-    loadChildren: () => import('./services/services.module').then(m => m.ServicesModule),
+    loadChildren: () => import('./service-portfolio/service-portfolio.module').then(m => m.ServicePortfolioModule),
   },
   {
     path: 'services/:code',
-    loadChildren: () => import('./service-categories/service-categories.module').then(m => m.ServiceCategoriesModule),
+    loadChildren: () => import('./service/service.module').then(m => m.ServiceModule),
   },
   {
     path: 'products/:code',
-    loadChildren: () => import('./product-details/product-details.module').then(m => m.ProductDetailsModule),
+    loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
   },
   {
     path: 'aboutus',

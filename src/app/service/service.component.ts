@@ -4,16 +4,15 @@ import { PortfolioApiService } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss'],
+  selector: 'app-service-categories',
+  templateUrl: './service.component.html',
+  styleUrls: ['./service.component.scss'],
 })
-export class ProductDetailsComponent implements OnInit {
+export class ServiceComponent implements OnInit {
   isMobileResolution: boolean;
   isLoginRequiredDialogShown: boolean;
   pageDetails;
-  productPageDetails: any;
-  featureCount = 3;
+  servicePageDetails: any;
 
   constructor(
     private helperService: HelperService,
@@ -23,15 +22,17 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const menuItem = this.helperService.findPage('Products');
+      const menuItem = this.helperService.findPage('Services');
+      console.log(menuItem.displayName);
       this.pageDetails = menuItem.children.find(mi => mi.uniqueId === params['code']);
+      console.log(this.pageDetails);
       this.loadServiceData(params['code']);
     });
   }
 
   loadServiceData(fileName: string) {
     this.courseApi.getServicePage(fileName.toLowerCase()).subscribe(data => {
-      this.productPageDetails = data;
+      this.servicePageDetails = data;
     });
   }
 
@@ -42,8 +43,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onKnowMore() {
-    //document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
-    this.featureCount = this.featureCount === 3 ? this.productPageDetails.length : 3;
+    document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
   }
 
   openLaunchPopup() {
