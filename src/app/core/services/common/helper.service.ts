@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ErrorModel, TopicItem } from '@app/shared/models';
+import { ErrorModel } from '@app/shared/models';
 import { NavTab, SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';

@@ -15,7 +15,7 @@ import {
   EventChannelService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
-import { NavTab, TopicItem } from '@app/shared/models';
+import { NavTab } from '@app/shared/models';
 import { ChannelEvent, EventChannelOutput } from '@app/shared/models/channel-item.model';
 import { Constants } from '@app/shared/utils';
 import { Subject, Subscription } from 'rxjs';
@@ -32,8 +32,6 @@ export class HeaderComponent implements OnInit {
   @ViewChild('navbarNav') navbarNav: ElementRef;
   isLoggedIn$ = this.authState.isLoggedIn$;
   searchInputValue = '';
-  topics: TopicItem[] = [];
-  searchedTopics: TopicItem[] = [];
   isMobileResolution: boolean;
   openedMenuItem: NavTab;
   headerMenu: NavTab[] = Constants.HeaderMenu;
@@ -141,29 +139,9 @@ export class HeaderComponent implements OnInit {
   }
 
   searchInputChanged(value: string): void {
-    if (value.length > 0) {
-      this.searchedTopics = this.topics.filter(topic =>
-        topic.title.toLowerCase().includes(value.toLowerCase())
-      );
 
-      if (this.searchedTopics.length > 0) {
-        this.globalSearchTrigger.openMenu();
-      } else {
-        this.globalSearchTrigger.closeMenu();
-      }
-    } else {
-      this.searchedTopics = [];
-      this.globalSearchTrigger.closeMenu();
-    }
   }
 
-  gotoTopicDetailsPage(topic: TopicItem): void {
-    this.searchInputValue = '';
-    this.router.navigate(['topics', 'topicdetails'], {
-      state: { topic },
-      queryParams: { code: topic.code },
-    });
-  }
 
   onTopMenuClick(navTab: NavTab, needToCloseMenu = false) {
     this.selectedTopMenuItem = navTab;
@@ -214,11 +192,7 @@ export class HeaderComponent implements OnInit {
     this.selectedTopMenuItem = topTab;
     this.closeMenu();
     this.openedMenuItem = null;
-    //Launching Soon... popup
-    /*if(menuItem.enablePostLogin && !this.authState.isUserLoggedIn()) {
-      this.showLoginRequiredDialog();
-      return;
-    }*/
+
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
       this.router.navigate([menuItem.navUrl]);

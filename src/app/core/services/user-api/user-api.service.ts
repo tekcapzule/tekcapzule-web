@@ -4,7 +4,7 @@ import { Observable, tap } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { cacheManager, isNullOrUndefined } from '@app/shared/utils';
-import { ApiSuccess, IFeedItem, TekUserInfo } from '@app/shared/models';
+import { ApiSuccess, TekUserInfo } from '@app/shared/models';
 import { AuthStateService } from '../app-state/auth-state.service';
 import { AwsUserInfo } from '../auth/auth.service';
 import { IBookmarkItem } from '@app/shared/models/user-info.model';
@@ -30,11 +30,11 @@ export class UserApiService {
   setUserInfo(userInfo: TekUserInfo) {
     this.userInfo = userInfo;
   }
-  
+
   getUserInfo(): TekUserInfo {
     return this.userInfo;
   }
-  
+
   getTekUserInfo(refreshCache?: boolean): Observable<TekUserInfo> {
     const userId = this.auth.getAwsUserInfo().email;
 

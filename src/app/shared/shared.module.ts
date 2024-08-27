@@ -14,7 +14,6 @@ import { AccordionModule } from 'primeng/accordion';
 import { CarouselModule } from 'primeng/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
-import { DataFilterComponent } from './components/data-filter/data-filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
@@ -31,7 +30,6 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     DataTableComponent,
     CarouselComponent,
     SpinnerComponent,
-    DataFilterComponent,
     LoginRequiredComponent,
     QAComponent,
     CollaborateFormComponent,
@@ -58,7 +56,6 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     DataTableComponent,
     CarouselComponent,
     SpinnerComponent,
-    DataFilterComponent,
     LoginRequiredComponent,
     QAComponent,
     CollaborateFormComponent,
