@@ -13,7 +13,6 @@ import {
   AuthService,
   AuthStateService,
   EventChannelService,
-  TopicApiService,
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
 import { NavTab, TopicItem } from '@app/shared/models';
@@ -56,7 +55,6 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService,
     private authState: AuthStateService,
     private router: Router,
-    private topicApi: TopicApiService,
     private eventChannel: EventChannelService,
     private cdr: ChangeDetectorRef,
     private helperService: HelperService
@@ -100,10 +98,6 @@ export class HeaderComponent implements OnInit {
     this.onResize();
     this.scrollToTop();
     this.subscribeMenuClick()
-    this.topicApi.getAllTopics().subscribe(data => {
-      this.topics = data;
-      this.helperService.setTopicData(data);
-    });
   }
 
   onStopClick(eve) {

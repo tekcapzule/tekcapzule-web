@@ -4,7 +4,6 @@ import {
   Input,
   Output
 } from '@angular/core';
-import { TopicApiService } from '@app/core';
 import { TopicItem } from '@app/shared/models';
 
 @Component({
@@ -29,22 +28,15 @@ export class DataFilterComponent {
     { name: 'Hybrid', key: 'HYBRID' },
     { name: 'In Classroom', key: 'IN_CLASSROOM' },
   ];
-  
+
   @Output() filterUpdate = new EventEmitter<any>();
   @Input() pageId:string;
-  
-  constructor(
-    private topicApi: TopicApiService) {
-    this.topicApi.getAllTopics().subscribe(topics => {
-      this.topics = topics;
-    });
-  }
+
+  constructor(){}
 
   onFilterChange(event, key: string) {
-    // console.log('event.checked',event.checked, key, field, this.selectedPayments, this.selectedDeliveryMode);
     this.filterUpdate.emit({
       'topic': this.selectedTopic, 'payments': this.selectedPayments, 'deliveryMode': this.selectedDeliveryMode
     })
-    // this.productFilter();
   }
 }

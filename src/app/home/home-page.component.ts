@@ -6,7 +6,6 @@ import {
   AppSpinnerService,
   AuthStateService,
   SubscriptionApiService,
-  TopicApiService,
   UserApiService
 } from '@app/core';
 import { HelperService } from '@app/core/services/common/helper.service';
@@ -34,7 +33,6 @@ export class HomePageComponent implements OnInit {
     private userApi: UserApiService,
     private auth: AuthStateService,
     private subscriptionApi: SubscriptionApiService,
-    private topicApi: TopicApiService,
     private fb: FormBuilder,
     private messageService: MessageService,
     private spinner: AppSpinnerService,
@@ -61,9 +59,6 @@ export class HomePageComponent implements OnInit {
       this.userApi.getTekUserInfo().subscribe();
     }
 
-    this.topicApi.getAllTopics().subscribe(topics => {
-      this.topics = shuffleArray(topics, 5);
-    });
   }
 
   onSubscribe(): void {
