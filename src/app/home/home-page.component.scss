@@ -118,7 +118,7 @@ h1 {
       background-color: $primary-color;
       color: $white;
       margin-right: 15px;
-
+      border-radius: 7px;
       &:hover {
         background: $white;
         border: 2px solid $primary-color;
@@ -126,16 +126,7 @@ h1 {
       }
     }
   }
-.offers {
-  gap: 130px;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    label {
-      font-size: 24px;
-    font-weight: 500;
-    }
-}
+
   /**********Key Feature*********/
   .key-feature-block {
     display: flex;
@@ -417,7 +408,7 @@ h1 {
   .price-block {
     border: 2px solid #C4C4C491;
     border-radius: 8px;
-    padding: 30px;
+    padding: 30px 10px;
     text-align: center;
     width: 210px;
     background: $white;
@@ -451,13 +442,7 @@ h1 {
 }
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
-  .offers { 
-    gap: 30px !important;
-    padding-top: 5px !important;
-     label {
-      font-size: 16px !important;
-     }
-  }
+
   .branding-tile {
     height: auto !important;
     width: 100% !important;
@@ -568,7 +553,7 @@ h1 {
       padding: 25px 0 !important;
       .primary-btn {
         margin-bottom: 20px;
-
+        border-radius: 7px;
       }
       .col-lg-5 {
         padding: 0px !important;

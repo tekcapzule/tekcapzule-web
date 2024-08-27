@@ -324,7 +324,7 @@ h1 {
     background-color: $primary-color;
     color: $white;
     margin-right: 15px;
-
+    border-radius: 7px;
     &:hover {
       // box-shadow: 8px 8px 10px #fc5454;
       background: $white;
@@ -341,7 +341,7 @@ h1 {
     color: #c7cae8;
     font-size: 12px;
     font-family: $primary-font-medium;
-
+    border-radius: 7px;
     &:hover {
       color: $white;
       background-color: $primary-color;
@@ -352,7 +352,7 @@ h1 {
     background-color: $white;
     color: $primary-color;
     transition: all 0.5s ease;
-
+    border-radius: 7px;
     &:hover {
       // box-shadow: 8px 8px 10px #fe0d56;
       background: $primary-color;
@@ -368,6 +368,7 @@ h1 {
     width: 170px;
     height: 50px;
     font-size: 16px;
+    border-radius: 7px;
   }
   &.tertiary-outline {
     border-radius: 42px;
@@ -2432,7 +2433,7 @@ select {
         height: 39px;
       }
       .candidate_screening-menu-icon {
-        //background: url('src/assets/images/home/s') no-repeat;
+        background: url('../..//assets/images/home/hire-product-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2442,7 +2443,7 @@ select {
         height: 44px;
       }
       .hire-menu-icon {
-        //background: url('src/assets/images/home/hire-product-icon.svg')no-repeat;
+        background: url('../../assets/images/home/hire-menu-icon.svg')no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2970,6 +2971,7 @@ body.modal-open {
 
   h4 {
     line-height: 34px !important;
+    font-size: 20px !important;
     @media only screen and (max-width: 990px) {
       line-height: 30px !important;
     }
@@ -3006,6 +3008,11 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
+  &.branding_solutions-bg {
+    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
   &.candidate_screening-bg {
     background: url('../../assets/images/banner/candidate_screening-banner.png') no-repeat;
     background-position: center center;
@@ -3016,11 +3023,7 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
-  &.custom_lms_development-bg {
-    background: url('../../assets/images/banner/custom_lms_development-banner.png') no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
+
   &.product_engineering-bg {
     background: url('../../assets/images/banner/Product-Engineering-banner.png') no-repeat;
     background-position: center center;
@@ -3030,10 +3033,14 @@ body.modal-open {
     background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
     background-position: center center;
     background-size: cover;
-
   }
   &.talent_solutions-bg {
     background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &.course_development-bg {
+    background: url('../../assets/images/banner/course_development-banner.png') no-repeat;
     background-position: center center;
     background-size: cover;
   }
@@ -3241,4 +3248,24 @@ button {
       color: $white;
     }
   }
+}
+.beta {
+  border-radius: 15px;
+  background: $green-color;
+  width: 72px;
+  height: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: $white;
+  margin-bottom: 33px;
+}
+.offers {
+  gap: 130px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    label {
+      font-size: 24px;
+    font-weight: 500;
+    }
 }
