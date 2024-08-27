@@ -2405,62 +2405,8 @@ select {
       float: left;
       margin-right: 0px;
       width: 55px;
-      .tekbyte-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-1.svg') no-repeat;
-        width: 48px;
-        height: 44px;
-        background-size: 65%;
-      }
 
-      .courses-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-2.svg') no-repeat;
-        width: 49px;
-        height: 49px;
-        background-size: 65%;
-      }
-
-      .interview_prep-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-3.svg') no-repeat;
-        width: 48px;
-        height: 71px;
-        background-size: 65%;
-      }
-
-      .mentoring-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-4.svg') no-repeat;
-        width: 59px;
-        height: 49px;
-        background-size: 65%;
-      }
-
-      .research_papers-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-5.svg') no-repeat;
-        width: 47px;
-        height: 49px;
-        background-size: 65%;
-      }
-
-      .video_library-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-6.svg') no-repeat;
-        width: 69px;
-        height: 41px;
-        background-size: 65%;
-      }
-
-      .weekly_digest-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-7.svg') no-repeat;
-        width: 47px;
-        height: 46px;
-        background-size: 65%;
-      }
-
-      .events-menu-icon {
-        background: url('../../assets/images/skillstudio_submenu_icon-8.svg') no-repeat;
-        width: 48px;
-        height: 47px;
-        background-size: 65%;
-      }
-      .ux_design_prototyping-menu-icon {
+      .branding_solutions-menu-icon {
         background: url('../../assets/images/home/web-branding-icon.svg') no-repeat;
         width: 33px;
         height: 40px;
@@ -2470,12 +2416,12 @@ select {
         width: 44px;
         height: 44px;
       }
-      .custom_lms_development-menu-icon {
+      .course_development-menu-icon {
         background: url('../../assets/images/home/course-development-icon.svg') no-repeat;
         width: 41px;
         height: 39px;
       }
-      .staffing_management-menu-icon {
+      .talent_solutions-menu-icon {
         background: url('../../assets/images/home/staffing-management-icon.svg') no-repeat;
         width: 44px;
         height: 42px;
@@ -2486,7 +2432,7 @@ select {
         height: 39px;
       }
       .candidate_screening-menu-icon {
-        background: url('src/assets/images/home/hire-icon.svg') no-repeat;
+        //background: url('src/assets/images/home/s') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2495,8 +2441,8 @@ select {
         width: 44px;
         height: 44px;
       }
-      .candidate_screening_product-menu-icon {
-        background: url('src/assets/images/home/hire-menu-icon.svg') no-repeat;
+      .hire-menu-icon {
+        //background: url('src/assets/images/home/hire-product-icon.svg')no-repeat;
         width: 44px;
         height: 44px;
       }
