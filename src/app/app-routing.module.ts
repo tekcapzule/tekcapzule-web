@@ -17,11 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
-    path: 'feeds',
-    loadChildren: () => import('./feeds/feeds.module').then(m => m.FeedsModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'contactus',
     loadChildren: () => import('./contactus/contactus.module').then(m => m.ContactusModule),
   },
@@ -48,32 +43,6 @@ const routes: Routes = [
   {
     path: 'legaldocs',
     loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
-  },
-  {
-    path: 'faq',
-    component: FaqPageComponent
-  },
-  {
-    path: 'subscribe',
-    loadChildren: () =>
-      import('./subscription/subscription.module').then(m => m.SubscriptionModule),
-  },
-  {
-    path: 'ai-hub/events',
-    loadChildren: () => import('./events/events.module').then(m => m.EventsModule),
-  },
-  {
-    path: 'ai-hub/courses',
-    loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule),
-  },
-  {
-    path: 'skill-dashboard',
-    loadChildren: () => import('./skill-dashboard/skill-dashboard.module').then(m => m.SkillDashboardModule),
-  },
-  {
-    path: 'ai-hub/course-detail/:code',
-    loadChildren: () =>
-      import('./courses/course-detail/course-detail.module').then(m => m.CourseDetailModule),
   },
 ];
 
