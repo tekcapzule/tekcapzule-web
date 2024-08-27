@@ -10,7 +10,6 @@ import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 
-import { CourseCardComponent } from '@app/courses/course-card/course-card.component';
 import { FeedDetailsComponent } from '@app/feeds/components/feed-details/feed-details.component';
 import { AccordionModule } from 'primeng/accordion';
 import { CarouselModule } from 'primeng/carousel';
@@ -42,7 +41,6 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     CarouselComponent,
     SpinnerComponent,
     FeedDetailsComponent,
-    CourseCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
     DataFilterComponent,
@@ -79,7 +77,6 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     CarouselComponent,
     SpinnerComponent,
     FeedDetailsComponent,
-    CourseCardComponent,
     FeedSkeletonComponent,
     FeedCardComponent,
     TopicFilterComponent,
