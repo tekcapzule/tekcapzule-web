@@ -117,7 +117,19 @@ h4 {
     background: url('../../assets/images/products/our-solution-3.png') center/cover no-repeat;
   }
 
+  button {
+    &.primary-btn {
+      background-color: $primary-color;
+      color: $white;
+      margin-right: 15px;
 
+      &:hover {
+        background: $white;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
 
   .soln-card {
     border: 1px solid #E8EDFF;
