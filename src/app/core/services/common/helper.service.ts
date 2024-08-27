@@ -4,7 +4,6 @@ import { ErrorModel, TopicItem } from '@app/shared/models';
 import { NavTab, SelectedMenu } from '@app/shared/models/nav-tab.model';
 import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 import { Constants } from '@app/shared/utils';
-import { ITile } from '@app/skill-studio/models/tile.model';
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as moment from 'moment';
