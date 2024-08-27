@@ -14,20 +14,13 @@ import { AccordionModule } from 'primeng/accordion';
 import { CarouselModule } from 'primeng/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
-import { FeedCardComponent } from './components/feed-card/feed-card.component';
-import { FeedSkeletonComponent } from './components/feed-skeleton/feed-skeleton.component';
-import { FeedsSkeletonComponent } from './components/feeds-skeleton/feeds-skeleton.component';
 import { DataFilterComponent } from './components/data-filter/data-filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
 import { QAComponent } from './components/qa/qa.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { TopicCardComponent } from './components/topic-card/topic-card.component';
 import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
-import { SkillCardComponent } from './components/skill-card/skill-card.component';
-import { SkillSkeletonComponent } from './components/skill-skeleton/skill-skeleton.component';
-import { TopicFilterComponent } from './components/topic-filter/topic-filter.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FaqPageComponent } from '@app/faq/faq-page.component';
 
@@ -36,19 +29,12 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     HeaderComponent,
     FooterComponent,
     DataTableComponent,
-    TopicCardComponent,
     CarouselComponent,
     SpinnerComponent,
-    FeedSkeletonComponent,
-    FeedCardComponent,
     DataFilterComponent,
-    TopicFilterComponent,
     LoginRequiredComponent,
-    FeedsSkeletonComponent,
     QAComponent,
     CollaborateFormComponent,
-    SkillCardComponent,
-    SkillSkeletonComponent,
     FaqPageComponent
   ],
   imports: [
@@ -70,20 +56,12 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     HeaderComponent,
     FooterComponent,
     DataTableComponent,
-    FeedCardComponent,
-    TopicCardComponent,
     CarouselComponent,
     SpinnerComponent,
-    FeedSkeletonComponent,
-    FeedCardComponent,
-    TopicFilterComponent,
     DataFilterComponent,
     LoginRequiredComponent,
-    FeedsSkeletonComponent,
     QAComponent,
     CollaborateFormComponent,
-    SkillCardComponent,
-    SkillSkeletonComponent,
     FaqPageComponent
   ],
   providers: [MessageService],
