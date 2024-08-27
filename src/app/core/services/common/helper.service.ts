@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ErrorModel, TopicItem } from '@app/shared/models';
 import { NavTab, SelectedMenu } from '@app/shared/models/nav-tab.model';
-import { ILearningMaterial } from '@app/shared/models/skill-studio-item.model';
 import { Constants } from '@app/shared/utils';
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -175,48 +174,5 @@ export class HelperService {
     return topic ? topic.title : '';
   }
 
-
-  getLearningMtsByType(learningMT:ILearningMaterial[], type: string) {
-    const currentList = [];
-    const filteredList = [];
-    learningMT.forEach(lm => {
-      if(!lm.topicName) {
-        lm.topicName = this.getTopicName(lm.topicCode);
-        lm.publishedOn = lm.publishedOn ? moment(lm.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
-      }
-      if(lm.learningMaterialType === type) {
-        currentList.push(lm);
-        filteredList.push(lm);
-      }
-    });
-    return {currentList, filteredList};
-  }
-
-  productFilter(learningList: ILearningMaterial[], topic: string[], payments: any[], deliveryMode:any[]) {
-    let tempList = [...learningList];
-    if (topic.length) {
-      tempList = tempList.filter(tl => topic.includes(tl.topicCode));
-    }
-    if (payments.length) {
-      tempList = tempList.filter(tl => payments.includes(tl.prizingModel));
-    }
-    if (deliveryMode.length > 0) {
-      tempList = tempList.filter(tl => deliveryMode.includes(tl.deliveryMode));
-    }
-    return tempList;
-  }
-
-  searchByText(filteredList:ILearningMaterial[], searchText: string): ILearningMaterial[] {
-    if (searchText && searchText.trim().length > 0) {
-      filteredList = filteredList.filter(
-        fl =>
-          this.getIncludesStr(fl.title, searchText) ||
-          this.getIncludesStr(fl.topicName, searchText) ||
-          this.getIncludesStr(fl.summary, searchText) ||
-          this.getIncludesStr(fl.description, searchText)
-      );
-    }
-    return filteredList;
-  }
 
 }
