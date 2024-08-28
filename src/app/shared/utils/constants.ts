@@ -77,13 +77,31 @@ export const Constants = {
           enablePostLogin: true,
           desc: 'Streamline your hiring process with AI-powered candidate screening and CV analysis.',
         },
-
-      ],
+      ]
     },
     { uniqueId: 'About Us', displayName: 'About Us', navUrl: '/aboutus', available: 'PRELOGIN' },
     { uniqueId: 'Careers', displayName: 'Careers', navUrl: '/careers', available: 'PRELOGIN' },
     { uniqueId: 'Contactus', displayName: 'Contact Us', navUrl: '/contactus', available: 'PRELOGIN' },
-
+    {
+      uniqueId: 'Blogs', displayName: 'Blogs', navUrl: '/', viewType: 'DESKTOP', available: 'ALL',
+      enablePostLogin: false,
+      children: [
+        {
+          uniqueId: 'TekCapzule_Blog',
+          displayName: 'TekCapzule Blog',
+          navUrl: 'https://blog.tekcapzule.com',
+          enablePostLogin: false,
+          desc: 'Stay updated with the latest technology trends and talent management insights through our TekCapzule Blog.',
+        },
+        {
+          uniqueId: 'AIToday_Blog',
+          displayName: 'AIToday Blog',
+          navUrl: 'https://aitoday.dev',
+          enablePostLogin: true,
+          desc: 'Explore the latest insights and developments in AI with our in-depth articles and expert analysis on AIToday.',
+        },
+      ],
+    },
   ],
   FooterItems: ['HOME', 'Skill_Studio', 'Market_Place', 'Insights'],
   ResponsiveOptions: [
