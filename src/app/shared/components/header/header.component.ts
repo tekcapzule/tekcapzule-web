@@ -146,7 +146,7 @@ export class HeaderComponent implements OnInit {
   onTopMenuClick(navTab: NavTab, needToCloseMenu = false) {
     this.selectedTopMenuItem = navTab;
     this.selectedMenuItem = null;
-    this.router.navigate([navTab.navUrl]);
+    this.router.navigateByUrl(navTab.navUrl);
     if (this.isMobileResolution && needToCloseMenu) {
       this.closeMenu();
     }

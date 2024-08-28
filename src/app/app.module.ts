@@ -11,10 +11,14 @@ import { ApiInterceptor, CacheInterceptor, CoreModule, UserApiService } from '@a
 import { AuthGuard } from './core/services/auth-guard/auth-guard';
 import { HelperService } from './core/services/common/helper.service';
 import { MessageService } from 'primeng/api';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

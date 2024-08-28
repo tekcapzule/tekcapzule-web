@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
   pageDetails;
   productPageDetails: any;
   featureCount = 3;
+  @ViewChild('viewContainer') viewContainer: ElementRef;
 
   constructor(
     private helperService: HelperService,
@@ -42,8 +43,10 @@ export class ProductComponent implements OnInit {
   }
 
   onKnowMore() {
-    //document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
     this.featureCount = this.featureCount === 3 ? this.productPageDetails.length : 3;
+    if(this.featureCount === 3) {
+      this.viewContainer.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   openLaunchPopup() {
