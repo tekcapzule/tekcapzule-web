@@ -22,7 +22,7 @@
       <div
         class="col-xl-6 col-lg-6 col-sm-12 pt-3 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center banner-content px-0">
         <h1 class="text-white animate__animated animate__fadeInUp delay-1">
-          {{pageDetails.displayName}}
+          {{servicePageDetails?.topicName}}
         </h1>
         <h4 class="text-white content-sub-text animate__animated animate__fadeInUp delay-2">
           {{servicePageDetails?.bannerText}}
@@ -98,7 +98,7 @@
     <div class="animate__animated animate__fadeInUp delay-5">
       <app-faq-page [qaList]="servicePageDetails?.faq"></app-faq-page>
     </div>
-   
+
   </div>
   <div id="coll-form-bg" class="animate__animated animate__fadeInUp delay-6">
     <section class="form-bg">

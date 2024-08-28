@@ -1,21 +1,21 @@
 {
-  
-  "uniqueId": "Product_Engineering",
-  "topicName": "Product Engineering",
+
+  "uniqueId": "Course_Development",
+  "topicName": "Engaging Course Crafting",
   "bannerImage": "assets/images/ux-design-banner.png",
-  "bannerText": "We craft intuitive and engaging user experiences through meticulous design and prototyping. Our team ensures each interface is both aesthetically pleasing and functionally seamless, tailored to meet your business needs.",
+  "bannerText": "Develop engaging and effective courses with our expert course development services for LMS. We create tailored learning experiences that drive results and enhance your training programs.",
 "topics": [
-    { 
+    {
       "tile": "assets/images/services/course-development/icon-1.svg",
       "name": "Onboarding",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs, behaviors, and preferences. Combining this with collaborative workshops, we brainstorm innovative solutions that ensure our designs are not only aesthetically pleasing but also user-centric and feasible."
     },
-    { 
+    {
       "tile": "assets/images/services/course-development/icon-2.svg",
       "name": "Compliance",
       "summaryText": "We transform ideas into tangible prototypes quickly and efficiently. Using the latest tools and technologies, we create interactive prototypes that allow for real-time testing and validation. This step helps us identify and resolve potential issues early in the development process."
     },
-    { 
+    {
       "tile": "assets/images/services/course-development/icon-3.svg",
       "name": "Upskill",
       "summaryText": "Our iterative design process involves continuous testing and refinement. We gather user feedback through usability testing and make necessary adjustments to enhance the user experience. This ensures the final product is intuitive, functional, and aligns with user expectations."
