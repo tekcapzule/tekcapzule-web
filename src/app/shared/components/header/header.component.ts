@@ -143,7 +143,7 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  onTopMenuClick(navTab: NavTab, needToCloseMenu = false) {
+  onTopMenuClick(navTab: NavTab, needToCloseMenu = true) {
     this.selectedTopMenuItem = navTab;
     this.selectedMenuItem = null;
     this.router.navigateByUrl(navTab.navUrl);
@@ -201,14 +201,6 @@ export class HeaderComponent implements OnInit {
       this.router.navigate([menuItem.navUrl]);
     } else {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
-    }
-  }
-
-  onSkillStudioClick() {
-    this.selectedMenuItem = this.headerMenu[0];
-    this.router.navigate(['topics', 'topicdetails']);
-    if (this.isMobileResolution) {
-      this.closeMenu();
     }
   }
 
