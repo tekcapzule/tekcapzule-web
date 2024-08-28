@@ -1,64 +1,64 @@
 {
-  "uniqueId": "Candidate_Screening_Product",
-  "topicName": "Automated AI Screening tool",
+  "uniqueId": "TekCapzule_Hire",
+  "topicName": "Hire Smarter with TekCapzule Hire",
   "bannerImage": "assets/images/products/corporate-screening/corporate-screening-banner.png",
-  "bannerText": "We’re a leading global technology consultancy that integrates strategy, design and software engineering to enable enterprises and technology",
+  "bannerText": "Streamline your recruitment process with TekCapzule Hire—experience end-to-end hiring efficiency with AI-powered candidate screening, CV analysis, and automated workflows.",
   "topics": [
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-1.svg",
-      "name": "AI  Assessment",
-      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "name": "AI-Powered Candidate Assessment",
+      "summaryText": "Leverage advanced AI to accurately assess candidates, streamline the screening process, and ensure the best fit for your roles."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-2.svg",
-      "name": "CV Relevant to the JD and Filteration",
-      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "name": "CV Relevance and Filtering",
+      "summaryText": "Efficiently match CVs to job descriptions with intelligent filtering, saving time and improving the quality of your candidate pool."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-3.svg",
-      "name": "End to End workflow",
-      "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    } 
+      "name": "End-to-End Hiring Workflow",
+      "summaryText": "Manage the entire recruitment process seamlessly, from initial candidate engagement to final hiring decisions, all within one integrated platform."
+    }
   ],
   "features": [
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-1.svg",
       "name": "AI Assessment",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-4.svg",
       "name": "CV Generation",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-5.svg",
       "name": "CV Validation",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
 
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-6.svg",
       "name": "Vendor Management",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-3.svg",
       "name": "End-to-End hiring workflow",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-7.svg",
       "name": "Question bank",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
 
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-8.svg",
       "name": "Brand awareness",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
     },
-    { 
+    {
       "tile": "assets/images/products/corporate-screening/icon-9.svg",
       "name": "Reports",
       "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
