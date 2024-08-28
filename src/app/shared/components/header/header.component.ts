@@ -195,6 +195,9 @@ export class HeaderComponent implements OnInit {
 
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
+      if(menuItem.navUrl.startsWith('https')){
+        this.openBlog(menuItem.navUrl);
+      }
       this.router.navigate([menuItem.navUrl]);
     } else {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
@@ -220,8 +223,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  openBlog(eve) {
-    window.open('https://tekcapzule.blog/', '_blank');
+  openBlog(blog) {
+    window.open( blog, '_blank');
   }
 
 
