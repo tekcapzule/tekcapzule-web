@@ -6,15 +6,15 @@
 "topics": [
     {
       "tile": "assets/images/home/offer-4.svg",
-      "name": "User-Centered <br> Research",
+      "name": "Staff Augmentation",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/home/offer-5.svg",
-      "name": "Rapid <br> Prototyping",
+      "name": "Contract-to-Hire",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/home/offer-3.svg",
-      "name": "Continuous Testing and Improvement",
+      "name": "Candidate Screening",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
   ],
   "animateImages": [

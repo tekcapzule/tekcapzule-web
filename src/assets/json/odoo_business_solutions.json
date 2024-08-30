@@ -6,15 +6,15 @@
   "topics": [
     {
       "tile": "assets/images/services/candidate-screening/icon-1.svg",
-      "name": "Automated <br> Screening",
+      "name": "ERP Solutions",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/services/candidate-screening/icon-2.svg",
-      "name": "In-depth <br> assessment",
+      "name": "CRM Solutions",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/services/candidate-screening/icon-3.svg",
-      "name": "Ranking <br> and Recommnedations",
+      "name": "Retail Solutions",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
   ],
   "animateImages": [

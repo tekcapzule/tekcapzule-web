@@ -6,15 +6,15 @@
 "topics": [
     {
       "tile": "assets/images/services/corporate-training/icon-1.svg",
-      "name": "AI to improve <br> SDLC efficiency",
+      "name": "AI-Driven SDLC Training",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/services/corporate-training/icon-2.svg",
-      "name": "Fullstack <br> development",
+      "name": "Technology Training",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/services/corporate-training/icon-3.svg",
-      "name": "Domain <br> training",
+      "name": "Domain Training",
       "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
   ],
   "animateImages": [
