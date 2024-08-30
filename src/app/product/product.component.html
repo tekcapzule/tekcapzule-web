@@ -31,7 +31,7 @@
           {{productPageDetails?.bannerText}}
         </h4>
         <div class="d-flex details-btn">
-          <button mat-raised-button (click)="onKnowMore()"
+          <button mat-raised-button (click)="onExplore()"
             class="button download_btn talk-expert me-3  animate__animated animate__fadeInUp delay-2">
             Explore
           </button>
@@ -82,13 +82,13 @@
     </div>
   </section>
 
-  <section class="my-5 animate__animated animate__fadeInUp delay-3">
+  <section class="my-5 animate__animated animate__fadeInUp delay-3" >
     <div class="row text-center">
       <div class="col-lg-12">
         <h2>Features You’ll Love!</h2>
       </div>
     </div>
-    <div class="container products-list">
+    <div class="container products-list" id="features-you-love">
       <div class="row mb-4" *ngFor="let product of productPageDetails?.keyFeatures; let i = index">
         <!-- Image on the left, content on the right for even-indexed items (on large screens) -->
         <div
@@ -133,7 +133,7 @@
       </div>
     </div>
     <div class="text-center details-btn">
-      <button mat-raised-button (click)="onKnowMore()"
+      <button mat-raised-button (click)="onShowMore()"
         class="button secondary animate__animated animate__fadeInUp delay-2">
         {{featureCount === 3 ? 'Show More' : 'Show Less'}}
       </button>
