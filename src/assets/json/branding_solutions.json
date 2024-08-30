@@ -8,17 +8,17 @@
     {
       "tile": "assets/images/services/web-branding/icon-1.svg",
       "name": "Brand kit",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."
+      "summaryText": "Comprehensive branding essentials, including logo design, style guides, letterheads, and business cards, to create a cohesive and professional brand identity."
     },
     {
       "tile": "assets/images/services/web-branding/icon-2.svg",
       "name": "Company Website",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."
+      "summaryText": "Custom-designed websites tailored to showcase your brand and drive engagement, ensuring a strong online presence and seamless user experience."
     },
     {
       "tile": "assets/images/services/web-branding/icon-3.svg",
       "name": "Social media kit",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."
+      "summaryText": "Professional social media templates and cover images for platforms like Instagram, LinkedIn, Facebook, and Twitter to enhance your digital presence."
     }
   ],
   "animateImages": [
@@ -27,60 +27,48 @@
     "assets/images/services/web-branding/web-branding-3.png",
     "assets/images/services/web-branding/web-branding-4.png"
   ],
-  "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
+  "why": "We deliver expertly crafted solutions tailored to your unique vision. Our comprehensive approach ensures that your brand stands out with a cohesive identity, a powerful online presence, and engaging social media content, all designed to enhance your visibility and drive success.",
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "How do you ensure that the branding solutions match my business’s vision?",
+          "ans": "We work closely with you throughout the process to understand your business goals and brand identity. Through collaboration and feedback, we ensure that the final designs align with your vision and effectively represent your brand."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
-        },
-        {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
-        },
-        {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "What is the process for starting a project with your team?",
+          "ans": "To start a project, simply reach out to us through our contact form or schedule a consultation. We’ll discuss your needs, provide a proposal, and once agreed upon, we’ll begin the design process with regular updates and opportunities for feedback."
         }
       ]
     }, {
-      "title": "Technical Support",
+      "title": "Brand Kit",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "What does a brand kit include?",
+          "ans": " Our brand kit includes essential elements such as logo design, style guides, letterheads, and visiting card designs. This comprehensive package ensures a consistent and professional brand identity across all materials."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "How long does it take to develop a brand kit?",
+          "ans": "The development of a brand kit typically takes 3 to 5 days, depending on the complexity of the design and the feedback process. We ensure that each component aligns with your brand’s vision and goals."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "Company Website",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "What features are included in the company website service?",
+          "ans": " Our company website service includes custom design, responsive layout, user-friendly navigation, and essential functionalities tailored to your business needs. We also offer options for content management, SEO optimization, and integration with other tools."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
-        },
-        {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+          "qus": "Can I update my website after it's launched?",
+          "ans": "Yes, we provide a content management system (CMS) that allows you to easily update and manage your website content. We also offer ongoing support and maintenance to assist with any updates or technical issues."
         }
       ]
     },
     {
-      "title": "Community and Networking",
+      "title": "Social Media Kit",
       "qa": [
         {
           "qus": "Are there opportunities for networking and collaboration?",
