@@ -20,6 +20,20 @@
     line-height: 31px;
     height: 70px;
    }
+   .service-card {
+     border: 1px solid #DEEDFF !important;
+     border-radius: 4px;
+     padding: 20px 20px 0px !important;
+     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;
+     transition: all 0.3s ease;
+   }
+
+   .service-card:hover {
+     border-color: #B0D4FF; /* Change border color on hover */
+     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1) !important; /* Increase shadow on hover */
+     transform: translateY(-5px); /* Slight upward movement on hover */
+     background-color: #ffffff;
+   }
  }
 
 }
@@ -51,7 +65,7 @@
     margin-bottom: 0;
   h1 {
     font-weight: bold;
-   
+
     line-height: 54px;
    }
   }
@@ -130,7 +144,7 @@
 }
 
 @media only screen and (max-width: 990px) {
-  .services-desc { 
+  .services-desc {
     padding: 0 30px !important;
     gap: 20px;
     h4 {
@@ -141,7 +155,20 @@
       margin-right: 0 !important;
     }
   }
+  .service-card {
+    border: 1px solid #DEEDFF !important;
+    border-radius: 4px;
+    padding: 20px 20px 0px !important;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease;
+  }
 
+  .service-card:hover {
+    border-color: #B0D4FF; /* Change border color on hover */
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1) !important; /* Increase shadow on hover */
+    transform: translateY(-5px); /* Slight upward movement on hover */
+    background-color: #ffffff;
+  }
   .details {
     display: block !important;
     padding: 20px;

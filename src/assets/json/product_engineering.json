@@ -7,18 +7,15 @@
     {
       "tile": "assets/images/services/product-engineering/icon-1.svg",
       "name": "Custom <br> development",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs, behaviors, and preferences. Combining this with collaborative workshops, we brainstorm innovative solutions that ensure our designs are not only aesthetically pleasing but also user-centric and feasible."
-    },
+      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/services/product-engineering/icon-2.svg",
       "name": "Low-Code <br> No Code",
-      "summaryText": "We transform ideas into tangible prototypes quickly and efficiently. Using the latest tools and technologies, we create interactive prototypes that allow for real-time testing and validation. This step helps us identify and resolve potential issues early in the development process."
-    },
+      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
     {
       "tile": "assets/images/services/product-engineering/icon-3.svg",
       "name": "Experience <br>first (UX)",
-      "summaryText": "Our iterative design process involves continuous testing and refinement. We gather user feedback through usability testing and make necessary adjustments to enhance the user experience. This ensures the final product is intuitive, functional, and aligns with user expectations."
-    }
+      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
   ],
   "animateImages": [
     "assets/images/services/product-engineering/product-engineering-1.png",
