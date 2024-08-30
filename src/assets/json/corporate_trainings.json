@@ -26,67 +26,78 @@
   "why": "Empower your team with cutting-edge skills and knowledge tailored to your industry. By choosing us, you invest in a comprehensive training solution that enhances efficiency, drives innovation, and positions your organization for long-term success.",
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "What types of corporate training services do you offer?",
+          "ans": "We offer comprehensive corporate training services that include AI-driven SDLC training, technology training, and domain-specific training to ensure your team is well-equipped with the necessary skills and knowledge to succeed."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
+          "qus": "How do your training programs benefit my organization?",
+          "ans": "Our training programs are designed to enhance your team’s skills, improve project outcomes, and ensure that your organization stays competitive by leveraging the latest technologies and industry best practices."
         },
         {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
+          "qus": "How do you ensure that the training is aligned with our business goals?",
+          "ans": "We work closely with your organization to understand your objectives and challenges. Our training programs are then customized to align with your business goals, ensuring that your team gains the skills needed to drive success."
         },
         {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "What is the typical duration of your training programs?",
+          "ans": "OThe duration varies depending on the complexity and scope of the training. We offer short-term workshops, intensive courses, and ongoing training programs to meet your organization’s needs."
+        },{
+          "qus": "Can you provide certification upon completion of the training?",
+          "ans": "Yes, we offer certification for most of our training programs, which serves as a formal recognition of your team’s newly acquired skills and knowledge."
         }
       ]
     }, {
-      "title": "Technical Support",
+      "title": "AI-Driven SDLC Training",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "What is AI-driven SDLC training?",
+          "ans": "AI-driven SDLC (Software Development Life Cycle) training focuses on incorporating artificial intelligence into the software development process. This training helps your team understand how to use AI to optimize each phase of the SDLC, leading to faster development cycles, improved quality, and reduced costs."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "Who should attend AI-driven SDLC training?",
+          "ans": "This training is ideal for software developers, project managers, and IT professionals who are involved in the software development process and want to leverage AI to enhance efficiency and innovation."
+        },
+        {
+          "qus": "How does AI-driven SDLC training improve project outcomes?",
+          "ans": "By integrating AI into the SDLC, your team can automate repetitive tasks, enhance decision-making with predictive analytics, and ensure that the software is both scalable and adaptable to future needs, resulting in better project outcomes."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "Technology Training",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "What technology training do you provide?",
+          "ans": "We offer training on the latest technologies, including cloud computing, cybersecurity, data analytics, and more. Our programs are tailored to your organization’s specific needs, ensuring that your team is proficient in the tools and technologies that drive your business."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
+          "qus": "How do you customize technology training for my team?",
+          "ans": "We assess your team’s current skill levels and your business objectives to create a customized training program that addresses your specific needs. This ensures that the training is relevant and immediately applicable to your work environment."
         },
         {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+          "qus": "Can technology training be delivered remotely?",
+          "ans": "Yes, we offer both in-person and remote training options, providing flexibility to meet your organization’s scheduling and logistical needs."
         }
       ]
     },
     {
-      "title": "Community and Networking",
+      "title": "Domain Training",
       "qa": [
         {
-          "qus": "Are there opportunities for networking and collaboration?",
-          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+          "qus": "What is domain training, and why is it important?",
+          "ans": "Domain training focuses on industry-specific knowledge and practices, ensuring that your team is well-versed in the particularities of your sector. This type of training is crucial for understanding market trends, regulatory requirements, and best practices unique to your industry."
         },
         {
-          "qus": "How can I report inappropriate behavior in the community forums?",
-          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+          "qus": "What industries do you provide domain training for?",
+          "ans": "We offer domain training across various industries, including finance, manufacturing, retail, and more. Our training programs are designed to provide in-depth knowledge relevant to your specific sector."
+        },
+        {
+          "qus": "How does domain training benefit my business?",
+          "ans": "Domain training equips your team with the specialized knowledge needed to navigate industry challenges, comply with regulations, and capitalize on market opportunities, leading to better business performance and strategic decision-making."
         }
       ]
-    }
+    },
   ]
 }
