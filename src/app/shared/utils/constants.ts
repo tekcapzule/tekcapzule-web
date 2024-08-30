@@ -16,19 +16,18 @@ export const Constants = {
       enablePostLogin: false,
       children: [
         {
-          uniqueId: 'LMS',
-          displayName: 'TekCapzule LMS',
-          navUrl: '/products/LMS',
-          enablePostLogin: false,
-          desc: 'Create and manage engaging learning experiences with AI-powered LMS.',
-        },
-        {
           uniqueId: 'Hire',
           displayName: 'TekCapzule Hire',
           navUrl: '/products/Hire',
           enablePostLogin: true,
           desc: 'AI-powered solution for precise candidate screening and CV analysis.',
-        },
+        },{
+          uniqueId: 'LMS',
+          displayName: 'TekCapzule LMS',
+          navUrl: '/products/LMS',
+          enablePostLogin: false,
+          desc: 'Create and manage engaging learning experiences with AI-powered LMS.',
+        }
       ],
     },
     {
@@ -75,7 +74,7 @@ export const Constants = {
           displayName: 'Odoo Business Solutions',
           navUrl: '/services/Odoo_Business_Solutions',
           enablePostLogin: true,
-          desc: 'Expert consulting and implementation to optimize your business processes and drive growth with tailored Odoo solutions.',
+          desc: 'Professional consulting and implementation to optimize your business processes and drive growth with tailored Odoo solutions.',
         },
       ]
     },
