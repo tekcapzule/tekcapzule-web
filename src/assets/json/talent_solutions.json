@@ -26,65 +26,61 @@
   "why": "We provide flexible, efficient, and targeted services designed to meet your unique hiring needs. With our expertise and commitment, we help you build a strong, capable team that drives your business forward.",
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "What types of talent solutions do you offer?",
+          "ans": "We offer three main talent solutions: Staff Augmentation, Contract to Hire, and Candidate Screening, tailored to meet various staffing needs and business requirements."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
-        },
-        {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
-        },
-        {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "How do I determine which talent solution is best for my business?",
+          "ans": "Our team works closely with you to assess your specific needs and recommends the most suitable solution, whether it’s immediate staffing support, evaluating candidates for permanent roles, or sourcing top talent."
         }
       ]
     }, {
-      "title": "Technical Support",
+      "title": "Staff Augmentation",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "What is Staff Augmentation, and how does it work?",
+          "ans": "Staff Augmentation allows you to temporarily add skilled professionals to your existing team for specific projects or tasks. This model provides flexibility and access to specialized expertise without long-term commitments."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "Can I scale my team up or down with Staff Augmentation?",
+          "ans": "Yes, Staff Augmentation is highly flexible, allowing you to easily scale your team based on the demands of your project or business needs."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "Contract to Hire",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "What is the Contract to Hire service?",
+          "ans": "Contract to Hire enables you to evaluate a candidate’s performance and fit within your company during a trial period before making a long-term hiring decision. This approach reduces hiring risks and ensures the right match."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
+          "qus": "How long is the typical trial period for Contract to Hire?",
+          "ans": "The trial period can vary based on your needs, typically ranging from 3 to 6 months, allowing you ample time to assess the candidate’s suitability for a permanent role."
         },
         {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+          "qus": "What happens if the candidate is not a good fit during the trial period?",
+          "ans": "If the candidate is not a good fit, the contract can be ended without the obligations of a permanent hire. We can also assist in finding a replacement if needed."
         }
       ]
     },
     {
-      "title": "Community and Networking",
+      "title": "Candidate Screening",
       "qa": [
         {
-          "qus": "Are there opportunities for networking and collaboration?",
-          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+          "qus": "What does your Candidate Screening service include?",
+          "ans": "Our Candidate Screening service involves thorough vetting of potential hires, including background checks, skill assessments, and interviews, ensuring that only the most qualified candidates are presented to you."
         },
         {
-          "qus": "How can I report inappropriate behavior in the community forums?",
-          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+          "qus": "How do you ensure the quality of candidates through your screening process?",
+          "ans": "We use a rigorous screening process that includes technical assessments, soft skill evaluations, and in-depth interviews to ensure candidates meet your specific requirements."
+        },
+        {
+          "qus": "Can Candidate Screening be tailored to my company’s specific needs?",
+          "ans": "Absolutely. We customize our screening process to align with your company’s unique requirements, ensuring that candidates not only possess the right skills but also fit your company culture."
         }
       ]
     }
