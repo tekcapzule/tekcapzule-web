@@ -8,15 +8,15 @@
     {
       "tile": "assets/images/services/course-development/icon-1.svg",
       "name": "Onboarding",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
+      "summaryText": "Streamline the onboarding process with tailored courses designed to efficiently integrate new employees and customers, ensuring a smooth transition and quick adaptation to your organization."    },
     {
       "tile": "assets/images/services/course-development/icon-2.svg",
       "name": "Compliance",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
+      "summaryText": "Ensure adherence to industry regulations and standards with comprehensive compliance training, helping employees stay informed and avoid potential legal and operational risks."    },
     {
       "tile": "assets/images/services/course-development/icon-3.svg",
       "name": "Upskill",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
+      "summaryText": "Enhance employee capabilities and performance through targeted upskilling courses, designed to boost knowledge and skills in line with your organization's evolving needs."    }
   ],
   "animateImages": [
     "assets/images/services/course-development/course-development-1.png",
@@ -24,7 +24,7 @@
     "assets/images/services/course-development/course-development-3.png",
     "assets/images/services/course-development/course-development-4.png"
   ],
-  "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
+  "why": "We offer expertly crafted training solutions that enhance onboarding, ensure compliance, and drive upskilling. Our courses are tailored to meet your specific requirements, providing engaging and effective learning experiences. With our commitment to quality and a deep understanding of industry needs, we empower your team and customers to excel in what they do.",
   "faq": [
     {
       "title": "Subscription and Billing",

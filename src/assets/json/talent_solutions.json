@@ -7,15 +7,15 @@
     {
       "tile": "assets/images/home/offer-4.svg",
       "name": "Staff Augmentation",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
+      "summaryText": "Quickly fill skill gaps and manage workload fluctuations with our staff augmentation services, providing you with skilled professionals on a temporary basis to seamlessly integrate with your existing team."    },
     {
       "tile": "assets/images/home/offer-5.svg",
       "name": "Contract-to-Hire",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
+      "summaryText": "Evaluate potential employees through a flexible contract-to-hire arrangement, allowing you to assess their fit and performance before making a long-term hiring commitment."    },
     {
       "tile": "assets/images/home/offer-3.svg",
       "name": "Candidate Screening",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
+      "summaryText": "Ensure you find the best talent with our thorough candidate screening process, which evaluates skills, experience, and cultural fit to deliver high-quality candidates ready to contribute effectively to your organization."    }
   ],
   "animateImages": [
     "assets/images/services/ux-design-1.png",
@@ -23,7 +23,7 @@
     "assets/images/services/ux-design-3.png",
     "assets/images/services/ux-design-4.png"
   ],
-  "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
+  "why": "We provide flexible, efficient, and targeted services designed to meet your unique hiring needs. With our expertise and commitment, we help you build a strong, capable team that drives your business forward.",
   "faq": [
     {
       "title": "Subscription and Billing",

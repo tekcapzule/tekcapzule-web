@@ -7,15 +7,15 @@
     {
       "tile": "assets/images/services/corporate-training/icon-1.svg",
       "name": "AI-Driven SDLC Training",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
+      "summaryText": "Leverage AI technology to enhance your software development lifecycle with our AI-Driven SDLC Training. Learn how to integrate AI tools and techniques to optimize processes, improve efficiency, and accelerate project delivery."    },
     {
       "tile": "assets/images/services/corporate-training/icon-2.svg",
       "name": "Technology Training",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    },
+      "summaryText": "Gain deep industry-specific knowledge with our Domain Training, designed to provide insights and skills relevant to your sector. Enhance your team's expertise and stay ahead with training tailored to your business's unique challenges and opportunities."    },
     {
       "tile": "assets/images/services/corporate-training/icon-3.svg",
       "name": "Domain Training",
-      "summaryText": "Our process begins with a deep dive into understanding your users. We conduct thorough research to gather insights on user needs.."    }
+      "summaryText": "Equip your team with the latest technological skills through our Tech Training programs. Stay competitive by mastering new technologies and best practices that drive innovation and improve your organization's tech capabilities."    }
   ],
   "animateImages": [
     "assets/images/services/corporate-training/corporate-training-1.png",
@@ -23,7 +23,7 @@
     "assets/images/services/corporate-training/corporate-training-3.png",
     "assets/images/services/corporate-training/corporate-training-4.png"
   ],
-  "why": "Our unique process sets us apart. We begin with in-depth user research to ensure our designs are rooted in real user needs and preferences. Our collaborative design workshops foster creativity and innovation, bringing together diverse perspectives. We excel in rapid prototyping, allowing for quick iterations and timely delivery. Continuous testing and refinement ensure our solutions are not only functional but also provide a seamless user experience. Choose us for a tailored, user-focused approach that drives results.",
+  "why": "Empower your team with cutting-edge skills and knowledge tailored to your industry. By choosing us, you invest in a comprehensive training solution that enhances efficiency, drives innovation, and positions your organization for long-term success.",
   "faq": [
     {
       "title": "Subscription and Billing",
