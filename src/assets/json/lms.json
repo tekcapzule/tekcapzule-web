@@ -55,155 +55,170 @@
       {
         "image": "assets/images/products/lms/icon-4.svg",
         "title": "On-Demand Learning",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Access courses anytime, anywhere at your convenience."
       },
       {
         "image": "assets/images/products/lms/icon-5.svg",
         "title": "Course Catalogue",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Browse and enroll in a wide variety of courses."
       },
       {
         "image": "assets/images/products/lms/icon-6.svg",
         "title": "Tests",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Evaluate knowledge with customizable assessments."
       },
       {
         "image": "assets/images/products/lms/icon-7.svg",
         "title": "Batches",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Organize learners into groups for structured learning."
       },
       {
         "image": "assets/images/products/lms/icon-8.svg",
         "title": "Live Classes",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Participate in real-time, interactive sessions."
       },
       {
         "image": "assets/images/products/lms/icon-9.svg",
         "title": "References",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Access additional learning materials and resources."
       },
       {
         "image": "assets/images/products/lms/icon-10.svg",
         "title": "Leader board",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Track and display top performers in the system."
       },
       {
         "image": "assets/images/products/lms/icon-11.svg",
         "title": "Automated payments",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Streamline course payments with automatic processing."
       },
       {
         "image": "assets/images/products/lms/icon-3.svg",
         "title": "White label",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Customize the LMS with your brand's identity."
       },
       {
         "image": "assets/images/products/lms/icon-12.svg",
         "title": "Insights",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Gain data-driven insights into learning progress and outcomes."
       },
       {
         "image": "assets/images/products/lms/icon-13.svg",
         "title": "Multiple Content types",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Support for various content formats like video, text, and quizzes."
       },
       {
         "image": "assets/images/products/lms/icon-14.svg",
         "title": "Mobile app",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Learn on the go with a fully-functional mobile app."
       },
       {
         "image": "assets/images/products/lms/icon-2.svg",
         "title": "AI Powered authoring",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Create engaging content with AI-driven tools."
       },
       {
         "image": "assets/images/products/lms/icon-15.svg",
         "title": "Calendar",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Schedule and track important learning events and deadlines."
       },
       {
         "image": "assets/images/products/lms/icon-16.svg",
         "title": "Messages",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Communicate directly with instructors and peers."
       },
       {
         "image": "assets/images/products/lms/icon-17.svg",
         "title": "Tasks",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Manage and track learning-related tasks and assignments."
       },
       {
         "image": "assets/images/products/lms/icon-18.svg",
         "title": "Discussions",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Engage in topic-based forums for deeper understanding."
       },
       {
         "image": "assets/images/products/lms/icon-19.svg",
         "title": "SCORM/Tincan (Standard)",
-        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "description": "Ensure content compatibility with industry standards."
       }
     ],
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "What types of content can I create and deliver with your LMS?",
+          "ans": "Our LMS supports a variety of content types, including video, text, quizzes, SCORM/TinCan compliant content, and AI-powered authoring tools to create dynamic learning experiences."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
+          "qus": "Is your LMS customizable to fit our brand?",
+          "ans": "Yes, our LMS offers white-label options, allowing you to customize the platform with your brand’s logo, colors, and identity."
         },
         {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
-        },
-        {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "How does your LMS handle multiple users and groups?",
+          "ans": "Our LMS features batch management, which allows you to organize learners into groups for more structured and effective learning."
         }
       ]
-    }, {
-      "title": "Technical Support",
+    },{
+      "title": "Functionality",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "Can learners access the courses on mobile devices?",
+          "ans": "Yes, our LMS includes a mobile app that enables learners to access courses on-the-go, ensuring flexibility and convenience."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "How does the On-Demand Learning feature work?",
+          "ans": "On-Demand Learning allows learners to access course materials anytime, anywhere, enabling them to learn at their own pace."
+        },
+        {
+          "qus": "What is the purpose of the Leader Board?",
+          "ans": "The Leader Board displays top performers within the LMS, promoting healthy competition and motivation among learners."
+        }
+      ]
+    },{
+      "title": "Interactive Learning",
+      "qa": [
+        {
+          "qus": "What interactive features are included in your LMS?",
+          "ans": "Our LMS includes features like live classes for real-time learning, discussion forums for engaging in topic-based conversations, and messaging for direct communication with instructors and peers."
+        },
+        {
+          "qus": "How are tests and assessments managed?",
+          "ans": "The LMS allows you to create and administer customizable tests and assessments, providing a robust evaluation process to track learner progress."
+        },
+        {
+          "qus": "Can we integrate external resources or references into the courses?",
+          "ans": "Yes, the References feature allows you to add additional learning materials and resources, enhancing the learning experience."
+        }
+      ]
+    },{
+      "title": "Administrative & Payment",
+      "qa": [
+        {
+          "qus": "How are payments for courses processed?",
+          "ans": "Our LMS includes an Automated Payments feature that streamlines the payment process, allowing for easy and secure transactions."
+        },
+        {
+          "qus": "What insights can I gain from using your LMS?",
+          "ans": "The Insights feature provides data-driven analytics and reports on learner progress, course effectiveness, and overall platform usage."
+        },
+        {
+          "qus": "How does the Calendar feature benefit learners and administrators?",
+          "ans": "The Calendar helps schedule and track important learning events, deadlines, and live sessions, keeping everyone organized and informed."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "Standards & Compliance",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "Is your LMS compatible with SCORM and TinCan standards?",
+          "ans": "Yes, our LMS supports SCORM and TinCan (xAPI) standards, ensuring compatibility and seamless integration with other e-learning content and platforms."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
-        },
-        {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
-        }
-      ]
-    },
-    {
-      "title": "Community and Networking",
-      "qa": [
-        {
-          "qus": "Are there opportunities for networking and collaboration?",
-          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
-        },
-        {
-          "qus": "How can I report inappropriate behavior in the community forums?",
-          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+          "qus": "What AI features are included in the LMS?",
+          "ans": "Our LMS includes AI-Powered Authoring tools that help create engaging content efficiently, as well as other AI-driven features to enhance the learning experience."
         }
       ]
     }
