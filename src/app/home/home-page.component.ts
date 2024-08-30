@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {
-  AppSpinnerService,
   AuthStateService,
   SubscriptionApiService,
   UserApiService
@@ -32,7 +31,6 @@ export class HomePageComponent implements OnInit {
     private subscriptionApi: SubscriptionApiService,
     private fb: FormBuilder,
     private messageService: MessageService,
-    private spinner: AppSpinnerService,
     private helperService: HelperService
   ) {
     Carousel.prototype.onTouchMove = (): void => {};
@@ -61,7 +59,6 @@ export class HomePageComponent implements OnInit {
   onSubscribe(): void {
     this.subscriberFormGroup.markAsTouched();
     if (this.subscriberFormGroup.valid) {
-      this.spinner.show();
       this.subscriptionApi.subscribeEmail(this.subscriberFormGroup.value.emailId).subscribe(
         data => {
           this.messageService.add({
@@ -70,11 +67,9 @@ export class HomePageComponent implements OnInit {
             detail: 'Thank you for subscribing!',
           });
           this.subscriberFormGroup.reset();
-          this.spinner.hide();
         },
         error => {
           this.messageService.add(this.helperService.getInternalErrorMessage());
-          this.spinner.hide();
         }
       );
     } else {
