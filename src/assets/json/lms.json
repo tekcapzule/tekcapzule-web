@@ -3,113 +3,144 @@
   "topicName": "Learn. Anytime. Anywhere.",
   "bannerImage": "assets/images/products/lms/lms-banner.png",
   "bannerText": "Transform the way you learn and teach with our modern LMS platform.",
-  "topics": [
+  "highlights": [
     {
-      "tile": "assets/images/products/lms/icon-1.svg",
-      "name": "Engaging Learning Experience",
-      "summaryText": "Deliver immersive and interactive learning journeys that keep learners engaged and motivated."
+      "image": "assets/images/products/lms/icon-1.svg",
+      "title": "Engaging Learning Experience",
+      "description": "Deliver immersive and interactive learning journeys that keep learners engaged and motivated."
     },
     {
-      "tile": "assets/images/products/lms/icon-2.svg",
-      "name": "AI Powered Course Maker",
-      "summaryText": "Effortlessly create personalized courses with our intelligent AI-powered course creation tools."
+      "image": "assets/images/products/lms/icon-2.svg",
+      "title": "AI Powered Course Maker",
+      "description": "Effortlessly create personalized courses with our intelligent AI-powered course creation tools."
     },
     {
-      "tile": "assets/images/products/lms/icon-3.svg",
-      "name": "Custom Branding",
-      "summaryText": "Customize your LMS with complete white labeling to reflect your brand identity seamlessly."
+      "image": "assets/images/products/lms/icon-3.svg",
+      "title": "Custom Branding",
+      "description": "Customize your LMS with complete white labeling to reflect your brand identity seamlessly."
     }
   ],
+  "keyFeatures": [
+    {
+      "imagePath": "assets/images/products/product-1.png",
+      "title": "On-Demand Learning",
+      "description": "On-demand learning allow users to access content whenever and wherever they need it. Whether your team is scattered across different time zones or juggling various commitments, our platform ensures that learning can seamlessly fit into any schedule."
+    },
+    {
+      "imagePath": "assets/images/products/product-2.png",
+      "title": "Insights at a Glance",
+      "description": "Our LMS dashboard is your command center, providing a comprehensive overview of all learning activities. Whether you're an administrator, instructor, or learner, the dashboard offers tailored insights to help you track progress, measure success, and make informed decisions."
+    },
+    {
+      "imagePath": "assets/images/products/product-3.png",
+      "title": "A World of Learning Opportunities",
+      "description": "We have a robust course catalogue that serves as a gateway to a diverse array of learning opportunities. Whether your organization needs specialized training or broad-based educational programs, our catalogue is designed to cater to all learning needs. "
+    },
+    {
+      "imagePath": "assets/images/products/product-4.png",
+      "title": "Measure and Enhance Learning",
+      "description": "Tests and assessments are integral to tracking progress and identifying areas for improvement. Our LMS provides detailed analytics and reporting tools, helping instructors and administrators gain insights into learner performance. "
+    },
+    {
+      "imagePath": "assets/images/products/product-5.png",
+      "title": "Real-Time Learning Experience",
+      "description": "Bring the classroom to your learners, no matter where they are, with our live classes feature. Our LMS supports real-time, interactive sessions where instructors and learners can engage in meaningful discussions, collaborate on projects, and receive immediate feedback. "
+    },
+    {
+      "imagePath": "assets/images/products/product-6.png",
+      "title": "Learning on the Go",
+      "description": "Whether on a commute, during a break, or in between tasks, learners can access courses, complete assignments, and even participate in live classes right from their mobile devices."
+    }],
     "features": [
       {
-        "tile": "assets/images/products/lms/icon-4.svg",
-        "name": "On-Demand Learning",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-4.svg",
+        "title": "On-Demand Learning",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-5.svg",
-        "name": "Course Catalogue",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-5.svg",
+        "title": "Course Catalogue",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-6.svg",
-        "name": "Tests",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-6.svg",
+        "title": "Tests",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-7.svg",
-        "name": "Batches",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-7.svg",
+        "title": "Batches",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-8.svg",
-        "name": "Live Classes",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-8.svg",
+        "title": "Live Classes",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-9.svg",
-        "name": "References",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-9.svg",
+        "title": "References",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-10.svg",
-        "name": "Leader board",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-10.svg",
+        "title": "Leader board",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-11.svg",
-        "name": "Automated payments",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-11.svg",
+        "title": "Automated payments",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-3.svg",
-        "name": "White label",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-3.svg",
+        "title": "White label",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-12.svg",
-        "name": "Insights",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-12.svg",
+        "title": "Insights",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-13.svg",
-        "name": "Multiple Content types",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-13.svg",
+        "title": "Multiple Content types",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-14.svg",
-        "name": "Mobile app",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-14.svg",
+        "title": "Mobile app",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-2.svg",
-        "name": "AI Powered authoring",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-2.svg",
+        "title": "AI Powered authoring",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-15.svg",
-        "name": "Calendar",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-15.svg",
+        "title": "Calendar",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-16.svg",
-        "name": "Messages",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-16.svg",
+        "title": "Messages",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-17.svg",
-        "name": "Tasks",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-17.svg",
+        "title": "Tasks",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-18.svg",
-        "name": "Discussions",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-18.svg",
+        "title": "Discussions",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       },
       {
-        "tile": "assets/images/products/lms/icon-19.svg",
-        "name": "SCORM/Tincan (Standard)",
-        "summaryText": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+        "image": "assets/images/products/lms/icon-19.svg",
+        "title": "SCORM/Tincan (Standard)",
+        "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
       }
     ],
   "faq": [
