@@ -71,11 +71,11 @@ export const Constants = {
           desc: 'Enhance skills and drive growth with tailored corporate training programs.',
         },
         {
-          uniqueId: 'Candidate_Screening',
-          displayName: 'Candidate Screening',
-          navUrl: '/services/Candidate_Screening',
+          uniqueId: 'Odoo_Business_Solutions',
+          displayName: 'Odoo Business Solutions',
+          navUrl: '/services/Odoo_Business_Solutions',
           enablePostLogin: true,
-          desc: 'Streamline your hiring process with AI-powered candidate screening and CV analysis.',
+          desc: 'Expert consulting and implementation to optimize your business processes and drive growth with tailored Odoo solutions.',
         },
       ]
     },
