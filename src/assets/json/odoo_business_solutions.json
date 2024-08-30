@@ -26,65 +26,86 @@
   "why": "we deliver tailored, cutting-edge systems designed to meet your unique business needs. With our expertise and commitment to innovation, we ensure that you receive efficient, scalable, and integrated solutions that empower your business to excel and achieve long-term success.",
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "What are Odoo Business Solutions?",
+          "ans": "Odoo Business Solutions encompass a suite of integrated applications designed to help businesses manage various functions such as finance, operations, customer relationships, and retail operations. We specialize in implementing and customizing these solutions to fit your unique business needs."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
+          "qus": "Why should we choose your Odoo Business Solutions?",
+          "ans": "We provide expert implementation, customization, and support for Odoo solutions, ensuring that the software aligns perfectly with your business processes. Our focus is on delivering efficient, scalable, and cost-effective solutions that drive business growth."
         },
         {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
-        },
-        {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "How long does it take to implement an Odoo solution?",
+          "ans": "The implementation timeline depends on the complexity of your business requirements and the specific solutions you need. Typically, a basic implementation can take a few weeks, while more complex, customized solutions may take several months."
         }
       ]
     }, {
-      "title": "Technical Support",
+      "title": "ERP Solutions",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "What does your ERP solution include?",
+          "ans": "Our ERP solution integrates various business processes into a single system, including finance, supply chain, inventory, human resources, and more. This provides a centralized platform for managing operations efficiently and improving decision-making."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "How can your ERP solution benefit our business?",
+          "ans": "By streamlining processes and providing real-time data insights, our ERP solution helps reduce operational costs, improve productivity, and enhance overall business performance. It also facilitates better resource management and planning."
+        },
+        {
+          "qus": "Can your ERP solution be customized to our specific needs?",
+          "ans": "Yes, we tailor the ERP solution to match your unique business processes and requirements. Whether you need custom workflows, reports, or integrations with other systems, we ensure the solution fits your exact needs."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "CRM Solutions",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "What features are included in your CRM solution?",
+          "ans": "Our CRM solution includes tools for managing customer relationships, sales pipelines, marketing campaigns, customer support, and more. It helps you track interactions, manage leads, and improve customer satisfaction."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
+          "qus": "How does your CRM solution improve customer relationships?",
+          "ans": "By providing a 360-degree view of your customers, our CRM solution helps you understand their needs, personalize interactions, and deliver better service. This leads to stronger customer loyalty and increased sales opportunities."
         },
         {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+          "qus": "Can your CRM solution integrate with our existing systems?",
+          "ans": "Yes, our CRM solution can be integrated with your existing tools and systems, such as email, e-commerce platforms, and social media, to provide a seamless experience and ensure all customer data is centralized."
         }
       ]
     },
     {
-      "title": "Community and Networking",
+      "title": "Retail Solutions",
       "qa": [
         {
-          "qus": "Are there opportunities for networking and collaboration?",
-          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+          "qus": "What does your retail solution offer?",
+          "ans": "Our retail solution covers everything from point-of-sale (POS) systems to inventory management, e-commerce integration, and customer loyalty programs. It provides a comprehensive platform for managing all aspects of your retail operations."
         },
         {
-          "qus": "How can I report inappropriate behavior in the community forums?",
-          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+          "qus": "How can your retail solution help our business grow?",
+          "ans": "Our retail solution enhances the shopping experience, streamlines operations, and provides real-time insights into sales and inventory. This helps you make informed decisions, optimize stock levels, and improve customer satisfaction, driving business growth."
+        },
+        {
+          "qus": "Is your retail solution suitable for both online and offline stores?",
+          "ans": "Yes, our retail solution is designed to support both brick-and-mortar stores and online shops. It integrates seamlessly across channels, allowing you to manage your entire retail ecosystem from a single platform."
+        }
+      ]
+    },
+    {
+      "title": "Support & Maintenance",
+      "qa": [
+        {
+          "qus": "What kind of support do you provide after implementation?",
+          "ans": "We offer ongoing support and maintenance to ensure your Odoo solutions run smoothly. This includes troubleshooting, updates, and training to help your team maximize the benefits of the system."
+        },
+        {
+          "qus": "Can you help with upgrading our existing Odoo system?",
+          "ans": "Absolutely. We can assist with upgrading your current Odoo system to the latest version, ensuring a smooth transition while preserving your data and customizations."
+        },
+        {
+          "qus": "How do you handle data migration for Odoo implementations?",
+          "ans": "We use a meticulous approach to data migration, ensuring all your important data is accurately transferred to the new system with minimal disruption to your operations."
         }
       ]
     }
