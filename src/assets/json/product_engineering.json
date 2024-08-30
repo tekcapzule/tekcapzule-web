@@ -26,57 +26,60 @@
   "why": "We combine advanced AI technology with tailored solutions and rapid agile methodologies. Our approach ensures that you benefit from enhanced efficiency, cost savings, and fast delivery, all while receiving a product specifically designed to meet your unique business goals.",
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "What does your Custom Development Service entail?",
+          "ans": "Our Custom Development Service offers end-to-end solutions tailored to your business needs, including AI-Enhanced Development, Rapid Agile Development, and the use of the latest technologies to deliver robust and scalable software products."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
+          "qus": "How do you ensure that the solution is tailored to my business needs?",
+          "ans": "We begin with a thorough consultation to understand your business requirements, goals, and challenges. Our team then designs and develops a solution that aligns with your specific needs, ensuring a perfect fit for your business."
         },
         {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
+          "qus": "What technologies do you use in your development projects?",
+          "ans": "We utilize the latest technologies, including modern programming languages, frameworks, cloud services, and AI tools, to build cutting-edge solutions that are scalable, secure, and future-proof."
         },
         {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "How do you ensure that the technology you use is up-to-date?",
+          "ans": "Our team continuously researches and adopts the latest technologies and best practices in the industry. We stay ahead of the curve by investing in ongoing training and innovation, ensuring that your solution benefits from the most advanced tools available."
+        },{
+          "qus": "Can the custom solution be scaled as my business grows?",
+          "ans": "Absolutely. We design our custom solutions with scalability in mind, allowing them to grow alongside your business and adapt to changing needs over time."
+        },
+        {
+          "qus": "What if my project requirements change during development?",
+          "ans": "Our Agile approach allows for flexibility, so if your requirements change, we can quickly adapt and make necessary adjustments to the project plan, ensuring the final product meets your evolving needs."
         }
       ]
     }, {
-      "title": "Technical Support",
+      "title": "Tailored Solutions",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "What are Tailored Solutions, and how do they benefit my business?",
+          "ans": "Tailored Solutions are custom-built software designed to address your unique business challenges. These solutions are developed specifically for your organization, ensuring that all functionalities and features meet your exact needs, leading to better efficiency and effectiveness."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "How involved will I be in the development process?",
+          "ans": "You will be closely involved throughout the development process, from initial planning to final deployment. We value your input and ensure that the solution aligns with your vision and business objectives."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "AI-Enhanced Development",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "How does AI-Enhanced Development improve my software?",
+          "ans": "AI-Enhanced Development leverages artificial intelligence to optimize various aspects of the software, such as predictive analytics, automation, and personalization. This leads to smarter, faster, and more efficient solutions that can adapt to your business needs."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
-        },
-        {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+          "qus": "Can AI be integrated into my existing systems?",
+          "ans": "Yes, we can integrate AI capabilities into your existing systems to enhance their functionality and performance, making your operations more efficient and data-driven."
         }
       ]
     },
     {
-      "title": "Community and Networking",
+      "title": "Rapid Agile Development",
       "qa": [
         {
           "qus": "Are there opportunities for networking and collaboration?",
