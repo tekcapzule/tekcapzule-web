@@ -94,16 +94,6 @@
 
 
         <div class="d-flex">
-          <!-- <div class="header-search-box mr-3">
-            <input type="text" class="search-input" placeholder="Start Looking For Something!" />
-            <a class="search-btn" routerLink="#">
-              <img src="../../../../assets/images/search-icon.svg" alt="Search" />
-            </a>
-          </div> -->
-          <!-- <div class="global-search-box mr-3">
-            <input type="text" placeholder="What are you looking for?" class="mb-0" />
-            <button title="search bar" class="search-btn mr-3"></button>
-          </div> -->
 
           <!-- /***Search Box*****/ -->
           <div class="search-box mx-0">
@@ -136,16 +126,7 @@
           <div class="mobile-header" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
             <a routerLink="/" data-toggle="collapse" data-target=".navbar-collapse.show" routerLinkActive="active"><img
                 src="/assets/images/logo.svg" alt="Tekcapzule Logo" /></a>
-            <!-- <div class="page-name">
-              <div class="main-nav">{{ selectedTopMenuItem ? selectedTopMenuItem?.displayName : selectedChildMenuItem ?
-                selectedChildMenuItem?.displayName: selectedMenuItem?.displayName }}</div>
-            </div> -->
-            <!-- <div class="mobile-header-icons"
-              *ngIf="isMobileResolution && !selectedTopMenuItem && selectedMenuItem?.uniqueId !== 'HOME'">
-              <div class="header-search-icon"></div>
-              <div class="header-sort-icon" (click)="onShowSort()"></div>
-              <div class="header-filter-icon" (click)="onShowFilter()"></div>
-            </div> -->
+
           </div>
           <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
             <!-- Mobile Menu -->
@@ -168,44 +149,6 @@
               <div class="mobile-menu-bg">
 
                 <ul>
-                  <!--  <ul class="mobile-submenu top-level-menus">
-                    <li class="sub-menu-element"
-                      (click)="onMenuClick(headerMenu[0])">
-                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + headerMenu[0].uniqueId.toLowerCase()"
-                        class="sub-menu-element"><span class="sub-menu-element">{{headerMenu[0].displayName}}</span></a>
-                    </li>
-                </ul> -->
-
-                  <!-- <li class="skill-menu-bg" (click)="toggleSkillStudioMenu()">
-                  <a routerLink="/skill-dashboard" class="mobile-menu-skill-studio">
-                    SkillStudio
-                    <span *ngIf="!authState.isUserLoggedIn()" [ngClass]="{'arrow-up': isSkillStudioMenuOpen, 'arrow-down': !isSkillStudioMenuOpen}"></span>
-                  </a>
-                  <ul *ngIf="!authState.isUserLoggedIn() && isSkillStudioMenuOpen" class="mobile-submenu">
-                    <li class="sub-menu-element skill-menu" *ngFor="let sm of skillStudioMenu; let i = index"
-                      (click)="onChildMenuClick(sm)">
-                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + sm.uniqueId.toLowerCase()"
-                        class="sub-menu-element">
-                        <span class="sub-menu-element">{{sm.displayName}}</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li> -->
-
-                  <!-- <ul class="mobile-submenu top-level-menus sub-nav-line">
-                  <ng-cotainer *ngFor="let hm of headerMenu | slice:2:headerMenu.length let i = index">
-                    <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'POSTLOGIN' && authState.isUserLoggedIn()"
-                      (click)="onMenuClick(hm)">
-                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
-                        class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                    </li>
-                    <li class="sub-menu-element" *ngIf="hm.viewType !== 'DESKTOP' && hm.available === 'ALL'"
-                      (click)="onMenuClick(hm)">
-                      <a href="Javascript:void(0)" [ngClass]="'mobile-menu-' + hm.uniqueId.toLowerCase()"
-                        class="sub-menu-element"><span class="sub-menu-element">{{hm.displayName}}</span></a>
-                    </li>
-                  </ng-cotainer>
-                </ul> -->
 
 
                   <li>
@@ -235,22 +178,10 @@
                     </ul>
 
                   </li>
-                  <!-- <li class="main-nav-links pt-2 skill-menu-bg sub-nav-line">
-                  <a (click)="toggleBlogMenu()">Blogs
-                    <span [ngClass]="{'arrow-up': isBlogMenuOpen, 'arrow-down': !isBlogMenuOpen}"></span>
-                  </a>
-                  <ul *ngIf="isBlogMenuOpen" [@expandCollapseAnimation]="'expanded'">
-                    <li><a href="https://tekcapsule.blog/" target="_blank">TekCapsule</a></li>
-                    <li><a href="https://aitoday.blog/" target="_blank">AI Today</a></li>
-                  </ul>
-                </li> -->
+
                 </ul>
               </div>
-              <!-- <div class="d-flex align-items-center mx-5 mt-4">
-                <button mat-raised-button class="button primary-outline w-100" (click)="onViewPlans()">
-                  View plans
-                </button>
-              </div> -->
+
             </div>
           </div>
         </nav>

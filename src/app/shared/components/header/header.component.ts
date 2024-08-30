@@ -195,10 +195,11 @@ export class HeaderComponent implements OnInit {
 
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
-      if(menuItem.navUrl.startsWith('https')){
-        this.openBlog(menuItem.navUrl);
-      }
-      this.router.navigate([menuItem.navUrl]);
+
+      menuItem.navUrl.startsWith('https')
+        ? this.openBlog(menuItem.navUrl)
+        : this.router.navigate([menuItem.navUrl]);
+
     } else {
       this.eventChannel.publish({ event: ChannelEvent.ShowBrowseByTopic });
     }
