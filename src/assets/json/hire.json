@@ -44,7 +44,7 @@
     {
       "imagePath": "assets/images/products/product-6.png",
       "title": "CV Analysis & Ranking",
-      "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position.."
+      "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position."
     }],
   "features": [
     {
@@ -150,7 +150,7 @@
       "title": "Support and Customization",
       "qa": [
         {
-          "qus": "What kind of support can I expect after purchasing [Your Product Name]?",
+          "qus": "What kind of support can I expect after purchasing TekCapzule Hire?",
           "ans": "We offer comprehensive support, including onboarding assistance, training sessions, and ongoing technical support. Our customer success team is always available to help you maximize the benefits of our platform."
         },
         {
