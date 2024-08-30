@@ -6,204 +6,156 @@
   "highlights": [
     {
       "image": "assets/images/products/lms/icon-1.svg",
-      "title": "Engaging Learning Experience",
-      "description": "Deliver immersive and interactive learning journeys that keep learners engaged and motivated."
+      "title": "AI Powered Assessment",
+      "description": "Leverage AI to automatically grade and analyze assessments, ensuring accurate and unbiased candidate evaluations."
     },
     {
       "image": "assets/images/products/lms/icon-2.svg",
-      "title": "AI Powered Course Maker",
-      "description": "Effortlessly create personalized courses with our intelligent AI-powered course creation tools."
+      "title": "End to End Hiring Workflow",
+      "description": "Streamline your recruitment with a seamless workflow from assessment creation to onboarding."
     },
     {
       "image": "assets/images/products/lms/icon-3.svg",
-      "title": "Custom Branding",
-      "description": "Customize your LMS with complete white labeling to reflect your brand identity seamlessly."
+      "title": "CV Analysis & Ranking",
+      "description": "AI-driven CV analysis and ranking to quickly identify and prioritize top candidates."
     }
   ],
   "keyFeatures": [
     {
       "imagePath": "assets/images/products/product-1.png",
-      "title": "On-Demand Learning",
-      "description": "On-demand learning allow users to access content whenever and wherever they need it. Whether your team is scattered across different time zones or juggling various commitments, our platform ensures that learning can seamlessly fit into any schedule."
+      "title": "Automatic Screening",
+      "description": "Efficiently filter candidates with automated screening that matches their qualifications to job requirements, saving you time and effort."
     },
     {
       "imagePath": "assets/images/products/product-2.png",
-      "title": "Insights at a Glance",
-      "description": "Our LMS dashboard is your command center, providing a comprehensive overview of all learning activities. Whether you're an administrator, instructor, or learner, the dashboard offers tailored insights to help you track progress, measure success, and make informed decisions."
+      "title": "Screen Recording",
+      "description": "Capture and review candidate interactions with screen recording, providing valuable insights into their problem-solving and technical skills."
     },
     {
       "imagePath": "assets/images/products/product-3.png",
-      "title": "A World of Learning Opportunities",
-      "description": "We have a robust course catalogue that serves as a gateway to a diverse array of learning opportunities. Whether your organization needs specialized training or broad-based educational programs, our catalogue is designed to cater to all learning needs. "
+      "title": "Question Bank",
+      "description": "Access a comprehensive question bank for creating customized assessments, ensuring relevant and targeted evaluations for each role."
     },
     {
       "imagePath": "assets/images/products/product-4.png",
-      "title": "Measure and Enhance Learning",
-      "description": "Tests and assessments are integral to tracking progress and identifying areas for improvement. Our LMS provides detailed analytics and reporting tools, helping instructors and administrators gain insights into learner performance. "
-    },
-    {
-      "imagePath": "assets/images/products/product-5.png",
-      "title": "Real-Time Learning Experience",
-      "description": "Bring the classroom to your learners, no matter where they are, with our live classes feature. Our LMS supports real-time, interactive sessions where instructors and learners can engage in meaningful discussions, collaborate on projects, and receive immediate feedback. "
+      "title": "End to End Hiring Workflow",
+      "description": "Manage the entire recruitment process seamlessly, from initial screening to final onboarding, with our integrated end-to-end workflow."
     },
     {
       "imagePath": "assets/images/products/product-6.png",
-      "title": "Learning on the Go",
-      "description": "Whether on a commute, during a break, or in between tasks, learners can access courses, complete assignments, and even participate in live classes right from their mobile devices."
+      "title": "CV Analysis & Ranking",
+      "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position.."
     }],
   "features": [
     {
       "image": "assets/images/products/lms/icon-4.svg",
-      "title": "On-Demand Learning",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Automatic Screening",
+      "description": "Efficiently filter candidates with automated screening that matches their qualifications to job requirements, saving you time and effort."
     },
     {
       "image": "assets/images/products/lms/icon-5.svg",
-      "title": "Course Catalogue",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Screen Recording",
+      "description": "Capture and review candidate interactions with screen recording, providing valuable insights into their problem-solving and technical skills."
     },
     {
       "image": "assets/images/products/lms/icon-6.svg",
-      "title": "Tests",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Question Bank",
+      "description": "Access a comprehensive question bank for creating customized assessments, ensuring relevant and targeted evaluations for each role."
     },
     {
       "image": "assets/images/products/lms/icon-7.svg",
-      "title": "Batches",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "End to End Hiring Workflow",
+      "description": "Manage the entire recruitment process seamlessly, from initial screening to final onboarding, with our integrated end-to-end workflow."
     },
     {
       "image": "assets/images/products/lms/icon-8.svg",
-      "title": "Live Classes",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "CV Analysis & Ranking",
+      "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position."
     },
     {
       "image": "assets/images/products/lms/icon-9.svg",
-      "title": "References",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "CV Generation",
+      "description": "Generate standardized CVs to streamline candidate profiles, reducing cognitive load and ensuring consistency in evaluation."
     },
     {
       "image": "assets/images/products/lms/icon-10.svg",
-      "title": "Leader board",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Vendor Management",
+      "description": "Efficiently manage recruitment vendors with tools for tracking, communication, and performance evaluation."
     },
     {
       "image": "assets/images/products/lms/icon-11.svg",
-      "title": "Automated payments",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Brand Awareness",
+      "description": "Boost your hiring company’s visibility and attract top talent with strategic brand awareness initiatives."
     },
     {
       "image": "assets/images/products/lms/icon-3.svg",
-      "title": "White label",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Multiple Question Types",
+      "description": "Create diverse assessments using various question types, including multiple-choice and coding questions, for a comprehensive evaluation."
     },
     {
       "image": "assets/images/products/lms/icon-12.svg",
-      "title": "Insights",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-13.svg",
-      "title": "Multiple Content types",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-14.svg",
-      "title": "Mobile app",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-2.svg",
-      "title": "AI Powered authoring",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-15.svg",
-      "title": "Calendar",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-16.svg",
-      "title": "Messages",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-17.svg",
-      "title": "Tasks",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-18.svg",
-      "title": "Discussions",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
-    },
-    {
-      "image": "assets/images/products/lms/icon-19.svg",
-      "title": "SCORM/Tincan (Standard)",
-      "description": "TekCapzule LMS is the ultimate eLearning and up-skilling suite, designed for more engagement."
+      "title": "Reporting",
+      "description": "Gain actionable insights with detailed reporting on candidate performance, recruitment metrics, and process efficiency."
     }
   ],
   "faq": [
     {
-      "title": "Subscription and Billing",
+      "title": "General",
       "qa": [
         {
-          "qus": "How can I subscribe to the TekCapzule training platform?",
-          "ans": "You can subscribe by creating an account on our website or app. Once you're logged in, click on \"Try for free\" to select your preferred subscription plan and follow the prompts to complete the payment."
+          "qus": "What is TekCapzule Hire?",
+          "ans": "An AI Powered hiring and screening tool designed to help businesses streamline their recruitment process. It offers coding assessments, technical skill evaluations, video interviews, and comprehensive analytics to identify the best candidates for your team."
         },
         {
-          "qus": "What payment methods do you accept?",
-          "ans": "We accept all major credit cards, PayPal, and select digital wallets. The availability of certain payment methods may vary by country."
-        },
-        {
-          "qus": "Is my payment information secure?",
-          "ans": "Absolutely. Our payment gateway partner use state-of-the-art encryption technology to ensure your personal information and payment details are always safe."
-        },
-        {
-          "qus": "How do I cancel my subscription?",
-          "ans": "To cancel your subscription, log in to your account, navigate to the \"My Account\" section, select \"Manage Subscription\" and then choose \"Cancel Subscription\". Please note that cancellations must be made at least 48 hours before your next billing cycle to avoid being charged."
+          "qus": "Who can benefit from using TekCapzule Hire?",
+          "ans": "Ideal for HR professionals, recruiters, and hiring managers across various industries. It is particularly useful for companies looking to hire technical talent, such as software developers, data scientists, and IT professionals."
         }
       ]
     }, {
-      "title": "Technical Support",
+      "title": "Assessments and Evaluations",
       "qa": [
         {
-          "qus": "What should I do if I'm having trouble accessing the platform?",
-          "ans": "First, try refreshing your page or restarting your device. If the problem persists, please contact our technical support team at <a href=\"mailto:contact@tekcapzule.com\">contact@tekcapzule.com</a>, providing as much detail about the issue as possible."
+          "qus": "What types of assessments can I create?",
+          "ans": "You can create a wide range of assessments, including coding challenges, technical skill tests, role-specific evaluations, and even hands-on projects. You can also include behavioral and cognitive assessments to evaluate soft skills and cultural fit."
         },
         {
-          "qus": "Is there any system requirement to use the platform?",
-          "ans": "Our platform can be accessed via web browsers like Chrome, Firefox, Safari, and Edge on both desktop and mobile devices. For optimal performance, we recommend using the latest browser versions."
+          "qus": "Can I customize the assessments to fit specific job roles?",
+          "ans": "Yes, TekCapzule Hire allows you to fully customize assessments to match the specific skills and requirements of any job role. You can choose from a library of pre-built questions or create your own."
+        },
+        {
+          "qus": "How does the coding assessment feature work?",
+          "ans": "The coding assessment feature provides candidates with coding challenges that they can solve in real-time. Their code is automatically evaluated using AI models."
+        },{
+          "qus": "Does TekCapzule Hire support video interviews?",
+          "ans": "Yes, includes a video interview feature that enables you to conduct live or pre-recorded interviews. You can assess a candidate’s communication skills, problem-solving abilities, and personality traits through these interviews."
+        },{
+          "qus": "Can interviews be recorded for later review?",
+          "ans": "Absolutely. All video interviews can be recorded and stored within the platform, allowing your team to review them at any time, share them with stakeholders, and make more informed hiring decisions."
         }
       ]
     },
     {
-      "title": "Account Management",
+      "title": "Security and Compliance",
       "qa": [
         {
-          "qus": "How can I change my account details?",
-          "ans": "To change your account details, simply log in and navigate to \"My Account\". Here you can update your name, email address, password, and other account information."
+          "qus": "How secure is TekCapzule Hire in terms of data protection?",
+          "ans": "TekCapzule Hire adheres to the highest standards of data security and privacy. All candidate information and assessment data are encrypted and stored securely, ensuring compliance with relevant regulations such as GDPR."
         },
         {
-          "qus": "I forgot my password. What should I do?",
-          "ans": "If you've forgotten your password, go to the login page and click on \"Forgot Password\". You will be prompted to enter your email address. Once submitted, you will receive an email with instructions on how to reset your password."
-        },
-        {
-          "qus": "How can I delete my account?",
-          "ans": "To delete your account, please contact our support team at <a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>. Note that deleting your account will permanently erase your account details, course progress, and any certificates earned."
+          "qus": "Does TekCapzule Hire support compliance with industry standards?",
+          "ans": "Yes, TekCapzule Hire is designed to meet industry-specific compliance requirements. Whether it’s GDPR for data protection or EEOC guidelines for non-discriminatory hiring practices, the platform ensures your recruitment process is compliant."
         }
       ]
-    },
-    {
-      "title": "Community and Networking",
+    },{
+      "title": "Support and Customization",
       "qa": [
         {
-          "qus": "Are there opportunities for networking and collaboration?",
-          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+          "qus": "What kind of support can I expect after purchasing [Your Product Name]?",
+          "ans": "We offer comprehensive support, including onboarding assistance, training sessions, and ongoing technical support. Our customer success team is always available to help you maximize the benefits of our platform."
         },
         {
-          "qus": "How can I report inappropriate behavior in the community forums?",
-          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+          "qus": "Can TekCapzule Hire be customized to fit our company’s branding?",
+          "ans": "Yes, the platform can be white-labeled to reflect your company’s branding, including custom logos, color schemes, and domain names. This provides a seamless experience for both your team and the candidates."
         }
       ]
     }
