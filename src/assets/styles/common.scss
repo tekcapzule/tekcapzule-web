@@ -2709,10 +2709,10 @@ body.modal-open {
     font-size: 38px !important;
     font-weight: 700 !important;
     letter-spacing: -1.14px;
-    text-transform: uppercase;
     margin-bottom: 32px;
     span {
       color: $primary-color;
+      text-transform: uppercase;
     }
   }
  }
