@@ -48,17 +48,17 @@
     }],
   "features": [
     {
-      "image": "assets/images/products/hire/icon-4.svg",
+      "image": "assets/images/products/hire/icon-1.svg",
       "title": "Automatic Screening",
       "description": "Efficiently filter candidates with automated screening that matches their qualifications to job requirements, saving you time and effort."
     },
     {
-      "image": "assets/images/products/hire/icon-5.svg",
+      "image": "assets/images/products/hire/screen-recording.svg",
       "title": "Screen Recording",
       "description": "Capture and review candidate interactions with screen recording, providing valuable insights into their problem-solving and technical skills."
     },
     {
-      "image": "assets/images/products/hire/icon-7.svg",
+      "image": "assets/images/products/hire/icon-5.svg",
       "title": "Question Bank",
       "description": "Access a comprehensive question bank for creating customized assessments, ensuring relevant and targeted evaluations for each role."
     },
@@ -73,7 +73,7 @@
       "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position."
     },
     {
-      "image": "assets/images/products/hire/icon-9.svg",
+      "image": "assets/images/products/hire/icon-4.svg",
       "title": "CV Generation",
       "description": "Generate standardized CVs to streamline candidate profiles, reducing cognitive load and ensuring consistency in evaluation."
     },
@@ -88,7 +88,7 @@
       "description": "Boost your hiring company’s visibility and attract top talent with strategic brand awareness initiatives."
     },
     {
-      "image": "assets/images/products/hire/icon-3.svg",
+      "image": "assets/images/products/hire/multiple_question_types.svg",
       "title": "Multiple Question Types",
       "description": "Create diverse assessments using various question types, including multiple-choice and coding questions, for a comprehensive evaluation."
     },

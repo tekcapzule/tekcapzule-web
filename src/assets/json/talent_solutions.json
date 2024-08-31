@@ -5,23 +5,23 @@
   "bannerText": "We deliver tailored Talent solutions that meet your unique business needs. Our team of experts sources and screens candidates to ensure the best fit for your organization. Whether you need temporary, contract, or permanent staff, we provide reliable solutions.",
 "topics": [
     {
-      "tile": "assets/images/home/offer-4.svg",
+      "tile": "assets/images/services/talent-solutions/staff-augmentation.svg",
       "name": "Staff Augmentation",
       "summaryText": "Quickly fill skill gaps and manage workload fluctuations with our staff augmentation services, providing you with skilled professionals on a temporary basis to seamlessly integrate with your existing team."    },
     {
-      "tile": "assets/images/home/offer-5.svg",
+      "tile": "assets/images/services/talent-solutions/contract-to-hire.svg",
       "name": "Contract-to-Hire",
       "summaryText": "Evaluate potential employees through a flexible contract-to-hire arrangement, allowing you to assess their fit and performance before making a long-term hiring commitment."    },
     {
-      "tile": "assets/images/home/offer-3.svg",
+      "tile": "assets/images/services/talent-solutions/candidate-screening.svg",
       "name": "Candidate Screening",
       "summaryText": "Ensure you find the best talent with our thorough candidate screening process, which evaluates skills, experience, and cultural fit to deliver high-quality candidates ready to contribute effectively to your organization."    }
   ],
   "animateImages": [
-    "assets/images/services/ux-design-1.png",
-    "assets/images/services/ux-design-2.png",
-    "assets/images/services/ux-design-3.png",
-    "assets/images/services/ux-design-4.png"
+    "assets/images/services/talent-solutions/talent-solutions-1.png",
+    "assets/images/services/talent-solutions/talent-solutions-2.png",
+    "assets/images/services/talent-solutions/talent-solutions-3.png",
+    "assets/images/services/talent-solutions/talent-solutions-4.png"
   ],
   "why": "We provide flexible, efficient, and targeted services designed to meet your unique hiring needs. With our expertise and commitment, we help you build a strong, capable team that drives your business forward.",
   "faq": [
