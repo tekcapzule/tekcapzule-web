@@ -359,6 +359,14 @@
     font-size: 28px !important;
     padding-bottom: 20px !important;
     line-height: 30px !important;
+    .mobile-menu > a {
+      .sub-menu-element {
+        color: #7bb8ff !important;
+        text-transform: capitalize !important;
+        margin-left: 10%;
+      }
+    }
+
 }
 .package-container {
   height: auto !important;
