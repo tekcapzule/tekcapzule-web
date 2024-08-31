@@ -2626,7 +2626,8 @@ body.modal-open {
     display: none;
   }
   .page-banner {
-    height: 400px;
+    height: auto;
+    padding-bottom: 40px;
     h1{
       line-height: 40px !important;
     }

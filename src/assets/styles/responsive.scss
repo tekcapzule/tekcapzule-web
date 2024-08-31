@@ -372,11 +372,18 @@
       width: 100% !important;
       margin-bottom: 20px;
     }
+    .service-categories-page {
+      .page-banner {
+        height: 485px !important;
+      }
+    }
+   
 }
 .product-desc {
   display: block !important;
   .col-lg-4 {
     width: 100% !important;
+    margin-bottom: 35px !important;
   }
 }
 .inner-block {
@@ -388,6 +395,17 @@
       margin-top: 0 !important;
     }
   }
+}
+.offers {
+  gap: 40px !important;
+    label {
+      font-size: 13px !important;
+      font-weight: 500;
+    }
+}
+.services-desc {
+  display: flex !important;
+  gap: 30px !important;
 }
 }
 @media only screen and (width: 1024px) {
