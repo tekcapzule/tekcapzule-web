@@ -1,27 +1,27 @@
 {
   "uniqueId": "Odoo_Business_Solutions",
   "topicName": "Odoo Business Solutions",
-  "bannerImage": "assets/images/ux-design-banner.png",
+  "bannerImage": "assets/images/branding-solutions.png",
   "bannerText": "We provide customized solutions to streamline your operations, integrate key processes, and drive growth, ensuring you achieve maximum efficiency and success with Odoo's powerful suite of tools.",
   "topics": [
     {
-      "tile": "assets/images/services/candidate-screening/icon-1.svg",
+      "tile": "assets/images/services/business-solution/erp-solutions.svg",
       "name": "ERP Solutions",
       "summaryText": "Streamline your entire business with our ERP Solutions, designed to integrate and optimize your core processes. From finance to operations, our ERP systems enhance efficiency, reduce costs, and provide real-time insights to drive informed decision-making and growth."    },
     {
-      "tile": "assets/images/services/candidate-screening/icon-2.svg",
+      "tile": "assets/images/services/business-solution/crm-solutions.svg",
       "name": "CRM Solutions",
       "summaryText": "Boost your customer relationships with our CRM Solutions, which offer comprehensive tools to manage interactions, track sales, and enhance customer service. Our CRM systems help you build stronger relationships, improve customer satisfaction, and drive revenue growth."    },
     {
-      "tile": "assets/images/services/candidate-screening/icon-3.svg",
+      "tile": "assets/images/services/business-solution/retail-solutions.svg",
       "name": "Retail Solutions",
       "summaryText": "Elevate your retail operations with our Retail Solutions, providing advanced tools for inventory management, point of sale, and customer engagement. Our solutions are tailored to streamline your retail processes, enhance the shopping experience, and increase sales."    }
   ],
   "animateImages": [
-    "assets/images/services/candidate-screening/candidate-screening-1.png",
-    "assets/images/services/candidate-screening/candidate-screening-2.png",
-    "assets/images/services/candidate-screening/candidate-screening-3.png",
-    "assets/images/services/candidate-screening/candidate-screening-4.png"
+    "assets/images/services/business-solution/business-solution-1.png",
+    "assets/images/services/business-solution/business-solution-2.png",
+    "assets/images/services/business-solution/business-solution-3.png",
+    "assets/images/services/business-solution/business-solution-4.png"
   ],
   "why": "we deliver tailored, cutting-edge systems designed to meet your unique business needs. With our expertise and commitment to innovation, we ensure that you receive efficient, scalable, and integrated solutions that empower your business to excel and achieve long-term success.",
   "faq": [

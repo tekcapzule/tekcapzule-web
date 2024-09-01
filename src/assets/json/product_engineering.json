@@ -1,20 +1,20 @@
 {
   "uniqueId": "Product_Engineering",
   "topicName": "Innovate with Custom Solutions",
-  "bannerImage": "assets/images/ux-design-banner.png",
+  "bannerImage": "assets/images/branding-solutions.png",
   "bannerText": "Transform your ideas into powerful solutions with our Product Engineering services. We plan strategically, use flexible development methods, build strong foundations for growth, ensure product reliability through rigorous testing, and continue optimizing after launch for ongoing innovation.",
 "topics": [
     {
-      "tile": "assets/images/services/product-engineering/icon-1.svg",
+      "tile": "assets/images/services/product-engineering/tailored-solutions.svg",
       "name": "Tailored <br>Solutions",
       "summaryText": "Customized product development designed to meet your specific needs and business objectives, ensuring a perfect fit for your unique requirements."    },
     {
-      "tile": "assets/images/services/product-engineering/icon-2.svg",
-      "name": "AI-Enhanced Development",
+      "tile": "assets/images/services/product-engineering/ai-enhanced-development.svg",
+      "name": "AI-Enhanced <br>Development",
       "summaryText": "AI to boost efficiency, reduce costs, and accelerate development cycles, delivering innovative and high-quality solutions."    },
     {
-      "tile": "assets/images/services/product-engineering/icon-3.svg",
-      "name": "Rapid Agile Development",
+      "tile": "assets/images/services/product-engineering/rapid-agile-development.svg",
+      "name": "Rapid <br>Agile Development",
       "summaryText": "Agile methodologies to quickly adapt to changes and deliver iterative, high-quality results, ensuring faster time-to-market and increased flexibility."    }
   ],
   "animateImages": [

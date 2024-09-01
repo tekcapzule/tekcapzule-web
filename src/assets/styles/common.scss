@@ -328,6 +328,10 @@ h1 {
     color: $white;
     border: 0 none;
     font-weight: 500;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
      &:hover {
       background: $primary-color;
      }
@@ -1987,7 +1991,7 @@ select {
         height: 39px;
       }
       .talent_solutions-menu-icon {
-        background: url('../../assets/images/home/staffing-management-icon.svg') no-repeat;
+        background: url('../../assets/images/home/talent-solutions-icon.svg') no-repeat;
         width: 44px;
         height: 42px;
       }
@@ -1997,7 +2001,7 @@ select {
         height: 39px;
       }
       .odoo_business_solutions-menu-icon {
-        background: url('../../assets/images/home/hire-product-icon.svg') no-repeat;
+        background: url('../../assets/images/home/odoo-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2264,7 +2268,7 @@ select {
 /*****************Header icons******************/
 .mobile-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 82%;
   align-items: center;
 }
@@ -2489,6 +2493,11 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
+  &.talent_solutions-bg {
+    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
   &.products-banner-bg {
     background: url('../../assets/images/banner/products-banner.png') no-repeat;
     background-position: center center;
@@ -2499,13 +2508,13 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
-  &.ux_design_prototyping-bg {
-    background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
+  // &.ux_design_prototyping-bg {
+  //   background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+  //   background-position: center center;
+  //   background-size: cover;
+  // }
   &.branding_solutions-bg {
-    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
+    background: url('../../assets/images/banner/branding-solutions.png') no-repeat;
     background-position: center center;
     background-size: cover;
   }
@@ -2531,7 +2540,7 @@ body.modal-open {
     background-size: cover;
   }
   &.talent_solutions-bg {
-    background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
     background-position: center center;
     background-size: cover;
   }
@@ -2760,4 +2769,14 @@ button {
       font-size: 24px;
     font-weight: 500;
     }
+}
+.our-partners {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    margin-top: 50px;
+  img {
+    box-shadow: -3px 10px 77px 18px rgba(0, 0, 0, 0.1);
+
+  }
 }

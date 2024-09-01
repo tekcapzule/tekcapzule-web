@@ -1,7 +1,7 @@
 {
   "uniqueId": "Corporate_Trainings",
   "topicName": "Transformative Training Programs",
-  "bannerImage": "assets/images/ux-design-banner.png",
+  "bannerImage": "assets/images/branding-solutions.png",
   "bannerText": "Our comprehensive programs cater to diverse needs, ensuring seamless knowledge transfer and skill development. Enhance your team's capabilities by leveraging our corporate training services.",
 "topics": [
     {
@@ -9,7 +9,7 @@
       "name": "AI-Driven SDLC Training",
       "summaryText": "Leverage AI technology to enhance your software development lifecycle with our AI-Driven SDLC Training. Learn how to integrate AI tools and techniques to optimize processes, improve efficiency, and accelerate project delivery."    },
     {
-      "tile": "assets/images/services/corporate-training/icon-2.svg",
+      "tile": "assets/images/services/corporate-training/technology-training.svg",
       "name": "Technology Training",
       "summaryText": "Gain deep industry-specific knowledge with our Domain Training, designed to provide insights and skills relevant to your sector. Enhance your team's expertise and stay ahead with training tailored to your business's unique challenges and opportunities."    },
     {
