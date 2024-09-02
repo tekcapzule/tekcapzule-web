@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
   toggleBlogMenu() {
     this.isBlogMenuOpen = !this.isBlogMenuOpen;
   }
-  
+
   menuClickOutsideEvent() {
     window.addEventListener(
       'click',
