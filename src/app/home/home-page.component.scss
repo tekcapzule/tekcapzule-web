@@ -153,16 +153,6 @@ h1 {
     img {
       height: 115px;
     }
-    &.ai-bg{
-      background: url('../../assets/images/home/ai-bg.svg') no-repeat;
-    }
-    &.web3-bg{
-      background: url('../../assets/images/home/web3-bg.svg') no-repeat;
-    }
-    &.meta-bg{
-      background: url('../../assets/images/home/meta-bg.svg') no-repeat;
-    }
-
     .key-feature-tile {
       margin-right: 70px;
       margin-bottom: 20px;
@@ -176,57 +166,7 @@ h1 {
         transition: transform 250ms;
         color: $white;
       }
-      .key-points {
-        cursor: pointer;
-        box-shadow: 5px 5px 2px #00000036;
-        border: 2px solid #6876BF;
-        border-radius: 20px;
-        width: 113px;
-        height: 98px;
-        background: linear-gradient(180deg, #2A3780 0%, #202A5F 100%);
-        padding: 28px;
-        cursor: pointer;
-        transition: transform 250ms;
-        &:hover {
-          -webkit-box-shadow: -2px 1px 19px -4px rgb(75 0 42);
-          -moz-box-shadow: -2px 1px 19px -4px rgb(75 0 42);
-          box-shadow: -2px 1px 19px -4px rgb(75 0 42);
-          box-shadow: -2px 1px 19px -4px rgb(75 0 42);
-          border: 2px solid #ec0085;
-          transform: translateY(-10px);
-        }
 
-        .key-icon-1 {
-          background: url('../../assets/images/home/key-feature-icon-1.svg') no-repeat;
-          width: 49px;
-          height: 49px;
-          display: inline-block;
-        }
-        .key-icon-2 {
-          background: url('../../assets/images/home/key-feature-icon-2.svg') no-repeat;
-          width: 60px;
-          height: 40px;
-          display: inline-block;
-        }
-        .key-icon-3 {
-          background: url('../../assets/images/home/key-feature-icon-3.svg') no-repeat;
-          width: 55px;
-          height: 44px;
-          display: inline-block;
-        }
-        .key-icon-4 {
-          background: url('../../assets/images/home/key-feature-icon-4.svg') no-repeat;
-          width: 54px;
-          height: 42px;
-          display: inline-block;
-        }
-        .key-icon-5 {
-          background: url('../../assets/images/home/key-feature-icon-5.svg') no-repeat;
-          width: 40px;
-          height: 40px;
-          display: inline-block;
-        }
-      }
     }
   }
 
@@ -255,32 +195,7 @@ h1 {
       font-family: $primary-font-bold;
     }
 
-  /***********Insights**********/
-  .insight-container {
-    background-color: #252a40 !important;
-    padding: 50px 0 50px;
-  }
 
-  /*************Mobile App*********************/
-
-  .mobile-app {
-    background: url('../../assets/images/home/mobile-app-bg.svg') no-repeat;
-    height: 116px;
-    width: auto;
-    background-size: cover;
-    .app-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 116px;
-      gap: 20px;
-  }
-    .app-img {
-      position: absolute;
-      margin-top: -70px;
-      right: 12%;
-    }
-  }
 /*--------------------------------------------------------------
 # subscribe Section
 --------------------------------------------------------------*/
@@ -590,16 +505,7 @@ h1 {
      }
   }
 }
-.high-note {
-  background: url('../../assets/images/home/comingsoon-bg.svg') no-repeat;
-  color: $white;
-  padding: 0 20px;
-}
-.skill-bg-section {
-  background: $black-currant url('../../assets/images/pattern-bg.png') no-repeat;
-  background-size: cover;
-  color: $white;
-}
+
 
 .carousel-caption {
   position: absolute;

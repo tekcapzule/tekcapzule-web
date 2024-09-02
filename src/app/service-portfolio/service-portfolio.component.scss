@@ -13,25 +13,8 @@
     font-size: 33px !important;
   }
 
-  .products-banner {
-    background: $corporate-color url('../../assets/images/banner-pattern.svg') 125px 0 no-repeat;
-
-    height: 396px;
-    width: 100%;
-    margin: 65px 0 50px;
-  }
-
   .content-block {
     padding: 20px 24px;
-
-    .key-points {
-      padding-inline-start: 15px;
-      list-style-type: circle;
-
-      li {
-        font-size: 16px;
-      }
-    }
   }
 
   .bg-style {
@@ -212,34 +195,6 @@
     padding: 20px 10px 0 !important;
   }
 
-  .about-banner {
-    height: auto !important;
-  }
-
-  .services-page  {
-    .products-banner {
-      margin: 76px 0 0px;
-      height: auto;
-
-      .banner-content {
-        margin: 0 !important;
-      }
-
-      .banner-img {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
-    }
-
-    .soln-card {
-      width: 100%;
-
-      .img-block {
-        width: 100%;
-      }
-    }
-  }
   .pl-5 {
     padding-left: 0 !important;
   }

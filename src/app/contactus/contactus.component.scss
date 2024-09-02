@@ -8,15 +8,6 @@
     &.p-main {
       padding: 92px 12px 20px;
     }
-    .contactus-banner {
-      background: $corporate-color url('../../assets/images/banner-pattern.svg') 125px 0 no-repeat;
-
-      height: 300px;
-      width: 100%;
-      margin-bottom: 50px;
-      background-size: cover;
-      margin-top: 65px;
-    }
     .page-banner {
       height: 470px;
     }
@@ -102,11 +93,6 @@
     width: 100% !important;
   }
 
-
-  .contactus-banner {
-    height: auto !important;
-    margin-top: 76px !important;
-  }
   .banner-img {
     width: 100%;
   }
