@@ -17,10 +17,11 @@
           </div>
 
 
-          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu" (click)="onStopClick($event)">
+          <div #navbarNav id="navbarNav" class="collapse navbar-collapse nav-menu"(click)="onStopClick($event)">
             <ul class="navbar-nav">
               <ng-container *ngFor="let hm of headerMenu; let i = index">
-                <li [ngClass]="{ dropdown: hm.children, active: selectedTopMenuItem?.uniqueId === hm.uniqueId}">
+                <li [ngClass]="{ dropdown: hm.children, active: selectedTopMenuItem?.uniqueId === hm.uniqueId}" 
+                (mouseover)="onMenuOver(hm)" (mouseleave)="onMenuOut()" >
                   <div class="dropdown">
                     <button class="dropbtn" (click)="onMenuClick(hm)">
                       {{ hm.displayName }}
@@ -29,23 +30,11 @@
                     </button>
                   </div>
 
-                  <ng-container
-                    *ngIf="hm.children && openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
-                    <ul class="dropdown-menu show">
-                      <li *ngFor="let menuItem of hm.children; let i = index">
-                        <a routerLink="Javascript:void(0)" class="nav-item" (click)="onChildMenuClick(hm, menuItem)">{{
-                          menuItem.displayName }}</a>
-                      </li>
-                    </ul>
-                  </ng-container>
 
-                  <ng-container *ngIf="openedMenuItem?.uniqueId === hm.uniqueId && !authState.isUserLoggedIn()">
+                  <ng-container *ngIf="openedMenuItem?.uniqueId === hm.uniqueId">
                     <div class="sub-menu">
                       <div class="dropdown-content container">
                         <div class="sub-menu-container w-100">
-                          <!-- <div class="sub-menu-element sub-menu-title text-left">
-                            <h2 class="sub-menu-element pb-0">Services</h2>
-                          </div> -->
                           <div class="d-flex">
                             <div class="col-lg-6 pl-0">
                               <ul class="pr-3">
@@ -120,7 +109,7 @@
               !isMobileResolution || (isMobileResolution && selectedMenuItem?.uniqueId === 'HOME')
             " class="navbar-brand logo">
             <a routerLink="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse.show"
-              routerLinkActive="active" (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
+              routerLinkActive="active" (click)="onMobileMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                 alt="Tekcapzule Logo" /></a>
           </div>
           <div class="mobile-header" *ngIf="isMobileResolution && selectedMenuItem?.uniqueId !== 'HOME'">
@@ -141,7 +130,7 @@
                   <div>
                     <a *ngIf="!authState.isUserLoggedIn()" routerLink="javascript:void(0)" data-toggle="collapse"
                       data-target=".navbar-collapse.show" routerLinkActive="active"
-                      (click)="onMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
+                      (click)="onMobileMenuClick(headerMenu[0])"><img src="/assets/images/logo.svg"
                         alt="Tekcapzule Logo" /></a>
                     <span *ngIf="authState.isUserLoggedIn()" class="user-name">username&#64;tekcapzule.com</span>
                     <p *ngIf="!authState.isUserLoggedIn()" class="sign-out" (click)="signInUser()">SignIn</p>
