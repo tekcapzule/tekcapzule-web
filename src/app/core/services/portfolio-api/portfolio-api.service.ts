@@ -10,6 +10,6 @@ export class PortfolioApiService {
   constructor(private httpClient: HttpClient) {}
 
   getServicePage(fileName: string ): Observable<any[]> {
-    return this.httpClient.get<any[]>(`/assets/json/${fileName}.json`);
+    return this.httpClient.get<any[]>(`/assets/data/${fileName}.json`);
   }
 }
