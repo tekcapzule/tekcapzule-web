@@ -10,15 +10,6 @@
     padding: 92px 12px 20px;
   }
 
-  .about-banner {
-    background: $corporate-color url('../../assets/images/about/aboutus-banner-bg.svg');
-    // background: $corporate-color;
-    height: 636px;
-    width: 100%;
-    margin-bottom: 50px;
-    background-size: cover;
-    margin-top: 65px;
-  }
 
   .lead-img {
     position: absolute;
@@ -98,35 +89,13 @@
     }
   }
 
-  .mission-section {
-    background: url('../../assets/images/about/mission-image.png') 0px 20px no-repeat;
-    width: 1010px;
-    height: 449px;
-    background-size: 100%;
-    margin-bottom: 35px;
-
-    .content {
-      width: 42%;
-      display: flex;
-      flex-flow: wrap;
-      position: static;
-      margin-left: 55%;
-      padding-top: 40px;
-      color: #4D4D4D;
-    }
-  }
-
-  .tech-learning {
-    background-image: url('../../assets/images/grid.png');
-    padding: 40px 0px;
-  }
 
   &>section {
     padding-bottom: 50px;
   }
 
   .success-section {
-    background: url('../../assets/images/success-bg.svg') no-repeat;
+    // background: url('../../assets/images/success-bg.svg') no-repeat;
     padding-top: 70px;
     padding-bottom: 0 !important;
   }
@@ -164,24 +133,8 @@
     }
   }
 
-  .about-banner {
-    height: auto !important;
-  }
 
-  .aboutus-page {
-    .mission-section {
-      background-size: 100%;
-      width: 100%;
-      height: auto;
 
-      .content {
-        width: 100%;
-        padding: 20px;
-        margin-left: 0;
-        padding-top: 215px;
-      }
-    }
-  }
   .mv-block {
     margin: 20px;
 

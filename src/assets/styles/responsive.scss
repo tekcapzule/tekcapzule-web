@@ -179,9 +179,6 @@
     margin-top: 75px !important;
     margin-bottom: 20px !important;
   }
-  .skill-studio-page.p-main {
-    padding-top: 77px !important;
-  }
   .detail-page  {
     margin-top: 77px !important;
   }
@@ -211,31 +208,9 @@
   {
     padding-bottom: 0!important;
   }
-  .aboutus-page .about-banner {
-    margin-bottom: 0 !important;
-  }
-  // .p-dialog {
-  //   width: 86vw !important;
-  // }
 
-  .launchingsoon-content {
-    position: relative !important;
-    left: 0 !important;
-  }
   .navbar {
     justify-content: space-between !important;
-  }
-  .skillstudio-inner, .subscribe.section-bg
-  {
-    .row {
-      padding: 20px 10px;
-    }
-    .mr-5 {
-    margin-right: 0 !important;
-  }
-  .pl-5 {
-    padding-left: 1rem !important;
-  }
   }
   .home-page h2 {
     font-size: 24px !important;
@@ -396,7 +371,7 @@
     margin: 0 !important;
     display: none;
     }
-    .flip-card .key-points {
+    .flip-card {
       height: 337px !important;
     }
 }
@@ -411,12 +386,7 @@
   .banner-title {
     justify-content: center;
   }
-  .aihub-banner {
-    &.interview-prep {
-      background: #f1f7fb url('../images/interview-banner-mob.png') 0px 76px no-repeat !important;
-      background-size: cover;
-    }
-  }
+
   .mob-carousel {
     margin: 0 auto;
     display: block !important;
@@ -514,94 +484,14 @@
       padding-bottom: 30px !important;
     }
   }
-  //  .carousel-card {
-  //   .content {
-  //     .description {
-  //       display: block !important;
-  //       max-height: fit-content !important;
-  //     }
-  //   }
-  //  }
-
-
   .hero-img {
     text-align: center;
     display: initial !important;
     height: inherit !important;
   }
-  .community-page
-  {
-    .tech-repo {
-      height: 390px !important;
-    }
-  }
-  // /AI Hub Search container/
-  .hub-search {
-    display: block !important;
-  }
-
-  .hub-register {
-    text-align: center !important;
-    margin-top: 20px;
-  }
-  .video-library-card, .research-papers-card {
-    margin-bottom: 20px !important;
-    height: auto !important;
-    width: auto !important;
-    margin: 10px 0px !important;
-    .content {
-      .description {
-        height: auto !important;
-      }
-     }
-  }
 
   /*********** Details Page **************/
-    .details-banner {
-      height: auto !important;
-      // padding: 15px 0 0 15px !important
-    }
-
-    .subscribe-block {
-      width: 100%;
-      margin: 0 20px 0px 20px !important;
-    }
-    .details-body {
-      display: block !important;
-    }
-    .know-more-sec {
-      border-radius: 20px;
-      padding: 20px !important;
-      text-align: center;
-      img {
-        margin: 0 0 20px 0 !important;
-      }
-      .high-lights {
-        display: block !important;
-      }
-    }
-    .tekbyte-details-page
-    .tekbyte-details
-    .business-modal
-    .card, .llm-hub-bg {
-      height: auto !important;
-      max-width: fit-content !important
-    }
-    .mob-mr-0 {
-      margin-right: 0 !important;
-    }
-    .back-link {
-      margin: 0!important;
-      padding: 10px 0!important;
-    }
-    .digest-card {
-      max-height: fit-content !important;
-      margin-right: 0!important;
-
-      .content-top {
-        height: auto !important;
-      }
-    }
+    
     .top-navigation {
       // height: auto !important;
       height: 40px !important;
@@ -645,10 +535,6 @@
     padding-top: 20px !important;
     // margin-bottom: 20px !important;
   }
-  .social-share-container, .insight-container {
-    padding-top: 20px !important;
-
-  }
 }
 .p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
   margin: 0 !important;
@@ -689,30 +575,8 @@
     height: 440px;
   }
 }
-@media not all and (min-resolution:.001dpcm) {
-  // .capsule-filter {
-  //   right: 21% !important;
-  // }
-}
 
 
-/**************Skil Studio Responsive start****************/
-.skill-studio-page {
-  .skill-studio-bg {
-    padding-bottom: 0 !important;
-  }
-  &.p-main {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .banner-img {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-  }
-}
-
-/**************Skil Studio Responsive End****************/
 
 @media screen and (max-width: 1100px)
 {
