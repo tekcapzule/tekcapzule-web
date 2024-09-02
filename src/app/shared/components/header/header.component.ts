@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
   isLoginRequiredDialogShown: boolean = false;
   isSkillStudioMenuOpen = false;
   isBlogMenuOpen = false;
-
+  isMenuClicked = false;
   destroy$ = new Subject<boolean>();
   subscription: Subscription[] = [];
 
@@ -57,15 +57,13 @@ export class HeaderComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private helperService: HelperService
   ) {
-    // this.skillStudioMenu = this.headerMenu.find(menu => menu.uniqueId === 'Skill_Studio').children
     this.menuClickOutsideEvent();
   }
-  // toggleSkillStudioMenu() {
-  //   this.isSkillStudioMenuOpen = !this.isSkillStudioMenuOpen;
-  // }
+
   toggleBlogMenu() {
     this.isBlogMenuOpen = !this.isBlogMenuOpen;
   }
+  
   menuClickOutsideEvent() {
     window.addEventListener(
       'click',
@@ -105,7 +103,7 @@ export class HeaderComponent implements OnInit {
 
   subscribeMenuClick(): void {
     const sub = this.eventChannel.getChannel().pipe(
-        filter(out => out.event === ChannelEvent.MenuClick), takeUntil(this.destroy$))
+      filter(out => out.event === ChannelEvent.MenuClick), takeUntil(this.destroy$))
       .subscribe((eventData: EventChannelOutput) => {
         this.onMenuClick(eventData.data)
       });
@@ -115,7 +113,7 @@ export class HeaderComponent implements OnInit {
   scrollToTop() {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
-        if(!this.selectedTopMenuItem) {
+        if (!this.selectedTopMenuItem) {
           this.selectedTopMenuItem = this.helperService.findSelectedTopMenu(ev.url);
           console.log('selec ', this.selectedTopMenuItem);
         }
@@ -150,7 +148,7 @@ export class HeaderComponent implements OnInit {
     if (this.isMobileResolution && needToCloseMenu) {
       this.closeMenu();
     }
-    if(!needToCloseMenu) {
+    if (!needToCloseMenu) {
       if (this.openedMenuItem && this.openedMenuItem.uniqueId === navTab.uniqueId) {
         this.openedMenuItem = null;
       } else {
@@ -160,6 +158,17 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuClick(navTab: NavTab): void {
+    this.selectedTopMenuItem = navTab;
+    this.selectedMenuItem = navTab;
+    this.isMenuClicked = true;
+    if (!this.selectedMenuItem.children) {
+      this.selectedChildMenuItem = null;
+    }
+    this.openedMenuItem = null;
+    this.router.navigate([navTab.navUrl]);
+  }
+
+  onMobileMenuClick(navTab: NavTab): void {
     this.selectedTopMenuItem = navTab;
     this.selectedMenuItem = navTab;
     if (!this.selectedMenuItem.children) {
@@ -177,16 +186,21 @@ export class HeaderComponent implements OnInit {
       } else {
         this.closeMenu();
       }
-
-      if (navTab.uniqueId === 'HOME' && this.authState.isUserLoggedIn()) {
-        this.router.navigate([this.helperService.findPage('My_Feeds').navUrl]);
-      } else if(navTab.uniqueId === 'HOME' && !this.authState.isUserLoggedIn()) {
-        this.router.navigate([navTab.navUrl]);
-      } else if (navTab.uniqueId !== 'Skill_Studio' || this.authState.isUserLoggedIn()) {
-        this.router.navigate([navTab.navUrl]);
-      }
+      this.router.navigate([navTab.navUrl]);
     }
   }
+
+  onMenuOver(navTab: NavTab): void {
+    if (navTab.children && !this.isMenuClicked) {
+      this.openedMenuItem = navTab;
+    }
+  }
+
+  onMenuOut() {
+    this.openedMenuItem = null;
+    this.isMenuClicked = false;
+  }
+
 
   onChildMenuClick(topTab: NavTab, menuItem: NavTab): void {
     this.selectedTopMenuItem = topTab;
@@ -195,7 +209,7 @@ export class HeaderComponent implements OnInit {
 
     if (menuItem.navUrl) {
       this.selectedChildMenuItem = menuItem;
-      if(menuItem.navUrl.startsWith('https')){
+      if (menuItem.navUrl.startsWith('https')) {
         this.openBlog(menuItem.navUrl);
       }
       this.router.navigate([menuItem.navUrl]);
@@ -216,7 +230,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openBlog(blog) {
-    window.open( blog, '_blank');
+    window.open(blog, '_blank');
   }
 
 
