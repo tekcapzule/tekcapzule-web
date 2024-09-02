@@ -328,6 +328,10 @@ h1 {
     color: $white;
     border: 0 none;
     font-weight: 500;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
      &:hover {
       background: $primary-color;
      }
@@ -1987,7 +1991,7 @@ select {
         height: 39px;
       }
       .talent_solutions-menu-icon {
-        background: url('../../assets/images/home/staffing-management-icon.svg') no-repeat;
+        background: url('../../assets/images/home/talent-solutions-icon.svg') no-repeat;
         width: 44px;
         height: 42px;
       }
@@ -1996,8 +2000,8 @@ select {
         width: 48px;
         height: 39px;
       }
-      .candidate_screening-menu-icon {
-        background: url('../../assets/images/home/hire-product-icon.svg') no-repeat;
+      .odoo_business_solutions-menu-icon {
+        background: url('../../assets/images/home/odoo-icon.svg') no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2012,12 +2016,12 @@ select {
         height: 44px;
       }
       .aitoday_blog-menu-icon {
-        background: url('../../assets/images/home/staffing-management-icon.svg')no-repeat;
+        background: url('../../assets/images/home/ai-today-blog-icon.svg')no-repeat;
         width: 44px;
         height: 44px;
       }
       .tekcapzule_blog-menu-icon {
-        background: url('../../assets/images/home/staffing-management-icon.svg')no-repeat;
+        background: url('../../assets/images/home/tekcapzule-blog-icon.svg')no-repeat;
         width: 44px;
         height: 44px;
       }
@@ -2264,8 +2268,8 @@ select {
 /*****************Header icons******************/
 .mobile-header {
   display: flex;
-  justify-content: space-between;
-  width: 82%;
+  justify-content: center;
+  // width: 82%;
   align-items: center;
 }
 .mobile-header-icons {
@@ -2489,6 +2493,11 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
+  &.talent_solutions-bg {
+    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
   &.products-banner-bg {
     background: url('../../assets/images/banner/products-banner.png') no-repeat;
     background-position: center center;
@@ -2499,17 +2508,17 @@ body.modal-open {
     background-position: center center;
     background-size: cover;
   }
-  &.ux_design_prototyping-bg {
-    background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
+  // &.ux_design_prototyping-bg {
+  //   background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+  //   background-position: center center;
+  //   background-size: cover;
+  // }
   &.branding_solutions-bg {
-    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
+    background: url('../../assets/images/banner/branding-solutions.png') no-repeat;
     background-position: center center;
     background-size: cover;
   }
-  &.candidate_screening-bg {
+  &.odoo_business_solutions-bg {
     background: url('../../assets/images/banner/candidate_screening-banner.png') no-repeat;
     background-position: center center;
     background-size: cover;
@@ -2531,7 +2540,7 @@ body.modal-open {
     background-size: cover;
   }
   &.talent_solutions-bg {
-    background: url('../../assets/images/banner/ux-design-banner.png') no-repeat;
+    background: url('../../assets/images/banner/Staffing_Management.png') no-repeat;
     background-position: center center;
     background-size: cover;
   }
@@ -2626,7 +2635,8 @@ body.modal-open {
     display: none;
   }
   .page-banner {
-    height: 400px;
+    height: auto;
+    padding-bottom: 40px;
     h1{
       line-height: 40px !important;
     }
@@ -2670,13 +2680,21 @@ body.modal-open {
   .col-lg-4 {
     width: calc(33.333% - 34px); /* Subtract the margin space from the column width */
     margin-bottom: 55px;
-    &.service-card {
-      //  background: #fafcff;
-      border: 1px solid #DEEDFF !important;
-      border-radius: 4px;
-      padding: 20px 20px 0px !important;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;
   }
+
+  .service-card {
+    border: 1px solid #DEEDFF !important;
+    border-radius: 4px;
+    padding: 20px 20px 0px !important;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: #B0D4FF; /* Change border color on hover */
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1) !important; /* Increase shadow on hover */
+    transform: translateY(-5px); /* Slight upward movement on hover */
+    background-color: #ffffff;
   }
   .tile {
     // height: 35px;
@@ -2700,10 +2718,10 @@ body.modal-open {
     font-size: 38px !important;
     font-weight: 700 !important;
     letter-spacing: -1.14px;
-    text-transform: uppercase;
     margin-bottom: 32px;
     span {
       color: $primary-color;
+      text-transform: uppercase;
     }
   }
  }
@@ -2751,4 +2769,14 @@ button {
       font-size: 24px;
     font-weight: 500;
     }
+}
+.our-partners {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    margin-top: 50px;
+  img {
+    box-shadow: -3px 10px 77px 18px rgba(0, 0, 0, 0.1);
+
+  }
 }

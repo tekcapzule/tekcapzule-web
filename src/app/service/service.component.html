@@ -38,7 +38,7 @@
     <section>
       <!-- Sec 1 -->
       <div class="inner row services-desc">
-        <div *ngFor="let topic of servicePageDetails?.topics;" class="px-0">
+        <div *ngFor="let topic of servicePageDetails?.topics;" class="px-0 service-card">
           <img src={{topic.tile}} alt="" class="tile" />
           <h4 [innerHTML]="topic.name"></h4>
           <p class="content-sub-text">
@@ -66,7 +66,7 @@
               <div>
                 <div class="overlay-text pb-4">Get Your Free Brochure Today!</div>
                 <button mat-raised-button class="button download_btn  animate__animated animate__fadeInUp delay-2">
-                  Download Brochure
+                  <a href="../../assets/pdf/branding-solutions.pdf" target="_blank"> Download Brochure</a>
                 </button>
               </div>
             </div>

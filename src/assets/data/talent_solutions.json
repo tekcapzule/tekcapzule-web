@@ -1,0 +1,88 @@
+{
+  "uniqueId": "Talent_Solutions",
+  "topicName": "Hire Top Talent",
+  "bannerImage": "assets/images/branding-solutions.png",
+  "bannerText": "We deliver tailored Talent solutions that meet your unique business needs. Our team of experts sources and screens candidates to ensure the best fit for your organization. Whether you need temporary, contract, or permanent staff, we provide reliable solutions.",
+"topics": [
+    {
+      "tile": "assets/images/services/talent-solutions/staff-augmentation.svg",
+      "name": "Staff Augmentation",
+      "summaryText": "Quickly fill skill gaps and manage workload fluctuations with our staff augmentation services, providing you with skilled professionals on a temporary basis to seamlessly integrate with your existing team."    },
+    {
+      "tile": "assets/images/services/talent-solutions/contract-to-hire.svg",
+      "name": "Contract-to-Hire",
+      "summaryText": "Evaluate potential employees through a flexible contract-to-hire arrangement, allowing you to assess their fit and performance before making a long-term hiring commitment."    },
+    {
+      "tile": "assets/images/services/talent-solutions/candidate-screening.svg",
+      "name": "Candidate Screening",
+      "summaryText": "Ensure you find the best talent with our thorough candidate screening process, which evaluates skills, experience, and cultural fit to deliver high-quality candidates ready to contribute effectively to your organization."    }
+  ],
+  "animateImages": [
+    "assets/images/services/talent-solutions/talent-solutions-1.png",
+    "assets/images/services/talent-solutions/talent-solutions-2.png",
+    "assets/images/services/talent-solutions/talent-solutions-3.png",
+    "assets/images/services/talent-solutions/talent-solutions-4.png"
+  ],
+  "why": "We provide flexible, efficient, and targeted services designed to meet your unique hiring needs. With our expertise and commitment, we help you build a strong, capable team that drives your business forward.",
+  "faq": [
+    {
+      "title": "General",
+      "qa": [
+        {
+          "qus": "What types of talent solutions do you offer?",
+          "ans": "We offer three main talent solutions: Staff Augmentation, Contract to Hire, and Candidate Screening, tailored to meet various staffing needs and business requirements."
+        },
+        {
+          "qus": "How do I determine which talent solution is best for my business?",
+          "ans": "Our team works closely with you to assess your specific needs and recommends the most suitable solution, whether it’s immediate staffing support, evaluating candidates for permanent roles, or sourcing top talent."
+        }
+      ]
+    }, {
+      "title": "Staff Augmentation",
+      "qa": [
+        {
+          "qus": "What is Staff Augmentation, and how does it work?",
+          "ans": "Staff Augmentation allows you to temporarily add skilled professionals to your existing team for specific projects or tasks. This model provides flexibility and access to specialized expertise without long-term commitments."
+        },
+        {
+          "qus": "Can I scale my team up or down with Staff Augmentation?",
+          "ans": "Yes, Staff Augmentation is highly flexible, allowing you to easily scale your team based on the demands of your project or business needs."
+        }
+      ]
+    },
+    {
+      "title": "Contract to Hire",
+      "qa": [
+        {
+          "qus": "What is the Contract to Hire service?",
+          "ans": "Contract to Hire enables you to evaluate a candidate’s performance and fit within your company during a trial period before making a long-term hiring decision. This approach reduces hiring risks and ensures the right match."
+        },
+        {
+          "qus": "How long is the typical trial period for Contract to Hire?",
+          "ans": "The trial period can vary based on your needs, typically ranging from 3 to 6 months, allowing you ample time to assess the candidate’s suitability for a permanent role."
+        },
+        {
+          "qus": "What happens if the candidate is not a good fit during the trial period?",
+          "ans": "If the candidate is not a good fit, the contract can be ended without the obligations of a permanent hire. We can also assist in finding a replacement if needed."
+        }
+      ]
+    },
+    {
+      "title": "Candidate Screening",
+      "qa": [
+        {
+          "qus": "What does your Candidate Screening service include?",
+          "ans": "Our Candidate Screening service involves thorough vetting of potential hires, including background checks, skill assessments, and interviews, ensuring that only the most qualified candidates are presented to you."
+        },
+        {
+          "qus": "How do you ensure the quality of candidates through your screening process?",
+          "ans": "We use a rigorous screening process that includes technical assessments, soft skill evaluations, and in-depth interviews to ensure candidates meet your specific requirements."
+        },
+        {
+          "qus": "Can Candidate Screening be tailored to my company’s specific needs?",
+          "ans": "Absolutely. We customize our screening process to align with your company’s unique requirements, ensuring that candidates not only possess the right skills but also fit your company culture."
+        }
+      ]
+    }
+  ]
+}

@@ -81,6 +81,14 @@ h2 {
 }
 
 @media only screen and (max-width: 990px) {
+  .banner-rh-section {
+    position: inherit;
+
+    img {
+      position: static;
+      padding-top: 20px;
+    }
+  }
   .product-desc { 
     padding: 0 30px !important;
     gap: 20px;

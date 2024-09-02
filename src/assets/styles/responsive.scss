@@ -1,4 +1,10 @@
 @media only screen and (max-width: 990px) {
+  .inner {
+    .pt-5 {
+      padding-top: 0 !important;
+    }
+  }
+
   .search-box {
     background: 0 none !important;
     padding: 15px 25px!important;
@@ -20,15 +26,10 @@
     }
 
   }
-  .capsule-card-container {
-    width: 390px !important;
-    height: 590px !important;
+  .mobile-search {
+    width: 20px;
+    margin-right: 10px;
   }
-  // h1 {
-  //   font-size: 24px;
-  //   font-weight: 600;
-  //   line-height: 30px !important;
-  // }
   .section-title h2,
   h2 {
     font-size: 24px !important;
@@ -36,46 +37,20 @@
   h3 {
     font-size: 20px !important;
   }
-  .signin {
-    height: 560px !important;
-    margin-top: 90px;
-  }
-  .capsules-page,
-  .topics-page,
-  .create-capsule-page {
-    .card-section {
-      margin: 0 10px;
-      padding-top: 2rem !important;
-      margin-bottom: 0px !important;
-      justify-content: center !important;
-      .carousel-card {
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        height: auto;
-        &:hover {
-          transform: none !important;
-        }
-      }
-    }
-  }
+
   .mat-tab-links {
     .w-50 {
       width: auto !important;
     }
   }
-  .topics-card {
-    margin: 0 0 20px !important;
-    &:hover {
-      transform: none !important;
-    }
-  }
+
   .onOverlayContent {
     position: absolute;
     z-index: 1;
     background: rgba(255, 255, 255, 0.8);
     height: 277px;
   }
-  .community-page,
+
   .aboutus-page {
     p {
       font-size: 18px !important;
@@ -92,50 +67,12 @@
       }
     }
   }
-  .community-page {
-    .part-2 {
-      padding-top: 30px !important;
-    }
-    .part-3,
-    .part-4 {
-      padding: 30px 0 !important;
-    }
-  }
+
   input,
   textarea {
     font-size: 16px !important;
   }
-  .admin-page {
-    &.p-main {
-      padding: 90px 30px 30px !important;
-    }
-    .mat-tab-links {
-      max-width: 1600px !important;
-    }
-    h1 {
-      font-size: 22px !important;
-    }
 
-    .resp-btn {
-      justify-content: center;
-      display: flex;
-      padding-top: 20px;
-      .action-btn {
-        margin-right: 20px;
-      }
-    }
-  }
-  .create-topic-form {
-    display: contents !important;
-    .column {
-      width: 100% !important;
-    }
-  }
-  .badge-danger {
-    top: 17px !important;
-    left: 105px !important;
-    border: 1px solid $white;
-  }
   .nav-menu .active > a {
     color: $white!important;
   }
@@ -162,9 +99,6 @@
     }
   }
   .aboutus-page, .community-page {
-  .tech-learning {
-      padding: 40px 0 !important;
-    }
    h2 {
     margin-bottom: 0 !important;
    }
@@ -174,48 +108,20 @@
     padding: 0;
     display: inline-block !important;
   }
-  .navbar-toggler-icon {
-    width: 25px;
-    height: 30px;
-    background: 100%/100% 100% no-repeat !important ;
-  }
-  .contribute-page {
-    .contribute-bg {
-      padding-bottom: 40px !important;
-    }
 
-    .contribute-bg, .contribute-form-bg {
-      height: auto !important;
-    }
-  }
-  .capsule-top {
-    padding-top: 0 !important;
-  }
   .follow-us {
     margin-top: 20px !important;
   }
   h1{
     padding-bottom: 0 !important;
   }
-  .tags {
-    max-height: 480px !important;
-  }
-  .topic-apply {
-    text-align: center !important;
-  }
-  .flip-card .key-points {
-    height: 282px !important;
-  }
-  .modal.show .modal-dialog {
-    margin-top: 77px!important;
-  }
+
   .button.primary, button.tertiary {
     padding: 5px 20px;
     font-size: 15px;
     height: 45px !important;
     width: 175px !important;
-    // height: auto !important;
-    // width: auto !important;
+
   }
   .button.primary-outline {
     height: 45px !important;
@@ -248,7 +154,7 @@
   .banner-content {
     // align-items: center;
     // text-align: center;
-    padding: 0px 15px!important;
+    padding: 0px 20px!important;
     margin-top: 40px;
     justify-content: start !important;
   }
@@ -317,7 +223,7 @@
     left: 0 !important;
   }
   .navbar {
-    justify-content: flex-start !important;
+    justify-content: space-between !important;
   }
   .skillstudio-inner, .subscribe.section-bg
   {
@@ -359,6 +265,13 @@
     font-size: 28px !important;
     padding-bottom: 20px !important;
     line-height: 30px !important;
+    .mobile-menu > a {
+      .sub-menu-element {
+        color: #7bb8ff !important;
+        text-transform: capitalize !important;
+        margin-left: 10%;
+      }
+    }
 }
 .package-container {
   height: auto !important;
@@ -372,11 +285,17 @@
       width: 100% !important;
       margin-bottom: 20px;
     }
+    .service-categories-page {
+      .page-banner {
+        height: 485px !important;
+      }
+    }
 }
 .product-desc {
   display: block !important;
   .col-lg-4 {
     width: 100% !important;
+    margin-bottom: 35px !important;
   }
 }
 .inner-block {
@@ -388,6 +307,22 @@
       margin-top: 0 !important;
     }
   }
+}
+.offers {
+  gap: 40px !important;
+    label {
+      font-size: 13px !important;
+      font-weight: 500;
+    }
+}
+.services-desc {
+  display: flex !important;
+  gap: 30px !important;
+}
+.our-partners {
+  display: grid !important;
+  gap: 25px !important;
+  margin-bottom: 50px;
 }
 }
 @media only screen and (width: 1024px) {
@@ -730,7 +665,7 @@
   height: 45px;
 }
 .carousel .carousel-inner .carousel-item {
-  height: 525px !important;
+  height: auto !important;
 }
 }
 

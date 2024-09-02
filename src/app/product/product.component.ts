@@ -42,13 +42,20 @@ export class ProductComponent implements OnInit {
     this.helperService.setMobileResolution(this.isMobileResolution);
   }
 
-  onKnowMore() {
+  onShowMore() {
     this.featureCount = this.featureCount === 3 ? this.productPageDetails.length : 3;
     if(this.featureCount === 3) {
       this.viewContainer.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
+  onKnowMore() {
+    document.getElementById('coll-form-bg').scrollIntoView({ behavior: "smooth", block: "center"});
+  }
+
+  onExplore() {
+    document.getElementById('features-you-love').scrollIntoView({ behavior: "smooth", block: "start"});
+  }
   openLaunchPopup() {
     this.isLoginRequiredDialogShown = true;
   }

@@ -18,7 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginRequiredComponent } from './components/login-required/login-required.component';
 import { QAComponent } from './components/qa/qa.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CollaborateFormComponent } from './components/collaborate-form/collaborate-form.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FaqPageComponent } from '@app/faq/faq-page.component';
@@ -29,7 +28,6 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     FooterComponent,
     DataTableComponent,
     CarouselComponent,
-    SpinnerComponent,
     LoginRequiredComponent,
     QAComponent,
     CollaborateFormComponent,
@@ -55,7 +53,6 @@ import { FaqPageComponent } from '@app/faq/faq-page.component';
     FooterComponent,
     DataTableComponent,
     CarouselComponent,
-    SpinnerComponent,
     LoginRequiredComponent,
     QAComponent,
     CollaborateFormComponent,

@@ -1,0 +1,95 @@
+{
+  "uniqueId": "Product_Engineering",
+  "topicName": "Innovate with Custom Solutions",
+  "bannerImage": "assets/images/branding-solutions.png",
+  "bannerText": "Transform your ideas into powerful solutions with our Product Engineering services. We plan strategically, use flexible development methods, build strong foundations for growth, ensure product reliability through rigorous testing, and continue optimizing after launch for ongoing innovation.",
+"topics": [
+    {
+      "tile": "assets/images/services/product-engineering/tailored-solutions.svg",
+      "name": "Tailored <br>Solutions",
+      "summaryText": "Customized product development designed to meet your specific needs and business objectives, ensuring a perfect fit for your unique requirements."    },
+    {
+      "tile": "assets/images/services/product-engineering/ai-enhanced-development.svg",
+      "name": "AI-Enhanced <br>Development",
+      "summaryText": "AI to boost efficiency, reduce costs, and accelerate development cycles, delivering innovative and high-quality solutions."    },
+    {
+      "tile": "assets/images/services/product-engineering/rapid-agile-development.svg",
+      "name": "Rapid <br>Agile Development",
+      "summaryText": "Agile methodologies to quickly adapt to changes and deliver iterative, high-quality results, ensuring faster time-to-market and increased flexibility."    }
+  ],
+  "animateImages": [
+    "assets/images/services/product-engineering/product-engineering-1.png",
+    "assets/images/services/product-engineering/product-engineering-2.png",
+    "assets/images/services/product-engineering/product-engineering-3.png",
+    "assets/images/services/product-engineering/product-engineering-4.png"
+  ],
+  "why": "We combine advanced AI technology with tailored solutions and rapid agile methodologies. Our approach ensures that you benefit from enhanced efficiency, cost savings, and fast delivery, all while receiving a product specifically designed to meet your unique business goals.",
+  "faq": [
+    {
+      "title": "General",
+      "qa": [
+        {
+          "qus": "What does your Custom Development Service entail?",
+          "ans": "Our Custom Development Service offers end-to-end solutions tailored to your business needs, including AI-Enhanced Development, Rapid Agile Development, and the use of the latest technologies to deliver robust and scalable software products."
+        },
+        {
+          "qus": "How do you ensure that the solution is tailored to my business needs?",
+          "ans": "We begin with a thorough consultation to understand your business requirements, goals, and challenges. Our team then designs and develops a solution that aligns with your specific needs, ensuring a perfect fit for your business."
+        },
+        {
+          "qus": "What technologies do you use in your development projects?",
+          "ans": "We utilize the latest technologies, including modern programming languages, frameworks, cloud services, and AI tools, to build cutting-edge solutions that are scalable, secure, and future-proof."
+        },
+        {
+          "qus": "How do you ensure that the technology you use is up-to-date?",
+          "ans": "Our team continuously researches and adopts the latest technologies and best practices in the industry. We stay ahead of the curve by investing in ongoing training and innovation, ensuring that your solution benefits from the most advanced tools available."
+        },{
+          "qus": "Can the custom solution be scaled as my business grows?",
+          "ans": "Absolutely. We design our custom solutions with scalability in mind, allowing them to grow alongside your business and adapt to changing needs over time."
+        },
+        {
+          "qus": "What if my project requirements change during development?",
+          "ans": "Our Agile approach allows for flexibility, so if your requirements change, we can quickly adapt and make necessary adjustments to the project plan, ensuring the final product meets your evolving needs."
+        }
+      ]
+    }, {
+      "title": "Tailored Solutions",
+      "qa": [
+        {
+          "qus": "What are Tailored Solutions, and how do they benefit my business?",
+          "ans": "Tailored Solutions are custom-built software designed to address your unique business challenges. These solutions are developed specifically for your organization, ensuring that all functionalities and features meet your exact needs, leading to better efficiency and effectiveness."
+        },
+        {
+          "qus": "How involved will I be in the development process?",
+          "ans": "You will be closely involved throughout the development process, from initial planning to final deployment. We value your input and ensure that the solution aligns with your vision and business objectives."
+        }
+      ]
+    },
+    {
+      "title": "AI-Enhanced Development",
+      "qa": [
+        {
+          "qus": "How does AI-Enhanced Development improve my software?",
+          "ans": "AI-Enhanced Development leverages artificial intelligence to optimize various aspects of the software, such as predictive analytics, automation, and personalization. This leads to smarter, faster, and more efficient solutions that can adapt to your business needs."
+        },
+        {
+          "qus": "Can AI be integrated into my existing systems?",
+          "ans": "Yes, we can integrate AI capabilities into your existing systems to enhance their functionality and performance, making your operations more efficient and data-driven."
+        }
+      ]
+    },
+    {
+      "title": "Rapid Agile Development",
+      "qa": [
+        {
+          "qus": "Are there opportunities for networking and collaboration?",
+          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+        },
+        {
+          "qus": "How can I report inappropriate behavior in the community forums?",
+          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+        }
+      ]
+    }
+  ]
+}

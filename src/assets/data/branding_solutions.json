@@ -1,0 +1,84 @@
+{
+
+  "uniqueId": "Branding_Solutions",
+  "topicName": "Brand Your Success",
+  "bannerImage": "assets/images/banner/branding-solutions.png",
+  "bannerText": "Transform your startup with our comprehensive branding solutions, including custom websites, brand kits, and social media templates—all delivered in just 5 days. We handle your brand's online presence so you can focus on what you do best.",
+"topics": [
+    {
+      "tile": "assets/images/services/web-branding/icon-1.svg",
+      "name": "Brand kit",
+      "summaryText": "Comprehensive branding essentials, including logo design, style guides, letterheads, and business cards, to create a cohesive and professional brand identity."
+    },
+    {
+      "tile": "assets/images/services/web-branding/icon-2.svg",
+      "name": "Company Website",
+      "summaryText": "Custom-designed websites tailored to showcase your brand and drive engagement, ensuring a strong online presence and seamless user experience."
+    },
+    {
+      "tile": "assets/images/services/web-branding/icon-3.svg",
+      "name": "Social media kit",
+      "summaryText": "Professional social media templates and cover images for platforms like Instagram, LinkedIn, Facebook, and Twitter to enhance your digital presence."
+    }
+  ],
+  "animateImages": [
+    "assets/images/services/web-branding/web-branding-1.png",
+    "assets/images/services/web-branding/web-branding-2.png",
+    "assets/images/services/web-branding/web-branding-3.png",
+    "assets/images/services/web-branding/web-branding-4.png"
+  ],
+  "why": "We deliver expertly crafted solutions tailored to your unique vision. Our comprehensive approach ensures that your brand stands out with a cohesive identity, a powerful online presence, and engaging social media content, all designed to enhance your visibility and drive success.",
+  "faq": [
+    {
+      "title": "General",
+      "qa": [
+        {
+          "qus": "How do you ensure that the branding solutions match my business’s vision?",
+          "ans": "We work closely with you throughout the process to understand your business goals and brand identity. Through collaboration and feedback, we ensure that the final designs align with your vision and effectively represent your brand."
+        },
+        {
+          "qus": "What is the process for starting a project with your team?",
+          "ans": "To start a project, simply reach out to us through our contact form or schedule a consultation. We’ll discuss your needs, provide a proposal, and once agreed upon, we’ll begin the design process with regular updates and opportunities for feedback."
+        }
+      ]
+    }, {
+      "title": "Brand Kit",
+      "qa": [
+        {
+          "qus": "What does a brand kit include?",
+          "ans": " Our brand kit includes essential elements such as logo design, style guides, letterheads, and visiting card designs. This comprehensive package ensures a consistent and professional brand identity across all materials."
+        },
+        {
+          "qus": "How long does it take to develop a brand kit?",
+          "ans": "The development of a brand kit typically takes 3 to 5 days, depending on the complexity of the design and the feedback process. We ensure that each component aligns with your brand’s vision and goals."
+        }
+      ]
+    },
+    {
+      "title": "Company Website",
+      "qa": [
+        {
+          "qus": "What features are included in the company website service?",
+          "ans": " Our company website service includes custom design, responsive layout, user-friendly navigation, and essential functionalities tailored to your business needs. We also offer options for content management, SEO optimization, and integration with other tools."
+        },
+        {
+          "qus": "Can I update my website after it's launched?",
+          "ans": "Yes, we provide a content management system (CMS) that allows you to easily update and manage your website content. We also offer ongoing support and maintenance to assist with any updates or technical issues."
+        }
+      ]
+    },
+    {
+      "title": "Social Media Kit",
+      "qa": [
+        {
+          "qus": "Are there opportunities for networking and collaboration?",
+          "ans": "Definitely! We have a community forum where you can engage in discussions, share ideas, and collaborate with other learners. We also host regular webinars and Q&A sessions with industry experts."
+        },
+        {
+          "qus": "How can I report inappropriate behavior in the community forums?",
+          "ans": "If you encounter any inappropriate behavior or content in the forums, please report it by emailing our support team (<a href=\"maito:contact@tekcapzule.com\">contact@tekcapzule.com</a>). We take these reports very seriously and aim to maintain a respectful and inclusive learning environment."
+        }
+      ]
+    }
+  ]
+}

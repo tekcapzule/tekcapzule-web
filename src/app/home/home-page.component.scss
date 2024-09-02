@@ -108,7 +108,7 @@ h1 {
     }
     .offer-col label {
       margin-top: 10px;
-      width: 100px; /* adjust as necessary to control wrapping */
+      width: 125px; /* adjust as necessary to control wrapping */
       white-space: normal; /* allow text to wrap */
     }
   }
@@ -442,6 +442,15 @@ h1 {
 }
 /*************Responsive**********/
 @media only screen and (max-width: 990px) {
+  .pb-5 {
+    padding-bottom: 0 !important;
+  }
+  .mb-5 {
+    margin-bottom: 0 !important;
+  }
+  .pr-5 {
+    padding-right: 0 !important;
+  }
 
   .branding-tile {
     height: auto !important;
@@ -610,7 +619,7 @@ h1 {
   .product-section{
     background: #FAFAFA;
     padding: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;   
   }
   .content-sub-text {
     font-size: 20px;

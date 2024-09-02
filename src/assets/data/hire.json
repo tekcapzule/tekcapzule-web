@@ -1,0 +1,164 @@
+{
+  "uniqueId": "TekCapzule_Hire",
+  "topicName": "Hire Smarter with TekCapzule Hire",
+  "bannerImage": "assets/images/products/hire/corporate-screening-banner.png",
+  "bannerText": "Streamline your recruitment process with TekCapzule Hire—experience end-to-end hiring efficiency with AI-powered candidate screening, CV analysis, and automated workflows.",
+  "videoContent": "assets/videos/HIRE.mp4.mp4",
+  "highlights": [
+    {
+      "image": "assets/images/products/hire/icon-1.svg",
+      "title": "AI Powered Assessment",
+      "description": "Leverage AI to automatically grade and analyze assessments, ensuring accurate and unbiased candidate evaluations."
+    },
+    {
+      "image": "assets/images/products/hire/icon-3.svg",
+      "title": "End to End Hiring Workflow",
+      "description": "Streamline your recruitment with a seamless workflow from assessment creation to onboarding."
+    },
+    {
+      "image": "assets/images/products/hire/icon-2.svg",
+      "title": "CV Analysis & Ranking",
+      "description": "AI-driven CV analysis and ranking to quickly identify and prioritize top candidates."
+    }
+  ],
+  "keyFeatures": [
+    {
+      "imagePath": "assets/images/products/hire/hire-1.png",
+      "title": "Automatic Screening",
+      "description": "Efficiently filter candidates with automated screening that matches their qualifications to job requirements, saving you time and effort."
+    },
+    {
+      "imagePath": "assets/images/products/hire/hire-2.png",
+      "title": "Screen Recording",
+      "description": "Capture and review candidate interactions with screen recording, providing valuable insights into their problem-solving and technical skills."
+    },
+    {
+      "imagePath": "assets/images/products/hire/hire-3.png",
+      "title": "Question Bank",
+      "description": "Access a comprehensive question bank for creating customized assessments, ensuring relevant and targeted evaluations for each role."
+    },
+    {
+      "imagePath": "assets/images/products/hire/hire-4.png",
+      "title": "End to End Hiring Workflow",
+      "description": "Manage the entire recruitment process seamlessly, from initial screening to final onboarding, with our integrated end-to-end workflow."
+    },
+    {
+      "imagePath": "assets/images/products/hire/hire-5.png",
+      "title": "CV Analysis & Ranking",
+      "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position."
+    }],
+  "features": [
+    {
+      "image": "assets/images/products/hire/icon-1.svg",
+      "title": "Automatic Screening",
+      "description": "Efficiently filter candidates with automated screening that matches their qualifications to job requirements, saving you time and effort."
+    },
+    {
+      "image": "assets/images/products/hire/screen-recording.svg",
+      "title": "Screen Recording",
+      "description": "Capture and review candidate interactions with screen recording, providing valuable insights into their problem-solving and technical skills."
+    },
+    {
+      "image": "assets/images/products/hire/icon-5.svg",
+      "title": "Question Bank",
+      "description": "Access a comprehensive question bank for creating customized assessments, ensuring relevant and targeted evaluations for each role."
+    },
+    {
+      "image": "assets/images/products/hire/icon-3.svg",
+      "title": "End to End Hiring Workflow",
+      "description": "Manage the entire recruitment process seamlessly, from initial screening to final onboarding, with our integrated end-to-end workflow."
+    },
+    {
+      "image": "assets/images/products/hire/icon-2.svg",
+      "title": "CV Analysis & Ranking",
+      "description": "Utilize AI to analyze and rank CVs, highlighting top candidates based on their skills and fit for the position."
+    },
+    {
+      "image": "assets/images/products/hire/icon-4.svg",
+      "title": "CV Generation",
+      "description": "Generate standardized CVs to streamline candidate profiles, reducing cognitive load and ensuring consistency in evaluation."
+    },
+    {
+      "image": "assets/images/products/hire/icon-6.svg",
+      "title": "Vendor Management",
+      "description": "Efficiently manage recruitment vendors with tools for tracking, communication, and performance evaluation."
+    },
+    {
+      "image": "assets/images/products/hire/icon-8.svg",
+      "title": "Brand Awareness",
+      "description": "Boost your hiring company’s visibility and attract top talent with strategic brand awareness initiatives."
+    },
+    {
+      "image": "assets/images/products/hire/multiple_question_types.svg",
+      "title": "Multiple Question Types",
+      "description": "Create diverse assessments using various question types, including multiple-choice and coding questions, for a comprehensive evaluation."
+    },
+    {
+      "image": "assets/images/products/hire/icon-9.svg",
+      "title": "Reporting",
+      "description": "Gain actionable insights with detailed reporting on candidate performance, recruitment metrics, and process efficiency."
+    }
+  ],
+  "faq": [
+    {
+      "title": "General",
+      "qa": [
+        {
+          "qus": "What is TekCapzule Hire?",
+          "ans": "An AI Powered hiring and screening tool designed to help businesses streamline their recruitment process. It offers coding assessments, technical skill evaluations, video interviews, and comprehensive analytics to identify the best candidates for your team."
+        },
+        {
+          "qus": "Who can benefit from using TekCapzule Hire?",
+          "ans": "Ideal for HR professionals, recruiters, and hiring managers across various industries. It is particularly useful for companies looking to hire technical talent, such as software developers, data scientists, and IT professionals."
+        }
+      ]
+    }, {
+      "title": "Assessments and Evaluations",
+      "qa": [
+        {
+          "qus": "What types of assessments can I create?",
+          "ans": "You can create a wide range of assessments, including coding challenges, technical skill tests, role-specific evaluations, and even hands-on projects. You can also include behavioral and cognitive assessments to evaluate soft skills and cultural fit."
+        },
+        {
+          "qus": "Can I customize the assessments to fit specific job roles?",
+          "ans": "Yes, TekCapzule Hire allows you to fully customize assessments to match the specific skills and requirements of any job role. You can choose from a library of pre-built questions or create your own."
+        },
+        {
+          "qus": "How does the coding assessment feature work?",
+          "ans": "The coding assessment feature provides candidates with coding challenges that they can solve in real-time. Their code is automatically evaluated using AI models."
+        },{
+          "qus": "Does TekCapzule Hire support video interviews?",
+          "ans": "Yes, includes a video interview feature that enables you to conduct live or pre-recorded interviews. You can assess a candidate’s communication skills, problem-solving abilities, and personality traits through these interviews."
+        },{
+          "qus": "Can interviews be recorded for later review?",
+          "ans": "Absolutely. All video interviews can be recorded and stored within the platform, allowing your team to review them at any time, share them with stakeholders, and make more informed hiring decisions."
+        }
+      ]
+    },
+    {
+      "title": "Security and Compliance",
+      "qa": [
+        {
+          "qus": "How secure is TekCapzule Hire in terms of data protection?",
+          "ans": "TekCapzule Hire adheres to the highest standards of data security and privacy. All candidate information and assessment data are encrypted and stored securely, ensuring compliance with relevant regulations such as GDPR."
+        },
+        {
+          "qus": "Does TekCapzule Hire support compliance with industry standards?",
+          "ans": "Yes, TekCapzule Hire is designed to meet industry-specific compliance requirements. Whether it’s GDPR for data protection or EEOC guidelines for non-discriminatory hiring practices, the platform ensures your recruitment process is compliant."
+        }
+      ]
+    },{
+      "title": "Support and Customization",
+      "qa": [
+        {
+          "qus": "What kind of support can I expect after purchasing TekCapzule Hire?",
+          "ans": "We offer comprehensive support, including onboarding assistance, training sessions, and ongoing technical support. Our customer success team is always available to help you maximize the benefits of our platform."
+        },
+        {
+          "qus": "Can TekCapzule Hire be customized to fit our company’s branding?",
+          "ans": "Yes, the platform can be white-labeled to reflect your company’s branding, including custom logos, color schemes, and domain names. This provides a seamless experience for both your team and the candidates."
+        }
+      ]
+    }
+  ]
+}

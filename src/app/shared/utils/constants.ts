@@ -16,19 +16,18 @@ export const Constants = {
       enablePostLogin: false,
       children: [
         {
-          uniqueId: 'LMS',
-          displayName: 'TekCapzule LMS',
-          navUrl: '/products/LMS',
-          enablePostLogin: false,
-          desc: 'Create and manage engaging learning experiences with AI-powered LMS.',
-        },
-        {
           uniqueId: 'Hire',
           displayName: 'TekCapzule Hire',
           navUrl: '/products/Hire',
           enablePostLogin: true,
           desc: 'AI-powered solution for precise candidate screening and CV analysis.',
-        },
+        },{
+          uniqueId: 'LMS',
+          displayName: 'TekCapzule LMS',
+          navUrl: '/products/LMS',
+          enablePostLogin: false,
+          desc: 'Create and manage engaging learning experiences with AI-powered LMS.',
+        }
       ],
     },
     {
@@ -71,11 +70,11 @@ export const Constants = {
           desc: 'Enhance skills and drive growth with tailored corporate training programs.',
         },
         {
-          uniqueId: 'Candidate_Screening',
-          displayName: 'Candidate Screening',
-          navUrl: '/services/Candidate_Screening',
+          uniqueId: 'Odoo_Business_Solutions',
+          displayName: 'Odoo Business Solutions',
+          navUrl: '/services/Odoo_Business_Solutions',
           enablePostLogin: true,
-          desc: 'Streamline your hiring process with AI-powered candidate screening and CV analysis.',
+          desc: 'Professional consulting and implementation to optimize your business processes and drive growth with tailored Odoo solutions.',
         },
       ]
     },

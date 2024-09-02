@@ -1,0 +1,103 @@
+{
+  "uniqueId": "Corporate_Trainings",
+  "topicName": "Transformative Training Programs",
+  "bannerImage": "assets/images/branding-solutions.png",
+  "bannerText": "Our comprehensive programs cater to diverse needs, ensuring seamless knowledge transfer and skill development. Enhance your team's capabilities by leveraging our corporate training services.",
+"topics": [
+    {
+      "tile": "assets/images/services/corporate-training/icon-1.svg",
+      "name": "AI-Driven SDLC Training",
+      "summaryText": "Leverage AI technology to enhance your software development lifecycle with our AI-Driven SDLC Training. Learn how to integrate AI tools and techniques to optimize processes, improve efficiency, and accelerate project delivery."    },
+    {
+      "tile": "assets/images/services/corporate-training/technology-training.svg",
+      "name": "Technology Training",
+      "summaryText": "Gain deep industry-specific knowledge with our Domain Training, designed to provide insights and skills relevant to your sector. Enhance your team's expertise and stay ahead with training tailored to your business's unique challenges and opportunities."    },
+    {
+      "tile": "assets/images/services/corporate-training/icon-3.svg",
+      "name": "Domain Training",
+      "summaryText": "Equip your team with the latest technological skills through our Tech Training programs. Stay competitive by mastering new technologies and best practices that drive innovation and improve your organization's tech capabilities."    }
+  ],
+  "animateImages": [
+    "assets/images/services/corporate-training/corporate-training-1.png",
+    "assets/images/services/corporate-training/corporate-training-2.png",
+    "assets/images/services/corporate-training/corporate-training-3.png",
+    "assets/images/services/corporate-training/corporate-training-4.png"
+  ],
+  "why": "Empower your team with cutting-edge skills and knowledge tailored to your industry. By choosing us, you invest in a comprehensive training solution that enhances efficiency, drives innovation, and positions your organization for long-term success.",
+  "faq": [
+    {
+      "title": "General",
+      "qa": [
+        {
+          "qus": "What types of corporate training services do you offer?",
+          "ans": "We offer comprehensive corporate training services that include AI-driven SDLC training, technology training, and domain-specific training to ensure your team is well-equipped with the necessary skills and knowledge to succeed."
+        },
+        {
+          "qus": "How do your training programs benefit my organization?",
+          "ans": "Our training programs are designed to enhance your team’s skills, improve project outcomes, and ensure that your organization stays competitive by leveraging the latest technologies and industry best practices."
+        },
+        {
+          "qus": "How do you ensure that the training is aligned with our business goals?",
+          "ans": "We work closely with your organization to understand your objectives and challenges. Our training programs are then customized to align with your business goals, ensuring that your team gains the skills needed to drive success."
+        },
+        {
+          "qus": "What is the typical duration of your training programs?",
+          "ans": "The duration varies depending on the complexity and scope of the training. We offer short-term workshops, intensive courses, and ongoing training programs to meet your organization’s needs."
+        },{
+          "qus": "Can you provide certification upon completion of the training?",
+          "ans": "Yes, we offer certification for most of our training programs, which serves as a formal recognition of your team’s newly acquired skills and knowledge."
+        }
+      ]
+    }, {
+      "title": "AI-Driven SDLC Training",
+      "qa": [
+        {
+          "qus": "What is AI-driven SDLC training?",
+          "ans": "AI-driven SDLC (Software Development Life Cycle) training focuses on incorporating artificial intelligence into the software development process. This training helps your team understand how to use AI to optimize each phase of the SDLC, leading to faster development cycles, improved quality, and reduced costs."
+        },
+        {
+          "qus": "Who should attend AI-driven SDLC training?",
+          "ans": "This training is ideal for software developers, project managers, and IT professionals who are involved in the software development process and want to leverage AI to enhance efficiency and innovation."
+        },
+        {
+          "qus": "How does AI-driven SDLC training improve project outcomes?",
+          "ans": "By integrating AI into the SDLC, your team can automate repetitive tasks, enhance decision-making with predictive analytics, and ensure that the software is both scalable and adaptable to future needs, resulting in better project outcomes."
+        }
+      ]
+    },
+    {
+      "title": "Technology Training",
+      "qa": [
+        {
+          "qus": "What technology training do you provide?",
+          "ans": "We offer training on the latest technologies, including cloud computing, cybersecurity, data analytics, and more. Our programs are tailored to your organization’s specific needs, ensuring that your team is proficient in the tools and technologies that drive your business."
+        },
+        {
+          "qus": "How do you customize technology training for my team?",
+          "ans": "We assess your team’s current skill levels and your business objectives to create a customized training program that addresses your specific needs. This ensures that the training is relevant and immediately applicable to your work environment."
+        },
+        {
+          "qus": "Can technology training be delivered remotely?",
+          "ans": "Yes, we offer both in-person and remote training options, providing flexibility to meet your organization’s scheduling and logistical needs."
+        }
+      ]
+    },
+    {
+      "title": "Domain Training",
+      "qa": [
+        {
+          "qus": "What is domain training, and why is it important?",
+          "ans": "Domain training focuses on industry-specific knowledge and practices, ensuring that your team is well-versed in the particularities of your sector. This type of training is crucial for understanding market trends, regulatory requirements, and best practices unique to your industry."
+        },
+        {
+          "qus": "What industries do you provide domain training for?",
+          "ans": "We offer domain training across various industries, including finance, manufacturing, retail, and more. Our training programs are designed to provide in-depth knowledge relevant to your specific sector."
+        },
+        {
+          "qus": "How does domain training benefit my business?",
+          "ans": "Domain training equips your team with the specialized knowledge needed to navigate industry challenges, comply with regulations, and capitalize on market opportunities, leading to better business performance and strategic decision-making."
+        }
+      ]
+    }
+  ]
+}
